@@ -327,7 +327,7 @@ uint32_t EEP_read32(uint8_t Reg_h, uint8_t Reg_l) {
     }
     I2C_Stop(); // ストップコンディションを発行する
     __delay_us(26);
-    return (uint32_t) (d[3] << 24)+(d[2] << 16)+(d[1] << 8) + d[0];
+    return ((uint32_t) d[3] << 24) + ((uint32_t) d[2] << 16) + (d[1] << 8) + d[0];
 }
 
 void EEP_write16(uint8_t Reg_h, uint8_t Reg_l, uint16_t data) {

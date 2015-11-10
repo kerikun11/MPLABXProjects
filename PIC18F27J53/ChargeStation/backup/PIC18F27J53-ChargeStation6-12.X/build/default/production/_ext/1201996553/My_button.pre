@@ -1,0 +1,148 @@
+
+# 1 "../My_library/My_button.c"
+
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 26 "../My_library/My_button.h"
+typedef struct button {
+uint16_t cnt_sw;
+
+union {
+uint16_t flags;
+
+struct {
+uint8_t press : 1;
+uint8_t long_hold_1 : 1;
+uint8_t long_hold_2 : 1;
+uint8_t long_hold_3 : 1;
+uint8_t long_hold_4 : 1;
+uint8_t long_hold_5 : 1;
+uint8_t long_hold_6 : 1;
+uint8_t long_hold_7 : 1;
+uint8_t pressing : 1;
+uint8_t long_holding_1 : 1;
+uint8_t long_holding_2 : 1;
+uint8_t long_holding_3 : 1;
+uint8_t long_holding_4 : 1;
+uint8_t long_holding_5 : 1;
+uint8_t long_holding_6 : 1;
+uint8_t long_holding_7 : 1;
+} flag;
+};
+} button_t;
+
+void button_timer_interrupt(button_t *bt, uint8_t sw_value);
+
+# 3 "../My_library/My_button.c"
+void button_timer_interrupt(button_t *bt, uint8_t sw_value) {
+if (sw_value) {
+if (bt->cnt_sw == 900)bt->flag.long_holding_7 = 1;
+if (bt->cnt_sw == 700)bt->flag.long_holding_6 = 1;
+if (bt->cnt_sw == 500)bt->flag.long_holding_5 = 1;
+if (bt->cnt_sw == 300)bt->flag.long_holding_4 = 1;
+if (bt->cnt_sw == 150)bt->flag.long_holding_3 = 1;
+if (bt->cnt_sw == 60)bt->flag.long_holding_2 = 1;
+if (bt->cnt_sw == 16)bt->flag.long_holding_1 = 1;
+if (bt->cnt_sw == 2)bt->flag.pressing = 1;
+if (bt->cnt_sw < 900 + 1) bt->cnt_sw++;
+} else {
+if (bt->cnt_sw >= 900)bt->flag.long_hold_7 = 1;
+else if (bt->cnt_sw >= 700)bt->flag.long_hold_6 = 1;
+else if (bt->cnt_sw >= 500)bt->flag.long_hold_5 = 1;
+else if (bt->cnt_sw >= 300)bt->flag.long_hold_4 = 1;
+else if (bt->cnt_sw >= 150)bt->flag.long_hold_3 = 1;
+else if (bt->cnt_sw >= 60)bt->flag.long_hold_2 = 1;
+else if (bt->cnt_sw >= 16)bt->flag.long_hold_1 = 1;
+else if (bt->cnt_sw >= 2)bt->flag.press = 1;
+bt->cnt_sw = 0;
+bt->flags &= 0x00FF;
+}
+}

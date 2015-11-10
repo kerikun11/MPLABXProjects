@@ -49,7 +49,7 @@ bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t size
 }
 
 void USBCBSendResume(void) {
-    static WORD delay_count;
+    static int delay_count;
     USBResumeControl = 1; // Start RESUME signaling    
     delay_count = 1800U; // Set RESUME line for 1-13 ms
     do {
