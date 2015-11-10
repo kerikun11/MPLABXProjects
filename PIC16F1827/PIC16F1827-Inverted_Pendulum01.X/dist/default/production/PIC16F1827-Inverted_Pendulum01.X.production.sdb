@@ -1,0 +1,425 @@
+[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F1827 ]
+[d frameptr 6 ]
+"33 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+[v _timer0_init timer0_init `(v  1 e 0 0 ]
+"71
+[v _timer1_init timer1_init `(v  1 e 0 0 ]
+"161
+[v _ADC_init ADC_init `(v  1 e 0 0 ]
+"172
+[v _ADC ADC `(ui  1 e 2 0 ]
+"237
+[v _UART_init UART_init `(v  1 e 0 0 ]
+"248
+[v _interrupt_TXIF interrupt_TXIF `(v  1 e 0 0 ]
+"259
+[v _tx_send tx_send `(v  1 e 0 0 ]
+"24 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+[v _ringbuf_init ringbuf_init `(v  1 e 0 0 ]
+"31
+[v _ringbuf_num ringbuf_num `(ui  1 e 2 0 ]
+"39
+[v _ringbuf_put ringbuf_put `(v  1 e 0 0 ]
+"64
+[v _ringbuf_pop ringbuf_pop `(uc  1 e 1 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 0 0 ]
+"24
+[v _memcpyee memcpyee `(v  1 e 0 0 ]
+"36 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-Inverted_Pendulum01.X\PIC16F1827-Inverted_Pendulum01.c
+[v _isr isr `II(v  1 e 0 0 ]
+"53
+[v _PWM_init PWM_init `(v  1 e 0 0 ]
+"72
+[v _PWM_set PWM_set `(v  1 e 0 0 ]
+"79
+[v _drive drive `(v  1 e 0 0 ]
+"108
+[v _main main `(i  1 e 2 0 ]
+[s S224 ringbuf 7 `*.4uc 1 buf 1 0 `ui 1 size 2 1 `ui 1 head 2 3 `ui 1 tail 2 5 ]
+"187 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+[v _tx_buf tx_buf `S224  1 e 7 0 ]
+[s S51 . 1 `uc 1 IOCIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 IOCIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"360 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f1827.h
+[s S60 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 T0IE 1 0 :1:5 
+]
+[u S65 . 1 `S51 1 . 1 0 `S60 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES65  1 e 1 @11 ]
+[s S202 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 TMR1GIF 1 0 :1:7 
+]
+"553
+[u S211 . 1 `S202 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES211  1 e 1 @17 ]
+"736
+[v _TMR1L TMR1L `VEuc  1 e 1 @22 ]
+"755
+[v _TMR1H TMR1H `VEuc  1 e 1 @23 ]
+[s S83 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+`uc 1 TMR1CS0 1 0 :1:6 
+`uc 1 TMR1CS1 1 0 :1:7 
+]
+"796
+[s S92 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 TMR1CS 1 0 :2:6 
+]
+[u S96 . 1 `S83 1 . 1 0 `S92 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES96  1 e 1 @24 ]
+"933
+[v _PR2 PR2 `VEuc  1 e 1 @27 ]
+[s S355 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 T2OUTPS0 1 0 :1:3 
+`uc 1 T2OUTPS1 1 0 :1:4 
+`uc 1 T2OUTPS2 1 0 :1:5 
+`uc 1 T2OUTPS3 1 0 :1:6 
+]
+"973
+[s S363 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 . 1 0 :1:2 
+`uc 1 T2OUTPS 1 0 :4:3 
+]
+[u S367 . 1 `S355 1 . 1 0 `S363 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES367  1 e 1 @28 ]
+"1120
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
+"1181
+[v _TRISB TRISB `VEuc  1 e 1 @141 ]
+[s S115 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 TMR1GIE 1 0 :1:7 
+]
+"1259
+[u S124 . 1 `S115 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES124  1 e 1 @145 ]
+[s S19 . 1 `uc 1 PS0 1 0 :1:0 
+`uc 1 PS1 1 0 :1:1 
+`uc 1 PS2 1 0 :1:2 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 TMR0SE 1 0 :1:4 
+`uc 1 TMR0CS 1 0 :1:5 
+`uc 1 INTEDG 1 0 :1:6 
+`uc 1 nWPUEN 1 0 :1:7 
+]
+"1440
+[s S28 . 1 `uc 1 PS 1 0 :3:0 
+`uc 1 . 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+]
+[u S33 . 1 `S19 1 . 1 0 `S28 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES33  1 e 1 @149 ]
+"1664
+[v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
+"1796
+[v _ADRES ADRES `VEus  1 e 2 @155 ]
+[s S167 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+`uc 1 CHS4 1 0 :1:6 
+]
+"1865
+[s S175 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 ADGO 1 0 :1:1 
+`uc 1 CHS 1 0 :5:2 
+]
+[s S179 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[u S182 . 1 `S167 1 . 1 0 `S175 1 . 1 0 `S179 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES182  1 e 1 @157 ]
+[s S136 . 1 `uc 1 ADPREF0 1 0 :1:0 
+`uc 1 ADPREF1 1 0 :1:1 
+`uc 1 ADNREF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 ADCS0 1 0 :1:4 
+`uc 1 ADCS1 1 0 :1:5 
+`uc 1 ADCS2 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"1941
+[s S145 . 1 `uc 1 ADPREF 1 0 :2:0 
+`uc 1 . 1 0 :2:2 
+`uc 1 ADCS 1 0 :3:4 
+]
+[u S149 . 1 `S136 1 . 1 0 `S145 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES149  1 e 1 @158 ]
+"2400
+[v _FVRCON FVRCON `VEuc  1 e 1 @279 ]
+"2797
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"2848
+[v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
+"3098
+[v _RCREG RCREG `VEuc  1 e 1 @409 ]
+"3117
+[v _TXREG TXREG `VEuc  1 e 1 @410 ]
+"3151
+[v _SPBRGL SPBRGL `VEuc  1 e 1 @411 ]
+"3200
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @412 ]
+"3232
+[v _RCSTA RCSTA `VEuc  1 e 1 @413 ]
+"3293
+[v _TXSTA TXSTA `VEuc  1 e 1 @414 ]
+"4494
+[v _CCPR1L CCPR1L `VEuc  1 e 1 @657 ]
+[s S311 . 1 `uc 1 CCPR1L 1 0 :8:0 
+]
+"4504
+[u S313 . 1 `S311 1 . 1 0 ]
+[v _CCPR1Lbits CCPR1Lbits `VES313  1 e 1 @657 ]
+[s S249 . 1 `uc 1 CCP1M0 1 0 :1:0 
+`uc 1 CCP1M1 1 0 :1:1 
+`uc 1 CCP1M2 1 0 :1:2 
+`uc 1 CCP1M3 1 0 :1:3 
+`uc 1 DC1B0 1 0 :1:4 
+`uc 1 DC1B1 1 0 :1:5 
+`uc 1 P1M0 1 0 :1:6 
+`uc 1 P1M1 1 0 :1:7 
+]
+"4554
+[s S258 . 1 `uc 1 CCP1M 1 0 :4:0 
+`uc 1 DC1B 1 0 :2:4 
+`uc 1 P1M 1 0 :2:6 
+]
+[u S262 . 1 `S249 1 . 1 0 `S258 1 . 1 0 ]
+[v _CCP1CONbits CCP1CONbits `VES262  1 e 1 @659 ]
+"4892
+[v _CCPR2L CCPR2L `VEuc  1 e 1 @664 ]
+[s S348 . 1 `uc 1 CCPR2L 1 0 :8:0 
+]
+"4902
+[u S350 . 1 `S348 1 . 1 0 ]
+[v _CCPR2Lbits CCPR2Lbits `VES350  1 e 1 @664 ]
+[s S318 . 1 `uc 1 CCP2M0 1 0 :1:0 
+`uc 1 CCP2M1 1 0 :1:1 
+`uc 1 CCP2M2 1 0 :1:2 
+`uc 1 CCP2M3 1 0 :1:3 
+`uc 1 DC2B0 1 0 :1:4 
+`uc 1 DC2B1 1 0 :1:5 
+`uc 1 P2M0 1 0 :1:6 
+`uc 1 P2M1 1 0 :1:7 
+]
+"4952
+[s S327 . 1 `uc 1 CCP2M 1 0 :4:0 
+`uc 1 DC2B 1 0 :2:4 
+`uc 1 P2M 1 0 :2:6 
+]
+[u S331 . 1 `S318 1 . 1 0 `S327 1 . 1 0 ]
+[v _CCP2CONbits CCP2CONbits `VES331  1 e 1 @666 ]
+[s S279 . 1 `uc 1 C1TSEL0 1 0 :1:0 
+`uc 1 C1TSEL1 1 0 :1:1 
+`uc 1 C2TSEL0 1 0 :1:2 
+`uc 1 C2TSEL1 1 0 :1:3 
+`uc 1 C3TSEL0 1 0 :1:4 
+`uc 1 C3TSEL1 1 0 :1:5 
+`uc 1 C4TSEL0 1 0 :1:6 
+`uc 1 C4TSEL1 1 0 :1:7 
+]
+"5312
+[s S288 . 1 `uc 1 C1TSEL 1 0 :2:0 
+`uc 1 C2TSEL 1 0 :2:2 
+`uc 1 C3TSEL 1 0 :2:4 
+`uc 1 C4TSEL 1 0 :2:6 
+]
+[u S293 . 1 `S279 1 . 1 0 `S288 1 . 1 0 ]
+[v _CCPTMRSbits CCPTMRSbits `VES293  1 e 1 @670 ]
+"6692
+[v _BRG16 BRG16 `VEb  1 e 0 @3323 ]
+"7044
+[v _LATA2 LATA2 `VEb  1 e 0 @2146 ]
+"7046
+[v _LATA3 LATA3 `VEb  1 e 0 @2147 ]
+"7050
+[v _LATA6 LATA6 `VEb  1 e 0 @2150 ]
+"7052
+[v _LATA7 LATA7 `VEb  1 e 0 @2151 ]
+"7062
+[v _LATB4 LATB4 `VEb  1 e 0 @2156 ]
+"7064
+[v _LATB5 LATB5 `VEb  1 e 0 @2157 ]
+"7248
+[v _RCIF RCIF `VEb  1 e 0 @141 ]
+"7270
+[v _SPEN SPEN `VEb  1 e 0 @3311 ]
+"7418
+[v _TMR0IF TMR0IF `VEb  1 e 0 @90 ]
+"7434
+[v _TMR1IF TMR1IF `VEb  1 e 0 @136 ]
+"108 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-Inverted_Pendulum01.X\PIC16F1827-Inverted_Pendulum01.c
+[v _main main `(i  1 e 2 0 ]
+{
+"131
+[v main@sub sub `i  1 a 2 42 ]
+"129
+[v main@scan scan `ui  1 a 2 40 ]
+"121
+[v main@buf buf `[40]uc  1 a 40 0 ]
+"130
+[v main@last_scan last_scan `ui  1 s 2 last_scan ]
+"151
+} 0
+"71 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+[v _timer1_init timer1_init `(v  1 e 0 0 ]
+{
+[v timer1_init@prescaler prescaler `uc  1 a 1 wreg ]
+[v timer1_init@prescaler prescaler `uc  1 a 1 wreg ]
+[v timer1_init@prescaler prescaler `uc  1 a 1 7 ]
+"79
+} 0
+"33
+[v _timer0_init timer0_init `(v  1 e 0 0 ]
+{
+[v timer0_init@prescaler prescaler `uc  1 a 1 wreg ]
+[v timer0_init@prescaler prescaler `uc  1 a 1 wreg ]
+[v timer0_init@prescaler prescaler `uc  1 a 1 7 ]
+"44
+} 0
+"24 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+[v _ringbuf_init ringbuf_init `(v  1 e 0 0 ]
+{
+[s S224 ringbuf 7 `*.4uc 1 buf 1 0 `ui 1 size 2 1 `ui 1 head 2 3 `ui 1 tail 2 5 ]
+[v ringbuf_init@rb rb `*.4S224  1 a 1 wreg ]
+[v ringbuf_init@rb rb `*.4S224  1 a 1 wreg ]
+[v ringbuf_init@internal_buf internal_buf `*.4uc  1 p 1 6 ]
+[v ringbuf_init@bufsize bufsize `ui  1 p 2 7 ]
+[v ringbuf_init@rb rb `*.4S224  1 a 1 10 ]
+"29
+} 0
+"79 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-Inverted_Pendulum01.X\PIC16F1827-Inverted_Pendulum01.c
+[v _drive drive `(v  1 e 0 0 ]
+{
+[v drive@dir dir `uc  1 a 1 wreg ]
+[v drive@dir dir `uc  1 a 1 wreg ]
+[v drive@dir dir `uc  1 a 1 6 ]
+"106
+} 0
+"237 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+[v _UART_init UART_init `(v  1 e 0 0 ]
+{
+"246
+} 0
+"72 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-Inverted_Pendulum01.X\PIC16F1827-Inverted_Pendulum01.c
+[v _PWM_set PWM_set `(v  1 e 0 0 ]
+{
+[v PWM_set@value value `uc  1 a 1 wreg ]
+[v PWM_set@value value `uc  1 a 1 wreg ]
+[v PWM_set@value value `uc  1 a 1 6 ]
+"77
+} 0
+"53
+[v _PWM_init PWM_init `(v  1 e 0 0 ]
+{
+"70
+} 0
+"161 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+[v _ADC_init ADC_init `(v  1 e 0 0 ]
+{
+[v ADC_init@p_ref p_ref `uc  1 a 1 wreg ]
+[v ADC_init@p_ref p_ref `uc  1 a 1 wreg ]
+[v ADC_init@p_ref p_ref `uc  1 a 1 6 ]
+"167
+} 0
+"172
+[v _ADC ADC `(ui  1 e 2 0 ]
+{
+[v ADC@ch ch `uc  1 a 1 wreg ]
+[v ADC@ch ch `uc  1 a 1 wreg ]
+[v ADC@ch ch `uc  1 a 1 9 ]
+"180
+} 0
+"36 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-Inverted_Pendulum01.X\PIC16F1827-Inverted_Pendulum01.c
+[v _isr isr `II(v  1 e 0 0 ]
+{
+"48
+[v isr@ascii ascii `uc  1 a 1 5 ]
+"51
+} 0
+"259 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+[v _tx_send tx_send `(v  1 e 0 0 ]
+{
+[v tx_send@asciicode asciicode `uc  1 a 1 wreg ]
+[v tx_send@asciicode asciicode `uc  1 a 1 wreg ]
+[v tx_send@asciicode asciicode `uc  1 a 1 2 ]
+"262
+} 0
+"39 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+[v _ringbuf_put ringbuf_put `(v  1 e 0 0 ]
+{
+[s S224 ringbuf 7 `*.4uc 1 buf 1 0 `ui 1 size 2 1 `ui 1 head 2 3 `ui 1 tail 2 5 ]
+[v ringbuf_put@rb rb `*.4S224  1 a 1 wreg ]
+[v ringbuf_put@rb rb `*.4S224  1 a 1 wreg ]
+[v ringbuf_put@asciicode asciicode `uc  1 p 1 7 ]
+[v ringbuf_put@rb rb `*.4S224  1 a 1 0 ]
+"45
+} 0
+"248 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+[v _interrupt_TXIF interrupt_TXIF `(v  1 e 0 0 ]
+{
+"257
+} 0
+"64 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+[v _ringbuf_pop ringbuf_pop `(uc  1 e 1 0 ]
+{
+[s S224 ringbuf 7 `*.4uc 1 buf 1 0 `ui 1 size 2 1 `ui 1 head 2 3 `ui 1 tail 2 5 ]
+[v ringbuf_pop@rb rb `*.4S224  1 a 1 wreg ]
+"66
+[v ringbuf_pop@ret ret `uc  1 a 1 0 ]
+"64
+[v ringbuf_pop@rb rb `*.4S224  1 a 1 wreg ]
+[v ringbuf_pop@rb rb `*.4S224  1 a 1 1 ]
+"76
+} 0
+"31
+[v _ringbuf_num ringbuf_num `(ui  1 e 2 0 ]
+{
+[s S224 ringbuf 7 `*.4uc 1 buf 1 0 `ui 1 size 2 1 `ui 1 head 2 3 `ui 1 tail 2 5 ]
+[v ringbuf_num@rb rb `*.4S224  1 a 1 wreg ]
+[v ringbuf_num@rb rb `*.4S224  1 a 1 wreg ]
+[v ringbuf_num@rb rb `*.4S224  1 a 1 6 ]
+"37
+} 0

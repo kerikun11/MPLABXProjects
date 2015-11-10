@@ -1,0 +1,1134 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.obj
+end_init CODE 0 40 40 2 2
+reset_vec CODE 0 0 0 2 2
+config CONFIG 0 8007 8007 2 2
+$dist/default/production\PIC16F1827-I2C04.X.production.obj
+cinit CODE 0 42 42 1A 2
+intentry CODE 0 4 4 3C 2
+text33 CODE 0 416 416 B9 2
+text32 CODE 0 6CA 6CA 2B 2
+text31 CODE 0 673 673 2C 2
+text30 CODE 0 FE9 FE9 17 2
+text29 CODE 0 69F 69F 2B 2
+text28 CODE 0 F62 F62 B 2
+text26 CODE 0 F6D F6D B 2
+text25 CODE 0 F84 F84 F 2
+text24 CODE 0 FA2 FA2 11 2
+text23 CODE 0 7AD 7AD 1B 2
+text22 CODE 0 F5C F5C 6 2
+text21 CODE 0 755 755 20 2
+text20 CODE 0 F93 F93 F 2
+text19 CODE 0 56B 56B 43 2
+text18 CODE 0 FB3 FB3 12 2
+swtext1 CONST 0 7E1 7E1 18 2
+text17 CODE 0 775 775 1D 2
+text16 CODE 0 792 792 1B 2
+text15 CODE 0 5E6 5E6 34 2
+text14 CODE 0 735 735 20 2
+text13 CODE 0 523 523 48 2
+text12 CODE 0 FC5 FC5 12 2
+text11 CODE 0 715 715 20 2
+text10 CODE 0 FD7 FD7 12 2
+text9 CODE 0 6F5 6F5 20 2
+text8 CODE 0 7C8 7C8 19 2
+text7 CODE 0 5AE 5AE 38 2
+text6 CODE 0 4CF 4CF 54 2
+text5 CODE 0 319 319 FD 2
+text4 CODE 0 1C4 1C4 155 2
+text3 CODE 0 647 647 2C 2
+text2 CODE 0 F78 F78 C 2
+text1 CODE 0 61A 61A 2D 2
+maintext CODE 0 5C 5C 168 2
+cstackBANK0 BANK0 1 20 20 1F 1
+cstackCOMMON COMMON 1 70 70 8 1
+cstackBANK1 BANK1 1 A0 A0 46 1
+clrtext CODE 0 7F9 7F9 6 2
+bssBANK1 BANK1 1 E6 E6 1 1
+dataBANK0 BANK0 1 4C 4C 2 1
+bssBANK0 BANK0 1 3F 3F D 1
+bssCOMMON COMMON 1 78 78 4 1
+stringtext STRCODE 0 800 800 14 2
+idataBANK0 CODE 0 2 2 2 2
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+BANK0 0004E-0006F 1
+BANK1 000E7-000EF 1
+BANK2 00120-0016F 1
+BANK3 001A0-001EF 1
+BANK4 00220-0024F 1
+BIGRAM 02000-0216F 1
+CODE 007FF-007FF 2
+CODE 00814-00F5B 2
+COMMON 0007C-0007D 1
+CONST 007FF-007FF 2
+CONST 00814-00F5B 2
+EEDATA 0F000-0F0FF 2
+ENTRY 007FF-007FF 2
+ENTRY 00814-00F5B 2
+IDLOC 08000-08003 2
+RAM 0004E-0006F 1
+RAM 000E7-000EF 1
+RAM 00120-0016F 1
+RAM 001A0-001EF 1
+RAM 00220-0024F 1
+SFR0 00000-0001F 1
+SFR1 00080-0009F 1
+SFR10 00500-0056F 1
+SFR11 00580-005EF 1
+SFR12 00600-0066F 1
+SFR13 00680-006EF 1
+SFR14 00700-0076F 1
+SFR15 00780-007EF 1
+SFR16 00800-0086F 1
+SFR17 00880-008EF 1
+SFR18 00900-0096F 1
+SFR19 00980-009EF 1
+SFR2 00100-0011F 1
+SFR20 00A00-00A6F 1
+SFR21 00A80-00AEF 1
+SFR22 00B00-00B6F 1
+SFR23 00B80-00BEF 1
+SFR24 00C00-00C6F 1
+SFR25 00C80-00CEF 1
+SFR26 00D00-00D6F 1
+SFR27 00D80-00DEF 1
+SFR28 00E00-00E6F 1
+SFR29 00E80-00EEF 1
+SFR3 00180-0019F 1
+SFR30 00F00-00F6F 1
+SFR31 00F80-00FEF 1
+SFR4 00200-0021F 1
+SFR5 00280-002EF 1
+SFR6 00300-0036F 1
+SFR7 00380-003EF 1
+SFR8 00400-0046F 1
+SFR9 00480-004EF 1
+STACK 02097-0216F 1
+STRCODE 007FF-007FF 2
+STRCODE 00814-00F5B 2
+STRING 007FF-007FF 2
+STRING 00814-00F5B 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <file name>:<line number> <address> <psect name> <class name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\PIC16F1827-I2C04.X.production.obj
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":40 4 intentry CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":41 9 intentry CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":42 C intentry CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":43 F intentry CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":44 10 intentry CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":46 15 intentry CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":47 18 intentry CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":48 19 intentry CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":49 1D intentry CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":50 24 intentry CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":51 30 intentry CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":53 3B intentry CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":610 42 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":613 42 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":681 42 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":682 43 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":683 44 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":684 45 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":688 46 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":689 47 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":690 48 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":691 49 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":692 4A cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":693 4B cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":697 4E cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":698 4F cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":703 50 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":704 51 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":705 54 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":706 55 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":707 57 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":713 58 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":714 58 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":715 59 cinit CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":716 5A cinit CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":144 5C maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":145 5C maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":146 5F maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":147 60 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":148 62 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":149 63 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":150 66 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":151 68 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":152 6B maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":153 6D maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":154 6E maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":155 70 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":157 71 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":158 74 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":159 75 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":160 76 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":162 78 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":163 7B maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":164 7E maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":166 82 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":167 83 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":170 84 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":172 91 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":175 97 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":176 9A maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":177 9C maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":178 9D maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":179 A1 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":180 A5 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":181 B2 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":182 B9 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":183 BD maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":184 CA maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":185 D1 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":186 D5 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":187 E2 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":188 E9 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":189 ED maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":190 F4 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":191 F8 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":192 105 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":193 10C maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":194 110 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":195 11D maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":196 124 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":197 128 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":198 135 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":199 13C maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":200 140 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":201 144 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":203 14C maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":204 14F maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":205 150 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":206 15F maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":207 173 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":208 18F maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":209 1A0 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":210 1B2 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":174 1C3 maintext CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":76 1C4 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":77 1C6 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":78 1C7 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":79 1C8 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":80 1CB text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":81 1D2 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":82 1DA text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":83 1E2 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":84 1E3 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":85 1EF text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":86 1F2 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":87 1FB text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":88 213 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":90 21D text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":91 21F text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":92 220 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":93 246 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":94 24A text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":95 24E text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":96 24F text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":98 253 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":99 27F text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":101 28A text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":102 28C text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":103 28D text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":104 2B3 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":105 2C5 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":106 2D9 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":107 2DA text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":109 2DF text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":110 30B text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":79 316 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":113 317 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":114 318 text4 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":116 319 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":117 319 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":118 321 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":119 329 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":120 331 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":121 33A text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":122 342 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":123 34A text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":124 352 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":125 357 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":126 36C text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":127 373 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":128 377 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":129 38C text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":130 393 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":131 397 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":132 3AC text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":133 3B3 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":134 3BA text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":135 3CF text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":136 3D6 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":137 3DA text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":138 3EF text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":139 3F6 text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":140 3FA text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":141 40F text5 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":142 415 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":84 416 text33 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":85 417 text33 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":86 41A text33 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":87 430 text33 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":88 440 text33 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":89 450 text33 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":90 460 text33 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":91 470 text33 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":92 471 text33 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":93 485 text33 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":94 499 text33 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":95 4AD text33 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":96 4C0 text33 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":97 4C6 text33 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":6 4CF text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":14 4CF text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":15 4D1 text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":16 4D3 text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":17 4D8 text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":19 4DA text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":20 4DC text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":21 4E1 text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":23 4E5 text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":24 4E7 text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":25 4EB text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":26 4ED text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":27 4EF text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":28 4F4 text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":26 4F8 text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":31 4F9 text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":32 4FE text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":33 506 text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":34 50A text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":36 50B text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":37 510 text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":39 514 text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":40 517 text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":41 51C text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":6 523 text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":13 523 text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":14 525 text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":15 527 text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":16 52C text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":18 52E text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":19 530 text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":20 535 text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":21 539 text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":22 53B text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":23 53D text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":24 542 text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":22 546 text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":27 547 text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":28 54F text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":29 553 text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":30 558 text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":32 55C text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":33 55F text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c":34 564 text13 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":332 56B text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":333 56B text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":334 579 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":335 57D text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":336 581 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":337 585 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":338 589 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":339 58D text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":340 591 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":341 59F text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":342 5A3 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":343 5A7 text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":344 5AB text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":345 5AD text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":363 5AE text7 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":367 5B0 text7 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":368 5B9 text7 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":370 5BC text7 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":371 5C0 text7 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":372 5C0 text7 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":373 5D0 text7 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":375 5D3 text7 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":376 5DB text7 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":377 5DB text7 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":378 5DE text7 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":379 5E3 text7 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":299 5E6 text15 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":302 5E6 text15 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":303 5F3 text15 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":304 5F7 text15 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":305 5FB text15 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":306 604 text15 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":307 612 text15 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":305 616 text15 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":310 617 text15 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":311 619 text15 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":161 61A text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":163 61A text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":164 62B text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":163 63E text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":166 644 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":167 646 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":116 647 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":117 649 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":118 65A text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":119 662 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":120 66D text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":124 673 text31 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":125 674 text31 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":126 685 text31 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":127 68D text31 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":128 698 text31 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":130 69D text31 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":116 69F text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":117 6A0 text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":118 6B1 text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":119 6B9 text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":120 6C4 text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":133 6CA text32 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":134 6CB text32 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":135 6D7 text32 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":136 6E2 text32 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":137 6E3 text32 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":246 6F5 text9 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":249 6F7 text9 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":250 6FB text9 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":251 6FD text9 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":252 701 text9 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":253 707 text9 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":254 70A text9 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":255 711 text9 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":256 712 text9 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":286 715 text11 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":289 717 text11 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":290 720 text11 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":292 723 text11 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":293 727 text11 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":294 72C text11 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":295 72C text11 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":296 72F text11 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":297 734 text11 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":350 735 text14 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":353 737 text14 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":354 740 text14 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":356 743 text14 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":357 747 text14 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":358 74C text14 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":359 74C text14 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":360 74F text14 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":361 754 text14 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":262 755 text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":265 757 text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":266 760 text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":268 763 text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":269 767 text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":270 76C text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":271 76C text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":272 76F text21 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":273 774 text21 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":55 775 text17 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":56 777 text17 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":64 778 text17 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":69 77A text17 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":71 77C text17 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":72 782 text17 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":73 783 text17 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":56 784 text17 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":74 791 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":109 792 text16 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":110 794 text16 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":111 79B text16 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":112 7A2 text16 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":113 7A7 text16 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":114 7AC text16 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":208 7AD text23 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":210 7AF text23 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":211 7B3 text23 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":213 7B5 text23 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":214 7B9 text23 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":215 7BB text23 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":216 7BF text23 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":217 7C2 text23 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":220 7C8 text8 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":222 7C8 text8 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":223 7CC text8 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":225 7CE text8 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":226 7D2 text8 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":227 7D4 text8 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":228 7D8 text8 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":229 7DB text8 CODE
+"C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-I2C04.X\PIC16F1827-I2C04.c":56 7E1 swtext1 CONST
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":670 7F9 clrtext CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":671 7F9 clrtext CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":672 7FA clrtext CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":673 7FA clrtext CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":674 7FB clrtext CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":675 7FC clrtext CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":676 7FD clrtext CODE
+"C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.":677 7FE clrtext CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":232 F5C text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":234 F5C text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":235 F5F text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":236 F61 text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":156 F62 text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":157 F63 text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":158 F6A text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":159 F6C text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":198 F6D text26 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":199 F6D text26 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":200 F70 text26 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":201 F72 text26 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":204 F74 text26 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":205 F76 text26 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":206 F77 text26 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":156 F78 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":157 F7A text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":158 F81 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":159 F83 text2 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":194 F84 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":195 F86 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":196 F91 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":195 F92 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":275 F93 text20 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":276 F93 text20 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":277 F97 text20 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":278 FA1 text20 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":238 FA2 text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":239 FA4 text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":240 FA8 text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":241 FAA text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":242 FAD text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":243 FB0 text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":144 FB3 text18 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":145 FB5 text18 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":146 FB8 text18 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":147 FBA text18 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":148 FBC text18 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":149 FBD text18 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":150 FBE text18 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":151 FC0 text18 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":152 FC2 text18 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c":4 FC5 text12 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c":6 FC7 text12 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c":43 FC8 text12 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c":44 FCA text12 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c":45 FCE text12 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c":46 FD0 text12 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c":47 FD2 text12 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c":50 FD5 text12 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":280 FD7 text10 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":281 FD9 text10 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":283 FDF text10 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":284 FE8 text10 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":169 FE9 text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":170 FE9 text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":171 FEF text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":172 FF0 text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":173 FF7 text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":174 FFC text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":175 FFD text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header.h":176 FFF text30 CODE
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__size_of_I2C_Send 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+___awdiv@counter 25 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__CFG_PLLEN$ON 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_DD 46 0 BANK0 1 bssBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_EE E6 0 BANK1 1 bssBANK1 dist/default/production\PIC16F1827-I2C04.X.production.obj
+month_length@year 21 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_MM 47 0 BANK0 1 bssBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_YY 48 0 BANK0 1 bssBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_hh 49 0 BANK0 1 bssBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_mm 4A 0 BANK0 1 bssBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_ss 4B 0 BANK0 1 bssBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_RA0 60 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_RA1 61 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__S0 8009 0 ABS 0 - -
+__S1 E7 0 ABS 0 - -
+__S2 0 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__Hintentry 80 0 CODE 0 intentry -
+__Lintentry 8 0 CODE 0 intentry -
+__pintentry 8 0 CODE 0 intentry dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of___awdiv A46 0 CODE 0 text6 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_isr 8 0 CODE 0 intentry dist/default/production\PIC16F1827-I2C04.X.production.obj
+_RTC_Read B5C 0 CODE 0 text7 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_RCIF 8D 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_TXIE 48C 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_TXIF 8C 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_WPUB 20D 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_SPEN CEF 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+tx_sends@i 29 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_I2C_Receive DEA 0 CODE 0 text9 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_ringbuf_init F24 0 CODE 0 text16 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_main B8 0 CODE 0 maintext dist/default/production\PIC16F1827-I2C04.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.obj
+btemp 7E 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+ltemp 7E 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+ttemp 7E 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+wtemp 7E 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+start 80 0 CODE 0 init C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.obj
+_BRG16 CFB 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_I2C_Send 1F44 0 CODE 0 text24 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_LATB0 868 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_TMR1H 17 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+timeset@t 38 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_TMR1L 16 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_RCREG 199 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_TRISA 8C 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_RCSTA 19D 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_TRISB 8D 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_TXREG 19A 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_PORTA C 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.obj
+_PORTB D 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_TXSTA 19E 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_T1CON 18 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_ADRES 9B 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+ltemp0 7E 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+ttemp0 7E 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+wtemp0 7E 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+ltemp1 82 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+ttemp1 81 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+wtemp1 80 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+ltemp2 86 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+ttemp2 84 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+wtemp2 82 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+ltemp3 80 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+ttemp3 87 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+wtemp3 84 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+ttemp4 7F 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+wtemp4 86 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+wtemp5 88 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+wtemp6 7F 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_LCD_Putc E2A 0 CODE 0 text11 dist/default/production\PIC16F1827-I2C04.X.production.obj
+UART_init@device 20 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hconfig 10012 0 CONFIG 0 config -
+__Lconfig 1000E 0 CONFIG 0 config -
+__end_of_I2C_init 1EF0 0 CODE 0 text26 dist/default/production\PIC16F1827-I2C04.X.production.obj
+?___awmod 20 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbigram 0 0 ABS 0 bigram -
+__Lbigram 0 0 ABS 0 bigram -
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+ringbuf_num@rb 71 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_I2C_IdleCheck 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of__stringdata 1028 0 STRCODE 0 stringtext dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_isr 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+ringbuf_pop@rb 73 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F1827-I2C04.X.production.obj
+LCD_SetCursor@row_offsets 28 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hfunctab 0 0 CODE 0 functab -
+__end_of_display 82C 0 CODE 0 text5 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Lfunctab 0 0 CODE 0 functab -
+ringbuf_push@rb 23 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_tx_send 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_I2C_Stop 1EB8 0 CODE 0 text22 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_sw_RA0 43 0 BANK0 1 bssBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_tx_sends 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_sw_RA1 79 0 COMMON 1 bssCOMMON dist/default/production\PIC16F1827-I2C04.X.production.obj
+_OPTION_REG 95 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_tx_sends C34 0 CODE 0 text1 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hcommon 0 0 ABS 0 common -
+__Lcommon 0 0 ABS 0 common -
+_PIE1bits 91 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_I2C_init 1EDA 0 CODE 0 text26 dist/default/production\PIC16F1827-I2C04.X.production.obj
+LCD_Puts@s 24 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+_LCD_init AD6 0 CODE 0 text19 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_LCD_SetCursor 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_BCL1IF 93 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+timeset@value 3A 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+___int_sp 0 0 STACK 2 stack C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.obj
+_TMR1IF 88 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_SSP1IF 8B 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_ANSELA 18C 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_ANSELB 18D 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+?___awdiv 20 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_UART_init 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_LCD_Puts BCC 0 CODE 0 text15 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_SPBRGH 19C 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_SPBRGL 19B 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+I2C_Receive@data 24 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_OSCCON 99 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Habs1 0 0 ABS 0 abs1 -
+__Labs1 0 0 ABS 0 abs1 -
+__size_of_LCD_Clear 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_FVRCON 117 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__size_of_command 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hsfr1 0 0 ABS 0 sfr1 -
+timeset@Reg 2F 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+_cnt_t1 78 0 COMMON 1 bssCOMMON dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__Hsfr4 0 0 ABS 0 sfr4 -
+__Lsfr4 0 0 ABS 0 sfr4 -
+__Hsfr5 0 0 ABS 0 sfr5 -
+pic14e$flags 7E 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Lsfr5 0 0 ABS 0 sfr5 -
+__Hsfr6 0 0 ABS 0 sfr6 -
+__Lsfr6 0 0 ABS 0 sfr6 -
+__Hsfr7 0 0 ABS 0 sfr7 -
+__Lsfr7 0 0 ABS 0 sfr7 -
+__Hsfr8 0 0 ABS 0 sfr8 -
+__Lsfr8 0 0 ABS 0 sfr8 -
+RTC_Read@ans 29 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hsfr9 0 0 ABS 0 sfr9 -
+__Lsfr9 0 0 ABS 0 sfr9 -
+tx_sends@asciicode 24 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_RTC_Write EAA 0 CODE 0 text14 dist/default/production\PIC16F1827-I2C04.X.production.obj
+i1_tx_send 1EC4 0 CODE 0 text28 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_LCD_Putc E6A 0 CODE 0 text11 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_LCD_Puts C34 0 CODE 0 text15 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_button_timer_interrupt 82C 0 CODE 0 text33 dist/default/production\PIC16F1827-I2C04.X.production.obj
+LCD_Putc@ans 26 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_RTC_Write E6A 0 CODE 0 text14 dist/default/production\PIC16F1827-I2C04.X.production.obj
+timeset@t_576 39 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of___awmod AD6 0 CODE 0 text13 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_LCD_Clear 1F26 0 CODE 0 text20 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_month_length F24 0 CODE 0 text17 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hcode 0 0 ABS 0 code -
+__Lcode 0 0 ABS 0 code -
+__end_of_UART_init 1F8A 0 CODE 0 text18 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_timeset 632 0 CODE 0 text4 dist/default/production\PIC16F1827-I2C04.X.production.obj
+stackhi 216F 0 ABS 0 - C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.obj
+_tx_buf 3F 0 BANK0 1 bssBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+_I2C_IdleCheck 1F08 0 CODE 0 text25 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+___awmod@sign 26 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+stacklo 2097 0 ABS 0 - C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.obj
+___bmul 1F8A 0 CODE 0 text12 dist/default/production\PIC16F1827-I2C04.X.production.obj
+LCD_Puts@ans 28 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hinit 80 0 CODE 0 init -
+__Linit 80 0 CODE 0 init -
+__end_of_main 388 0 CODE 0 maintext dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Htext 0 0 ABS 0 text -
+__Ltext 0 0 ABS 0 text -
+___bmul@multiplier 2C 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__HdataBANK0 0 0 ABS 0 dataBANK0 -
+__LdataBANK0 0 0 ABS 0 dataBANK0 -
+__size_of_I2C_rStart 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_RTC_Read 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__pdataBANK0 4C 0 BANK0 1 dataBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+end_of_initialization B0 0 CODE 0 cinit dist/default/production\PIC16F1827-I2C04.X.production.obj
+_interrupt_TXIF 1FD2 0 CODE 0 text30 dist/default/production\PIC16F1827-I2C04.X.production.obj
+___awdiv@sign 26 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_I2C_Stop 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+___bmul@multiplicand 29 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_I2C_Start 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+ringbuf_push@asciicode 20 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+month_length@month 20 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hsfr10 0 0 ABS 0 sfr10 -
+__Lsfr10 0 0 ABS 0 sfr10 -
+__Hsfr20 0 0 ABS 0 sfr20 -
+__Lsfr20 0 0 ABS 0 sfr20 -
+__Hsfr30 0 0 ABS 0 sfr30 -
+__Hsfr11 0 0 ABS 0 sfr11 -
+__Lsfr30 0 0 ABS 0 sfr30 -
+__Lsfr11 0 0 ABS 0 sfr11 -
+button_timer_interrupt@sw_value 70 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hsfr21 0 0 ABS 0 sfr21 -
+__Lsfr21 0 0 ABS 0 sfr21 -
+__Hsfr31 0 0 ABS 0 sfr31 -
+__Hsfr12 0 0 ABS 0 sfr12 -
+__Lsfr31 0 0 ABS 0 sfr31 -
+__Lsfr12 0 0 ABS 0 sfr12 -
+__Hsfr22 0 0 ABS 0 sfr22 -
+__Lsfr22 0 0 ABS 0 sfr22 -
+ringbuf_init@bufsize 21 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hsfr13 0 0 ABS 0 sfr13 -
+__Lsfr13 0 0 ABS 0 sfr13 -
+__Hsfr23 0 0 ABS 0 sfr23 -
+__Lsfr23 0 0 ABS 0 sfr23 -
+RTC_Read@Reg 27 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hsfr14 0 0 ABS 0 sfr14 -
+__Lsfr14 0 0 ABS 0 sfr14 -
+__Hsfr24 0 0 ABS 0 sfr24 -
+__Lsfr24 0 0 ABS 0 sfr24 -
+__Hsfr15 0 0 ABS 0 sfr15 -
+__Lsfr15 0 0 ABS 0 sfr15 -
+__Hsfr25 0 0 ABS 0 sfr25 -
+ringbuf_init@rb 23 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Lsfr25 0 0 ABS 0 sfr25 -
+__Hsfr16 0 0 ABS 0 sfr16 -
+__Lsfr16 0 0 ABS 0 sfr16 -
+__Hsfr26 0 0 ABS 0 sfr26 -
+__Lsfr26 0 0 ABS 0 sfr26 -
+RTC_Read@data 28 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hsfr17 0 0 ABS 0 sfr17 -
+__Lsfr17 0 0 ABS 0 sfr17 -
+__Hsfr27 0 0 ABS 0 sfr27 -
+__Lsfr27 0 0 ABS 0 sfr27 -
+__Hsfr18 0 0 ABS 0 sfr18 -
+__Lsfr18 0 0 ABS 0 sfr18 -
+__Hsfr28 0 0 ABS 0 sfr28 -
+_SSP1ADD 212 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Lsfr28 0 0 ABS 0 sfr28 -
+__Hsfr19 0 0 ABS 0 sfr19 -
+__Lsfr19 0 0 ABS 0 sfr19 -
+__Hsfr29 0 0 ABS 0 sfr29 -
+__Lsfr29 0 0 ABS 0 sfr29 -
+_UART_init 1F66 0 CODE 0 text18 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_I2C_IdleCheck 1F26 0 CODE 0 text25 dist/default/production\PIC16F1827-I2C04.X.production.obj
+I2C_Send@data 22 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_T1CONbits 18 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hstrings 0 0 ABS 0 strings -
+__Lstrings 0 0 ABS 0 strings -
+_I2C_Start F5A 0 CODE 0 text23 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_RTC_Read BCC 0 CODE 0 text7 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_ofi1_tx_send 1EDA 0 CODE 0 text28 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_SSP1BUF 211 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_LCD_SetCursor 1FD2 0 CODE 0 text10 dist/default/production\PIC16F1827-I2C04.X.production.obj
+button_timer_interrupt@bt 73 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank0 0 0 ABS 0 bank0 -
+__Lbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Hbank2 0 0 ABS 0 bank2 -
+__Lbank2 0 0 ABS 0 bank2 -
+__Hbank3 0 0 ABS 0 bank3 -
+__Lbank3 0 0 ABS 0 bank3 -
+___latbits 1 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank4 0 0 ABS 0 bank4 -
+__Lbank4 0 0 ABS 0 bank4 -
+__Hbank5 0 0 BANK5 1 bank5 -
+__Lbank5 0 0 BANK5 1 bank5 -
+__Hpowerup 0 0 CODE 0 powerup -
+__Lpowerup 0 0 CODE 0 powerup -
+__Hbank6 0 0 BANK6 1 bank6 -
+__Lbank6 0 0 BANK6 1 bank6 -
+__Hbank7 0 0 BANK7 1 bank7 -
+_APFCON0bits 11D 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Lbank7 0 0 BANK7 1 bank7 -
+__Hbank8 0 0 BANK8 1 bank8 -
+_APFCON1bits 11E 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Lbank8 0 0 BANK8 1 bank8 -
+__Hbank9 0 0 BANK9 1 bank9 -
+__Lbank9 0 0 BANK9 1 bank9 -
+_month_length EEA 0 CODE 0 text17 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext1 C34 0 CODE 0 text1 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext2 1EF0 0 CODE 0 text2 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext3 C8E 0 CODE 0 text3 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext4 388 0 CODE 0 text4 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_ringbuf_num DEA 0 CODE 0 text32 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_ringbuf_pop D3E 0 CODE 0 text31 dist/default/production\PIC16F1827-I2C04.X.production.obj
+I2C_Start@rw 22 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext5 632 0 CODE 0 text5 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext6 99E 0 CODE 0 text6 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext7 B5C 0 CODE 0 text7 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__HcstackBANK1 0 0 ABS 0 cstackBANK1 -
+__LcstackBANK1 0 0 ABS 0 cstackBANK1 -
+__ptext8 F90 0 CODE 0 text8 dist/default/production\PIC16F1827-I2C04.X.production.obj
+I2C_Receive@ack 23 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext9 DEA 0 CODE 0 text9 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__pcstackBANK1 A0 0 BANK1 1 cstackBANK1 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hclrtext 0 0 ABS 0 clrtext -
+__Lclrtext 0 0 ABS 0 clrtext -
+_ringbuf_num D94 0 CODE 0 text32 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_ringbuf_push CE6 0 CODE 0 text3 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_ringbuf_pop CE6 0 CODE 0 text31 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_ringbuf_init F5A 0 CODE 0 text16 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of__initialization B0 0 CODE 0 cinit dist/default/production\PIC16F1827-I2C04.X.production.obj
+RTC_Write@ans 27 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_I2C_Stop 1EC4 0 CODE 0 text22 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_interrupt_TXIF 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_ofi1_ringbuf_push 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hidloc 0 0 IDLOC 0 idloc -
+__Lidloc 0 0 IDLOC 0 idloc -
+__CFG_STVREN$OFF 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_command EAA 0 CODE 0 text21 dist/default/production\PIC16F1827-I2C04.X.production.obj
+main@buf A0 0 BANK1 1 cstackBANK1 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_LCD_init B5C 0 CODE 0 text19 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_ringbuf_num 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_ringbuf_pop 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_tx_send 1EF0 0 CODE 0 text2 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hstack 0 0 STACK 2 stack -
+__Lstack 0 0 STACK 2 stack -
+___awmod A46 0 CODE 0 text13 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hspace_0 8009 0 ABS 0 - -
+__Lspace_0 0 0 ABS 0 - -
+__end_of_isr 80 0 CODE 0 intentry dist/default/production\PIC16F1827-I2C04.X.production.obj
+ringbuf_pop@ret 72 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hspace_1 E7 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__end_of_LCD_Clear 1F44 0 CODE 0 text20 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hspace_2 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Hcinit B8 0 CODE 0 cinit -
+__Lcinit 84 0 CODE 0 cinit -
+_timeset 388 0 CODE 0 text4 dist/default/production\PIC16F1827-I2C04.X.production.obj
+___awdiv 99E 0 CODE 0 text6 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hspace_3 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+_display 632 0 CODE 0 text5 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_main 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__CFG_BORV$LO 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+command@ans 26 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_ringbuf_push 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__HidataBANK0 0 0 ABS 0 idataBANK0 -
+__LidataBANK0 0 0 ABS 0 idataBANK0 -
+__CFG_MCLRE$OFF 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_ringbuf_init 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__pidataBANK0 4 0 CODE 0 idataBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_LCD_init 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+i1tx_send@asciicode 75 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F1827-I2C04.X.production.obj
+clear_ram0 FF2 0 CODE 0 clrtext dist/default/production\PIC16F1827-I2C04.X.production.obj
+__HbssBANK0 0 0 ABS 0 bssBANK0 -
+__LbssBANK0 0 0 ABS 0 bssBANK0 -
+i1ringbuf_push@asciicode 70 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F1827-I2C04.X.production.obj
+_SSP1CON1 215 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank10 0 0 BANK10 1 bank10 -
+__pbssBANK0 3F 0 BANK0 1 bssBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Lbank10 0 0 BANK10 1 bank10 -
+__Hbank20 0 0 BANK20 1 bank20 -
+__Lbank20 0 0 BANK20 1 bank20 -
+_SSP1CON2 216 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank30 0 0 BANK30 1 bank30 -
+__Hbank11 0 0 BANK11 1 bank11 -
+__end_of_I2C_Send 1F66 0 CODE 0 text24 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Lbank30 0 0 BANK30 1 bank30 -
+__Lbank11 0 0 BANK11 1 bank11 -
+__Hbank21 0 0 BANK21 1 bank21 -
+__Lbank21 0 0 BANK21 1 bank21 -
+__CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank31 0 0 BANK31 1 bank31 -
+__Hbank12 0 0 BANK12 1 bank12 -
+__Lbank31 0 0 BANK31 1 bank31 -
+__Lbank12 0 0 BANK12 1 bank12 -
+__Hbank22 0 0 BANK22 1 bank22 -
+__end_ofi1_ringbuf_push D94 0 CODE 0 text29 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Lbank22 0 0 BANK22 1 bank22 -
+_ringbuf_push C8E 0 CODE 0 text3 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank13 0 0 BANK13 1 bank13 -
+__Lbank13 0 0 BANK13 1 bank13 -
+__HbssBANK1 0 0 ABS 0 bssBANK1 -
+__LbssBANK1 0 0 ABS 0 bssBANK1 -
+__Hbank23 0 0 BANK23 1 bank23 -
+__Lbank23 0 0 BANK23 1 bank23 -
+__Hbank14 0 0 BANK14 1 bank14 -
+__pbssBANK1 E6 0 BANK1 1 bssBANK1 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Lbank14 0 0 BANK14 1 bank14 -
+__Hstringtext 0 0 ABS 0 stringtext -
+__Lstringtext 0 0 ABS 0 stringtext -
+__Hbank24 0 0 BANK24 1 bank24 -
+__Lbank24 0 0 BANK24 1 bank24 -
+__pstringtext 1000 0 STRCODE 0 stringtext dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext10 1FAE 0 CODE 0 text10 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank15 0 0 BANK15 1 bank15 -
+__Lbank15 0 0 BANK15 1 bank15 -
+__ptext20 1F26 0 CODE 0 text20 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank25 0 0 BANK25 1 bank25 -
+__Lbank25 0 0 BANK25 1 bank25 -
+__ptext11 E2A 0 CODE 0 text11 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext30 1FD2 0 CODE 0 text30 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank16 0 0 BANK16 1 bank16 -
+__Lbank16 0 0 BANK16 1 bank16 -
+__ptext21 EAA 0 CODE 0 text21 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank26 0 0 BANK26 1 bank26 -
+__Lbank26 0 0 BANK26 1 bank26 -
+__ptext12 1F8A 0 CODE 0 text12 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext31 CE6 0 CODE 0 text31 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank17 0 0 BANK17 1 bank17 -
+__Lbank17 0 0 BANK17 1 bank17 -
+__ptext22 1EB8 0 CODE 0 text22 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank27 0 0 BANK27 1 bank27 -
+I2C_rStart@adrs 22 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Lbank27 0 0 BANK27 1 bank27 -
+timeset@min_num 2D 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext13 A46 0 CODE 0 text13 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext32 D94 0 CODE 0 text32 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank18 0 0 BANK18 1 bank18 -
+__Lbank18 0 0 BANK18 1 bank18 -
+_ADCON0bits 9D 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_ADCON1bits 9E 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext23 F5A 0 CODE 0 text23 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank28 0 0 BANK28 1 bank28 -
+__size_of___awdiv 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Lbank28 0 0 BANK28 1 bank28 -
+__ptext14 E6A 0 CODE 0 text14 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext33 82C 0 CODE 0 text33 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank19 0 0 BANK19 1 bank19 -
+__Lbank19 0 0 BANK19 1 bank19 -
+__ptext24 1F44 0 CODE 0 text24 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hbank29 0 0 BANK29 1 bank29 -
+__Lbank29 0 0 BANK29 1 bank29 -
+__size_of_I2C_Receive 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext15 BCC 0 CODE 0 text15 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_LCD_SetCursor 1FAE 0 CODE 0 text10 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext25 1F08 0 CODE 0 text25 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext16 F24 0 CODE 0 text16 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext26 1EDA 0 CODE 0 text26 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext17 EEA 0 CODE 0 text17 dist/default/production\PIC16F1827-I2C04.X.production.obj
+___awmod@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext18 1F66 0 CODE 0 text18 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext28 1EC4 0 CODE 0 text28 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__HbssCOMMON 0 0 ABS 0 bssCOMMON -
+__LbssCOMMON 0 0 ABS 0 bssCOMMON -
+i1_ringbuf_push D3E 0 CODE 0 text29 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext19 AD6 0 CODE 0 text19 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__pbssCOMMON 78 0 COMMON 1 bssCOMMON dist/default/production\PIC16F1827-I2C04.X.production.obj
+__ptext29 D3E 0 CODE 0 text29 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_button_timer_interrupt 99E 0 CODE 0 text33 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_interrupt_TXIF 2000 0 CODE 0 text30 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_INTCONbits B 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hend_init 84 0 CODE 0 end_init -
+__Lend_init 80 0 CODE 0 end_init -
+__pswtext1 FC2 0 CONST 0 swtext1 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_I2C_init 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+___awdiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+RTC_Write@Reg 26 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_button_timer_interrupt 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+LCD_SetCursor@col 2A 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+_I2C_rStart F90 0 CODE 0 text8 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hreset_vec 4 0 CODE 0 reset_vec -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+__size_ofi1_tx_send 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__stringdata 1000 0 STRCODE 0 stringtext dist/default/production\PIC16F1827-I2C04.X.production.obj
+i1ringbuf_push@rb 73 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F1827-I2C04.X.production.obj
+timeset@row 31 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+intlevel0 0 0 CODE 0 functab C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.obj
+__CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_SSP1STAT 214 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+intlevel1 0 0 CODE 0 functab C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.obj
+timeset@column 30 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+timeset@max_num 2E 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+intlevel2 0 0 CODE 0 functab C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.obj
+__size_of_display 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+I2C_Start@adrs 23 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+intlevel3 0 0 CODE 0 functab C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.obj
+intlevel4 0 0 CODE 0 functab C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.obj
+LCD_SetCursor@F2883 4C 0 BANK0 1 dataBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+intlevel5 0 0 CODE 0 functab C:\Users\KERIKU~1\AppData\Local\Temp\s5q8.obj
+__size_of_LCD_Putc 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+_SSP1CON2bits 216 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_LCD_Puts 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+ringbuf_init@internal_buf 20 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_tx_send 1F08 0 CODE 0 text2 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_tx_sends C8E 0 CODE 0 text1 dist/default/production\PIC16F1827-I2C04.X.production.obj
+I2C_IdleCheck@mask 21 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F1827-I2C04.X.production.obj
+tx_send@asciicode 25 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_I2C_Start F90 0 CODE 0 text23 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_command EEA 0 CODE 0 text21 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+start_initialization 84 0 CODE 0 cinit dist/default/production\PIC16F1827-I2C04.X.production.obj
+___awdiv@quotient 27 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+I2C_rStart@rw 24 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__Hmaintext 0 0 ABS 0 maintext -
+__Lmaintext 0 0 ABS 0 maintext -
+__CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__pmaintext B8 0 CODE 0 maintext dist/default/production\PIC16F1827-I2C04.X.production.obj
+_OPTION_REGbits 95 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__CFG_FOSC$INTOSC 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of___awmod 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_timeset 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_month_length 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+RTC_Write@c 24 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__initialization 84 0 CODE 0 cinit dist/default/production\PIC16F1827-I2C04.X.production.obj
+LCD_SetCursor@row 27 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_I2C_rStart FC2 0 CODE 0 text8 dist/default/production\PIC16F1827-I2C04.X.production.obj
+LCD_Putc@c 25 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+___awmod@dividend 22 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of_I2C_Receive E2A 0 CODE 0 text9 dist/default/production\PIC16F1827-I2C04.X.production.obj
+___bmul@product 2B 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+___awmod@counter 25 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__CFG_CP$OFF 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+command@c 25 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of_RTC_Write 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__size_of___bmul 0 0 ABS 0 - dist/default/production\PIC16F1827-I2C04.X.production.obj
+__end_of___bmul 1FAE 0 CODE 0 text12 dist/default/production\PIC16F1827-I2C04.X.production.obj
+___awdiv@dividend 22 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F1827-I2C04.X.production.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect in on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+reset_vec 0 0 0 4 2
+intentry 0 4 8 7DD 2
+config 0 8007 1000E 2 2
+cstackCOMMON 1 70 70 C 1
+cstackBANK1 1 A0 A0 47 1
+cstackBANK0 1 20 20 2E 1
+swtext1 0 7E1 FC2 18 2
+text30 0 FE9 1FD2 17 2
+stringtext 0 800 1000 14 2
+text10 0 FD7 1FAE 12 2
+text12 0 FC5 1F8A 12 2
+text18 0 FB3 1F66 12 2
+text24 0 FA2 1F44 11 2
+text20 0 F93 1F26 F 2
+text25 0 F84 1F08 F 2
+text2 0 F78 1EF0 C 2
+text26 0 F6D 1EDA B 2
+text28 0 F62 1EC4 B 2
+clrtext 0 7F9 FF2 6 2
+text22 0 F5C 1EB8 6 2

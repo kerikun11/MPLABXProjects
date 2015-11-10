@@ -1,0 +1,2811 @@
+
+
+Microchip Technology PIC LITE Macro Assembler V1.34 build -361300703 
+                                                                                               Sat Jul 18 21:12:30 2015
+
+Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
+     1                           	processor	16F1827
+     2                           	opt	pw 120
+     3                           	opt	lm
+     4                           	psect	idataBANK1,global,class=CODE,delta=2
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     7                           	psect	dataBANK1,global,class=BANK1,space=1,delta=1
+     8                           	psect	clrtext,global,class=CODE,delta=2
+     9                           	psect	inittext,global,class=CODE,delta=2
+    10                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+    11                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    12                           	psect	maintext,global,class=CODE,merge=1,split=1,delta=2
+    13                           	psect	text1,local,class=CODE,merge=1,delta=2
+    14                           	psect	text2,local,class=CODE,merge=1,delta=2
+    15                           	psect	text3,local,class=CODE,merge=1,delta=2
+    16                           	psect	text4,local,class=CODE,merge=1,delta=2
+    17                           	psect	text5,local,class=CODE,merge=1,delta=2
+    18                           	psect	text6,local,class=CODE,merge=1,delta=2
+    19                           	psect	text7,local,class=CODE,merge=1,delta=2
+    20                           	psect	text8,local,class=CODE,merge=1,delta=2
+    21                           	psect	text9,local,class=CODE,merge=1,delta=2
+    22                           	psect	text10,local,class=CODE,merge=1,delta=2
+    23                           	psect	intentry,global,class=CODE,delta=2
+    24                           	psect	text12,local,class=CODE,merge=1,delta=2
+    25                           	psect	text13,local,class=CODE,merge=1,delta=2
+    26                           	psect	text14,local,class=CODE,merge=1,delta=2
+    27                           	psect	text15,local,class=CODE,merge=1,delta=2
+    28                           	psect	text16,local,class=CODE,merge=1,delta=2
+    29                           	dabs	1,0x7E,2
+    30  0000                     	;# 
+    31  0001                     	;# 
+    32  0002                     	;# 
+    33  0003                     	;# 
+    34  0004                     	;# 
+    35  0005                     	;# 
+    36  0006                     	;# 
+    37  0007                     	;# 
+    38  0008                     	;# 
+    39  0009                     	;# 
+    40  000A                     	;# 
+    41  000B                     	;# 
+    42  000C                     	;# 
+    43  000D                     	;# 
+    44  0011                     	;# 
+    45  0012                     	;# 
+    46  0013                     	;# 
+    47  0014                     	;# 
+    48  0015                     	;# 
+    49  0016                     	;# 
+    50  0016                     	;# 
+    51  0017                     	;# 
+    52  0018                     	;# 
+    53  0019                     	;# 
+    54  001A                     	;# 
+    55  001B                     	;# 
+    56  001C                     	;# 
+    57  001E                     	;# 
+    58  001F                     	;# 
+    59  008C                     	;# 
+    60  008D                     	;# 
+    61  0091                     	;# 
+    62  0092                     	;# 
+    63  0093                     	;# 
+    64  0094                     	;# 
+    65  0095                     	;# 
+    66  0096                     	;# 
+    67  0097                     	;# 
+    68  0098                     	;# 
+    69  0099                     	;# 
+    70  009A                     	;# 
+    71  009B                     	;# 
+    72  009B                     	;# 
+    73  009C                     	;# 
+    74  009D                     	;# 
+    75  009E                     	;# 
+    76  010C                     	;# 
+    77  010D                     	;# 
+    78  0111                     	;# 
+    79  0112                     	;# 
+    80  0113                     	;# 
+    81  0114                     	;# 
+    82  0115                     	;# 
+    83  0116                     	;# 
+    84  0117                     	;# 
+    85  0118                     	;# 
+    86  0119                     	;# 
+    87  011A                     	;# 
+    88  011B                     	;# 
+    89  011D                     	;# 
+    90  011E                     	;# 
+    91  018C                     	;# 
+    92  018D                     	;# 
+    93  0191                     	;# 
+    94  0191                     	;# 
+    95  0192                     	;# 
+    96  0193                     	;# 
+    97  0193                     	;# 
+    98  0193                     	;# 
+    99  0194                     	;# 
+   100  0195                     	;# 
+   101  0196                     	;# 
+   102  0199                     	;# 
+   103  019A                     	;# 
+   104  019B                     	;# 
+   105  019B                     	;# 
+   106  019B                     	;# 
+   107  019B                     	;# 
+   108  019C                     	;# 
+   109  019C                     	;# 
+   110  019D                     	;# 
+   111  019E                     	;# 
+   112  019F                     	;# 
+   113  020C                     	;# 
+   114  020D                     	;# 
+   115  0211                     	;# 
+   116  0211                     	;# 
+   117  0212                     	;# 
+   118  0212                     	;# 
+   119  0213                     	;# 
+   120  0213                     	;# 
+   121  0214                     	;# 
+   122  0214                     	;# 
+   123  0215                     	;# 
+   124  0215                     	;# 
+   125  0215                     	;# 
+   126  0216                     	;# 
+   127  0216                     	;# 
+   128  0217                     	;# 
+   129  0217                     	;# 
+   130  0219                     	;# 
+   131  021A                     	;# 
+   132  021B                     	;# 
+   133  021C                     	;# 
+   134  021D                     	;# 
+   135  021E                     	;# 
+   136  021F                     	;# 
+   137  0291                     	;# 
+   138  0291                     	;# 
+   139  0292                     	;# 
+   140  0293                     	;# 
+   141  0294                     	;# 
+   142  0295                     	;# 
+   143  0295                     	;# 
+   144  0296                     	;# 
+   145  0298                     	;# 
+   146  0298                     	;# 
+   147  0299                     	;# 
+   148  029A                     	;# 
+   149  029B                     	;# 
+   150  029C                     	;# 
+   151  029C                     	;# 
+   152  029D                     	;# 
+   153  029E                     	;# 
+   154  029E                     	;# 
+   155  0311                     	;# 
+   156  0311                     	;# 
+   157  0312                     	;# 
+   158  0313                     	;# 
+   159  0318                     	;# 
+   160  0318                     	;# 
+   161  0319                     	;# 
+   162  031A                     	;# 
+   163  0394                     	;# 
+   164  0395                     	;# 
+   165  0396                     	;# 
+   166  039A                     	;# 
+   167  039C                     	;# 
+   168  039D                     	;# 
+   169  039E                     	;# 
+   170  039F                     	;# 
+   171  0415                     	;# 
+   172  0416                     	;# 
+   173  0417                     	;# 
+   174  041C                     	;# 
+   175  041D                     	;# 
+   176  041E                     	;# 
+   177  0FE4                     	;# 
+   178  0FE5                     	;# 
+   179  0FE6                     	;# 
+   180  0FE7                     	;# 
+   181  0FE8                     	;# 
+   182  0FE9                     	;# 
+   183  0FEA                     	;# 
+   184  0FEB                     	;# 
+   185  0FED                     	;# 
+   186  0FEE                     	;# 
+   187  0FEF                     	;# 
+   188                           
+   189                           	psect	idataBANK1
+   190  02AE                     __pidataBANK1:	
+   191                           
+   192                           ;initializer for _pattern
+   193  02AE  3483               	retlw	131
+   194  02AF  345D               	retlw	93
+   195  02B0  346D               	retlw	109
+   196  02B1  3475               	retlw	117
+   197  02B2  3483               	retlw	131
+   198  02B3  34FF               	retlw	255
+   199  02B4  347B               	retlw	123
+   200  02B5  3401               	retlw	1
+   201  02B6  347F               	retlw	127
+   202  02B7  34FF               	retlw	255
+   203  02B8  347B               	retlw	123
+   204  02B9  343D               	retlw	61
+   205  02BA  345D               	retlw	93
+   206  02BB  346D               	retlw	109
+   207  02BC  3473               	retlw	115
+   208  02BD  34BB               	retlw	187
+   209  02BE  347D               	retlw	125
+   210  02BF  346D               	retlw	109
+   211  02C0  346D               	retlw	109
+   212  02C1  3493               	retlw	147
+   213  02C2  34CF               	retlw	207
+   214  02C3  34D7               	retlw	215
+   215  02C4  34DB               	retlw	219
+   216  02C5  3401               	retlw	1
+   217  02C6  34DF               	retlw	223
+   218  02C7  34A1               	retlw	161
+   219  02C8  346D               	retlw	109
+   220  02C9  346D               	retlw	109
+   221  02CA  346D               	retlw	109
+   222  02CB  349D               	retlw	157
+   223  02CC  3483               	retlw	131
+   224  02CD  346D               	retlw	109
+   225  02CE  346D               	retlw	109
+   226  02CF  346D               	retlw	109
+   227  02D0  349B               	retlw	155
+   228  02D1  34F9               	retlw	249
+   229  02D2  34FD               	retlw	253
+   230  02D3  341D               	retlw	29
+   231  02D4  34ED               	retlw	237
+   232  02D5  34F1               	retlw	241
+   233  02D6  3493               	retlw	147
+   234  02D7  346D               	retlw	109
+   235  02D8  346D               	retlw	109
+   236  02D9  346D               	retlw	109
+   237  02DA  3493               	retlw	147
+   238  02DB  34B3               	retlw	179
+   239  02DC  346D               	retlw	109
+   240  02DD  346D               	retlw	109
+   241  02DE  346D               	retlw	109
+   242  02DF  3483               	retlw	131
+   243  000B                     _INTCONbits	set	11
+   244  0011                     _PIR1bits	set	17
+   245  0018                     _T1CONbits	set	24
+   246  0015                     _TMR0	set	21
+   247  0017                     _TMR1H	set	23
+   248  0016                     _TMR1L	set	22
+   249  008D                     _RCIF	set	141
+   250  008B                     _SSP1IF	set	139
+   251  005A                     _TMR0IF	set	90
+   252  009B                     _ADRES	set	155
+   253  009D                     _ADCON0bits	set	157
+   254  009E                     _ADCON1bits	set	158
+   255  0095                     _OPTION_REGbits	set	149
+   256  0099                     _OSCCON	set	153
+   257  0091                     _PIE1bits	set	145
+   258  008C                     _TRISA	set	140
+   259  008D                     _TRISB	set	141
+   260  011D                     _APFCON0bits	set	285
+   261  011E                     _APFCON1bits	set	286
+   262  0117                     _FVRCON	set	279
+   263  0864                     _LATA4	set	2148
+   264  0867                     _LATA7	set	2151
+   265  018C                     _ANSELA	set	396
+   266  018D                     _ANSELB	set	397
+   267  0199                     _RCREG	set	409
+   268  019D                     _RCSTA	set	413
+   269  019C                     _SPBRGH	set	412
+   270  019B                     _SPBRGL	set	411
+   271  019A                     _TXREG	set	410
+   272  019E                     _TXSTA	set	414
+   273  0CFB                     _BRG16	set	3323
+   274  0CEF                     _SPEN	set	3311
+   275  0211                     _SSP1BUF	set	529
+   276  0215                     _SSP1CON1bits	set	533
+   277  0214                     _SSP1STATbits	set	532
+   278  020C                     _WPUA	set	524
+   279  020D                     _WPUB	set	525
+   280                           
+   281                           ; #config settings
+   282  0000                     
+   283                           	psect	cinit
+   284  0022                     start_initialization:	
+   285  0022                     __initialization:	
+   286                           
+   287                           ; Clear objects allocated to BANK0
+   288  0022  3050               	movlw	low __pbssBANK0
+   289  0023  0084               	movwf	4
+   290  0024  3000               	movlw	high __pbssBANK0
+   291  0025  0085               	movwf	5
+   292  0026  3011               	movlw	17
+   293  0027  3183  23CD  3180   	fcall	clear_ram0
+   294                           
+   295                           ; Initialize objects allocated to BANK1
+   296  002A  30AE               	movlw	low __pidataBANK1
+   297  002B  0084               	movwf	4
+   298  002C  3082               	movlw	(high __pidataBANK1)| (0+128)
+   299  002D  0085               	movwf	5
+   300  002E  30A0               	movlw	low __pdataBANK1
+   301  002F  0086               	movwf	6
+   302  0030  3000               	movlw	high __pdataBANK1
+   303  0031  0087               	movwf	7
+   304  0032  3032               	movlw	50
+   305  0033  3183  23D3         	fcall	init_ram
+   306  0035                     end_of_initialization:	
+   307                           ;End of C runtime variable initialization code
+   308                           
+   309  0035                     __end_of__initialization:	
+   310  0035  0020               	movlb	0
+   311  0036  3180  2838         	ljmp	_main	;jump to C main() function
+   312                           
+   313                           	psect	bssBANK0
+   314  0050                     __pbssBANK0:	
+   315  0050                     _rx_buf:	
+   316  0050                     	ds	7
+   317  0057                     _d1:	
+   318  0057                     	ds	3
+   319  005A                     _tx_buf:	
+   320  005A                     	ds	7
+   321                           
+   322                           	psect	dataBANK1
+   323  00A0                     __pdataBANK1:	
+   324  00A0                     _pattern:	
+   325  00A0                     	ds	50
+   326                           
+   327                           	psect	clrtext
+   328  03CD                     clear_ram0:	
+   329                           ;	Called with FSR0 containing the base address, and
+   330                           ;	WREG with the size to clear
+   331                           
+   332  03CD  0064               	clrwdt	;clear the watchdog before getting into this loop
+   333  03CE                     clrloop0:	
+   334  03CE  0180               	clrf	0	;clear RAM location pointed to by FSR
+   335  03CF  3101               	addfsr 0,1
+   336  03D0  0B89               	decfsz	9,f	;Have we reached the end of clearing yet?
+   337  03D1  2BCE               	goto	clrloop0	;have we reached the end yet?
+   338  03D2  3400               	retlw	0	;all done for this memory range, return
+   339                           
+   340                           	psect	inittext
+   341  03D3                     init_ram:	
+   342  03D3  00FE               	movwf	126
+   343  03D4                     initloop:	
+   344  03D4  0012               	moviw fsr0++
+   345  03D5  001E               	movwi fsr1++
+   346  03D6  0BFE               	decfsz	126,f
+   347  03D7  2BD4               	goto	initloop
+   348  03D8  3400               	retlw	0
+   349                           
+   350                           	psect	cstackCOMMON
+   351  0070                     __pcstackCOMMON:	
+   352  0070                     ?_UART_init:	
+   353  0070                     ?_interrupt_TXIF:	
+   354                           ; 0 bytes @ 0x0
+   355                           
+   356  0070                     ?_tx_send:	
+   357                           ; 0 bytes @ 0x0
+   358                           
+   359  0070                     ?_SPI_init:	
+   360                           ; 0 bytes @ 0x0
+   361                           
+   362  0070                     ?_SPI_LCD_Command:	
+   363                           ; 0 bytes @ 0x0
+   364                           
+   365  0070                     ?_SPI_LCD_Data:	
+   366                           ; 0 bytes @ 0x0
+   367                           
+   368  0070                     ?_SPI_LCD_init:	
+   369                           ; 0 bytes @ 0x0
+   370                           
+   371  0070                     ?_isr:	
+   372                           ; 0 bytes @ 0x0
+   373                           
+   374  0070                     ?_main:	
+   375                           ; 0 bytes @ 0x0
+   376                           
+   377  0070                     ?_ringbuf_pop:	
+   378                           ; 0 bytes @ 0x0
+   379                           
+   380  0070                     ?_SPI_Transfer:	
+   381                           ; 1 bytes @ 0x0
+   382                           
+   383  0070                     ?_ringbuf_num:	
+   384                           ; 1 bytes @ 0x0
+   385                           
+   386                           
+   387                           ; 2 bytes @ 0x0
+   388  0070                     	ds	2
+   389  0072                     ??_ringbuf_num:	
+   390                           
+   391                           ; 0 bytes @ 0x2
+   392  0072                     	ds	4
+   393  0076                     ringbuf_num@rb:	
+   394                           
+   395                           ; 1 bytes @ 0x6
+   396  0076                     	ds	1
+   397  0077                     ?_ringbuf_put:	
+   398  0077                     ??_ringbuf_pop:	
+   399                           ; 0 bytes @ 0x7
+   400                           
+   401  0077                     ringbuf_put@asciicode:	
+   402                           ; 0 bytes @ 0x7
+   403                           
+   404                           
+   405                           ; 1 bytes @ 0x7
+   406  0077                     	ds	1
+   407  0078                     ??_ringbuf_put:	
+   408                           
+   409                           ; 0 bytes @ 0x8
+   410  0078                     	ds	5
+   411  007D                     ??_interrupt_TXIF:	
+   412                           
+   413                           ; 0 bytes @ 0xD
+   414  007D                     	ds	1
+   415                           
+   416                           	psect	cstackBANK0
+   417  0020                     __pcstackBANK0:	
+   418  0020                     ringbuf_put@rb:	
+   419  0020                     ringbuf_pop@ret:	
+   420                           ; 1 bytes @ 0x0
+   421                           
+   422                           
+   423                           ; 1 bytes @ 0x0
+   424  0020                     	ds	1
+   425  0021                     ??_tx_send:	
+   426  0021                     ringbuf_pop@rb:	
+   427                           ; 0 bytes @ 0x1
+   428                           
+   429                           
+   430                           ; 1 bytes @ 0x1
+   431  0021                     	ds	1
+   432  0022                     tx_send@asciicode:	
+   433                           
+   434                           ; 1 bytes @ 0x2
+   435  0022                     	ds	1
+   436  0023                     ??_isr:	
+   437                           
+   438                           ; 0 bytes @ 0x3
+   439  0023                     	ds	2
+   440  0025                     isr@ascii:	
+   441                           
+   442                           ; 1 bytes @ 0x5
+   443  0025                     	ds	1
+   444  0026                     ?_ringbuf_init:	
+   445  0026                     ??_UART_init:	
+   446                           ; 0 bytes @ 0x6
+   447                           
+   448  0026                     ?_Delay_ms:	
+   449                           ; 0 bytes @ 0x6
+   450                           
+   451  0026                     ??_SPI_init:	
+   452                           ; 0 bytes @ 0x6
+   453                           
+   454  0026                     ??_SPI_Transfer:	
+   455                           ; 0 bytes @ 0x6
+   456                           
+   457  0026                     ?___bmul:	
+   458                           ; 0 bytes @ 0x6
+   459                           
+   460  0026                     ringbuf_init@internal_buf:	
+   461                           ; 1 bytes @ 0x6
+   462                           
+   463  0026                     SPI_init@mode:	
+   464                           ; 1 bytes @ 0x6
+   465                           
+   466  0026                     ___bmul@multiplicand:	
+   467                           ; 1 bytes @ 0x6
+   468                           
+   469  0026                     Delay_ms@ms:	
+   470                           ; 1 bytes @ 0x6
+   471                           
+   472                           
+   473                           ; 2 bytes @ 0x6
+   474  0026                     	ds	1
+   475  0027                     ??___bmul:	
+   476  0027                     SPI_Transfer@txdata:	
+   477                           ; 0 bytes @ 0x7
+   478                           
+   479  0027                     ringbuf_init@bufsize:	
+   480                           ; 1 bytes @ 0x7
+   481                           
+   482                           
+   483                           ; 2 bytes @ 0x7
+   484  0027                     	ds	1
+   485  0028                     ??_Delay_ms:	
+   486  0028                     SPI_Transfer@rxdata:	
+   487                           ; 0 bytes @ 0x8
+   488                           
+   489  0028                     ___bmul@product:	
+   490                           ; 1 bytes @ 0x8
+   491                           
+   492                           
+   493                           ; 1 bytes @ 0x8
+   494  0028                     	ds	1
+   495  0029                     ??_ringbuf_init:	
+   496  0029                     ??_SPI_LCD_Command:	
+   497                           ; 0 bytes @ 0x9
+   498                           
+   499  0029                     ??_SPI_LCD_Data:	
+   500                           ; 0 bytes @ 0x9
+   501                           
+   502  0029                     ___bmul@multiplier:	
+   503                           ; 0 bytes @ 0x9
+   504                           
+   505                           
+   506                           ; 1 bytes @ 0x9
+   507  0029                     	ds	1
+   508  002A                     ringbuf_init@rb:	
+   509  002A                     SPI_LCD_Command@dumy:	
+   510                           ; 1 bytes @ 0xA
+   511                           
+   512  002A                     SPI_LCD_Data@dumy:	
+   513                           ; 1 bytes @ 0xA
+   514                           
+   515                           
+   516                           ; 1 bytes @ 0xA
+   517  002A                     	ds	1
+   518  002B                     SPI_LCD_Command@comm:	
+   519  002B                     SPI_LCD_Data@data:	
+   520                           ; 1 bytes @ 0xB
+   521                           
+   522                           
+   523                           ; 1 bytes @ 0xB
+   524  002B                     	ds	1
+   525  002C                     ??_SPI_LCD_init:	
+   526  002C                     ?_SPI_LCD_Cursor:	
+   527                           ; 0 bytes @ 0xC
+   528                           
+   529  002C                     SPI_LCD_Cursor@column:	
+   530                           ; 0 bytes @ 0xC
+   531                           
+   532                           
+   533                           ; 1 bytes @ 0xC
+   534  002C                     	ds	1
+   535  002D                     ??_SPI_LCD_Cursor:	
+   536                           
+   537                           ; 0 bytes @ 0xD
+   538  002D                     	ds	1
+   539  002E                     SPI_LCD_Cursor@page:	
+   540                           
+   541                           ; 1 bytes @ 0xE
+   542  002E                     	ds	1
+   543  002F                     ??_main:	
+   544                           
+   545                           ; 0 bytes @ 0xF
+   546  002F                     	ds	1
+   547  0030                     main@buf:	
+   548                           
+   549                           ; 30 bytes @ 0x10
+   550  0030                     	ds	30
+   551  004E                     main@i:	
+   552                           
+   553                           ; 1 bytes @ 0x2E
+   554  004E                     	ds	1
+   555  004F                     main@j:	
+   556                           
+   557                           ; 1 bytes @ 0x2F
+   558  004F                     	ds	1
+   559                           
+   560                           	psect	maintext
+   561  0038                     __pmaintext:	
+   562 ;;
+   563 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   564 ;;
+   565 ;; *************** function _main *****************
+   566 ;; Defined at:
+   567 ;;		line 129 in file "PIC16F1827-SPILCD01.c"
+   568 ;; Parameters:    Size  Location     Type
+   569 ;;		None
+   570 ;; Auto vars:     Size  Location     Type
+   571 ;;  buf            30   16[BANK0 ] unsigned char [30]
+   572 ;;  j               1   47[BANK0 ] unsigned char 
+   573 ;;  i               1   46[BANK0 ] unsigned char 
+   574 ;; Return value:  Size  Location     Type
+   575 ;;		None               void
+   576 ;; Registers used:
+   577 ;;		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+   578 ;; Tracked objects:
+   579 ;;		On entry : B1F/0
+   580 ;;		On exit  : 0/0
+   581 ;;		Unchanged: 0/0
+   582 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+   583 ;;      Params:         0       0       0       0       0       0
+   584 ;;      Locals:         0      32       0       0       0       0
+   585 ;;      Temps:          0       1       0       0       0       0
+   586 ;;      Totals:         0      33       0       0       0       0
+   587 ;;Total ram usage:       33 bytes
+   588 ;; Hardware stack levels required when called:    7
+   589 ;; This function calls:
+   590 ;;		_SPI_LCD_Cursor
+   591 ;;		_SPI_LCD_Data
+   592 ;;		_SPI_LCD_init
+   593 ;;		_SPI_init
+   594 ;;		_UART_init
+   595 ;;		___bmul
+   596 ;;		_ringbuf_init
+   597 ;; This function is called by:
+   598 ;;		Startup code after reset
+   599 ;; This function uses a non-reentrant model
+   600 ;;
+   601                           
+   602                           
+   603                           ;psect for function _main
+   604  0038                     _main:	
+   605                           
+   606                           ;PIC16F1827-SPILCD01.c: 130: OSCCON = 0x70;
+   607                           
+   608                           ;incstack = 0
+   609                           ; Regs used in _main: [wreg+fsr1l+fsr1h+status,2+status,0+pclath+cstack]
+   610  0038  3070               	movlw	112
+   611  0039  0021               	movlb	1	; select bank1
+   612  003A  0099               	movwf	25	;volatile
+   613                           
+   614                           ;PIC16F1827-SPILCD01.c: 131: ANSELA = 0x00;
+   615  003B  0023               	movlb	3	; select bank3
+   616  003C  018C               	clrf	12	;volatile
+   617                           
+   618                           ;PIC16F1827-SPILCD01.c: 132: ANSELB = 0x00;
+   619  003D  018D               	clrf	13	;volatile
+   620                           
+   621                           ;PIC16F1827-SPILCD01.c: 133: TRISA = 0x00;
+   622  003E  0021               	movlb	1	; select bank1
+   623  003F  018C               	clrf	12	;volatile
+   624                           
+   625                           ;PIC16F1827-SPILCD01.c: 134: TRISB = 0x06;
+   626  0040  3006               	movlw	6
+   627  0041  008D               	movwf	13	;volatile
+   628                           
+   629                           ;PIC16F1827-SPILCD01.c: 135: WPUA = TRISA;
+   630  0042  080C               	movf	12,w	;volatile
+   631  0043  0024               	movlb	4	; select bank4
+   632  0044  008C               	movwf	12	;volatile
+   633                           
+   634                           ;PIC16F1827-SPILCD01.c: 136: WPUB = TRISB;
+   635  0045  0021               	movlb	1	; select bank1
+   636  0046  080D               	movf	13,w	;volatile
+   637  0047  0024               	movlb	4	; select bank4
+   638  0048  008D               	movwf	13	;volatile
+   639                           
+   640                           ;PIC16F1827-SPILCD01.c: 137: OPTION_REGbits.nWPUEN = 0;
+   641  0049  0021               	movlb	1	; select bank1
+   642  004A  1395               	bcf	21,7	;volatile
+   643                           
+   644                           ;PIC16F1827-SPILCD01.c: 138: APFCON0bits.RXDTSEL = 1;
+   645  004B  0022               	movlb	2	; select bank2
+   646  004C  179D               	bsf	29,7	;volatile
+   647                           
+   648                           ;PIC16F1827-SPILCD01.c: 139: APFCON0bits.SDO1SEL = 1;
+   649  004D  171D               	bsf	29,6	;volatile
+   650                           
+   651                           ;PIC16F1827-SPILCD01.c: 140: APFCON1bits.TXCKSEL = 1;
+   652  004E  141E               	bsf	30,0	;volatile
+   653                           
+   654                           ;PIC16F1827-SPILCD01.c: 142: UART_init();
+   655  004F  3183  23B3  3180   	fcall	_UART_init
+   656                           
+   657                           ;PIC16F1827-SPILCD01.c: 143: SPI_init(0);
+   658  0052  3000               	movlw	0
+   659  0053  3182  22E0  3180   	fcall	_SPI_init
+   660                           
+   661                           ;PIC16F1827-SPILCD01.c: 144: SPI_LCD_init();
+   662  0056  3181  21BA  3180   	fcall	_SPI_LCD_init
+   663                           
+   664                           ;PIC16F1827-SPILCD01.c: 146: char buf[30];
+   665                           ;PIC16F1827-SPILCD01.c: 147: ringbuf_init(&tx_buf, buf, sizeof (buf));
+   666  0059  3030               	movlw	(low (main@buf| 0))& (0+255)
+   667  005A  0020               	movlb	0	; select bank0
+   668  005B  00AF               	movwf	??_main
+   669  005C  082F               	movf	??_main,w
+   670  005D  00A6               	movwf	ringbuf_init@internal_buf
+   671  005E  301E               	movlw	30
+   672  005F  00A7               	movwf	ringbuf_init@bufsize
+   673  0060  3000               	movlw	0
+   674  0061  00A8               	movwf	ringbuf_init@bufsize+1
+   675  0062  305A               	movlw	(low (_tx_buf| 0))& (0+255)
+   676  0063  3183  2303  3180   	fcall	_ringbuf_init
+   677                           
+   678                           ;PIC16F1827-SPILCD01.c: 149: INTCONbits.GIE = 1;
+   679  0066  178B               	bsf	11,7	;volatile
+   680                           
+   681                           ;PIC16F1827-SPILCD01.c: 151: uint8_t i;
+   682                           ;PIC16F1827-SPILCD01.c: 152: uint8_t j;
+   683                           ;PIC16F1827-SPILCD01.c: 153: for (i = 0; i < 6; i++) {
+   684  0067  0020               	movlb	0	; select bank0
+   685  0068  01CE               	clrf	main@i
+   686  0069                     L2:	
+   687  0069  3006               	movlw	6
+   688  006A  024E               	subwf	main@i,w
+   689  006B  1803               	btfsc	3,0
+   690  006C  288A               	goto	l1356
+   691                           
+   692                           ;PIC16F1827-SPILCD01.c: 154: SPI_LCD_Cursor(i, 0);
+   693  006D  01AC               	clrf	SPI_LCD_Cursor@column
+   694  006E  084E               	movf	main@i,w
+   695  006F  3183  2322  3180   	fcall	_SPI_LCD_Cursor
+   696                           
+   697                           ;PIC16F1827-SPILCD01.c: 155: for (j = 0; j < 128; j++) {
+   698  0072  0020               	movlb	0	; select bank0
+   699  0073  01CF               	clrf	main@j
+   700  0074  3080               	movlw	128
+   701  0075  024F               	subwf	main@j,w
+   702  0076  1803               	btfsc	3,0
+   703  0077  2885               	goto	l1352
+   704  0078                     l1346:	
+   705                           
+   706                           ;PIC16F1827-SPILCD01.c: 156: SPI_LCD_Data(0x00);
+   707  0078  3000               	movlw	0
+   708  0079  3183  2393  3180   	fcall	_SPI_LCD_Data
+   709  007C  3001               	movlw	1
+   710  007D  0020               	movlb	0	; select bank0
+   711  007E  00AF               	movwf	??_main
+   712  007F  082F               	movf	??_main,w
+   713  0080  07CF               	addwf	main@j,f
+   714  0081  3080               	movlw	128
+   715  0082  024F               	subwf	main@j,w
+   716  0083  1C03               	skipc
+   717  0084  2878               	goto	l1346
+   718  0085                     l1352:	
+   719  0085  3001               	movlw	1
+   720  0086  00AF               	movwf	??_main
+   721  0087  082F               	movf	??_main,w
+   722  0088  07CE               	addwf	main@i,f
+   723  0089  2869               	goto	L2
+   724  008A                     l1356:	
+   725                           ;PIC16F1827-SPILCD01.c: 157: }
+   726                           ;PIC16F1827-SPILCD01.c: 158: }
+   727                           ;PIC16F1827-SPILCD01.c: 160: while (1) {
+   728                           
+   729                           
+   730                           ;PIC16F1827-SPILCD01.c: 161: for (i = 0; i < 6; i++) {
+   731  008A  01CE               	clrf	main@i
+   732  008B                     L1:	
+   733  008B  3006               	movlw	6
+   734  008C  024E               	subwf	main@i,w
+   735  008D  1803               	btfsc	3,0
+   736  008E  288A               	goto	l1356
+   737                           
+   738                           ;PIC16F1827-SPILCD01.c: 162: SPI_LCD_Cursor(i, 0x00);
+   739  008F  01AC               	clrf	SPI_LCD_Cursor@column
+   740  0090  084E               	movf	main@i,w
+   741  0091  3183  2322  3180   	fcall	_SPI_LCD_Cursor
+   742                           
+   743                           ;PIC16F1827-SPILCD01.c: 163: for (j = 0; j < 10; j++) {
+   744  0094  0020               	movlb	0	; select bank0
+   745  0095  01CF               	clrf	main@j
+   746  0096  300A               	movlw	10
+   747  0097  024F               	subwf	main@j,w
+   748  0098  1803               	btfsc	3,0
+   749  0099  28FA               	goto	l1378
+   750  009A                     l1370:	
+   751                           
+   752                           ;PIC16F1827-SPILCD01.c: 164: SPI_LCD_Data(~pattern[j][0]);
+   753  009A  3005               	movlw	5
+   754  009B  00AF               	movwf	??_main
+   755  009C  082F               	movf	??_main,w
+   756  009D  00A6               	movwf	___bmul@multiplicand
+   757  009E  084F               	movf	main@j,w
+   758  009F  3183  2381  3180   	fcall	___bmul
+   759  00A2  3EA0               	addlw	(low (_pattern| 0))& (0+255)
+   760  00A3  0086               	movwf	6
+   761  00A4  0187               	clrf	7
+   762  00A5  0901               	comf	1,w
+   763  00A6  3183  2393  3180   	fcall	_SPI_LCD_Data
+   764                           
+   765                           ;PIC16F1827-SPILCD01.c: 165: SPI_LCD_Data(~pattern[j][1]);
+   766  00A9  3005               	movlw	5
+   767  00AA  0020               	movlb	0	; select bank0
+   768  00AB  00AF               	movwf	??_main
+   769  00AC  082F               	movf	??_main,w
+   770  00AD  00A6               	movwf	___bmul@multiplicand
+   771  00AE  084F               	movf	main@j,w
+   772  00AF  3183  2381  3180   	fcall	___bmul
+   773  00B2  3E01               	addlw	1
+   774  00B3  3EA0               	addlw	(low (_pattern| 0))& (0+255)
+   775  00B4  0086               	movwf	6
+   776  00B5  0187               	clrf	7
+   777  00B6  0901               	comf	1,w
+   778  00B7  3183  2393  3180   	fcall	_SPI_LCD_Data
+   779                           
+   780                           ;PIC16F1827-SPILCD01.c: 166: SPI_LCD_Data(~pattern[j][2]);
+   781  00BA  3005               	movlw	5
+   782  00BB  0020               	movlb	0	; select bank0
+   783  00BC  00AF               	movwf	??_main
+   784  00BD  082F               	movf	??_main,w
+   785  00BE  00A6               	movwf	___bmul@multiplicand
+   786  00BF  084F               	movf	main@j,w
+   787  00C0  3183  2381  3180   	fcall	___bmul
+   788  00C3  3E02               	addlw	2
+   789  00C4  3EA0               	addlw	(low (_pattern| 0))& (0+255)
+   790  00C5  0086               	movwf	6
+   791  00C6  0187               	clrf	7
+   792  00C7  0901               	comf	1,w
+   793  00C8  3183  2393  3180   	fcall	_SPI_LCD_Data
+   794                           
+   795                           ;PIC16F1827-SPILCD01.c: 167: SPI_LCD_Data(~pattern[j][3]);
+   796  00CB  3005               	movlw	5
+   797  00CC  0020               	movlb	0	; select bank0
+   798  00CD  00AF               	movwf	??_main
+   799  00CE  082F               	movf	??_main,w
+   800  00CF  00A6               	movwf	___bmul@multiplicand
+   801  00D0  084F               	movf	main@j,w
+   802  00D1  3183  2381  3180   	fcall	___bmul
+   803  00D4  3E03               	addlw	3
+   804  00D5  3EA0               	addlw	(low (_pattern| 0))& (0+255)
+   805  00D6  0086               	movwf	6
+   806  00D7  0187               	clrf	7
+   807  00D8  0901               	comf	1,w
+   808  00D9  3183  2393  3180   	fcall	_SPI_LCD_Data
+   809                           
+   810                           ;PIC16F1827-SPILCD01.c: 168: SPI_LCD_Data(~pattern[j][4]);
+   811  00DC  3005               	movlw	5
+   812  00DD  0020               	movlb	0	; select bank0
+   813  00DE  00AF               	movwf	??_main
+   814  00DF  082F               	movf	??_main,w
+   815  00E0  00A6               	movwf	___bmul@multiplicand
+   816  00E1  084F               	movf	main@j,w
+   817  00E2  3183  2381  3180   	fcall	___bmul
+   818  00E5  3E04               	addlw	4
+   819  00E6  3EA0               	addlw	(low (_pattern| 0))& (0+255)
+   820  00E7  0086               	movwf	6
+   821  00E8  0187               	clrf	7
+   822  00E9  0901               	comf	1,w
+   823  00EA  3183  2393  3180   	fcall	_SPI_LCD_Data
+   824                           
+   825                           ;PIC16F1827-SPILCD01.c: 169: SPI_LCD_Data(0x00);
+   826  00ED  3000               	movlw	0
+   827  00EE  3183  2393  3180   	fcall	_SPI_LCD_Data
+   828  00F1  3001               	movlw	1
+   829  00F2  0020               	movlb	0	; select bank0
+   830  00F3  00AF               	movwf	??_main
+   831  00F4  082F               	movf	??_main,w
+   832  00F5  07CF               	addwf	main@j,f
+   833  00F6  300A               	movlw	10
+   834  00F7  024F               	subwf	main@j,w
+   835  00F8  1C03               	skipc
+   836  00F9  289A               	goto	l1370
+   837  00FA                     l1378:	
+   838                           
+   839                           ;PIC16F1827-SPILCD01.c: 170: }
+   840                           ;PIC16F1827-SPILCD01.c: 171: for (j = 0; j < 10; j++) {
+   841  00FA  01CF               	clrf	main@j
+   842  00FB  300A               	movlw	10
+   843  00FC  024F               	subwf	main@j,w
+   844  00FD  1803               	btfsc	3,0
+   845  00FE  295F               	goto	l1392
+   846  00FF                     l1384:	
+   847                           
+   848                           ;PIC16F1827-SPILCD01.c: 172: SPI_LCD_Data(~pattern[j][0]);
+   849  00FF  3005               	movlw	5
+   850  0100  00AF               	movwf	??_main
+   851  0101  082F               	movf	??_main,w
+   852  0102  00A6               	movwf	___bmul@multiplicand
+   853  0103  084F               	movf	main@j,w
+   854  0104  3183  2381  3180   	fcall	___bmul
+   855  0107  3EA0               	addlw	(low (_pattern| 0))& (0+255)
+   856  0108  0086               	movwf	6
+   857  0109  0187               	clrf	7
+   858  010A  0901               	comf	1,w
+   859  010B  3183  2393  3180   	fcall	_SPI_LCD_Data
+   860                           
+   861                           ;PIC16F1827-SPILCD01.c: 173: SPI_LCD_Data(~pattern[j][1]);
+   862  010E  3005               	movlw	5
+   863  010F  0020               	movlb	0	; select bank0
+   864  0110  00AF               	movwf	??_main
+   865  0111  082F               	movf	??_main,w
+   866  0112  00A6               	movwf	___bmul@multiplicand
+   867  0113  084F               	movf	main@j,w
+   868  0114  3183  2381  3180   	fcall	___bmul
+   869  0117  3E01               	addlw	1
+   870  0118  3EA0               	addlw	(low (_pattern| 0))& (0+255)
+   871  0119  0086               	movwf	6
+   872  011A  0187               	clrf	7
+   873  011B  0901               	comf	1,w
+   874  011C  3183  2393  3180   	fcall	_SPI_LCD_Data
+   875                           
+   876                           ;PIC16F1827-SPILCD01.c: 174: SPI_LCD_Data(~pattern[j][2]);
+   877  011F  3005               	movlw	5
+   878  0120  0020               	movlb	0	; select bank0
+   879  0121  00AF               	movwf	??_main
+   880  0122  082F               	movf	??_main,w
+   881  0123  00A6               	movwf	___bmul@multiplicand
+   882  0124  084F               	movf	main@j,w
+   883  0125  3183  2381  3180   	fcall	___bmul
+   884  0128  3E02               	addlw	2
+   885  0129  3EA0               	addlw	(low (_pattern| 0))& (0+255)
+   886  012A  0086               	movwf	6
+   887  012B  0187               	clrf	7
+   888  012C  0901               	comf	1,w
+   889  012D  3183  2393  3180   	fcall	_SPI_LCD_Data
+   890                           
+   891                           ;PIC16F1827-SPILCD01.c: 175: SPI_LCD_Data(~pattern[j][3]);
+   892  0130  3005               	movlw	5
+   893  0131  0020               	movlb	0	; select bank0
+   894  0132  00AF               	movwf	??_main
+   895  0133  082F               	movf	??_main,w
+   896  0134  00A6               	movwf	___bmul@multiplicand
+   897  0135  084F               	movf	main@j,w
+   898  0136  3183  2381  3180   	fcall	___bmul
+   899  0139  3E03               	addlw	3
+   900  013A  3EA0               	addlw	(low (_pattern| 0))& (0+255)
+   901  013B  0086               	movwf	6
+   902  013C  0187               	clrf	7
+   903  013D  0901               	comf	1,w
+   904  013E  3183  2393  3180   	fcall	_SPI_LCD_Data
+   905                           
+   906                           ;PIC16F1827-SPILCD01.c: 176: SPI_LCD_Data(~pattern[j][4]);
+   907  0141  3005               	movlw	5
+   908  0142  0020               	movlb	0	; select bank0
+   909  0143  00AF               	movwf	??_main
+   910  0144  082F               	movf	??_main,w
+   911  0145  00A6               	movwf	___bmul@multiplicand
+   912  0146  084F               	movf	main@j,w
+   913  0147  3183  2381  3180   	fcall	___bmul
+   914  014A  3E04               	addlw	4
+   915  014B  3EA0               	addlw	(low (_pattern| 0))& (0+255)
+   916  014C  0086               	movwf	6
+   917  014D  0187               	clrf	7
+   918  014E  0901               	comf	1,w
+   919  014F  3183  2393  3180   	fcall	_SPI_LCD_Data
+   920                           
+   921                           ;PIC16F1827-SPILCD01.c: 177: SPI_LCD_Data(0x00);
+   922  0152  3000               	movlw	0
+   923  0153  3183  2393  3180   	fcall	_SPI_LCD_Data
+   924  0156  3001               	movlw	1
+   925  0157  0020               	movlb	0	; select bank0
+   926  0158  00AF               	movwf	??_main
+   927  0159  082F               	movf	??_main,w
+   928  015A  07CF               	addwf	main@j,f
+   929  015B  300A               	movlw	10
+   930  015C  024F               	subwf	main@j,w
+   931  015D  1C03               	skipc
+   932  015E  28FF               	goto	l1384
+   933  015F                     l1392:	
+   934  015F  3001               	movlw	1
+   935  0160  00AF               	movwf	??_main
+   936  0161  082F               	movf	??_main,w
+   937  0162  07CE               	addwf	main@i,f
+   938  0163  288B               	goto	L1
+   939  0164                     __end_of_main:	
+   940                           
+   941                           	psect	text1
+   942  0303                     __ptext1:	
+   943 ;; *************** function _ringbuf_init *****************
+   944 ;; Defined at:
+   945 ;;		line 24 in file "../My_header\My_ringbuf.h"
+   946 ;; Parameters:    Size  Location     Type
+   947 ;;  rb              1    wreg     PTR struct ringbuf
+   948 ;;		 -> tx_buf(7), 
+   949 ;;  internal_buf    1    6[BANK0 ] PTR unsigned char 
+   950 ;;		 -> main@buf(30), 
+   951 ;;  bufsize         2    7[BANK0 ] unsigned int 
+   952 ;; Auto vars:     Size  Location     Type
+   953 ;;  rb              1   10[BANK0 ] PTR struct ringbuf
+   954 ;;		 -> tx_buf(7), 
+   955 ;; Return value:  Size  Location     Type
+   956 ;;		None               void
+   957 ;; Registers used:
+   958 ;;		wreg, fsr1l, fsr1h, status,2, status,0
+   959 ;; Tracked objects:
+   960 ;;		On entry : 0/0
+   961 ;;		On exit  : 0/0
+   962 ;;		Unchanged: 0/0
+   963 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+   964 ;;      Params:         0       3       0       0       0       0
+   965 ;;      Locals:         0       1       0       0       0       0
+   966 ;;      Temps:          0       1       0       0       0       0
+   967 ;;      Totals:         0       5       0       0       0       0
+   968 ;;Total ram usage:        5 bytes
+   969 ;; Hardware stack levels used:    1
+   970 ;; Hardware stack levels required when called:    4
+   971 ;; This function calls:
+   972 ;;		Nothing
+   973 ;; This function is called by:
+   974 ;;		_main
+   975 ;; This function uses a non-reentrant model
+   976 ;;
+   977                           
+   978                           
+   979                           ;psect for function _ringbuf_init
+   980  0303                     _ringbuf_init:	
+   981                           
+   982                           ;incstack = 0
+   983                           ; Regs used in _ringbuf_init: [wreg+fsr1l+fsr1h+status,2+status,0]
+   984                           ;ringbuf_init@rb stored from wreg
+   985  0303  0020               	movlb	0	; select bank0
+   986  0304  00AA               	movwf	ringbuf_init@rb
+   987                           
+   988                           ;My_header\My_ringbuf.h: 25: rb->buf = internal_buf;
+   989  0305  0826               	movf	ringbuf_init@internal_buf,w
+   990  0306  00A9               	movwf	??_ringbuf_init
+   991  0307  082A               	movf	ringbuf_init@rb,w
+   992  0308  0086               	movwf	6
+   993  0309  0187               	clrf	7
+   994  030A  0829               	movf	??_ringbuf_init,w
+   995  030B  0081               	movwf	1
+   996                           
+   997                           ;My_header\My_ringbuf.h: 26: rb->size = bufsize;
+   998  030C  0A2A               	incf	ringbuf_init@rb,w
+   999  030D  0086               	movwf	6
+  1000  030E  0187               	clrf	7
+  1001  030F  0827               	movf	ringbuf_init@bufsize,w
+  1002  0310  3FC0               	movwi [0]fsr1
+  1003  0311  0828               	movf	ringbuf_init@bufsize+1,w
+  1004  0312  3FC1               	movwi [1]fsr1
+  1005                           
+  1006                           ;My_header\My_ringbuf.h: 27: rb->head = 0;
+  1007  0313  082A               	movf	ringbuf_init@rb,w
+  1008  0314  3E03               	addlw	3
+  1009  0315  0086               	movwf	6
+  1010  0316  0187               	clrf	7
+  1011  0317  3000               	movlw	0
+  1012  0318  3FC0               	movwi [0]fsr1
+  1013  0319  3FC1               	movwi [1]fsr1
+  1014                           
+  1015                           ;My_header\My_ringbuf.h: 28: rb->tail = 0;
+  1016  031A  082A               	movf	ringbuf_init@rb,w
+  1017  031B  3E05               	addlw	5
+  1018  031C  0086               	movwf	6
+  1019  031D  0187               	clrf	7
+  1020  031E  3000               	movlw	0
+  1021  031F  3FC0               	movwi [0]fsr1
+  1022  0320  3FC1               	movwi [1]fsr1
+  1023  0321  0008               	return
+  1024  0322                     __end_of_ringbuf_init:	
+  1025                           
+  1026                           	psect	text2
+  1027  0381                     __ptext2:	
+  1028 ;; *************** function ___bmul *****************
+  1029 ;; Defined at:
+  1030 ;;		line 4 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul8.c"
+  1031 ;; Parameters:    Size  Location     Type
+  1032 ;;  multiplier      1    wreg     unsigned char 
+  1033 ;;  multiplicand    1    6[BANK0 ] unsigned char 
+  1034 ;; Auto vars:     Size  Location     Type
+  1035 ;;  multiplier      1    9[BANK0 ] unsigned char 
+  1036 ;;  product         1    8[BANK0 ] unsigned char 
+  1037 ;; Return value:  Size  Location     Type
+  1038 ;;                  1    wreg      unsigned char 
+  1039 ;; Registers used:
+  1040 ;;		wreg, status,2, status,0
+  1041 ;; Tracked objects:
+  1042 ;;		On entry : 0/0
+  1043 ;;		On exit  : 0/0
+  1044 ;;		Unchanged: 0/0
+  1045 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1046 ;;      Params:         0       1       0       0       0       0
+  1047 ;;      Locals:         0       2       0       0       0       0
+  1048 ;;      Temps:          0       1       0       0       0       0
+  1049 ;;      Totals:         0       4       0       0       0       0
+  1050 ;;Total ram usage:        4 bytes
+  1051 ;; Hardware stack levels used:    1
+  1052 ;; Hardware stack levels required when called:    4
+  1053 ;; This function calls:
+  1054 ;;		Nothing
+  1055 ;; This function is called by:
+  1056 ;;		_main
+  1057 ;; This function uses a non-reentrant model
+  1058 ;;
+  1059                           
+  1060                           
+  1061                           ;psect for function ___bmul
+  1062  0381                     ___bmul:	
+  1063                           
+  1064                           ;incstack = 0
+  1065                           ; Regs used in ___bmul: [wreg+status,2+status,0]
+  1066                           ;___bmul@multiplier stored from wreg
+  1067  0381  0020               	movlb	0	; select bank0
+  1068  0382  00A9               	movwf	___bmul@multiplier
+  1069  0383  01A8               	clrf	___bmul@product
+  1070  0384                     l1216:	
+  1071  0384  1C29               	btfss	___bmul@multiplier,0
+  1072  0385  2B8A               	goto	l1220
+  1073  0386  0826               	movf	___bmul@multiplicand,w
+  1074  0387  00A7               	movwf	??___bmul
+  1075  0388  0827               	movf	??___bmul,w
+  1076  0389  07A8               	addwf	___bmul@product,f
+  1077  038A                     l1220:	
+  1078  038A  1003               	clrc
+  1079  038B  0DA6               	rlf	___bmul@multiplicand,f
+  1080  038C  1003               	clrc
+  1081  038D  0CA9               	rrf	___bmul@multiplier,f
+  1082  038E  0829               	movf	___bmul@multiplier,w
+  1083  038F  1D03               	btfss	3,2
+  1084  0390  2B84               	goto	l1216
+  1085  0391  0828               	movf	___bmul@product,w
+  1086  0392  0008               	return
+  1087  0393                     __end_of___bmul:	
+  1088                           
+  1089                           	psect	text3
+  1090  03B3                     __ptext3:	
+  1091 ;; *************** function _UART_init *****************
+  1092 ;; Defined at:
+  1093 ;;		line 237 in file "../My_header\My_header.h"
+  1094 ;; Parameters:    Size  Location     Type
+  1095 ;;		None
+  1096 ;; Auto vars:     Size  Location     Type
+  1097 ;;		None
+  1098 ;; Return value:  Size  Location     Type
+  1099 ;;		None               void
+  1100 ;; Registers used:
+  1101 ;;		wreg, status,2
+  1102 ;; Tracked objects:
+  1103 ;;		On entry : 0/0
+  1104 ;;		On exit  : 0/0
+  1105 ;;		Unchanged: 0/0
+  1106 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1107 ;;      Params:         0       0       0       0       0       0
+  1108 ;;      Locals:         0       0       0       0       0       0
+  1109 ;;      Temps:          0       0       0       0       0       0
+  1110 ;;      Totals:         0       0       0       0       0       0
+  1111 ;;Total ram usage:        0 bytes
+  1112 ;; Hardware stack levels used:    1
+  1113 ;; Hardware stack levels required when called:    4
+  1114 ;; This function calls:
+  1115 ;;		Nothing
+  1116 ;; This function is called by:
+  1117 ;;		_main
+  1118 ;; This function uses a non-reentrant model
+  1119 ;;
+  1120                           
+  1121                           
+  1122                           ;psect for function _UART_init
+  1123  03B3                     _UART_init:	
+  1124                           
+  1125                           ;My_header\My_header.h: 238: SPEN = 1;
+  1126                           
+  1127                           ;incstack = 0
+  1128                           ; Regs used in _UART_init: [wreg+status,2]
+  1129  03B3  0023               	movlb	3	; select bank3
+  1130  03B4  179D               	bsf	29,7	;volatile
+  1131                           
+  1132                           ;My_header\My_header.h: 239: RCSTA = 0x90;
+  1133  03B5  3090               	movlw	144
+  1134  03B6  009D               	movwf	29	;volatile
+  1135                           
+  1136                           ;My_header\My_header.h: 240: BRG16 = 0;
+  1137  03B7  119F               	bcf	31,3	;volatile
+  1138                           
+  1139                           ;My_header\My_header.h: 241: SPBRGH = 0;
+  1140  03B8  019C               	clrf	28	;volatile
+  1141                           
+  1142                           ;My_header\My_header.h: 242: SPBRGL = 207;
+  1143  03B9  30CF               	movlw	207
+  1144  03BA  009B               	movwf	27	;volatile
+  1145                           
+  1146                           ;My_header\My_header.h: 243: TXSTA = 0x24;
+  1147  03BB  3024               	movlw	36
+  1148  03BC  009E               	movwf	30	;volatile
+  1149                           
+  1150                           ;My_header\My_header.h: 244: PIE1bits.RCIE = 1;
+  1151  03BD  0021               	movlb	1	; select bank1
+  1152  03BE  1691               	bsf	17,5	;volatile
+  1153                           
+  1154                           ;My_header\My_header.h: 245: INTCONbits.PEIE = 1;
+  1155  03BF  170B               	bsf	11,6	;volatile
+  1156  03C0  0008               	return
+  1157  03C1                     __end_of_UART_init:	
+  1158                           
+  1159                           	psect	text4
+  1160  02E0                     __ptext4:	
+  1161 ;; *************** function _SPI_init *****************
+  1162 ;; Defined at:
+  1163 ;;		line 15 in file "../My_header\My_SPI.h"
+  1164 ;; Parameters:    Size  Location     Type
+  1165 ;;  mode            1    wreg     unsigned char 
+  1166 ;; Auto vars:     Size  Location     Type
+  1167 ;;  mode            1    6[BANK0 ] unsigned char 
+  1168 ;; Return value:  Size  Location     Type
+  1169 ;;		None               void
+  1170 ;; Registers used:
+  1171 ;;		wreg, status,2, status,0
+  1172 ;; Tracked objects:
+  1173 ;;		On entry : 0/0
+  1174 ;;		On exit  : 0/0
+  1175 ;;		Unchanged: 0/0
+  1176 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1177 ;;      Params:         0       0       0       0       0       0
+  1178 ;;      Locals:         0       1       0       0       0       0
+  1179 ;;      Temps:          0       0       0       0       0       0
+  1180 ;;      Totals:         0       1       0       0       0       0
+  1181 ;;Total ram usage:        1 bytes
+  1182 ;; Hardware stack levels used:    1
+  1183 ;; Hardware stack levels required when called:    4
+  1184 ;; This function calls:
+  1185 ;;		Nothing
+  1186 ;; This function is called by:
+  1187 ;;		_main
+  1188 ;; This function uses a non-reentrant model
+  1189 ;;
+  1190                           
+  1191                           
+  1192                           ;psect for function _SPI_init
+  1193  02E0                     _SPI_init:	
+  1194                           
+  1195                           ;incstack = 0
+  1196                           ; Regs used in _SPI_init: [wreg+status,2+status,0]
+  1197                           ;SPI_init@mode stored from wreg
+  1198  02E0  0020               	movlb	0	; select bank0
+  1199  02E1  00A6               	movwf	SPI_init@mode
+  1200                           
+  1201                           ;My_header\My_SPI.h: 16: SSP1CON1bits.SSPEN = 1;
+  1202  02E2  0024               	movlb	4	; select bank4
+  1203  02E3  1695               	bsf	21,5	;volatile
+  1204                           
+  1205                           ;My_header\My_SPI.h: 17: SSP1CON1bits.CKP = 1;
+  1206  02E4  1615               	bsf	21,4	;volatile
+  1207                           
+  1208                           ;My_header\My_SPI.h: 18: SSP1STATbits.CKE = 0;
+  1209  02E5  1314               	bcf	20,6	;volatile
+  1210                           
+  1211                           ;My_header\My_SPI.h: 19: if (mode == 0) {
+  1212  02E6  0020               	movlb	0	; select bank0
+  1213  02E7  0826               	movf	SPI_init@mode,w
+  1214  02E8  1D03               	btfss	3,2
+  1215  02E9  2AF0               	goto	l1176
+  1216                           
+  1217                           ;My_header\My_SPI.h: 20: SSP1CON1bits.SSPM = 2;
+  1218  02EA  0024               	movlb	4	; select bank4
+  1219  02EB  0815               	movf	21,w	;volatile
+  1220  02EC  39F0               	andlw	-16
+  1221  02ED  3802               	iorlw	2
+  1222  02EE  0095               	movwf	21	;volatile
+  1223                           
+  1224                           ;My_header\My_SPI.h: 21: } else if (mode == 1) {
+  1225  02EF  2AFA               	goto	l190
+  1226  02F0                     l1176:	
+  1227  02F0  0020               	movlb	0	; select bank0
+  1228  02F1  0326               	decf	SPI_init@mode,w
+  1229  02F2  1D03               	btfss	3,2
+  1230  02F3  2AFA               	goto	l190
+  1231                           
+  1232                           ;My_header\My_SPI.h: 22: SSP1CON1bits.SSPM = 4;
+  1233  02F4  0024               	movlb	4	; select bank4
+  1234  02F5  0815               	movf	21,w	;volatile
+  1235  02F6  39F0               	andlw	-16
+  1236  02F7  3804               	iorlw	4
+  1237  02F8  0095               	movwf	21	;volatile
+  1238                           
+  1239                           ;My_header\My_SPI.h: 23: SSP1STATbits.SMP = 0;
+  1240  02F9  1394               	bcf	20,7	;volatile
+  1241  02FA                     l190:	
+  1242                           
+  1243                           ;My_header\My_SPI.h: 24: }
+  1244                           ;My_header\My_SPI.h: 25: if (mode == 1) {
+  1245  02FA  0020               	movlb	0	; select bank0
+  1246  02FB  0326               	decf	SPI_init@mode,w
+  1247  02FC  1D03               	btfss	3,2
+  1248  02FD  0008               	return
+  1249                           
+  1250                           ;My_header\My_SPI.h: 26: SSP1IF = 0;
+  1251  02FE  1191               	bcf	17,3	;volatile
+  1252                           
+  1253                           ;My_header\My_SPI.h: 27: PIE1bits.SSP1IE = 1;
+  1254  02FF  0021               	movlb	1	; select bank1
+  1255  0300  1591               	bsf	17,3	;volatile
+  1256                           
+  1257                           ;My_header\My_SPI.h: 28: INTCONbits.PEIE = 1;
+  1258  0301  170B               	bsf	11,6	;volatile
+  1259  0302  0008               	return
+  1260  0303                     __end_of_SPI_init:	
+  1261                           
+  1262                           	psect	text5
+  1263  01BA                     __ptext5:	
+  1264 ;; *************** function _SPI_LCD_init *****************
+  1265 ;; Defined at:
+  1266 ;;		line 87 in file "../My_header\My_SPI.h"
+  1267 ;; Parameters:    Size  Location     Type
+  1268 ;;		None
+  1269 ;; Auto vars:     Size  Location     Type
+  1270 ;;		None
+  1271 ;; Return value:  Size  Location     Type
+  1272 ;;		None               void
+  1273 ;; Registers used:
+  1274 ;;		wreg, status,2, status,0, pclath, cstack
+  1275 ;; Tracked objects:
+  1276 ;;		On entry : 0/0
+  1277 ;;		On exit  : 0/0
+  1278 ;;		Unchanged: 0/0
+  1279 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1280 ;;      Params:         0       0       0       0       0       0
+  1281 ;;      Locals:         0       0       0       0       0       0
+  1282 ;;      Temps:          0       2       0       0       0       0
+  1283 ;;      Totals:         0       2       0       0       0       0
+  1284 ;;Total ram usage:        2 bytes
+  1285 ;; Hardware stack levels used:    1
+  1286 ;; Hardware stack levels required when called:    6
+  1287 ;; This function calls:
+  1288 ;;		_Delay_ms
+  1289 ;;		_SPI_LCD_Command
+  1290 ;; This function is called by:
+  1291 ;;		_main
+  1292 ;; This function uses a non-reentrant model
+  1293 ;;
+  1294                           
+  1295                           
+  1296                           ;psect for function _SPI_LCD_init
+  1297  01BA                     _SPI_LCD_init:	
+  1298                           
+  1299                           ;My_header\My_SPI.h: 88: Delay_ms(100);
+  1300                           
+  1301                           ;incstack = 0
+  1302                           ; Regs used in _SPI_LCD_init: [wreg+status,2+status,0+pclath+cstack]
+  1303  01BA  3064               	movlw	100
+  1304  01BB  0020               	movlb	0	; select bank0
+  1305  01BC  00A6               	movwf	Delay_ms@ms
+  1306  01BD  3000               	movlw	0
+  1307  01BE  00A7               	movwf	Delay_ms@ms+1
+  1308  01BF  3183  236C  3181   	fcall	_Delay_ms
+  1309                           
+  1310                           ;My_header\My_SPI.h: 89: SPI_LCD_Command(0xAE);
+  1311  01C2  30AE               	movlw	174
+  1312  01C3  3183  23A3  3181   	fcall	_SPI_LCD_Command
+  1313                           
+  1314                           ;My_header\My_SPI.h: 90: SPI_LCD_Command(0xA0);
+  1315  01C6  30A0               	movlw	160
+  1316  01C7  3183  23A3  3181   	fcall	_SPI_LCD_Command
+  1317                           
+  1318                           ;My_header\My_SPI.h: 91: SPI_LCD_Command(0xC8);
+  1319  01CA  30C8               	movlw	200
+  1320  01CB  3183  23A3  3181   	fcall	_SPI_LCD_Command
+  1321                           
+  1322                           ;My_header\My_SPI.h: 92: SPI_LCD_Command(0xA3);
+  1323  01CE  30A3               	movlw	163
+  1324  01CF  3183  23A3  3181   	fcall	_SPI_LCD_Command
+  1325                           
+  1326                           ;My_header\My_SPI.h: 94: SPI_LCD_Command(0x2C);
+  1327  01D2  302C               	movlw	44
+  1328  01D3  3183  23A3  3181   	fcall	_SPI_LCD_Command
+  1329                           
+  1330                           ;My_header\My_SPI.h: 95: _delay((unsigned long)((2)*(32000000/4000.0)));
+  1331  01D6  3015               	movlw	21
+  1332  01D7  0020               	movlb	0	; select bank0
+  1333  01D8  00AD               	movwf	??_SPI_LCD_init+1
+  1334  01D9  30C6               	movlw	198
+  1335  01DA  00AC               	movwf	??_SPI_LCD_init
+  1336  01DB                     u727:	
+  1337  01DB  0BAC               	decfsz	??_SPI_LCD_init,f
+  1338  01DC  29DB               	goto	u727
+  1339  01DD  0BAD               	decfsz	??_SPI_LCD_init+1,f
+  1340  01DE  29DB               	goto	u727
+  1341  01DF  0000               	nop
+  1342                           
+  1343                           ;My_header\My_SPI.h: 96: SPI_LCD_Command(0x2E);
+  1344  01E0  302E               	movlw	46
+  1345  01E1  3183  23A3  3181   	fcall	_SPI_LCD_Command
+  1346                           
+  1347                           ;My_header\My_SPI.h: 97: _delay((unsigned long)((2)*(32000000/4000.0)));
+  1348  01E4  3015               	movlw	21
+  1349  01E5  0020               	movlb	0	; select bank0
+  1350  01E6  00AD               	movwf	??_SPI_LCD_init+1
+  1351  01E7  30C6               	movlw	198
+  1352  01E8  00AC               	movwf	??_SPI_LCD_init
+  1353  01E9                     u737:	
+  1354  01E9  0BAC               	decfsz	??_SPI_LCD_init,f
+  1355  01EA  29E9               	goto	u737
+  1356  01EB  0BAD               	decfsz	??_SPI_LCD_init+1,f
+  1357  01EC  29E9               	goto	u737
+  1358  01ED  0000               	nop
+  1359                           
+  1360                           ;My_header\My_SPI.h: 98: SPI_LCD_Command(0x2F);
+  1361  01EE  302F               	movlw	47
+  1362  01EF  3183  23A3  3181   	fcall	_SPI_LCD_Command
+  1363                           
+  1364                           ;My_header\My_SPI.h: 100: SPI_LCD_Command(0x23);
+  1365  01F2  3023               	movlw	35
+  1366  01F3  3183  23A3  3181   	fcall	_SPI_LCD_Command
+  1367                           
+  1368                           ;My_header\My_SPI.h: 101: SPI_LCD_Command(0x81);
+  1369  01F6  3081               	movlw	129
+  1370  01F7  3183  23A3  3181   	fcall	_SPI_LCD_Command
+  1371                           
+  1372                           ;My_header\My_SPI.h: 102: SPI_LCD_Command(0x16);
+  1373  01FA  3016               	movlw	22
+  1374  01FB  3183  23A3  3181   	fcall	_SPI_LCD_Command
+  1375                           
+  1376                           ;My_header\My_SPI.h: 104: SPI_LCD_Command(0xA4);
+  1377  01FE  30A4               	movlw	164
+  1378  01FF  3183  23A3  3181   	fcall	_SPI_LCD_Command
+  1379                           
+  1380                           ;My_header\My_SPI.h: 105: SPI_LCD_Command(0x40);
+  1381  0202  3040               	movlw	64
+  1382  0203  3183  23A3  3181   	fcall	_SPI_LCD_Command
+  1383                           
+  1384                           ;My_header\My_SPI.h: 106: SPI_LCD_Command(0xA6);
+  1385  0206  30A6               	movlw	166
+  1386  0207  3183  23A3  3181   	fcall	_SPI_LCD_Command
+  1387                           
+  1388                           ;My_header\My_SPI.h: 107: SPI_LCD_Command(0xAF);
+  1389  020A  30AF               	movlw	175
+  1390  020B  3183  23A3         	fcall	_SPI_LCD_Command
+  1391  020D  0008               	return
+  1392  020E                     __end_of_SPI_LCD_init:	
+  1393                           
+  1394                           	psect	text6
+  1395  036C                     __ptext6:	
+  1396 ;; *************** function _Delay_ms *****************
+  1397 ;; Defined at:
+  1398 ;;		line 334 in file "../My_header\My_header.h"
+  1399 ;; Parameters:    Size  Location     Type
+  1400 ;;  ms              2    6[BANK0 ] unsigned int 
+  1401 ;; Auto vars:     Size  Location     Type
+  1402 ;;		None
+  1403 ;; Return value:  Size  Location     Type
+  1404 ;;		None               void
+  1405 ;; Registers used:
+  1406 ;;		wreg, status,2, status,0
+  1407 ;; Tracked objects:
+  1408 ;;		On entry : 0/0
+  1409 ;;		On exit  : 0/0
+  1410 ;;		Unchanged: 0/0
+  1411 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1412 ;;      Params:         0       2       0       0       0       0
+  1413 ;;      Locals:         0       0       0       0       0       0
+  1414 ;;      Temps:          0       2       0       0       0       0
+  1415 ;;      Totals:         0       4       0       0       0       0
+  1416 ;;Total ram usage:        4 bytes
+  1417 ;; Hardware stack levels used:    1
+  1418 ;; Hardware stack levels required when called:    4
+  1419 ;; This function calls:
+  1420 ;;		Nothing
+  1421 ;; This function is called by:
+  1422 ;;		_SPI_LCD_init
+  1423 ;; This function uses a non-reentrant model
+  1424 ;;
+  1425                           
+  1426                           
+  1427                           ;psect for function _Delay_ms
+  1428  036C                     _Delay_ms:	
+  1429  036C                     l1126:	
+  1430                           ;My_header\My_header.h: 335: while (ms--)_delay((unsigned long)((1)*(32000000/4000.0)));
+  1431                           
+  1432                           ;incstack = 0
+  1433                           ; Regs used in _Delay_ms: [wreg+status,2+status,0]
+  1434                           
+  1435  036C  3001               	movlw	1
+  1436  036D  0020               	movlb	0	; select bank0
+  1437  036E  02A6               	subwf	Delay_ms@ms,f
+  1438  036F  3000               	movlw	0
+  1439  0370  3BA7               	subwfb	Delay_ms@ms+1,f
+  1440  0371  0A26               	incf	Delay_ms@ms,w
+  1441  0372  1903               	btfsc	3,2
+  1442  0373  0A27               	incf	Delay_ms@ms+1,w
+  1443  0374  1903               	btfsc	3,2
+  1444  0375  0008               	return
+  1445  0376  300B               	movlw	11
+  1446  0377  0020               	movlb	0	; select bank0
+  1447  0378  00A9               	movwf	??_Delay_ms+1
+  1448  0379  3062               	movlw	98
+  1449  037A  00A8               	movwf	??_Delay_ms
+  1450  037B                     u747:	
+  1451  037B  0BA8               	decfsz	??_Delay_ms,f
+  1452  037C  2B7B               	goto	u747
+  1453  037D  0BA9               	decfsz	??_Delay_ms+1,f
+  1454  037E  2B7B               	goto	u747
+  1455  037F  0000               	nop
+  1456  0380  2B6C               	goto	l1126
+  1457  0381                     __end_of_Delay_ms:	
+  1458                           
+  1459                           	psect	text7
+  1460  0393                     __ptext7:	
+  1461 ;; *************** function _SPI_LCD_Data *****************
+  1462 ;; Defined at:
+  1463 ;;		line 80 in file "../My_header\My_SPI.h"
+  1464 ;; Parameters:    Size  Location     Type
+  1465 ;;  data            1    wreg     unsigned char 
+  1466 ;; Auto vars:     Size  Location     Type
+  1467 ;;  data            1   11[BANK0 ] unsigned char 
+  1468 ;;  dumy            1   10[BANK0 ] unsigned char 
+  1469 ;; Return value:  Size  Location     Type
+  1470 ;;		None               void
+  1471 ;; Registers used:
+  1472 ;;		wreg, pclath, cstack
+  1473 ;; Tracked objects:
+  1474 ;;		On entry : 0/0
+  1475 ;;		On exit  : 0/0
+  1476 ;;		Unchanged: 0/0
+  1477 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1478 ;;      Params:         0       0       0       0       0       0
+  1479 ;;      Locals:         0       2       0       0       0       0
+  1480 ;;      Temps:          0       1       0       0       0       0
+  1481 ;;      Totals:         0       3       0       0       0       0
+  1482 ;;Total ram usage:        3 bytes
+  1483 ;; Hardware stack levels used:    1
+  1484 ;; Hardware stack levels required when called:    5
+  1485 ;; This function calls:
+  1486 ;;		_SPI_Transfer
+  1487 ;; This function is called by:
+  1488 ;;		_main
+  1489 ;; This function uses a non-reentrant model
+  1490 ;;
+  1491                           
+  1492                           
+  1493                           ;psect for function _SPI_LCD_Data
+  1494  0393                     _SPI_LCD_Data:	
+  1495                           
+  1496                           ;incstack = 0
+  1497                           ; Regs used in _SPI_LCD_Data: [wreg+pclath+cstack]
+  1498                           ;SPI_LCD_Data@data stored from wreg
+  1499  0393  0020               	movlb	0	; select bank0
+  1500  0394  00AB               	movwf	SPI_LCD_Data@data
+  1501                           
+  1502                           ;My_header\My_SPI.h: 81: LATA7 = 0;
+  1503  0395  0022               	movlb	2	; select bank2
+  1504  0396  138C               	bcf	12,7	;volatile
+  1505                           
+  1506                           ;My_header\My_SPI.h: 82: LATA4 = 1;
+  1507  0397  160C               	bsf	12,4	;volatile
+  1508                           
+  1509                           ;My_header\My_SPI.h: 83: uint8_t dumy = SPI_Transfer(data);
+  1510  0398  0020               	movlb	0	; select bank0
+  1511  0399  082B               	movf	SPI_LCD_Data@data,w
+  1512  039A  3183  2355         	fcall	_SPI_Transfer
+  1513  039C  0020               	movlb	0	; select bank0
+  1514  039D  00A9               	movwf	??_SPI_LCD_Data
+  1515  039E  0829               	movf	??_SPI_LCD_Data,w
+  1516  039F  00AA               	movwf	SPI_LCD_Data@dumy
+  1517                           
+  1518                           ;My_header\My_SPI.h: 84: LATA7 = 1;
+  1519  03A0  0022               	movlb	2	; select bank2
+  1520  03A1  178C               	bsf	12,7	;volatile
+  1521  03A2  0008               	return
+  1522  03A3                     __end_of_SPI_LCD_Data:	
+  1523                           
+  1524                           	psect	text8
+  1525  0322                     __ptext8:	
+  1526 ;; *************** function _SPI_LCD_Cursor *****************
+  1527 ;; Defined at:
+  1528 ;;		line 110 in file "../My_header\My_SPI.h"
+  1529 ;; Parameters:    Size  Location     Type
+  1530 ;;  page            1    wreg     unsigned char 
+  1531 ;;  column          1   12[BANK0 ] unsigned char 
+  1532 ;; Auto vars:     Size  Location     Type
+  1533 ;;  page            1   14[BANK0 ] unsigned char 
+  1534 ;; Return value:  Size  Location     Type
+  1535 ;;		None               void
+  1536 ;; Registers used:
+  1537 ;;		wreg, status,2, status,0, pclath, cstack
+  1538 ;; Tracked objects:
+  1539 ;;		On entry : 0/0
+  1540 ;;		On exit  : 0/0
+  1541 ;;		Unchanged: 0/0
+  1542 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1543 ;;      Params:         0       1       0       0       0       0
+  1544 ;;      Locals:         0       1       0       0       0       0
+  1545 ;;      Temps:          0       1       0       0       0       0
+  1546 ;;      Totals:         0       3       0       0       0       0
+  1547 ;;Total ram usage:        3 bytes
+  1548 ;; Hardware stack levels used:    1
+  1549 ;; Hardware stack levels required when called:    6
+  1550 ;; This function calls:
+  1551 ;;		_SPI_LCD_Command
+  1552 ;; This function is called by:
+  1553 ;;		_main
+  1554 ;; This function uses a non-reentrant model
+  1555 ;;
+  1556                           
+  1557                           
+  1558                           ;psect for function _SPI_LCD_Cursor
+  1559  0322                     _SPI_LCD_Cursor:	
+  1560                           
+  1561                           ;incstack = 0
+  1562                           ; Regs used in _SPI_LCD_Cursor: [wreg+status,2+status,0+pclath+cstack]
+  1563                           ;SPI_LCD_Cursor@page stored from wreg
+  1564  0322  0020               	movlb	0	; select bank0
+  1565  0323  00AE               	movwf	SPI_LCD_Cursor@page
+  1566                           
+  1567                           ;My_header\My_SPI.h: 111: SPI_LCD_Command(0xB0 | (0x0F & page));
+  1568  0324  082E               	movf	SPI_LCD_Cursor@page,w
+  1569  0325  390F               	andlw	15
+  1570  0326  38B0               	iorlw	176
+  1571  0327  3183  23A3  3183   	fcall	_SPI_LCD_Command
+  1572                           
+  1573                           ;My_header\My_SPI.h: 112: SPI_LCD_Command(0x10 | (0x0F & (column >> 4)));
+  1574  032A  0020               	movlb	0	; select bank0
+  1575  032B  082C               	movf	SPI_LCD_Cursor@column,w
+  1576  032C  00AD               	movwf	??_SPI_LCD_Cursor
+  1577  032D  3004               	movlw	4
+  1578  032E                     u515:	
+  1579  032E  36AD               	lsrf	??_SPI_LCD_Cursor,f
+  1580  032F  0B89               	decfsz	9,f
+  1581  0330  2B2E               	goto	u515
+  1582  0331  082D               	movf	??_SPI_LCD_Cursor,w
+  1583  0332  390F               	andlw	15
+  1584  0333  3810               	iorlw	16
+  1585  0334  3183  23A3  3183   	fcall	_SPI_LCD_Command
+  1586                           
+  1587                           ;My_header\My_SPI.h: 113: SPI_LCD_Command(0x00 | (0x0F & column));
+  1588  0337  0020               	movlb	0	; select bank0
+  1589  0338  082C               	movf	SPI_LCD_Cursor@column,w
+  1590  0339  390F               	andlw	15
+  1591  033A  3183  23A3         	fcall	_SPI_LCD_Command
+  1592  033C  0008               	return
+  1593  033D                     __end_of_SPI_LCD_Cursor:	
+  1594                           
+  1595                           	psect	text9
+  1596  03A3                     __ptext9:	
+  1597 ;; *************** function _SPI_LCD_Command *****************
+  1598 ;; Defined at:
+  1599 ;;		line 73 in file "../My_header\My_SPI.h"
+  1600 ;; Parameters:    Size  Location     Type
+  1601 ;;  comm            1    wreg     unsigned char 
+  1602 ;; Auto vars:     Size  Location     Type
+  1603 ;;  comm            1   11[BANK0 ] unsigned char 
+  1604 ;;  dumy            1   10[BANK0 ] unsigned char 
+  1605 ;; Return value:  Size  Location     Type
+  1606 ;;		None               void
+  1607 ;; Registers used:
+  1608 ;;		wreg, pclath, cstack
+  1609 ;; Tracked objects:
+  1610 ;;		On entry : 0/0
+  1611 ;;		On exit  : 0/0
+  1612 ;;		Unchanged: 0/0
+  1613 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1614 ;;      Params:         0       0       0       0       0       0
+  1615 ;;      Locals:         0       2       0       0       0       0
+  1616 ;;      Temps:          0       1       0       0       0       0
+  1617 ;;      Totals:         0       3       0       0       0       0
+  1618 ;;Total ram usage:        3 bytes
+  1619 ;; Hardware stack levels used:    1
+  1620 ;; Hardware stack levels required when called:    5
+  1621 ;; This function calls:
+  1622 ;;		_SPI_Transfer
+  1623 ;; This function is called by:
+  1624 ;;		_SPI_LCD_init
+  1625 ;;		_SPI_LCD_Cursor
+  1626 ;; This function uses a non-reentrant model
+  1627 ;;
+  1628                           
+  1629                           
+  1630                           ;psect for function _SPI_LCD_Command
+  1631  03A3                     _SPI_LCD_Command:	
+  1632                           
+  1633                           ;incstack = 0
+  1634                           ; Regs used in _SPI_LCD_Command: [wreg+pclath+cstack]
+  1635                           ;SPI_LCD_Command@comm stored from wreg
+  1636  03A3  0020               	movlb	0	; select bank0
+  1637  03A4  00AB               	movwf	SPI_LCD_Command@comm
+  1638                           
+  1639                           ;My_header\My_SPI.h: 74: LATA7 = 0;
+  1640  03A5  0022               	movlb	2	; select bank2
+  1641  03A6  138C               	bcf	12,7	;volatile
+  1642                           
+  1643                           ;My_header\My_SPI.h: 75: LATA4 = 0;
+  1644  03A7  120C               	bcf	12,4	;volatile
+  1645                           
+  1646                           ;My_header\My_SPI.h: 76: uint8_t dumy = SPI_Transfer(comm);
+  1647  03A8  0020               	movlb	0	; select bank0
+  1648  03A9  082B               	movf	SPI_LCD_Command@comm,w
+  1649  03AA  3183  2355         	fcall	_SPI_Transfer
+  1650  03AC  0020               	movlb	0	; select bank0
+  1651  03AD  00A9               	movwf	??_SPI_LCD_Command
+  1652  03AE  0829               	movf	??_SPI_LCD_Command,w
+  1653  03AF  00AA               	movwf	SPI_LCD_Command@dumy
+  1654                           
+  1655                           ;My_header\My_SPI.h: 77: LATA7 = 1;
+  1656  03B0  0022               	movlb	2	; select bank2
+  1657  03B1  178C               	bsf	12,7	;volatile
+  1658  03B2  0008               	return
+  1659  03B3                     __end_of_SPI_LCD_Command:	
+  1660                           
+  1661                           	psect	text10
+  1662  0355                     __ptext10:	
+  1663 ;; *************** function _SPI_Transfer *****************
+  1664 ;; Defined at:
+  1665 ;;		line 32 in file "../My_header\My_SPI.h"
+  1666 ;; Parameters:    Size  Location     Type
+  1667 ;;  txdata          1    wreg     unsigned char 
+  1668 ;; Auto vars:     Size  Location     Type
+  1669 ;;  txdata          1    7[BANK0 ] unsigned char 
+  1670 ;;  rxdata          1    8[BANK0 ] unsigned char 
+  1671 ;; Return value:  Size  Location     Type
+  1672 ;;                  1    wreg      unsigned char 
+  1673 ;; Registers used:
+  1674 ;;		wreg
+  1675 ;; Tracked objects:
+  1676 ;;		On entry : 0/0
+  1677 ;;		On exit  : 0/0
+  1678 ;;		Unchanged: 0/0
+  1679 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1680 ;;      Params:         0       0       0       0       0       0
+  1681 ;;      Locals:         0       2       0       0       0       0
+  1682 ;;      Temps:          0       1       0       0       0       0
+  1683 ;;      Totals:         0       3       0       0       0       0
+  1684 ;;Total ram usage:        3 bytes
+  1685 ;; Hardware stack levels used:    1
+  1686 ;; Hardware stack levels required when called:    4
+  1687 ;; This function calls:
+  1688 ;;		Nothing
+  1689 ;; This function is called by:
+  1690 ;;		_SPI_LCD_Command
+  1691 ;;		_SPI_LCD_Data
+  1692 ;; This function uses a non-reentrant model
+  1693 ;;
+  1694                           
+  1695                           
+  1696                           ;psect for function _SPI_Transfer
+  1697  0355                     _SPI_Transfer:	
+  1698                           
+  1699                           ;incstack = 0
+  1700                           ; Regs used in _SPI_Transfer: [wreg]
+  1701                           ;SPI_Transfer@txdata stored from wreg
+  1702  0355  0020               	movlb	0	; select bank0
+  1703  0356  00A7               	movwf	SPI_Transfer@txdata
+  1704                           
+  1705                           ;My_header\My_SPI.h: 33: uint8_t rxdata;
+  1706                           ;My_header\My_SPI.h: 35: rxdata = SSP1BUF;
+  1707  0357  0024               	movlb	4	; select bank4
+  1708  0358  0811               	movf	17,w	;volatile
+  1709  0359  0020               	movlb	0	; select bank0
+  1710  035A  00A6               	movwf	??_SPI_Transfer
+  1711  035B  0826               	movf	??_SPI_Transfer,w
+  1712  035C  00A8               	movwf	SPI_Transfer@rxdata
+  1713                           
+  1714                           ;My_header\My_SPI.h: 36: SSP1IF = 0;
+  1715  035D  1191               	bcf	17,3	;volatile
+  1716                           
+  1717                           ;My_header\My_SPI.h: 37: SSP1BUF = txdata;
+  1718  035E  0827               	movf	SPI_Transfer@txdata,w
+  1719  035F  0024               	movlb	4	; select bank4
+  1720  0360  0091               	movwf	17	;volatile
+  1721  0361                     l196:	
+  1722                           ;My_header\My_SPI.h: 38: while (!SSP1IF);
+  1723                           
+  1724  0361  0020               	movlb	0	; select bank0
+  1725  0362  1D91               	btfss	17,3	;volatile
+  1726  0363  2B61               	goto	l196
+  1727                           
+  1728                           ;My_header\My_SPI.h: 39: rxdata = SSP1BUF;
+  1729  0364  0024               	movlb	4	; select bank4
+  1730  0365  0811               	movf	17,w	;volatile
+  1731  0366  0020               	movlb	0	; select bank0
+  1732  0367  00A6               	movwf	??_SPI_Transfer
+  1733  0368  0826               	movf	??_SPI_Transfer,w
+  1734  0369  00A8               	movwf	SPI_Transfer@rxdata
+  1735                           
+  1736                           ;My_header\My_SPI.h: 40: return rxdata;
+  1737  036A  0828               	movf	SPI_Transfer@rxdata,w
+  1738  036B  0008               	return
+  1739  036C                     __end_of_SPI_Transfer:	
+  1740                           
+  1741                           	psect	intentry
+  1742  0004                     __pintentry:	
+  1743 ;; *************** function _isr *****************
+  1744 ;; Defined at:
+  1745 ;;		line 117 in file "PIC16F1827-SPILCD01.c"
+  1746 ;; Parameters:    Size  Location     Type
+  1747 ;;		None
+  1748 ;; Auto vars:     Size  Location     Type
+  1749 ;;  ascii           1    5[BANK0 ] unsigned char 
+  1750 ;; Return value:  Size  Location     Type
+  1751 ;;		None               void
+  1752 ;; Registers used:
+  1753 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  1754 ;; Tracked objects:
+  1755 ;;		On entry : 0/0
+  1756 ;;		On exit  : 0/0
+  1757 ;;		Unchanged: 0/0
+  1758 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1759 ;;      Params:         0       0       0       0       0       0
+  1760 ;;      Locals:         0       1       0       0       0       0
+  1761 ;;      Temps:          0       2       0       0       0       0
+  1762 ;;      Totals:         0       3       0       0       0       0
+  1763 ;;Total ram usage:        3 bytes
+  1764 ;; Hardware stack levels used:    1
+  1765 ;; Hardware stack levels required when called:    3
+  1766 ;; This function calls:
+  1767 ;;		_interrupt_TXIF
+  1768 ;;		_tx_send
+  1769 ;; This function is called by:
+  1770 ;;		Interrupt level 1
+  1771 ;; This function uses a non-reentrant model
+  1772 ;;
+  1773                           
+  1774  0004                     _isr:	
+  1775                           
+  1776                           ;incstack = 0
+  1777                           ; Regs used in _isr: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+  1778  0004  3180               	pagesel	$
+  1779  0005  0020               	movlb	0	; select bank0
+  1780  0006  087F               	movf	127,w
+  1781  0007  00A4               	movwf	??_isr+1
+  1782                           
+  1783                           ;PIC16F1827-SPILCD01.c: 118: interrupt_TXIF();
+  1784  0008  3183  233D  3180   	fcall	_interrupt_TXIF
+  1785                           
+  1786                           ;PIC16F1827-SPILCD01.c: 119: if (TMR0IF) {
+  1787  000B  1D0B               	btfss	11,2	;volatile
+  1788  000C  280F               	goto	i1l1292
+  1789                           
+  1790                           ;PIC16F1827-SPILCD01.c: 120: TMR0 = 0;
+  1791  000D  0020               	movlb	0	; select bank0
+  1792  000E  0195               	clrf	21	;volatile
+  1793  000F                     i1l1292:	
+  1794                           
+  1795                           ;PIC16F1827-SPILCD01.c: 121: }
+  1796                           ;PIC16F1827-SPILCD01.c: 122: if (RCIF) {
+  1797  000F  0020               	movlb	0	; select bank0
+  1798  0010  1E91               	btfss	17,5	;volatile
+  1799  0011  281C               	goto	i1l218
+  1800                           
+  1801                           ;PIC16F1827-SPILCD01.c: 123: RCIF = 0;
+  1802  0012  1291               	bcf	17,5	;volatile
+  1803                           
+  1804                           ;PIC16F1827-SPILCD01.c: 124: char ascii = RCREG;
+  1805  0013  0023               	movlb	3	; select bank3
+  1806  0014  0819               	movf	25,w	;volatile
+  1807  0015  0020               	movlb	0	; select bank0
+  1808  0016  00A3               	movwf	??_isr
+  1809  0017  0823               	movf	??_isr,w
+  1810  0018  00A5               	movwf	isr@ascii
+  1811                           
+  1812                           ;PIC16F1827-SPILCD01.c: 125: tx_send(ascii);
+  1813  0019  0825               	movf	isr@ascii,w
+  1814  001A  3183  23C1         	fcall	_tx_send
+  1815  001C                     i1l218:	
+  1816  001C  0020               	movlb	0	; select bank0
+  1817  001D  0824               	movf	??_isr+1,w
+  1818  001E  00FF               	movwf	127
+  1819  001F  0009               	retfie
+  1820  0020                     __end_of_isr:	
+  1821                           
+  1822                           	psect	text12
+  1823  03C1                     __ptext12:	
+  1824 ;; *************** function _tx_send *****************
+  1825 ;; Defined at:
+  1826 ;;		line 259 in file "../My_header\My_header.h"
+  1827 ;; Parameters:    Size  Location     Type
+  1828 ;;  asciicode       1    wreg     unsigned char 
+  1829 ;; Auto vars:     Size  Location     Type
+  1830 ;;  asciicode       1    2[BANK0 ] unsigned char 
+  1831 ;; Return value:  Size  Location     Type
+  1832 ;;		None               void
+  1833 ;; Registers used:
+  1834 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  1835 ;; Tracked objects:
+  1836 ;;		On entry : 0/0
+  1837 ;;		On exit  : 0/0
+  1838 ;;		Unchanged: 0/0
+  1839 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1840 ;;      Params:         0       0       0       0       0       0
+  1841 ;;      Locals:         0       1       0       0       0       0
+  1842 ;;      Temps:          0       1       0       0       0       0
+  1843 ;;      Totals:         0       2       0       0       0       0
+  1844 ;;Total ram usage:        2 bytes
+  1845 ;; Hardware stack levels used:    1
+  1846 ;; Hardware stack levels required when called:    2
+  1847 ;; This function calls:
+  1848 ;;		_ringbuf_put
+  1849 ;; This function is called by:
+  1850 ;;		_isr
+  1851 ;;		_tx_sendn
+  1852 ;; This function uses a non-reentrant model
+  1853 ;;
+  1854                           
+  1855                           
+  1856                           ;psect for function _tx_send
+  1857  03C1                     _tx_send:	
+  1858                           
+  1859                           ;incstack = 0
+  1860                           ; Regs used in _tx_send: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+  1861                           ;tx_send@asciicode stored from wreg
+  1862  03C1  0020               	movlb	0	; select bank0
+  1863  03C2  00A2               	movwf	tx_send@asciicode
+  1864                           
+  1865                           ;My_header\My_header.h: 260: ringbuf_put(&tx_buf, asciicode);
+  1866  03C3  0822               	movf	tx_send@asciicode,w
+  1867  03C4  00A1               	movwf	??_tx_send
+  1868  03C5  0821               	movf	??_tx_send,w
+  1869  03C6  00F7               	movwf	ringbuf_put@asciicode
+  1870  03C7  305A               	movlw	(low (_tx_buf| 0))& (0+255)
+  1871  03C8  3181  2164         	fcall	_ringbuf_put
+  1872                           
+  1873                           ;My_header\My_header.h: 261: PIE1bits.TXIE = 1;
+  1874  03CA  0021               	movlb	1	; select bank1
+  1875  03CB  1611               	bsf	17,4	;volatile
+  1876  03CC  0008               	return
+  1877  03CD                     __end_of_tx_send:	
+  1878                           
+  1879                           	psect	text13
+  1880  0164                     __ptext13:	
+  1881 ;; *************** function _ringbuf_put *****************
+  1882 ;; Defined at:
+  1883 ;;		line 39 in file "../My_header\My_ringbuf.h"
+  1884 ;; Parameters:    Size  Location     Type
+  1885 ;;  rb              1    wreg     PTR struct ringbuf
+  1886 ;;		 -> tx_buf(7), 
+  1887 ;;  asciicode       1    7[COMMON] unsigned char 
+  1888 ;; Auto vars:     Size  Location     Type
+  1889 ;;  rb              1    0[BANK0 ] PTR struct ringbuf
+  1890 ;;		 -> tx_buf(7), 
+  1891 ;; Return value:  Size  Location     Type
+  1892 ;;		None               void
+  1893 ;; Registers used:
+  1894 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  1895 ;; Tracked objects:
+  1896 ;;		On entry : 0/0
+  1897 ;;		On exit  : 0/0
+  1898 ;;		Unchanged: 0/0
+  1899 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1900 ;;      Params:         1       0       0       0       0       0
+  1901 ;;      Locals:         0       1       0       0       0       0
+  1902 ;;      Temps:          6       0       0       0       0       0
+  1903 ;;      Totals:         7       1       0       0       0       0
+  1904 ;;Total ram usage:        8 bytes
+  1905 ;; Hardware stack levels used:    1
+  1906 ;; Hardware stack levels required when called:    1
+  1907 ;; This function calls:
+  1908 ;;		_ringbuf_num
+  1909 ;; This function is called by:
+  1910 ;;		_tx_send
+  1911 ;;		_ringbuf_put_num
+  1912 ;;		_ringbuf_put_str
+  1913 ;;		_tx_sends
+  1914 ;; This function uses a non-reentrant model
+  1915 ;;
+  1916                           
+  1917                           
+  1918                           ;psect for function _ringbuf_put
+  1919  0164                     _ringbuf_put:	
+  1920                           
+  1921                           ;incstack = 0
+  1922                           ; Regs used in _ringbuf_put: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+  1923                           ;ringbuf_put@rb stored from wreg
+  1924  0164  0020               	movlb	0	; select bank0
+  1925  0165  00A0               	movwf	ringbuf_put@rb
+  1926                           
+  1927                           ;My_header\My_ringbuf.h: 40: if (ringbuf_num(rb) < rb->size) {
+  1928  0166  0A20               	incf	ringbuf_put@rb,w
+  1929  0167  0086               	movwf	6
+  1930  0168  0187               	clrf	7
+  1931  0169  3F40               	moviw [0]fsr1
+  1932  016A  00F8               	movwf	??_ringbuf_put
+  1933  016B  3F41               	moviw [1]fsr1
+  1934  016C  00F9               	movwf	??_ringbuf_put+1
+  1935  016D  0820               	movf	ringbuf_put@rb,w
+  1936  016E  3182  220E  3181   	fcall	_ringbuf_num
+  1937  0171  0879               	movf	??_ringbuf_put+1,w
+  1938  0172  0271               	subwf	?_ringbuf_num+1,w
+  1939  0173  1D03               	skipz
+  1940  0174  2977               	goto	u40_25
+  1941  0175  0878               	movf	??_ringbuf_put,w
+  1942  0176  0270               	subwf	?_ringbuf_num,w
+  1943  0177                     u40_25:	
+  1944  0177  1803               	skipnc
+  1945  0178  0008               	return
+  1946                           
+  1947                           ;My_header\My_ringbuf.h: 41: rb->buf[rb->head] = asciicode;
+  1948  0179  0877               	movf	ringbuf_put@asciicode,w
+  1949  017A  00F8               	movwf	??_ringbuf_put
+  1950  017B  0020               	movlb	0	; select bank0
+  1951  017C  0820               	movf	ringbuf_put@rb,w
+  1952  017D  0086               	movwf	6
+  1953  017E  0187               	clrf	7
+  1954  017F  0820               	movf	ringbuf_put@rb,w
+  1955  0180  3E03               	addlw	3
+  1956  0181  0084               	movwf	4
+  1957  0182  0185               	clrf	5
+  1958  0183  0800               	movf	0,w
+  1959  0184  0701               	addwf	1,w
+  1960  0185  00F9               	movwf	??_ringbuf_put+1
+  1961  0186  0879               	movf	??_ringbuf_put+1,w
+  1962  0187  0086               	movwf	6
+  1963  0188  0187               	clrf	7
+  1964  0189  0878               	movf	??_ringbuf_put,w
+  1965  018A  0081               	movwf	1
+  1966                           
+  1967                           ;My_header\My_ringbuf.h: 42: if (rb->head + 1 < rb->size) rb->head++;
+  1968  018B  0A20               	incf	ringbuf_put@rb,w
+  1969  018C  0086               	movwf	6
+  1970  018D  0187               	clrf	7
+  1971  018E  3F40               	moviw [0]fsr1
+  1972  018F  00F8               	movwf	??_ringbuf_put
+  1973  0190  3F41               	moviw [1]fsr1
+  1974  0191  00F9               	movwf	??_ringbuf_put+1
+  1975  0192  0820               	movf	ringbuf_put@rb,w
+  1976  0193  3E03               	addlw	3
+  1977  0194  0086               	movwf	6
+  1978  0195  0187               	clrf	7
+  1979  0196  3F40               	moviw [0]fsr1
+  1980  0197  00FA               	movwf	??_ringbuf_put+2
+  1981  0198  3F41               	moviw [1]fsr1
+  1982  0199  00FB               	movwf	??_ringbuf_put+3
+  1983  019A  087A               	movf	??_ringbuf_put+2,w
+  1984  019B  3E01               	addlw	1
+  1985  019C  00FC               	movwf	??_ringbuf_put+4
+  1986  019D  3000               	movlw	0
+  1987  019E  3D7B               	addwfc	??_ringbuf_put+3,w
+  1988  019F  00FD               	movwf	??_ringbuf_put+5
+  1989  01A0  0879               	movf	??_ringbuf_put+1,w
+  1990  01A1  027D               	subwf	??_ringbuf_put+5,w
+  1991  01A2  1D03               	skipz
+  1992  01A3  29A6               	goto	u41_25
+  1993  01A4  0878               	movf	??_ringbuf_put,w
+  1994  01A5  027C               	subwf	??_ringbuf_put+4,w
+  1995  01A6                     u41_25:	
+  1996  01A6  1803               	skipnc
+  1997  01A7  29B2               	goto	i1l1100
+  1998  01A8  0820               	movf	ringbuf_put@rb,w
+  1999  01A9  3E03               	addlw	3
+  2000  01AA  0086               	movwf	6
+  2001  01AB  0187               	clrf	7
+  2002  01AC  3001               	movlw	1
+  2003  01AD  0781               	addwf	1,f
+  2004  01AE  3141               	addfsr 1,1
+  2005  01AF  1803               	skipnc
+  2006  01B0  0A81               	incf	1,f
+  2007  01B1  0008               	return
+  2008  01B2                     i1l1100:	
+  2009                           
+  2010                           ;My_header\My_ringbuf.h: 43: else rb->head = 0;
+  2011  01B2  0820               	movf	ringbuf_put@rb,w
+  2012  01B3  3E03               	addlw	3
+  2013  01B4  0086               	movwf	6
+  2014  01B5  0187               	clrf	7
+  2015  01B6  3000               	movlw	0
+  2016  01B7  3FC0               	movwi [0]fsr1
+  2017  01B8  3FC1               	movwi [1]fsr1
+  2018  01B9  0008               	return
+  2019  01BA                     __end_of_ringbuf_put:	
+  2020                           
+  2021                           	psect	text14
+  2022  033D                     __ptext14:	
+  2023 ;; *************** function _interrupt_TXIF *****************
+  2024 ;; Defined at:
+  2025 ;;		line 248 in file "../My_header\My_header.h"
+  2026 ;; Parameters:    Size  Location     Type
+  2027 ;;		None
+  2028 ;; Auto vars:     Size  Location     Type
+  2029 ;;		None
+  2030 ;; Return value:  Size  Location     Type
+  2031 ;;		None               void
+  2032 ;; Registers used:
+  2033 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  2034 ;; Tracked objects:
+  2035 ;;		On entry : 0/0
+  2036 ;;		On exit  : 0/0
+  2037 ;;		Unchanged: 0/0
+  2038 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  2039 ;;      Params:         0       0       0       0       0       0
+  2040 ;;      Locals:         0       0       0       0       0       0
+  2041 ;;      Temps:          0       0       0       0       0       0
+  2042 ;;      Totals:         0       0       0       0       0       0
+  2043 ;;Total ram usage:        0 bytes
+  2044 ;; Hardware stack levels used:    1
+  2045 ;; Hardware stack levels required when called:    2
+  2046 ;; This function calls:
+  2047 ;;		_ringbuf_num
+  2048 ;;		_ringbuf_pop
+  2049 ;; This function is called by:
+  2050 ;;		_isr
+  2051 ;; This function uses a non-reentrant model
+  2052 ;;
+  2053                           
+  2054                           
+  2055                           ;psect for function _interrupt_TXIF
+  2056  033D                     _interrupt_TXIF:	
+  2057                           
+  2058                           ;My_header\My_header.h: 249: if (PIE1bits.TXIE && PIR1bits.TXIF) {
+  2059                           
+  2060                           ;incstack = 0
+  2061                           ; Regs used in _interrupt_TXIF: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+  2062  033D  0021               	movlb	1	; select bank1
+  2063  033E  1E11               	btfss	17,4	;volatile
+  2064  033F  0008               	return
+  2065  0340  0020               	movlb	0	; select bank0
+  2066  0341  1E11               	btfss	17,4	;volatile
+  2067  0342  0008               	return
+  2068                           
+  2069                           ;My_header\My_header.h: 250: PIR1bits.TXIF = 0;
+  2070  0343  1211               	bcf	17,4	;volatile
+  2071                           
+  2072                           ;My_header\My_header.h: 251: if (ringbuf_num(&tx_buf) > 0) {
+  2073  0344  305A               	movlw	(low (_tx_buf| 0))& (0+255)
+  2074  0345  3182  220E  3183   	fcall	_ringbuf_num
+  2075  0348  0870               	movf	?_ringbuf_num,w
+  2076  0349  0471               	iorwf	?_ringbuf_num+1,w
+  2077  034A  1903               	btfsc	3,2
+  2078  034B  2B52               	goto	i1l150
+  2079                           
+  2080                           ;My_header\My_header.h: 252: TXREG = ringbuf_pop(&tx_buf);
+  2081  034C  305A               	movlw	(low (_tx_buf| 0))& (0+255)
+  2082  034D  3182  2260         	fcall	_ringbuf_pop
+  2083  034F  0023               	movlb	3	; select bank3
+  2084  0350  009A               	movwf	26	;volatile
+  2085                           
+  2086                           ;My_header\My_header.h: 253: } else {
+  2087  0351  0008               	return
+  2088  0352                     i1l150:	
+  2089                           
+  2090                           ;My_header\My_header.h: 254: PIE1bits.TXIE = 0;
+  2091  0352  0021               	movlb	1	; select bank1
+  2092  0353  1211               	bcf	17,4	;volatile
+  2093  0354  0008               	return
+  2094  0355                     __end_of_interrupt_TXIF:	
+  2095                           
+  2096                           	psect	text15
+  2097  0260                     __ptext15:	
+  2098 ;; *************** function _ringbuf_pop *****************
+  2099 ;; Defined at:
+  2100 ;;		line 64 in file "../My_header\My_ringbuf.h"
+  2101 ;; Parameters:    Size  Location     Type
+  2102 ;;  rb              1    wreg     PTR struct ringbuf
+  2103 ;;		 -> tx_buf(7), 
+  2104 ;; Auto vars:     Size  Location     Type
+  2105 ;;  rb              1    1[BANK0 ] PTR struct ringbuf
+  2106 ;;		 -> tx_buf(7), 
+  2107 ;;  ret             1    0[BANK0 ] unsigned char 
+  2108 ;; Return value:  Size  Location     Type
+  2109 ;;                  1    wreg      unsigned char 
+  2110 ;; Registers used:
+  2111 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  2112 ;; Tracked objects:
+  2113 ;;		On entry : 0/0
+  2114 ;;		On exit  : 0/0
+  2115 ;;		Unchanged: 0/0
+  2116 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  2117 ;;      Params:         0       0       0       0       0       0
+  2118 ;;      Locals:         0       2       0       0       0       0
+  2119 ;;      Temps:          6       0       0       0       0       0
+  2120 ;;      Totals:         6       2       0       0       0       0
+  2121 ;;Total ram usage:        8 bytes
+  2122 ;; Hardware stack levels used:    1
+  2123 ;; Hardware stack levels required when called:    1
+  2124 ;; This function calls:
+  2125 ;;		_ringbuf_num
+  2126 ;; This function is called by:
+  2127 ;;		_interrupt_TXIF
+  2128 ;; This function uses a non-reentrant model
+  2129 ;;
+  2130                           
+  2131                           
+  2132                           ;psect for function _ringbuf_pop
+  2133  0260                     _ringbuf_pop:	
+  2134                           
+  2135                           ;incstack = 0
+  2136                           ; Regs used in _ringbuf_pop: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+  2137                           ;ringbuf_pop@rb stored from wreg
+  2138  0260  0020               	movlb	0	; select bank0
+  2139  0261  00A1               	movwf	ringbuf_pop@rb
+  2140                           
+  2141                           ;My_header\My_ringbuf.h: 65: if (ringbuf_num(rb)) {
+  2142  0262  0821               	movf	ringbuf_pop@rb,w
+  2143  0263  3182  220E  3182   	fcall	_ringbuf_num
+  2144  0266  0870               	movf	?_ringbuf_num,w
+  2145  0267  0471               	iorwf	?_ringbuf_num+1,w
+  2146  0268  1903               	btfsc	3,2
+  2147  0269  2AAC               	goto	i1l1118
+  2148                           
+  2149                           ;My_header\My_ringbuf.h: 66: char ret = rb->buf[rb->tail];
+  2150  026A  0020               	movlb	0	; select bank0
+  2151  026B  0821               	movf	ringbuf_pop@rb,w
+  2152  026C  0086               	movwf	6
+  2153  026D  0187               	clrf	7
+  2154  026E  0821               	movf	ringbuf_pop@rb,w
+  2155  026F  3E05               	addlw	5
+  2156  0270  0084               	movwf	4
+  2157  0271  0185               	clrf	5
+  2158  0272  0800               	movf	0,w
+  2159  0273  0701               	addwf	1,w
+  2160  0274  00F7               	movwf	??_ringbuf_pop
+  2161  0275  0877               	movf	??_ringbuf_pop,w
+  2162  0276  0086               	movwf	6
+  2163  0277  0187               	clrf	7
+  2164  0278  0801               	movf	1,w
+  2165  0279  00F8               	movwf	??_ringbuf_pop+1
+  2166  027A  0878               	movf	??_ringbuf_pop+1,w
+  2167  027B  00A0               	movwf	ringbuf_pop@ret
+  2168                           
+  2169                           ;My_header\My_ringbuf.h: 67: if (rb->tail + 1 < rb->size) {
+  2170  027C  0A21               	incf	ringbuf_pop@rb,w
+  2171  027D  0086               	movwf	6
+  2172  027E  0187               	clrf	7
+  2173  027F  3F40               	moviw [0]fsr1
+  2174  0280  00F7               	movwf	??_ringbuf_pop
+  2175  0281  3F41               	moviw [1]fsr1
+  2176  0282  00F8               	movwf	??_ringbuf_pop+1
+  2177  0283  0821               	movf	ringbuf_pop@rb,w
+  2178  0284  3E05               	addlw	5
+  2179  0285  0086               	movwf	6
+  2180  0286  0187               	clrf	7
+  2181  0287  3F40               	moviw [0]fsr1
+  2182  0288  00F9               	movwf	??_ringbuf_pop+2
+  2183  0289  3F41               	moviw [1]fsr1
+  2184  028A  00FA               	movwf	??_ringbuf_pop+3
+  2185  028B  0879               	movf	??_ringbuf_pop+2,w
+  2186  028C  3E01               	addlw	1
+  2187  028D  00FB               	movwf	??_ringbuf_pop+4
+  2188  028E  3000               	movlw	0
+  2189  028F  3D7A               	addwfc	??_ringbuf_pop+3,w
+  2190  0290  00FC               	movwf	??_ringbuf_pop+5
+  2191  0291  0878               	movf	??_ringbuf_pop+1,w
+  2192  0292  027C               	subwf	??_ringbuf_pop+5,w
+  2193  0293  1D03               	skipz
+  2194  0294  2A97               	goto	u43_25
+  2195  0295  0877               	movf	??_ringbuf_pop,w
+  2196  0296  027B               	subwf	??_ringbuf_pop+4,w
+  2197  0297                     u43_25:	
+  2198  0297  1803               	skipnc
+  2199  0298  2AA3               	goto	i1l1110
+  2200                           
+  2201                           ;My_header\My_ringbuf.h: 68: rb->tail++;
+  2202  0299  0821               	movf	ringbuf_pop@rb,w
+  2203  029A  3E05               	addlw	5
+  2204  029B  0086               	movwf	6
+  2205  029C  0187               	clrf	7
+  2206  029D  3001               	movlw	1
+  2207  029E  0781               	addwf	1,f
+  2208  029F  3141               	addfsr 1,1
+  2209  02A0  1803               	skipnc
+  2210  02A1  0A81               	incf	1,f
+  2211                           
+  2212                           ;My_header\My_ringbuf.h: 69: } else {
+  2213  02A2  2AAA               	goto	i1l1112
+  2214  02A3                     i1l1110:	
+  2215                           
+  2216                           ;My_header\My_ringbuf.h: 70: rb->tail = 0;
+  2217  02A3  0821               	movf	ringbuf_pop@rb,w
+  2218  02A4  3E05               	addlw	5
+  2219  02A5  0086               	movwf	6
+  2220  02A6  0187               	clrf	7
+  2221  02A7  3000               	movlw	0
+  2222  02A8  3FC0               	movwi [0]fsr1
+  2223  02A9  3FC1               	movwi [1]fsr1
+  2224  02AA                     i1l1112:	
+  2225                           
+  2226                           ;My_header\My_ringbuf.h: 71: }
+  2227                           ;My_header\My_ringbuf.h: 72: return ret;
+  2228  02AA  0820               	movf	ringbuf_pop@ret,w
+  2229                           
+  2230                           ;My_header\My_ringbuf.h: 73: } else {
+  2231  02AB  0008               	return
+  2232  02AC                     i1l1118:	
+  2233                           
+  2234                           ;My_header\My_ringbuf.h: 74: return 0;
+  2235  02AC  3000               	movlw	0
+  2236  02AD  0008               	return
+  2237  02AE                     __end_of_ringbuf_pop:	
+  2238                           
+  2239                           	psect	text16
+  2240  020E                     __ptext16:	
+  2241 ;; *************** function _ringbuf_num *****************
+  2242 ;; Defined at:
+  2243 ;;		line 31 in file "../My_header\My_ringbuf.h"
+  2244 ;; Parameters:    Size  Location     Type
+  2245 ;;  rb              1    wreg     PTR struct ringbuf
+  2246 ;;		 -> tx_buf(7), 
+  2247 ;; Auto vars:     Size  Location     Type
+  2248 ;;  rb              1    6[COMMON] PTR struct ringbuf
+  2249 ;;		 -> tx_buf(7), 
+  2250 ;; Return value:  Size  Location     Type
+  2251 ;;                  2    0[COMMON] unsigned int 
+  2252 ;; Registers used:
+  2253 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0
+  2254 ;; Tracked objects:
+  2255 ;;		On entry : 0/0
+  2256 ;;		On exit  : 0/0
+  2257 ;;		Unchanged: 0/0
+  2258 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  2259 ;;      Params:         2       0       0       0       0       0
+  2260 ;;      Locals:         1       0       0       0       0       0
+  2261 ;;      Temps:          4       0       0       0       0       0
+  2262 ;;      Totals:         7       0       0       0       0       0
+  2263 ;;Total ram usage:        7 bytes
+  2264 ;; Hardware stack levels used:    1
+  2265 ;; This function calls:
+  2266 ;;		Nothing
+  2267 ;; This function is called by:
+  2268 ;;		_ringbuf_put
+  2269 ;;		_ringbuf_pop
+  2270 ;;		_interrupt_TXIF
+  2271 ;;		_ringbuf_backspace
+  2272 ;; This function uses a non-reentrant model
+  2273 ;;
+  2274                           
+  2275                           
+  2276                           ;psect for function _ringbuf_num
+  2277  020E                     _ringbuf_num:	
+  2278                           
+  2279                           ;incstack = 0
+  2280                           ; Regs used in _ringbuf_num: [wreg-fsr1h+status,2+status,0]
+  2281                           ;ringbuf_num@rb stored from wreg
+  2282  020E  00F6               	movwf	ringbuf_num@rb
+  2283                           
+  2284                           ;My_header\My_ringbuf.h: 32: if (rb->head >= rb->tail) {
+  2285  020F  0876               	movf	ringbuf_num@rb,w
+  2286  0210  3E05               	addlw	5
+  2287  0211  0086               	movwf	6
+  2288  0212  0187               	clrf	7
+  2289  0213  3F40               	moviw [0]fsr1
+  2290  0214  00F2               	movwf	??_ringbuf_num
+  2291  0215  3F41               	moviw [1]fsr1
+  2292  0216  00F3               	movwf	??_ringbuf_num+1
+  2293  0217  0876               	movf	ringbuf_num@rb,w
+  2294  0218  3E03               	addlw	3
+  2295  0219  0086               	movwf	6
+  2296  021A  0187               	clrf	7
+  2297  021B  3F40               	moviw [0]fsr1
+  2298  021C  00F4               	movwf	??_ringbuf_num+2
+  2299  021D  3F41               	moviw [1]fsr1
+  2300  021E  00F5               	movwf	??_ringbuf_num+3
+  2301  021F  0873               	movf	??_ringbuf_num+1,w
+  2302  0220  0275               	subwf	??_ringbuf_num+3,w
+  2303  0221  1D03               	skipz
+  2304  0222  2A25               	goto	u38_25
+  2305  0223  0872               	movf	??_ringbuf_num,w
+  2306  0224  0274               	subwf	??_ringbuf_num+2,w
+  2307  0225                     u38_25:	
+  2308  0225  1C03               	skipc
+  2309  0226  2A3F               	goto	i1l1080
+  2310                           
+  2311                           ;My_header\My_ringbuf.h: 33: return (rb->head - rb->tail);
+  2312  0227  0876               	movf	ringbuf_num@rb,w
+  2313  0228  3E03               	addlw	3
+  2314  0229  0086               	movwf	6
+  2315  022A  0187               	clrf	7
+  2316  022B  0876               	movf	ringbuf_num@rb,w
+  2317  022C  3E05               	addlw	5
+  2318  022D  0084               	movwf	4
+  2319  022E  0185               	clrf	5
+  2320  022F  3F00               	moviw [0]fsr0
+  2321  0230  00F2               	movwf	??_ringbuf_num
+  2322  0231  3F01               	moviw [1]fsr0
+  2323  0232  00F3               	movwf	??_ringbuf_num+1
+  2324  0233  09F2               	comf	??_ringbuf_num,f
+  2325  0234  09F3               	comf	??_ringbuf_num+1,f
+  2326  0235  0AF2               	incf	??_ringbuf_num,f
+  2327  0236  1903               	skipnz
+  2328  0237  0AF3               	incf	??_ringbuf_num+1,f
+  2329  0238  3F40               	moviw [0]fsr1
+  2330  0239  0772               	addwf	??_ringbuf_num,w
+  2331  023A  00F0               	movwf	?_ringbuf_num
+  2332  023B  3F41               	moviw [1]fsr1
+  2333  023C  3D73               	addwfc	??_ringbuf_num+1,w
+  2334  023D  00F1               	movwf	?_ringbuf_num+1
+  2335                           
+  2336                           ;My_header\My_ringbuf.h: 34: } else {
+  2337  023E  0008               	return
+  2338  023F                     i1l1080:	
+  2339                           
+  2340                           ;My_header\My_ringbuf.h: 35: return (rb->size + rb->head - rb->tail);
+  2341  023F  0876               	movf	ringbuf_num@rb,w
+  2342  0240  3E03               	addlw	3
+  2343  0241  0086               	movwf	6
+  2344  0242  0187               	clrf	7
+  2345  0243  0876               	movf	ringbuf_num@rb,w
+  2346  0244  3E05               	addlw	5
+  2347  0245  0084               	movwf	4
+  2348  0246  0185               	clrf	5
+  2349  0247  3F00               	moviw [0]fsr0
+  2350  0248  00F2               	movwf	??_ringbuf_num
+  2351  0249  3F01               	moviw [1]fsr0
+  2352  024A  00F3               	movwf	??_ringbuf_num+1
+  2353  024B  09F2               	comf	??_ringbuf_num,f
+  2354  024C  09F3               	comf	??_ringbuf_num+1,f
+  2355  024D  0AF2               	incf	??_ringbuf_num,f
+  2356  024E  1903               	skipnz
+  2357  024F  0AF3               	incf	??_ringbuf_num+1,f
+  2358  0250  0A76               	incf	ringbuf_num@rb,w
+  2359  0251  0084               	movwf	4
+  2360  0252  0185               	clrf	5
+  2361  0253  3F00               	moviw [0]fsr0
+  2362  0254  0772               	addwf	??_ringbuf_num,w
+  2363  0255  00F4               	movwf	??_ringbuf_num+2
+  2364  0256  3F01               	moviw [1]fsr0
+  2365  0257  3D73               	addwfc	??_ringbuf_num+1,w
+  2366  0258  00F5               	movwf	??_ringbuf_num+3
+  2367  0259  3F40               	moviw [0]fsr1
+  2368  025A  0774               	addwf	??_ringbuf_num+2,w
+  2369  025B  00F0               	movwf	?_ringbuf_num
+  2370  025C  3F41               	moviw [1]fsr1
+  2371  025D  3D75               	addwfc	??_ringbuf_num+3,w
+  2372  025E  00F1               	movwf	?_ringbuf_num+1
+  2373  025F  0008               	return
+  2374  0260                     __end_of_ringbuf_num:	
+  2375  007E                     btemp	set	126	;btemp
+  2376  007E                     wtemp	set	126
+  2377  007E                     wtemp0	set	126
+  2378  0080                     wtemp1	set	128
+  2379  0082                     wtemp2	set	130
+  2380  0084                     wtemp3	set	132
+  2381  0086                     wtemp4	set	134
+  2382  0088                     wtemp5	set	136
+  2383  007F                     wtemp6	set	127
+  2384  007E                     ttemp	set	126
+  2385  007E                     ttemp0	set	126
+  2386  0081                     ttemp1	set	129
+  2387  0084                     ttemp2	set	132
+  2388  0087                     ttemp3	set	135
+  2389  007F                     ttemp4	set	127
+  2390  007E                     ltemp	set	126
+  2391  007E                     ltemp0	set	126
+  2392  0082                     ltemp1	set	130
+  2393  0086                     ltemp2	set	134
+  2394  0080                     ltemp3	set	128
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        50
+    BSS         17
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     14      14
+    BANK0            80     48      65
+    BANK1            80      0      50
+    BANK2            80      0       0
+    BANK3            80      0       0
+    BANK4            48      0       0
+
+Pointer List with Targets:
+
+    ringbuf_put_str@rb.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK0[30]), 
+
+    ringbuf_put_num@rb.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK0[30]), 
+
+    rx_buf.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK0[30]), 
+
+    tx_buf.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK0[30]), 
+
+    ringbuf_delete@rb.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK0[30]), 
+
+    ringbuf_backspace@rb.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK0[30]), 
+
+    ringbuf_pop@rb.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK0[30]), 
+
+    ringbuf_pop@rb	PTR struct ringbuf size(1) Largest target is 8
+		 -> tx_buf(BANK0[7]), 
+
+    ringbuf_put@rb.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK0[30]), 
+
+    ringbuf_put@rb	PTR struct ringbuf size(1) Largest target is 8
+		 -> tx_buf(BANK0[7]), 
+
+    ringbuf_num@rb.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK0[30]), 
+
+    ringbuf_num@rb	PTR struct ringbuf size(1) Largest target is 8
+		 -> tx_buf(BANK0[7]), 
+
+    S224ringbuf$buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK0[30]), 
+
+    ringbuf_init@rb.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK0[30]), 
+
+    ringbuf_init@internal_buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK0[30]), 
+
+    ringbuf_init@rb	PTR struct ringbuf size(1) Largest target is 8
+		 -> tx_buf(BANK0[7]), 
+
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _isr in COMMON
+
+    _tx_send->_ringbuf_put
+    _ringbuf_put->_ringbuf_num
+    _interrupt_TXIF->_ringbuf_pop
+    _ringbuf_pop->_ringbuf_num
+
+Critical Paths under _main in BANK0
+
+    _main->_SPI_LCD_Cursor
+    _SPI_LCD_init->_SPI_LCD_Command
+    _SPI_LCD_Data->_SPI_Transfer
+    _SPI_LCD_Cursor->_SPI_LCD_Command
+    _SPI_LCD_Command->_SPI_Transfer
+
+Critical Paths under _isr in BANK0
+
+    _isr->_tx_send
+    _tx_send->_ringbuf_put
+    _interrupt_TXIF->_ringbuf_pop
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _isr in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _isr in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _isr in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _isr in BANK4
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                33    33      0    1722
+                                             15 BANK0     33    33      0
+                     _SPI_LCD_Cursor
+                       _SPI_LCD_Data
+                       _SPI_LCD_init
+                           _SPI_init
+                          _UART_init
+                             ___bmul
+                       _ringbuf_init
+ ---------------------------------------------------------------------------------
+ (1) _ringbuf_init                                         5     2      3     298
+                                              6 BANK0      5     2      3
+ ---------------------------------------------------------------------------------
+ (1) ___bmul                                               4     3      1     352
+                                              6 BANK0      4     3      1
+ ---------------------------------------------------------------------------------
+ (1) _UART_init                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _SPI_init                                             1     1      0      66
+                                              6 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _SPI_LCD_init                                         2     2      0     155
+                                             12 BANK0      2     2      0
+                           _Delay_ms
+                    _SPI_LCD_Command
+ ---------------------------------------------------------------------------------
+ (2) _Delay_ms                                             4     2      2      86
+                                              6 BANK0      4     2      2
+ ---------------------------------------------------------------------------------
+ (1) _SPI_LCD_Data                                         3     3      0      69
+                                              9 BANK0      3     3      0
+                       _SPI_Transfer
+ ---------------------------------------------------------------------------------
+ (1) _SPI_LCD_Cursor                                       3     2      1     263
+                                             12 BANK0      3     2      1
+                    _SPI_LCD_Command
+ ---------------------------------------------------------------------------------
+ (2) _SPI_LCD_Command                                      3     3      0      69
+                                              9 BANK0      3     3      0
+                       _SPI_Transfer
+ ---------------------------------------------------------------------------------
+ (3) _SPI_Transfer                                         3     3      0      46
+                                              6 BANK0      3     3      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (4) _isr                                                  3     3      0    1784
+                                              3 BANK0      3     3      0
+                     _interrupt_TXIF
+                            _tx_send
+ ---------------------------------------------------------------------------------
+ (5) _tx_send                                              2     2      0     934
+                                              1 BANK0      2     2      0
+                        _ringbuf_put
+ ---------------------------------------------------------------------------------
+ (6) _ringbuf_put                                          8     7      1     912
+                                              7 COMMON     7     6      1
+                                              0 BANK0      1     1      0
+                        _ringbuf_num
+ ---------------------------------------------------------------------------------
+ (5) _interrupt_TXIF                                       0     0      0     827
+                        _ringbuf_num
+                        _ringbuf_pop
+ ---------------------------------------------------------------------------------
+ (6) _ringbuf_pop                                          8     8      0     521
+                                              7 COMMON     6     6      0
+                                              0 BANK0      2     2      0
+                        _ringbuf_num
+ ---------------------------------------------------------------------------------
+ (7) _ringbuf_num                                          7     5      2     306
+                                              0 COMMON     7     5      2
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 7
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _SPI_LCD_Cursor
+     _SPI_LCD_Command
+       _SPI_Transfer
+   _SPI_LCD_Data
+     _SPI_Transfer
+   _SPI_LCD_init
+     _Delay_ms
+     _SPI_LCD_Command
+       _SPI_Transfer
+   _SPI_init
+   _UART_init
+   ___bmul
+   _ringbuf_init
+
+ _isr (ROOT)
+   _interrupt_TXIF
+     _ringbuf_num
+     _ringbuf_pop
+       _ringbuf_num
+   _tx_send
+     _ringbuf_put
+       _ringbuf_num
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             170      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITCOMMON            E      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               E      E       E       2      100.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR2              0      0       0       3        0.0%
+SFR2                 0      0       0       3        0.0%
+STACK                0      0       0       3        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+ABS                  0      0      81       4        0.0%
+BITBANK0            50      0       0       5        0.0%
+BITSFR4              0      0       0       5        0.0%
+SFR4                 0      0       0       5        0.0%
+BANK0               50     30      41       6       81.3%
+BITSFR5              0      0       0       6        0.0%
+SFR5                 0      0       0       6        0.0%
+BITBANK1            50      0       0       7        0.0%
+BITSFR6              0      0       0       7        0.0%
+SFR6                 0      0       0       7        0.0%
+BANK1               50      0      32       8       62.5%
+BITSFR7              0      0       0       8        0.0%
+SFR7                 0      0       0       8        0.0%
+BITBANK2            50      0       0       9        0.0%
+BITSFR8              0      0       0       9        0.0%
+SFR8                 0      0       0       9        0.0%
+BANK2               50      0       0      10        0.0%
+BITSFR9              0      0       0      10        0.0%
+SFR9                 0      0       0      10        0.0%
+BITBANK3            50      0       0      11        0.0%
+BITSFR10             0      0       0      11        0.0%
+SFR10                0      0       0      11        0.0%
+BANK3               50      0       0      12        0.0%
+BITSFR11             0      0       0      12        0.0%
+SFR11                0      0       0      12        0.0%
+BITBANK4            30      0       0      13        0.0%
+BITSFR12             0      0       0      13        0.0%
+SFR12                0      0       0      13        0.0%
+BANK4               30      0       0      14        0.0%
+BITSFR13             0      0       0      14        0.0%
+SFR13                0      0       0      14        0.0%
+BITSFR14             0      0       0      15        0.0%
+SFR14                0      0       0      15        0.0%
+DATA                 0      0      81      15        0.0%
+BITSFR15             0      0       0      16        0.0%
+SFR15                0      0       0      16        0.0%
+BITSFR16             0      0       0      17        0.0%
+SFR16                0      0       0      17        0.0%
+BITSFR17             0      0       0      18        0.0%
+SFR17                0      0       0      18        0.0%
+BITSFR18             0      0       0      19        0.0%
+SFR18                0      0       0      19        0.0%
+BITSFR19             0      0       0      20        0.0%
+SFR19                0      0       0      20        0.0%
+BITSFR20             0      0       0      21        0.0%
+SFR20                0      0       0      21        0.0%
+BITSFR21             0      0       0      22        0.0%
+SFR21                0      0       0      22        0.0%
+BITSFR22             0      0       0      23        0.0%
+SFR22                0      0       0      23        0.0%
+BITSFR23             0      0       0      24        0.0%
+SFR23                0      0       0      24        0.0%
+BITSFR24             0      0       0      25        0.0%
+SFR24                0      0       0      25        0.0%
+BITSFR25             0      0       0      26        0.0%
+SFR25                0      0       0      26        0.0%
+BITSFR26             0      0       0      27        0.0%
+SFR26                0      0       0      27        0.0%
+BITSFR27             0      0       0      28        0.0%
+SFR27                0      0       0      28        0.0%
+BITSFR28             0      0       0      29        0.0%
+SFR28                0      0       0      29        0.0%
+BITSFR29             0      0       0      30        0.0%
+SFR29                0      0       0      30        0.0%
+BITSFR30             0      0       0      31        0.0%
+SFR30                0      0       0      31        0.0%
+BITSFR31             0      0       0      32        0.0%
+SFR31                0      0       0      32        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.34 build -361300703 
+Symbol Table                                                                                   Sat Jul 18 21:12:30 2015
+
+          ___bmul@product 0028               __CFG_CP$OFF 0000                        _d1 0057  
+  __end_of_interrupt_TXIF 0355                       l190 02FA                       l196 0361  
+            __CFG_CPD$OFF 0000                       u515 032E                       u727 01DB  
+                     u737 01E9                       u747 037B              _SPI_Transfer 0355  
+                     _isr 0004       SPI_LCD_Command@comm 002B       SPI_LCD_Command@dumy 002A  
+            __CFG_BORV$LO 0000                       wreg 0009              __CFG_LVP$OFF 0000  
+                    l1220 038A                      l1126 036C                      l1216 0384  
+                    l1176 02F0                      l1352 0085                      l1370 009A  
+                    l1346 0078                      l1356 008A                      l1392 015F  
+                    l1384 00FF                      l1378 00FA                      ?_isr 0070  
+                    _RCIF 008D                      _TMR0 0015                      _SPEN 0CEF  
+                    _WPUA 020C                      _WPUB 020D              __CFG_WRT$OFF 0000  
+                    _main 0038                      fsr0h 0005                      fsr1h 0007  
+                    fsr0l 0004                      indf0 0000                      indf1 0001  
+                    fsr1l 0006                      btemp 007E                      ltemp 007E  
+                    start 0020                      ttemp 007E                      wtemp 007E  
+           __CFG_IESO$OFF 0000         ___bmul@multiplier 0029  __size_of_SPI_LCD_Command 0010  
+                   ??_isr 0023             __CFG_PLLEN$ON 0000           ?_interrupt_TXIF 0070  
+                   ?_main 0070                     _ADRES 009B                     _BRG16 0CFB  
+           __CFG_WDTE$OFF 0000                     _LATA4 0864                     _LATA7 0867  
+                   i1l150 0352                     i1l218 001C                     _RCREG 0199  
+                   _RCSTA 019D                     u40_25 0177                     _TMR1H 0017  
+                   u41_25 01A6                     _TMR1L 0016                     u43_25 0297  
+                   u38_25 0225                     _TRISA 008C                     _TRISB 008D  
+                   _TXREG 019A                     _TXSTA 019E            __CFG_FCMEN$OFF 0000  
+      __size_of_UART_init 000E                     main@i 004E                     main@j 004F  
+      SPI_LCD_Cursor@page 002E          ??_SPI_LCD_Cursor 002D            __CFG_BOREN$OFF 0000  
+                   ltemp0 007E          __end_of_SPI_init 0303                     ltemp1 0082  
+                   ltemp2 0086                     ltemp3 0080                     ttemp0 007E  
+                   ttemp1 0081                     ttemp2 0084                     ttemp3 0087  
+                   ttemp4 007F                     status 0003                     wtemp0 007E  
+                   wtemp1 0080                     wtemp2 0082                     wtemp3 0084  
+                   wtemp4 0086                     wtemp5 0088                     wtemp6 007F  
+         __end_of_tx_send 03CD          __end_of_Delay_ms 0381            __CFG_MCLRE$OFF 0000  
+         __initialization 0022              __end_of_main 0164       ringbuf_init@bufsize 0027  
+                  ??_main 002F                    _ANSELA 018C                    _ANSELB 018D  
+                  i1l1100 01B2                    i1l1110 02A3                    i1l1112 02AA  
+                  i1l1118 02AC                    i1l1080 023F                    i1l1292 000F  
+                  _FVRCON 0117                    _OSCCON 0099                    _TMR0IF 005A  
+                  _SPBRGH 019C                    _SPBRGL 019B                    _SSP1IF 008B  
+          __CFG_PWRTE$OFF 0000                    ___bmul 0381              ?_ringbuf_pop 0070  
+            ?_ringbuf_num 0070              ?_ringbuf_put 0077         __end_of_UART_init 03C1  
+       ??_SPI_LCD_Command 0029                    _rx_buf 0050                    _tx_buf 005A  
+               ??_tx_send 0021   __end_of__initialization 0035              SPI_init@mode 0026  
+     ___bmul@multiplicand 0026            __pcstackCOMMON 0070              __pidataBANK1 02AE  
+               ?_SPI_init 0070            _OPTION_REGbits 0095                 ?_Delay_ms 0026  
+              __pbssBANK0 0050                __pmaintext 0038          ??_interrupt_TXIF 007D  
+                 ?___bmul 0026                __pintentry 0004                ??_SPI_init 0026  
+              ??_Delay_ms 0028                   _SSP1BUF 0211           __size_of___bmul 0012  
+           ?_ringbuf_init 0026      __size_of_ringbuf_pop 004E      __size_of_ringbuf_num 0052  
+    __size_of_ringbuf_put 0056           __CFG_STVREN$OFF 0000                   __ptext1 0303  
+                 __ptext2 0381                   __ptext3 03B3                   __ptext4 02E0  
+                 __ptext5 01BA                   __ptext6 036C                   __ptext7 0393  
+                 __ptext8 0322                   __ptext9 03A3                 _T1CONbits 0018  
+            __size_of_isr 001C                   _pattern 00A0                   main@buf 0030  
+                 clrloop0 03CE                   _tx_send 03C1      end_of_initialization 0035  
+    SPI_LCD_Cursor@column 002C                   init_ram 03D3                   initloop 03D4  
+         _SPI_LCD_Command 03A3             ?_SPI_LCD_Data 0070             ?_SPI_LCD_init 0070  
+          ??_ringbuf_init 0029                 _UART_init 03B3          __CFG_FOSC$INTOSC 0000  
+          ??_SPI_LCD_Data 0029            ??_SPI_LCD_init 002C            ringbuf_init@rb 002A  
+ __size_of_SPI_LCD_Cursor 001B            ringbuf_pop@ret 0020            __end_of___bmul 0393  
+              ?_UART_init 0070             ?_SPI_Transfer 0070       start_initialization 0022  
+       __size_of_SPI_init 0023               __end_of_isr 0020         __size_of_Delay_ms 0015  
+ __end_of_SPI_LCD_Command 03B3               _APFCON0bits 011D               _APFCON1bits 011E  
+                ??___bmul 0027               __pdataBANK1 00A0            ??_SPI_Transfer 0026  
+               ___latbits 0001             __pcstackBANK0 0020      __end_of_ringbuf_init 0322  
+        tx_send@asciicode 0022               ??_UART_init 0026      __end_of_SPI_LCD_Data 03A3  
+    __end_of_SPI_LCD_init 020E        SPI_Transfer@rxdata 0028                  ?_tx_send 0070  
+      SPI_Transfer@txdata 0027          ?_SPI_LCD_Command 0070  ringbuf_init@internal_buf 0026  
+               clear_ram0 03CD                  _PIE1bits 0091                  _PIR1bits 0011  
+          _SPI_LCD_Cursor 0322             ??_ringbuf_pop 0077             ??_ringbuf_num 0072  
+           ??_ringbuf_put 0078                _ADCON0bits 009D                _ADCON1bits 009E  
+                _SPI_init 02E0   __size_of_interrupt_TXIF 0018                  _Delay_ms 036C  
+           ringbuf_pop@rb 0021             ringbuf_num@rb 0076             ringbuf_put@rb 0020  
+    __end_of_SPI_Transfer 036C    __end_of_SPI_LCD_Cursor 033D       __end_of_ringbuf_pop 02AE  
+     __end_of_ringbuf_num 0260       __end_of_ringbuf_put 01BA     __size_of_ringbuf_init 001F  
+                __ptext10 0355                  __ptext12 03C1                  __ptext13 0164  
+                __ptext14 033D                  __ptext15 0260                  __ptext16 020E  
+            _SSP1CON1bits 0215          __size_of_tx_send 000C             __size_of_main 012C  
+         ?_SPI_LCD_Cursor 002C              _ringbuf_init 0303              _SSP1STATbits 0214  
+   __size_of_SPI_LCD_Data 0010     __size_of_SPI_LCD_init 0054                _INTCONbits 000B  
+    ringbuf_put@asciicode 0077                  isr@ascii 0025                Delay_ms@ms 0026  
+                intlevel1 0000         __CFG_CLKOUTEN$OFF 0000              _SPI_LCD_Data 0393  
+            _SPI_LCD_init 01BA               _ringbuf_pop 0260               _ringbuf_num 020E  
+             _ringbuf_put 0164            _interrupt_TXIF 033D          SPI_LCD_Data@data 002B  
+        SPI_LCD_Data@dumy 002A     __size_of_SPI_Transfer 0017  

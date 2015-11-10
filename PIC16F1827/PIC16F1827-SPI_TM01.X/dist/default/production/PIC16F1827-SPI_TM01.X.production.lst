@@ -1,0 +1,3023 @@
+
+
+Microchip Technology PIC LITE Macro Assembler V1.33 build 59893 
+                                                                                               Sat Feb 21 09:14:56 2015
+
+Microchip Technology Omniscient Code Generator (Lite mode) build 59893
+     1                           	processor	16F1827
+     2                           	opt	pw 120
+     3                           	opt	lm
+     4                           	psect	idataCOMMON,global,class=CODE,delta=2
+     5                           	psect	stringtext,global,reloc=256,class=STRCODE,delta=2
+     6                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     7                           	psect	dataCOMMON,global,class=COMMON,space=1,delta=1
+     8                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     9                           	psect	cstackBANK1,global,class=BANK1,space=1,delta=1
+    10                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+    11                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    12                           	psect	maintext,global,class=CODE,merge=1,split=1,delta=2
+    13                           	psect	text1,local,class=CODE,merge=1,delta=2
+    14                           	psect	text2,local,class=CODE,merge=1,delta=2
+    15                           	psect	text3,local,class=CODE,merge=1,delta=2
+    16                           	psect	text4,local,class=CODE,merge=1,delta=2
+    17                           	psect	text5,local,class=CODE,merge=1,delta=2
+    18                           	psect	text6,local,class=CODE,merge=1,delta=2
+    19                           	psect	text7,local,class=CODE,merge=1,delta=2
+    20                           	psect	text8,local,class=CODE,merge=1,delta=2
+    21                           	psect	text9,local,class=CODE,merge=1,delta=2
+    22                           	psect	text10,local,class=CODE,merge=1,delta=2
+    23                           	psect	text11,local,class=CODE,merge=1,delta=2
+    24                           	psect	text12,local,class=CODE,merge=1,delta=2
+    25                           	psect	intentry,global,class=CODE,delta=2
+    26                           	psect	text14,local,class=CODE,merge=1,delta=2
+    27                           	psect	text15,local,class=CODE,merge=1,delta=2
+    28                           	psect	text16,local,class=CODE,merge=1,delta=2
+    29                           	psect	text17,local,class=CODE,merge=1,delta=2
+    30                           	psect	text18,local,class=CODE,merge=1,delta=2
+    31                           	dabs	1,0x7E,2
+    32  0000                     	;# 
+    33  0001                     	;# 
+    34  0002                     	;# 
+    35  0003                     	;# 
+    36  0004                     	;# 
+    37  0005                     	;# 
+    38  0006                     	;# 
+    39  0007                     	;# 
+    40  0008                     	;# 
+    41  0009                     	;# 
+    42  000A                     	;# 
+    43  000B                     	;# 
+    44  000C                     	;# 
+    45  000D                     	;# 
+    46  0011                     	;# 
+    47  0012                     	;# 
+    48  0013                     	;# 
+    49  0014                     	;# 
+    50  0015                     	;# 
+    51  0016                     	;# 
+    52  0016                     	;# 
+    53  0017                     	;# 
+    54  0018                     	;# 
+    55  0019                     	;# 
+    56  001A                     	;# 
+    57  001B                     	;# 
+    58  001C                     	;# 
+    59  001E                     	;# 
+    60  001F                     	;# 
+    61  008C                     	;# 
+    62  008D                     	;# 
+    63  0091                     	;# 
+    64  0092                     	;# 
+    65  0093                     	;# 
+    66  0094                     	;# 
+    67  0095                     	;# 
+    68  0096                     	;# 
+    69  0097                     	;# 
+    70  0098                     	;# 
+    71  0099                     	;# 
+    72  009A                     	;# 
+    73  009B                     	;# 
+    74  009B                     	;# 
+    75  009C                     	;# 
+    76  009D                     	;# 
+    77  009E                     	;# 
+    78  010C                     	;# 
+    79  010D                     	;# 
+    80  0111                     	;# 
+    81  0112                     	;# 
+    82  0113                     	;# 
+    83  0114                     	;# 
+    84  0115                     	;# 
+    85  0116                     	;# 
+    86  0117                     	;# 
+    87  0118                     	;# 
+    88  0119                     	;# 
+    89  011A                     	;# 
+    90  011B                     	;# 
+    91  011D                     	;# 
+    92  011E                     	;# 
+    93  018C                     	;# 
+    94  018D                     	;# 
+    95  0191                     	;# 
+    96  0191                     	;# 
+    97  0192                     	;# 
+    98  0193                     	;# 
+    99  0193                     	;# 
+   100  0193                     	;# 
+   101  0194                     	;# 
+   102  0195                     	;# 
+   103  0196                     	;# 
+   104  0199                     	;# 
+   105  019A                     	;# 
+   106  019B                     	;# 
+   107  019B                     	;# 
+   108  019B                     	;# 
+   109  019B                     	;# 
+   110  019C                     	;# 
+   111  019C                     	;# 
+   112  019D                     	;# 
+   113  019E                     	;# 
+   114  019F                     	;# 
+   115  020C                     	;# 
+   116  020D                     	;# 
+   117  0211                     	;# 
+   118  0211                     	;# 
+   119  0212                     	;# 
+   120  0212                     	;# 
+   121  0213                     	;# 
+   122  0213                     	;# 
+   123  0214                     	;# 
+   124  0214                     	;# 
+   125  0215                     	;# 
+   126  0215                     	;# 
+   127  0215                     	;# 
+   128  0216                     	;# 
+   129  0216                     	;# 
+   130  0217                     	;# 
+   131  0217                     	;# 
+   132  0219                     	;# 
+   133  021A                     	;# 
+   134  021B                     	;# 
+   135  021C                     	;# 
+   136  021D                     	;# 
+   137  021E                     	;# 
+   138  021F                     	;# 
+   139  0291                     	;# 
+   140  0291                     	;# 
+   141  0292                     	;# 
+   142  0293                     	;# 
+   143  0294                     	;# 
+   144  0295                     	;# 
+   145  0295                     	;# 
+   146  0296                     	;# 
+   147  0298                     	;# 
+   148  0298                     	;# 
+   149  0299                     	;# 
+   150  029A                     	;# 
+   151  029B                     	;# 
+   152  029C                     	;# 
+   153  029C                     	;# 
+   154  029D                     	;# 
+   155  029E                     	;# 
+   156  029E                     	;# 
+   157  0311                     	;# 
+   158  0311                     	;# 
+   159  0312                     	;# 
+   160  0313                     	;# 
+   161  0318                     	;# 
+   162  0318                     	;# 
+   163  0319                     	;# 
+   164  031A                     	;# 
+   165  0394                     	;# 
+   166  0395                     	;# 
+   167  0396                     	;# 
+   168  039A                     	;# 
+   169  039C                     	;# 
+   170  039D                     	;# 
+   171  039E                     	;# 
+   172  039F                     	;# 
+   173  0415                     	;# 
+   174  0416                     	;# 
+   175  0417                     	;# 
+   176  041C                     	;# 
+   177  041D                     	;# 
+   178  041E                     	;# 
+   179  0FE4                     	;# 
+   180  0FE5                     	;# 
+   181  0FE6                     	;# 
+   182  0FE7                     	;# 
+   183  0FE8                     	;# 
+   184  0FE9                     	;# 
+   185  0FEA                     	;# 
+   186  0FEB                     	;# 
+   187  0FED                     	;# 
+   188  0FEE                     	;# 
+   189  0FEF                     	;# 
+   190                           
+   191                           	psect	idataCOMMON
+   192  041B                     __pidataCOMMON:	
+   193                           
+   194                           ;initializer for LCD_SetCursor@F3069
+   195  041B  3400               	retlw	0
+   196  041C  3440               	retlw	64
+   197                           
+   198                           	psect	stringtext
+   199  0400                     __pstringtext:	
+   200  0400                     _dpowers:	
+   201  0400  3401               	retlw	1
+   202  0401  3400               	retlw	0
+   203  0402  340A               	retlw	10
+   204  0403  3400               	retlw	0
+   205  0404  3464               	retlw	100
+   206  0405  3400               	retlw	0
+   207  0406  34E8               	retlw	232
+   208  0407  3403               	retlw	3
+   209  0408  3410               	retlw	16
+   210  0409  3427               	retlw	39
+   211  040A                     __end_of_dpowers:	
+   212  000B                     _INTCONbits	set	11
+   213  0018                     _T1CONbits	set	24
+   214  0015                     _TMR0	set	21
+   215  0017                     _TMR1H	set	23
+   216  0016                     _TMR1L	set	22
+   217  0093                     _BCL1IF	set	147
+   218  008D                     _RCIF	set	141
+   219  008B                     _SSP1IF	set	139
+   220  005A                     _TMR0IF	set	90
+   221  008C                     _TXIF	set	140
+   222  009B                     _ADRES	set	155
+   223  009D                     _ADCON0bits	set	157
+   224  009E                     _ADCON1bits	set	158
+   225  0095                     _OPTION_REGbits	set	149
+   226  0099                     _OSCCON	set	153
+   227  0091                     _PIE1bits	set	145
+   228  008C                     _TRISA	set	140
+   229  008D                     _TRISB	set	141
+   230  048C                     _TXIE	set	1164
+   231  011D                     _APFCON0bits	set	285
+   232  011E                     _APFCON1bits	set	286
+   233  0117                     _FVRCON	set	279
+   234  0868                     _LATB0	set	2152
+   235  018C                     _ANSELA	set	396
+   236  018D                     _ANSELB	set	397
+   237  0199                     _RCREG	set	409
+   238  019D                     _RCSTA	set	413
+   239  019C                     _SPBRGH	set	412
+   240  019B                     _SPBRGL	set	411
+   241  019A                     _TXREG	set	410
+   242  019E                     _TXSTA	set	414
+   243  0CFB                     _BRG16	set	3323
+   244  0CEF                     _SPEN	set	3311
+   245  0212                     _SSP1ADD	set	530
+   246  0211                     _SSP1BUF	set	529
+   247  0215                     _SSP1CON1	set	533
+   248  0215                     _SSP1CON1bits	set	533
+   249  0216                     _SSP1CON2	set	534
+   250  0216                     _SSP1CON2bits	set	534
+   251  0214                     _SSP1STAT	set	532
+   252  0214                     _SSP1STATbits	set	532
+   253  020C                     _WPUA	set	524
+   254  020D                     _WPUB	set	525
+   255  040A                     __stringdata:	
+   256  040A                     STR_1:	
+   257  040A  3474               	retlw	116	;'t'
+   258  040B  343D               	retlw	61	;'='
+   259  040C  3425               	retlw	37	;'%'
+   260  040D  3464               	retlw	100	;'d'
+   261  040E  340A               	retlw	10
+   262  040F  3400               	retlw	0
+   263  0410                     __end_of__stringdata:	
+   264                           
+   265                           ; #config settings
+   266  0000                     
+   267                           	psect	cinit
+   268  0023                     start_initialization:	
+   269  0023                     __initialization:	
+   270                           
+   271                           ; Clear objects allocated to BANK0
+   272  0023  01C3               	clrf	__pbssBANK0& (0+127)
+   273  0024  01C4               	clrf	(__pbssBANK0+1)& (0+127)
+   274  0025  01C5               	clrf	(__pbssBANK0+2)& (0+127)
+   275  0026  01C6               	clrf	(__pbssBANK0+3)& (0+127)
+   276                           
+   277                           ; Initialize objects allocated to COMMON
+   278  0027  3184  241B  3180   	fcall	__pidataCOMMON	;fetch initializer
+   279  002A  00F9               	movwf	__pdataCOMMON& (0+127)
+   280  002B  3184  241C         	fcall	__pidataCOMMON+1	;fetch initializer
+   281  002D  00FA               	movwf	(__pdataCOMMON+1)& (0+127)
+   282  002E                     end_of_initialization:	
+   283                           ;End of C runtime variable initialization code
+   284                           
+   285  002E                     __end_of__initialization:	
+   286  002E  107E               	bcf	pic14e$flags,0	;clear compiler interrupt flag
+   287  002F  0020               	movlb	0
+   288  0030  3181  2905         	ljmp	_main	;jump to C main() function
+   289                           
+   290                           	psect	dataCOMMON
+   291  0079                     __pdataCOMMON:	
+   292  0079                     LCD_SetCursor@F3069:	
+   293  0079                     	ds	2
+   294                           
+   295                           	psect	bssBANK0
+   296  0043                     __pbssBANK0:	
+   297  0043                     _tx_buf:	
+   298  0043                     	ds	4
+   299                           
+   300                           	psect	cstackBANK1
+   301  00A0                     __pcstackBANK1:	
+   302  00A0                     main@buf:	
+   303                           
+   304                           ; 30 bytes @ 0x0
+   305  00A0                     	ds	30
+   306  00BE                     main@cbuf:	
+   307                           
+   308                           ; 50 bytes @ 0x1E
+   309  00BE                     	ds	50
+   310                           
+   311                           	psect	cstackCOMMON
+   312  0070                     __pcstackCOMMON:	
+   313  0070                     ??_ringbuf_pop:	
+   314  0070                     ??_ringbuf_num:	
+   315                           ; 0 bytes @ 0x0
+   316                           
+   317  0070                     ?_UART_init:	
+   318                           ; 0 bytes @ 0x0
+   319                           
+   320  0070                     ?_tx_send:	
+   321                           ; 0 bytes @ 0x0
+   322                           
+   323  0070                     ?_tx_sends:	
+   324                           ; 0 bytes @ 0x0
+   325                           
+   326  0070                     ?_interrupt_TXIF:	
+   327                           ; 0 bytes @ 0x0
+   328                           
+   329  0070                     ?_ADT7310_init:	
+   330                           ; 0 bytes @ 0x0
+   331                           
+   332  0070                     ?_isr:	
+   333                           ; 0 bytes @ 0x0
+   334                           
+   335  0070                     ?_main:	
+   336                           ; 0 bytes @ 0x0
+   337                           
+   338  0070                     ?i1_ringbuf_push:	
+   339                           ; 0 bytes @ 0x0
+   340                           
+   341  0070                     ?_ringbuf_pop:	
+   342                           ; 0 bytes @ 0x0
+   343                           
+   344  0070                     ?_ringbuf_num:	
+   345                           ; 1 bytes @ 0x0
+   346                           
+   347  0070                     ?_SPI_Transfer:	
+   348                           ; 1 bytes @ 0x0
+   349                           
+   350  0070                     i1ringbuf_push@asciicode:	
+   351                           ; 1 bytes @ 0x0
+   352                           
+   353                           
+   354                           ; 1 bytes @ 0x0
+   355  0070                     	ds	1
+   356  0071                     ??i1_ringbuf_push:	
+   357  0071                     ringbuf_num@rb:	
+   358                           ; 0 bytes @ 0x1
+   359                           
+   360                           
+   361                           ; 1 bytes @ 0x1
+   362  0071                     	ds	1
+   363  0072                     ringbuf_pop@ret:	
+   364                           
+   365                           ; 1 bytes @ 0x2
+   366  0072                     	ds	1
+   367  0073                     ringbuf_pop@rb:	
+   368  0073                     i1ringbuf_push@rb:	
+   369                           ; 1 bytes @ 0x3
+   370                           
+   371                           
+   372                           ; 1 bytes @ 0x3
+   373  0073                     	ds	1
+   374  0074                     ??_tx_send:	
+   375  0074                     ??_interrupt_TXIF:	
+   376                           ; 0 bytes @ 0x4
+   377                           
+   378                           
+   379                           ; 0 bytes @ 0x4
+   380  0074                     	ds	1
+   381  0075                     tx_send@asciicode:	
+   382                           
+   383                           ; 1 bytes @ 0x5
+   384  0075                     	ds	1
+   385  0076                     ??_isr:	
+   386                           
+   387                           ; 0 bytes @ 0x6
+   388  0076                     	ds	2
+   389  0078                     isr@ascii:	
+   390                           
+   391                           ; 1 bytes @ 0x8
+   392  0078                     	ds	1
+   393                           
+   394                           	psect	cstackBANK0
+   395  0020                     __pcstackBANK0:	
+   396  0020                     ?_ringbuf_init:	
+   397  0020                     ?_ringbuf_push:	
+   398                           ; 0 bytes @ 0x0
+   399                           
+   400  0020                     ??_UART_init:	
+   401                           ; 0 bytes @ 0x0
+   402                           
+   403  0020                     ?_Delay_ms:	
+   404                           ; 0 bytes @ 0x0
+   405                           
+   406  0020                     ?_SPI_init:	
+   407                           ; 0 bytes @ 0x0
+   408                           
+   409  0020                     ??_SPI_Transfer:	
+   410                           ; 0 bytes @ 0x0
+   411                           
+   412  0020                     ?___lwdiv:	
+   413                           ; 0 bytes @ 0x0
+   414                           
+   415  0020                     ringbuf_init@internal_buf:	
+   416                           ; 2 bytes @ 0x0
+   417                           
+   418  0020                     ringbuf_push@asciicode:	
+   419                           ; 1 bytes @ 0x0
+   420                           
+   421  0020                     UART_init@device:	
+   422                           ; 1 bytes @ 0x0
+   423                           
+   424  0020                     SPI_init@interrupt_enable:	
+   425                           ; 1 bytes @ 0x0
+   426                           
+   427  0020                     Delay_ms@ms:	
+   428                           ; 1 bytes @ 0x0
+   429                           
+   430  0020                     ___lwdiv@divisor:	
+   431                           ; 2 bytes @ 0x0
+   432                           
+   433                           
+   434                           ; 2 bytes @ 0x0
+   435  0020                     	ds	1
+   436  0021                     ??_ringbuf_push:	
+   437  0021                     ??_SPI_init:	
+   438                           ; 0 bytes @ 0x1
+   439                           
+   440  0021                     ringbuf_init@bufsize:	
+   441                           ; 0 bytes @ 0x1
+   442                           
+   443  0021                     SPI_init@mode:	
+   444                           ; 1 bytes @ 0x1
+   445                           
+   446  0021                     SPI_Transfer@txdata:	
+   447                           ; 1 bytes @ 0x1
+   448                           
+   449                           
+   450                           ; 1 bytes @ 0x1
+   451  0021                     	ds	1
+   452  0022                     ??_ringbuf_init:	
+   453  0022                     ??_Delay_ms:	
+   454                           ; 0 bytes @ 0x2
+   455                           
+   456  0022                     SPI_Transfer@rxdata:	
+   457                           ; 0 bytes @ 0x2
+   458                           
+   459  0022                     ___lwdiv@dividend:	
+   460                           ; 1 bytes @ 0x2
+   461                           
+   462                           
+   463                           ; 2 bytes @ 0x2
+   464  0022                     	ds	1
+   465  0023                     ??_ADT7310_init:	
+   466  0023                     ?_SPI_TM_Read:	
+   467                           ; 0 bytes @ 0x3
+   468                           
+   469  0023                     ringbuf_init@rb:	
+   470                           ; 2 bytes @ 0x3
+   471                           
+   472  0023                     ringbuf_push@rb:	
+   473                           ; 1 bytes @ 0x3
+   474                           
+   475                           
+   476                           ; 1 bytes @ 0x3
+   477  0023                     	ds	1
+   478  0024                     ??_tx_sends:	
+   479  0024                     ??___lwdiv:	
+   480                           ; 0 bytes @ 0x4
+   481                           
+   482  0024                     ADT7310_init@dumy:	
+   483                           ; 0 bytes @ 0x4
+   484                           
+   485  0024                     Delay_ms@i:	
+   486                           ; 1 bytes @ 0x4
+   487                           
+   488                           
+   489                           ; 2 bytes @ 0x4
+   490  0024                     	ds	1
+   491  0025                     ??_SPI_TM_Read:	
+   492  0025                     ___lwdiv@quotient:	
+   493                           ; 0 bytes @ 0x5
+   494                           
+   495                           
+   496                           ; 2 bytes @ 0x5
+   497  0025                     	ds	1
+   498  0026                     tx_sends@asciicode:	
+   499                           
+   500                           ; 1 bytes @ 0x6
+   501  0026                     	ds	1
+   502  0027                     tx_sends@i:	
+   503  0027                     ___lwdiv@counter:	
+   504                           ; 1 bytes @ 0x7
+   505                           
+   506                           
+   507                           ; 1 bytes @ 0x7
+   508  0027                     	ds	1
+   509  0028                     ?___lwmod:	
+   510  0028                     ___lwmod@divisor:	
+   511                           ; 2 bytes @ 0x8
+   512                           
+   513                           
+   514                           ; 2 bytes @ 0x8
+   515  0028                     	ds	2
+   516  002A                     ___lwmod@dividend:	
+   517                           
+   518                           ; 2 bytes @ 0xA
+   519  002A                     	ds	2
+   520  002C                     ??___lwmod:	
+   521  002C                     SPI_TM_Read@th:	
+   522                           ; 0 bytes @ 0xC
+   523                           
+   524                           
+   525                           ; 1 bytes @ 0xC
+   526  002C                     	ds	1
+   527  002D                     SPI_TM_Read@tl:	
+   528  002D                     ___lwmod@counter:	
+   529                           ; 1 bytes @ 0xD
+   530                           
+   531                           
+   532                           ; 1 bytes @ 0xD
+   533  002D                     	ds	1
+   534  002E                     ?_sprintf:	
+   535  002E                     sprintf@f:	
+   536                           ; 2 bytes @ 0xE
+   537                           
+   538                           
+   539                           ; 2 bytes @ 0xE
+   540  002E                     	ds	4
+   541  0032                     ??_sprintf:	
+   542                           
+   543                           ; 0 bytes @ 0x12
+   544  0032                     	ds	4
+   545  0036                     sprintf@ap:	
+   546                           
+   547                           ; 1 bytes @ 0x16
+   548  0036                     	ds	1
+   549  0037                     sprintf@flag:	
+   550                           
+   551                           ; 1 bytes @ 0x17
+   552  0037                     	ds	1
+   553  0038                     sprintf@prec:	
+   554                           
+   555                           ; 1 bytes @ 0x18
+   556  0038                     	ds	1
+   557  0039                     sprintf@_val:	
+   558                           
+   559                           ; 4 bytes @ 0x19
+   560  0039                     	ds	4
+   561  003D                     sprintf@sp:	
+   562                           
+   563                           ; 1 bytes @ 0x1D
+   564  003D                     	ds	1
+   565  003E                     sprintf@c:	
+   566                           
+   567                           ; 1 bytes @ 0x1E
+   568  003E                     	ds	1
+   569  003F                     ??_main:	
+   570                           
+   571                           ; 0 bytes @ 0x1F
+   572  003F                     	ds	2
+   573  0041                     main@t:	
+   574                           
+   575                           ; 2 bytes @ 0x21
+   576  0041                     	ds	2
+   577                           
+   578                           	psect	maintext
+   579  0105                     __pmaintext:	
+   580 ;;
+   581 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   582 ;;
+   583 ;; *************** function _main *****************
+   584 ;; Defined at:
+   585 ;;		line 40 in file "PIC16F1827-SPI_TM01.c"
+   586 ;; Parameters:    Size  Location     Type
+   587 ;;		None
+   588 ;; Auto vars:     Size  Location     Type
+   589 ;;  cbuf           50   30[BANK1 ] unsigned char [50]
+   590 ;;  t               2   33[BANK0 ] int 
+   591 ;;  buf            30    0[BANK1 ] unsigned char [30]
+   592 ;; Return value:  Size  Location     Type
+   593 ;;		None               void
+   594 ;; Registers used:
+   595 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+   596 ;; Tracked objects:
+   597 ;;		On entry : 17F/0
+   598 ;;		On exit  : 0/0
+   599 ;;		Unchanged: 0/0
+   600 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+   601 ;;      Params:         0       0       0       0       0       0
+   602 ;;      Locals:         0       2      80       0       0       0
+   603 ;;      Temps:          0       2       0       0       0       0
+   604 ;;      Totals:         0       4      80       0       0       0
+   605 ;;Total ram usage:       84 bytes
+   606 ;; Hardware stack levels required when called:    5
+   607 ;; This function calls:
+   608 ;;		_ADT7310_init
+   609 ;;		_Delay_ms
+   610 ;;		_SPI_TM_Read
+   611 ;;		_SPI_init
+   612 ;;		_UART_init
+   613 ;;		_ringbuf_init
+   614 ;;		_sprintf
+   615 ;;		_tx_sends
+   616 ;; This function is called by:
+   617 ;;		Startup code after reset
+   618 ;; This function uses a non-reentrant model
+   619 ;;
+   620                           
+   621                           
+   622                           ;psect for function _main
+   623  0105                     _main:	
+   624                           
+   625                           ;PIC16F1827-SPI_TM01.c: 41: OSCCON = 0x70;
+   626                           
+   627                           ;incstack = 0
+   628                           ; Regs used in _main: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+   629  0105  3070               	movlw	112
+   630  0106  0021               	movlb	1	; select bank1
+   631  0107  0099               	movwf	25	;volatile
+   632                           
+   633                           ;PIC16F1827-SPI_TM01.c: 42: ANSELA = 0x00;
+   634  0108  0023               	movlb	3	; select bank3
+   635  0109  018C               	clrf	12	;volatile
+   636                           
+   637                           ;PIC16F1827-SPI_TM01.c: 43: ANSELB = 0x00;
+   638  010A  018D               	clrf	13	;volatile
+   639                           
+   640                           ;PIC16F1827-SPI_TM01.c: 44: TRISA = 0x00;
+   641  010B  0021               	movlb	1	; select bank1
+   642  010C  018C               	clrf	12	;volatile
+   643                           
+   644                           ;PIC16F1827-SPI_TM01.c: 45: TRISB = 0x06;
+   645  010D  3006               	movlw	6
+   646  010E  008D               	movwf	13	;volatile
+   647                           
+   648                           ;PIC16F1827-SPI_TM01.c: 46: WPUA = TRISA;
+   649  010F  080C               	movf	12,w	;volatile
+   650  0110  0024               	movlb	4	; select bank4
+   651  0111  008C               	movwf	12	;volatile
+   652                           
+   653                           ;PIC16F1827-SPI_TM01.c: 47: WPUB = TRISB;
+   654  0112  0021               	movlb	1	; select bank1
+   655  0113  080D               	movf	13,w	;volatile
+   656  0114  0024               	movlb	4	; select bank4
+   657  0115  008D               	movwf	13	;volatile
+   658                           
+   659                           ;PIC16F1827-SPI_TM01.c: 48: OPTION_REGbits.nWPUEN = 0;
+   660  0116  0021               	movlb	1	; select bank1
+   661  0117  1395               	bcf	21,7	;volatile
+   662                           
+   663                           ;PIC16F1827-SPI_TM01.c: 49: APFCON0bits.RXDTSEL = 1;
+   664  0118  0022               	movlb	2	; select bank2
+   665  0119  179D               	bsf	29,7	;volatile
+   666                           
+   667                           ;PIC16F1827-SPI_TM01.c: 50: APFCON0bits.SDO1SEL = 1;
+   668  011A  171D               	bsf	29,6	;volatile
+   669                           
+   670                           ;PIC16F1827-SPI_TM01.c: 51: APFCON1bits.TXCKSEL = 1;
+   671  011B  141E               	bsf	30,0	;volatile
+   672                           
+   673                           ;PIC16F1827-SPI_TM01.c: 53: UART_init(0);
+   674  011C  3000               	movlw	0
+   675  011D  3183  2362  3181   	fcall	_UART_init
+   676                           
+   677                           ;PIC16F1827-SPI_TM01.c: 54: SPI_init(0,0);
+   678  0120  0020               	movlb	0	; select bank0
+   679  0121  01A0               	clrf	SPI_init@interrupt_enable
+   680  0122  3000               	movlw	0
+   681  0123  3182  22C1  3181   	fcall	_SPI_init
+   682                           
+   683                           ;PIC16F1827-SPI_TM01.c: 56: char buf[30];
+   684                           ;PIC16F1827-SPI_TM01.c: 57: ringbuf_init(&tx_buf, buf, sizeof (buf));
+   685  0126  30A0               	movlw	main@buf& (0+255)
+   686  0127  0020               	movlb	0	; select bank0
+   687  0128  00BF               	movwf	??_main
+   688  0129  083F               	movf	??_main,w
+   689  012A  00A0               	movwf	ringbuf_init@internal_buf
+   690  012B  301E               	movlw	30
+   691  012C  00C0               	movwf	??_main+1
+   692  012D  0840               	movf	??_main+1,w
+   693  012E  00A1               	movwf	ringbuf_init@bufsize
+   694  012F  3043               	movlw	_tx_buf& (0+255)
+   695  0130  3182  22FF  3181   	fcall	_ringbuf_init
+   696                           
+   697                           ;PIC16F1827-SPI_TM01.c: 59: INTCONbits.GIE = 1;
+   698  0133  178B               	bsf	11,7	;volatile
+   699                           
+   700                           ;PIC16F1827-SPI_TM01.c: 61: ADT7310_init();
+   701  0134  3182  22E3  3181   	fcall	_ADT7310_init
+   702                           
+   703                           ;PIC16F1827-SPI_TM01.c: 62: Delay_ms(240);
+   704  0137  30F0               	movlw	240
+   705  0138  0020               	movlb	0	; select bank0
+   706  0139  00A0               	movwf	Delay_ms@ms
+   707  013A  3000               	movlw	0
+   708  013B                     L1:	
+   709  013B  00A1               	movwf	Delay_ms@ms+1
+   710  013C  3183  231A  3181   	fcall	_Delay_ms
+   711                           
+   712                           ;PIC16F1827-SPI_TM01.c: 65: char cbuf[50];
+   713                           ;PIC16F1827-SPI_TM01.c: 66: int16_t t = SPI_TM_Read();
+   714                           
+   715                           ;PIC16F1827-SPI_TM01.c: 64: while (1) {
+   716  013F  3182  2274  3181   	fcall	_SPI_TM_Read
+   717  0142  0020               	movlb	0	; select bank0
+   718  0143  0824               	movf	?_SPI_TM_Read+1,w
+   719  0144  01C2               	clrf	main@t+1
+   720  0145  07C2               	addwf	main@t+1,f
+   721  0146  0823               	movf	?_SPI_TM_Read,w
+   722  0147  01C1               	clrf	main@t
+   723  0148  07C1               	addwf	main@t,f
+   724                           
+   725                           ;PIC16F1827-SPI_TM01.c: 67: sprintf(cbuf, "t=%d\n", t);
+   726  0149  300A               	movlw	low (STR_1| (0+32768))
+   727  014A  00AE               	movwf	sprintf@f
+   728  014B  3084               	movlw	high (STR_1| (0+32768))
+   729  014C  00AF               	movwf	sprintf@f+1
+   730  014D  0842               	movf	main@t+1,w
+   731  014E  01B1               	clrf	?_sprintf+3
+   732  014F  07B1               	addwf	?_sprintf+3,f
+   733  0150  0841               	movf	main@t,w
+   734  0151  01B0               	clrf	?_sprintf+2
+   735  0152  07B0               	addwf	?_sprintf+2,f
+   736  0153  30BE               	movlw	main@cbuf& (0+255)
+   737  0154  3180  2032  3181   	fcall	_sprintf
+   738                           
+   739                           ;PIC16F1827-SPI_TM01.c: 68: tx_sends(&cbuf);
+   740  0157  30BE               	movlw	main@cbuf& (0+255)
+   741  0158  3182  229E  3181   	fcall	_tx_sends
+   742                           
+   743                           ;PIC16F1827-SPI_TM01.c: 69: Delay_ms(1000);
+   744  015B  30E8               	movlw	232
+   745  015C  0020               	movlb	0	; select bank0
+   746  015D  00A0               	movwf	Delay_ms@ms
+   747  015E  3003               	movlw	3
+   748  015F  293B               	goto	L1
+   749  0160                     __end_of_main:	
+   750                           
+   751                           	psect	text1
+   752  029E                     __ptext1:	
+   753 ;; *************** function _tx_sends *****************
+   754 ;; Defined at:
+   755 ;;		line 166 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header_16F.h"
+   756 ;; Parameters:    Size  Location     Type
+   757 ;;  asciicode       1    wreg     PTR unsigned char 
+   758 ;;		 -> main@cbuf(50), 
+   759 ;; Auto vars:     Size  Location     Type
+   760 ;;  asciicode       1    6[BANK0 ] PTR unsigned char 
+   761 ;;		 -> main@cbuf(50), 
+   762 ;;  i               1    7[BANK0 ] unsigned char 
+   763 ;; Return value:  Size  Location     Type
+   764 ;;		None               void
+   765 ;; Registers used:
+   766 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+   767 ;; Tracked objects:
+   768 ;;		On entry : 0/0
+   769 ;;		On exit  : 0/0
+   770 ;;		Unchanged: 0/0
+   771 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+   772 ;;      Params:         0       0       0       0       0       0
+   773 ;;      Locals:         0       2       0       0       0       0
+   774 ;;      Temps:          0       2       0       0       0       0
+   775 ;;      Totals:         0       4       0       0       0       0
+   776 ;;Total ram usage:        4 bytes
+   777 ;; Hardware stack levels used:    1
+   778 ;; Hardware stack levels required when called:    4
+   779 ;; This function calls:
+   780 ;;		_ringbuf_push
+   781 ;; This function is called by:
+   782 ;;		_main
+   783 ;; This function uses a non-reentrant model
+   784 ;;
+   785                           
+   786                           
+   787                           ;psect for function _tx_sends
+   788  029E                     _tx_sends:	
+   789                           
+   790                           ;incstack = 0
+   791                           ; Regs used in _tx_sends: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+   792                           ;tx_sends@asciicode stored from wreg
+   793  029E  0020               	movlb	0	; select bank0
+   794  029F  00A6               	movwf	tx_sends@asciicode
+   795                           
+   796                           ;My_header_16F.h: 167: uint8_t i;
+   797                           ;My_header_16F.h: 168: for (i = 0; asciicode[i]; i++) {
+   798  02A0  01A7               	clrf	tx_sends@i
+   799  02A1                     l1505:	
+   800  02A1  0827               	movf	tx_sends@i,w
+   801  02A2  0726               	addwf	tx_sends@asciicode,w
+   802  02A3  00A4               	movwf	??_tx_sends
+   803  02A4  0824               	movf	??_tx_sends,w
+   804  02A5  0086               	movwf	6
+   805  02A6  0187               	clrf	7
+   806  02A7  0881               	movf	1,f
+   807  02A8  1903               	btfsc	3,2
+   808  02A9  2ABE               	goto	l155
+   809                           
+   810                           ;My_header_16F.h: 169: ringbuf_push(&tx_buf, asciicode[i]);
+   811  02AA  0827               	movf	tx_sends@i,w
+   812  02AB  0726               	addwf	tx_sends@asciicode,w
+   813  02AC  00A4               	movwf	??_tx_sends
+   814  02AD  0824               	movf	??_tx_sends,w
+   815  02AE  0086               	movwf	6
+   816  02AF  0187               	clrf	7
+   817  02B0  0801               	movf	1,w
+   818  02B1  00A5               	movwf	??_tx_sends+1
+   819  02B2  0825               	movf	??_tx_sends+1,w
+   820  02B3  00A0               	movwf	ringbuf_push@asciicode
+   821  02B4  3043               	movlw	_tx_buf& (0+255)
+   822  02B5  3181  21C6  3182   	fcall	_ringbuf_push
+   823  02B8  3001               	movlw	1
+   824  02B9  0020               	movlb	0	; select bank0
+   825  02BA  00A4               	movwf	??_tx_sends
+   826  02BB  0824               	movf	??_tx_sends,w
+   827  02BC  07A7               	addwf	tx_sends@i,f
+   828  02BD  2AA1               	goto	l1505
+   829  02BE                     l155:	
+   830                           
+   831                           ;My_header_16F.h: 170: }
+   832                           ;My_header_16F.h: 171: PIE1bits.TXIE = 1;
+   833  02BE  0021               	movlb	1	; select bank1
+   834  02BF  1611               	bsf	17,4	;volatile
+   835  02C0  0008               	return
+   836  02C1                     __end_of_tx_sends:	
+   837                           
+   838                           	psect	text2
+   839  01C6                     __ptext2:	
+   840 ;; *************** function _ringbuf_push *****************
+   841 ;; Defined at:
+   842 ;;		line 120 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header_16F.h"
+   843 ;; Parameters:    Size  Location     Type
+   844 ;;  rb              1    wreg     PTR struct ringbuf
+   845 ;;		 -> tx_buf(4), 
+   846 ;;  asciicode       1    0[BANK0 ] unsigned char 
+   847 ;; Auto vars:     Size  Location     Type
+   848 ;;  rb              1    3[BANK0 ] PTR struct ringbuf
+   849 ;;		 -> tx_buf(4), 
+   850 ;; Return value:  Size  Location     Type
+   851 ;;		None               void
+   852 ;; Registers used:
+   853 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0
+   854 ;; Tracked objects:
+   855 ;;		On entry : 0/0
+   856 ;;		On exit  : 0/0
+   857 ;;		Unchanged: 0/0
+   858 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+   859 ;;      Params:         0       1       0       0       0       0
+   860 ;;      Locals:         0       1       0       0       0       0
+   861 ;;      Temps:          0       2       0       0       0       0
+   862 ;;      Totals:         0       4       0       0       0       0
+   863 ;;Total ram usage:        4 bytes
+   864 ;; Hardware stack levels used:    1
+   865 ;; Hardware stack levels required when called:    3
+   866 ;; This function calls:
+   867 ;;		Nothing
+   868 ;; This function is called by:
+   869 ;;		_tx_sends
+   870 ;; This function uses a non-reentrant model
+   871 ;;
+   872                           
+   873                           
+   874                           ;psect for function _ringbuf_push
+   875  01C6                     _ringbuf_push:	
+   876                           
+   877                           ;incstack = 0
+   878                           ; Regs used in _ringbuf_push: [wreg-fsr1h+status,2+status,0]
+   879                           ;ringbuf_push@rb stored from wreg
+   880  01C6  0020               	movlb	0	; select bank0
+   881  01C7  00A3               	movwf	ringbuf_push@rb
+   882                           
+   883                           ;My_header_16F.h: 121: rb->buf[rb->head] = asciicode;
+   884  01C8  0820               	movf	ringbuf_push@asciicode,w
+   885  01C9  00A1               	movwf	??_ringbuf_push
+   886  01CA  0823               	movf	ringbuf_push@rb,w
+   887  01CB  0086               	movwf	6
+   888  01CC  0187               	clrf	7
+   889  01CD  0823               	movf	ringbuf_push@rb,w
+   890  01CE  3E02               	addlw	2
+   891  01CF  0084               	movwf	4
+   892  01D0  0185               	clrf	5
+   893  01D1  0800               	movf	0,w
+   894  01D2  0701               	addwf	1,w
+   895  01D3  00A2               	movwf	??_ringbuf_push+1
+   896  01D4  0822               	movf	??_ringbuf_push+1,w
+   897  01D5  0086               	movwf	6
+   898  01D6  0187               	clrf	7
+   899  01D7  0821               	movf	??_ringbuf_push,w
+   900  01D8  0081               	movwf	1
+   901                           
+   902                           ;My_header_16F.h: 122: rb->head++;
+   903  01D9  3001               	movlw	1
+   904  01DA  00A1               	movwf	??_ringbuf_push
+   905  01DB  0823               	movf	ringbuf_push@rb,w
+   906  01DC  3E02               	addlw	2
+   907  01DD  0086               	movwf	6
+   908  01DE  0187               	clrf	7
+   909  01DF  0821               	movf	??_ringbuf_push,w
+   910  01E0  0781               	addwf	1,f
+   911                           
+   912                           ;My_header_16F.h: 123: if (rb->head >= rb->size) {
+   913  01E1  0823               	movf	ringbuf_push@rb,w
+   914  01E2  3E02               	addlw	2
+   915  01E3  0086               	movwf	6
+   916  01E4  0187               	clrf	7
+   917  01E5  0A23               	incf	ringbuf_push@rb,w
+   918  01E6  0084               	movwf	4
+   919  01E7  0185               	clrf	5
+   920  01E8  0800               	movf	0,w
+   921  01E9  0201               	subwf	1,w
+   922  01EA  1C03               	skipc
+   923  01EB  0008               	return
+   924                           
+   925                           ;My_header_16F.h: 124: rb->head = 0;
+   926  01EC  0823               	movf	ringbuf_push@rb,w
+   927  01ED  3E02               	addlw	2
+   928  01EE  0086               	movwf	6
+   929  01EF  0187               	clrf	7
+   930  01F0  0181               	clrf	1
+   931  01F1  0008               	return
+   932  01F2                     __end_of_ringbuf_push:	
+   933                           
+   934                           	psect	text3
+   935  0032                     __ptext3:	
+   936 ;; *************** function _sprintf *****************
+   937 ;; Defined at:
+   938 ;;		line 492 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c"
+   939 ;; Parameters:    Size  Location     Type
+   940 ;;  sp              1    wreg     PTR unsigned char 
+   941 ;;		 -> main@cbuf(50), 
+   942 ;;  f               2   14[BANK0 ] PTR const unsigned char 
+   943 ;;		 -> STR_1(6), 
+   944 ;; Auto vars:     Size  Location     Type
+   945 ;;  sp              1   29[BANK0 ] PTR unsigned char 
+   946 ;;		 -> main@cbuf(50), 
+   947 ;;  _val            4   25[BANK0 ] struct .
+   948 ;;  c               1   30[BANK0 ] char 
+   949 ;;  prec            1   24[BANK0 ] char 
+   950 ;;  flag            1   23[BANK0 ] unsigned char 
+   951 ;;  ap              1   22[BANK0 ] PTR void [1]
+   952 ;;		 -> ?_sprintf(2), 
+   953 ;; Return value:  Size  Location     Type
+   954 ;;                  2   14[BANK0 ] int 
+   955 ;; Registers used:
+   956 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+   957 ;; Tracked objects:
+   958 ;;		On entry : 0/0
+   959 ;;		On exit  : 0/0
+   960 ;;		Unchanged: 0/0
+   961 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+   962 ;;      Params:         0       4       0       0       0       0
+   963 ;;      Locals:         0       9       0       0       0       0
+   964 ;;      Temps:          0       4       0       0       0       0
+   965 ;;      Totals:         0      17       0       0       0       0
+   966 ;;Total ram usage:       17 bytes
+   967 ;; Hardware stack levels used:    1
+   968 ;; Hardware stack levels required when called:    4
+   969 ;; This function calls:
+   970 ;;		___lwdiv
+   971 ;;		___lwmod
+   972 ;; This function is called by:
+   973 ;;		_main
+   974 ;; This function uses a non-reentrant model
+   975 ;;
+   976                           
+   977                           
+   978                           ;psect for function _sprintf
+   979  0032                     _sprintf:	
+   980                           
+   981                           ;incstack = 0
+   982                           ; Regs used in _sprintf: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+   983                           ;sprintf@sp stored from wreg
+   984  0032  0020               	movlb	0	; select bank0
+   985  0033  00BD               	movwf	sprintf@sp
+   986                           
+   987                           ;doprnt.c: 494: va_list ap;
+   988                           ;doprnt.c: 499: signed char c;
+   989                           ;doprnt.c: 506: signed char prec;
+   990                           ;doprnt.c: 508: unsigned char flag;
+   991                           ;doprnt.c: 527: union {
+   992                           ;doprnt.c: 528: unsigned int _val;
+   993                           ;doprnt.c: 529: struct {
+   994                           ;doprnt.c: 530: const char * _cp;
+   995                           ;doprnt.c: 531: unsigned _len;
+   996                           ;doprnt.c: 532: } _str;
+   997                           ;doprnt.c: 533: } _val;
+   998                           ;doprnt.c: 542: *ap = __va_start();
+   999  0034  3030               	movlw	(?_sprintf+2)& (0+255)
+  1000  0035  00B2               	movwf	??_sprintf
+  1001  0036  0832               	movf	??_sprintf,w
+  1002  0037  00B6               	movwf	sprintf@ap
+  1003  0038                     l1603:	
+  1004                           ;doprnt.c: 545: while(c = *f++) {
+  1005                           
+  1006  0038  082F               	movf	sprintf@f+1,w
+  1007  0039  00B3               	movwf	??_sprintf+1
+  1008  003A  082E               	movf	sprintf@f,w
+  1009  003B  00B2               	movwf	??_sprintf
+  1010  003C  0AAE               	incf	sprintf@f,f
+  1011  003D  1903               	skipnz
+  1012  003E  0AAF               	incf	sprintf@f+1,f
+  1013  003F  0832               	movf	??_sprintf,w
+  1014  0040  0084               	movwf	4
+  1015  0041  0833               	movf	??_sprintf+1,w
+  1016  0042  0085               	movwf	5
+  1017  0043  0800               	movf	0,w	;code access
+  1018  0044  00B4               	movwf	??_sprintf+2
+  1019  0045  0834               	movf	??_sprintf+2,w
+  1020  0046  00BE               	movwf	sprintf@c
+  1021  0047  08BE               	movf	sprintf@c,f
+  1022  0048  1903               	btfsc	3,2
+  1023  0049  2900               	goto	l1605
+  1024                           
+  1025                           ;doprnt.c: 547: if(c != '%')
+  1026  004A  083E               	movf	sprintf@c,w
+  1027  004B  3A25               	xorlw	37
+  1028  004C  1903               	skipnz
+  1029  004D  285A               	goto	l1559
+  1030                           
+  1031                           ;doprnt.c: 549: {
+  1032                           ;doprnt.c: 550: ((*sp++ = (c)));
+  1033  004E  083E               	movf	sprintf@c,w
+  1034  004F  00B2               	movwf	??_sprintf
+  1035  0050  083D               	movf	sprintf@sp,w
+  1036  0051  0086               	movwf	6
+  1037  0052  0187               	clrf	7
+  1038  0053  0832               	movf	??_sprintf,w
+  1039  0054  0081               	movwf	1
+  1040  0055  3001               	movlw	1
+  1041  0056  00B2               	movwf	??_sprintf
+  1042  0057  0832               	movf	??_sprintf,w
+  1043  0058  07BD               	addwf	sprintf@sp,f
+  1044                           
+  1045                           ;doprnt.c: 551: continue;
+  1046  0059  2838               	goto	l1603
+  1047  005A                     l1559:	
+  1048                           
+  1049                           ;doprnt.c: 552: }
+  1050                           ;doprnt.c: 557: flag = 0;
+  1051  005A  01B7               	clrf	sprintf@flag
+  1052                           
+  1053                           ;doprnt.c: 831: }
+  1054                           
+  1055                           ;doprnt.c: 822: continue;
+  1056                           
+  1057                           ;doprnt.c: 811: default:
+  1058                           
+  1059                           ;doprnt.c: 707: case 'i':
+  1060                           ;doprnt.c: 708: break;
+  1061                           
+  1062                           ;doprnt.c: 706: case 'd':
+  1063                           
+  1064                           ;doprnt.c: 647: goto alldone;
+  1065                           
+  1066                           ;doprnt.c: 646: case 0:
+  1067                           
+  1068                           ;doprnt.c: 644: switch(c = *f++) {
+  1069  005B  082F               	movf	sprintf@f+1,w
+  1070  005C  00B3               	movwf	??_sprintf+1
+  1071  005D  082E               	movf	sprintf@f,w
+  1072  005E  00B2               	movwf	??_sprintf
+  1073  005F  0AAE               	incf	sprintf@f,f
+  1074  0060  1903               	skipnz
+  1075  0061  0AAF               	incf	sprintf@f+1,f
+  1076  0062  0832               	movf	??_sprintf,w
+  1077  0063  0084               	movwf	4
+  1078  0064  0833               	movf	??_sprintf+1,w
+  1079  0065  0085               	movwf	5
+  1080  0066  0800               	movf	0,w	;code access
+  1081  0067  00BE               	movwf	sprintf@c
+  1082                           
+  1083                           ; Switch size 1, requested type "space"
+  1084                           ; Number of cases is 3, Range of values is 0 to 105
+  1085                           ; switch strategies available:
+  1086                           ; Name         Instructions Cycles
+  1087                           ; simple_byte           10     6 (average)
+  1088                           ; direct_byte          218     6 (fixed)
+  1089                           ; jumptable            260     6 (fixed)
+  1090                           ;	Chosen strategy is simple_byte
+  1091  0068  3A00               	xorlw	0	; case 0
+  1092  0069  1903               	skipnz
+  1093  006A  2900               	goto	l1605
+  1094  006B  3A64               	xorlw	100	; case 100
+  1095  006C  1903               	skipnz
+  1096  006D  2872               	goto	l1565
+  1097  006E  3A0D               	xorlw	13	; case 105
+  1098  006F  1903               	skipnz
+  1099  0070  2872               	goto	l1565
+  1100  0071  2838               	goto	l1603
+  1101  0072                     l1565:	
+  1102                           
+  1103                           ;doprnt.c: 1262: {
+  1104                           ;doprnt.c: 1268: _val._val = (int)(*(int *)__va_arg((*(int **)ap), (int)0));
+  1105  0072  0836               	movf	sprintf@ap,w
+  1106  0073  0086               	movwf	6
+  1107  0074  0187               	clrf	7
+  1108  0075  3F40               	moviw [0]fsr1
+  1109  0076  00B9               	movwf	sprintf@_val
+  1110  0077  3F41               	moviw [1]fsr1
+  1111  0078  00BA               	movwf	sprintf@_val+1
+  1112  0079  3002               	movlw	2
+  1113  007A  00B2               	movwf	??_sprintf
+  1114  007B  0832               	movf	??_sprintf,w
+  1115  007C  07B6               	addwf	sprintf@ap,f
+  1116                           
+  1117                           ;doprnt.c: 1270: if((int)_val._val < 0) {
+  1118  007D  1FBA               	btfss	sprintf@_val+1,7
+  1119  007E  2888               	goto	l1575
+  1120                           
+  1121                           ;doprnt.c: 1271: flag |= 0x03;
+  1122  007F  3003               	movlw	3
+  1123  0080  00B2               	movwf	??_sprintf
+  1124  0081  0832               	movf	??_sprintf,w
+  1125  0082  04B7               	iorwf	sprintf@flag,f
+  1126                           
+  1127                           ;doprnt.c: 1272: _val._val = -_val._val;
+  1128  0083  09B9               	comf	sprintf@_val,f
+  1129  0084  09BA               	comf	sprintf@_val+1,f
+  1130  0085  0AB9               	incf	sprintf@_val,f
+  1131  0086  1903               	skipnz
+  1132  0087  0ABA               	incf	sprintf@_val+1,f
+  1133  0088                     l1575:	
+  1134                           
+  1135                           ;doprnt.c: 1273: }
+  1136                           ;doprnt.c: 1275: }
+  1137                           ;doprnt.c: 1314: for(c = 1 ; c != sizeof dpowers/sizeof dpowers[0] ; c++)
+  1138  0088  01BE               	clrf	sprintf@c
+  1139  0089  0ABE               	incf	sprintf@c,f
+  1140  008A  083E               	movf	sprintf@c,w
+  1141  008B  3A05               	xorlw	5
+  1142  008C  1903               	btfsc	3,2
+  1143  008D  28AD               	goto	l1587
+  1144  008E                     l1579:	
+  1145                           
+  1146                           ;doprnt.c: 1315: if(_val._val < dpowers[c])
+  1147  008E  083E               	movf	sprintf@c,w
+  1148  008F  00B2               	movwf	??_sprintf
+  1149  0090  01B3               	clrf	??_sprintf+1
+  1150  0091  35B2               	lslf	??_sprintf,f
+  1151  0092  0DB3               	rlf	??_sprintf+1,f
+  1152  0093  3000               	movlw	low (_dpowers| (0+32768))
+  1153  0094  0732               	addwf	??_sprintf,w
+  1154  0095  0084               	movwf	4
+  1155  0096  3084               	movlw	high (_dpowers| (0+32768))
+  1156  0097  3D33               	addwfc	??_sprintf+1,w
+  1157  0098  0085               	movwf	5
+  1158  0099  3F00               	moviw [0]fsr0
+  1159  009A  00B4               	movwf	??_sprintf+2
+  1160  009B  3F01               	moviw [1]fsr0
+  1161  009C  00B5               	movwf	??_sprintf+3
+  1162  009D  0835               	movf	??_sprintf+3,w
+  1163  009E  023A               	subwf	sprintf@_val+1,w
+  1164  009F  1D03               	skipz
+  1165  00A0  28A3               	goto	u1025
+  1166  00A1  0834               	movf	??_sprintf+2,w
+  1167  00A2  0239               	subwf	sprintf@_val,w
+  1168  00A3                     u1025:	
+  1169  00A3  1C03               	btfss	3,0
+  1170  00A4  28AD               	goto	l1587
+  1171                           
+  1172                           ;doprnt.c: 1316: break;
+  1173  00A5  3001               	movlw	1
+  1174  00A6  00B2               	movwf	??_sprintf
+  1175  00A7  0832               	movf	??_sprintf,w
+  1176  00A8  07BE               	addwf	sprintf@c,f
+  1177  00A9  083E               	movf	sprintf@c,w
+  1178  00AA  3A05               	xorlw	5
+  1179  00AB  1D03               	skipz
+  1180  00AC  288E               	goto	l1579
+  1181  00AD                     l1587:	
+  1182                           
+  1183                           ;doprnt.c: 1431: {
+  1184                           ;doprnt.c: 1447: if(flag & 0x03)
+  1185  00AD  0837               	movf	sprintf@flag,w
+  1186  00AE  3903               	andlw	3
+  1187  00AF  1903               	btfsc	3,2
+  1188  00B0  28BC               	goto	l1593
+  1189                           
+  1190                           ;doprnt.c: 1448: ((*sp++ = ('-')));
+  1191  00B1  302D               	movlw	45
+  1192  00B2  00B2               	movwf	??_sprintf
+  1193  00B3  083D               	movf	sprintf@sp,w
+  1194  00B4  0086               	movwf	6
+  1195  00B5  0187               	clrf	7
+  1196  00B6  0832               	movf	??_sprintf,w
+  1197  00B7  0081               	movwf	1
+  1198  00B8  3001               	movlw	1
+  1199  00B9  00B2               	movwf	??_sprintf
+  1200  00BA  0832               	movf	??_sprintf,w
+  1201  00BB  07BD               	addwf	sprintf@sp,f
+  1202  00BC                     l1593:	
+  1203                           
+  1204                           ;doprnt.c: 1478: }
+  1205                           ;doprnt.c: 1481: prec = c;
+  1206  00BC  083E               	movf	sprintf@c,w
+  1207  00BD  00B2               	movwf	??_sprintf
+  1208  00BE  0832               	movf	??_sprintf,w
+  1209  00BF  00B8               	movwf	sprintf@prec
+  1210  00C0                     l1601:	
+  1211                           ;doprnt.c: 1483: while(prec--) {
+  1212                           
+  1213  00C0  30FF               	movlw	-1
+  1214  00C1  00B2               	movwf	??_sprintf
+  1215  00C2  0832               	movf	??_sprintf,w
+  1216  00C3  07B8               	addwf	sprintf@prec,f
+  1217  00C4  0838               	movf	sprintf@prec,w
+  1218  00C5  3AFF               	xorlw	255
+  1219  00C6  1903               	btfsc	3,2
+  1220  00C7  2838               	goto	l1603
+  1221                           
+  1222                           ;doprnt.c: 1487: {
+  1223                           ;doprnt.c: 1498: c = (_val._val / dpowers[prec]) % 10 + '0';
+  1224  00C8  300A               	movlw	10
+  1225  00C9  00A8               	movwf	___lwmod@divisor
+  1226  00CA  3000               	movlw	0
+  1227  00CB  00A9               	movwf	___lwmod@divisor+1
+  1228  00CC  0838               	movf	sprintf@prec,w
+  1229  00CD  00B2               	movwf	??_sprintf
+  1230  00CE  01B3               	clrf	??_sprintf+1
+  1231  00CF  35B2               	lslf	??_sprintf,f
+  1232  00D0  0DB3               	rlf	??_sprintf+1,f
+  1233  00D1  3000               	movlw	low (_dpowers| (0+32768))
+  1234  00D2  0732               	addwf	??_sprintf,w
+  1235  00D3  0084               	movwf	4
+  1236  00D4  3084               	movlw	high (_dpowers| (0+32768))
+  1237  00D5  3D33               	addwfc	??_sprintf+1,w
+  1238  00D6  0085               	movwf	5
+  1239  00D7  3F00               	moviw [0]fsr0
+  1240  00D8  00A0               	movwf	___lwdiv@divisor
+  1241  00D9  3F01               	moviw [1]fsr0
+  1242  00DA  00A1               	movwf	___lwdiv@divisor+1
+  1243  00DB  083A               	movf	sprintf@_val+1,w
+  1244  00DC  01A3               	clrf	___lwdiv@dividend+1
+  1245  00DD  07A3               	addwf	___lwdiv@dividend+1,f
+  1246  00DE  0839               	movf	sprintf@_val,w
+  1247  00DF  01A2               	clrf	___lwdiv@dividend
+  1248  00E0  07A2               	addwf	___lwdiv@dividend,f
+  1249  00E1  3181  2160  3180   	fcall	___lwdiv
+  1250  00E4  0020               	movlb	0	; select bank0
+  1251  00E5  0821               	movf	?___lwdiv+1,w
+  1252  00E6  01AB               	clrf	___lwmod@dividend+1
+  1253  00E7  07AB               	addwf	___lwmod@dividend+1,f
+  1254  00E8  0820               	movf	?___lwdiv,w
+  1255  00E9  01AA               	clrf	___lwmod@dividend
+  1256  00EA  07AA               	addwf	___lwmod@dividend,f
+  1257  00EB  3181  2197  3180   	fcall	___lwmod
+  1258  00EE  0020               	movlb	0	; select bank0
+  1259  00EF  0828               	movf	?___lwmod,w
+  1260  00F0  3E30               	addlw	48
+  1261  00F1  00B4               	movwf	??_sprintf+2
+  1262  00F2  0834               	movf	??_sprintf+2,w
+  1263  00F3  00BE               	movwf	sprintf@c
+  1264                           
+  1265                           ;doprnt.c: 1532: }
+  1266                           ;doprnt.c: 1533: ((*sp++ = (c)));
+  1267  00F4  083E               	movf	sprintf@c,w
+  1268  00F5  00B2               	movwf	??_sprintf
+  1269  00F6  083D               	movf	sprintf@sp,w
+  1270  00F7  0086               	movwf	6
+  1271  00F8  0187               	clrf	7
+  1272  00F9  0832               	movf	??_sprintf,w
+  1273  00FA  0081               	movwf	1
+  1274  00FB  3001               	movlw	1
+  1275  00FC  00B2               	movwf	??_sprintf
+  1276  00FD  0832               	movf	??_sprintf,w
+  1277  00FE  07BD               	addwf	sprintf@sp,f
+  1278  00FF  28C0               	goto	l1601
+  1279  0100                     l1605:	
+  1280                           ;doprnt.c: 1534: }
+  1281                           ;doprnt.c: 1542: }
+  1282                           ;doprnt.c: 1544: alldone:
+  1283                           
+  1284                           
+  1285                           ;doprnt.c: 1547: *sp = 0;
+  1286  0100  083D               	movf	sprintf@sp,w
+  1287  0101  0086               	movwf	6
+  1288  0102  0187               	clrf	7
+  1289  0103  0181               	clrf	1
+  1290  0104  0008               	return
+  1291  0105                     __end_of_sprintf:	
+  1292                           ;doprnt.c: 1549: return 0;
+  1293                           ;	Return value of _sprintf is never used
+  1294                           
+  1295                           
+  1296                           	psect	text4
+  1297  0197                     __ptext4:	
+  1298 ;; *************** function ___lwmod *****************
+  1299 ;; Defined at:
+  1300 ;;		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c"
+  1301 ;; Parameters:    Size  Location     Type
+  1302 ;;  divisor         2    8[BANK0 ] unsigned int 
+  1303 ;;  dividend        2   10[BANK0 ] unsigned int 
+  1304 ;; Auto vars:     Size  Location     Type
+  1305 ;;  counter         1   13[BANK0 ] unsigned char 
+  1306 ;; Return value:  Size  Location     Type
+  1307 ;;                  2    8[BANK0 ] unsigned int 
+  1308 ;; Registers used:
+  1309 ;;		wreg, status,2, status,0
+  1310 ;; Tracked objects:
+  1311 ;;		On entry : 0/0
+  1312 ;;		On exit  : 0/0
+  1313 ;;		Unchanged: 0/0
+  1314 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1315 ;;      Params:         0       4       0       0       0       0
+  1316 ;;      Locals:         0       1       0       0       0       0
+  1317 ;;      Temps:          0       1       0       0       0       0
+  1318 ;;      Totals:         0       6       0       0       0       0
+  1319 ;;Total ram usage:        6 bytes
+  1320 ;; Hardware stack levels used:    1
+  1321 ;; Hardware stack levels required when called:    3
+  1322 ;; This function calls:
+  1323 ;;		Nothing
+  1324 ;; This function is called by:
+  1325 ;;		_sprintf
+  1326 ;; This function uses a non-reentrant model
+  1327 ;;
+  1328                           
+  1329                           
+  1330                           ;psect for function ___lwmod
+  1331  0197                     ___lwmod:	
+  1332                           
+  1333                           ;incstack = 0
+  1334                           ; Regs used in ___lwmod: [wreg+status,2+status,0]
+  1335  0197  0020               	movlb	0	; select bank0
+  1336  0198  0829               	movf	___lwmod@divisor+1,w
+  1337  0199  0428               	iorwf	___lwmod@divisor,w
+  1338  019A  1903               	skipnz
+  1339  019B  29BF               	goto	l1459
+  1340  019C  01AD               	clrf	___lwmod@counter
+  1341  019D  0AAD               	incf	___lwmod@counter,f
+  1342  019E                     l1449:	
+  1343  019E  1BA9               	btfsc	___lwmod@divisor+1,7
+  1344  019F  29AA               	goto	l1451
+  1345  01A0  3001               	movlw	1
+  1346  01A1                     u845:	
+  1347  01A1  35A8               	lslf	___lwmod@divisor,f
+  1348  01A2  0DA9               	rlf	___lwmod@divisor+1,f
+  1349  01A3  0B89               	decfsz	9,f
+  1350  01A4  29A1               	goto	u845
+  1351  01A5  3001               	movlw	1
+  1352  01A6  00AC               	movwf	??___lwmod
+  1353  01A7  082C               	movf	??___lwmod,w
+  1354  01A8  07AD               	addwf	___lwmod@counter,f
+  1355  01A9  299E               	goto	l1449
+  1356  01AA                     l1451:	
+  1357  01AA  0829               	movf	___lwmod@divisor+1,w
+  1358  01AB  022B               	subwf	___lwmod@dividend+1,w
+  1359  01AC  1D03               	skipz
+  1360  01AD  29B0               	goto	u865
+  1361  01AE  0828               	movf	___lwmod@divisor,w
+  1362  01AF  022A               	subwf	___lwmod@dividend,w
+  1363  01B0                     u865:	
+  1364  01B0  1C03               	skipc
+  1365  01B1  29B6               	goto	l1455
+  1366  01B2  0828               	movf	___lwmod@divisor,w
+  1367  01B3  02AA               	subwf	___lwmod@dividend,f
+  1368  01B4  0829               	movf	___lwmod@divisor+1,w
+  1369  01B5  3BAB               	subwfb	___lwmod@dividend+1,f
+  1370  01B6                     l1455:	
+  1371  01B6  3001               	movlw	1
+  1372  01B7                     u875:	
+  1373  01B7  36A9               	lsrf	___lwmod@divisor+1,f
+  1374  01B8  0CA8               	rrf	___lwmod@divisor,f
+  1375  01B9  0B89               	decfsz	9,f
+  1376  01BA  29B7               	goto	u875
+  1377  01BB  3001               	movlw	1
+  1378  01BC  02AD               	subwf	___lwmod@counter,f
+  1379  01BD  1D03               	btfss	3,2
+  1380  01BE  29AA               	goto	l1451
+  1381  01BF                     l1459:	
+  1382  01BF  082B               	movf	___lwmod@dividend+1,w
+  1383  01C0  01A9               	clrf	?___lwmod+1
+  1384  01C1  07A9               	addwf	?___lwmod+1,f
+  1385  01C2  082A               	movf	___lwmod@dividend,w
+  1386  01C3  01A8               	clrf	?___lwmod
+  1387  01C4  07A8               	addwf	?___lwmod,f
+  1388  01C5  0008               	return
+  1389  01C6                     __end_of___lwmod:	
+  1390                           
+  1391                           	psect	text5
+  1392  0160                     __ptext5:	
+  1393 ;; *************** function ___lwdiv *****************
+  1394 ;; Defined at:
+  1395 ;;		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c"
+  1396 ;; Parameters:    Size  Location     Type
+  1397 ;;  divisor         2    0[BANK0 ] unsigned int 
+  1398 ;;  dividend        2    2[BANK0 ] unsigned int 
+  1399 ;; Auto vars:     Size  Location     Type
+  1400 ;;  quotient        2    5[BANK0 ] unsigned int 
+  1401 ;;  counter         1    7[BANK0 ] unsigned char 
+  1402 ;; Return value:  Size  Location     Type
+  1403 ;;                  2    0[BANK0 ] unsigned int 
+  1404 ;; Registers used:
+  1405 ;;		wreg, status,2, status,0
+  1406 ;; Tracked objects:
+  1407 ;;		On entry : 0/0
+  1408 ;;		On exit  : 0/0
+  1409 ;;		Unchanged: 0/0
+  1410 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1411 ;;      Params:         0       4       0       0       0       0
+  1412 ;;      Locals:         0       3       0       0       0       0
+  1413 ;;      Temps:          0       1       0       0       0       0
+  1414 ;;      Totals:         0       8       0       0       0       0
+  1415 ;;Total ram usage:        8 bytes
+  1416 ;; Hardware stack levels used:    1
+  1417 ;; Hardware stack levels required when called:    3
+  1418 ;; This function calls:
+  1419 ;;		Nothing
+  1420 ;; This function is called by:
+  1421 ;;		_sprintf
+  1422 ;; This function uses a non-reentrant model
+  1423 ;;
+  1424                           
+  1425                           
+  1426                           ;psect for function ___lwdiv
+  1427  0160                     ___lwdiv:	
+  1428                           
+  1429                           ;incstack = 0
+  1430                           ; Regs used in ___lwdiv: [wreg+status,2+status,0]
+  1431  0160  0020               	movlb	0	; select bank0
+  1432  0161  01A5               	clrf	___lwdiv@quotient
+  1433  0162  01A6               	clrf	___lwdiv@quotient+1
+  1434  0163  0821               	movf	___lwdiv@divisor+1,w
+  1435  0164  0420               	iorwf	___lwdiv@divisor,w
+  1436  0165  1903               	skipnz
+  1437  0166  2990               	goto	l1437
+  1438  0167  01A7               	clrf	___lwdiv@counter
+  1439  0168  0AA7               	incf	___lwdiv@counter,f
+  1440  0169                     l1425:	
+  1441  0169  1BA1               	btfsc	___lwdiv@divisor+1,7
+  1442  016A  2975               	goto	l1427
+  1443  016B  3001               	movlw	1
+  1444  016C                     u775:	
+  1445  016C  35A0               	lslf	___lwdiv@divisor,f
+  1446  016D  0DA1               	rlf	___lwdiv@divisor+1,f
+  1447  016E  0B89               	decfsz	9,f
+  1448  016F  296C               	goto	u775
+  1449  0170  3001               	movlw	1
+  1450  0171  00A4               	movwf	??___lwdiv
+  1451  0172  0824               	movf	??___lwdiv,w
+  1452  0173  07A7               	addwf	___lwdiv@counter,f
+  1453  0174  2969               	goto	l1425
+  1454  0175                     l1427:	
+  1455  0175  3001               	movlw	1
+  1456  0176                     u795:	
+  1457  0176  35A5               	lslf	___lwdiv@quotient,f
+  1458  0177  0DA6               	rlf	___lwdiv@quotient+1,f
+  1459  0178  0B89               	decfsz	9,f
+  1460  0179  2976               	goto	u795
+  1461  017A  0821               	movf	___lwdiv@divisor+1,w
+  1462  017B  0223               	subwf	___lwdiv@dividend+1,w
+  1463  017C  1D03               	skipz
+  1464  017D  2980               	goto	u805
+  1465  017E  0820               	movf	___lwdiv@divisor,w
+  1466  017F  0222               	subwf	___lwdiv@dividend,w
+  1467  0180                     u805:	
+  1468  0180  1C03               	skipc
+  1469  0181  2987               	goto	l1433
+  1470  0182  0820               	movf	___lwdiv@divisor,w
+  1471  0183  02A2               	subwf	___lwdiv@dividend,f
+  1472  0184  0821               	movf	___lwdiv@divisor+1,w
+  1473  0185  3BA3               	subwfb	___lwdiv@dividend+1,f
+  1474  0186  1425               	bsf	___lwdiv@quotient,0
+  1475  0187                     l1433:	
+  1476  0187  3001               	movlw	1
+  1477  0188                     u815:	
+  1478  0188  36A1               	lsrf	___lwdiv@divisor+1,f
+  1479  0189  0CA0               	rrf	___lwdiv@divisor,f
+  1480  018A  0B89               	decfsz	9,f
+  1481  018B  2988               	goto	u815
+  1482  018C  3001               	movlw	1
+  1483  018D  02A7               	subwf	___lwdiv@counter,f
+  1484  018E  1D03               	btfss	3,2
+  1485  018F  2975               	goto	l1427
+  1486  0190                     l1437:	
+  1487  0190  0826               	movf	___lwdiv@quotient+1,w
+  1488  0191  01A1               	clrf	?___lwdiv+1
+  1489  0192  07A1               	addwf	?___lwdiv+1,f
+  1490  0193  0825               	movf	___lwdiv@quotient,w
+  1491  0194  01A0               	clrf	?___lwdiv
+  1492  0195  07A0               	addwf	?___lwdiv,f
+  1493  0196  0008               	return
+  1494  0197                     __end_of___lwdiv:	
+  1495                           
+  1496                           	psect	text6
+  1497  02FF                     __ptext6:	
+  1498 ;; *************** function _ringbuf_init *****************
+  1499 ;; Defined at:
+  1500 ;;		line 113 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header_16F.h"
+  1501 ;; Parameters:    Size  Location     Type
+  1502 ;;  rb              1    wreg     PTR struct ringbuf
+  1503 ;;		 -> tx_buf(4), 
+  1504 ;;  internal_buf    1    0[BANK0 ] PTR unsigned char 
+  1505 ;;		 -> main@buf(30), 
+  1506 ;;  bufsize         1    1[BANK0 ] unsigned char 
+  1507 ;; Auto vars:     Size  Location     Type
+  1508 ;;  rb              1    3[BANK0 ] PTR struct ringbuf
+  1509 ;;		 -> tx_buf(4), 
+  1510 ;; Return value:  Size  Location     Type
+  1511 ;;		None               void
+  1512 ;; Registers used:
+  1513 ;;		wreg, fsr1l, fsr1h, status,2
+  1514 ;; Tracked objects:
+  1515 ;;		On entry : 0/0
+  1516 ;;		On exit  : 0/0
+  1517 ;;		Unchanged: 0/0
+  1518 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1519 ;;      Params:         0       2       0       0       0       0
+  1520 ;;      Locals:         0       1       0       0       0       0
+  1521 ;;      Temps:          0       1       0       0       0       0
+  1522 ;;      Totals:         0       4       0       0       0       0
+  1523 ;;Total ram usage:        4 bytes
+  1524 ;; Hardware stack levels used:    1
+  1525 ;; Hardware stack levels required when called:    3
+  1526 ;; This function calls:
+  1527 ;;		Nothing
+  1528 ;; This function is called by:
+  1529 ;;		_main
+  1530 ;; This function uses a non-reentrant model
+  1531 ;;
+  1532                           
+  1533                           
+  1534                           ;psect for function _ringbuf_init
+  1535  02FF                     _ringbuf_init:	
+  1536                           
+  1537                           ;incstack = 0
+  1538                           ; Regs used in _ringbuf_init: [wreg+fsr1l+fsr1h+status,2]
+  1539                           ;ringbuf_init@rb stored from wreg
+  1540  02FF  0020               	movlb	0	; select bank0
+  1541  0300  00A3               	movwf	ringbuf_init@rb
+  1542                           
+  1543                           ;My_header_16F.h: 114: rb->buf = internal_buf;
+  1544  0301  0820               	movf	ringbuf_init@internal_buf,w
+  1545  0302  00A2               	movwf	??_ringbuf_init
+  1546  0303  0823               	movf	ringbuf_init@rb,w
+  1547  0304  0086               	movwf	6
+  1548  0305  0187               	clrf	7
+  1549  0306  0822               	movf	??_ringbuf_init,w
+  1550  0307  0081               	movwf	1
+  1551                           
+  1552                           ;My_header_16F.h: 115: rb->size = bufsize;
+  1553  0308  0821               	movf	ringbuf_init@bufsize,w
+  1554  0309  00A2               	movwf	??_ringbuf_init
+  1555  030A  0A23               	incf	ringbuf_init@rb,w
+  1556  030B  0086               	movwf	6
+  1557  030C  0187               	clrf	7
+  1558  030D  0822               	movf	??_ringbuf_init,w
+  1559  030E  0081               	movwf	1
+  1560                           
+  1561                           ;My_header_16F.h: 116: rb->head = 0;
+  1562  030F  0823               	movf	ringbuf_init@rb,w
+  1563  0310  3E02               	addlw	2
+  1564  0311  0086               	movwf	6
+  1565  0312  0187               	clrf	7
+  1566  0313  0181               	clrf	1
+  1567                           
+  1568                           ;My_header_16F.h: 117: rb->tail = 0;
+  1569  0314  0823               	movf	ringbuf_init@rb,w
+  1570  0315  3E03               	addlw	3
+  1571  0316  0086               	movwf	6
+  1572  0317  0187               	clrf	7
+  1573  0318  0181               	clrf	1
+  1574  0319  0008               	return
+  1575  031A                     __end_of_ringbuf_init:	
+  1576                           
+  1577                           	psect	text7
+  1578  0362                     __ptext7:	
+  1579 ;; *************** function _UART_init *****************
+  1580 ;; Defined at:
+  1581 ;;		line 148 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header_16F.h"
+  1582 ;; Parameters:    Size  Location     Type
+  1583 ;;  device          1    wreg     unsigned char 
+  1584 ;; Auto vars:     Size  Location     Type
+  1585 ;;  device          1    0[BANK0 ] unsigned char 
+  1586 ;; Return value:  Size  Location     Type
+  1587 ;;		None               void
+  1588 ;; Registers used:
+  1589 ;;		wreg, status,2, status,0
+  1590 ;; Tracked objects:
+  1591 ;;		On entry : 0/0
+  1592 ;;		On exit  : 0/0
+  1593 ;;		Unchanged: 0/0
+  1594 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1595 ;;      Params:         0       0       0       0       0       0
+  1596 ;;      Locals:         0       1       0       0       0       0
+  1597 ;;      Temps:          0       0       0       0       0       0
+  1598 ;;      Totals:         0       1       0       0       0       0
+  1599 ;;Total ram usage:        1 bytes
+  1600 ;; Hardware stack levels used:    1
+  1601 ;; Hardware stack levels required when called:    3
+  1602 ;; This function calls:
+  1603 ;;		Nothing
+  1604 ;; This function is called by:
+  1605 ;;		_main
+  1606 ;; This function uses a non-reentrant model
+  1607 ;;
+  1608                           
+  1609                           
+  1610                           ;psect for function _UART_init
+  1611  0362                     _UART_init:	
+  1612                           
+  1613                           ;incstack = 0
+  1614                           ; Regs used in _UART_init: [wreg+status,2+status,0]
+  1615                           ;UART_init@device stored from wreg
+  1616  0362  0020               	movlb	0	; select bank0
+  1617  0363  00A0               	movwf	UART_init@device
+  1618                           
+  1619                           ;My_header_16F.h: 149: if (device == 0) {
+  1620  0364  08A0               	movf	UART_init@device,f
+  1621  0365  1D03               	skipz
+  1622  0366  0008               	return
+  1623                           
+  1624                           ;My_header_16F.h: 150: SPEN = 1;
+  1625  0367  0023               	movlb	3	; select bank3
+  1626  0368  179D               	bsf	29,7	;volatile
+  1627                           
+  1628                           ;My_header_16F.h: 151: RCSTA = 0x90;
+  1629  0369  3090               	movlw	144
+  1630  036A  009D               	movwf	29	;volatile
+  1631                           
+  1632                           ;My_header_16F.h: 152: BRG16 = 0;
+  1633  036B  119F               	bcf	31,3	;volatile
+  1634                           
+  1635                           ;My_header_16F.h: 153: SPBRGH = 0;
+  1636  036C  019C               	clrf	28	;volatile
+  1637                           
+  1638                           ;My_header_16F.h: 154: SPBRGL = 207;
+  1639  036D  30CF               	movlw	207
+  1640  036E  009B               	movwf	27	;volatile
+  1641                           
+  1642                           ;My_header_16F.h: 155: TXSTA = 0x24;
+  1643  036F  3024               	movlw	36
+  1644  0370  009E               	movwf	30	;volatile
+  1645                           
+  1646                           ;My_header_16F.h: 156: PIE1bits.RCIE = 1;
+  1647  0371  0021               	movlb	1	; select bank1
+  1648  0372  1691               	bsf	17,5	;volatile
+  1649                           
+  1650                           ;My_header_16F.h: 157: INTCONbits.PEIE = 1;
+  1651  0373  170B               	bsf	11,6	;volatile
+  1652  0374  0008               	return
+  1653  0375                     __end_of_UART_init:	
+  1654                           
+  1655                           	psect	text8
+  1656  02C1                     __ptext8:	
+  1657 ;; *************** function _SPI_init *****************
+  1658 ;; Defined at:
+  1659 ;;		line 470 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header_16F.h"
+  1660 ;; Parameters:    Size  Location     Type
+  1661 ;;  mode            1    wreg     unsigned char 
+  1662 ;;  interrupt_en    1    0[BANK0 ] unsigned char 
+  1663 ;; Auto vars:     Size  Location     Type
+  1664 ;;  mode            1    1[BANK0 ] unsigned char 
+  1665 ;; Return value:  Size  Location     Type
+  1666 ;;		None               void
+  1667 ;; Registers used:
+  1668 ;;		wreg, status,2, status,0
+  1669 ;; Tracked objects:
+  1670 ;;		On entry : 0/0
+  1671 ;;		On exit  : 0/0
+  1672 ;;		Unchanged: 0/0
+  1673 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1674 ;;      Params:         0       1       0       0       0       0
+  1675 ;;      Locals:         0       1       0       0       0       0
+  1676 ;;      Temps:          0       0       0       0       0       0
+  1677 ;;      Totals:         0       2       0       0       0       0
+  1678 ;;Total ram usage:        2 bytes
+  1679 ;; Hardware stack levels used:    1
+  1680 ;; Hardware stack levels required when called:    3
+  1681 ;; This function calls:
+  1682 ;;		Nothing
+  1683 ;; This function is called by:
+  1684 ;;		_main
+  1685 ;; This function uses a non-reentrant model
+  1686 ;;
+  1687                           
+  1688                           
+  1689                           ;psect for function _SPI_init
+  1690  02C1                     _SPI_init:	
+  1691                           
+  1692                           ;incstack = 0
+  1693                           ; Regs used in _SPI_init: [wreg+status,2+status,0]
+  1694                           ;SPI_init@mode stored from wreg
+  1695  02C1  0020               	movlb	0	; select bank0
+  1696  02C2  00A1               	movwf	SPI_init@mode
+  1697                           
+  1698                           ;My_header_16F.h: 471: SSP1CON1bits.SSPEN = 1;
+  1699  02C3  0024               	movlb	4	; select bank4
+  1700  02C4  1695               	bsf	21,5	;volatile
+  1701                           
+  1702                           ;My_header_16F.h: 472: SSP1CON1bits.CKP = 1;
+  1703  02C5  1615               	bsf	21,4	;volatile
+  1704                           
+  1705                           ;My_header_16F.h: 473: SSP1STATbits.CKE = 1;
+  1706  02C6  1714               	bsf	20,6	;volatile
+  1707                           
+  1708                           ;My_header_16F.h: 474: if (mode == 0)SSP1CON1bits.SSPM = 2;
+  1709  02C7  0020               	movlb	0	; select bank0
+  1710  02C8  08A1               	movf	SPI_init@mode,f
+  1711  02C9  1D03               	skipz
+  1712  02CA  2AD0               	goto	l1527
+  1713  02CB  0024               	movlb	4	; select bank4
+  1714  02CC  0815               	movf	21,w	;volatile
+  1715  02CD  39F0               	andlw	-16
+  1716  02CE  3802               	iorlw	2
+  1717  02CF  2AD9               	goto	L2
+  1718  02D0                     l1527:	
+  1719                           
+  1720                           ;My_header_16F.h: 475: else if (mode == 1)SSP1CON1bits.SSPM = 4;
+  1721  02D0  0020               	movlb	0	; select bank0
+  1722  02D1  0821               	movf	SPI_init@mode,w
+  1723  02D2  3A01               	xorlw	1
+  1724  02D3  1D03               	skipz
+  1725  02D4  2ADA               	goto	l1531
+  1726  02D5  0024               	movlb	4	; select bank4
+  1727  02D6  0815               	movf	21,w	;volatile
+  1728  02D7  39F0               	andlw	-16
+  1729  02D8  3804               	iorlw	4
+  1730  02D9                     L2:	
+  1731  02D9  0095               	movwf	21	;volatile
+  1732  02DA                     l1531:	
+  1733                           
+  1734                           ;My_header_16F.h: 476: if (interrupt_enable) {
+  1735  02DA  0020               	movlb	0	; select bank0
+  1736  02DB  0820               	movf	SPI_init@interrupt_enable,w
+  1737  02DC  1903               	btfsc	3,2
+  1738  02DD  0008               	return
+  1739                           
+  1740                           ;My_header_16F.h: 477: PIE1bits.SSP1IE = 1;
+  1741  02DE  0021               	movlb	1	; select bank1
+  1742  02DF  1591               	bsf	17,3	;volatile
+  1743                           
+  1744                           ;My_header_16F.h: 478: INTCONbits.PEIE = 1;
+  1745  02E0  170B               	bsf	11,6	;volatile
+  1746  02E1  0020               	movlb	0	; select bank0
+  1747  02E2  0008               	return
+  1748  02E3                     __end_of_SPI_init:	
+  1749                           
+  1750                           	psect	text9
+  1751  0274                     __ptext9:	
+  1752 ;; *************** function _SPI_TM_Read *****************
+  1753 ;; Defined at:
+  1754 ;;		line 504 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header_16F.h"
+  1755 ;; Parameters:    Size  Location     Type
+  1756 ;;		None
+  1757 ;; Auto vars:     Size  Location     Type
+  1758 ;;  tl              1   13[BANK0 ] unsigned char 
+  1759 ;;  th              1   12[BANK0 ] unsigned char 
+  1760 ;; Return value:  Size  Location     Type
+  1761 ;;                  2    3[BANK0 ] int 
+  1762 ;; Registers used:
+  1763 ;;		wreg, status,2, status,0, pclath, cstack
+  1764 ;; Tracked objects:
+  1765 ;;		On entry : 0/0
+  1766 ;;		On exit  : 0/0
+  1767 ;;		Unchanged: 0/0
+  1768 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1769 ;;      Params:         0       2       0       0       0       0
+  1770 ;;      Locals:         0       2       0       0       0       0
+  1771 ;;      Temps:          0       7       0       0       0       0
+  1772 ;;      Totals:         0      11       0       0       0       0
+  1773 ;;Total ram usage:       11 bytes
+  1774 ;; Hardware stack levels used:    1
+  1775 ;; Hardware stack levels required when called:    4
+  1776 ;; This function calls:
+  1777 ;;		_SPI_Transfer
+  1778 ;; This function is called by:
+  1779 ;;		_main
+  1780 ;; This function uses a non-reentrant model
+  1781 ;;
+  1782                           
+  1783                           
+  1784                           ;psect for function _SPI_TM_Read
+  1785  0274                     _SPI_TM_Read:	
+  1786                           
+  1787                           ;My_header_16F.h: 505: uint8_t th;
+  1788                           ;My_header_16F.h: 506: uint8_t tl;
+  1789                           ;My_header_16F.h: 507: LATB0 = 0;
+  1790                           
+  1791                           ;incstack = 0
+  1792                           ; Regs used in _SPI_TM_Read: [wreg+status,2+status,0+pclath+cstack]
+  1793  0274  0022               	movlb	2	; select bank2
+  1794  0275  100D               	bcf	13,0	;volatile
+  1795                           
+  1796                           ;My_header_16F.h: 508: th = SPI_Transfer(0x00);
+  1797  0276  3000               	movlw	0
+  1798  0277  3183  2334  3182   	fcall	_SPI_Transfer
+  1799  027A  0020               	movlb	0	; select bank0
+  1800  027B  00A5               	movwf	??_SPI_TM_Read
+  1801  027C  0825               	movf	??_SPI_TM_Read,w
+  1802  027D  00AC               	movwf	SPI_TM_Read@th
+  1803                           
+  1804                           ;My_header_16F.h: 509: tl = SPI_Transfer(0x00);
+  1805  027E  3000               	movlw	0
+  1806  027F  3183  2334         	fcall	_SPI_Transfer
+  1807  0281  0020               	movlb	0	; select bank0
+  1808  0282  00A5               	movwf	??_SPI_TM_Read
+  1809  0283  0825               	movf	??_SPI_TM_Read,w
+  1810  0284  00AD               	movwf	SPI_TM_Read@tl
+  1811                           
+  1812                           ;My_header_16F.h: 510: LATB0 = 1;
+  1813  0285  0022               	movlb	2	; select bank2
+  1814  0286  140D               	bsf	13,0	;volatile
+  1815                           
+  1816                           ;My_header_16F.h: 511: return (0xFF00 & (th << 8)) + (0xFF & tl);
+  1817  0287  0020               	movlb	0	; select bank0
+  1818  0288  082D               	movf	SPI_TM_Read@tl,w
+  1819  0289  00A5               	movwf	??_SPI_TM_Read
+  1820  028A  01A6               	clrf	??_SPI_TM_Read+1
+  1821  028B  082C               	movf	SPI_TM_Read@th,w
+  1822  028C  00A7               	movwf	??_SPI_TM_Read+2
+  1823  028D  01A8               	clrf	??_SPI_TM_Read+3
+  1824  028E  0827               	movf	??_SPI_TM_Read+2,w
+  1825  028F  00A8               	movwf	??_SPI_TM_Read+3
+  1826  0290  01A7               	clrf	??_SPI_TM_Read+2
+  1827  0291  3000               	movlw	0
+  1828  0292  0527               	andwf	??_SPI_TM_Read+2,w
+  1829  0293  00AA               	movwf	??_SPI_TM_Read+5
+  1830  0294  30FF               	movlw	255
+  1831  0295  0528               	andwf	??_SPI_TM_Read+3,w
+  1832  0296  00AB               	movwf	??_SPI_TM_Read+6
+  1833  0297  0825               	movf	??_SPI_TM_Read,w
+  1834  0298  072A               	addwf	??_SPI_TM_Read+5,w
+  1835  0299  00A3               	movwf	?_SPI_TM_Read
+  1836  029A  0826               	movf	??_SPI_TM_Read+1,w
+  1837  029B  3D2B               	addwfc	??_SPI_TM_Read+6,w
+  1838  029C  00A4               	movwf	?_SPI_TM_Read+1
+  1839  029D  0008               	return
+  1840  029E                     __end_of_SPI_TM_Read:	
+  1841                           
+  1842                           	psect	text10
+  1843  031A                     __ptext10:	
+  1844 ;; *************** function _Delay_ms *****************
+  1845 ;; Defined at:
+  1846 ;;		line 187 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header_16F.h"
+  1847 ;; Parameters:    Size  Location     Type
+  1848 ;;  ms              2    0[BANK0 ] unsigned int 
+  1849 ;; Auto vars:     Size  Location     Type
+  1850 ;;  i               2    4[BANK0 ] unsigned int 
+  1851 ;; Return value:  Size  Location     Type
+  1852 ;;		None               void
+  1853 ;; Registers used:
+  1854 ;;		wreg, status,2
+  1855 ;; Tracked objects:
+  1856 ;;		On entry : 0/0
+  1857 ;;		On exit  : 0/0
+  1858 ;;		Unchanged: 0/0
+  1859 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1860 ;;      Params:         0       2       0       0       0       0
+  1861 ;;      Locals:         0       2       0       0       0       0
+  1862 ;;      Temps:          0       2       0       0       0       0
+  1863 ;;      Totals:         0       6       0       0       0       0
+  1864 ;;Total ram usage:        6 bytes
+  1865 ;; Hardware stack levels used:    1
+  1866 ;; Hardware stack levels required when called:    3
+  1867 ;; This function calls:
+  1868 ;;		Nothing
+  1869 ;; This function is called by:
+  1870 ;;		_main
+  1871 ;; This function uses a non-reentrant model
+  1872 ;;
+  1873                           
+  1874                           
+  1875                           ;psect for function _Delay_ms
+  1876  031A                     _Delay_ms:	
+  1877                           
+  1878                           ;My_header_16F.h: 188: uint16_t i;
+  1879                           ;My_header_16F.h: 189: for (i = 0; i < ms; i++) {
+  1880                           
+  1881                           ;incstack = 0
+  1882                           ; Regs used in _Delay_ms: [wreg+status,2]
+  1883  031A  0020               	movlb	0	; select bank0
+  1884  031B  01A4               	clrf	Delay_ms@i
+  1885  031C  01A5               	clrf	Delay_ms@i+1
+  1886  031D                     l165:	
+  1887  031D  0821               	movf	Delay_ms@ms+1,w
+  1888  031E  0225               	subwf	Delay_ms@i+1,w
+  1889  031F  1D03               	skipz
+  1890  0320  2B23               	goto	u955
+  1891  0321  0820               	movf	Delay_ms@ms,w
+  1892  0322  0224               	subwf	Delay_ms@i,w
+  1893  0323                     u955:	
+  1894  0323  1803               	btfsc	3,0
+  1895  0324  0008               	return
+  1896                           
+  1897                           ;My_header_16F.h: 190: _delay((unsigned long)((1)*(32000000/4000.0)));
+  1898  0325  300B               	movlw	11
+  1899  0326  00A3               	movwf	??_Delay_ms+1
+  1900  0327  3062               	movlw	98
+  1901  0328  00A2               	movwf	??_Delay_ms
+  1902  0329                     u1097:	
+  1903  0329  0BA2               	decfsz	??_Delay_ms,f
+  1904  032A  2B29               	goto	u1097
+  1905  032B  0BA3               	decfsz	??_Delay_ms+1,f
+  1906  032C  2B29               	goto	u1097
+  1907  032D  0000               	nop
+  1908  032E  3001               	movlw	1
+  1909  032F  0020               	movlb	0	; select bank0
+  1910  0330  07A4               	addwf	Delay_ms@i,f
+  1911  0331  3000               	movlw	0
+  1912  0332  3DA5               	addwfc	Delay_ms@i+1,f
+  1913  0333  2B1D               	goto	l165
+  1914  0334                     __end_of_Delay_ms:	
+  1915                           
+  1916                           	psect	text11
+  1917  02E3                     __ptext11:	
+  1918 ;; *************** function _ADT7310_init *****************
+  1919 ;; Defined at:
+  1920 ;;		line 494 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header_16F.h"
+  1921 ;; Parameters:    Size  Location     Type
+  1922 ;;		None
+  1923 ;; Auto vars:     Size  Location     Type
+  1924 ;;  dumy            1    4[BANK0 ] unsigned char 
+  1925 ;; Return value:  Size  Location     Type
+  1926 ;;		None               void
+  1927 ;; Registers used:
+  1928 ;;		wreg, pclath, cstack
+  1929 ;; Tracked objects:
+  1930 ;;		On entry : 0/0
+  1931 ;;		On exit  : 0/0
+  1932 ;;		Unchanged: 0/0
+  1933 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1934 ;;      Params:         0       0       0       0       0       0
+  1935 ;;      Locals:         0       1       0       0       0       0
+  1936 ;;      Temps:          0       1       0       0       0       0
+  1937 ;;      Totals:         0       2       0       0       0       0
+  1938 ;;Total ram usage:        2 bytes
+  1939 ;; Hardware stack levels used:    1
+  1940 ;; Hardware stack levels required when called:    4
+  1941 ;; This function calls:
+  1942 ;;		_SPI_Transfer
+  1943 ;; This function is called by:
+  1944 ;;		_main
+  1945 ;; This function uses a non-reentrant model
+  1946 ;;
+  1947                           
+  1948                           
+  1949                           ;psect for function _ADT7310_init
+  1950  02E3                     _ADT7310_init:	
+  1951                           
+  1952                           ;My_header_16F.h: 495: uint8_t dumy;
+  1953                           ;My_header_16F.h: 497: LATB0 = 0;
+  1954                           
+  1955                           ;incstack = 0
+  1956                           ; Regs used in _ADT7310_init: [wreg+pclath+cstack]
+  1957  02E3  0022               	movlb	2	; select bank2
+  1958  02E4  100D               	bcf	13,0	;volatile
+  1959                           
+  1960                           ;My_header_16F.h: 498: dumy = SPI_Transfer(0x08);
+  1961  02E5  3008               	movlw	8
+  1962  02E6  3183  2334  3182   	fcall	_SPI_Transfer
+  1963  02E9  0020               	movlb	0	; select bank0
+  1964  02EA  00A3               	movwf	??_ADT7310_init
+  1965  02EB  0823               	movf	??_ADT7310_init,w
+  1966  02EC  00A4               	movwf	ADT7310_init@dumy
+  1967                           
+  1968                           ;My_header_16F.h: 499: dumy = SPI_Transfer(0x80);
+  1969  02ED  3080               	movlw	128
+  1970  02EE  3183  2334  3182   	fcall	_SPI_Transfer
+  1971  02F1  0020               	movlb	0	; select bank0
+  1972  02F2  00A3               	movwf	??_ADT7310_init
+  1973  02F3  0823               	movf	??_ADT7310_init,w
+  1974  02F4  00A4               	movwf	ADT7310_init@dumy
+  1975                           
+  1976                           ;My_header_16F.h: 500: dumy = SPI_Transfer(0x54);
+  1977  02F5  3054               	movlw	84
+  1978  02F6  3183  2334         	fcall	_SPI_Transfer
+  1979  02F8  0020               	movlb	0	; select bank0
+  1980  02F9  00A3               	movwf	??_ADT7310_init
+  1981  02FA  0823               	movf	??_ADT7310_init,w
+  1982  02FB  00A4               	movwf	ADT7310_init@dumy
+  1983                           
+  1984                           ;My_header_16F.h: 501: LATB0 = 1;
+  1985  02FC  0022               	movlb	2	; select bank2
+  1986  02FD  140D               	bsf	13,0	;volatile
+  1987  02FE  0008               	return
+  1988  02FF                     __end_of_ADT7310_init:	
+  1989                           
+  1990                           	psect	text12
+  1991  0334                     __ptext12:	
+  1992 ;; *************** function _SPI_Transfer *****************
+  1993 ;; Defined at:
+  1994 ;;		line 482 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header_16F.h"
+  1995 ;; Parameters:    Size  Location     Type
+  1996 ;;  txdata          1    wreg     unsigned char 
+  1997 ;; Auto vars:     Size  Location     Type
+  1998 ;;  txdata          1    1[BANK0 ] unsigned char 
+  1999 ;;  rxdata          1    2[BANK0 ] unsigned char 
+  2000 ;; Return value:  Size  Location     Type
+  2001 ;;                  1    wreg      unsigned char 
+  2002 ;; Registers used:
+  2003 ;;		wreg
+  2004 ;; Tracked objects:
+  2005 ;;		On entry : 0/0
+  2006 ;;		On exit  : 0/0
+  2007 ;;		Unchanged: 0/0
+  2008 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  2009 ;;      Params:         0       0       0       0       0       0
+  2010 ;;      Locals:         0       2       0       0       0       0
+  2011 ;;      Temps:          0       1       0       0       0       0
+  2012 ;;      Totals:         0       3       0       0       0       0
+  2013 ;;Total ram usage:        3 bytes
+  2014 ;; Hardware stack levels used:    1
+  2015 ;; Hardware stack levels required when called:    3
+  2016 ;; This function calls:
+  2017 ;;		Nothing
+  2018 ;; This function is called by:
+  2019 ;;		_ADT7310_init
+  2020 ;;		_SPI_TM_Read
+  2021 ;; This function uses a non-reentrant model
+  2022 ;;
+  2023                           
+  2024                           
+  2025                           ;psect for function _SPI_Transfer
+  2026  0334                     _SPI_Transfer:	
+  2027                           
+  2028                           ;incstack = 0
+  2029                           ; Regs used in _SPI_Transfer: [wreg]
+  2030                           ;SPI_Transfer@txdata stored from wreg
+  2031  0334  0020               	movlb	0	; select bank0
+  2032  0335  00A1               	movwf	SPI_Transfer@txdata
+  2033                           
+  2034                           ;My_header_16F.h: 483: uint8_t rxdata;
+  2035                           ;My_header_16F.h: 485: rxdata = SSP1BUF;
+  2036  0336  0024               	movlb	4	; select bank4
+  2037  0337  0811               	movf	17,w	;volatile
+  2038  0338  0020               	movlb	0	; select bank0
+  2039  0339  00A0               	movwf	??_SPI_Transfer
+  2040  033A  0820               	movf	??_SPI_Transfer,w
+  2041  033B  00A2               	movwf	SPI_Transfer@rxdata
+  2042                           
+  2043                           ;My_header_16F.h: 486: SSP1IF = 0;
+  2044  033C  1191               	bcf	17,3	;volatile
+  2045                           
+  2046                           ;My_header_16F.h: 487: SSP1BUF = txdata;
+  2047  033D  0821               	movf	SPI_Transfer@txdata,w
+  2048  033E  0024               	movlb	4	; select bank4
+  2049  033F  0091               	movwf	17	;volatile
+  2050  0340                     l274:	
+  2051                           ;My_header_16F.h: 488: while (!SSP1IF);
+  2052                           
+  2053  0340  0020               	movlb	0	; select bank0
+  2054  0341  1D91               	btfss	17,3	;volatile
+  2055  0342  2B40               	goto	l274
+  2056                           
+  2057                           ;My_header_16F.h: 489: rxdata = SSP1BUF;
+  2058  0343  0024               	movlb	4	; select bank4
+  2059  0344  0811               	movf	17,w	;volatile
+  2060  0345  0020               	movlb	0	; select bank0
+  2061  0346  00A0               	movwf	??_SPI_Transfer
+  2062  0347  0820               	movf	??_SPI_Transfer,w
+  2063  0348  00A2               	movwf	SPI_Transfer@rxdata
+  2064                           
+  2065                           ;My_header_16F.h: 490: return rxdata;
+  2066  0349  0822               	movf	SPI_Transfer@rxdata,w
+  2067  034A  0008               	return
+  2068  034B                     __end_of_SPI_Transfer:	
+  2069                           
+  2070                           	psect	intentry
+  2071  0004                     __pintentry:	
+  2072 ;; *************** function _isr *****************
+  2073 ;; Defined at:
+  2074 ;;		line 28 in file "PIC16F1827-SPI_TM01.c"
+  2075 ;; Parameters:    Size  Location     Type
+  2076 ;;		None
+  2077 ;; Auto vars:     Size  Location     Type
+  2078 ;;  ascii           1    8[COMMON] unsigned char 
+  2079 ;; Return value:  Size  Location     Type
+  2080 ;;		None               void
+  2081 ;; Registers used:
+  2082 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  2083 ;; Tracked objects:
+  2084 ;;		On entry : 0/0
+  2085 ;;		On exit  : 0/0
+  2086 ;;		Unchanged: 0/0
+  2087 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  2088 ;;      Params:         0       0       0       0       0       0
+  2089 ;;      Locals:         1       0       0       0       0       0
+  2090 ;;      Temps:          2       0       0       0       0       0
+  2091 ;;      Totals:         3       0       0       0       0       0
+  2092 ;;Total ram usage:        3 bytes
+  2093 ;; Hardware stack levels used:    1
+  2094 ;; Hardware stack levels required when called:    2
+  2095 ;; This function calls:
+  2096 ;;		_interrupt_TXIF
+  2097 ;;		_tx_send
+  2098 ;; This function is called by:
+  2099 ;;		Interrupt level 1
+  2100 ;; This function uses a non-reentrant model
+  2101 ;;
+  2102                           
+  2103  0004                     _isr:	
+  2104                           
+  2105                           ;incstack = 0
+  2106                           ; Regs used in _isr: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+  2107  0004  147E               	bsf	126,0	;set compiler interrupt flag
+  2108  0005  3180               	pagesel	$
+  2109  0006  0020               	movlb	0	; select bank0
+  2110  0007  087F               	movf	127,w
+  2111  0008  00F7               	movwf	??_isr+1
+  2112                           
+  2113                           ;PIC16F1827-SPI_TM01.c: 29: interrupt_TXIF();
+  2114  0009  3183  234B  3180   	fcall	_interrupt_TXIF
+  2115                           
+  2116                           ;PIC16F1827-SPI_TM01.c: 30: if (TMR0IF) {
+  2117  000C  1D0B               	btfss	11,2	;volatile
+  2118  000D  2810               	goto	i1l1615
+  2119                           
+  2120                           ;PIC16F1827-SPI_TM01.c: 31: TMR0 = 0;
+  2121  000E  0020               	movlb	0	; select bank0
+  2122  000F  0195               	clrf	21	;volatile
+  2123  0010                     i1l1615:	
+  2124                           
+  2125                           ;PIC16F1827-SPI_TM01.c: 32: }
+  2126                           ;PIC16F1827-SPI_TM01.c: 33: if (RCIF) {
+  2127  0010  0020               	movlb	0	; select bank0
+  2128  0011  1E91               	btfss	17,5	;volatile
+  2129  0012  281C               	goto	i1l288
+  2130                           
+  2131                           ;PIC16F1827-SPI_TM01.c: 34: RCIF = 0;
+  2132  0013  1291               	bcf	17,5	;volatile
+  2133                           
+  2134                           ;PIC16F1827-SPI_TM01.c: 35: char ascii = RCREG;
+  2135  0014  0023               	movlb	3	; select bank3
+  2136  0015  0819               	movf	25,w	;volatile
+  2137  0016  00F6               	movwf	??_isr
+  2138  0017  0876               	movf	??_isr,w
+  2139  0018  00F8               	movwf	isr@ascii
+  2140                           
+  2141                           ;PIC16F1827-SPI_TM01.c: 36: tx_send(ascii);
+  2142  0019  0878               	movf	isr@ascii,w
+  2143  001A  3184  2410         	fcall	_tx_send
+  2144  001C                     i1l288:	
+  2145  001C  0877               	movf	??_isr+1,w
+  2146  001D  0020               	movlb	0	; select bank0
+  2147  001E  00FF               	movwf	127
+  2148  001F  107E               	bcf	126,0	;clear compiler interrupt flag
+  2149  0020  0009               	retfie
+  2150  0021                     __end_of_isr:	
+  2151                           
+  2152                           	psect	text14
+  2153  0410                     __ptext14:	
+  2154 ;; *************** function _tx_send *****************
+  2155 ;; Defined at:
+  2156 ;;		line 161 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header_16F.h"
+  2157 ;; Parameters:    Size  Location     Type
+  2158 ;;  asciicode       1    wreg     unsigned char 
+  2159 ;; Auto vars:     Size  Location     Type
+  2160 ;;  asciicode       1    5[COMMON] unsigned char 
+  2161 ;; Return value:  Size  Location     Type
+  2162 ;;		None               void
+  2163 ;; Registers used:
+  2164 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  2165 ;; Tracked objects:
+  2166 ;;		On entry : 0/0
+  2167 ;;		On exit  : 0/0
+  2168 ;;		Unchanged: 0/0
+  2169 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  2170 ;;      Params:         0       0       0       0       0       0
+  2171 ;;      Locals:         1       0       0       0       0       0
+  2172 ;;      Temps:          1       0       0       0       0       0
+  2173 ;;      Totals:         2       0       0       0       0       0
+  2174 ;;Total ram usage:        2 bytes
+  2175 ;; Hardware stack levels used:    1
+  2176 ;; Hardware stack levels required when called:    1
+  2177 ;; This function calls:
+  2178 ;;		i1_ringbuf_push
+  2179 ;; This function is called by:
+  2180 ;;		_isr
+  2181 ;; This function uses a non-reentrant model
+  2182 ;;
+  2183                           
+  2184                           
+  2185                           ;psect for function _tx_send
+  2186  0410                     _tx_send:	
+  2187                           
+  2188                           ;incstack = 0
+  2189                           ; Regs used in _tx_send: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+  2190                           ;tx_send@asciicode stored from wreg
+  2191  0410  00F5               	movwf	tx_send@asciicode
+  2192                           
+  2193                           ;My_header_16F.h: 162: ringbuf_push(&tx_buf, asciicode);
+  2194  0411  0875               	movf	tx_send@asciicode,w
+  2195  0412  00F4               	movwf	??_tx_send
+  2196  0413  0874               	movf	??_tx_send,w
+  2197  0414  00F0               	movwf	i1ringbuf_push@asciicode
+  2198  0415  3043               	movlw	_tx_buf& (0+255)
+  2199  0416  3182  221E         	fcall	i1_ringbuf_push
+  2200                           
+  2201                           ;My_header_16F.h: 163: PIE1bits.TXIE = 1;
+  2202  0418  0021               	movlb	1	; select bank1
+  2203  0419  1611               	bsf	17,4	;volatile
+  2204  041A  0008               	return
+  2205  041B                     __end_of_tx_send:	
+  2206                           
+  2207                           	psect	text15
+  2208  021E                     __ptext15:	
+  2209 ;; *************** function i1_ringbuf_push *****************
+  2210 ;; Defined at:
+  2211 ;;		line 120 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header_16F.h"
+  2212 ;; Parameters:    Size  Location     Type
+  2213 ;;  rb              1    wreg     PTR struct ringbuf
+  2214 ;;		 -> tx_buf(4), 
+  2215 ;;  asciicode       1    0[COMMON] unsigned char 
+  2216 ;; Auto vars:     Size  Location     Type
+  2217 ;;  rb              1    3[COMMON] PTR struct ringbuf
+  2218 ;;		 -> tx_buf(4), 
+  2219 ;; Return value:  Size  Location     Type
+  2220 ;;		None               void
+  2221 ;; Registers used:
+  2222 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0
+  2223 ;; Tracked objects:
+  2224 ;;		On entry : 0/0
+  2225 ;;		On exit  : 0/0
+  2226 ;;		Unchanged: 0/0
+  2227 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  2228 ;;      Params:         1       0       0       0       0       0
+  2229 ;;      Locals:         1       0       0       0       0       0
+  2230 ;;      Temps:          2       0       0       0       0       0
+  2231 ;;      Totals:         4       0       0       0       0       0
+  2232 ;;Total ram usage:        4 bytes
+  2233 ;; Hardware stack levels used:    1
+  2234 ;; This function calls:
+  2235 ;;		Nothing
+  2236 ;; This function is called by:
+  2237 ;;		_tx_send
+  2238 ;; This function uses a non-reentrant model
+  2239 ;;
+  2240                           
+  2241                           
+  2242                           ;psect for function i1_ringbuf_push
+  2243  021E                     i1_ringbuf_push:	
+  2244                           
+  2245                           ;incstack = 0
+  2246                           ; Regs used in i1_ringbuf_push: [wreg-fsr1h+status,2+status,0]
+  2247                           ;i1ringbuf_push@rb stored from wreg
+  2248  021E  00F3               	movwf	i1ringbuf_push@rb
+  2249                           
+  2250                           ;My_header_16F.h: 121: rb->buf[rb->head] = asciicode;
+  2251  021F  0870               	movf	i1ringbuf_push@asciicode,w
+  2252  0220  00F1               	movwf	??i1_ringbuf_push
+  2253  0221  0873               	movf	i1ringbuf_push@rb,w
+  2254  0222  0086               	movwf	6
+  2255  0223  0187               	clrf	7
+  2256  0224  0873               	movf	i1ringbuf_push@rb,w
+  2257  0225  3E02               	addlw	2
+  2258  0226  0084               	movwf	4
+  2259  0227  0185               	clrf	5
+  2260  0228  0800               	movf	0,w
+  2261  0229  0701               	addwf	1,w
+  2262  022A  00F2               	movwf	??i1_ringbuf_push+1
+  2263  022B  0872               	movf	??i1_ringbuf_push+1,w
+  2264  022C  0086               	movwf	6
+  2265  022D  0187               	clrf	7
+  2266  022E  0871               	movf	??i1_ringbuf_push,w
+  2267  022F  0081               	movwf	1
+  2268                           
+  2269                           ;My_header_16F.h: 122: rb->head++;
+  2270  0230  3001               	movlw	1
+  2271  0231  00F1               	movwf	??i1_ringbuf_push
+  2272  0232  0873               	movf	i1ringbuf_push@rb,w
+  2273  0233  3E02               	addlw	2
+  2274  0234  0086               	movwf	6
+  2275  0235  0187               	clrf	7
+  2276  0236  0871               	movf	??i1_ringbuf_push,w
+  2277  0237  0781               	addwf	1,f
+  2278                           
+  2279                           ;My_header_16F.h: 123: if (rb->head >= rb->size) {
+  2280  0238  0873               	movf	i1ringbuf_push@rb,w
+  2281  0239  3E02               	addlw	2
+  2282  023A  0086               	movwf	6
+  2283  023B  0187               	clrf	7
+  2284  023C  0A73               	incf	i1ringbuf_push@rb,w
+  2285  023D  0084               	movwf	4
+  2286  023E  0185               	clrf	5
+  2287  023F  0800               	movf	0,w
+  2288  0240  0201               	subwf	1,w
+  2289  0241  1C03               	skipc
+  2290  0242  0008               	return
+  2291                           
+  2292                           ;My_header_16F.h: 124: rb->head = 0;
+  2293  0243  0873               	movf	i1ringbuf_push@rb,w
+  2294  0244  3E02               	addlw	2
+  2295  0245  0086               	movwf	6
+  2296  0246  0187               	clrf	7
+  2297  0247  0181               	clrf	1
+  2298  0248  0008               	return
+  2299  0249                     __end_ofi1_ringbuf_push:	
+  2300                           
+  2301                           	psect	text16
+  2302  034B                     __ptext16:	
+  2303 ;; *************** function _interrupt_TXIF *****************
+  2304 ;; Defined at:
+  2305 ;;		line 174 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header_16F.h"
+  2306 ;; Parameters:    Size  Location     Type
+  2307 ;;		None
+  2308 ;; Auto vars:     Size  Location     Type
+  2309 ;;		None
+  2310 ;; Return value:  Size  Location     Type
+  2311 ;;		None               void
+  2312 ;; Registers used:
+  2313 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  2314 ;; Tracked objects:
+  2315 ;;		On entry : 0/0
+  2316 ;;		On exit  : 0/0
+  2317 ;;		Unchanged: 0/0
+  2318 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  2319 ;;      Params:         0       0       0       0       0       0
+  2320 ;;      Locals:         0       0       0       0       0       0
+  2321 ;;      Temps:          0       0       0       0       0       0
+  2322 ;;      Totals:         0       0       0       0       0       0
+  2323 ;;Total ram usage:        0 bytes
+  2324 ;; Hardware stack levels used:    1
+  2325 ;; Hardware stack levels required when called:    1
+  2326 ;; This function calls:
+  2327 ;;		_ringbuf_num
+  2328 ;;		_ringbuf_pop
+  2329 ;; This function is called by:
+  2330 ;;		_isr
+  2331 ;; This function uses a non-reentrant model
+  2332 ;;
+  2333                           
+  2334                           
+  2335                           ;psect for function _interrupt_TXIF
+  2336  034B                     _interrupt_TXIF:	
+  2337                           
+  2338                           ;My_header_16F.h: 175: if (TXIE && TXIF) {
+  2339                           
+  2340                           ;incstack = 0
+  2341                           ; Regs used in _interrupt_TXIF: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+  2342  034B  0021               	movlb	1	; select bank1
+  2343  034C  1E11               	btfss	17,4	;volatile
+  2344  034D  0008               	return
+  2345  034E  0020               	movlb	0	; select bank0
+  2346  034F  1E11               	btfss	17,4	;volatile
+  2347  0350  0008               	return
+  2348                           
+  2349                           ;My_header_16F.h: 176: TXIF = 0;
+  2350  0351  1211               	bcf	17,4	;volatile
+  2351                           
+  2352                           ;My_header_16F.h: 177: if (ringbuf_num(&tx_buf) > 0) {
+  2353  0352  3043               	movlw	_tx_buf& (0+255)
+  2354  0353  3182  2249  3183   	fcall	_ringbuf_num
+  2355  0356  3A00               	xorlw	0
+  2356  0357  1903               	skipnz
+  2357  0358  2B5F               	goto	i1l160
+  2358                           
+  2359                           ;My_header_16F.h: 178: TXREG = ringbuf_pop(&tx_buf);
+  2360  0359  3043               	movlw	_tx_buf& (0+255)
+  2361  035A  3181  21F2         	fcall	_ringbuf_pop
+  2362  035C  0023               	movlb	3	; select bank3
+  2363  035D  009A               	movwf	26	;volatile
+  2364                           
+  2365                           ;My_header_16F.h: 179: } else {
+  2366  035E  0008               	return
+  2367  035F                     i1l160:	
+  2368                           
+  2369                           ;My_header_16F.h: 180: PIE1bits.TXIE = 0;
+  2370  035F  0021               	movlb	1	; select bank1
+  2371  0360  1211               	bcf	17,4	;volatile
+  2372  0361  0008               	return
+  2373  0362                     __end_of_interrupt_TXIF:	
+  2374                           
+  2375                           	psect	text17
+  2376  01F2                     __ptext17:	
+  2377 ;; *************** function _ringbuf_pop *****************
+  2378 ;; Defined at:
+  2379 ;;		line 128 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header_16F.h"
+  2380 ;; Parameters:    Size  Location     Type
+  2381 ;;  rb              1    wreg     PTR struct ringbuf
+  2382 ;;		 -> tx_buf(4), 
+  2383 ;; Auto vars:     Size  Location     Type
+  2384 ;;  rb              1    3[COMMON] PTR struct ringbuf
+  2385 ;;		 -> tx_buf(4), 
+  2386 ;;  ret             1    2[COMMON] unsigned char 
+  2387 ;; Return value:  Size  Location     Type
+  2388 ;;                  1    wreg      unsigned char 
+  2389 ;; Registers used:
+  2390 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0
+  2391 ;; Tracked objects:
+  2392 ;;		On entry : 0/0
+  2393 ;;		On exit  : 0/0
+  2394 ;;		Unchanged: 0/0
+  2395 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  2396 ;;      Params:         0       0       0       0       0       0
+  2397 ;;      Locals:         2       0       0       0       0       0
+  2398 ;;      Temps:          2       0       0       0       0       0
+  2399 ;;      Totals:         4       0       0       0       0       0
+  2400 ;;Total ram usage:        4 bytes
+  2401 ;; Hardware stack levels used:    1
+  2402 ;; This function calls:
+  2403 ;;		Nothing
+  2404 ;; This function is called by:
+  2405 ;;		_interrupt_TXIF
+  2406 ;; This function uses a non-reentrant model
+  2407 ;;
+  2408                           
+  2409                           
+  2410                           ;psect for function _ringbuf_pop
+  2411  01F2                     _ringbuf_pop:	
+  2412                           
+  2413                           ;incstack = 0
+  2414                           ; Regs used in _ringbuf_pop: [wreg-fsr1h+status,2+status,0]
+  2415                           ;ringbuf_pop@rb stored from wreg
+  2416  01F2  00F3               	movwf	ringbuf_pop@rb
+  2417                           
+  2418                           ;My_header_16F.h: 129: uint8_t ret = rb->buf[rb->tail];
+  2419  01F3  0873               	movf	ringbuf_pop@rb,w
+  2420  01F4  0086               	movwf	6
+  2421  01F5  0187               	clrf	7
+  2422  01F6  0873               	movf	ringbuf_pop@rb,w
+  2423  01F7  3E03               	addlw	3
+  2424  01F8  0084               	movwf	4
+  2425  01F9  0185               	clrf	5
+  2426  01FA  0800               	movf	0,w
+  2427  01FB  0701               	addwf	1,w
+  2428  01FC  00F0               	movwf	??_ringbuf_pop
+  2429  01FD  0870               	movf	??_ringbuf_pop,w
+  2430  01FE  0086               	movwf	6
+  2431  01FF  0187               	clrf	7
+  2432  0200  0801               	movf	1,w
+  2433  0201  00F1               	movwf	??_ringbuf_pop+1
+  2434  0202  0871               	movf	??_ringbuf_pop+1,w
+  2435  0203  00F2               	movwf	ringbuf_pop@ret
+  2436                           
+  2437                           ;My_header_16F.h: 130: rb->tail++;
+  2438  0204  3001               	movlw	1
+  2439  0205  00F0               	movwf	??_ringbuf_pop
+  2440  0206  0873               	movf	ringbuf_pop@rb,w
+  2441  0207  3E03               	addlw	3
+  2442  0208  0086               	movwf	6
+  2443  0209  0187               	clrf	7
+  2444  020A  0870               	movf	??_ringbuf_pop,w
+  2445  020B  0781               	addwf	1,f
+  2446                           
+  2447                           ;My_header_16F.h: 131: if (rb->tail >= rb->size) {
+  2448  020C  0873               	movf	ringbuf_pop@rb,w
+  2449  020D  3E03               	addlw	3
+  2450  020E  0086               	movwf	6
+  2451  020F  0187               	clrf	7
+  2452  0210  0A73               	incf	ringbuf_pop@rb,w
+  2453  0211  0084               	movwf	4
+  2454  0212  0185               	clrf	5
+  2455  0213  0800               	movf	0,w
+  2456  0214  0201               	subwf	1,w
+  2457  0215  1C03               	skipc
+  2458  0216  2A1C               	goto	i1l1391
+  2459                           
+  2460                           ;My_header_16F.h: 132: rb->tail = 0;
+  2461  0217  0873               	movf	ringbuf_pop@rb,w
+  2462  0218  3E03               	addlw	3
+  2463  0219  0086               	movwf	6
+  2464  021A  0187               	clrf	7
+  2465  021B  0181               	clrf	1
+  2466  021C                     i1l1391:	
+  2467                           
+  2468                           ;My_header_16F.h: 133: }
+  2469                           ;My_header_16F.h: 134: return ret;
+  2470  021C  0872               	movf	ringbuf_pop@ret,w
+  2471  021D  0008               	return
+  2472  021E                     __end_of_ringbuf_pop:	
+  2473                           
+  2474                           	psect	text18
+  2475  0249                     __ptext18:	
+  2476 ;; *************** function _ringbuf_num *****************
+  2477 ;; Defined at:
+  2478 ;;		line 137 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\include\My_header_16F.h"
+  2479 ;; Parameters:    Size  Location     Type
+  2480 ;;  rb              1    wreg     PTR struct ringbuf
+  2481 ;;		 -> tx_buf(4), 
+  2482 ;; Auto vars:     Size  Location     Type
+  2483 ;;  rb              1    1[COMMON] PTR struct ringbuf
+  2484 ;;		 -> tx_buf(4), 
+  2485 ;; Return value:  Size  Location     Type
+  2486 ;;                  1    wreg      unsigned char 
+  2487 ;; Registers used:
+  2488 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0
+  2489 ;; Tracked objects:
+  2490 ;;		On entry : 0/0
+  2491 ;;		On exit  : 0/0
+  2492 ;;		Unchanged: 0/0
+  2493 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  2494 ;;      Params:         0       0       0       0       0       0
+  2495 ;;      Locals:         1       0       0       0       0       0
+  2496 ;;      Temps:          1       0       0       0       0       0
+  2497 ;;      Totals:         2       0       0       0       0       0
+  2498 ;;Total ram usage:        2 bytes
+  2499 ;; Hardware stack levels used:    1
+  2500 ;; This function calls:
+  2501 ;;		Nothing
+  2502 ;; This function is called by:
+  2503 ;;		_interrupt_TXIF
+  2504 ;; This function uses a non-reentrant model
+  2505 ;;
+  2506                           
+  2507                           
+  2508                           ;psect for function _ringbuf_num
+  2509  0249                     _ringbuf_num:	
+  2510                           
+  2511                           ;incstack = 0
+  2512                           ; Regs used in _ringbuf_num: [wreg-fsr1h+status,2+status,0]
+  2513                           ;ringbuf_num@rb stored from wreg
+  2514  0249  00F1               	movwf	ringbuf_num@rb
+  2515                           
+  2516                           ;My_header_16F.h: 138: if (rb->head >= rb->tail) {
+  2517  024A  0871               	movf	ringbuf_num@rb,w
+  2518  024B  3E02               	addlw	2
+  2519  024C  0086               	movwf	6
+  2520  024D  0187               	clrf	7
+  2521  024E  0871               	movf	ringbuf_num@rb,w
+  2522  024F  3E03               	addlw	3
+  2523  0250  0084               	movwf	4
+  2524  0251  0185               	clrf	5
+  2525  0252  0800               	movf	0,w
+  2526  0253  0201               	subwf	1,w
+  2527  0254  1C03               	skipc
+  2528  0255  2A62               	goto	i1l1403
+  2529                           
+  2530                           ;My_header_16F.h: 139: return (rb->head - rb->tail);
+  2531  0256  0871               	movf	ringbuf_num@rb,w
+  2532  0257  3E02               	addlw	2
+  2533  0258  0086               	movwf	6
+  2534  0259  0187               	clrf	7
+  2535  025A  0871               	movf	ringbuf_num@rb,w
+  2536  025B  3E03               	addlw	3
+  2537  025C  0084               	movwf	4
+  2538  025D  0185               	clrf	5
+  2539  025E  0300               	decf	0,w
+  2540  025F  3AFF               	xorlw	255
+  2541  0260  0701               	addwf	1,w
+  2542                           
+  2543                           ;My_header_16F.h: 140: } else {
+  2544  0261  0008               	return
+  2545  0262                     i1l1403:	
+  2546                           
+  2547                           ;My_header_16F.h: 141: return (rb->size + rb->head - rb->tail);
+  2548  0262  0871               	movf	ringbuf_num@rb,w
+  2549  0263  3E02               	addlw	2
+  2550  0264  0086               	movwf	6
+  2551  0265  0187               	clrf	7
+  2552  0266  0A71               	incf	ringbuf_num@rb,w
+  2553  0267  0084               	movwf	4
+  2554  0268  0185               	clrf	5
+  2555  0269  0800               	movf	0,w
+  2556  026A  00F0               	movwf	??_ringbuf_num
+  2557  026B  0871               	movf	ringbuf_num@rb,w
+  2558  026C  3E03               	addlw	3
+  2559  026D  0084               	movwf	4
+  2560  026E  0185               	clrf	5
+  2561  026F  0300               	decf	0,w
+  2562  0270  3AFF               	xorlw	255
+  2563  0271  0770               	addwf	??_ringbuf_num,w
+  2564  0272  0701               	addwf	1,w
+  2565  0273  0008               	return
+  2566  0274                     __end_of_ringbuf_num:	
+  2567  007E                     btemp	set	126	;btemp
+  2568  007E                     pic14e$flags	set	126
+  2569  007E                     wtemp	set	126
+  2570  007E                     wtemp0	set	126
+  2571  0080                     wtemp1	set	128
+  2572  0082                     wtemp2	set	130
+  2573  0084                     wtemp3	set	132
+  2574  0086                     wtemp4	set	134
+  2575  0088                     wtemp5	set	136
+  2576  007F                     wtemp6	set	127
+  2577  007E                     ttemp	set	126
+  2578  007E                     ttemp0	set	126
+  2579  0081                     ttemp1	set	129
+  2580  0084                     ttemp2	set	132
+  2581  0087                     ttemp3	set	135
+  2582  007F                     ttemp4	set	127
+  2583  007E                     ltemp	set	126
+  2584  007E                     ltemp0	set	126
+  2585  0082                     ltemp1	set	130
+  2586  0086                     ltemp2	set	134
+  2587  0080                     ltemp3	set	128
+
+
+Data Sizes:
+    Strings     6
+    Constant    10
+    Data        2
+    BSS         4
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      9      11
+    BANK0            80     35      39
+    BANK1            80     80      80
+    BANK2            80      0       0
+    BANK3            80      0       0
+    BANK4            48      0       0
+
+Pointer List with Targets:
+
+    sprintf@f	PTR const unsigned char  size(2) Largest target is 6
+		 -> STR_1(CODE[6]), 
+
+    sprintf@sp	PTR unsigned char  size(1) Largest target is 50
+		 -> main@cbuf(BANK1[50]), 
+
+    sprintf@ap	PTR void [1] size(1) Largest target is 2
+		 -> ?_sprintf(BANK0[2]), 
+
+    S652$_cp	PTR const unsigned char  size(1) Largest target is 0
+
+    _val._str._cp	PTR const unsigned char  size(1) Largest target is 0
+
+    tx_sends@asciicode	PTR unsigned char  size(1) Largest target is 50
+		 -> main@cbuf(BANK1[50]), 
+
+    tx_buf.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK1[30]), 
+
+    ringbuf_num@rb.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK1[30]), 
+
+    ringbuf_num@rb	PTR struct ringbuf size(1) Largest target is 5
+		 -> tx_buf(BANK0[4]), 
+
+    ringbuf_pop@rb.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK1[30]), 
+
+    ringbuf_pop@rb	PTR struct ringbuf size(1) Largest target is 5
+		 -> tx_buf(BANK0[4]), 
+
+    ringbuf_push@rb.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK1[30]), 
+
+    ringbuf_push@rb	PTR struct ringbuf size(1) Largest target is 5
+		 -> tx_buf(BANK0[4]), 
+
+    S224ringbuf$buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK1[30]), 
+
+    ringbuf_init@rb.buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK1[30]), 
+
+    ringbuf_init@internal_buf	PTR unsigned char  size(1) Largest target is 30
+		 -> main@buf(BANK1[30]), 
+
+    ringbuf_init@rb	PTR struct ringbuf size(1) Largest target is 5
+		 -> tx_buf(BANK0[4]), 
+
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _isr in COMMON
+
+    _isr->_tx_send
+    _tx_send->i1_ringbuf_push
+    _interrupt_TXIF->_ringbuf_pop
+
+Critical Paths under _main in BANK0
+
+    _main->_sprintf
+    _tx_sends->_ringbuf_push
+    _sprintf->___lwmod
+    ___lwmod->___lwdiv
+    _SPI_TM_Read->_SPI_Transfer
+    _ADT7310_init->_SPI_Transfer
+
+Critical Paths under _isr in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _isr in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _isr in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _isr in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _isr in BANK4
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                84    84      0    2469
+                                             31 BANK0      4     4      0
+                                              0 BANK1     80    80      0
+                       _ADT7310_init
+                           _Delay_ms
+                        _SPI_TM_Read
+                           _SPI_init
+                          _UART_init
+                       _ringbuf_init
+                            _sprintf
+                           _tx_sends
+ ---------------------------------------------------------------------------------
+ (1) _tx_sends                                             4     4      0     452
+                                              4 BANK0      4     4      0
+                       _ringbuf_push
+ ---------------------------------------------------------------------------------
+ (2) _ringbuf_push                                         4     3      1     332
+                                              0 BANK0      4     3      1
+ ---------------------------------------------------------------------------------
+ (1) _sprintf                                             17    13      4    1148
+                                             14 BANK0     17    13      4
+                            ___lwdiv
+                            ___lwmod
+ ---------------------------------------------------------------------------------
+ (2) ___lwmod                                              6     2      4     287
+                                              8 BANK0      6     2      4
+                            ___lwdiv (ARG)
+ ---------------------------------------------------------------------------------
+ (2) ___lwdiv                                              8     4      4     290
+                                              0 BANK0      8     4      4
+ ---------------------------------------------------------------------------------
+ (1) _ringbuf_init                                         4     2      2     298
+                                              0 BANK0      4     2      2
+ ---------------------------------------------------------------------------------
+ (1) _UART_init                                            1     1      0      22
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _SPI_init                                             2     1      1     130
+                                              0 BANK0      2     1      1
+ ---------------------------------------------------------------------------------
+ (1) _SPI_TM_Read                                         11     9      2      92
+                                              3 BANK0     11     9      2
+                       _SPI_Transfer
+ ---------------------------------------------------------------------------------
+ (1) _Delay_ms                                             6     4      2     174
+                                              0 BANK0      6     4      2
+ ---------------------------------------------------------------------------------
+ (1) _ADT7310_init                                         2     2      0      49
+                                              3 BANK0      2     2      0
+                       _SPI_Transfer
+ ---------------------------------------------------------------------------------
+ (2) _SPI_Transfer                                         3     3      0      46
+                                              0 BANK0      3     3      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (3) _isr                                                  3     3      0     610
+                                              6 COMMON     3     3      0
+                     _interrupt_TXIF
+                            _tx_send
+ ---------------------------------------------------------------------------------
+ (4) _tx_send                                              2     2      0     202
+                                              4 COMMON     2     2      0
+                     i1_ringbuf_push
+ ---------------------------------------------------------------------------------
+ (5) i1_ringbuf_push                                       4     3      1     180
+                                              0 COMMON     4     3      1
+ ---------------------------------------------------------------------------------
+ (4) _interrupt_TXIF                                       0     0      0     385
+                        _ringbuf_num
+                        _ringbuf_pop
+ ---------------------------------------------------------------------------------
+ (5) _ringbuf_pop                                          4     4      0     193
+                                              0 COMMON     4     4      0
+ ---------------------------------------------------------------------------------
+ (5) _ringbuf_num                                          2     2      0     192
+                                              0 COMMON     2     2      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 5
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _ADT7310_init
+     _SPI_Transfer
+   _Delay_ms
+   _SPI_TM_Read
+     _SPI_Transfer
+   _SPI_init
+   _UART_init
+   _ringbuf_init
+   _sprintf
+     ___lwdiv
+     ___lwmod
+       ___lwdiv (ARG)
+   _tx_sends
+     _ringbuf_push
+
+ _isr (ROOT)
+   _interrupt_TXIF
+     _ringbuf_num
+     _ringbuf_pop
+   _tx_send
+     i1_ringbuf_push
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             170      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITCOMMON            E      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               E      9       B       2       78.6%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR2              0      0       0       3        0.0%
+SFR2                 0      0       0       3        0.0%
+STACK                0      0       0       3        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+ABS                  0      0      82       4        0.0%
+BITBANK0            50      0       0       5        0.0%
+BITSFR4              0      0       0       5        0.0%
+SFR4                 0      0       0       5        0.0%
+BANK0               50     23      27       6       48.8%
+BITSFR5              0      0       0       6        0.0%
+SFR5                 0      0       0       6        0.0%
+BITBANK1            50      0       0       7        0.0%
+BITSFR6              0      0       0       7        0.0%
+SFR6                 0      0       0       7        0.0%
+BANK1               50     50      50       8      100.0%
+BITSFR7              0      0       0       8        0.0%
+SFR7                 0      0       0       8        0.0%
+BITBANK2            50      0       0       9        0.0%
+BITSFR8              0      0       0       9        0.0%
+SFR8                 0      0       0       9        0.0%
+BANK2               50      0       0      10        0.0%
+BITSFR9              0      0       0      10        0.0%
+SFR9                 0      0       0      10        0.0%
+BITBANK3            50      0       0      11        0.0%
+BITSFR10             0      0       0      11        0.0%
+SFR10                0      0       0      11        0.0%
+BANK3               50      0       0      12        0.0%
+BITSFR11             0      0       0      12        0.0%
+SFR11                0      0       0      12        0.0%
+BITBANK4            30      0       0      13        0.0%
+BITSFR12             0      0       0      13        0.0%
+SFR12                0      0       0      13        0.0%
+BANK4               30      0       0      14        0.0%
+BITSFR13             0      0       0      14        0.0%
+SFR13                0      0       0      14        0.0%
+BITSFR14             0      0       0      15        0.0%
+SFR14                0      0       0      15        0.0%
+DATA                 0      0      82      15        0.0%
+BITSFR15             0      0       0      16        0.0%
+SFR15                0      0       0      16        0.0%
+BITSFR16             0      0       0      17        0.0%
+SFR16                0      0       0      17        0.0%
+BITSFR17             0      0       0      18        0.0%
+SFR17                0      0       0      18        0.0%
+BITSFR18             0      0       0      19        0.0%
+SFR18                0      0       0      19        0.0%
+BITSFR19             0      0       0      20        0.0%
+SFR19                0      0       0      20        0.0%
+BITSFR20             0      0       0      21        0.0%
+SFR20                0      0       0      21        0.0%
+BITSFR21             0      0       0      22        0.0%
+SFR21                0      0       0      22        0.0%
+BITSFR22             0      0       0      23        0.0%
+SFR22                0      0       0      23        0.0%
+BITSFR23             0      0       0      24        0.0%
+SFR23                0      0       0      24        0.0%
+BITSFR24             0      0       0      25        0.0%
+SFR24                0      0       0      25        0.0%
+BITSFR25             0      0       0      26        0.0%
+SFR25                0      0       0      26        0.0%
+BITSFR26             0      0       0      27        0.0%
+SFR26                0      0       0      27        0.0%
+BITSFR27             0      0       0      28        0.0%
+SFR27                0      0       0      28        0.0%
+BITSFR28             0      0       0      29        0.0%
+SFR28                0      0       0      29        0.0%
+BITSFR29             0      0       0      30        0.0%
+SFR29                0      0       0      30        0.0%
+BITSFR30             0      0       0      31        0.0%
+SFR30                0      0       0      31        0.0%
+BITSFR31             0      0       0      32        0.0%
+SFR31                0      0       0      32        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.33 build 59893 
+Symbol Table                                                                                   Sat Feb 21 09:14:56 2015
+
+  __end_ofi1_ringbuf_push 0249               __CFG_CP$OFF 0000    __end_of_interrupt_TXIF 0362  
+                     l155 02BE                       l165 031D                       l274 0340  
+            __CFG_CPD$OFF 0000                       u805 0180                       u815 0188  
+                     u845 01A1                       u775 016C                       u865 01B0  
+                     u955 0323                       u795 0176                       u875 01B7  
+            _SPI_Transfer 0334                       _isr 0004              __CFG_BORV$LO 0000  
+                     wreg 0009              __CFG_LVP$OFF 0000                      l1433 0187  
+                    l1425 0169                      l1601 00C0                      l1505 02A1  
+                    l1531 02DA                      l1427 0175                      l1451 01AA  
+                    l1603 0038                      l1437 0190                      l1605 0100  
+                    l1527 02D0                      l1455 01B6                      l1449 019E  
+                    l1459 01BF                      l1565 0072                      l1575 0088  
+                    l1559 005A                      l1593 00BC                      l1587 00AD  
+                    l1579 008E                      ?_isr 0070                      STR_1 040A  
+                    u1025 00A3                      u1097 0329                      _RCIF 008D  
+                    _TMR0 0015                      _SPEN 0CEF                      _TXIE 048C  
+                    _TXIF 008C                      _WPUA 020C                      _WPUB 020D  
+            __CFG_WRT$OFF 0000                      _main 0105                      fsr0h 0005  
+                    fsr1h 0007                      fsr0l 0004                      indf0 0000  
+                    indf1 0001                      fsr1l 0006                      btemp 007E  
+                    ltemp 007E                      start 0021                      ttemp 007E  
+                    wtemp 007E             __CFG_IESO$OFF 0000          ADT7310_init@dumy 0024  
+         ?i1_ringbuf_push 0070                     ??_isr 0076             __CFG_PLLEN$ON 0000  
+         ?_interrupt_TXIF 0070                     ?_main 0070                     _ADRES 009B  
+                   _BRG16 0CFB             __CFG_WDTE$OFF 0000                     _LATB0 0868  
+         __end_of___lwdiv 0197                     i1l160 035F           __end_of___lwmod 01C6  
+                   i1l288 001C                     _RCREG 0199                     _RCSTA 019D  
+                   _TMR1H 0017                     _TMR1L 0016                     _TRISA 008C  
+                   _TRISB 008D                     _TXREG 019A                     _TXSTA 019E  
+          __CFG_FCMEN$OFF 0000        __size_of_UART_init 0013     ringbuf_push@asciicode 0020  
+         __end_of_dpowers 040A                     main@t 0041            __CFG_BOREN$OFF 0000  
+                   ltemp0 007E          __end_of_SPI_init 02E3                     ltemp1 0082  
+                   ltemp2 0086                     ltemp3 0080                     ttemp0 007E  
+                   ttemp1 0081                     ttemp2 0084                     ttemp3 0087  
+                   ttemp4 007F                     status 0003                     wtemp0 007E  
+                   wtemp1 0080                     wtemp2 0082                     wtemp3 0084  
+                   wtemp4 0086                     wtemp5 0088                     wtemp6 007F  
+         __end_of_sprintf 0105           __end_of_tx_send 041B          __end_of_Delay_ms 0334  
+          __CFG_MCLRE$OFF 0000           __initialization 0023              __end_of_main 0160  
+     ringbuf_init@bufsize 0021                    ??_main 003F             SPI_TM_Read@th 002C  
+           SPI_TM_Read@tl 002D                    _BCL1IF 0093                    _ANSELA 018C  
+                  _ANSELB 018D                    i1l1403 0262                    i1l1391 021C  
+                  i1l1615 0010                    _FVRCON 0117                    _OSCCON 0099  
+                  _TMR0IF 005A                    _SPBRGH 019C                    _SPBRGL 019B  
+                  _SSP1IF 008B            __CFG_PWRTE$OFF 0000              ?_ringbuf_pop 0070  
+            ?_ringbuf_num 0070         __end_of_UART_init 0375                 ??___lwdiv 0024  
+               ??___lwmod 002C                    _tx_buf 0043              __pdataCOMMON 0079  
+         UART_init@device 0020                 ??_sprintf 0032                 ??_tx_send 0074  
+        __end_of_tx_sends 02C1   __end_of__initialization 002E              ?_SPI_TM_Read 0023  
+            SPI_init@mode 0021            __pcstackCOMMON 0070                 ?_SPI_init 0020  
+          _OPTION_REGbits 0095                 ?_Delay_ms 0020                __pbssBANK0 0043  
+        ??i1_ringbuf_push 0071                __pmaintext 0105          ??_interrupt_TXIF 0074  
+              __pintentry 0004                ??_SPI_init 0021                ??_Delay_ms 0022  
+                 _SSP1ADD 0212                   _SSP1BUF 0211             ?_ringbuf_init 0020  
+           ?_ringbuf_push 0020                   ___lwdiv 0160                   ___lwmod 0197  
+    __size_of_ringbuf_pop 002C      __size_of_ringbuf_num 002B           __CFG_STVREN$OFF 0000  
+               ?_tx_sends 0070                   __ptext1 029E                   __ptext2 01C6  
+                 __ptext3 0032                   __ptext4 0197                   __ptext5 0160  
+                 __ptext6 02FF                   __ptext7 0362                   __ptext8 02C1  
+                 __ptext9 0274                 _T1CONbits 0018                   _dpowers 0400  
+            __size_of_isr 001D                   main@buf 00A0                   _sprintf 0032  
+                 _tx_send 0410      end_of_initialization 002E                 Delay_ms@i 0024  
+    __size_of_SPI_TM_Read 002A            ??_ringbuf_init 0022            ??_ringbuf_push 0021  
+            __pstringtext 0400                ??_tx_sends 0024                 _UART_init 0362  
+        __CFG_FOSC$INTOSC 0000             ?_ADT7310_init 0070            ringbuf_init@rb 0023  
+          ringbuf_pop@ret 0072            ringbuf_push@rb 0023             __pidataCOMMON 041B  
+              ?_UART_init 0070             ?_SPI_Transfer 0070            ??_ADT7310_init 0023  
+     start_initialization 0023         __size_of_SPI_init 0022               __end_of_isr 0021  
+       __size_of_Delay_ms 001A               _APFCON0bits 011D               _APFCON1bits 011E  
+          ??_SPI_Transfer 0020                 ___latbits 0001             __pcstackBANK0 0020  
+           __pcstackBANK1 00A0       __end_of__stringdata 0410      __end_of_ringbuf_init 031A  
+    __end_of_ringbuf_push 01F2          tx_send@asciicode 0075               sprintf@_val 0039  
+             sprintf@flag 0037               sprintf@prec 0038          ___lwdiv@dividend 0022  
+                ?___lwdiv 0020                  ?___lwmod 0028               ??_UART_init 0020  
+       __size_of_tx_sends 0023          ___lwdiv@quotient 0025        SPI_Transfer@rxdata 0022  
+                ?_sprintf 002E                  ?_tx_send 0070        SPI_Transfer@txdata 0021  
+ringbuf_init@internal_buf 0020                  _PIE1bits 0091      __end_of_ADT7310_init 02FF  
+           ??_ringbuf_pop 0070             ??_ringbuf_num 0070                  _SSP1CON1 0215  
+                _SSP1CON2 0216                  _SSP1STAT 0214                _ADCON0bits 009D  
+ __size_ofi1_ringbuf_push 002B                _ADCON1bits 009E               __stringdata 040A  
+                _SPI_init 02C1   __size_of_interrupt_TXIF 0017                  _Delay_ms 031A  
+           ringbuf_pop@rb 0073             ringbuf_num@rb 0071        LCD_SetCursor@F3069 0079  
+           ??_SPI_TM_Read 0025      __end_of_SPI_Transfer 034B          __size_of___lwdiv 0037  
+        __size_of___lwmod 002F         tx_sends@asciicode 0026       __end_of_ringbuf_pop 021E  
+     __end_of_ringbuf_num 0274     __size_of_ringbuf_init 001B     __size_of_ringbuf_push 002C  
+         ___lwdiv@divisor 0020           ___lwdiv@counter 0027                  __ptext10 031A  
+                __ptext11 02E3                  __ptext12 0334                  __ptext14 0410  
+                __ptext15 021E                  __ptext16 034B                  __ptext17 01F2  
+                __ptext18 0249              _SSP1CON1bits 0215              _SSP1CON2bits 0216  
+        i1ringbuf_push@rb 0073          __size_of_sprintf 00D3          __size_of_tx_send 000B  
+           __size_of_main 005B       __end_of_SPI_TM_Read 029E              _ringbuf_init 02FF  
+            _ringbuf_push 01C6                  main@cbuf 00BE              _SSP1STATbits 0214  
+                _tx_sends 029E                _INTCONbits 000B                  isr@ascii 0078  
+              Delay_ms@ms 0020               pic14e$flags 007E                  intlevel1 0000  
+               sprintf@ap 0036                 sprintf@sp 003D     __size_of_ADT7310_init 001C  
+        ___lwmod@dividend 002A                 tx_sends@i 0027         __CFG_CLKOUTEN$OFF 0000  
+SPI_init@interrupt_enable 0020               _ringbuf_pop 01F2               _ringbuf_num 0249  
+          i1_ringbuf_push 021E            _interrupt_TXIF 034B                  sprintf@c 003E  
+                sprintf@f 002E           ___lwmod@divisor 0028           ___lwmod@counter 002D  
+ i1ringbuf_push@asciicode 0070              _ADT7310_init 02E3     __size_of_SPI_Transfer 0017  
+             _SPI_TM_Read 0274  
