@@ -360,7 +360,7 @@ __Ltext112 0 0 ABS 0
 get_string_usb@s 6D 0 BANK0 1
 __end_of_ctmu_loop 16C9C 0 CODE 0
 put_string_usb@s 6C 0 BANK0 1
-_CDCTxService$5913 68 0 BANK0 1
+_CDCTxService$5984 68 0 BANK0 1
 _button_timer_interrupt 110F6 0 CODE 0
 __ptext112 1425A 0 CODE 0
 __ptext131 15D10 0 CODE 0
@@ -442,8 +442,6 @@ stackhi EAF 0 ABS 0
 settings_auto_stop@str_1345 7B 0 BANK0 1
 sprintf@sp 83 0 BANK0 1
 __ptext116 133FE 0 CODE 0
-_rx_buf 2A2 0 BANK2 1
-_tx_buf 2AA 0 BANK2 1
 __Htext126 0 0 ABS 0
 __Htext107 0 0 ABS 0
 __Ltext126 0 0 ABS 0
@@ -801,6 +799,7 @@ __size_of_port_button_loop 0 0 ABS 0
 __size_of_ringbuf_pop 0 0 ABS 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
+_getsUSBUSART$5936 6B 0 BANK0 1
 _display_flag 1D 0 COMRAM 1
 _pCDCDst 110 0 BANK1 1
 __size_of_ringbuf_put 0 0 ABS 0
@@ -874,8 +873,10 @@ __Hconst 0 0 CODE 0
 __Lconst 0 0 CODE 0
 epoch_to_caltime@month_cache 1E3 0 BANK1 1
 _print_item 20 0 COMRAM 1
+_uart_rx 2A2 0 BANK2 1
 _display_dec 1613C 0 CODE 0
 settings_integrating_reset@str_1379 7E 0 BANK0 1
+_uart_tx 2AA 0 BANK2 1
 get_string_usb@rx_len 72 0 BANK0 1
 __size_of_terminal_loop 0 0 ABS 0
 __CFG_CFGPLLEN$ON 0 0 ABS 0
@@ -1391,7 +1392,6 @@ ringbuf_init@internal_buf 62 0 BANK0 1
 __end_ofi2_memset 16A6C 0 CODE 0
 _port_button_loop 13138 0 CODE 0
 display_dec@edit AE 0 BANK0 1
-_getsUSBUSART$5865 6B 0 BANK0 1
 __CFG_WDTPS$8 0 0 ABS 0
 _I2C_LCD_init 15C84 0 CODE 0
 settings_integrating_reset@i_1381 97 0 BANK0 1
@@ -1515,7 +1515,7 @@ text45 10000 16CAE CODE 10000 0
 %locals
 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
-C:\Users\KERIKU~1\AppData\Local\Temp\s1pc.
+C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
 12405 15E16 0 CODE 0
 12407 15E16 0 CODE 0
 12410 15E16 0 CODE 0
@@ -1601,7 +1601,7 @@ main.c
 169 16134 0 CODE 0
 170 16138 0 CODE 0
 143 1613A 0 CODE 0
-../My_library/My_terminal.c
+../../../My_library/My_terminal.c
 8 10D8C 0 CODE 0
 11 10D8C 0 CODE 0
 12 10D96 0 CODE 0
@@ -1663,7 +1663,7 @@ ChargeStation_task.c
 242 12312 0 CODE 0
 243 12318 0 CODE 0
 244 12330 0 CODE 0
-../My_library/My_terminal.c
+../../../My_library/My_terminal.c
 93 109E0 0 CODE 0
 94 109E0 0 CODE 0
 95 10A28 0 CODE 0
@@ -1681,7 +1681,7 @@ ChargeStation_task.c
 113 10D0A 0 CODE 0
 114 10D52 0 CODE 0
 115 10D8A 0 CODE 0
-../My_library/My_terminal.c
+../../../My_library/My_terminal.c
 82 16332 0 CODE 0
 83 16332 0 CODE 0
 84 1634A 0 CODE 0
@@ -1690,13 +1690,13 @@ ChargeStation_task.c
 87 1636A 0 CODE 0
 88 16376 0 CODE 0
 89 16378 0 CODE 0
-../My_library/My_terminal.c
+../../../My_library/My_terminal.c
 68 15BF8 0 CODE 0
 69 15BF8 0 CODE 0
 78 15C08 0 CODE 0
 79 15C6A 0 CODE 0
 80 15C82 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 198 16AE6 0 CODE 0
 199 16AE6 0 CODE 0
 200 16AF2 0 CODE 0
@@ -1735,7 +1735,7 @@ ChargeStation_task.c
 196 16660 0 CODE 0
 197 16670 0 CODE 0
 198 16674 0 CODE 0
-../My_library/My_ringbuf.c
+../../../My_library/My_ringbuf.c
 28 15D94 0 CODE 0
 29 15D94 0 CODE 0
 30 15D96 0 CODE 0
@@ -1745,11 +1745,11 @@ ChargeStation_task.c
 34 15DD4 0 CODE 0
 35 15DF2 0 CODE 0
 29 15E08 0 CODE 0
-../My_library/My_ringbuf.c
+../../../My_library/My_ringbuf.c
 66 16B0C 0 CODE 0
 67 16B0C 0 CODE 0
 68 16B30 0 CODE 0
-../My_library/My_ringbuf.c
+../../../My_library/My_ringbuf.c
 59 159C0 0 CODE 0
 60 159C0 0 CODE 0
 61 159D8 0 CODE 0
@@ -2020,13 +2020,13 @@ settings.c
 43 14954 0 CODE 0
 44 14972 0 CODE 0
 46 14976 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 262 16676 0 CODE 0
 263 16676 0 CODE 0
 264 1668A 0 CODE 0
 265 1669C 0 CODE 0
 266 1669E 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 280 1166E 0 CODE 0
 281 1166E 0 CODE 0
 282 1167A 0 CODE 0
@@ -2045,7 +2045,7 @@ settings.c
 297 118FC 0 CODE 0
 298 1190C 0 CODE 0
 299 11910 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 301 11912 0 CODE 0
 302 11912 0 CODE 0
 303 1191E 0 CODE 0
@@ -2064,12 +2064,12 @@ settings.c
 318 11BA0 0 CODE 0
 319 11BB0 0 CODE 0
 320 11BB4 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 204 16C14 0 CODE 0
 205 16C14 0 CODE 0
 206 16C20 0 CODE 0
 207 16C2C 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 119 12C42 0 CODE 0
 127 12C42 0 CODE 0
 128 12C48 0 CODE 0
@@ -2101,11 +2101,11 @@ settings.c
 169 12E0E 0 CODE 0
 170 12E20 0 CODE 0
 171 12E32 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 74 14BFE 0 CODE 0
 77 14BFE 0 CODE 0
 78 14C16 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 99 14A52 0 CODE 0
 100 14A52 0 CODE 0
 101 14A58 0 CODE 0
@@ -2125,7 +2125,7 @@ settings.c
 115 14AF6 0 CODE 0
 116 14B0E 0 CODE 0
 117 14B26 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 39 16A96 0 CODE 0
 42 16A9A 0 CODE 0
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
@@ -2153,7 +2153,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
 39 152F4 0 CODE 0
 40 152FE 0 CODE 0
 41 15308 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 270 13C7A 0 CODE 0
 271 13C7A 0 CODE 0
 272 13CA2 0 CODE 0
@@ -2255,7 +2255,7 @@ LCD_print.c
 81 109B2 0 CODE 0
 84 109C2 0 CODE 0
 35 109C4 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 237 113BE 0 CODE 0
 238 113BE 0 CODE 0
 240 113CE 0 CODE 0
@@ -2283,7 +2283,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\strcpy.c
 20 1676C 0 CODE 0
 21 16772 0 CODE 0
 19 16778 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 211 1613C 0 CODE 0
 213 1613C 0 CODE 0
 214 16160 0 CODE 0
@@ -2297,12 +2297,12 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\strcat.c
 22 163B2 0 CODE 0
 23 163B8 0 CODE 0
 21 163BE 0 CODE 0
-../My_library/My_ST7032.c
+../../../My_library/My_ST7032.c
 26 16990 0 CODE 0
 27 16994 0 CODE 0
 29 1699C 0 CODE 0
 30 169BA 0 CODE 0
-../My_library/My_ST7032.c
+../../../My_library/My_ST7032.c
 45 15A4E 0 CODE 0
 48 15A4E 0 CODE 0
 49 15A68 0 CODE 0
@@ -2410,7 +2410,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\llmod.c
 24 1591A 0 CODE 0
 25 1591A 0 CODE 0
 26 1592A 0 CODE 0
-../My_library/My_ringbuf.c
+../../../My_library/My_ringbuf.c
 39 161A6 0 CODE 0
 40 161A6 0 CODE 0
 41 161A8 0 CODE 0
@@ -2470,7 +2470,7 @@ io.c
 30 169CA 0 CODE 0
 24 169CE 0 CODE 0
 32 169E4 0 CODE 0
-../My_library/My_PIC.c
+../../../My_library/My_PIC.c
 155 16906 0 CODE 0
 156 1690A 0 CODE 0
 157 16920 0 CODE 0
@@ -2502,7 +2502,7 @@ main.c
 104 15704 0 CODE 0
 106 1572A 0 CODE 0
 107 15750 0 CODE 0
-../My_library/My_PIC.c
+../../../My_library/My_PIC.c
 72 169E8 0 CODE 0
 73 169EC 0 CODE 0
 74 169F0 0 CODE 0
@@ -2514,7 +2514,7 @@ main.c
 80 16A0E 0 CODE 0
 81 16A10 0 CODE 0
 82 16A12 0 CODE 0
-../My_library/My_PIC.c
+../../../My_library/My_PIC.c
 41 16550 0 CODE 0
 42 16554 0 CODE 0
 43 1656C 0 CODE 0
@@ -2528,7 +2528,7 @@ main.c
 51 1659A 0 CODE 0
 52 1659C 0 CODE 0
 53 1659E 0 CODE 0
-../My_library/My_PIC.c
+../../../My_library/My_PIC.c
 6 166EE 0 CODE 0
 7 166F2 0 CODE 0
 8 166F4 0 CODE 0
@@ -2543,20 +2543,20 @@ main.c
 18 16722 0 CODE 0
 19 16724 0 CODE 0
 20 16726 0 CODE 0
-../My_library/My_ringbuf.c
+../../../My_library/My_ringbuf.c
 5 164AA 0 CODE 0
 6 164AA 0 CODE 0
 7 164BA 0 CODE 0
 8 164D0 0 CODE 0
 9 164E6 0 CODE 0
 10 164FC 0 CODE 0
-../My_library/usb_cdc/My_usb_cdc.c
+../../../My_library/My_usb_cdc.c
 11 16BDC 0 CODE 0
 12 16BDC 0 CODE 0
 13 16BE0 0 CODE 0
 14 16BE4 0 CODE 0
 15 16BF6 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 298 1329C 0 CODE 0
 302 1329C 0 CODE 0
 305 1329E 0 CODE 0
@@ -2603,7 +2603,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 19 16848 0 CODE 0
 20 1684A 0 CODE 0
 19 1685C 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 1352 1679A 0 CODE 0
 1355 1679A 0 CODE 0
 1360 167A0 0 CODE 0
@@ -2613,7 +2613,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 1372 167C4 0 CODE 0
 1375 167CC 0 CODE 0
 1380 167D0 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 22 168A6 0 CODE 0
 23 168A6 0 CODE 0
 24 168AA 0 CODE 0
@@ -2627,7 +2627,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 33 168CC 0 CODE 0
 34 168D2 0 CODE 0
 35 168D4 0 CODE 0
-../My_library/My_I2C.c
+../../../My_library/My_I2C.c
 11 16C7A 0 CODE 0
 12 16C7A 0 CODE 0
 13 16C7E 0 CODE 0
@@ -2635,7 +2635,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 17 16C86 0 CODE 0
 18 16C88 0 CODE 0
 19 16C8A 0 CODE 0
-../My_library/My_ST7032.c
+../../../My_library/My_ST7032.c
 78 15C84 0 CODE 0
 79 15C84 0 CODE 0
 80 15CAC 0 CODE 0
@@ -2650,12 +2650,12 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 89 15D04 0 CODE 0
 90 15D0A 0 CODE 0
 91 15D0E 0 CODE 0
-../My_library/My_ST7032.c
+../../../My_library/My_ST7032.c
 21 16C2E 0 CODE 0
 22 16C2E 0 CODE 0
 23 16C34 0 CODE 0
 24 16C46 0 CODE 0
-../My_library/My_ST7032.c
+../../../My_library/My_ST7032.c
 8 167D2 0 CODE 0
 11 167D6 0 CODE 0
 12 167E6 0 CODE 0
@@ -2665,12 +2665,12 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 17 167FE 0 CODE 0
 18 16802 0 CODE 0
 19 16808 0 CODE 0
-../My_library/My_I2C.c
+../../../My_library/My_I2C.c
 45 16C9C 0 CODE 0
 47 16C9C 0 CODE 0
 48 16CA2 0 CODE 0
 49 16CA4 0 CODE 0
-../My_library/My_I2C.c
+../../../My_library/My_I2C.c
 21 168D6 0 CODE 0
 23 168DA 0 CODE 0
 24 168E0 0 CODE 0
@@ -2679,17 +2679,17 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 28 168EA 0 CODE 0
 29 168F6 0 CODE 0
 30 168FA 0 CODE 0
-../My_library/My_I2C.c
+../../../My_library/My_I2C.c
 51 16C62 0 CODE 0
 52 16C66 0 CODE 0
 53 16C6C 0 CODE 0
 54 16C6E 0 CODE 0
 55 16C72 0 CODE 0
 56 16C76 0 CODE 0
-../My_library/My_I2C.c
+../../../My_library/My_I2C.c
 7 16BBE 0 CODE 0
 8 16BC2 0 CODE 0
-../My_library/My_PIC.c
+../../../My_library/My_PIC.c
 268 16ABE 0 CODE 0
 269 16ABE 0 CODE 0
 270 16AC2 0 CODE 0
@@ -2702,7 +2702,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 279 16AE0 0 CODE 0
 280 16AE2 0 CODE 0
 281 16AE4 0 CODE 0
-../My_library/My_PIC.c
+../../../My_library/My_PIC.c
 132 16B7E 0 CODE 0
 133 16B82 0 CODE 0
 134 16B84 0 CODE 0
@@ -2722,7 +2722,7 @@ ctmu.c
 25 13DFE 0 CODE 0
 26 13E3E 0 CODE 0
 27 13E7E 0 CODE 0
-../My_library/My_button.c
+../../../My_library/My_button.c
 3 110F6 0 CODE 0
 4 110F6 0 CODE 0
 5 11100 0 CODE 0
@@ -2763,7 +2763,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c
 29 15EFC 0 CODE 0
 30 15EFC 0 CODE 0
 31 15F04 0 CODE 0
-../My_library/My_PIC.c
+../../../My_library/My_PIC.c
 283 15192 0 CODE 0
 284 15196 0 CODE 0
 285 151A8 0 CODE 0
@@ -2801,7 +2801,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
 29 153BC 0 CODE 0
 30 153BC 0 CODE 0
 31 153CC 0 CODE 0
-../My_library/usb_cdc/My_usb_cdc.c
+../../../My_library/My_usb_cdc.c
 66 15ADC 0 CODE 0
 69 15ADC 0 CODE 0
 70 15AFE 0 CODE 0
@@ -2810,13 +2810,13 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
 73 15B1E 0 CODE 0
 74 15B3A 0 CODE 0
 75 15B4E 0 CODE 0
-../My_library/My_ringbuf.c
+../../../My_library/My_ringbuf.c
 20 14CD2 0 CODE 0
 21 14CD2 0 CODE 0
 22 14CFC 0 CODE 0
 23 14D3A 0 CODE 0
 24 14D8E 0 CODE 0
-../My_library/My_ringbuf.c
+../../../My_library/My_ringbuf.c
 45 14E74 0 CODE 0
 46 14E74 0 CODE 0
 47 14E8C 0 CODE 0
@@ -2827,26 +2827,26 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
 53 14F36 0 CODE 0
 54 14F3A 0 CODE 0
 55 14F3C 0 CODE 0
-../My_library/My_ringbuf.c
+../../../My_library/My_ringbuf.c
 12 1434C 0 CODE 0
 13 1434C 0 CODE 0
 14 14374 0 CODE 0
 15 143C2 0 CODE 0
 16 143C4 0 CODE 0
-../My_library/usb_cdc/My_usb_cdc.c
+../../../My_library/My_usb_cdc.c
 21 16934 0 CODE 0
 22 16934 0 CODE 0
 26 16940 0 CODE 0
 27 1694C 0 CODE 0
 28 1695C 0 CODE 0
-../My_library/usb_cdc/usb/usb_device_cdc.c
+../../../My_library/usb/usb_device_cdc.c
 613 16B32 0 CODE 0
 638 16B32 0 CODE 0
 639 16B34 0 CODE 0
 641 16B3C 0 CODE 0
 643 16B54 0 CODE 0
 644 16B56 0 CODE 0
-../My_library/usb_cdc/My_usb_cdc.c
+../../../My_library/My_usb_cdc.c
 32 165A0 0 CODE 0
 34 165A0 0 CODE 0
 36 165AA 0 CODE 0
@@ -2854,10 +2854,10 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
 39 165C2 0 CODE 0
 40 165E0 0 CODE 0
 41 165E4 0 CODE 0
-../My_library/usb_cdc/My_usb_cdc.c
+../../../My_library/My_usb_cdc.c
 17 16BF8 0 CODE 0
 18 16BF8 0 CODE 0
-../My_library/usb_cdc/usb/usb_device_cdc.c
+../../../My_library/usb/usb_device_cdc.c
 542 14602 0 CODE 0
 544 14602 0 CODE 0
 546 14608 0 CODE 0
@@ -2868,7 +2868,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
 558 146A6 0 CODE 0
 565 146B6 0 CODE 0
 569 146DC 0 CODE 0
-../My_library/usb_cdc/usb/usb_device_cdc.c
+../../../My_library/usb/usb_device_cdc.c
 893 12E34 0 CODE 0
 898 12E34 0 CODE 0
 902 12E36 0 CODE 0
@@ -2909,7 +2909,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
 984 12F98 0 CODE 0
 988 12FBC 0 CODE 0
 989 12FBE 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 995 1497A 0 CODE 0
 1000 1497E 0 CODE 0
 1003 14988 0 CODE 0
@@ -2925,7 +2925,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
 1039 14A22 0 CODE 0
 1044 14A32 0 CODE 0
 1046 14A48 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 346 16728 0 CODE 0
 348 16728 0 CODE 0
 349 1672E 0 CODE 0
@@ -2934,12 +2934,12 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
 352 16748 0 CODE 0
 353 1674C 0 CODE 0
 354 16750 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 193 16C48 0 CODE 0
 194 16C48 0 CODE 0
 195 16C54 0 CODE 0
 196 16C60 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 173 11BB6 0 CODE 0
 174 11BB6 0 CODE 0
 175 11BC8 0 CODE 0
@@ -2956,7 +2956,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
 186 11E06 0 CODE 0
 188 11E2A 0 CODE 0
 189 11E42 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 49 147C2 0 CODE 0
 50 147C6 0 CODE 0
 51 1484C 0 CODE 0
@@ -2991,7 +2991,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul32.c
 125 15F56 0 CODE 0
 128 15F6A 0 CODE 0
 129 15F7A 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 83 153CE 0 CODE 0
 84 153CE 0 CODE 0
 86 153D4 0 CODE 0
@@ -3005,10 +3005,10 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul32.c
 95 15458 0 CODE 0
 96 15470 0 CODE 0
 97 15488 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 45 16B9E 0 CODE 0
 46 16BA2 0 CODE 0
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 47 8 0 CODE 0
 main.c
 49 8 0 CODE 0
@@ -3036,16 +3036,16 @@ main.c
 76 9C 0 CODE 0
 77 A0 0 CODE 0
 80 A4 0 CODE 0
-../My_library/My_PIC.c
+../../../My_library/My_PIC.c
 318 16B58 0 CODE 0
 320 16B58 0 CODE 0
 323 16B64 0 CODE 0
 324 16B6E 0 CODE 0
-../My_library/usb_cdc/My_usb_cdc.c
+../../../My_library/My_usb_cdc.c
 7 16CA6 0 CODE 0
 8 16CA6 0 CODE 0
 9 16CAA 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 489 1354C 0 CODE 0
 602 1354C 0 CODE 0
 613 13550 0 CODE 0
@@ -3103,7 +3103,7 @@ main.c
 824 1368C 0 CODE 0
 826 1368C 0 CODE 0
 827 1368E 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 298 13690 0 CODE 0
 302 13690 0 CODE 0
 305 13692 0 CODE 0
@@ -3144,7 +3144,7 @@ main.c
 381 137CA 0 CODE 0
 384 137CE 0 CODE 0
 385 137D2 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 2302 16874 0 CODE 0
 2304 16874 0 CODE 0
 2310 1687A 0 CODE 0
@@ -3153,7 +3153,7 @@ main.c
 2340 1689C 0 CODE 0
 2343 1689E 0 CODE 0
 2340 168A0 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 2245 16A14 0 CODE 0
 2270 16A14 0 CODE 0
 2271 16A18 0 CODE 0
@@ -3161,7 +3161,7 @@ main.c
 2277 16A1C 0 CODE 0
 2284 16A22 0 CODE 0
 2285 16A3E 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 2202 165EE 0 CODE 0
 2214 165EE 0 CODE 0
 2217 165F4 0 CODE 0
@@ -3171,7 +3171,7 @@ main.c
 2224 16630 0 CODE 0
 2226 16630 0 CODE 0
 2227 16632 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 2369 14DA6 0 CODE 0
 2375 14DA6 0 CODE 0
 2379 14DAA 0 CODE 0
@@ -3191,7 +3191,7 @@ main.c
 2420 14E64 0 CODE 0
 2424 14E6E 0 CODE 0
 2425 14E72 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 2469 15B6A 0 CODE 0
 2474 15B6A 0 CODE 0
 2475 15B6E 0 CODE 0
@@ -3212,7 +3212,7 @@ main.c
 2504 15BD6 0 CODE 0
 2517 15BF2 0 CODE 0
 2518 15BF6 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 1616 14074 0 CODE 0
 1622 14074 0 CODE 0
 1628 14076 0 CODE 0
@@ -3250,7 +3250,7 @@ main.c
 1740 1415C 0 CODE 0
 1742 14162 0 CODE 0
 1744 14166 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 1488 157F4 0 CODE 0
 1490 157F4 0 CODE 0
 1491 157F8 0 CODE 0
@@ -3266,7 +3266,7 @@ main.c
 1514 15862 0 CODE 0
 1515 15878 0 CODE 0
 1516 15884 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 2689 1425A 0 CODE 0
 2691 1425A 0 CODE 0
 2695 1426A 0 CODE 0
@@ -3298,7 +3298,7 @@ main.c
 2730 142EA 0 CODE 0
 2735 14306 0 CODE 0
 2693 14308 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 1968 14520 0 CODE 0
 1973 14520 0 CODE 0
 1976 14524 0 CODE 0
@@ -3325,7 +3325,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 19 16A48 0 CODE 0
 20 16A4A 0 CODE 0
 19 16A5A 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 2129 1548A 0 CODE 0
 2131 1548A 0 CODE 0
 2132 15490 0 CODE 0
@@ -3352,7 +3352,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 2180 1552C 0 CODE 0
 2181 15538 0 CODE 0
 2182 1553C 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 2043 133FE 0 CODE 0
 2045 133FE 0 CODE 0
 2047 13408 0 CODE 0
@@ -3376,7 +3376,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 2108 1352C 0 CODE 0
 2110 13532 0 CODE 0
 2049 13534 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 2757 11E44 0 CODE 0
 2803 11E44 0 CODE 0
 2805 11E58 0 CODE 0
@@ -3425,7 +3425,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 2976 1209E 0 CODE 0
 2980 120B6 0 CODE 0
 2981 120C2 0 CODE 0
-../My_library/usb_cdc/My_usb_cdc.c
+../../../My_library/My_usb_cdc.c
 44 16962 0 CODE 0
 45 16962 0 CODE 0
 47 16964 0 CODE 0
@@ -3433,7 +3433,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 50 1696A 0 CODE 0
 52 1696E 0 CODE 0
 45 16970 0 CODE 0
-../My_library/usb_cdc/usb/usb_device_cdc.c
+../../../My_library/usb/usb_device_cdc.c
 204 14B28 0 CODE 0
 209 14B28 0 CODE 0
 214 14B34 0 CODE 0
@@ -3459,7 +3459,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 288 14BD4 0 CODE 0
 315 14BD8 0 CODE 0
 223 14BDA 0 CODE 0
-../My_library/usb_cdc/usb/usb_device_cdc.c
+../../../My_library/usb/usb_device_cdc.c
 351 16060 0 CODE 0
 354 16060 0 CODE 0
 355 16072 0 CODE 0
@@ -3472,7 +3472,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 376 160BC 0 CODE 0
 403 160C8 0 CODE 0
 404 160CE 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 995 15544 0 CODE 0
 1000 15546 0 CODE 0
 1003 1554C 0 CODE 0
@@ -3488,7 +3488,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 1039 155D2 0 CODE 0
 1044 155E0 0 CODE 0
 1046 155F4 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 878 166B2 0 CODE 0
 884 166B4 0 CODE 0
 886 166B8 0 CODE 0
@@ -3497,7 +3497,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 899 166D0 0 CODE 0
 901 166E0 0 CODE 0
 902 166EC 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 1543 1592C 0 CODE 0
 1549 1592E 0 CODE 0
 1550 15936 0 CODE 0
@@ -3508,7 +3508,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 1567 159A6 0 CODE 0
 1568 159B0 0 CODE 0
 1585 159BE 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 2541 1644E 0 CODE 0
 2543 1644E 0 CODE 0
 2545 16456 0 CODE 0
@@ -3522,7 +3522,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 2564 164A2 0 CODE 0
 2567 164A4 0 CODE 0
 2568 164A8 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 1852 13B62 0 CODE 0
 1859 13B62 0 CODE 0
 1865 13B72 0 CODE 0
@@ -3549,7 +3549,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 1941 13C6E 0 CODE 0
 1943 13C74 0 CODE 0
 1944 13C78 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 1416 1500A 0 CODE 0
 1423 1500A 0 CODE 0
 1425 15010 0 CODE 0
@@ -3571,7 +3571,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 1454 150AC 0 CODE 0
 1455 150C0 0 CODE 0
 1457 150CC 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 2595 150CE 0 CODE 0
 2599 150CE 0 CODE 0
 2602 150DE 0 CODE 0
@@ -3598,7 +3598,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 2656 15182 0 CODE 0
 2662 15188 0 CODE 0
 2665 1518C 0 CODE 0
-../My_library/usb_cdc/usb/usb_device.c
+../../../My_library/usb/usb_device.c
 1771 146E2 0 CODE 0
 1777 146E2 0 CODE 0
 1778 146E6 0 CODE 0

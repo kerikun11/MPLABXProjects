@@ -10479,7 +10479,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 26 "../My_library\My_button.h"
+# 26 "../../../My_library\My_button.h"
 typedef struct button {
 uint16_t cnt_sw;
 
@@ -10509,7 +10509,7 @@ uint8_t long_holding_7 : 1;
 
 void button_timer_interrupt(button_t *bt, uint8_t sw_value);
 
-# 39 "../My_library\My_RTCC.h"
+# 39 "../../../My_library\My_RTCC.h"
 typedef uint32_t epoch_t;
 
 
@@ -10601,7 +10601,7 @@ void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, butt
 
 void RTCC_loop(void);
 
-# 19 "../My_library\My_ringbuf.h"
+# 19 "../../../My_library\My_ringbuf.h"
 typedef struct ringbuf {
 char *buf;
 uint16_t size;

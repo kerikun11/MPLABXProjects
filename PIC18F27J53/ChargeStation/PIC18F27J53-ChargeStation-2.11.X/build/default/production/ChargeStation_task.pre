@@ -10426,7 +10426,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 26 "../My_library\My_button.h"
+# 26 "../../../My_library\My_button.h"
 typedef struct button {
 uint16_t cnt_sw;
 
@@ -10456,7 +10456,7 @@ uint8_t long_holding_7 : 1;
 
 void button_timer_interrupt(button_t *bt, uint8_t sw_value);
 
-# 19 "../My_library\My_ringbuf.h"
+# 19 "../../../My_library\My_ringbuf.h"
 typedef struct ringbuf {
 char *buf;
 uint16_t size;
@@ -10660,7 +10660,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 22 "../My_library\My_PIC.h"
+# 22 "../../../My_library\My_PIC.h"
 void OSC_init(void);
 
 # 34
@@ -10682,8 +10682,8 @@ void ADC_init(uint8_t p_ref);
 uint16_t ADC(uint8_t ch);
 
 # 91
-extern ringbuf_t tx_buf;
-extern ringbuf_t rx_buf;
+extern ringbuf_t uart_tx;
+extern ringbuf_t uart_rx;
 
 
 void UART_init(void);
@@ -10708,7 +10708,7 @@ void Delay_ms(uint16_t ms);
 void millis_timer(void);
 uint32_t millis(void);
 
-# 16 "../My_library\My_ST7032.h"
+# 16 "../../../My_library\My_ST7032.h"
 void I2C_LCD_Command(uint8_t c);
 void I2C_LCD_Clear(void);
 void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
@@ -10717,7 +10717,7 @@ void I2C_LCD_Puts(const uint8_t * s);
 void I2C_LCD_CreateChar(int p, char *dt);
 void I2C_LCD_init(void);
 
-# 39 "../My_library\My_RTCC.h"
+# 39 "../../../My_library\My_RTCC.h"
 typedef uint32_t epoch_t;
 
 
@@ -10812,7 +10812,7 @@ void RTCC_loop(void);
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdbool.h"
 typedef unsigned char bool;
 
-# 32 "../My_library/usb_cdc\system.h"
+# 32 "../../../My_library\usb/system.h"
 typedef enum
 {
 SYSTEM_STATE_USB_START,
@@ -10823,7 +10823,7 @@ SYSTEM_STATE_USB_RESUME
 # 51
 void SYSTEM_Initialize( SYSTEM_STATE state );
 
-# 138 "../My_library/usb_cdc\usb/usb_common.h"
+# 138 "../../../My_library\usb/usb_common.h"
 typedef union
 {
 uint8_t bitmap;
@@ -10980,7 +10980,7 @@ uint8_t bDeviceProtocol;
 # 456
 typedef bool (*USB_EVENT_HANDLER) ( USB_EVENT event, void *data, unsigned int size );
 
-# 76 "../My_library/usb_cdc\usb/usb_ch9.h"
+# 76 "../../../My_library\usb/usb_ch9.h"
 typedef struct  _USB_DEVICE_DESCRIPTOR
 {
 uint8_t bLength;
@@ -11224,7 +11224,7 @@ unsigned :8;
 
 } CTRL_TRF_SETUP, SETUP_PKT, *PSETUP_PKT;
 
-# 78 "../My_library/usb_cdc\usb/usb_device.h"
+# 78 "../../../My_library\usb/usb_device.h"
 typedef enum
 {
 
@@ -11487,7 +11487,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 261 "../My_library/usb_cdc\usb/usb_hal_pic18.h"
+# 261 "../../../My_library\usb/usb_hal_pic18.h"
 typedef union _BD_STAT
 {
 uint8_t Val;
@@ -11587,7 +11587,7 @@ extern volatile OUT_PIPE outPipes[1];
 extern volatile BDT_ENTRY* pBDTEntryOut[2+1];
 extern volatile BDT_ENTRY* pBDTEntryIn[2+1];
 
-# 167 "../My_library/usb_cdc\usb/usb_hal.h"
+# 167 "../../../My_library\usb/usb_hal.h"
 void OTGCORE_SetDeviceAddr( uint8_t addr );
 
 # 203
@@ -11628,7 +11628,7 @@ bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t 
 # 603
 bool USBHALInitialize ( unsigned long flags );
 
-# 542 "../My_library/usb_cdc\usb/usb_device_cdc.h"
+# 542 "../../../My_library\usb/usb_device_cdc.h"
 void CDCInitEP(void);
 
 # 568
@@ -11771,7 +11771,7 @@ extern LINE_CODING line_coding;
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 
-# 17 "../My_library/usb_cdc\My_usb_cdc.h"
+# 17 "../../../My_library\My_usb_cdc.h"
 extern ringbuf_t usb_tx;
 extern ringbuf_t usb_rx;
 
@@ -11782,7 +11782,7 @@ int get_string_usb(char *s, int len);
 void USBCBSendResume(void);
 void USB_loop(void);
 
-# 18 "../My_library\My_terminal.h"
+# 18 "../../../My_library\My_terminal.h"
 void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
 
 void terminal_loop(ringbuf_t *tx, ringbuf_t *rx);

@@ -8,19 +8,19 @@
 void I2C_LCD_Command(uint8_t c) {
     uint8_t ans;
 
-    ans = I2C_Start(ST7032_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_Start(ST7032_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(0b10000000); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
-        I2C_Send(c); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(0b10000000); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(c); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 
 void I2C_LCD_Clear(void) {
-    I2C_LCD_Command(0x01); // Clear Display : ‰æ–Ê‘S‘Ì‚É20H‚Ì½Íß°½‚Å•\¦A¶°¿Ù‚Ícol=0,row=0‚ÉˆÚ“®
-    __delay_us(1100); // LCD‚ªˆ—(1.08ms)‚·‚é‚Ì‚ğ‘Ò‚¿‚Ü‚·
+    I2C_LCD_Command(0x01); // Clear Display : ç”»é¢å…¨ä½“ã«20Hã®ï½½ï¾ï¾Ÿï½°ï½½ã§è¡¨ç¤ºã€ï½¶ï½°ï½¿ï¾™ã¯col=0,row=0ã«ç§»å‹•
+    __delay_us(1100); // LCDãŒå‡¦ç†(1.08ms)ã™ã‚‹ã®ã‚’å¾…ã¡ã¾ã™
 }
 
 void I2C_LCD_SetCursor(uint8_t col, uint8_t row) {
@@ -32,60 +32,60 @@ void I2C_LCD_SetCursor(uint8_t col, uint8_t row) {
 void I2C_LCD_Putc(uint8_t c) {
     uint8_t ans;
 
-    ans = I2C_Start(ST7032_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_Start(ST7032_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(0b11000000); // control byte ‚Ì‘—M(ƒf[ƒ^‚ğw’è)
-        I2C_Send(c); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(0b11000000); // control byte ã®é€ä¿¡(ãƒ‡ãƒ¼ã‚¿ã‚’æŒ‡å®š)
+        I2C_Send(c); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 
 void I2C_LCD_Puts(const uint8_t * s) {
     int ans;
 
-    ans = I2C_Start(ST7032_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_Start(ST7032_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(0b01000000); // control byte ‚Ì‘—M(ƒf[ƒ^‚ğw’è)
+        I2C_Send(0b01000000); // control byte ã®é€ä¿¡(ãƒ‡ãƒ¼ã‚¿ã‚’æŒ‡å®š)
         while (*s) {
-            I2C_Send(*s++); // data byte ‚Ì‘—M(˜A‘±‘—M)
+            I2C_Send(*s++); // data byte ã®é€ä¿¡(é€£ç¶šé€ä¿¡)
             __delay_us(26);
         }
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
 }
 
 void I2C_LCD_CreateChar(int p, char *dt) {
     uint8_t ans;
 
-    ans = I2C_Start(ST7032_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_Start(ST7032_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        //  LCD‚ÉƒLƒƒƒ‰•Û‘¶æ‚ÌƒAƒhƒŒƒX‚ğw¦‚·‚é
-        I2C_Send(0b10000000); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
+        //  LCDã«ã‚­ãƒ£ãƒ©ä¿å­˜å…ˆã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’æŒ‡ç¤ºã™ã‚‹
+        I2C_Send(0b10000000); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
         I2C_Send(0x40 | (p << 3));
         __delay_us(26);
-        //  LCD‚ÉƒLƒƒƒ‰ƒf[ƒ^‚ğ‘—M‚·‚é
-        I2C_Send(0b01000000); // control byte ‚Ì‘—M(ƒf[ƒ^‚ğw’è)
+        //  LCDã«ã‚­ãƒ£ãƒ©ãƒ‡ãƒ¼ã‚¿ã‚’é€ä¿¡ã™ã‚‹
+        I2C_Send(0b01000000); // control byte ã®é€ä¿¡(ãƒ‡ãƒ¼ã‚¿ã‚’æŒ‡å®š)
         for (uint8_t i = 0; i < 7; i++) {
             I2C_Send(*dt++);
             __delay_us(26);
         }
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
 }
 
 void I2C_LCD_init(void) {
-    for (uint8_t i = 0; i < 40; i++) __delay_ms(1); // “dŒ¹‚n‚mŒã40ms‚Ü‚Å‘Ò‚Á‚Ä‚©‚ç‰Šú‰»
-    I2C_LCD_Command(0x38); // function set           : ƒf[ƒ^ü‚Í8–{E•\¦‚Í‚QsEƒtƒHƒ“ƒg‚Í5x8ƒhƒbƒg
-    I2C_LCD_Command(0x39); // function set           : Šg’£ƒRƒ}ƒ“ƒh‚Ìİ’è‚ğ—LŒø‚É‚·‚é
-    I2C_LCD_Command(0x14); // Internal OSC frequency : ƒoƒCƒAƒX‚Ì‘I‘ğ‚Æ“à•”OSCü”g”‚Ì’²®
-    I2C_LCD_Command(0x70); // Contrast set           : ƒRƒ“ƒgƒ‰ƒXƒg’²®ƒf[ƒ^(‰ºˆÊ4ƒrƒbƒg)
-    I2C_LCD_Command(0x56); // Contrast set           : ¸ˆ³‰ñ˜H—LŒøAƒRƒ“ƒgƒ‰ƒXƒg’²®ƒf[ƒ^(ãˆÊ2ƒrƒbƒg)
-    I2C_LCD_Command(0x6C); // Follower control       : ƒtƒHƒƒA‰ñ˜H‚ğONA‘•—¦‚Ì’²®‚ğs‚¤
-    for (uint8_t i = 0; i < 40; i++) __delay_ms(1); // “d—Í‚ªˆÀ’è‚·‚é‚Ü‚Å‘Ò‚Â
-    I2C_LCD_Command(0x38); // function set           : Šg’£ƒRƒ}ƒ“ƒh‚ğİ’è‚ğ–³Œø‚É‚·‚é
-    I2C_LCD_Command(0x0C); // display control        : ‰æ–Ê•\¦‚ÍONEƒJ[ƒ\ƒ‹•\¦‚ÍOFFEƒJ[ƒ\ƒ‹“_–Å‚ÍOFF
-    I2C_LCD_Command(0x06); // entry mode set         : •¶š‚ğ•\¦‚µ‚½Ÿ‚ÉƒJ[ƒ\ƒ‹‚ğˆÚ“®‚·‚é‚ğw¦
-    I2C_LCD_Clear(); // Clear Display          : ‰æ–Ê‚ğÁ‹‚·‚é
+    for (uint8_t i = 0; i < 40; i++) __delay_ms(1); // é›»æºï¼¯ï¼®å¾Œ40msã¾ã§å¾…ã£ã¦ã‹ã‚‰åˆæœŸåŒ–
+    I2C_LCD_Command(0x38); // function set           : ãƒ‡ãƒ¼ã‚¿ç·šã¯8æœ¬ãƒ»è¡¨ç¤ºã¯ï¼’è¡Œãƒ»ãƒ•ã‚©ãƒ³ãƒˆã¯5x8ãƒ‰ãƒƒãƒˆ
+    I2C_LCD_Command(0x39); // function set           : æ‹¡å¼µã‚³ãƒãƒ³ãƒ‰ã®è¨­å®šã‚’æœ‰åŠ¹ã«ã™ã‚‹
+    I2C_LCD_Command(0x14); // Internal OSC frequency : ãƒã‚¤ã‚¢ã‚¹ã®é¸æŠã¨å†…éƒ¨OSCå‘¨æ³¢æ•°ã®èª¿æ•´
+    I2C_LCD_Command(0x70); // Contrast set           : ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆèª¿æ•´ãƒ‡ãƒ¼ã‚¿(ä¸‹ä½4ãƒ“ãƒƒãƒˆ)
+    I2C_LCD_Command(0x56); // Contrast set           : æ˜‡åœ§å›è·¯æœ‰åŠ¹ã€ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆèª¿æ•´ãƒ‡ãƒ¼ã‚¿(ä¸Šä½2ãƒ“ãƒƒãƒˆ)
+    I2C_LCD_Command(0x6C); // Follower control       : ãƒ•ã‚©ãƒ­ã‚¢å›è·¯ã‚’ONã€å¢—å¹…ç‡ã®èª¿æ•´ã‚’è¡Œã†
+    for (uint8_t i = 0; i < 40; i++) __delay_ms(1); // é›»åŠ›ãŒå®‰å®šã™ã‚‹ã¾ã§å¾…ã¤
+    I2C_LCD_Command(0x38); // function set           : æ‹¡å¼µã‚³ãƒãƒ³ãƒ‰ã‚’è¨­å®šã‚’ç„¡åŠ¹ã«ã™ã‚‹
+    I2C_LCD_Command(0x0C); // display control        : ç”»é¢è¡¨ç¤ºã¯ONãƒ»ã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤ºã¯OFFãƒ»ã‚«ãƒ¼ã‚½ãƒ«ç‚¹æ»…ã¯OFF
+    I2C_LCD_Command(0x06); // entry mode set         : æ–‡å­—ã‚’è¡¨ç¤ºã—ãŸæ¬¡ã«ã‚«ãƒ¼ã‚½ãƒ«ã‚’ç§»å‹•ã™ã‚‹ã‚’æŒ‡ç¤º
+    I2C_LCD_Clear(); // Clear Display          : ç”»é¢ã‚’æ¶ˆå»ã™ã‚‹
 }

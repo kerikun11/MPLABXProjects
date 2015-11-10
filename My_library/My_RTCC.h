@@ -125,6 +125,6 @@ void RTCC_adjust_time_dec(time_t *tm);
 // 3‚Â‚Ìƒ{ƒ^ƒ“‚Å‡‚í‚¹
 void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
 // Time sync
-void RTCC_loop(void);
+void RTCC_task(void);
 
 #endif	/* MY_RTCC_H */

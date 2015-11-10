@@ -11,7 +11,8 @@
 	; -mdist/PIC18F27J53_PIM_XC8/production/HID_Bootloader_PIC18F27J53.X.production.map \
 	; --double=32 --float=32 --emi=wordwrite --rom=default,-1000-1FFF7 \
 	; --opt=default,+asm,-asmfile,-speed,+space,-debug --addrqual=require \
-	; --mode=pro -P -N255 --warn=0 --asmlist \
+	; --mode=pro -P -N255 -I../../../My_library \
+	; -I../../../My_library/usb_cdc --warn=0 --asmlist \
 	; --summary=default,-psect,-class,+mem,-hex,-file \
 	; --output=default,-inhx032 \
 	; --runtime=default,-clear,-init,+keep,-no_startup,-download,+config,+clib,+plib \

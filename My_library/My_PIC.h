@@ -10,7 +10,7 @@
 
 #include <xc.h>
 #include <stdint.h>
-#include "My_ringbuf.h" // for UART
+#include "My_ringbuf.h"
 
 #define PIC18F27J53
 
@@ -88,14 +88,13 @@ uint16_t ADC(uint8_t ch);
 // UART_ISR();
 // を割り込み関数内に書いておくこと。
 // RCIF,TXIF フラグの回収はレジスタ読み込みまたは上書きにより行われる。
-extern ringbuf_t tx_buf;
-extern ringbuf_t rx_buf;
+extern ringbuf_t uart_tx;
+extern ringbuf_t uart_rx;
 
 #if defined(PIC18F27J53)
 void UART_init(void);
 void UART_ISR(void);
-void tx_send(const char asciicode);
-void tx_sends(const char *asciicode);
+void UART_task();
 #endif /* PIC18F27J53 */
 
 #if defined(PIC16F1827)

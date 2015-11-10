@@ -17,7 +17,7 @@
 // À‘Ì‚ğ‚Ç‚±‚©‚É‹Lq‚·‚é‚±‚ÆB
 void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
 
-void terminal_loop(ringbuf_t *tx, ringbuf_t *rx);
+void terminal_task(ringbuf_t *tx, ringbuf_t *rx);
 
 void print_time_dec(ringbuf_t *tx, uint8_t dec, uint8_t edit);
 

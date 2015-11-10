@@ -10426,7 +10426,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 26 "../My_library\My_button.h"
+# 26 "../../../My_library\My_button.h"
 typedef struct button {
 uint16_t cnt_sw;
 
@@ -10469,7 +10469,7 @@ void ctmu_set_ratio(uint8_t percentage);
 void ctmu_sampling(void);
 void ctmu_loop(void);
 
-# 19 "../My_library\My_ringbuf.h"
+# 19 "../../../My_library\My_ringbuf.h"
 typedef struct ringbuf {
 char *buf;
 uint16_t size;
@@ -10493,7 +10493,7 @@ void ringbuf_backspace(ringbuf_t *rb);
 
 void ringbuf_delete(ringbuf_t *rb);
 
-# 22 "../My_library\My_PIC.h"
+# 22 "../../../My_library\My_PIC.h"
 void OSC_init(void);
 
 # 34
@@ -10515,8 +10515,8 @@ void ADC_init(uint8_t p_ref);
 uint16_t ADC(uint8_t ch);
 
 # 91
-extern ringbuf_t tx_buf;
-extern ringbuf_t rx_buf;
+extern ringbuf_t uart_tx;
+extern ringbuf_t uart_rx;
 
 
 void UART_init(void);

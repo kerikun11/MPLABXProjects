@@ -164,10 +164,10 @@ uint16_t ADC(uint8_t ch) {
 
 //*************************** UART ***************************//
 // UART_ISR();
-// ‚ðŠ„‚èž‚ÝŠÖ”“à‚É‘‚¢‚Ä‚¨‚­‚±‚ÆB
-// RCIF,TXIF ƒtƒ‰ƒO‚Ì‰ñŽû‚ÍƒŒƒWƒXƒ^“Ç‚Ýž‚Ý‚Ü‚½‚Íã‘‚«‚É‚æ‚ès‚í‚ê‚éB
-ringbuf_t tx_buf;
-ringbuf_t rx_buf;
+// ã‚’å‰²ã‚Šè¾¼ã¿é–¢æ•°å†…ã«æ›¸ã„ã¦ãŠãã“ã¨ã€‚
+// RCIF,TXIF ãƒ•ãƒ©ã‚°ã®å›žåŽã¯ãƒ¬ã‚¸ã‚¹ã‚¿èª­ã¿è¾¼ã¿ã¾ãŸã¯ä¸Šæ›¸ãã«ã‚ˆã‚Šè¡Œã‚ã‚Œã‚‹ã€‚
+ringbuf_t uart_tx;
+ringbuf_t uart_rx;
 
 #if defined(PIC18F27J53)
 
@@ -179,9 +179,9 @@ void UART_init(void) {
     RCSTA1bits.SPEN = 1; // 1:Serial Port enable
     RCSTA1bits.RX9 = 0; // 0:8-bit
     RCSTA1bits.CREN = 1; // 1:continuous receive enable
-    BAUDCON1bits.BRG16 = 0; // 1:use 16-bit SPBRG
-    SPBRG1 = _XTAL_FREQ / 64 / 9600 - 1;
-    SPBRGH1 = 0;
+    BAUDCON1bits.BRG16 = 1; // 1:use 16-bit SPBRG
+    SPBRG1 = _XTAL_FREQ / 16 / 115200 - 1;
+    SPBRGH1 = (_XTAL_FREQ / 16 / 115200 - 1) >> 8;
     IPR1bits.RC1IP = 0; //0:low priority
     PIE1bits.RCIE = 1;
     INTCONbits.PEIE = 1;
@@ -189,28 +189,22 @@ void UART_init(void) {
 
 void UART_ISR(void) {
     if (PIE1bits.TXIE && PIR1bits.TXIF) {
-        if (ringbuf_num(&tx_buf)) {
-            TXREG1 = ringbuf_pop(&tx_buf);
+        if (ringbuf_num(&uart_tx)) {
+            TXREG1 = ringbuf_pop(&uart_tx);
         } else {
             PIE1bits.TXIE = 0;
         }
     }
     if (PIE1bits.RCIE && PIR1bits.RCIF) {
         char ascii = RCREG1;
-        ringbuf_put(&rx_buf, ascii);
+        ringbuf_put(&uart_rx, ascii);
     }
 }
 
-void tx_send(const char asciicode) {
-    ringbuf_put(&tx_buf, asciicode);
-    PIE1bits.TXIE = 1;
-}
-
-void tx_sends(const char *asciicode) {
-    while (*asciicode) {
-        ringbuf_put(&tx_buf, *asciicode++);
+void UART_task(void) {
+    if (ringbuf_num(&uart_tx)) {
+        PIE1bits.TXIE = 1;
     }
-    PIE1bits.TXIE = 1;
 }
 #endif /* PIC18F27J53 */
 
@@ -230,8 +224,8 @@ void UART_init(void) {
 void interrupt_TXIF(void) {
     if (PIE1bits.TXIE && PIR1bits.TXIF) {
         PIR1bits.TXIF = 0;
-        if (ringbuf_num(&tx_buf) > 0) {
-            TXREG = ringbuf_pop(&tx_buf);
+        if (ringbuf_num(&uart_tx) > 0) {
+            TXREG = ringbuf_pop(&uart_tx);
         } else {
             PIE1bits.TXIE = 0;
         }
@@ -239,28 +233,18 @@ void interrupt_TXIF(void) {
 }
 
 void tx_send(uint8_t asciicode) {
-    ringbuf_put(&tx_buf, asciicode);
+    ringbuf_put(&uart_tx, asciicode);
     PIE1bits.TXIE = 1;
 }
 
 void tx_sends(const uint8_t *asciicode) {
     while (*asciicode) {
-        ringbuf_put(&tx_buf, *asciicode++);
+        ringbuf_put(&uart_tx, *asciicode++);
     }
     PIE1bits.TXIE = 1;
 }
 #endif /* PIC16F1827 */
 
-void tx_sendn(const uint16_t value, uint8_t digits) {
-    while (digits--) {
-        uint16_t temp = value;
-        for (uint8_t i = 0; i < digits; i++) {
-            temp /= 10;
-        }
-        temp %= 10;
-        tx_send('0' + temp);
-    }
-}
 
 //*************************** CTMU ***************************//
 #if defined(PIC18F27J53) || defined(PIC18F26K22)
@@ -288,15 +272,15 @@ uint16_t CTMU_read(uint8_t ch) {
         CTMUCONLbits.EDG1STAT = 0;
         CTMUCONLbits.EDG2STAT = 0;
 
-        // ƒ[ƒ“dˆÊ‚©‚çŠJŽn‚³‚¹‚éˆ×‚É“d‰×‚ð•ú“d‚³‚¹‚é
+        // ã‚¼ãƒ­é›»ä½ã‹ã‚‰é–‹å§‹ã•ã›ã‚‹ç‚ºã«é›»è·ã‚’æ”¾é›»ã•ã›ã‚‹
         CTMUCONHbits.IDISSEN = 1;
         __delay_us(CTMU_DISCHARGE_TIME);
         CTMUCONHbits.IDISSEN = 0;
-        // “d‹É‚É[“d‚ðs‚¤
+        // é›»æ¥µã«å……é›»ã‚’è¡Œã†
         CTMUCONLbits.EDG1STAT = 1;
         __delay_us(CTMU_CHARGE_TIME);
         CTMUCONLbits.EDG1STAT = 0;
-        // “d‹É‚Ì“dˆ³(AN0)‚ð“Ç‚ÝŽæ‚é
+        // é›»æ¥µã®é›»åœ§(AN0)ã‚’èª­ã¿å–ã‚‹
         PIR1bits.ADIF = 0;
         ADCON0bits.GO = 1;
         while (!PIR1bits.ADIF);

@@ -75,7 +75,7 @@ epoch_t get_quot_rem(epoch_t *quot, uint8_t div) {
     // num /= div;
     // return rem;
     epoch_t num = *quot;
-    return num - (*quot = num / div) * div; // returns rem(—]‚è)
+    return num - (*quot = num / div) * div; // returns rem(ä½™ã‚Š)
 }
 
 /********************************** Transform time **********************************/
@@ -117,7 +117,7 @@ void caltime_to_RTCC(time_t *tm) {
 }
 
 void epoch_to_caltime(time_t *tm) {
-    // terminal‚ÅepochŽžŠÔ‚ð‹‚ß‚éƒRƒ}ƒ“ƒh
+    // terminalã§epochæ™‚é–“ã‚’æ±‚ã‚ã‚‹ã‚³ãƒžãƒ³ãƒ‰
     // echo $(( (`date -d '2015/03/01' '+%s'` - `date -d '2000/01/01' '+%s'`) / 86400 ))
     static uint16_t day_cache = 0; //2015.03.01
     static uint8_t month_cache = 1;
@@ -151,7 +151,7 @@ void epoch_to_caltime(time_t *tm) {
         if (month == 12) {
             month = 1; // month is one-based.
             year++;
-            //3155760000 is 2000~2100‚Ì100”NŠÔ‚Ì•b”
+            //3155760000 is 2000~2100ã®100å¹´é–“ã®ç§’æ•°
             if (year >= 100) {
                 tm->epoch -= 3155760000;
                 year = 0;
@@ -343,7 +343,7 @@ void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, butt
     }
 }
 
-void RTCC_loop(void) {
+void RTCC_task(void) {
     static uint8_t prev_halfsec;
     while (RTCCFGbits.RTCSYNC);
     now.halfsec = RTCCFGbits.HALFSEC;

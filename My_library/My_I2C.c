@@ -9,41 +9,41 @@ void I2C_IdleCheck(char mask) {
 }
 
 void I2C_init(void) {
-    SSP1STAT = 0b10000000; // •W€‘¬“xƒ‚[ƒh‚ÉÝ’è‚·‚é(100kHz)
-    SSP1CON1 = 0b00101000; // SDA/SCLƒsƒ“‚ÍI2C‚ÅŽg—p‚µAƒ}ƒXƒ^[ƒ‚[ƒh‚Æ‚·‚é
-    SSP1ADD = 0x13; // ƒNƒƒbƒN=FOSC/((SSPADD + 1)*4) 8MHz/((0x13+1)*4)=0.1(100KHz)
-    //SSP1IE = 1; // SSP(I2C)Š„‚èž‚Ý‚ð‹–‰Â‚·‚é
-    //BCL1IE = 1; // MSSP(I2C)ƒoƒXÕ“ËŠ„‚èž‚Ý‚ð‹–‰Â‚·‚é
-    SSP1IF = 0; // SSP(I2C)Š„‚èž‚Ýƒtƒ‰ƒO‚ðƒNƒŠƒA‚·‚é
-    BCL1IF = 0; // MSSP(I2C)ƒoƒXÕ“ËŠ„‚èž‚Ýƒtƒ‰ƒO‚ðƒNƒŠƒA‚·‚é
+    SSP1STAT = 0b10000000; // æ¨™æº–é€Ÿåº¦ãƒ¢ãƒ¼ãƒ‰ã«è¨­å®šã™ã‚‹(100kHz)
+    SSP1CON1 = 0b00101000; // SDA/SCLãƒ”ãƒ³ã¯I2Cã§ä½¿ç”¨ã—ã€ãƒžã‚¹ã‚¿ãƒ¼ãƒ¢ãƒ¼ãƒ‰ã¨ã™ã‚‹
+    SSP1ADD = 0x13; // ã‚¯ãƒ­ãƒƒã‚¯=FOSC/((SSPADD + 1)*4) 8MHz/((0x13+1)*4)=0.1(100KHz)
+    //SSP1IE = 1; // SSP(I2C)å‰²ã‚Šè¾¼ã¿ã‚’è¨±å¯ã™ã‚‹
+    //BCL1IE = 1; // MSSP(I2C)ãƒã‚¹è¡çªå‰²ã‚Šè¾¼ã¿ã‚’è¨±å¯ã™ã‚‹
+    SSP1IF = 0; // SSP(I2C)å‰²ã‚Šè¾¼ã¿ãƒ•ãƒ©ã‚°ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹
+    BCL1IF = 0; // MSSP(I2C)ãƒã‚¹è¡çªå‰²ã‚Šè¾¼ã¿ãƒ•ãƒ©ã‚°ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹
 }
 
 uint8_t I2C_Start(uint8_t adrs, uint8_t rw) {
-    // ƒXƒ^[ƒg(START CONDITION)
+    // ã‚¹ã‚¿ãƒ¼ãƒˆ(START CONDITION)
     I2C_IdleCheck(0x5);
     SSP1CON2bits.SEN = 1;
-    // [ƒXƒŒ[ƒu‚ÌƒAƒhƒŒƒX]‚ð‘—M‚·‚é
+    // [ã‚¹ãƒ¬ãƒ¼ãƒ–ã®ã‚¢ãƒ‰ãƒ¬ã‚¹]ã‚’é€ä¿¡ã™ã‚‹
     I2C_IdleCheck(0x5);
     SSP1IF = 0;
-    SSP1BUF = (uint8_t) ((adrs << 1) + rw); // ƒAƒhƒŒƒX + R/W‚ð‘—M
-    while (!SSP1IF); // ‘ŠŽè‚©‚ç‚ÌACK•Ô“š‚ð‘Ò‚Â
+    SSP1BUF = (uint8_t) ((adrs << 1) + rw); // ã‚¢ãƒ‰ãƒ¬ã‚¹ + R/Wã‚’é€ä¿¡
+    while (!SSP1IF); // ç›¸æ‰‹ã‹ã‚‰ã®ACKè¿”ç­”ã‚’å¾…ã¤
     return SSP1CON2bits.ACKSTAT;
 }
 
 uint8_t I2C_rStart(int adrs, int rw) {
-    // ƒŠƒs[ƒgEƒXƒ^[ƒg(REPEATED START CONDITION)
+    // ãƒªãƒ”ãƒ¼ãƒˆãƒ»ã‚¹ã‚¿ãƒ¼ãƒˆ(REPEATED START CONDITION)
     I2C_IdleCheck(0x5);
     SSP1CON2bits.RSEN = 1;
-    // [ƒXƒŒ[ƒu‚ÌƒAƒhƒŒƒX]‚ð‘—M‚·‚é
+    // [ã‚¹ãƒ¬ãƒ¼ãƒ–ã®ã‚¢ãƒ‰ãƒ¬ã‚¹]ã‚’é€ä¿¡ã™ã‚‹
     I2C_IdleCheck(0x5);
     SSP1IF = 0;
-    SSP1BUF = (char) ((adrs << 1) + rw); // ƒAƒhƒŒƒX + R/W‚ð‘—M
-    while (!SSP1IF); // ‘ŠŽè‚©‚ç‚ÌACK•Ô“š‚ð‘Ò‚Â
+    SSP1BUF = (char) ((adrs << 1) + rw); // ã‚¢ãƒ‰ãƒ¬ã‚¹ + R/Wã‚’é€ä¿¡
+    while (!SSP1IF); // ç›¸æ‰‹ã‹ã‚‰ã®ACKè¿”ç­”ã‚’å¾…ã¤
     return SSP1CON2bits.ACKSTAT;
 }
 
 void I2C_Stop(void) {
-    // ƒXƒgƒbƒv(STOP CONDITION)
+    // ã‚¹ãƒˆãƒƒãƒ—(STOP CONDITION)
     I2C_IdleCheck(0x5);
     SSP1CON2bits.PEN = 1;
 }
@@ -51,8 +51,8 @@ void I2C_Stop(void) {
 uint8_t I2C_Send(uint8_t data) {
     I2C_IdleCheck(0x5);
     SSP1IF = 0;
-    SSP1BUF = data; // ƒf[ƒ^‚ð‘—M
-    while (!SSP1IF); // ‘ŠŽè‚©‚ç‚ÌACK•Ô“š‚ð‘Ò‚Â
+    SSP1BUF = data; // ãƒ‡ãƒ¼ã‚¿ã‚’é€ä¿¡
+    while (!SSP1IF); // ç›¸æ‰‹ã‹ã‚‰ã®ACKè¿”ç­”ã‚’å¾…ã¤
     return SSP1CON2bits.ACKSTAT;
 }
 
@@ -60,12 +60,12 @@ uint8_t I2C_Receive(uint8_t ack) {
     uint8_t data;
 
     I2C_IdleCheck(0x5);
-    SSP1CON2bits.RCEN = 1; // ŽóM‚ð‹–‰Â‚·‚é
+    SSP1CON2bits.RCEN = 1; // å—ä¿¡ã‚’è¨±å¯ã™ã‚‹
     I2C_IdleCheck(0x4);
-    data = SSP1BUF; // ƒf[ƒ^‚ÌŽóM
+    data = SSP1BUF; // ãƒ‡ãƒ¼ã‚¿ã®å—ä¿¡
     I2C_IdleCheck(0x5);
-    SSP1CON2bits.ACKDT = ack; // ACKƒf[ƒ^‚ÌƒZƒbƒg
-    SSP1CON2bits.ACKEN = 1; // ACKƒf[ƒ^‚ð•Ô‚·
+    SSP1CON2bits.ACKDT = ack; // ACKãƒ‡ãƒ¼ã‚¿ã®ã‚»ãƒƒãƒˆ
+    SSP1CON2bits.ACKEN = 1; // ACKãƒ‡ãƒ¼ã‚¿ã‚’è¿”ã™
     return data;
 }
 
@@ -79,13 +79,13 @@ uint8_t I2C_Receive(uint8_t ack) {
 void RTC_Write(uint8_t Reg, uint8_t data) {
     uint8_t ans;
 
-    ans = I2C_Start(DS1307_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(DS1307_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(Reg); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(data); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(Reg); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(data); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 
@@ -93,15 +93,15 @@ uint8_t RTC_Read(uint8_t Reg) {
     uint8_t ans;
     uint8_t data;
 
-    ans = I2C_Start(DS1307_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(DS1307_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(Reg); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
+        I2C_Send(Reg); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
     }
-    ans = I2C_rStart(DS1307_ADRES, R_1); // reƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_rStart(DS1307_ADRES, R_1); // reã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
         data = I2C_Receive(1);
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
     return data;
 }
@@ -112,12 +112,12 @@ uint8_t RTC_Read(uint8_t Reg) {
 
 void TM_init(uint8_t config) {
     uint8_t ans;
-    ans = I2C_Start(MCP9803_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(MCP9803_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(0x01); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
+        I2C_Send(0x01); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
         I2C_Send(config);
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 
@@ -125,16 +125,16 @@ uint16_t TM_Read() {
     uint8_t dataH;
     uint8_t dataL;
     uint8_t ans;
-    ans = I2C_Start(MCP9803_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(MCP9803_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(0x00); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
+        I2C_Send(0x00); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
     }
-    ans = I2C_rStart(MCP9803_ADRES, R_1); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_rStart(MCP9803_ADRES, R_1); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        dataH = I2C_Receive(0); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        dataL = I2C_Receive(1); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
+        dataH = I2C_Receive(0); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        dataL = I2C_Receive(1); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
     /*
     if (ans)tx_sends("Failed\n");
@@ -149,14 +149,14 @@ uint16_t TM_Read() {
 
 void EEP_write(uint8_t Reg_h, uint8_t Reg_l, uint8_t data) {
     uint8_t ans;
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(data); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(data); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 
@@ -164,16 +164,16 @@ uint8_t EEP_read(uint8_t Reg_h, uint8_t Reg_l) {
     uint8_t ans;
     uint8_t data;
 
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
     }
-    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
         data = I2C_Receive(1);
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
     return data;
 }
@@ -183,19 +183,19 @@ uint16_t EEP_read16(uint8_t Reg_h, uint8_t Reg_l) {
     uint8_t d[4];
     uint16_t data;
 
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
     }
-    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
         d[3] = I2C_Receive(0);
         d[2] = I2C_Receive(0);
         d[1] = I2C_Receive(0);
         d[0] = I2C_Receive(1);
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
     data = (uint16_t) ((d[1] << 8) + d[0]);
     return data;
@@ -206,50 +206,50 @@ uint32_t EEP_read32(uint8_t Reg_h, uint8_t Reg_l) {
     uint8_t d[4];
     uint32_t data;
 
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
     }
-    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
         d[3] = I2C_Receive(0);
         d[2] = I2C_Receive(0);
         d[1] = I2C_Receive(0);
         d[0] = I2C_Receive(1);
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
     return (uint32_t) (d[3] << 24)+(d[2] << 16)+(d[1] << 8) + d[0];
 }
 
 void EEP_write16(uint8_t Reg_h, uint8_t Reg_l, uint16_t data) {
     uint8_t ans;
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(data >> 8); // data byte ‚Ì‘—M
-        I2C_Send(data >> 0); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(data >> 8); // data byte ã®é€ä¿¡
+        I2C_Send(data >> 0); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 
 void EEP_write32(uint8_t Reg_h, uint8_t Reg_l, uint32_t data) {
     uint8_t ans;
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(data >> 24); // data byte ‚Ì‘—M
-        I2C_Send(data >> 16); // data byte ‚Ì‘—M
-        I2C_Send(data >> 8); // data byte ‚Ì‘—M
-        I2C_Send(data >> 0); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(data >> 24); // data byte ã®é€ä¿¡
+        I2C_Send(data >> 16); // data byte ã®é€ä¿¡
+        I2C_Send(data >> 8); // data byte ã®é€ä¿¡
+        I2C_Send(data >> 0); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 #endif /* EEPROM24LC64 */

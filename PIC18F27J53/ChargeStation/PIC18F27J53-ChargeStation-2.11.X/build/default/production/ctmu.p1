@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"32 ../My_library\My_button.h
+"32 ../../../My_library\My_button.h
 [s S1220 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1220 . press long_hold_1 long_hold_2 long_hold_3 long_hold_4 long_hold_5 long_hold_6 long_hold_7 pressing long_holding_1 long_holding_2 long_holding_3 long_holding_4 long_holding_5 long_holding_6 long_holding_7 ]
 "29
@@ -19,9 +19,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1222 . ctmu ctmu_value current integrated_current_sec integrated_current integrated_time cut_cnt . ]
 "38
 [v _port `S1222 ~T0 @X0 -> 0 `x e ]
-"118 ../My_library\My_PIC.h
+"118 ../../../My_library\My_PIC.h
 [v _CTMU_read `(ui ~T0 @X0 0 ef1`uc ]
-"53 ../My_library\My_button.h
+"53 ../../../My_library\My_button.h
 [v _button_timer_interrupt `(v ~T0 @X0 0 ef2`*S1218`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -8197,8 +8197,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_PIC.h: 66: void timer5_init(uint8_t prescaler);
 [; ;My_library\My_PIC.h: 76: void ADC_init(uint8_t p_ref);
 [; ;My_library\My_PIC.h: 85: uint16_t ADC(uint8_t ch);
-[; ;My_library\My_PIC.h: 91: extern ringbuf_t tx_buf;
-[; ;My_library\My_PIC.h: 92: extern ringbuf_t rx_buf;
+[; ;My_library\My_PIC.h: 91: extern ringbuf_t uart_tx;
+[; ;My_library\My_PIC.h: 92: extern ringbuf_t uart_rx;
 [; ;My_library\My_PIC.h: 95: void UART_init(void);
 [; ;My_library\My_PIC.h: 96: void UART_ISR(void);
 [; ;My_library\My_PIC.h: 97: void tx_send(const char asciicode);

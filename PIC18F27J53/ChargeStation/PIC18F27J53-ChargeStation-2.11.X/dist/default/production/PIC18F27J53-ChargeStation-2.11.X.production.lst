@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.35 build -356382666 
-                                                                                               Tue Nov 10 21:13:44 2015
+                                                                                               Wed Nov 11 00:21:19 2015
 
 Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080246
      1                           	processor	18F27J53
@@ -2127,10 +2127,10 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2121  00029A                     _dummy_encapsulated_cmd_response:
   2122                           	opt stack 0
   2123  00029A                     	ds	8
-  2124  0002A2                     _rx_buf:
+  2124  0002A2                     _uart_rx:
   2125                           	opt stack 0
   2126  0002A2                     	ds	8
-  2127  0002AA                     _tx_buf:
+  2127  0002AA                     _uart_tx:
   2128                           	opt stack 0
   2129  0002AA                     	ds	8
   2130  0002B2                     _usb_rx:
@@ -2511,7 +2511,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2505                           	opt stack 0
   2506  000068                     ringbuf_backspace@rb:
   2507                           	opt stack 0
-  2508  000068                     _CDCTxService$5913:
+  2508  000068                     _CDCTxService$5984:
   2509                           	opt stack 0
   2510  000068                     ___lldiv@quotient:
   2511                           	opt stack 0
@@ -2548,7 +2548,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2542                           	opt stack 0
   2543  00006B                     CDCTxService@byte_to_send:
   2544                           	opt stack 0
-  2545  00006B                     _getsUSBUSART$5865:
+  2545  00006B                     _getsUSBUSART$5936:
   2546                           	opt stack 0
   2547                           
   2548                           ; 2 bytes @ 0xB
@@ -3401,7 +3401,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3390                           
   3391 ;; *************** function _terminal_loop *****************
   3392 ;; Defined at:
-  3393 ;;		line 8 in file "../My_library/My_terminal.c"
+  3393 ;;		line 8 in file "../../../My_library/My_terminal.c"
   3394 ;; Parameters:    Size  Location     Type
   3395 ;;  tx              2    0[BANK1 ] PTR struct ringbuf
   3396 ;;		 -> usb_tx(8), 
@@ -4425,7 +4425,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   4401                           
   4402 ;; *************** function _terminal_time *****************
   4403 ;; Defined at:
-  4404 ;;		line 93 in file "../My_library/My_terminal.c"
+  4404 ;;		line 93 in file "../../../My_library/My_terminal.c"
   4405 ;; Parameters:    Size  Location     Type
   4406 ;;  tx              2  114[BANK0 ] PTR struct ringbuf
   4407 ;;		 -> usb_tx(8), 
@@ -4956,7 +4956,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   4925                           
   4926 ;; *************** function _terminal_at_hand *****************
   4927 ;; Defined at:
-  4928 ;;		line 82 in file "../My_library/My_terminal.c"
+  4928 ;;		line 82 in file "../../../My_library/My_terminal.c"
   4929 ;; Parameters:    Size  Location     Type
   4930 ;;  tx              2  107[BANK0 ] PTR struct ringbuf
   4931 ;;		 -> usb_tx(8), 
@@ -5082,7 +5082,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   5046                           
   5047 ;; *************** function _print_time *****************
   5048 ;; Defined at:
-  5049 ;;		line 68 in file "../My_library/My_terminal.c"
+  5049 ;;		line 68 in file "../../../My_library/My_terminal.c"
   5050 ;; Parameters:    Size  Location     Type
   5051 ;;  tx              2   75[BANK0 ] PTR struct ringbuf
   5052 ;;		 -> usb_tx(8), 
@@ -5220,7 +5220,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   5179                           
   5180 ;; *************** function _RTCC_from_caltime *****************
   5181 ;; Defined at:
-  5182 ;;		line 198 in file "../My_library/My_RTCC.c"
+  5182 ;;		line 198 in file "../../../My_library/My_RTCC.c"
   5183 ;; Parameters:    Size  Location     Type
   5184 ;;  tm              2   47[BANK0 ] PTR struct .
   5185 ;;		 -> now(14), 
@@ -5714,7 +5714,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   5653                           
   5654 ;; *************** function _ringbuf_put_num *****************
   5655 ;; Defined at:
-  5656 ;;		line 28 in file "../My_library/My_ringbuf.c"
+  5656 ;;		line 28 in file "../../../My_library/My_ringbuf.c"
   5657 ;; Parameters:    Size  Location     Type
   5658 ;;  rb              2   35[BANK0 ] PTR struct ringbuf
   5659 ;;		 -> usb_tx(8), 
@@ -5857,7 +5857,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   5791                           
   5792 ;; *************** function _ringbuf_delete *****************
   5793 ;; Defined at:
-  5794 ;;		line 66 in file "../My_library/My_ringbuf.c"
+  5794 ;;		line 66 in file "../../../My_library/My_ringbuf.c"
   5795 ;; Parameters:    Size  Location     Type
   5796 ;;  rb              2    0[BANK0 ] PTR struct ringbuf
   5797 ;;		 -> terminal_loop@command(8), 
@@ -5942,7 +5942,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   5871                           
   5872 ;; *************** function _ringbuf_backspace *****************
   5873 ;; Defined at:
-  5874 ;;		line 59 in file "../My_library/My_ringbuf.c"
+  5874 ;;		line 59 in file "../../../My_library/My_ringbuf.c"
   5875 ;; Parameters:    Size  Location     Type
   5876 ;;  rb              2    8[BANK0 ] PTR struct ringbuf
   5877 ;;		 -> terminal_loop@command(8), 
@@ -9081,7 +9081,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   8960                           
   8961 ;; *************** function _RTCC_adjust_time_toggle *****************
   8962 ;; Defined at:
-  8963 ;;		line 262 in file "../My_library/My_RTCC.c"
+  8963 ;;		line 262 in file "../../../My_library/My_RTCC.c"
   8964 ;; Parameters:    Size  Location     Type
   8965 ;;  tm              2    0[BANK0 ] PTR struct .
   8966 ;;		 -> now(14), 
@@ -9185,7 +9185,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9059                           
   9060 ;; *************** function _RTCC_adjust_time_inc *****************
   9061 ;; Defined at:
-  9062 ;;		line 280 in file "../My_library/My_RTCC.c"
+  9062 ;;		line 280 in file "../../../My_library/My_RTCC.c"
   9063 ;; Parameters:    Size  Location     Type
   9064 ;;  tm              2   49[BANK0 ] PTR struct .
   9065 ;;		 -> now(14), 
@@ -9627,7 +9627,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9495                           
   9496 ;; *************** function _RTCC_adjust_time_dec *****************
   9497 ;; Defined at:
-  9498 ;;		line 301 in file "../My_library/My_RTCC.c"
+  9498 ;;		line 301 in file "../../../My_library/My_RTCC.c"
   9499 ;; Parameters:    Size  Location     Type
   9500 ;;  tm              2   49[BANK0 ] PTR struct .
   9501 ;;		 -> now(14), 
@@ -10071,7 +10071,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9933                           
   9934 ;; *************** function _RTCC_from_epoch *****************
   9935 ;; Defined at:
-  9936 ;;		line 204 in file "../My_library/My_RTCC.c"
+  9936 ;;		line 204 in file "../../../My_library/My_RTCC.c"
   9937 ;; Parameters:    Size  Location     Type
   9938 ;;  tm              2   47[BANK0 ] PTR struct .
   9939 ;;		 -> now(14), 
@@ -10150,7 +10150,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  10007                           
  10008 ;; *************** function _epoch_to_caltime *****************
  10009 ;; Defined at:
- 10010 ;;		line 119 in file "../My_library/My_RTCC.c"
+ 10010 ;;		line 119 in file "../../../My_library/My_RTCC.c"
  10011 ;; Parameters:    Size  Location     Type
  10012 ;;  tm              2   33[BANK0 ] PTR struct .
  10013 ;;		 -> now(14), 
@@ -10532,7 +10532,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  10384                           
  10385 ;; *************** function _get_quot_rem *****************
  10386 ;; Defined at:
- 10387 ;;		line 74 in file "../My_library/My_RTCC.c"
+ 10387 ;;		line 74 in file "../../../My_library/My_RTCC.c"
  10388 ;; Parameters:    Size  Location     Type
  10389 ;;  quot            2   25[BANK0 ] PTR unsigned long 
  10390 ;;		 -> epoch_to_caltime@num(4), 
@@ -10688,7 +10688,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  10535                           
  10536 ;; *************** function _caltime_to_RTCC *****************
  10537 ;; Defined at:
- 10538 ;;		line 99 in file "../My_library/My_RTCC.c"
+ 10538 ;;		line 99 in file "../../../My_library/My_RTCC.c"
  10539 ;; Parameters:    Size  Location     Type
  10540 ;;  tm              2    9[BANK0 ] PTR struct .
  10541 ;;		 -> now(14), 
@@ -10895,7 +10895,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  10737                           
  10738 ;; *************** function _d_to_x *****************
  10739 ;; Defined at:
- 10740 ;;		line 39 in file "../My_library/My_RTCC.c"
+ 10740 ;;		line 39 in file "../../../My_library/My_RTCC.c"
  10741 ;; Parameters:    Size  Location     Type
  10742 ;;  dec             1    wreg     unsigned char 
  10743 ;; Auto vars:     Size  Location     Type
@@ -11190,7 +11190,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  11022                           
  11023 ;; *************** function _RTCC_adjust_time_cursor *****************
  11024 ;; Defined at:
- 11025 ;;		line 270 in file "../My_library/My_RTCC.c"
+ 11025 ;;		line 270 in file "../../../My_library/My_RTCC.c"
  11026 ;; Parameters:    Size  Location     Type
  11027 ;;  tm              2    0[BANK0 ] PTR struct .
  11028 ;;		 -> now(14), 
@@ -13231,7 +13231,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  13022                           
  13023 ;; *************** function _display_time_1602 *****************
  13024 ;; Defined at:
- 13025 ;;		line 237 in file "../My_library/My_RTCC.c"
+ 13025 ;;		line 237 in file "../../../My_library/My_RTCC.c"
  13026 ;; Parameters:    Size  Location     Type
  13027 ;;  tm              2   83[BANK0 ] PTR struct .
  13028 ;;		 -> now(14), 
@@ -13730,7 +13730,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  13509                           
  13510 ;; *************** function _display_dec *****************
  13511 ;; Defined at:
- 13512 ;;		line 211 in file "../My_library/My_RTCC.c"
+ 13512 ;;		line 211 in file "../../../My_library/My_RTCC.c"
  13513 ;; Parameters:    Size  Location     Type
  13514 ;;  str             2   75[BANK0 ] PTR unsigned char 
  13515 ;;		 -> display_LCD@str(40), 
@@ -13977,7 +13977,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  13746                           
  13747 ;; *************** function _I2C_LCD_SetCursor *****************
  13748 ;; Defined at:
- 13749 ;;		line 26 in file "../My_library/My_ST7032.c"
+ 13749 ;;		line 26 in file "../../../My_library/My_ST7032.c"
  13750 ;; Parameters:    Size  Location     Type
  13751 ;;  col             1    wreg     unsigned char 
  13752 ;;  row             1    6[BANK0 ] unsigned char 
@@ -14071,7 +14071,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  13835                           
  13836 ;; *************** function _I2C_LCD_Puts *****************
  13837 ;; Defined at:
- 13838 ;;		line 45 in file "../My_library/My_ST7032.c"
+ 13838 ;;		line 45 in file "../../../My_library/My_ST7032.c"
  13839 ;; Parameters:    Size  Location     Type
  13840 ;;  s               2    4[BANK0 ] PTR const unsigned char 
  13841 ;;		 -> display_LCD@str_575(20), display_LCD@str(40), display_char(40), STR_10(16), 
@@ -15740,7 +15740,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  15478                           
  15479 ;; *************** function _ringbuf_put_str *****************
  15480 ;; Defined at:
- 15481 ;;		line 39 in file "../My_library/My_ringbuf.c"
+ 15481 ;;		line 39 in file "../../../My_library/My_ringbuf.c"
  15482 ;; Parameters:    Size  Location     Type
  15483 ;;  rb              2   15[BANK0 ] PTR struct ringbuf
  15484 ;;		 -> usb_tx(8), 
@@ -16628,7 +16628,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  16336                           
  16337 ;; *************** function _ADC *****************
  16338 ;; Defined at:
- 16339 ;;		line 155 in file "../My_library/My_PIC.c"
+ 16339 ;;		line 155 in file "../../../My_library/My_PIC.c"
  16340 ;; Parameters:    Size  Location     Type
  16341 ;;  ch              1    wreg     unsigned char 
  16342 ;; Auto vars:     Size  Location     Type
@@ -16922,7 +16922,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  16620                           
  16621 ;; *************** function _timer3_init *****************
  16622 ;; Defined at:
- 16623 ;;		line 72 in file "../My_library/My_PIC.c"
+ 16623 ;;		line 72 in file "../../../My_library/My_PIC.c"
  16624 ;; Parameters:    Size  Location     Type
  16625 ;;  prescaler       1    wreg     unsigned char 
  16626 ;; Auto vars:     Size  Location     Type
@@ -17037,7 +17037,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  16730                           
  16731 ;; *************** function _timer1_init *****************
  16732 ;; Defined at:
- 16733 ;;		line 41 in file "../My_library/My_PIC.c"
+ 16733 ;;		line 41 in file "../../../My_library/My_PIC.c"
  16734 ;; Parameters:    Size  Location     Type
  16735 ;;  prescaler       1    wreg     unsigned char 
  16736 ;;  clock_select    1    0[BANK0 ] unsigned char 
@@ -17182,7 +17182,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  16870                           
  16871 ;; *************** function _timer0_init *****************
  16872 ;; Defined at:
- 16873 ;;		line 6 in file "../My_library/My_PIC.c"
+ 16873 ;;		line 6 in file "../../../My_library/My_PIC.c"
  16874 ;; Parameters:    Size  Location     Type
  16875 ;;  prescaler       1    wreg     unsigned char 
  16876 ;; Auto vars:     Size  Location     Type
@@ -17315,7 +17315,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  16998                           
  16999 ;; *************** function _ringbuf_init *****************
  17000 ;; Defined at:
- 17001 ;;		line 5 in file "../My_library/My_ringbuf.c"
+ 17001 ;;		line 5 in file "../../../My_library/My_ringbuf.c"
  17002 ;; Parameters:    Size  Location     Type
  17003 ;;  rb              2    0[BANK0 ] PTR struct ringbuf
  17004 ;;		 -> terminal_loop@command(8), usb_rx(8), usb_tx(8), 
@@ -17433,7 +17433,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17111                           
  17112 ;; *************** function _USB_init *****************
  17113 ;; Defined at:
- 17114 ;;		line 11 in file "../My_library/usb_cdc/My_usb_cdc.c"
+ 17114 ;;		line 11 in file "../../../My_library/My_usb_cdc.c"
  17115 ;; Parameters:    Size  Location     Type
  17116 ;;		None
  17117 ;; Auto vars:     Size  Location     Type
@@ -17522,7 +17522,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17195                           
  17196 ;; *************** function _USBDeviceInit *****************
  17197 ;; Defined at:
- 17198 ;;		line 298 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 17198 ;;		line 298 in file "../../../My_library/usb/usb_device.c"
  17199 ;; Parameters:    Size  Location     Type
  17200 ;;		None
  17201 ;; Auto vars:     Size  Location     Type
@@ -17631,7 +17631,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17298  0132EA  0100               	movlb	0	; () banked
  17299  0132EC  6568               	cpfsgt	USBDeviceInit@i& (0+255),b
  17300  0132EE  D001               	goto	l11403
- 17301  0132F0  D010               	goto	l1433
+ 17301  0132F0  D010               	goto	l1447
  17302  0132F2                     l11403:
  17303                           
  17304                           ; BSR set to: 0
@@ -17655,7 +17655,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17322  01330C  0100               	movlb	0	; () banked
  17323  01330E  2B68               	incf	USBDeviceInit@i& (0+255),f,b
  17324  013310  D7EB               	goto	l11399
- 17325  013312                     l1433:
+ 17325  013312                     l1447:
  17326                           
  17327                           ; BSR set to: 0
  17328                           ;usb_device.c: 327: }
@@ -17981,7 +17981,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17643                           
  17644 ;; *************** function _USBDeviceAttach *****************
  17645 ;; Defined at:
- 17646 ;;		line 1352 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 17646 ;;		line 1352 in file "../../../My_library/usb/usb_device.c"
  17647 ;; Parameters:    Size  Location     Type
  17648 ;;		None
  17649 ;; Auto vars:     Size  Location     Type
@@ -18066,12 +18066,12 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17721  0167C2  8EF2               	bsf	intcon,7,c	;volatile
  17722                           
  17723                           ;usb_device.c: 1372: while(!UCONbits.USBEN){UCONbits.USBEN = 1;}
- 17724  0167C4  D001               	goto	l1494
- 17725  0167C6                     l1495:
+ 17724  0167C4  D001               	goto	l1508
+ 17725  0167C6                     l1509:
  17726  0167C6  8665               	bsf	3941,3,c	;volatile
- 17727  0167C8                     l1494:
+ 17727  0167C8                     l1508:
  17728  0167C8  A665               	btfss	3941,3,c	;volatile
- 17729  0167CA  D7FD               	goto	l1495
+ 17729  0167CA  D7FD               	goto	l1509
  17730                           
  17731                           ;usb_device.c: 1375: USBDeviceState = ATTACHED_STATE;
  17732  0167CC  0E01               	movlw	1
@@ -18104,7 +18104,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17759                           
  17760 ;; *************** function _RTCC_init *****************
  17761 ;; Defined at:
- 17762 ;;		line 22 in file "../My_library/My_RTCC.c"
+ 17762 ;;		line 22 in file "../../../My_library/My_RTCC.c"
  17763 ;; Parameters:    Size  Location     Type
  17764 ;;		None
  17765 ;; Auto vars:     Size  Location     Type
@@ -18228,7 +18228,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17878                           
  17879 ;; *************** function _I2C_init *****************
  17880 ;; Defined at:
- 17881 ;;		line 11 in file "../My_library/My_I2C.c"
+ 17881 ;;		line 11 in file "../../../My_library/My_I2C.c"
  17882 ;; Parameters:    Size  Location     Type
  17883 ;;		None
  17884 ;; Auto vars:     Size  Location     Type
@@ -18315,7 +18315,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17960                           
  17961 ;; *************** function _I2C_LCD_init *****************
  17962 ;; Defined at:
- 17963 ;;		line 78 in file "../My_library/My_ST7032.c"
+ 17963 ;;		line 78 in file "../../../My_library/My_ST7032.c"
  17964 ;; Parameters:    Size  Location     Type
  17965 ;;		None
  17966 ;; Auto vars:     Size  Location     Type
@@ -18488,7 +18488,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  18126                           
  18127 ;; *************** function _I2C_LCD_Clear *****************
  18128 ;; Defined at:
- 18129 ;;		line 21 in file "../My_library/My_ST7032.c"
+ 18129 ;;		line 21 in file "../../../My_library/My_ST7032.c"
  18130 ;; Parameters:    Size  Location     Type
  18131 ;;		None
  18132 ;; Auto vars:     Size  Location     Type
@@ -18575,7 +18575,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  18208                           
  18209 ;; *************** function _I2C_LCD_Command *****************
  18210 ;; Defined at:
- 18211 ;;		line 8 in file "../My_library/My_ST7032.c"
+ 18211 ;;		line 8 in file "../../../My_library/My_ST7032.c"
  18212 ;; Parameters:    Size  Location     Type
  18213 ;;  c               1    wreg     unsigned char 
  18214 ;; Auto vars:     Size  Location     Type
@@ -18690,7 +18690,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  18318                           
  18319 ;; *************** function _I2C_Stop *****************
  18320 ;; Defined at:
- 18321 ;;		line 45 in file "../My_library/My_I2C.c"
+ 18321 ;;		line 45 in file "../../../My_library/My_I2C.c"
  18322 ;; Parameters:    Size  Location     Type
  18323 ;;		None
  18324 ;; Auto vars:     Size  Location     Type
@@ -18768,7 +18768,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  18391                           
  18392 ;; *************** function _I2C_Start *****************
  18393 ;; Defined at:
- 18394 ;;		line 21 in file "../My_library/My_I2C.c"
+ 18394 ;;		line 21 in file "../../../My_library/My_I2C.c"
  18395 ;; Parameters:    Size  Location     Type
  18396 ;;  adrs            1    wreg     unsigned char 
  18397 ;;  rw              1    2[BANK0 ] unsigned char 
@@ -18876,7 +18876,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  18494                           
  18495 ;; *************** function _I2C_Send *****************
  18496 ;; Defined at:
- 18497 ;;		line 51 in file "../My_library/My_I2C.c"
+ 18497 ;;		line 51 in file "../../../My_library/My_I2C.c"
  18498 ;; Parameters:    Size  Location     Type
  18499 ;;  data            1    wreg     unsigned char 
  18500 ;; Auto vars:     Size  Location     Type
@@ -18967,7 +18967,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  18580                           
  18581 ;; *************** function _I2C_IdleCheck *****************
  18582 ;; Defined at:
- 18583 ;;		line 7 in file "../My_library/My_I2C.c"
+ 18583 ;;		line 7 in file "../../../My_library/My_I2C.c"
  18584 ;; Parameters:    Size  Location     Type
  18585 ;;  mask            1    wreg     unsigned char 
  18586 ;; Auto vars:     Size  Location     Type
@@ -19055,7 +19055,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  18663                           
  18664 ;; *************** function _CTMU_init *****************
  18665 ;; Defined at:
- 18666 ;;		line 268 in file "../My_library/My_PIC.c"
+ 18666 ;;		line 268 in file "../../../My_library/My_PIC.c"
  18667 ;; Parameters:    Size  Location     Type
  18668 ;;		None
  18669 ;; Auto vars:     Size  Location     Type
@@ -19163,7 +19163,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  18766                           
  18767 ;; *************** function _ADC_init *****************
  18768 ;; Defined at:
- 18769 ;;		line 132 in file "../My_library/My_PIC.c"
+ 18769 ;;		line 132 in file "../../../My_library/My_PIC.c"
  18770 ;; Parameters:    Size  Location     Type
  18771 ;;  p_ref           1    wreg     unsigned char 
  18772 ;; Auto vars:     Size  Location     Type
@@ -19528,7 +19528,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  19113                           
  19114 ;; *************** function _button_timer_interrupt *****************
  19115 ;; Defined at:
- 19116 ;;		line 3 in file "../My_library/My_button.c"
+ 19116 ;;		line 3 in file "../../../My_library/My_button.c"
  19117 ;; Parameters:    Size  Location     Type
  19118 ;;  bt              2   35[BANK0 ] PTR struct button
  19119 ;;		 -> ctmu_m(4), port(69), 
@@ -20177,7 +20177,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  19752                           
  19753 ;; *************** function _CTMU_read *****************
  19754 ;; Defined at:
- 19755 ;;		line 283 in file "../My_library/My_PIC.c"
+ 19755 ;;		line 283 in file "../../../My_library/My_PIC.c"
  19756 ;; Parameters:    Size  Location     Type
  19757 ;;  ch              1    wreg     unsigned char 
  19758 ;; Auto vars:     Size  Location     Type
@@ -20581,7 +20581,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  20146                           
  20147 ;; *************** function _USB_loop *****************
  20148 ;; Defined at:
- 20149 ;;		line 66 in file "../My_library/usb_cdc/My_usb_cdc.c"
+ 20149 ;;		line 66 in file "../../../My_library/My_usb_cdc.c"
  20150 ;; Parameters:    Size  Location     Type
  20151 ;;		None
  20152 ;; Auto vars:     Size  Location     Type
@@ -20736,10 +20736,10 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  20296                           
  20297 ;; *************** function _ringbuf_put *****************
  20298 ;; Defined at:
- 20299 ;;		line 20 in file "../My_library/My_ringbuf.c"
+ 20299 ;;		line 20 in file "../../../My_library/My_ringbuf.c"
  20300 ;; Parameters:    Size  Location     Type
  20301 ;;  rb              2    8[BANK0 ] PTR struct ringbuf
- 20302 ;;		 -> terminal_loop@command(8), rx_buf(8), tx_buf(8), usb_rx(8), 
+ 20302 ;;		 -> terminal_loop@command(8), uart_rx(8), uart_tx(8), usb_rx(8), 
  20303 ;;		 -> usb_tx(8), 
  20304 ;;  asciicode       1   10[BANK0 ] unsigned char 
  20305 ;; Auto vars:     Size  Location     Type
@@ -20916,10 +20916,10 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  20471                           
  20472 ;; *************** function _ringbuf_pop *****************
  20473 ;; Defined at:
- 20474 ;;		line 45 in file "../My_library/My_ringbuf.c"
+ 20474 ;;		line 45 in file "../../../My_library/My_ringbuf.c"
  20475 ;; Parameters:    Size  Location     Type
  20476 ;;  rb              2    8[BANK0 ] PTR struct ringbuf
- 20477 ;;		 -> terminal_loop@command(8), tx_buf(8), usb_rx(8), usb_tx(8), 
+ 20477 ;;		 -> terminal_loop@command(8), uart_tx(8), usb_rx(8), usb_tx(8), 
  20478 ;; Auto vars:     Size  Location     Type
  20479 ;;  ret             1   14[BANK0 ] unsigned char 
  20480 ;; Return value:  Size  Location     Type
@@ -21106,10 +21106,10 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  20656                           
  20657 ;; *************** function _ringbuf_num *****************
  20658 ;; Defined at:
- 20659 ;;		line 12 in file "../My_library/My_ringbuf.c"
+ 20659 ;;		line 12 in file "../../../My_library/My_ringbuf.c"
  20660 ;; Parameters:    Size  Location     Type
  20661 ;;  rb              2    0[BANK0 ] PTR struct ringbuf
- 20662 ;;		 -> terminal_loop@command(8), rx_buf(8), tx_buf(8), usb_rx(8), 
+ 20662 ;;		 -> terminal_loop@command(8), uart_rx(8), uart_tx(8), usb_rx(8), 
  20663 ;;		 -> usb_tx(8), 
  20664 ;; Auto vars:     Size  Location     Type
  20665 ;;		None
@@ -21299,7 +21299,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  20844                           
  20845 ;; *************** function _put_string_usb *****************
  20846 ;; Defined at:
- 20847 ;;		line 21 in file "../My_library/usb_cdc/My_usb_cdc.c"
+ 20847 ;;		line 21 in file "../../../My_library/My_usb_cdc.c"
  20848 ;; Parameters:    Size  Location     Type
  20849 ;;  s               2   12[BANK0 ] PTR unsigned char 
  20850 ;;		 -> USB_loop@data(1), 
@@ -21398,7 +21398,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  20938                           
  20939 ;; *************** function _putUSBUSART *****************
  20940 ;; Defined at:
- 20941 ;;		line 613 in file "../My_library/usb_cdc/usb/usb_device_cdc.c"
+ 20941 ;;		line 613 in file "../../../My_library/usb/usb_device_cdc.c"
  20942 ;; Parameters:    Size  Location     Type
  20943 ;;  data            2    0[BANK0 ] PTR unsigned char 
  20944 ;;		 -> USB_loop@data(1), 
@@ -21505,7 +21505,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21039                           
  21040 ;; *************** function _get_string_usb *****************
  21041 ;; Defined at:
- 21042 ;;		line 32 in file "../My_library/usb_cdc/My_usb_cdc.c"
+ 21042 ;;		line 32 in file "../../../My_library/My_usb_cdc.c"
  21043 ;; Parameters:    Size  Location     Type
  21044 ;;  s               2   13[BANK0 ] PTR unsigned char 
  21045 ;;		 -> USB_loop@data(1), 
@@ -21627,7 +21627,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21156                           
  21157 ;; *************** function _is_usb_available *****************
  21158 ;; Defined at:
- 21159 ;;		line 17 in file "../My_library/usb_cdc/My_usb_cdc.c"
+ 21159 ;;		line 17 in file "../../../My_library/My_usb_cdc.c"
  21160 ;; Parameters:    Size  Location     Type
  21161 ;;		None
  21162 ;; Auto vars:     Size  Location     Type
@@ -21720,7 +21720,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21244                           
  21245 ;; *************** function _getsUSBUSART *****************
  21246 ;; Defined at:
- 21247 ;;		line 542 in file "../My_library/usb_cdc/usb/usb_device_cdc.c"
+ 21247 ;;		line 542 in file "../../../My_library/usb/usb_device_cdc.c"
  21248 ;; Parameters:    Size  Location     Type
  21249 ;;  buffer          2    7[BANK0 ] PTR unsigned char 
  21250 ;;		 -> USB_loop@data(1), 
@@ -21793,24 +21793,24 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21311  014628  0100               	movlb	0	; () banked
  21312  01462A  516A               	movf	??_getsUSBUSART& (0+255),w,b
  21313  01462C  0100               	movlb	0	; () banked
- 21314  01462E  6F6B               	movwf	_getsUSBUSART$5865& (0+255),b
- 21315  014630  6B6C               	clrf	(_getsUSBUSART$5865+1)& (0+255),b
+ 21314  01462E  6F6B               	movwf	_getsUSBUSART$5936& (0+255),b
+ 21315  014630  6B6C               	clrf	(_getsUSBUSART$5936+1)& (0+255),b
  21316  014632  D005               	goto	l11569
  21317  014634                     l11567:
  21318                           
  21319                           ; BSR set to: 0
  21320  014634  0E00               	movlw	0
  21321  014636  0100               	movlb	0	; () banked
- 21322  014638  6F6C               	movwf	(_getsUSBUSART$5865+1)& (0+255),b
+ 21322  014638  6F6C               	movwf	(_getsUSBUSART$5936+1)& (0+255),b
  21323  01463A  0E00               	movlw	0
- 21324  01463C  6F6B               	movwf	_getsUSBUSART$5865& (0+255),b
+ 21324  01463C  6F6B               	movwf	_getsUSBUSART$5936& (0+255),b
  21325  01463E                     l11569:
  21326                           
  21327                           ; BSR set to: 0
  21328  01463E  0100               	movlb	0	; () banked
- 21329  014640  516B               	movf	_getsUSBUSART$5865& (0+255),w,b
+ 21329  014640  516B               	movf	_getsUSBUSART$5936& (0+255),w,b
  21330  014642  0100               	movlb	0	; () banked
- 21331  014644  116C               	iorwf	(_getsUSBUSART$5865+1)& (0+255),w,b
+ 21331  014644  116C               	iorwf	(_getsUSBUSART$5936+1)& (0+255),w,b
  21332  014646  A4D8               	btfss	status,2,c
  21333  014648  D049               	goto	l11585
  21334                           
@@ -21940,7 +21940,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21457                           
  21458 ;; *************** function _CDCTxService *****************
  21459 ;; Defined at:
- 21460 ;;		line 893 in file "../My_library/usb_cdc/usb/usb_device_cdc.c"
+ 21460 ;;		line 893 in file "../../../My_library/usb/usb_device_cdc.c"
  21461 ;; Parameters:    Size  Location     Type
  21462 ;;		None
  21463 ;; Auto vars:     Size  Location     Type
@@ -22016,22 +22016,22 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21527  012E5C  0100               	movlb	0	; () banked
  21528  012E5E  5167               	movf	??_CDCTxService& (0+255),w,b
  21529  012E60  0100               	movlb	0	; () banked
- 21530  012E62  6F68               	movwf	_CDCTxService$5913& (0+255),b
- 21531  012E64  6B69               	clrf	(_CDCTxService$5913+1)& (0+255),b
+ 21530  012E62  6F68               	movwf	_CDCTxService$5984& (0+255),b
+ 21531  012E64  6B69               	clrf	(_CDCTxService$5984+1)& (0+255),b
  21532  012E66  D005               	goto	l11485
  21533  012E68                     l11483:
  21534  012E68  0E00               	movlw	0
  21535  012E6A  0100               	movlb	0	; () banked
- 21536  012E6C  6F69               	movwf	(_CDCTxService$5913+1)& (0+255),b
+ 21536  012E6C  6F69               	movwf	(_CDCTxService$5984+1)& (0+255),b
  21537  012E6E  0E00               	movlw	0
- 21538  012E70  6F68               	movwf	_CDCTxService$5913& (0+255),b
+ 21538  012E70  6F68               	movwf	_CDCTxService$5984& (0+255),b
  21539  012E72                     l11485:
  21540                           
  21541                           ; BSR set to: 0
  21542  012E72  0100               	movlb	0	; () banked
- 21543  012E74  5168               	movf	_CDCTxService$5913& (0+255),w,b
+ 21543  012E74  5168               	movf	_CDCTxService$5984& (0+255),w,b
  21544  012E76  0100               	movlb	0	; () banked
- 21545  012E78  1169               	iorwf	(_CDCTxService$5913+1)& (0+255),w,b
+ 21545  012E78  1169               	iorwf	(_CDCTxService$5984+1)& (0+255),w,b
  21546  012E7A  B4D8               	btfsc	status,2,c
  21547  012E7C  D002               	goto	l11489
  21548                           
@@ -22051,14 +22051,14 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21562  012E84  0100               	movlb	0	; () banked
  21563  012E86  19FC               	xorwf	_cdc_trf_state& (0+255),w,b
  21564  012E88  A4D8               	btfss	status,2,c
- 21565  012E8A  D003               	goto	l1791
+ 21565  012E8A  D003               	goto	l1805
  21566                           
  21567                           ; BSR set to: 0
  21568                           ;usb_device_cdc.c: 914: cdc_trf_state = 0;
  21569  012E8C  0E00               	movlw	0
  21570  012E8E  0100               	movlb	0	; () banked
  21571  012E90  6FFC               	movwf	_cdc_trf_state& (0+255),b
- 21572  012E92                     l1791:
+ 21572  012E92                     l1805:
  21573                           
  21574                           ; BSR set to: 0
  21575                           ;usb_device_cdc.c: 919: if(cdc_trf_state == 0)
@@ -22127,7 +22127,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21638  012EDE  0E40               	movlw	64
  21639  012EE0  0100               	movlb	0	; () banked
  21640  012EE2  65FD               	cpfsgt	_cdc_tx_len& (0+255),b
- 21641  012EE4  D004               	goto	l1796
+ 21641  012EE4  D004               	goto	l1810
  21642                           
  21643                           ; BSR set to: 0
  21644                           ;usb_device_cdc.c: 940: byte_to_send = sizeof(cdc_data_tx);
@@ -22135,7 +22135,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21646  012EE8  0100               	movlb	0	; () banked
  21647  012EEA  6F6B               	movwf	CDCTxService@byte_to_send& (0+255),b
  21648  012EEC  D002               	goto	l11507
- 21649  012EEE                     l1796:
+ 21649  012EEE                     l1810:
  21650                           
  21651                           ; BSR set to: 0
  21652                           ;usb_device_cdc.c: 941: else
@@ -22325,7 +22325,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21835                           
  21836 ;; *************** function _USBTransferOnePacket *****************
  21837 ;; Defined at:
- 21838 ;;		line 995 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 21838 ;;		line 995 in file "../../../My_library/usb/usb_device.c"
  21839 ;; Parameters:    Size  Location     Type
  21840 ;;  ep              1    wreg     unsigned char 
  21841 ;;  dir             1    0[BANK0 ] unsigned char 
@@ -22556,7 +22556,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  22061                           
  22062 ;; *************** function _RTCC_loop *****************
  22063 ;; Defined at:
- 22064 ;;		line 346 in file "../My_library/My_RTCC.c"
+ 22064 ;;		line 346 in file "../../../My_library/My_RTCC.c"
  22065 ;; Parameters:    Size  Location     Type
  22066 ;;		None
  22067 ;; Auto vars:     Size  Location     Type
@@ -22667,7 +22667,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  22167                           
  22168 ;; *************** function _RTCC_from_RTCC *****************
  22169 ;; Defined at:
- 22170 ;;		line 193 in file "../My_library/My_RTCC.c"
+ 22170 ;;		line 193 in file "../../../My_library/My_RTCC.c"
  22171 ;; Parameters:    Size  Location     Type
  22172 ;;  tm              2   38[BANK0 ] PTR struct .
  22173 ;;		 -> now(14), 
@@ -22753,7 +22753,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  22248                           
  22249 ;; *************** function _caltime_to_epoch *****************
  22250 ;; Defined at:
- 22251 ;;		line 173 in file "../My_library/My_RTCC.c"
+ 22251 ;;		line 173 in file "../../../My_library/My_RTCC.c"
  22252 ;; Parameters:    Size  Location     Type
  22253 ;;  tm              2   25[BANK0 ] PTR struct .
  22254 ;;		 -> now(14), 
@@ -23186,7 +23186,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  22676                           
  22677 ;; *************** function _month_length *****************
  22678 ;; Defined at:
- 22679 ;;		line 49 in file "../My_library/My_RTCC.c"
+ 22679 ;;		line 49 in file "../../../My_library/My_RTCC.c"
  22680 ;; Parameters:    Size  Location     Type
  22681 ;;  year            1    wreg     unsigned char 
  22682 ;;  month           1    6[BANK0 ] unsigned char 
@@ -23718,7 +23718,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  23193                           
  23194 ;; *************** function _RTCC_to_caltime *****************
  23195 ;; Defined at:
- 23196 ;;		line 83 in file "../My_library/My_RTCC.c"
+ 23196 ;;		line 83 in file "../../../My_library/My_RTCC.c"
  23197 ;; Parameters:    Size  Location     Type
  23198 ;;  tm              2    2[BANK0 ] PTR struct .
  23199 ;;		 -> now(14), 
@@ -23886,7 +23886,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  23356                           
  23357 ;; *************** function _x_to_d *****************
  23358 ;; Defined at:
- 23359 ;;		line 45 in file "../My_library/My_RTCC.c"
+ 23359 ;;		line 45 in file "../../../My_library/My_RTCC.c"
  23360 ;; Parameters:    Size  Location     Type
  23361 ;;  hex             1    wreg     unsigned char 
  23362 ;; Auto vars:     Size  Location     Type
@@ -24178,7 +24178,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  23638                           
  23639 ;; *************** function _millis_timer *****************
  23640 ;; Defined at:
- 23641 ;;		line 318 in file "../My_library/My_PIC.c"
+ 23641 ;;		line 318 in file "../../../My_library/My_PIC.c"
  23642 ;; Parameters:    Size  Location     Type
  23643 ;;		None
  23644 ;; Auto vars:     Size  Location     Type
@@ -24281,7 +24281,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  23736                           
  23737 ;; *************** function _USB_ISR *****************
  23738 ;; Defined at:
- 23739 ;;		line 7 in file "../My_library/usb_cdc/My_usb_cdc.c"
+ 23739 ;;		line 7 in file "../../../My_library/My_usb_cdc.c"
  23740 ;; Parameters:    Size  Location     Type
  23741 ;;		None
  23742 ;; Auto vars:     Size  Location     Type
@@ -24357,7 +24357,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  23807                           
  23808 ;; *************** function _USBDeviceTasks *****************
  23809 ;; Defined at:
- 23810 ;;		line 489 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 23810 ;;		line 489 in file "../../../My_library/usb/usb_device.c"
  23811 ;; Parameters:    Size  Location     Type
  23812 ;;		None
  23813 ;; Auto vars:     Size  Location     Type
@@ -24455,7 +24455,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  23900                           ;usb_device.c: 647: }
  23901                           ;usb_device.c: 652: if(UCONbits.SUSPND==1)
  23902  013574  A265               	btfss	3941,1,c	;volatile
- 23903  013576  D002               	goto	i2l1445
+ 23903  013576  D002               	goto	i2l1459
  23904                           
  23905                           ;usb_device.c: 653: {
  23906                           ;usb_device.c: 654: {PIR2bits.USBIF = 0;};
@@ -24463,7 +24463,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  23908                           
  23909                           ;usb_device.c: 655: return;
  23910  01357A  0012               	return	
- 23911  01357C                     i2l1445:
+ 23911  01357C                     i2l1459:
  23912                           
  23913                           ;usb_device.c: 656: }
  23914                           ;usb_device.c: 668: if(UIRbits.URSTIF && UIEbits.URSTIE)
@@ -24604,7 +24604,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24049                           ;usb_device.c: 774: if(USBDeviceState < DEFAULT_STATE)
  24050  01360C  0E04               	movlw	4
  24051  01360E  6014               	cpfslt	_USBDeviceState,c	;volatile
- 24052  013610  D002               	goto	i2l1455
+ 24052  013610  D002               	goto	i2l1469
  24053                           
  24054                           ;usb_device.c: 775: {
  24055                           ;usb_device.c: 776: {PIR2bits.USBIF = 0;};
@@ -24612,13 +24612,13 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24057                           
  24058                           ;usb_device.c: 777: return;
  24059  013614  0012               	return	
- 24060  013616                     i2l1455:
+ 24060  013616                     i2l1469:
  24061                           
  24062                           ;usb_device.c: 778: }
  24063                           ;usb_device.c: 783: if(UIEbits.TRNIE)
  24064  013616  010F               	movlb	15	; () banked
  24065  013618  A736               	btfss	54,3,b	;volatile
- 24066  01361A  D038               	goto	i2l1456
+ 24066  01361A  D038               	goto	i2l1470
  24067                           
  24068                           ; BSR set to: 15
  24069                           ;usb_device.c: 784: {
@@ -24630,14 +24630,14 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24075                           ; BSR set to: 15
  24076  013620  0E03               	movlw	3
  24077  013622  644A               	cpfsgt	USBDeviceTasks@i,c
- 24078  013624  D001               	goto	i2l1457
- 24079  013626  D032               	goto	i2l1456
- 24080  013628                     i2l1457:
+ 24078  013624  D001               	goto	i2l1471
+ 24079  013626  D032               	goto	i2l1470
+ 24080  013628                     i2l1471:
  24081                           
  24082                           ;usb_device.c: 786: {
  24083                           ;usb_device.c: 787: if(UIRbits.TRNIF)
  24084  013628  A662               	btfss	3938,3,c	;volatile
- 24085  01362A  D030               	goto	i2l1456
+ 24085  01362A  D030               	goto	i2l1470
  24086                           
  24087                           ;usb_device.c: 788: {
  24088                           ;usb_device.c: 790: USTATcopy.Val = USTAT;
@@ -24716,7 +24716,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24160  013688                     i2l9303:
  24161  013688  2A4A               	incf	USBDeviceTasks@i,f,c
  24162  01368A  D7CA               	goto	i2l9281
- 24163  01368C                     i2l1456:
+ 24163  01368C                     i2l1470:
  24164                           
  24165                           ;usb_device.c: 822: }
  24166                           ;usb_device.c: 823: }
@@ -24755,7 +24755,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24199                           
  24200 ;; *************** function i2_USBDeviceInit *****************
  24201 ;; Defined at:
- 24202 ;;		line 298 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 24202 ;;		line 298 in file "../../../My_library/usb/usb_device.c"
  24203 ;; Parameters:    Size  Location     Type
  24204 ;;		None
  24205 ;; Auto vars:     Size  Location     Type
@@ -24857,7 +24857,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24295  0136D2  0E0B               	movlw	11
  24296  0136D4  6435               	cpfsgt	i2USBDeviceInit@i,c
  24297  0136D6  D001               	goto	i2l8663
- 24298  0136D8  D00E               	goto	i2l1433
+ 24298  0136D8  D00E               	goto	i2l1447
  24299  0136DA                     i2l8663:
  24300                           
  24301                           ;usb_device.c: 325: {
@@ -24876,7 +24876,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24314  0136F0  6ADD               	clrf	postdec2,c
  24315  0136F2  2A35               	incf	i2USBDeviceInit@i,f,c
  24316  0136F4  D7EE               	goto	i2l8659
- 24317  0136F6                     i2l1433:
+ 24317  0136F6                     i2l1447:
  24318                           
  24319                           ;usb_device.c: 327: }
  24320                           ;usb_device.c: 330: UCONbits.PPBRST = 1;
@@ -25098,7 +25098,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24536                           
  24537 ;; *************** function _USBWakeFromSuspend *****************
  24538 ;; Defined at:
- 24539 ;;		line 2302 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 24539 ;;		line 2302 in file "../../../My_library/usb/usb_device.c"
  24540 ;; Parameters:    Size  Location     Type
  24541 ;;		None
  24542 ;; Auto vars:     Size  Location     Type
@@ -25210,7 +25210,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24643                           
  24644 ;; *************** function _USBSuspend *****************
  24645 ;; Defined at:
- 24646 ;;		line 2245 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 24646 ;;		line 2245 in file "../../../My_library/usb/usb_device.c"
  24647 ;; Parameters:    Size  Location     Type
  24648 ;;		None
  24649 ;; Auto vars:     Size  Location     Type
@@ -25316,7 +25316,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24744                           
  24745 ;; *************** function _USBStallHandler *****************
  24746 ;; Defined at:
- 24747 ;;		line 2202 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 24747 ;;		line 2202 in file "../../../My_library/usb/usb_device.c"
  24748 ;; Parameters:    Size  Location     Type
  24749 ;;		None
  24750 ;; Auto vars:     Size  Location     Type
@@ -25359,7 +25359,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24782                           ;incstack = 0
  24783  0165EE  010F               	movlb	15	; () banked
  24784  0165F0  A126               	btfss	38,0,b	;volatile
- 24785  0165F2  D01E               	goto	i2l1595
+ 24785  0165F2  D01E               	goto	i2l1609
  24786                           
  24787                           ; BSR set to: 15
  24788                           ;usb_device.c: 2215: {
@@ -25401,7 +25401,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24823                           ;usb_device.c: 2223: UEP0bits.EPSTALL = 0;
  24824  01662C  010F               	movlb	15	; () banked
  24825  01662E  9126               	bcf	38,0,b	;volatile
- 24826  016630                     i2l1595:
+ 24826  016630                     i2l1609:
  24827                           
  24828                           ; BSR set to: 15
  24829                           ;usb_device.c: 2224: }
@@ -25441,7 +25441,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24863                           
  24864 ;; *************** function _USBCtrlEPService *****************
  24865 ;; Defined at:
- 24866 ;;		line 2369 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 24866 ;;		line 2369 in file "../../../My_library/usb/usb_device.c"
  24867 ;; Parameters:    Size  Location     Type
  24868 ;;		None
  24869 ;; Auto vars:     Size  Location     Type
@@ -25649,7 +25649,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  25064                           
  25065 ;; *************** function _USBCtrlTrfSetupHandler *****************
  25066 ;; Defined at:
- 25067 ;;		line 2469 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 25067 ;;		line 2469 in file "../../../My_library/usb/usb_device.c"
  25068 ;; Parameters:    Size  Location     Type
  25069 ;;		None
  25070 ;; Auto vars:     Size  Location     Type
@@ -25828,7 +25828,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  25238                           
  25239 ;; *************** function _USBCtrlEPServiceComplete *****************
  25240 ;; Defined at:
- 25241 ;;		line 1616 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 25241 ;;		line 1616 in file "../../../My_library/usb/usb_device.c"
  25242 ;; Parameters:    Size  Location     Type
  25243 ;;		None
  25244 ;; Auto vars:     Size  Location     Type
@@ -25876,7 +25876,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  25281                           ;usb_device.c: 1628: if(inPipes[0].info.bits.busy == 0)
  25282  014076  0100               	movlb	0	; () banked
  25283  014078  BFF2               	btfsc	(_inPipes+3)& (0+255),7,b	;volatile
- 25284  01407A  D039               	goto	i2l1519
+ 25284  01407A  D039               	goto	i2l1533
  25285                           
  25286                           ; BSR set to: 0
  25287                           ;usb_device.c: 1629: {
@@ -25962,7 +25962,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  25367                           ;usb_device.c: 1665: }
  25368                           ;usb_device.c: 1666: }
  25369  0140EC  0012               	return	
- 25370  0140EE                     i2l1519:
+ 25370  0140EE                     i2l1533:
  25371                           
  25372                           ; BSR set to: 0
  25373                           ;usb_device.c: 1667: else
@@ -26096,7 +26096,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  25501                           
  25502 ;; *************** function _USBCtrlEPAllowDataStage *****************
  25503 ;; Defined at:
- 25504 ;;		line 1488 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 25504 ;;		line 1488 in file "../../../My_library/usb/usb_device.c"
  25505 ;; Parameters:    Size  Location     Type
  25506 ;;		None
  25507 ;; Auto vars:     Size  Location     Type
@@ -26271,7 +26271,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  25671                           
  25672 ;; *************** function _USBCheckStdRequest *****************
  25673 ;; Defined at:
- 25674 ;;		line 2689 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 25674 ;;		line 2689 in file "../../../My_library/usb/usb_device.c"
  25675 ;; Parameters:    Size  Location     Type
  25676 ;;		None
  25677 ;; Auto vars:     Size  Location     Type
@@ -26325,7 +26325,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  25720  014264  A4D8               	btfss	status,2,c
  25721  014266  0012               	return	
  25722  014268  D04F               	goto	i2l7445
- 25723  01426A                     i2l1646:
+ 25723  01426A                     i2l1660:
  25724                           
  25725                           ; BSR set to: 13
  25726                           ;usb_device.c: 2696: inPipes[0].info.bits.busy = 1;
@@ -26430,7 +26430,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  25824                           
  25825                           ;usb_device.c: 2724: break;
  25826  0142CC  0012               	return	
- 25827  0142CE                     i2l1655:
+ 25827  0142CE                     i2l1669:
  25828                           
  25829                           ; BSR set to: 13
  25830                           ;usb_device.c: 2726: inPipes[0].info.bits.busy = 1;
@@ -26501,7 +26501,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  25895  01431C  D7C2               	goto	i2l7429
  25896  01431E  0A06               	xorlw	6	; case 5
  25897  014320  B4D8               	btfsc	status,2,c
- 25898  014322  D7A3               	goto	i2l1646
+ 25898  014322  D7A3               	goto	i2l1660
  25899  014324  0A03               	xorlw	3	; case 6
  25900  014326  B4D8               	btfsc	status,2,c
  25901  014328  D7A5               	goto	i2l7415
@@ -26519,7 +26519,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  25913  014340  D7B3               	goto	i2l7431
  25914  014342  0A01               	xorlw	1	; case 11
  25915  014344  B4D8               	btfsc	status,2,c
- 25916  014346  D7C3               	goto	i2l1655
+ 25916  014346  D7C3               	goto	i2l1669
  25917  014348  0A07               	xorlw	7	; case 12
  25918  01434A  0012               	return	
  25919  01434C                     __end_of_USBCheckStdRequest:
@@ -26553,7 +26553,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  25947                           
  25948 ;; *************** function _USBStdSetCfgHandler *****************
  25949 ;; Defined at:
- 25950 ;;		line 1968 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 25950 ;;		line 1968 in file "../../../My_library/usb/usb_device.c"
  25951 ;; Parameters:    Size  Location     Type
  25952 ;;		None
  25953 ;; Auto vars:     Size  Location     Type
@@ -26879,7 +26879,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  26262                           
  26263 ;; *************** function _USBStdGetStatusHandler *****************
  26264 ;; Defined at:
- 26265 ;;		line 2129 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 26265 ;;		line 2129 in file "../../../My_library/usb/usb_device.c"
  26266 ;; Parameters:    Size  Location     Type
  26267 ;;		None
  26268 ;; Auto vars:     Size  Location     Type
@@ -26932,7 +26932,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  26310                           
  26311                           ;usb_device.c: 2134: switch(SetupPkt.Recipient)
  26312  015496  D03B               	goto	i2l7191
- 26313  015498                     i2l1582:
+ 26313  015498                     i2l1596:
  26314                           
  26315                           ; BSR set to: 13
  26316                           ;usb_device.c: 2137: inPipes[0].info.bits.busy = 1;
@@ -26951,7 +26951,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  26329                           ;usb_device.c: 2142: if(0 == 1)
  26330  01549C  0410               	decf	_RemoteWakeup,w,c	;volatile
  26331  01549E  A4D8               	btfss	status,2,c
- 26332  0154A0  D042               	goto	i2l1585
+ 26332  0154A0  D042               	goto	i2l1599
  26333                           
  26334                           ;usb_device.c: 2148: {
  26335                           ;usb_device.c: 2149: CtrlTrfData[0]|=0x02;
@@ -26961,8 +26961,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  26339                           ; BSR set to: 13
  26340                           ;usb_device.c: 2150: }
  26341                           ;usb_device.c: 2151: break;
- 26342  0154A6  D03F               	goto	i2l1585
- 26343  0154A8                     i2l1586:
+ 26342  0154A6  D03F               	goto	i2l1599
+ 26343  0154A8                     i2l1600:
  26344                           
  26345                           ; BSR set to: 13
  26346                           ;usb_device.c: 2153: inPipes[0].info.bits.busy = 1;
@@ -26970,8 +26970,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  26348  0154AA  8FF2               	bsf	(_inPipes+3)& (0+255),7,b	;volatile
  26349                           
  26350                           ;usb_device.c: 2154: break;
- 26351  0154AC  D03C               	goto	i2l1585
- 26352  0154AE                     i2l1587:
+ 26351  0154AC  D03C               	goto	i2l1599
+ 26352  0154AE                     i2l1601:
  26353                           
  26354                           ; BSR set to: 13
  26355                           ;usb_device.c: 2156: inPipes[0].info.bits.busy = 1;
@@ -27029,13 +27029,13 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  26407  0154EE  C02E  FFD9         	movff	USBStdGetStatusHandler@p,fsr2l
  26408  0154F2  C02F  FFDA         	movff	USBStdGetStatusHandler@p+1,fsr2h
  26409  0154F6  AEDF               	btfss	indf2,7,c
- 26410  0154F8  D016               	goto	i2l1585
+ 26410  0154F8  D016               	goto	i2l1599
  26411                           
  26412                           ; BSR set to: 13
  26413  0154FA  C02E  FFD9         	movff	USBStdGetStatusHandler@p,fsr2l
  26414  0154FE  C02F  FFDA         	movff	USBStdGetStatusHandler@p+1,fsr2h
  26415  015502  A4DF               	btfss	indf2,2,c
- 26416  015504  D010               	goto	i2l1585
+ 26416  015504  D010               	goto	i2l1599
  26417                           
  26418                           ; BSR set to: 13
  26419                           ;usb_device.c: 2173: CtrlTrfData[0]=0x01;
@@ -27049,7 +27049,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  26427                           
  26428                           ; BSR set to: 13
  26429                           ;usb_device.c: 2174: break;
- 26430  01550C  D00C               	goto	i2l1585
+ 26430  01550C  D00C               	goto	i2l1599
  26431  01550E                     i2l7191:
  26432                           
  26433                           ; BSR set to: 13
@@ -27065,14 +27065,14 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  26443                           ;	Chosen strategy is simple_byte
  26444  015514  0A00               	xorlw	0	; case 0
  26445  015516  B4D8               	btfsc	status,2,c
- 26446  015518  D7BF               	goto	i2l1582
+ 26446  015518  D7BF               	goto	i2l1596
  26447  01551A  0A01               	xorlw	1	; case 1
  26448  01551C  B4D8               	btfsc	status,2,c
- 26449  01551E  D7C4               	goto	i2l1586
+ 26449  01551E  D7C4               	goto	i2l1600
  26450  015520  0A03               	xorlw	3	; case 2
  26451  015522  B4D8               	btfsc	status,2,c
- 26452  015524  D7C4               	goto	i2l1587
- 26453  015526                     i2l1585:
+ 26452  015524  D7C4               	goto	i2l1601
+ 26453  015526                     i2l1599:
  26454                           
  26455                           ;usb_device.c: 2178: if(inPipes[0].info.bits.busy == 1)
  26456  015526  0100               	movlb	0	; () banked
@@ -27131,7 +27131,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  26509                           
  26510 ;; *************** function _USBStdGetDscHandler *****************
  26511 ;; Defined at:
- 26512 ;;		line 2043 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 26512 ;;		line 2043 in file "../../../My_library/usb/usb_device.c"
  26513 ;; Parameters:    Size  Location     Type
  26514 ;;		None
  26515 ;; Auto vars:     Size  Location     Type
@@ -27442,7 +27442,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  26815                           
  26816 ;; *************** function _USBStdFeatureReqHandler *****************
  26817 ;; Defined at:
- 26818 ;;		line 2757 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 26818 ;;		line 2757 in file "../../../My_library/usb/usb_device.c"
  26819 ;; Parameters:    Size  Location     Type
  26820 ;;		None
  26821 ;; Auto vars:     Size  Location     Type
@@ -27495,7 +27495,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  26863  011E44  010D               	movlb	13	; () banked
  26864  011E46  0532               	decf	50,w,b	;volatile
  26865  011E48  A4D8               	btfss	status,2,c
- 26866  011E4A  D011               	goto	i2l1661
+ 26866  011E4A  D011               	goto	i2l1675
  26867                           
  26868                           ; BSR set to: 13
  26869  011E4C  010D               	movlb	13	; () banked
@@ -27503,7 +27503,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  26871  011E50  0B1F               	andlw	31
  26872  011E52  0900               	iorlw	0
  26873  011E54  A4D8               	btfss	status,2,c
- 26874  011E56  D00B               	goto	i2l1661
+ 26874  011E56  D00B               	goto	i2l1675
  26875                           
  26876                           ; BSR set to: 13
  26877                           ;usb_device.c: 2804: {
@@ -27531,7 +27531,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  26899  011E6A  0E00               	movlw	0
  26900  011E6C                     L9:
  26901  011E6C  6E10               	movwf	_RemoteWakeup,c	;volatile
- 26902  011E6E                     i2l1661:
+ 26902  011E6E                     i2l1675:
  26903                           
  26904                           ; BSR set to: 13
  26905                           ;usb_device.c: 2810: }
@@ -27868,12 +27868,12 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  27235                           ;usb_device.c: 2909: if((current_ep_data.bits.transfer_terminated != 0) || (p->STAT.UOWN
       +                           == 1))
  27236  012022  B244               	btfsc	USBStdFeatureReqHandler@current_ep_data,1,c
- 27237  012024  D006               	goto	i2l1680
+ 27237  012024  D006               	goto	i2l1694
  27238  012026  C045  FFD9         	movff	USBStdFeatureReqHandler@p,fsr2l
  27239  01202A  C046  FFDA         	movff	USBStdFeatureReqHandler@p+1,fsr2h
  27240  01202E  AEDF               	btfss	indf2,7,c
  27241  012030  D030               	goto	i2l7277
- 27242  012032                     i2l1680:
+ 27242  012032                     i2l1694:
  27243                           
  27244                           ;usb_device.c: 2910: {
  27245                           ;usb_device.c: 2911: if(SetupPkt.EPDir == 0)
@@ -28009,7 +28009,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  27374                           
  27375 ;; *************** function _USER_USB_CALLBACK_EVENT_HANDLER *****************
  27376 ;; Defined at:
- 27377 ;;		line 44 in file "../My_library/usb_cdc/My_usb_cdc.c"
+ 27377 ;;		line 44 in file "../../../My_library/My_usb_cdc.c"
  27378 ;; Parameters:    Size  Location     Type
  27379 ;;  event           2   12[COMRAM] enum E8545
  27380 ;;  pdata           2   14[COMRAM] PTR void 
@@ -28141,7 +28141,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  27500                           
  27501 ;; *************** function _USBCheckCDCRequest *****************
  27502 ;; Defined at:
- 27503 ;;		line 204 in file "../My_library/usb_cdc/usb/usb_device_cdc.c"
+ 27503 ;;		line 204 in file "../../../My_library/usb/usb_device_cdc.c"
  27504 ;; Parameters:    Size  Location     Type
  27505 ;;		None
  27506 ;; Auto vars:     Size  Location     Type
@@ -28271,7 +28271,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  27623                           
  27624                           ;usb_device_cdc.c: 237: break;
  27625  014B84  0012               	return	
- 27626  014B86                     i2l1737:
+ 27626  014B86                     i2l1751:
  27627                           
  27628                           ; BSR set to: 13
  27629                           ;usb_device_cdc.c: 242: outPipes[0].wCount.Val = SetupPkt.wLength;
@@ -28330,7 +28330,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  27681                           
  27682                           ;usb_device_cdc.c: 253: break;
  27683  014BCE  0012               	return	
- 27684  014BD0                     i2l1739:
+ 27684  014BD0                     i2l1753:
  27685                           
  27686                           ; BSR set to: 13
  27687                           ;usb_device_cdc.c: 256: control_signal_bitmap._byte = (uint8_t)SetupPkt.wValue;
@@ -28368,14 +28368,14 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  27719  014BE8  D7C5               	goto	i2l6517
  27720  014BEA  0A21               	xorlw	33	; case 32
  27721  014BEC  B4D8               	btfsc	status,2,c
- 27722  014BEE  D7CB               	goto	i2l1737
+ 27722  014BEE  D7CB               	goto	i2l1751
  27723  014BF0  0A01               	xorlw	1	; case 33
  27724  014BF2  B4D8               	btfsc	status,2,c
  27725  014BF4  D7DE               	goto	i2l6525
  27726  014BF6  0A03               	xorlw	3	; case 34
  27727  014BF8  A4D8               	btfss	status,2,c
  27728  014BFA  0012               	return	
- 27729  014BFC  D7E9               	goto	i2l1739
+ 27729  014BFC  D7E9               	goto	i2l1753
  27730  014BFE                     __end_of_USBCheckCDCRequest:
  27731                           	opt stack 0
  27732                           pclatu	equ	0xFFB
@@ -28407,7 +28407,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  27758                           
  27759 ;; *************** function _CDCInitEP *****************
  27760 ;; Defined at:
- 27761 ;;		line 351 in file "../My_library/usb_cdc/usb/usb_device_cdc.c"
+ 27761 ;;		line 351 in file "../../../My_library/usb/usb_device_cdc.c"
  27762 ;; Parameters:    Size  Location     Type
  27763 ;;		None
  27764 ;; Auto vars:     Size  Location     Type
@@ -28555,7 +28555,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  27900                           
  27901 ;; *************** function i2_USBTransferOnePacket *****************
  27902 ;; Defined at:
- 27903 ;;		line 995 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 27903 ;;		line 995 in file "../../../My_library/usb/usb_device.c"
  27904 ;; Parameters:    Size  Location     Type
  27905 ;;  ep              1    wreg     unsigned char 
  27906 ;;  dir             1    0[COMRAM] unsigned char 
@@ -28755,7 +28755,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  28095                           
  28096 ;; *************** function _USBEnableEndpoint *****************
  28097 ;; Defined at:
- 28098 ;;		line 878 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 28098 ;;		line 878 in file "../../../My_library/usb/usb_device.c"
  28099 ;; Parameters:    Size  Location     Type
  28100 ;;  ep              1    wreg     unsigned char 
  28101 ;;  options         1    8[COMRAM] unsigned char 
@@ -28874,7 +28874,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  28209                           
  28210 ;; *************** function _USBConfigureEndpoint *****************
  28211 ;; Defined at:
- 28212 ;;		line 1543 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 28212 ;;		line 1543 in file "../../../My_library/usb/usb_device.c"
  28213 ;; Parameters:    Size  Location     Type
  28214 ;;  EPNum           1    wreg     unsigned char 
  28215 ;;  direction       1    0[COMRAM] unsigned char 
@@ -29038,7 +29038,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  28368                           
  28369 ;; *************** function _USBCtrlTrfOutHandler *****************
  28370 ;; Defined at:
- 28371 ;;		line 2541 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 28371 ;;		line 2541 in file "../../../My_library/usb/usb_device.c"
  28372 ;; Parameters:    Size  Location     Type
  28373 ;;		None
  28374 ;; Auto vars:     Size  Location     Type
@@ -29178,7 +29178,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  28503                           
  28504 ;; *************** function _USBCtrlTrfRxService *****************
  28505 ;; Defined at:
- 28506 ;;		line 1852 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 28506 ;;		line 1852 in file "../../../My_library/usb/usb_device.c"
  28507 ;; Parameters:    Size  Location     Type
  28508 ;;		None
  28509 ;; Auto vars:     Size  Location     Type
@@ -29463,7 +29463,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  28783                           
  28784 ;; *************** function _USBCtrlEPAllowStatusStage *****************
  28785 ;; Defined at:
- 28786 ;;		line 1416 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 28786 ;;		line 1416 in file "../../../My_library/usb/usb_device.c"
  28787 ;; Parameters:    Size  Location     Type
  28788 ;;		None
  28789 ;; Auto vars:     Size  Location     Type
@@ -29663,7 +29663,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  28978                           
  28979 ;; *************** function _USBCtrlTrfInHandler *****************
  28980 ;; Defined at:
- 28981 ;;		line 2595 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 28981 ;;		line 2595 in file "../../../My_library/usb/usb_device.c"
  28982 ;; Parameters:    Size  Location     Type
  28983 ;;		None
  28984 ;; Auto vars:     Size  Location     Type
@@ -29762,7 +29762,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  29072                           ;usb_device.c: 2621: if(controlTransferState == 1)
  29073  015106  0418               	decf	_controlTransferState,w,c	;volatile
  29074  015108  A4D8               	btfss	status,2,c
- 29075  01510A  D03B               	goto	i2l1632
+ 29075  01510A  D03B               	goto	i2l1646
  29076                           
  29077                           ;usb_device.c: 2622: {
  29078                           ;usb_device.c: 2623: pBDTEntryIn[0]->ADR = ((uint16_t)(CtrlTrfData));
@@ -29846,7 +29846,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  29156                           ;usb_device.c: 2649: }
  29157                           ;usb_device.c: 2650: }
  29158  015180  0012               	return	
- 29159  015182                     i2l1632:
+ 29159  015182                     i2l1646:
  29160                           
  29161                           ;usb_device.c: 2651: else
  29162                           ;usb_device.c: 2652: {
@@ -29903,7 +29903,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  29213                           
  29214 ;; *************** function _USBCtrlTrfTxService *****************
  29215 ;; Defined at:
- 29216 ;;		line 1771 in file "../My_library/usb_cdc/usb/usb_device.c"
+ 29216 ;;		line 1771 in file "../../../My_library/usb/usb_device.c"
  29217 ;; Parameters:    Size  Location     Type
  29218 ;;		None
  29219 ;; Auto vars:     Size  Location     Type
@@ -31003,19 +31003,19 @@ Pointer List with Targets:
 
     pCDCDst.bRam	PTR unsigned char  size(2) Largest target is 0
 
-    S5487_POINTER$wRom	PTR const unsigned int  size(2) Largest target is 0
+    S5558_POINTER$wRom	PTR const unsigned int  size(2) Largest target is 0
 
     pCDCSrc.wRom	PTR const unsigned int  size(2) Largest target is 0
 
-    S5487_POINTER$bRom	PTR const unsigned char  size(2) Largest target is 0
+    S5558_POINTER$bRom	PTR const unsigned char  size(2) Largest target is 0
 
     pCDCSrc.bRom	PTR const unsigned char  size(2) Largest target is 0
 
-    S5487_POINTER$wRam	PTR unsigned int  size(2) Largest target is 0
+    S5558_POINTER$wRam	PTR unsigned int  size(2) Largest target is 0
 
     pCDCSrc.wRam	PTR unsigned int  size(2) Largest target is 0
 
-    S5487_POINTER$bRam	PTR unsigned char  size(2) Largest target is 0
+    S5558_POINTER$bRam	PTR unsigned char  size(2) Largest target is 0
 
     pCDCSrc.bRam	PTR unsigned char  size(2) Largest target is 0
 
@@ -31027,12 +31027,6 @@ Pointer List with Targets:
 
     USBStdGetStatusHandler@p	PTR struct __BDT size(2) Largest target is 48
 		 -> NULL(NULL[0]), BDT(BIGRAMl[48]), 
-
-    USB_SD_Ptr	const PTR const unsigned char [3] size(2) Largest target is 52
-		 -> sd002(CODE[52]), sd001(CODE[52]), sd000(CODE[4]), 
-
-    USB_CD_Ptr	const PTR const unsigned char [1] size(2) Largest target is 67
-		 -> configDescriptor1(CODE[67]), 
 
     pDst	PTR volatile unsigned char  size(2) Largest target is 8
 		 -> CtrlTrfData(BIGRAMh[8]), NULL(NULL[0]), 
@@ -31064,38 +31058,44 @@ Pointer List with Targets:
     pBDTEntryIn	PTR volatile struct __BDT[3] size(2) Largest target is 48
 		 -> NULL(NULL[0]), BDT(BIGRAMl[48]), 
 
-    S4220$pFunc	PTR FTN()void  size(3) Largest target is 0
+    S4305$pFunc	PTR FTN()void  size(3) Largest target is 0
 		 -> Absolute function(), 
 
     outPipes.pFunc	PTR FTN()void  size(3) Largest target is 0
 		 -> Absolute function(), 
 
-    S4210$wRam	PTR unsigned int  size(2) Largest target is 0
+    S4295$wRam	PTR unsigned int  size(2) Largest target is 0
 
     outPipes.pDst.wRam	PTR unsigned int  size(2) Largest target is 0
 
-    S4210$bRam	PTR unsigned char  size(2) Largest target is 0
+    S4295$bRam	PTR unsigned char  size(2) Largest target is 0
 
     outPipes.pDst.bRam	PTR unsigned char  size(2) Largest target is 0
 
-    S4186$wRom	PTR const unsigned int  size(2) Largest target is 0
+    S4271$wRom	PTR const unsigned int  size(2) Largest target is 0
 
     inPipes.pSrc.wRom	PTR const unsigned int  size(2) Largest target is 0
 
-    S4186$wRam	PTR unsigned int  size(2) Largest target is 0
+    S4271$wRam	PTR unsigned int  size(2) Largest target is 0
 
     inPipes.pSrc.wRam	PTR unsigned int  size(2) Largest target is 0
 
-    S4186$bRom	PTR const unsigned char  size(2) Largest target is 0
+    S4271$bRom	PTR const unsigned char  size(2) Largest target is 0
 
     inPipes.pSrc.bRom	PTR const unsigned char  size(2) Largest target is 0
 
-    S4186$bRam	PTR unsigned char  size(2) Largest target is 0
+    S4271$bRam	PTR unsigned char  size(2) Largest target is 0
 
     inPipes.pSrc.bRam	PTR unsigned char  size(2) Largest target is 0
 
     sp__memset	PTR void  size(2) Largest target is 48
 		 -> USBAlternateInterface(BANK1[2]), BDT(BIGRAMl[48]), UEP1(SFR_1[1]), 
+
+    USB_SD_Ptr	const PTR const unsigned char [3] size(2) Largest target is 52
+		 -> sd002(CODE[52]), sd001(CODE[52]), sd000(CODE[4]), 
+
+    USB_CD_Ptr	const PTR const unsigned char [1] size(2) Largest target is 67
+		 -> configDescriptor1(CODE[67]), 
 
     get_string_usb@s	PTR unsigned char  size(2) Largest target is 1
 		 -> USB_loop@data(BANK0[1]), 
@@ -31204,7 +31204,7 @@ Pointer List with Targets:
 		 -> terminal_loop@buf(BANK4[100]), hardware_init@usbrx(BANK3[100]), hardware_init@usbtx(BIGRAMl[2000]), 
 
     ringbuf_pop@rb	PTR struct ringbuf size(2) Largest target is 9
-		 -> terminal_loop@command(BANK1[8]), tx_buf(BANK2[8]), usb_rx(BANK2[8]), usb_tx(BANK2[8]), 
+		 -> terminal_loop@command(BANK1[8]), uart_tx(BANK2[8]), usb_rx(BANK2[8]), usb_tx(BANK2[8]), 
 
     ringbuf_put_str@str	PTR const unsigned char  size(2) Largest target is 434
 		 -> STR_101(CODE[8]), print_time@str(BANK0[30]), STR_99(CODE[3]), print_time_dec@str(COMRAM[10]), 
@@ -31221,14 +31221,14 @@ Pointer List with Targets:
 		 -> terminal_loop@buf(BANK4[100]), hardware_init@usbrx(BANK3[100]), hardware_init@usbtx(BIGRAMl[2000]), 
 
     ringbuf_put@rb	PTR struct ringbuf size(2) Largest target is 9
-		 -> terminal_loop@command(BANK1[8]), rx_buf(BANK2[8]), tx_buf(BANK2[8]), usb_rx(BANK2[8]), 
+		 -> terminal_loop@command(BANK1[8]), uart_rx(BANK2[8]), uart_tx(BANK2[8]), usb_rx(BANK2[8]), 
 		 -> usb_tx(BANK2[8]), 
 
     ringbuf_num@rb.buf	PTR unsigned char  size(2) Largest target is 2000
 		 -> terminal_loop@buf(BANK4[100]), hardware_init@usbrx(BANK3[100]), hardware_init@usbtx(BIGRAMl[2000]), 
 
     ringbuf_num@rb	PTR struct ringbuf size(2) Largest target is 9
-		 -> terminal_loop@command(BANK1[8]), rx_buf(BANK2[8]), tx_buf(BANK2[8]), usb_rx(BANK2[8]), 
+		 -> terminal_loop@command(BANK1[8]), uart_rx(BANK2[8]), uart_tx(BANK2[8]), usb_rx(BANK2[8]), 
 		 -> usb_tx(BANK2[8]), 
 
     ringbuf_init@rb.buf	PTR unsigned char  size(2) Largest target is 2000
@@ -31240,10 +31240,10 @@ Pointer List with Targets:
     ringbuf_init@rb	PTR struct ringbuf size(2) Largest target is 9
 		 -> terminal_loop@command(BANK1[8]), usb_rx(BANK2[8]), usb_tx(BANK2[8]), 
 
-    rx_buf.buf	PTR unsigned char  size(2) Largest target is 2000
+    uart_rx.buf	PTR unsigned char  size(2) Largest target is 2000
 		 -> terminal_loop@buf(BANK4[100]), hardware_init@usbrx(BANK3[100]), hardware_init@usbtx(BIGRAMl[2000]), 
 
-    tx_buf.buf	PTR unsigned char  size(2) Largest target is 2000
+    uart_tx.buf	PTR unsigned char  size(2) Largest target is 2000
 		 -> terminal_loop@buf(BANK4[100]), hardware_init@usbrx(BANK3[100]), hardware_init@usbtx(BIGRAMl[2000]), 
 
     button_timer_interrupt@bt	PTR struct button size(2) Largest target is 69
@@ -32855,7 +32855,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.35 build -356382666 
-Symbol Table                                                                                   Tue Nov 10 21:13:44 2015
+Symbol Table                                                                                   Wed Nov 11 00:21:19 2015
 
              ?_settings_integrating_reset 002D                           get_string_usb@s 006D  
                               _USB_SD_Ptr FA79                              ?_display_LCD 002D  
@@ -32907,13 +32907,13 @@ Symbol Table                                                                    
                             _I2C_LCD_init 5C84                               ?_LED_output 0060  
                                     l1009 1944                                      l1034 6728  
                                     l1074 67FE                                      l2063 4250  
-                                    l2313 5EFC                                      l1433 3312  
-                                    l1267 6C0E                                      l2323 6328  
-                                    l2260 53BC                                      l2270 591A  
-                                    l1299 5B1E                USBConfigureEndpoint@handle 0033  
-                                    l1494 67C8                                      l1495 67C6  
-                                    l1852 0272                                      l1791 2E92  
-                                    OUT@b 0061                                      l1796 2EEE  
+                                    l2313 5EFC                                      l1267 6C0E  
+                                    l2323 6328                                      l2260 53BC  
+                                    l1508 67C8                                      l1509 67C6  
+                                    l2270 591A                                      l1447 3312  
+                                    l1810 2EEE                                      l1299 5B1E  
+              USBConfigureEndpoint@handle 0033                                      l1805 2E92  
+                                    l1852 0272                                      OUT@b 0061  
                                     l8051 12A0                                      l8043 1250  
                                     l8071 136E                                      l8063 131A  
                                     l8055 12C8                                      l8047 1278  
@@ -33281,7 +33281,7 @@ Symbol Table                                                                    
                        __end_of_CTMU_init 6AE6                         __end_of_CTMU_read 5254  
                             _cdc_mem_type 0124                                    _BCL1IF 007D0B  
                            _I2C_IdleCheck 6BBE                   __end_of_USBDeviceAttach 67D2  
-                        _CDCDataOutHandle 0007                         _getsUSBUSART$5865 006B  
+                        _CDCDataOutHandle 0007                         _getsUSBUSART$5936 006B  
                         ___llmod@dividend 006D                                    STR_100 FD98  
                                   STR_101 FF82                                    STR_110 FDFF  
                                   STR_102 FF3D                                    STR_103 FFEC  
@@ -33297,16 +33297,16 @@ Symbol Table                                                                    
                      display_time_1602@tm 00B3                          ___awdiv@dividend 0060  
                                ??_USB_ISR 004B                        I2C_LCD_Command@ans 0065  
                          getsUSBUSART@len 0069                     __size_of_CDCTxService 018C  
-                                  i2l2313 6546                                    i2l1433 36F6  
-                                  i2l1445 357C                                    i2l1519 40EE  
-                                  i2l1455 3616                                    i2l1632 5182  
-                                  i2l1456 368C                                    i2l1457 3628  
-                                  i2l1661 1E6E                                    i2l1582 5498  
-                                  i2l1646 426A                                    i2l1655 42CE  
-                                  i2l1680 2032                                    i2l1737 4B86  
-                                  i2l1585 5526                                    i2l1586 54A8  
-                                  i2l1739 4BD0                                    i2l1587 54AE  
-                                  i2l1595 6630                                    i2l7113 456A  
+                                  i2l1600 54A8                                    i2l2313 6546  
+                                  i2l1601 54AE                                    i2l1533 40EE  
+                                  i2l1470 368C                                    i2l1447 36F6  
+                                  i2l1471 3628                                    i2l1609 6630  
+                                  i2l1459 357C                                    i2l1660 426A  
+                                  i2l1469 3616                                    i2l1646 5182  
+                                  i2l1751 4B86                                    i2l1753 4BD0  
+                                  i2l1675 1E6E                                    i2l1596 5498  
+                                  i2l1669 42CE                                    i2l1694 2032  
+                                  i2l1599 5526                                    i2l7113 456A  
                                   i2l7109 4562                                    i2l7231 1F2A  
                                   i2l7223 1EE4                                    i2l7143 3410  
                                   i2l7135 45E0                                    i2l7119 4596  
@@ -33407,9 +33407,8 @@ Symbol Table                                                                    
                         ___awdiv@quotient 0066                           ___awmod@divisor 0062  
                     __size_of_display_LCD 04C4                           ___awmod@counter 0064  
                       _ctmu_sampling_flag 001A                                    _x_to_d 6B9E  
-                      ?_USBEnableEndpoint 0035                                    _rx_buf 02A2  
-              __size_of_RTCC_from_caltime 0026                                    _usb_rx 02B2  
-                                  _usb_tx 02BA                                    _tx_buf 02AA  
+                      ?_USBEnableEndpoint 0035                __size_of_RTCC_from_caltime 0026  
+                                  _usb_rx 02B2                                    _usb_tx 02BA  
                     __size_of_display_dec 006A                                    _strcat 6392  
                                   _strcmp 63F2                                    _strcpy 6762  
                                ??_display 0064                            i2___awdiv@sign 0032  
@@ -33451,7 +33450,7 @@ Symbol Table                                                                    
                           _put_string_usb 6934                        ??_port_button_loop 0066  
                   i2_USBTransferOnePacket 5544                                 ?_USB_init 002D  
                                ?_USB_loop 002D                          I2C_LCD_Command@c 0064  
-                              ??_I2C_Send 0062                         _CDCTxService$5913 0068  
+                              ??_I2C_Send 0062                         _CDCTxService$5984 0068  
                               ??_I2C_Stop 0062                                _cdc_notice 0200  
                  __size_of_ringbuf_delete 0026                                 ?i2_memset 002D  
                               _cdc_rx_len 00FB                                ??_I2C_init 0060  
@@ -33553,6 +33552,7 @@ Symbol Table                                                                    
           settings_integrating_reset@strp 0092                                 _T5CONbits 000F22  
                    __end_of_hardware_init 5752                           i2_USBDeviceInit 3690  
                         i2USBDeviceInit@i 0035                         __end_ofdata_out@p FBE2  
+                                 _uart_rx 02A2                                   _uart_tx 02AA  
                       __end_of_USB_CD_Ptr FA81                                   _sprintf 0000  
          __size_of_USBCtrlTrfSetupHandler 008E                   __end_of_RTCC_to_caltime 548A  
                    ?_RTCC_adjust_time_dec 0091                     ?_RTCC_adjust_time_inc 0091  

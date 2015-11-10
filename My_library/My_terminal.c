@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include "My_RTCC.h"
 
-void terminal_loop(ringbuf_t *tx, ringbuf_t *rx) {
+void terminal_task(ringbuf_t *tx, ringbuf_t *rx) {
     static ringbuf_t command;
     static uint8_t command_init = 0;
     if (command_init == 0) {

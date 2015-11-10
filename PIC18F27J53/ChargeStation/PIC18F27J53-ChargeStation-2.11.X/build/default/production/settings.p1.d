@@ -4,8 +4,8 @@
 settings.h  \
 io.h  \
 LCD_print.h  \
-../My_library/My_ringbuf.h  \
+../../../My_library/My_ringbuf.h  \
 ChargeStation_task.h  \
-../My_library/My_RTCC.h  \
+../../../My_library/My_RTCC.h  \
 ctmu.h  \
-../My_library/My_button.h 
+../../../My_library/My_button.h 

@@ -10513,7 +10513,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 16 "../My_library\My_ST7032.h"
+# 16 "../../../My_library\My_ST7032.h"
 void I2C_LCD_Command(uint8_t c);
 void I2C_LCD_Clear(void);
 void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
@@ -10522,7 +10522,7 @@ void I2C_LCD_Puts(const uint8_t * s);
 void I2C_LCD_CreateChar(int p, char *dt);
 void I2C_LCD_init(void);
 
-# 26 "../My_library\My_button.h"
+# 26 "../../../My_library\My_button.h"
 typedef struct button {
 uint16_t cnt_sw;
 
@@ -10552,7 +10552,7 @@ uint8_t long_holding_7 : 1;
 
 void button_timer_interrupt(button_t *bt, uint8_t sw_value);
 
-# 39 "../My_library\My_RTCC.h"
+# 39 "../../../My_library\My_RTCC.h"
 typedef uint32_t epoch_t;
 
 
@@ -10644,7 +10644,7 @@ void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, butt
 
 void RTCC_loop(void);
 
-# 19 "../My_library\My_ringbuf.h"
+# 19 "../../../My_library\My_ringbuf.h"
 typedef struct ringbuf {
 char *buf;
 uint16_t size;

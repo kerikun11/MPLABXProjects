@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.sym \
   --cmf=dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.cmf \
-  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s1pc.2 \
+  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s37k.2 \
   -Mdist/default/production/PIC18F27J53-ChargeStation-2.11.X.production.map \
   -E1 -ver=XC8 -ASTACK=0D40h-0eafh -pstack=STACK -ACODE=00h-01FFF7h \
   -ACONST=00h-01FFF7h -ASMALLCONST=0F00h-0FFFhx496,01FF00h-01FFF7h \
@@ -26,7 +26,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\KERIKU~1\AppData\Local\Temp\s1pc.obj \
+  C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj \
   dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj 
 
 Object code version is 3.11
@@ -39,7 +39,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\KERIKU~1\AppData\Local\Temp\s1pc.obj
+C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
                 end_init                             E0       E0        4        4       0
                 reset_vec                             0        0        4        0       0
                 config                            1FFF8    1FFF8        8    1FFF8       0
@@ -569,7 +569,7 @@ _CDCDataInHandle                          bssBANK1      00118
 _CDCDataOutHandle                         bssCOMRAM     00007
 _CDCInitEP                                text120       16060
 _CDCTxService                             text90        12E34
-_CDCTxService$5913                        cstackBANK0   00068
+_CDCTxService$5984                        cstackBANK0   00068
 _CTMUCONH                                 (abs)         00FB3
 _CTMUCONHbits                             (abs)         00FB3
 _CTMUCONL                                 (abs)         00FB2
@@ -1677,7 +1677,7 @@ _epoch_to_caltime                         text26        12C42
 _get_quot_rem                             text27        14BFE
 _get_string_usb                           text87        165A0
 _getsUSBUSART                             text89        14602
-_getsUSBUSART$5865                        cstackBANK0   0006B
+_getsUSBUSART$5936                        cstackBANK0   0006B
 _hardware_init                            text55        156AC
 _inPipes                                  bssBANK0      000EF
 _integrate_current                        text36        13E80
@@ -1718,7 +1718,6 @@ _ringbuf_pop                              text83        14E74
 _ringbuf_put                              text82        14CD2
 _ringbuf_put_num                          text10        15D94
 _ringbuf_put_str                          text48        161A6
-_rx_buf                                   bssBANK2      002A2
 _sd000                                    mediumconst   0FBE2
 _sd001                                    mediumconst   0FB3C
 _sd002                                    mediumconst   0FB70
@@ -1748,7 +1747,8 @@ _time_change_flag                         bssCOMRAM     00025
 _timer0_init                              text58        166EE
 _timer1_init                              text57        16550
 _timer3_init                              text56        169E8
-_tx_buf                                   bssBANK2      002AA
+_uart_rx                                  bssBANK2      002A2
+_uart_tx                                  bssBANK2      002AA
 _usb_rx                                   bssBANK2      002B2
 _usb_tx                                   bssBANK2      002BA
 _weekday_3char                            mediumconst   0FBA4
@@ -2000,7 +2000,7 @@ Total ram usage:        0 bytes
 
  *************** function _terminal_loop *****************
  Defined at:
-		line 8 in file "../My_library/My_terminal.c"
+		line 8 in file "../../../My_library/My_terminal.c"
  Parameters:    Size  Location     Type
   tx              2    0[BANK1 ] PTR struct ringbuf
 		 -> usb_tx(8), 
@@ -2088,7 +2088,7 @@ Total ram usage:       11 bytes
 
  *************** function _terminal_time *****************
  Defined at:
-		line 93 in file "../My_library/My_terminal.c"
+		line 93 in file "../../../My_library/My_terminal.c"
  Parameters:    Size  Location     Type
   tx              2  114[BANK0 ] PTR struct ringbuf
 		 -> usb_tx(8), 
@@ -2129,7 +2129,7 @@ Total ram usage:        9 bytes
 
  *************** function _terminal_at_hand *****************
  Defined at:
-		line 82 in file "../My_library/My_terminal.c"
+		line 82 in file "../../../My_library/My_terminal.c"
  Parameters:    Size  Location     Type
   tx              2  107[BANK0 ] PTR struct ringbuf
 		 -> usb_tx(8), 
@@ -2167,7 +2167,7 @@ Total ram usage:        7 bytes
 
  *************** function _print_time *****************
  Defined at:
-		line 68 in file "../My_library/My_terminal.c"
+		line 68 in file "../../../My_library/My_terminal.c"
  Parameters:    Size  Location     Type
   tx              2   75[BANK0 ] PTR struct ringbuf
 		 -> usb_tx(8), 
@@ -2201,7 +2201,7 @@ Total ram usage:       32 bytes
 
  *************** function _RTCC_from_caltime *****************
  Defined at:
-		line 198 in file "../My_library/My_RTCC.c"
+		line 198 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   tm              2   47[BANK0 ] PTR struct .
 		 -> now(14), 
@@ -2341,7 +2341,7 @@ Total ram usage:        0 bytes
 
  *************** function _ringbuf_put_num *****************
  Defined at:
-		line 28 in file "../My_library/My_ringbuf.c"
+		line 28 in file "../../../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2   35[BANK0 ] PTR struct ringbuf
 		 -> usb_tx(8), 
@@ -2377,7 +2377,7 @@ Total ram usage:        8 bytes
 
  *************** function _ringbuf_delete *****************
  Defined at:
-		line 66 in file "../My_library/My_ringbuf.c"
+		line 66 in file "../../../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2    0[BANK0 ] PTR struct ringbuf
 		 -> terminal_loop@command(8), 
@@ -2408,7 +2408,7 @@ Total ram usage:        2 bytes
 
  *************** function _ringbuf_backspace *****************
  Defined at:
-		line 59 in file "../My_library/My_ringbuf.c"
+		line 59 in file "../../../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2    8[BANK0 ] PTR struct ringbuf
 		 -> terminal_loop@command(8), 
@@ -2766,7 +2766,7 @@ Total ram usage:        0 bytes
 
  *************** function _RTCC_adjust_time_toggle *****************
  Defined at:
-		line 262 in file "../My_library/My_RTCC.c"
+		line 262 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   tm              2    0[BANK0 ] PTR struct .
 		 -> now(14), 
@@ -2798,7 +2798,7 @@ Total ram usage:        2 bytes
 
  *************** function _RTCC_adjust_time_inc *****************
  Defined at:
-		line 280 in file "../My_library/My_RTCC.c"
+		line 280 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   tm              2   49[BANK0 ] PTR struct .
 		 -> now(14), 
@@ -2834,7 +2834,7 @@ Total ram usage:        8 bytes
 
  *************** function _RTCC_adjust_time_dec *****************
  Defined at:
-		line 301 in file "../My_library/My_RTCC.c"
+		line 301 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   tm              2   49[BANK0 ] PTR struct .
 		 -> now(14), 
@@ -2870,7 +2870,7 @@ Total ram usage:        8 bytes
 
  *************** function _RTCC_from_epoch *****************
  Defined at:
-		line 204 in file "../My_library/My_RTCC.c"
+		line 204 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   tm              2   47[BANK0 ] PTR struct .
 		 -> now(14), 
@@ -2904,7 +2904,7 @@ Total ram usage:        2 bytes
 
  *************** function _epoch_to_caltime *****************
  Defined at:
-		line 119 in file "../My_library/My_RTCC.c"
+		line 119 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   tm              2   33[BANK0 ] PTR struct .
 		 -> now(14), 
@@ -2941,7 +2941,7 @@ Total ram usage:       14 bytes
 
  *************** function _get_quot_rem *****************
  Defined at:
-		line 74 in file "../My_library/My_RTCC.c"
+		line 74 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   quot            2   25[BANK0 ] PTR unsigned long 
 		 -> epoch_to_caltime@num(4), 
@@ -2974,7 +2974,7 @@ Total ram usage:        8 bytes
 
  *************** function _caltime_to_RTCC *****************
  Defined at:
-		line 99 in file "../My_library/My_RTCC.c"
+		line 99 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   tm              2    9[BANK0 ] PTR struct .
 		 -> now(14), 
@@ -3006,7 +3006,7 @@ Total ram usage:        2 bytes
 
  *************** function _d_to_x *****************
  Defined at:
-		line 39 in file "../My_library/My_RTCC.c"
+		line 39 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   dec             1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -3069,7 +3069,7 @@ Total ram usage:        8 bytes
 
  *************** function _RTCC_adjust_time_cursor *****************
  Defined at:
-		line 270 in file "../My_library/My_RTCC.c"
+		line 270 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   tm              2    0[BANK0 ] PTR struct .
 		 -> now(14), 
@@ -3319,7 +3319,7 @@ Total ram usage:       85 bytes
 
  *************** function _display_time_1602 *****************
  Defined at:
-		line 237 in file "../My_library/My_RTCC.c"
+		line 237 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   tm              2   83[BANK0 ] PTR struct .
 		 -> now(14), 
@@ -3400,7 +3400,7 @@ Total ram usage:        6 bytes
 
  *************** function _display_dec *****************
  Defined at:
-		line 211 in file "../My_library/My_RTCC.c"
+		line 211 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   str             2   75[BANK0 ] PTR unsigned char 
 		 -> display_LCD@str(40), 
@@ -3474,7 +3474,7 @@ Total ram usage:        6 bytes
 
  *************** function _I2C_LCD_SetCursor *****************
  Defined at:
-		line 26 in file "../My_library/My_ST7032.c"
+		line 26 in file "../../../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
   col             1    wreg     unsigned char 
   row             1    6[BANK0 ] unsigned char 
@@ -3508,7 +3508,7 @@ Total ram usage:        4 bytes
 
  *************** function _I2C_LCD_Puts *****************
  Defined at:
-		line 45 in file "../My_library/My_ST7032.c"
+		line 45 in file "../../../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
   s               2    4[BANK0 ] PTR const unsigned char 
 		 -> display_LCD@str_575(20), display_LCD@str(40), display_char(40), STR_10(16), 
@@ -3696,7 +3696,7 @@ Total ram usage:        9 bytes
 
  *************** function _ringbuf_put_str *****************
  Defined at:
-		line 39 in file "../My_library/My_ringbuf.c"
+		line 39 in file "../../../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2   15[BANK0 ] PTR struct ringbuf
 		 -> usb_tx(8), 
@@ -3901,7 +3901,7 @@ Total ram usage:        1 bytes
 
  *************** function _ADC *****************
  Defined at:
-		line 155 in file "../My_library/My_PIC.c"
+		line 155 in file "../../../My_library/My_PIC.c"
  Parameters:    Size  Location     Type
   ch              1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -3971,7 +3971,7 @@ Total ram usage:        0 bytes
 
  *************** function _timer3_init *****************
  Defined at:
-		line 72 in file "../My_library/My_PIC.c"
+		line 72 in file "../../../My_library/My_PIC.c"
  Parameters:    Size  Location     Type
   prescaler       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -4001,7 +4001,7 @@ Total ram usage:        2 bytes
 
  *************** function _timer1_init *****************
  Defined at:
-		line 41 in file "../My_library/My_PIC.c"
+		line 41 in file "../../../My_library/My_PIC.c"
  Parameters:    Size  Location     Type
   prescaler       1    wreg     unsigned char 
   clock_select    1    0[BANK0 ] unsigned char 
@@ -4032,7 +4032,7 @@ Total ram usage:        3 bytes
 
  *************** function _timer0_init *****************
  Defined at:
-		line 6 in file "../My_library/My_PIC.c"
+		line 6 in file "../../../My_library/My_PIC.c"
  Parameters:    Size  Location     Type
   prescaler       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -4062,7 +4062,7 @@ Total ram usage:        2 bytes
 
  *************** function _ringbuf_init *****************
  Defined at:
-		line 5 in file "../My_library/My_ringbuf.c"
+		line 5 in file "../../../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2    0[BANK0 ] PTR struct ringbuf
 		 -> terminal_loop@command(8), usb_rx(8), usb_tx(8), 
@@ -4097,7 +4097,7 @@ Total ram usage:        6 bytes
 
  *************** function _USB_init *****************
  Defined at:
-		line 11 in file "../My_library/usb_cdc/My_usb_cdc.c"
+		line 11 in file "../../../My_library/My_usb_cdc.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4128,7 +4128,7 @@ Total ram usage:        0 bytes
 
  *************** function _USBDeviceInit *****************
  Defined at:
-		line 298 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 298 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4192,7 +4192,7 @@ Total ram usage:        8 bytes
 
  *************** function _USBDeviceAttach *****************
  Defined at:
-		line 1352 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 1352 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4222,7 +4222,7 @@ Total ram usage:        0 bytes
 
  *************** function _RTCC_init *****************
  Defined at:
-		line 22 in file "../My_library/My_RTCC.c"
+		line 22 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4252,7 +4252,7 @@ Total ram usage:        0 bytes
 
  *************** function _I2C_init *****************
  Defined at:
-		line 11 in file "../My_library/My_I2C.c"
+		line 11 in file "../../../My_library/My_I2C.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4282,7 +4282,7 @@ Total ram usage:        0 bytes
 
  *************** function _I2C_LCD_init *****************
  Defined at:
-		line 78 in file "../My_library/My_ST7032.c"
+		line 78 in file "../../../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4314,7 +4314,7 @@ Total ram usage:        3 bytes
 
  *************** function _I2C_LCD_Clear *****************
  Defined at:
-		line 21 in file "../My_library/My_ST7032.c"
+		line 21 in file "../../../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4347,7 +4347,7 @@ Total ram usage:        1 bytes
 
  *************** function _I2C_LCD_Command *****************
  Defined at:
-		line 8 in file "../My_library/My_ST7032.c"
+		line 8 in file "../../../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
   c               1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -4382,7 +4382,7 @@ Total ram usage:        2 bytes
 
  *************** function _I2C_Stop *****************
  Defined at:
-		line 45 in file "../My_library/My_I2C.c"
+		line 45 in file "../../../My_library/My_I2C.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4415,7 +4415,7 @@ Total ram usage:        0 bytes
 
  *************** function _I2C_Start *****************
  Defined at:
-		line 21 in file "../My_library/My_I2C.c"
+		line 21 in file "../../../My_library/My_I2C.c"
  Parameters:    Size  Location     Type
   adrs            1    wreg     unsigned char 
   rw              1    2[BANK0 ] unsigned char 
@@ -4449,7 +4449,7 @@ Total ram usage:        2 bytes
 
  *************** function _I2C_Send *****************
  Defined at:
-		line 51 in file "../My_library/My_I2C.c"
+		line 51 in file "../../../My_library/My_I2C.c"
  Parameters:    Size  Location     Type
   data            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -4482,7 +4482,7 @@ Total ram usage:        1 bytes
 
  *************** function _I2C_IdleCheck *****************
  Defined at:
-		line 7 in file "../My_library/My_I2C.c"
+		line 7 in file "../../../My_library/My_I2C.c"
  Parameters:    Size  Location     Type
   mask            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -4516,7 +4516,7 @@ Total ram usage:        2 bytes
 
  *************** function _CTMU_init *****************
  Defined at:
-		line 268 in file "../My_library/My_PIC.c"
+		line 268 in file "../../../My_library/My_PIC.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4546,7 +4546,7 @@ Total ram usage:        0 bytes
 
  *************** function _ADC_init *****************
  Defined at:
-		line 132 in file "../My_library/My_PIC.c"
+		line 132 in file "../../../My_library/My_PIC.c"
  Parameters:    Size  Location     Type
   p_ref           1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -4638,7 +4638,7 @@ Total ram usage:        0 bytes
 
  *************** function _button_timer_interrupt *****************
  Defined at:
-		line 3 in file "../My_library/My_button.c"
+		line 3 in file "../../../My_library/My_button.c"
  Parameters:    Size  Location     Type
   bt              2   35[BANK0 ] PTR struct button
 		 -> ctmu_m(4), port(69), 
@@ -4707,7 +4707,7 @@ Total ram usage:        7 bytes
 
  *************** function _CTMU_read *****************
  Defined at:
-		line 283 in file "../My_library/My_PIC.c"
+		line 283 in file "../../../My_library/My_PIC.c"
  Parameters:    Size  Location     Type
   ch              1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -4776,7 +4776,7 @@ Total ram usage:       13 bytes
 
  *************** function _USB_loop *****************
  Defined at:
-		line 66 in file "../My_library/usb_cdc/My_usb_cdc.c"
+		line 66 in file "../../../My_library/My_usb_cdc.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4811,10 +4811,10 @@ Total ram usage:        3 bytes
 
  *************** function _ringbuf_put *****************
  Defined at:
-		line 20 in file "../My_library/My_ringbuf.c"
+		line 20 in file "../../../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2    8[BANK0 ] PTR struct ringbuf
-		 -> terminal_loop@command(8), rx_buf(8), tx_buf(8), usb_rx(8), 
+		 -> terminal_loop@command(8), uart_rx(8), uart_tx(8), usb_rx(8), 
 		 -> usb_tx(8), 
   asciicode       1   10[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
@@ -4850,10 +4850,10 @@ Total ram usage:        7 bytes
 
  *************** function _ringbuf_pop *****************
  Defined at:
-		line 45 in file "../My_library/My_ringbuf.c"
+		line 45 in file "../../../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2    8[BANK0 ] PTR struct ringbuf
-		 -> terminal_loop@command(8), tx_buf(8), usb_rx(8), usb_tx(8), 
+		 -> terminal_loop@command(8), uart_tx(8), usb_rx(8), usb_tx(8), 
  Auto vars:     Size  Location     Type
   ret             1   14[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
@@ -4883,10 +4883,10 @@ Total ram usage:        7 bytes
 
  *************** function _ringbuf_num *****************
  Defined at:
-		line 12 in file "../My_library/My_ringbuf.c"
+		line 12 in file "../../../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2    0[BANK0 ] PTR struct ringbuf
-		 -> terminal_loop@command(8), rx_buf(8), tx_buf(8), usb_rx(8), 
+		 -> terminal_loop@command(8), uart_rx(8), uart_tx(8), usb_rx(8), 
 		 -> usb_tx(8), 
  Auto vars:     Size  Location     Type
 		None
@@ -4920,7 +4920,7 @@ Total ram usage:        8 bytes
 
  *************** function _put_string_usb *****************
  Defined at:
-		line 21 in file "../My_library/usb_cdc/My_usb_cdc.c"
+		line 21 in file "../../../My_library/My_usb_cdc.c"
  Parameters:    Size  Location     Type
   s               2   12[BANK0 ] PTR unsigned char 
 		 -> USB_loop@data(1), 
@@ -4954,7 +4954,7 @@ Total ram usage:        4 bytes
 
  *************** function _putUSBUSART *****************
  Defined at:
-		line 613 in file "../My_library/usb_cdc/usb/usb_device_cdc.c"
+		line 613 in file "../../../My_library/usb/usb_device_cdc.c"
  Parameters:    Size  Location     Type
   data            2    0[BANK0 ] PTR unsigned char 
 		 -> USB_loop@data(1), 
@@ -4986,7 +4986,7 @@ Total ram usage:        3 bytes
 
  *************** function _get_string_usb *****************
  Defined at:
-		line 32 in file "../My_library/usb_cdc/My_usb_cdc.c"
+		line 32 in file "../../../My_library/My_usb_cdc.c"
  Parameters:    Size  Location     Type
   s               2   13[BANK0 ] PTR unsigned char 
 		 -> USB_loop@data(1), 
@@ -5020,7 +5020,7 @@ Total ram usage:        7 bytes
 
  *************** function _is_usb_available *****************
  Defined at:
-		line 17 in file "../My_library/usb_cdc/My_usb_cdc.c"
+		line 17 in file "../../../My_library/My_usb_cdc.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5051,7 +5051,7 @@ Total ram usage:        1 bytes
 
  *************** function _getsUSBUSART *****************
  Defined at:
-		line 542 in file "../My_library/usb_cdc/usb/usb_device_cdc.c"
+		line 542 in file "../../../My_library/usb/usb_device_cdc.c"
  Parameters:    Size  Location     Type
   buffer          2    7[BANK0 ] PTR unsigned char 
 		 -> USB_loop@data(1), 
@@ -5083,7 +5083,7 @@ Total ram usage:        6 bytes
 
  *************** function _CDCTxService *****************
  Defined at:
-		line 893 in file "../My_library/usb_cdc/usb/usb_device_cdc.c"
+		line 893 in file "../../../My_library/usb/usb_device_cdc.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5115,7 +5115,7 @@ Total ram usage:        5 bytes
 
  *************** function _USBTransferOnePacket *****************
  Defined at:
-		line 995 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 995 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
   ep              1    wreg     unsigned char 
   dir             1    0[BANK0 ] unsigned char 
@@ -5153,7 +5153,7 @@ Total ram usage:        7 bytes
 
  *************** function _RTCC_loop *****************
  Defined at:
-		line 346 in file "../My_library/My_RTCC.c"
+		line 346 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5183,7 +5183,7 @@ Total ram usage:        0 bytes
 
  *************** function _RTCC_from_RTCC *****************
  Defined at:
-		line 193 in file "../My_library/My_RTCC.c"
+		line 193 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   tm              2   38[BANK0 ] PTR struct .
 		 -> now(14), 
@@ -5221,7 +5221,7 @@ Total ram usage:        2 bytes
 
  *************** function _caltime_to_epoch *****************
  Defined at:
-		line 173 in file "../My_library/My_RTCC.c"
+		line 173 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   tm              2   25[BANK0 ] PTR struct .
 		 -> now(14), 
@@ -5257,7 +5257,7 @@ Total ram usage:       13 bytes
 
  *************** function _month_length *****************
  Defined at:
-		line 49 in file "../My_library/My_RTCC.c"
+		line 49 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   year            1    wreg     unsigned char 
   month           1    6[BANK0 ] unsigned char 
@@ -5358,7 +5358,7 @@ Total ram usage:       12 bytes
 
  *************** function _RTCC_to_caltime *****************
  Defined at:
-		line 83 in file "../My_library/My_RTCC.c"
+		line 83 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   tm              2    2[BANK0 ] PTR struct .
 		 -> now(14), 
@@ -5389,7 +5389,7 @@ Total ram usage:        3 bytes
 
  *************** function _x_to_d *****************
  Defined at:
-		line 45 in file "../My_library/My_RTCC.c"
+		line 45 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
   hex             1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -5451,7 +5451,7 @@ Total ram usage:       14 bytes
 
  *************** function _millis_timer *****************
  Defined at:
-		line 318 in file "../My_library/My_PIC.c"
+		line 318 in file "../../../My_library/My_PIC.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5480,7 +5480,7 @@ Total ram usage:        0 bytes
 
  *************** function _USB_ISR *****************
  Defined at:
-		line 7 in file "../My_library/usb_cdc/My_usb_cdc.c"
+		line 7 in file "../../../My_library/My_usb_cdc.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5510,7 +5510,7 @@ Total ram usage:        0 bytes
 
  *************** function _USBDeviceTasks *****************
  Defined at:
-		line 489 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 489 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5546,7 +5546,7 @@ Total ram usage:        1 bytes
 
  *************** function i2_USBDeviceInit *****************
  Defined at:
-		line 298 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 298 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5576,7 +5576,7 @@ Total ram usage:        1 bytes
 
  *************** function _USBWakeFromSuspend *****************
  Defined at:
-		line 2302 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 2302 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5606,7 +5606,7 @@ Total ram usage:        0 bytes
 
  *************** function _USBSuspend *****************
  Defined at:
-		line 2245 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 2245 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5636,7 +5636,7 @@ Total ram usage:        0 bytes
 
  *************** function _USBStallHandler *****************
  Defined at:
-		line 2202 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 2202 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5665,7 +5665,7 @@ Total ram usage:        1 bytes
 
  *************** function _USBCtrlEPService *****************
  Defined at:
-		line 2369 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 2369 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5697,7 +5697,7 @@ Total ram usage:        3 bytes
 
  *************** function _USBCtrlTrfSetupHandler *****************
  Defined at:
-		line 2469 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 2469 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5729,7 +5729,7 @@ Total ram usage:        0 bytes
 
  *************** function _USBCtrlEPServiceComplete *****************
  Defined at:
-		line 1616 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 1616 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5760,7 +5760,7 @@ Total ram usage:        0 bytes
 
  *************** function _USBCtrlEPAllowDataStage *****************
  Defined at:
-		line 1488 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 1488 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5790,7 +5790,7 @@ Total ram usage:        0 bytes
 
  *************** function _USBCheckStdRequest *****************
  Defined at:
-		line 2689 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 2689 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5824,7 +5824,7 @@ Total ram usage:        0 bytes
 
  *************** function _USBStdSetCfgHandler *****************
  Defined at:
-		line 1968 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 1968 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5889,7 +5889,7 @@ Total ram usage:        8 bytes
 
  *************** function _USBStdGetStatusHandler *****************
  Defined at:
-		line 2129 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 2129 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5919,7 +5919,7 @@ Total ram usage:        3 bytes
 
  *************** function _USBStdGetDscHandler *****************
  Defined at:
-		line 2043 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 2043 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5948,7 +5948,7 @@ Total ram usage:        2 bytes
 
  *************** function _USBStdFeatureReqHandler *****************
  Defined at:
-		line 2757 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 2757 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5982,7 +5982,7 @@ Total ram usage:        6 bytes
 
  *************** function _USER_USB_CALLBACK_EVENT_HANDLER *****************
  Defined at:
-		line 44 in file "../My_library/usb_cdc/My_usb_cdc.c"
+		line 44 in file "../../../My_library/My_usb_cdc.c"
  Parameters:    Size  Location     Type
   event           2   12[COMRAM] enum E8545
   pdata           2   14[COMRAM] PTR void 
@@ -6022,7 +6022,7 @@ Total ram usage:        8 bytes
 
  *************** function _USBCheckCDCRequest *****************
  Defined at:
-		line 204 in file "../My_library/usb_cdc/usb/usb_device_cdc.c"
+		line 204 in file "../../../My_library/usb/usb_device_cdc.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -6051,7 +6051,7 @@ Total ram usage:        0 bytes
 
  *************** function _CDCInitEP *****************
  Defined at:
-		line 351 in file "../My_library/usb_cdc/usb/usb_device_cdc.c"
+		line 351 in file "../../../My_library/usb/usb_device_cdc.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -6082,7 +6082,7 @@ Total ram usage:        0 bytes
 
  *************** function i2_USBTransferOnePacket *****************
  Defined at:
-		line 995 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 995 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
   ep              1    wreg     unsigned char 
   dir             1    0[COMRAM] unsigned char 
@@ -6117,7 +6117,7 @@ Total ram usage:        7 bytes
 
  *************** function _USBEnableEndpoint *****************
  Defined at:
-		line 878 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 878 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
   ep              1    wreg     unsigned char 
   options         1    8[COMRAM] unsigned char 
@@ -6150,7 +6150,7 @@ Total ram usage:        4 bytes
 
  *************** function _USBConfigureEndpoint *****************
  Defined at:
-		line 1543 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 1543 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
   EPNum           1    wreg     unsigned char 
   direction       1    0[COMRAM] unsigned char 
@@ -6182,7 +6182,7 @@ Total ram usage:        8 bytes
 
  *************** function _USBCtrlTrfOutHandler *****************
  Defined at:
-		line 2541 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 2541 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -6212,7 +6212,7 @@ Total ram usage:        0 bytes
 
  *************** function _USBCtrlTrfRxService *****************
  Defined at:
-		line 1852 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 1852 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -6243,7 +6243,7 @@ Total ram usage:        2 bytes
 
  *************** function _USBCtrlEPAllowStatusStage *****************
  Defined at:
-		line 1416 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 1416 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -6274,7 +6274,7 @@ Total ram usage:        0 bytes
 
  *************** function _USBCtrlTrfInHandler *****************
  Defined at:
-		line 2595 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 2595 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -6304,7 +6304,7 @@ Total ram usage:        1 bytes
 
  *************** function _USBCtrlTrfTxService *****************
  Defined at:
-		line 1771 in file "../My_library/usb_cdc/usb/usb_device.c"
+		line 1771 in file "../../../My_library/usb/usb_device.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -6461,75 +6461,43 @@ Total ram usage:        2 bytes
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-../My_library/My_terminal.c
-		_print_time    		CODE           	15BF8	0000	141
-		_terminal_at_hand		CODE           	16332	0000	97
-		_terminal_time 		CODE           	109E0	0000	941
-		_terminal_loop 		CODE           	10D8C	0000	875
+../../../My_library/usb/usb_device.c
+		_USBCtrlTrfInHandler		CODE           	150CE	0000	197
+		_USBTransferOnePacket		CODE           	1497A	0000	217
+		_USBDeviceAttach		CODE           	1679A	0000	57
+		_USBStdGetDscHandler		CODE           	133FE	0000	335
+		_USBCtrlEPAllowDataStage		CODE           	157F4	0000	159
+		_USBStdFeatureReqHandler		CODE           	11E44	0000	641
+		_USBCtrlEPAllowStatusStage		CODE           	1500A	0000	197
+		_USBCtrlTrfSetupHandler		CODE           	15B6A	0000	143
+		_USBCtrlTrfOutHandler		CODE           	1644E	0000	93
+		_USBCtrlEPServiceComplete		CODE           	14074	0000	245
+		_USBSuspend    		CODE           	16A14	0000	45
+		_USBStdSetCfgHandler		CODE           	14520	0000	227
+		_USBStdGetStatusHandler		CODE           	1548A	0000	187
+		_USBWakeFromSuspend		CODE           	16874	0000	51
+		_USBCtrlTrfRxService		CODE           	13B62	0000	281
+		_USBCtrlTrfTxService		CODE           	146E2	0000	225
+		_USBEnableEndpoint		CODE           	166B2	0000	61
+		_USBConfigureEndpoint		CODE           	1592C	0000	149
+		_USBDeviceInit 		CODE           	1329C	0000	355
+		_USBCtrlEPService		CODE           	14DA6	0000	207
+		_USBStallHandler		CODE           	165EE	0000	71
+		_USBDeviceTasks		CODE           	1354C	0000	325
+		_USBCheckStdRequest		CODE           	1425A	0000	243
 
-../My_library/My_terminal.c estimated size: 2054
+../../../My_library/usb/usb_device.c estimated size: 4711
 
-../My_library/My_ringbuf.c
-		_ringbuf_put_num		CODE           	15D94	0000	131
-		_ringbuf_put_str		CODE           	161A6	0000	101
-		_ringbuf_num   		CODE           	1434C	0000	239
-		_ringbuf_pop   		CODE           	14E74	0000	205
-		_ringbuf_put   		CODE           	14CD2	0000	213
-		_ringbuf_init  		CODE           	164AA	0000	85
-		_ringbuf_backspace		CODE           	159C0	0000	143
-		_ringbuf_delete		CODE           	16B0C	0000	39
+../../../My_library/usb/usb_device_cdc.c
+		_CDCTxService  		CODE           	12E34	0000	397
+		_CDCInitEP     		CODE           	16060	0000	113
+		_putUSBUSART   		CODE           	16B32	0000	39
+		_getsUSBUSART  		CODE           	14602	0000	225
+		_USBCheckCDCRequest		CODE           	14B28	0000	215
 
-../My_library/My_ringbuf.c estimated size: 1156
+../../../My_library/usb/usb_device_cdc.c estimated size: 989
 
-C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
-		___awdiv       		CODE           	15254	0000	191
-
-C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c estimated size: 191
-
-C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul32.c
-		___lmul        		CODE           	15F06	0000	119
-
-C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul32.c estimated size: 119
-
-settings.c
-		_settings_auto_stop		CODE           	127D8	0000	573
-		_settings_led_indicator		CODE           	1258A	0000	591
-		_settings_adjust_time		CODE           	148A0	0000	219
-		_settings_loop 		CODE           	12A14	0000	559
-		_settings_integrating_reset		CODE           	12332	0000	601
-
-settings.c estimated size: 2543
-
-C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\isdigit.c
-		_isdigit       		CODE           	16A6C	0000	43
-
-C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\isdigit.c estimated size: 43
-
-C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\strcat.c
-		_strcat        		CODE           	16392	0000	97
-
-C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\strcat.c estimated size: 97
-
-../My_library/My_PIC.c
-		_ADC           		CODE           	16906	0000	47
-		_CTMU_read     		CODE           	15192	0000	195
-		_CTMU_init     		CODE           	16ABE	0000	41
-		_ADC_init      		CODE           	16B7E	0000	33
-		_timer0_init   		CODE           	166EE	0000	59
-		_millis_timer  		CODE           	16B58	0000	39
-		_timer3_init   		CODE           	169E8	0000	45
-		_timer1_init   		CODE           	16550	0000	81
-
-../My_library/My_PIC.c estimated size: 540
-
-io.c
-		_ANALOG_IN     		CODE           	169BC	0000	45
-		_OUT           		CODE           	15FEE	0000	115
-		_LED_output    		CODE           	15F7C	0000	115
-
-io.c estimated size: 275
-
-../My_library/My_RTCC.c
+../../../My_library/My_RTCC.c
 		_RTCC_adjust_time_dec		CODE           	11912	0000	677
 		_display_dec   		CODE           	1613C	0000	107
 		_RTCC_loop     		CODE           	16728	0000	59
@@ -6550,7 +6518,75 @@ io.c estimated size: 275
 		_RTCC_from_epoch		CODE           	16C14	0000	27
 		_caltime_to_epoch		CODE           	11BB6	0000	655
 
-../My_library/My_RTCC.c estimated size: 4741
+../../../My_library/My_RTCC.c estimated size: 4741
+
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
+		___awdiv       		CODE           	15254	0000	191
+
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c estimated size: 191
+
+../../../My_library/My_ringbuf.c
+		_ringbuf_put_num		CODE           	15D94	0000	131
+		_ringbuf_put_str		CODE           	161A6	0000	101
+		_ringbuf_num   		CODE           	1434C	0000	239
+		_ringbuf_pop   		CODE           	14E74	0000	205
+		_ringbuf_put   		CODE           	14CD2	0000	213
+		_ringbuf_init  		CODE           	164AA	0000	85
+		_ringbuf_backspace		CODE           	159C0	0000	143
+		_ringbuf_delete		CODE           	16B0C	0000	39
+
+../../../My_library/My_ringbuf.c estimated size: 1156
+
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul32.c
+		___lmul        		CODE           	15F06	0000	119
+
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul32.c estimated size: 119
+
+../../../My_library/My_usb_cdc.c
+		_USB_ISR       		CODE           	16CA6	0000	7
+		_USER_USB_CALLBACK_EVENT_HANDLER		CODE           	16962	0000	47
+		_put_string_usb		CODE           	16934	0000	47
+		_is_usb_available		CODE           	16BF8	0000	29
+		_get_string_usb		CODE           	165A0	0000	79
+		_USB_loop      		CODE           	15ADC	0000	143
+		_USB_init      		CODE           	16BDC	0000	29
+
+../../../My_library/My_usb_cdc.c estimated size: 381
+
+settings.c
+		_settings_auto_stop		CODE           	127D8	0000	573
+		_settings_led_indicator		CODE           	1258A	0000	591
+		_settings_adjust_time		CODE           	148A0	0000	219
+		_settings_loop 		CODE           	12A14	0000	559
+		_settings_integrating_reset		CODE           	12332	0000	601
+
+settings.c estimated size: 2543
+
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\isdigit.c
+		_isdigit       		CODE           	16A6C	0000	43
+
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\isdigit.c estimated size: 43
+
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\strcat.c
+		_strcat        		CODE           	16392	0000	97
+
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\strcat.c estimated size: 97
+
+../../../My_library/My_I2C.c
+		_I2C_init      		CODE           	16C7A	0000	19
+		_I2C_IdleCheck 		CODE           	16BBE	0000	31
+		_I2C_Stop      		CODE           	16C9C	0000	11
+		_I2C_Send      		CODE           	16C62	0000	25
+		_I2C_Start     		CODE           	168D6	0000	49
+
+../../../My_library/My_I2C.c estimated size: 135
+
+io.c
+		_ANALOG_IN     		CODE           	169BC	0000	45
+		_OUT           		CODE           	15FEE	0000	115
+		_LED_output    		CODE           	15F7C	0000	115
+
+io.c estimated size: 275
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\strcmp.c
 		_strcmp        		CODE           	163F2	0000	93
@@ -6572,6 +6608,11 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\atoi.c
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\atoi.c estimated size: 243
 
+../../../My_library/My_button.c
+		_button_timer_interrupt		CODE           	110F6	0000	713
+
+../../../My_library/My_button.c estimated size: 713
+
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwmod.c
 		___lwmod       		CODE           	162D0	0000	99
 
@@ -6581,6 +6622,18 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
 		_sprintf       		CODE           	10000	0000	1309
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c estimated size: 1309
+
+../../../My_library/My_PIC.c
+		_ADC           		CODE           	16906	0000	47
+		_CTMU_read     		CODE           	15192	0000	195
+		_CTMU_init     		CODE           	16ABE	0000	41
+		_ADC_init      		CODE           	16B7E	0000	33
+		_timer0_init   		CODE           	166EE	0000	59
+		_millis_timer  		CODE           	16B58	0000	39
+		_timer3_init   		CODE           	169E8	0000	45
+		_timer1_init   		CODE           	16550	0000	81
+
+../../../My_library/My_PIC.c estimated size: 540
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\llmod.c
 		___llmod       		CODE           	15892	0000	155
@@ -6610,30 +6663,19 @@ shared
 
 shared estimated size: 1402
 
-../My_library/usb_cdc/My_usb_cdc.c
-		_USB_ISR       		CODE           	16CA6	0000	7
-		_USER_USB_CALLBACK_EVENT_HANDLER		CODE           	16962	0000	47
-		_put_string_usb		CODE           	16934	0000	47
-		_is_usb_available		CODE           	16BF8	0000	29
-		_get_string_usb		CODE           	165A0	0000	79
-		_USB_loop      		CODE           	15ADC	0000	143
-		_USB_init      		CODE           	16BDC	0000	29
+../../../My_library/My_ST7032.c
+		_I2C_LCD_Clear 		CODE           	16C2E	0000	27
+		_I2C_LCD_SetCursor		CODE           	16990	0000	45
+		_I2C_LCD_Command		CODE           	167D2	0000	57
+		_I2C_LCD_init  		CODE           	15C84	0000	141
+		_I2C_LCD_Puts  		CODE           	15A4E	0000	143
 
-../My_library/usb_cdc/My_usb_cdc.c estimated size: 381
+../../../My_library/My_ST7032.c estimated size: 413
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c
 		___awmod       		CODE           	15752	0000	163
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c estimated size: 163
-
-../My_library/usb_cdc/usb/usb_device_cdc.c
-		_CDCTxService  		CODE           	12E34	0000	397
-		_CDCInitEP     		CODE           	16060	0000	113
-		_putUSBUSART   		CODE           	16B32	0000	39
-		_getsUSBUSART  		CODE           	14602	0000	225
-		_USBCheckCDCRequest		CODE           	14B28	0000	215
-
-../My_library/usb_cdc/usb/usb_device_cdc.c estimated size: 989
 
 ctmu.c
 		_ctmu_set_ratio		CODE           	1443A	0000	231
@@ -6642,25 +6684,19 @@ ctmu.c
 
 ctmu.c estimated size: 507
 
-../My_library/My_ST7032.c
-		_I2C_LCD_Clear 		CODE           	16C2E	0000	27
-		_I2C_LCD_SetCursor		CODE           	16990	0000	45
-		_I2C_LCD_Command		CODE           	167D2	0000	57
-		_I2C_LCD_init  		CODE           	15C84	0000	141
-		_I2C_LCD_Puts  		CODE           	15A4E	0000	143
-
-../My_library/My_ST7032.c estimated size: 413
-
 LCD_print.c
 		_display       		CODE           	137D4	0000	309
 		_display_LCD   		CODE           	1051C	0000	1221
 
 LCD_print.c estimated size: 1530
 
-../My_library/My_button.c
-		_button_timer_interrupt		CODE           	110F6	0000	713
+../../../My_library/My_terminal.c
+		_print_time    		CODE           	15BF8	0000	141
+		_terminal_at_hand		CODE           	16332	0000	97
+		_terminal_time 		CODE           	109E0	0000	941
+		_terminal_loop 		CODE           	10D8C	0000	875
 
-../My_library/My_button.c estimated size: 713
+../../../My_library/My_terminal.c estimated size: 2054
 
 ChargeStation_task.c
 		_terminal_operation		CODE           	120C4	0000	623
@@ -6681,15 +6717,6 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c estimated size: 121
 
-../My_library/My_I2C.c
-		_I2C_init      		CODE           	16C7A	0000	19
-		_I2C_IdleCheck 		CODE           	16BBE	0000	31
-		_I2C_Stop      		CODE           	16C9C	0000	11
-		_I2C_Send      		CODE           	16C62	0000	25
-		_I2C_Start     		CODE           	168D6	0000	49
-
-../My_library/My_I2C.c estimated size: 135
-
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul16.c
 		___wmul        		CODE           	1680A	0000	55
 
@@ -6707,31 +6734,4 @@ main.c
 		_software_init 		CODE           	13F7C	0000	249
 
 main.c estimated size: 742
-
-../My_library/usb_cdc/usb/usb_device.c
-		_USBCtrlTrfInHandler		CODE           	150CE	0000	197
-		_USBTransferOnePacket		CODE           	1497A	0000	217
-		_USBDeviceAttach		CODE           	1679A	0000	57
-		_USBStdGetDscHandler		CODE           	133FE	0000	335
-		_USBCtrlEPAllowDataStage		CODE           	157F4	0000	159
-		_USBStdFeatureReqHandler		CODE           	11E44	0000	641
-		_USBCtrlEPAllowStatusStage		CODE           	1500A	0000	197
-		_USBCtrlTrfSetupHandler		CODE           	15B6A	0000	143
-		_USBCtrlTrfOutHandler		CODE           	1644E	0000	93
-		_USBCtrlEPServiceComplete		CODE           	14074	0000	245
-		_USBSuspend    		CODE           	16A14	0000	45
-		_USBStdSetCfgHandler		CODE           	14520	0000	227
-		_USBStdGetStatusHandler		CODE           	1548A	0000	187
-		_USBWakeFromSuspend		CODE           	16874	0000	51
-		_USBCtrlTrfRxService		CODE           	13B62	0000	281
-		_USBCtrlTrfTxService		CODE           	146E2	0000	225
-		_USBEnableEndpoint		CODE           	166B2	0000	61
-		_USBConfigureEndpoint		CODE           	1592C	0000	149
-		_USBDeviceInit 		CODE           	1329C	0000	355
-		_USBCtrlEPService		CODE           	14DA6	0000	207
-		_USBStallHandler		CODE           	165EE	0000	71
-		_USBDeviceTasks		CODE           	1354C	0000	325
-		_USBCheckStdRequest		CODE           	1425A	0000	243
-
-../My_library/usb_cdc/usb/usb_device.c estimated size: 4711
 
