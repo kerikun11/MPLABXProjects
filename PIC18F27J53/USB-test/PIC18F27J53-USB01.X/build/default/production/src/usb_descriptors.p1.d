@@ -1,0 +1,19 @@
+ build/default/production/src/usb_descriptors.d  \
+ build/default/production/src/usb_descriptors.p1:  \
+ src/usb_descriptors.c  \
+src/pic18f47j53_pim/io_mapping.h  \
+src/pic18f47j53_pim/buttons.h  \
+src/pic18f47j53_pim/usart.h  \
+src/usb/usb_device.h  \
+src/usb/usb_hal_pic18.h  \
+src/pic18f47j53_pim/leds.h  \
+src/pic18f47j53_pim/adc.h  \
+src/usb/usb_hal.h  \
+src/usb/usb_device_cdc.h  \
+src/usb_config.h  \
+src/pic18f47j53_pim/system.h  \
+src/usb/usb_common.h  \
+src/usb/usb.h  \
+src/system_config.h  \
+src/pic18f47j53_pim/power.h  \
+src/usb/usb_ch9.h 

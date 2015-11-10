@@ -1,0 +1,56 @@
+
+
+Microchip Technology PIC18 Macro Assembler V1.34 build -361300703 
+                                                                                                           Fri Oct 09 12:10:17 2015
+
+
+     1                           
+     2                           # 1 "../src/VectorRemap.asm"
+     3                           
+     4                           # 1
+     5                           ;-------------------------------------------------------------------------------
+     6                           ;* FileName: VectorRemap.asm
+     7                           ;* Dependencies: None
+     8                           ;* Processor: PIC18
+     9                           ;* Compiler: MPLAB C18 3.46+ or XC8 v1.21+
+    10                           ;* Company: Microchip Technology, Inc.
+    11                           ;*
+    12                           ;* Software License Agreement
+    13                           ;*
+    14                           ;* The software supplied herewith by Microchip Technology Incorporated
+    15                           ;* (the "Company") for its PIC(R) Microcontroller is intended and
+    16                           ;* supplied to you, the Company's customer, for use solely and
+    17                           ;* exclusively on Microchip PIC Microcontroller products. The
+    18                           ;* software is owned by the Company and/or its supplier, and is
+    19                           ;* protected under applicable copyright laws. All rights are reserved.
+    20                           ;* Any use in violation of the foregoing restrictions may subject the
+    21                           ;* user to criminal sanctions under applicable laws, as well as to
+    22                           ;* civil liability for the breach of the terms and conditions of this
+    23                           ;* license.
+    24                           ;*
+    25                           ;* THIS SOFTWARE IS PROVIDED IN AN "AS IS"” CONDITION. NO WARRANTIES,
+    26                           ;* WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT NOT LIMITED
+    27                           ;* TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+    28                           ;* PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. THE COMPANY SHALL NOT,
+    29                           ;* IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL OR
+    30                           ;* CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+    31                           ;-------------------------------------------------------------------------------
+    32                           
+    33                           ;
+    34                           
+    35                           PSECT HiVector,class=CODE,delta=1,abs
+    36                           
+    37  0008'                    goto 0x1008 ;Resides at 0x0008 (hardware high priority interrupt vector), and causes PC to jump to 0
+                                 x1008 upon a high priority interrupt event
+    38  0008' EF04 F008          
+    39                           
+    40                           ;
+    41                           ;
+    42                           
+    43                           PSECT LoVector,class=CODE,delta=1,abs
+    44                           
+    45                           org 0x18
+    46  0018'                    goto 0x1018 ;Resides at 0x0018 (hardware low priority interrupt vector), and causes PC to jump to 0x
+                                 1018 upon a low priority interrupt event
+    47  0018' EF0C F008          goto 0x30 ;Resides at 0x001C
+    48  001C' EF18 F000          

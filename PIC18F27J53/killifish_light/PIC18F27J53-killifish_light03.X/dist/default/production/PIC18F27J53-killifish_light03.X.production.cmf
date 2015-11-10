@@ -1,0 +1,1734 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+cinit CODE 0 1271C 1271C 5C 1
+text0 CODE 0 10000 10000 38E 1
+text1 CODE 0 106F4 106F4 338 1
+text2 CODE 0 12460 12460 82 1
+text3 CODE 0 11B62 11B62 BE 1
+text4 CODE 0 12A06 12A06 22 1
+text5 CODE 0 123DC 123DC 84 1
+text6 CODE 0 1038E 1038E 366 1
+text7 CODE 0 128AC 128AC 42 1
+text8 CODE 0 10F3E 10F3E 206 1
+text9 CODE 0 12196 12196 9C 1
+text10 CODE 0 12054 12054 A4 1
+text11 CODE 0 125DE 125DE 76 1
+text12 CODE 0 11334 11334 1D6 1
+text13 CODE 0 12654 12654 64 1
+text14 CODE 0 126B8 126B8 64 1
+text15 CODE 0 119D6 119D6 C6 1
+text16 CODE 0 1168A 1168A DA 1
+text17 CODE 0 12352 12352 8A 1
+text18 CODE 0 1281A 1281A 4C 1
+text19 CODE 0 12A28 12A28 22 1
+text20 CODE 0 11FA8 11FA8 AC 1
+text21 CODE 0 12AC8 12AC8 1A 1
+text22 CODE 0 12926 12926 36 1
+text23 CODE 0 10A2C 10A2C 28C 1
+text24 CODE 0 1150A 1150A 180 1
+text25 CODE 0 128EE 128EE 38 1
+text26 CODE 0 124E2 124E2 82 1
+text27 CODE 0 12232 12232 90 1
+text28 CODE 0 129E0 129E0 26 1
+text29 CODE 0 12866 12866 46 1
+text30 CODE 0 12778 12778 54 1
+text31 CODE 0 12A6C 12A6C 20 1
+text32 CODE 0 1295C 1295C 30 1
+text33 CODE 0 11D96 11D96 B4 1
+text34 CODE 0 12AE2 12AE2 E 1
+text35 CODE 0 12AAC 12AAC 1C 1
+text36 CODE 0 120F8 120F8 9E 1
+text37 CODE 0 1298C 1298C 2A 1
+text38 CODE 0 12A4A 12A4A 22 1
+text39 CODE 0 11144 11144 1F0 1
+text40 CODE 0 1190C 1190C CA 1
+text41 CODE 0 122C2 122C2 90 1
+text42 CODE 0 11764 11764 D6 1
+text43 CODE 0 12564 12564 7A 1
+text44 CODE 0 11A9C 11A9C C6 1
+text45 CODE 0 1183A 1183A D2 1
+text46 CODE 0 12A8C 12A8C 20 1
+text47 CODE 0 11EFA 11EFA AE 1
+text48 CODE 0 129B6 129B6 2A 1
+text50 CODE 0 10CB8 10CB8 286 1
+text51 CODE 0 127CC 127CC 4E 1
+text52 CODE 0 11CDE 11CDE B8 1
+text53 CODE 0 11E4A 11E4A B0 1
+text54 CODE 0 11C20 11C20 BE 1
+cstackCOMRAM COMRAM 1 1 1 23 1
+cstackBANK0 BANK0 1 60 60 50 1
+cstackBANK1 BANK1 1 100 100 81 1
+bssBANK0 BANK0 1 B0 B0 4F 1
+bssBANK1 BANK1 1 181 181 28 1
+bssBANK2 BANK2 1 200 200 FA 1
+intcode CODE 0 1008 1008 D6 1
+idataBANK0 CODE 0 1004 1004 1 1
+dataBANK0 BANK0 1 FF FF 1 1
+bssBIGRAM BIGRAM 1 2FA 2FA 3E8 1
+bssCOMRAM COMRAM 1 24 24 1E 1
+mediumconst MEDIUMCONST 0 FE2C FE2C 1D4 1
+$C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+reset_vec CODE 0 1000 1000 4 1
+end_init CODE 0 10DE 10DE 4 1
+config CONFIG 0 1FFF8 1FFF8 8 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 1A9-1FF 1
+RAM 6E2-EAF 1
+SFR EB0-FFF 1
+BANK1 1A9-1FF 1
+BANK6 6E2-6FF 1
+BANK7 700-7FF 1
+BANK8 800-8FF 1
+BANK9 900-9FF 1
+CONST 1005-1005 1
+CONST 10E2-FE2B 1
+CONST 12AF0-1FFF7 1
+STACK 6E2-EAF 1
+SMALLCONST 1005-1005 1
+SMALLCONST 10E2-FE2B 1
+SMALLCONST 12AF0-1FFF7 1
+CODE 1005-1005 1
+CODE 10E2-FE2B 1
+CODE 12AF0-1FFF7 1
+BANK10 A00-AFF 1
+BANK11 B00-BFF 1
+BANK12 C00-CFF 1
+BANK13 D00-DFF 1
+BANK14 E00-EAF 1
+BIGRAM 42-5F 1
+BIGRAM 1A9-1FF 1
+BIGRAM 6E2-EAF 1
+COMRAM 42-5F 1
+FARRAM 0-0 1
+MEDIUMCONST 1005-1005 1
+MEDIUMCONST 10E2-FE2B 1
+MEDIUMCONST 12AF0-1FFF7 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+1008 intcode CODE >180:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+1008 intcode CODE >59:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1040 intcode CODE >60:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1044 intcode CODE >61:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1046 intcode CODE >62:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1048 intcode CODE >64:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+104C intcode CODE >65:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+104E intcode CODE >66:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1054 intcode CODE >68:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1058 intcode CODE >69:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+105A intcode CODE >70:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1072 intcode CODE >71:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+108A intcode CODE >72:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10A4 intcode CODE >74:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10000 text0 CODE >249:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10000 text0 CODE >250:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10004 text0 CODE >251:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10006 text0 CODE >254:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10022 text0 CODE >255:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10028 text0 CODE >256:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10038 text0 CODE >257:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10054 text0 CODE >258:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10056 text0 CODE >262:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1005A text0 CODE >263:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10076 text0 CODE >264:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1008E text0 CODE >265:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10096 text0 CODE >266:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1009C text0 CODE >267:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+100B8 text0 CODE >268:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+100C0 text0 CODE >269:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+100F6 text0 CODE >270:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1015E text0 CODE >271:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+101CC text0 CODE >272:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+101DA text0 CODE >273:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+101DC text0 CODE >275:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+101E0 text0 CODE >276:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+101E8 text0 CODE >277:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+101EE text0 CODE >279:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+101FE text0 CODE >280:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10204 text0 CODE >281:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1020E text0 CODE >282:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1022C text0 CODE >283:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1023C text0 CODE >282:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10246 text0 CODE >285:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10246 text0 CODE >286:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1024C text0 CODE >287:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10256 text0 CODE >288:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1025C text0 CODE >290:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1026C text0 CODE >291:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10272 text0 CODE >292:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1027C text0 CODE >293:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1028C text0 CODE >295:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10290 text0 CODE >296:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10298 text0 CODE >297:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+102A0 text0 CODE >299:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+102A4 text0 CODE >300:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+102AC text0 CODE >301:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+102B4 text0 CODE >303:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+102BC text0 CODE >304:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+102DA text0 CODE >305:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10326 text0 CODE >307:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10354 text0 CODE >308:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10368 text0 CODE >309:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1037A text0 CODE >304:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10388 text0 CODE >261:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1038A text0 CODE >315:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1038E text6 CODE >165:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1038E text6 CODE >166:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+103C2 text6 CODE >180:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+103D4 text6 CODE >182:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+103EE text6 CODE >183:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+103F2 text6 CODE >185:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10426 text6 CODE >186:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10444 text6 CODE >188:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10478 text6 CODE >189:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1048C text6 CODE >191:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+104A6 text6 CODE >192:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+104C0 text6 CODE >193:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+104C8 text6 CODE >195:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+104FC text6 CODE >196:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10502 text6 CODE >197:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10504 text6 CODE >199:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10538 text6 CODE >200:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1056C text6 CODE >201:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10572 text6 CODE >202:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1058E text6 CODE >204:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+105C2 text6 CODE >205:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+105C8 text6 CODE >206:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+105E4 text6 CODE >208:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10618 text6 CODE >209:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1061E text6 CODE >210:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1063A text6 CODE >212:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1066E text6 CODE >213:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10674 text6 CODE >214:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+10690 text6 CODE >216:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+106AA text6 CODE >217:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+106B0 text6 CODE >218:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+106C0 text6 CODE >219:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+106D0 text6 CODE >220:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+106E0 text6 CODE >221:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+106F0 text6 CODE >222:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+106F2 text6 CODE >224:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+106F4 text1 CODE >21:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+106F4 text1 CODE >24:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+106FE text1 CODE >25:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10704 text1 CODE >27:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+1072C text1 CODE >29:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10740 text1 CODE >30:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10750 text1 CODE >31:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10752 text1 CODE >33:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10762 text1 CODE >34:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10772 text1 CODE >35:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+107A8 text1 CODE >36:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+107B8 text1 CODE >42:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+107F2 text1 CODE >43:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10808 text1 CODE >44:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10842 text1 CODE >45:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10858 text1 CODE >46:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10892 text1 CODE >47:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+108A8 text1 CODE >48:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+108E2 text1 CODE >49:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+108F8 text1 CODE >50:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10934 text1 CODE >51:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10936 text1 CODE >53:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10946 text1 CODE >54:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10956 text1 CODE >55:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10958 text1 CODE >57:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10964 text1 CODE >58:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+1097C text1 CODE >59:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+1097E text1 CODE >61:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+109CA text1 CODE >62:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+109D6 text1 CODE >63:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+109D8 text1 CODE >65:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+109E8 text1 CODE >66:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+109F8 text1 CODE >67:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10A08 text1 CODE >70:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10A0A text1 CODE >31:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10A28 text1 CODE >70:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10A2A text1 CODE >72:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10A2C text23 CODE >211:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10A2C text23 CODE >212:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10A3E text23 CODE >213:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10A46 text23 CODE >214:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10A56 text23 CODE >215:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10AAA text23 CODE >214:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10AB0 text23 CODE >213:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10ACE text23 CODE >218:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10AD6 text23 CODE >219:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10B36 text23 CODE >218:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10B54 text23 CODE >221:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10BD0 text23 CODE >222:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10C28 text23 CODE >223:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10C80 text23 CODE >224:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10C9E text23 CODE >226:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10CB6 text23 CODE >227:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+10CB8 text50 CODE >51:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10CB8 text50 CODE >52:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10CBE text50 CODE >53:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10CE2 text50 CODE >54:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10D06 text50 CODE >55:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10D28 text50 CODE >56:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10D4A text50 CODE >57:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10D6A text50 CODE >58:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10D8A text50 CODE >59:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10DAA text50 CODE >60:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10DCA text50 CODE >61:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10DEC text50 CODE >62:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10DEE text50 CODE >63:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10E12 text50 CODE >64:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10E36 text50 CODE >65:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10E5A text50 CODE >66:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10E7E text50 CODE >67:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10EA4 text50 CODE >68:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10ECA text50 CODE >69:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10EF0 text50 CODE >70:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10F14 text50 CODE >71:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10F26 text50 CODE >72:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10F3C text50 CODE >74:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_button.h
+10F3E text8 CODE >113:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10F3E text8 CODE >114:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10F58 text8 CODE >115:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10F92 text8 CODE >117:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10FAC text8 CODE >118:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+10FE6 text8 CODE >120:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+11000 text8 CODE >121:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+11046 text8 CODE >123:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+11060 text8 CODE >124:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+1109A text8 CODE >126:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+110B4 text8 CODE >127:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+110EE text8 CODE >129:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+11108 text8 CODE >130:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+11142 text8 CODE >132:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+11144 text39 CODE >157:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11144 text39 CODE >165:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1114A text39 CODE >166:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11150 text39 CODE >169:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11168 text39 CODE >170:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1118C text39 CODE >171:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+111B6 text39 CODE >172:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+111E0 text39 CODE >173:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+111E8 text39 CODE >174:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+111F0 text39 CODE >176:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+111FE text39 CODE >177:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11228 text39 CODE >186:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1122A text39 CODE >187:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1122C text39 CODE >188:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11260 text39 CODE >189:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1126A text39 CODE >190:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11270 text39 CODE >191:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11274 text39 CODE >193:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1127C text39 CODE >194:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11294 text39 CODE >195:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1129A text39 CODE >197:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1129C text39 CODE >198:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+112A2 text39 CODE >200:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+112A6 text39 CODE >201:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+112AC text39 CODE >186:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+112CC text39 CODE >203:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+112F6 text39 CODE >204:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+112FC text39 CODE >206:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1130E text39 CODE >207:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11320 text39 CODE >208:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11332 text39 CODE >209:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11334 text12 CODE >81:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+11334 text12 CODE >82:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+11350 text12 CODE >83:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+11372 text12 CODE >84:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+1138E text12 CODE >85:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+113A8 text12 CODE >86:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+113C0 text12 CODE >87:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+113DA text12 CODE >88:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+113F2 text12 CODE >89:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+1140C text12 CODE >90:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+11424 text12 CODE >91:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+11444 text12 CODE >92:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+1145C text12 CODE >93:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+11476 text12 CODE >94:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+1148E text12 CODE >95:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+114A0 text12 CODE >96:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+114BA text12 CODE >97:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+114D2 text12 CODE >98:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+114EC text12 CODE >99:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+11508 text12 CODE >100:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+1150A text24 CODE >117:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1150C text24 CODE >118:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1153E text24 CODE >119:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11570 text24 CODE >120:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11572 text24 CODE >122:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11584 text24 CODE >124:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11586 text24 CODE >125:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+115CA text24 CODE >134:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+115CC text24 CODE >136:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+115DE text24 CODE >138:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+115E0 text24 CODE >139:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11626 text24 CODE >144:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11628 text24 CODE >120:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1163E text24 CODE >145:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11640 text24 CODE >147:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11644 text24 CODE >148:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11648 text24 CODE >149:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1164A text24 CODE >151:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1164E text24 CODE >152:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11652 text24 CODE >153:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11654 text24 CODE >155:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1165A text24 CODE >156:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1165E text24 CODE >157:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11660 text24 CODE >159:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11666 text24 CODE >160:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1166A text24 CODE >162:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1166C text24 CODE >145:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11688 text24 CODE >163:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1168A text16 CODE >31:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+1168A text16 CODE >32:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+116AE text16 CODE >33:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+116F4 text16 CODE >34:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+116F6 text16 CODE >35:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11762 text16 CODE >37:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11764 text42 CODE >112:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11764 text42 CODE >115:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1177C text42 CODE >116:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11838 text42 CODE >117:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1183A text45 CODE >137:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1183A text45 CODE >138:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11842 text45 CODE >139:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11846 text45 CODE >140:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1184A text45 CODE >141:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11862 text45 CODE >142:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11868 text45 CODE >143:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1186C text45 CODE >144:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11870 text45 CODE >145:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11888 text45 CODE >146:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+118A0 text45 CODE >147:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+118A4 text45 CODE >148:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+118A8 text45 CODE >149:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+118C0 text45 CODE >150:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+118D8 text45 CODE >151:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+118DC text45 CODE >152:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+118E0 text45 CODE >153:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+118F2 text45 CODE >154:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1190A text45 CODE >155:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1190C text40 CODE >87:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11910 text40 CODE >88:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11984 text40 CODE >89:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+119D4 text40 CODE >110:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+119D6 text15 CODE >39:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+119D6 text15 CODE >40:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+119FA text15 CODE >41:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11A36 text15 CODE >42:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11A84 text15 CODE >43:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11A9A text15 CODE >45:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11A9C text44 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11A9C text44 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11AAE text44 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11AC2 text44 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11AC8 text44 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11ACA text44 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11AD6 text44 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11ADC text44 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11AE6 text44 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11AF2 text44 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11B16 text44 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11B36 text44 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11B3C text44 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11B48 text44 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11B50 text44 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11B50 text44 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11B60 text44 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
+11B62 text3 CODE >64:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11B62 text3 CODE >65:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11B76 text3 CODE >66:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11BB2 text3 CODE >67:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11BEC text3 CODE >68:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11BFE text3 CODE >69:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11C00 text3 CODE >70:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11C16 text3 CODE >72:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11C18 text3 CODE >73:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11C1A text3 CODE >74:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11C1E text3 CODE >76:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11C20 text54 CODE >31:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11C20 text54 CODE >32:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11C44 text54 CODE >33:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11C80 text54 CODE >34:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11C82 text54 CODE >35:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11CDC text54 CODE >37:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11CDE text52 CODE >39:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11CDE text52 CODE >40:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11D02 text52 CODE >41:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11D36 text52 CODE >42:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11D7E text52 CODE >43:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11D94 text52 CODE >45:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11D96 text33 CODE >76:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11D98 text33 CODE >77:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11D9C text33 CODE >78:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DA2 text33 CODE >79:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DA6 text33 CODE >80:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DAA text33 CODE >81:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DAE text33 CODE >82:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DAE text33 CODE >84:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DB4 text33 CODE >85:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DBA text33 CODE >86:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DC0 text33 CODE >88:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DC8 text33 CODE >89:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DCC text33 CODE >90:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DD2 text33 CODE >91:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DD6 text33 CODE >92:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DDA text33 CODE >94:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DE2 text33 CODE >95:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DE6 text33 CODE >96:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DEC text33 CODE >97:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DF0 text33 CODE >98:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DF4 text33 CODE >100:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11DFE text33 CODE >101:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11E04 text33 CODE >102:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11E0A text33 CODE >103:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11E10 text33 CODE >104:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11E16 text33 CODE >106:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11E20 text33 CODE >107:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11E26 text33 CODE >108:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11E2C text33 CODE >109:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11E32 text33 CODE >111:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11E3A text33 CODE >112:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11E42 text33 CODE >113:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11E46 text33 CODE >114:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11E48 text33 CODE >115:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+11E4A text53 CODE >64:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11E4A text53 CODE >65:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11E5E text53 CODE >66:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11E92 text53 CODE >67:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11EC6 text53 CODE >68:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11ED8 text53 CODE >69:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11EDA text53 CODE >70:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11EF0 text53 CODE >72:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11EF2 text53 CODE >73:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11EF4 text53 CODE >74:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11EF8 text53 CODE >76:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+11EFA text47 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11EFA text47 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F00 text47 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F04 text47 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F0C text47 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F14 text47 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F18 text47 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F20 text47 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F28 text47 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F32 text47 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F3A text47 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F40 text47 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F42 text47 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F48 text47 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F4E text47 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F56 text47 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F5E text47 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F6A text47 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F72 text47 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F78 text47 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F7E text47 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F86 text47 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F90 text47 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11F9C text47 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11FA6 text47 CODE >42:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+11FA8 text20 CODE >121:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11FA8 text20 CODE >122:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11FB0 text20 CODE >124:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11FB4 text20 CODE >125:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11FB8 text20 CODE >127:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11FCE text20 CODE >128:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11FD2 text20 CODE >129:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11FE8 text20 CODE >130:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+11FFE text20 CODE >131:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12014 text20 CODE >132:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1202A text20 CODE >133:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1203C text20 CODE >134:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12052 text20 CODE >135:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12054 text10 CODE >41:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+12054 text10 CODE >42:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+1205E text10 CODE >43:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+12060 text10 CODE >44:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+1207C text10 CODE >45:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+1209A text10 CODE >46:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+120D8 text10 CODE >48:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+120E0 text10 CODE >43:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+120EE text10 CODE >50:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+120F6 text10 CODE >51:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+120F8 text36 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
+120F8 text36 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
+1210C text36 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
+12110 text36 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
+12112 text36 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
+1211E text36 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
+12122 text36 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
+1212C text36 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
+12150 text36 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
+12172 text36 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
+1217E text36 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
+12184 text36 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
+12184 text36 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
+12194 text36 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
+12196 text9 CODE >53:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+12196 text9 CODE >54:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+12198 text9 CODE >55:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+121DC text9 CODE >56:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+121E0 text9 CODE >57:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+121E6 text9 CODE >54:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+1220E text9 CODE >59:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+12230 text9 CODE >60:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+12232 text27 CODE >226:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+12232 text27 CODE >227:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+12236 text27 CODE >228:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1223A text27 CODE >229:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1223E text27 CODE >230:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+12242 text27 CODE >231:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+12248 text27 CODE >232:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1224E text27 CODE >233:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+12250 text27 CODE >236:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1225A text27 CODE >237:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+12260 text27 CODE >238:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+12266 text27 CODE >239:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1226A text27 CODE >240:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+12270 text27 CODE >242:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+12274 text27 CODE >244:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+1229A text27 CODE >246:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+122C0 text27 CODE >247:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light03.X\PIC18F27J53-killifish_light03.c
+122C2 text41 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+122C2 text41 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+122C8 text41 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+122CC text41 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+122D4 text41 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+122DC text41 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+122E0 text41 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+122EA text41 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+122F2 text41 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+122F8 text41 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+122FA text41 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+12300 text41 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+12306 text41 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+1230E text41 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+1231A text41 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+12324 text41 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+1232A text41 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+12332 text41 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+1233C text41 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+12346 text41 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+12350 text41 CODE >35:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+12352 text17 CODE >11:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+12352 text17 CODE >14:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+12354 text17 CODE >15:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+1235C text17 CODE >16:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+12360 text17 CODE >17:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+12362 text17 CODE >18:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+12382 text17 CODE >17:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+1238E text17 CODE >20:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+123AA text17 CODE >21:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+123C2 text17 CODE >14:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+123CE text17 CODE >23:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+123DA text17 CODE >24:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_stdlib.h
+123DC text5 CODE >78:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+123DC text5 CODE >79:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+123F0 text5 CODE >80:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+12418 text5 CODE >81:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+1245E text5 CODE >83:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+12460 text2 CODE >47:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+12460 text2 CODE >48:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+12462 text2 CODE >49:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+1246A text2 CODE >50:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+12472 text2 CODE >51:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+12490 text2 CODE >50:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+124A2 text2 CODE >53:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+124BE text2 CODE >54:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+124D4 text2 CODE >48:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+124E0 text2 CODE >56:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+124E2 text26 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+124E2 text26 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+124EC text26 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+124F8 text26 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+124FE text26 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+12500 text26 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+12508 text26 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+1250E text26 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+12518 text26 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+12520 text26 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+12534 text26 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+12544 text26 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+1254A text26 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+12552 text26 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+1255A text26 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+1255A text26 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+12562 text26 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+12564 text43 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
+12564 text43 CODE >119:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
+12578 text43 CODE >121:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
+1257E text43 CODE >122:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
+125A0 text43 CODE >123:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
+125AC text43 CODE >124:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
+125B8 text43 CODE >125:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
+125CC text43 CODE >128:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
+125DC text43 CODE >129:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
+125DE text11 CODE >102:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+125DE text11 CODE >103:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+125F6 text11 CODE >104:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+12602 text11 CODE >105:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+1261E text11 CODE >106:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+12624 text11 CODE >107:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+12636 text11 CODE >108:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+12638 text11 CODE >109:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+12652 text11 CODE >111:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+12654 text13 CODE >74:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+12654 text13 CODE >76:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+12672 text13 CODE >77:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+1269C text13 CODE >78:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+126B6 text13 CODE >79:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_terminal.h
+126B8 text14 CODE >58:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+126B8 text14 CODE >59:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+126BA text14 CODE >60:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+126F2 text14 CODE >59:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+1271A text14 CODE >62:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+1271C cinit CODE >1637:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1271C cinit CODE >1639:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1271C cinit CODE >1642:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1271C cinit CODE >1754:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12720 cinit CODE >1755:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12724 cinit CODE >1756:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12724 cinit CODE >1757:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12726 cinit CODE >1758:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12728 cinit CODE >1759:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1272A cinit CODE >1760:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1272C cinit CODE >1761:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1272E cinit CODE >1762:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12730 cinit CODE >1765:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12734 cinit CODE >1766:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12736 cinit CODE >1767:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12736 cinit CODE >1768:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12738 cinit CODE >1769:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1273A cinit CODE >1770:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1273C cinit CODE >1773:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12740 cinit CODE >1774:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12742 cinit CODE >1775:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12742 cinit CODE >1776:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12744 cinit CODE >1777:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12746 cinit CODE >1778:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12748 cinit CODE >1781:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1274C cinit CODE >1782:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1274E cinit CODE >1783:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1274E cinit CODE >1784:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12750 cinit CODE >1785:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12752 cinit CODE >1786:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12754 cinit CODE >1789:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12758 cinit CODE >1790:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1275A cinit CODE >1791:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1275A cinit CODE >1792:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1275C cinit CODE >1793:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1275E cinit CODE >1794:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12760 cinit CODE >1799:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12762 cinit CODE >1800:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12764 cinit CODE >1801:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12766 cinit CODE >1802:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12768 cinit CODE >1803:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1276A cinit CODE >1804:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1276C cinit CODE >1805:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+1276E cinit CODE >1806:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12772 cinit CODE >1812:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12772 cinit CODE >1813:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12774 cinit CODE >1814:C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.
+12778 text30 CODE >24:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+12778 text30 CODE >25:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+12788 text30 CODE >26:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+1279E text30 CODE >27:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+127B4 text30 CODE >28:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+127CA text30 CODE >29:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+127CC text51 CODE >208:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+127CC text51 CODE >209:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+127D2 text51 CODE >210:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+127E6 text51 CODE >211:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+127F4 text51 CODE >212:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+127F6 text51 CODE >213:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+127FA text51 CODE >215:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+127FA text51 CODE >216:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12802 text51 CODE >217:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12806 text51 CODE >218:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12818 text51 CODE >220:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+1281A text18 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+1281A text18 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+12822 text18 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+12826 text18 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+12828 text18 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+1282E text18 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+12832 text18 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+1283A text18 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+12846 text18 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+12850 text18 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+12856 text18 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+1285C text18 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+1285C text18 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+12864 text18 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+12866 text29 CODE >54:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12868 text29 CODE >55:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+1287C text29 CODE >56:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12888 text29 CODE >57:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+1288C text29 CODE >58:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+1289C text29 CODE >59:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+1289E text29 CODE >60:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+128A0 text29 CODE >61:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+128A2 text29 CODE >62:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+128A4 text29 CODE >63:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+128A6 text29 CODE >64:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+128A8 text29 CODE >65:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+128AA text29 CODE >66:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+128AC text7 CODE >227:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+128AC text7 CODE >228:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+128AE text7 CODE >229:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+128D4 text7 CODE >228:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+128EA text7 CODE >231:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+128EC text7 CODE >232:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+128EE text25 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul16.c
+128EE text25 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul16.c
+128FE text25 CODE >38:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul16.c
+1290C text25 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul16.c
+1291A text25 CODE >52:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul16.c
+12924 text25 CODE >53:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul16.c
+12926 text22 CODE >236:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12926 text22 CODE >237:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1293A text22 CODE >238:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1294E text22 CODE >239:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1295A text22 CODE >240:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1295C text32 CODE >56:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1295C text32 CODE >57:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12960 text32 CODE >58:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12966 text32 CODE >59:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1296A text32 CODE >60:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1296E text32 CODE >61:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12974 text32 CODE >63:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12978 text32 CODE >64:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1297C text32 CODE >65:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12980 text32 CODE >66:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12984 text32 CODE >67:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1298A text32 CODE >68:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1298C text37 CODE >387:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1298C text37 CODE >389:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12994 text37 CODE >390:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+1299C text37 CODE >391:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+129A4 text37 CODE >392:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+129A8 text37 CODE >393:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+129AC text37 CODE >394:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+129B4 text37 CODE >396:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+129B6 text48 CODE >172:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129B8 text48 CODE >173:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129CA text48 CODE >174:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129CC text48 CODE >176:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129CE text48 CODE >177:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129D0 text48 CODE >178:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129D6 text48 CODE >179:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129DE text48 CODE >180:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129E0 text28 CODE >85:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129E2 text28 CODE >86:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129E6 text28 CODE >87:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129E8 text28 CODE >88:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129F8 text28 CODE >89:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129FA text28 CODE >90:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129FC text28 CODE >91:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+129FE text28 CODE >92:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A00 text28 CODE >93:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A02 text28 CODE >94:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A04 text28 CODE >95:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A06 text4 CODE >85:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+12A06 text4 CODE >86:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+12A26 text4 CODE >87:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_ringbuf.h
+12A28 text19 CODE >231:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12A28 text19 CODE >232:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12A34 text19 CODE >233:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12A48 text19 CODE >234:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12A4A text38 CODE >242:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12A4A text38 CODE >243:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12A5E text38 CODE >244:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12A6A text38 CODE >245:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12A6C text31 CODE >192:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A6C text31 CODE >193:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A6E text31 CODE >194:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A70 text31 CODE >195:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A72 text31 CODE >196:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A74 text31 CODE >197:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A76 text31 CODE >198:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A78 text31 CODE >199:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A7A text31 CODE >200:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A7C text31 CODE >201:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A80 text31 CODE >202:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A84 text31 CODE >203:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A86 text31 CODE >204:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A88 text31 CODE >205:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A8A text31 CODE >206:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12A8C text46 CODE >73:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12A8E text46 CODE >76:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12AAA text46 CODE >77:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12AAC text35 CODE >149:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12AAE text35 CODE >150:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12AB0 text35 CODE >151:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12ABA text35 CODE >153:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12ABC text35 CODE >154:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12ABE text35 CODE >155:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12AC6 text35 CODE >156:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12AC8 text21 CODE >81:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12ACA text21 CODE >82:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12AE0 text21 CODE >83:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_RTCC.h
+12AE2 text34 CODE >119:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12AE2 text34 CODE >120:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12AE8 text34 CODE >121:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12AEA text34 CODE >122:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+12AEE text34 CODE >123:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_header\My_header.h
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+ringbuf_init@rb 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___awdiv@counter 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lwmod@counter 23 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__LdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lmediumconst FE2C 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hspace_0 20000 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hspace_1 6E2 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hspace_2 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_ofi2_ringbuf_num 11CDE 0 CODE 0 text54 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_ofi2_ringbuf_pop 11EFA 0 CODE 0 text53 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_ofi2_ringbuf_put 11D96 0 CODE 0 text52 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+epoch_to_caltime@day_cache B3 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+timer3_init@prescaler 20 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_PWM_set 1150A 0 CODE 0 text24 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hibigdata 0 0 CODE 0 ibigdata dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__mediumconst FE2C 0 MEDIUMCONST 0 mediumconst C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+__size_of_ringbuf_put_num 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_ringbuf_put_str 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_T1CONbits FCD 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+RTCC_to_caltime@dumy 23 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_WPCFG$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_d1 24 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+?_ADC 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+main@i 17F 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+main@n FE 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_terminal_loop@i 172 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+_main 10000 0 CODE 0 text0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_sw_B F9 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_sw_G 3A 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_sw_R 3E 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_RTCC_from_caltime 12926 0 CODE 0 text22 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_my_atoi 12054 0 CODE 0 text10 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_my_utoa 12352 0 CODE 0 text17 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+start 10DE 0 CODE 0 init C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+__size_of___awdiv 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of___awmod 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_main 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of___lldiv 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of___llmod 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of___lwdiv 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of___lwmod 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+?___lmul 67 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+?___wmul 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_backspace@rb 21 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_tx_sends 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_init@internal_buf 62 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_print_time_dec 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__LidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+caltime_to_epoch@month_2069 7C 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hpowerup 10DE 0 CODE 0 powerup dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+print_time_dec@tx 75 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_weekday_3char FE49 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_print_time 11334 0 CODE 0 text12 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___awmod@sign 61 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_pop@ret 23 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_time_sync 2E 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_T0CONbits FD5 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_ADC_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__LbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__accesstop 60 0 ABS 0 - C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+intlevel0 0 0 CODE 0 text C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+intlevel1 0 0 CODE 0 text C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+intlevel2 0 0 CODE 0 text C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+intlevel3 0 0 CODE 0 text C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_OSCCONbits FD3 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+epoch_to_caltime@month 93 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___llmod@divisor 64 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_command_operation 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_RTCOSC$T1OSCREF 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_timer1_init 12866 0 CODE 0 text29 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hifardata 0 0 CODE 0 ifardata dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___awdiv@sign 61 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hclrtext 0 0 ABS 0 clrtext dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+command_at_hand@tx 9C 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_put_num@rb 6D 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_timer3_init 129E0 0 CODE 0 text28 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_my_terminal_loop 106F4 0 CODE 0 text1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___wmul@multiplicand 62 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+?_my_atoi 66 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ANCON0 F48 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ANCON1 F49 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_num@rb 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___awdiv@dividend 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+_tx_sends 128AC 0 CODE 0 text7 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_command_at 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CCPR1L FBB 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CCPR2L FB5 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CCPR3L F16 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CCPR4L F13 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+epoch_to_caltime@year_cache B7 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_pop@rb 21 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_put@rb 21 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_ringbuf_backspace 12460 0 CODE 0 text5 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of___lmul 125DE 0 CODE 0 text43 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of___wmul 12926 0 CODE 0 text25 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+get_quot_rem@quot 80 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_put_str@rb 6A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_EECON2 FA7 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ringbuf_num 1168A 0 CODE 0 text16 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ringbuf_pop 11B62 0 CODE 0 text3 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ringbuf_put 119D6 0 CODE 0 text15 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_tx_sends 128EE 0 CODE 0 text7 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+button_timer_interrupt@sw_value 3 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_TXSTA1bits FAD 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hmediumconst 10000 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ADC_init 12AAC 0 CODE 0 text35 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ringbuf_delete 12A06 0 CODE 0 text4 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hintcodelo 10DE 0 CODE 0 intcodelo dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_print_time 1150A 0 CODE 0 text12 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___awdiv@divisor 21 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lwmod@divisor 21 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of___awdiv 11FA8 0 CODE 0 text47 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of___awmod 12352 0 CODE 0 text41 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of___lldiv 11B62 0 CODE 0 text44 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of___llmod 12196 0 CODE 0 text36 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of___lwdiv 12564 0 CODE 0 text26 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of___lwmod 12866 0 CODE 0 text18 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_OSC$INTOSCPLL 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_d_to_x 12AAC 0 CODE 0 text46 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_RTCC_init 1298C 0 CODE 0 text32 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_RTCC_loop 129B6 0 CODE 0 text37 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_put_num@value 6F 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_ADC_init 12AC8 0 CODE 0 text35 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+print_time_dec@edit 78 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_OSCTUNEbits F9B 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_RTCC_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_RTCC_loop 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_atoi@ret 6C 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_atoi@str 66 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+PWM_init@PR 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lwdiv@quotient 6B 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_init@bufsize 64 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+command_at_hand@value A2 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_SOSCSEL$LOW 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+main@value_2517 178 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_light_mode B5 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+caltime_to_epoch@ct 73 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+caltime_to_epoch@ep 75 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_INTCON2bits FF1 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+epoch_to_caltime@year 92 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lwmod@dividend 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lldiv@counter 7F 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lintcodelo 10DE 0 CODE 0 intcodelo dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_put_str@str 6C 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_CFGPLLEN$ON 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+start_initialization 1271C 0 CODE 0 cinit dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_command_at_hand 12654 0 CODE 0 text11 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_RTCC_init 1295C 0 CODE 0 text32 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_RTCC_loop 1298C 0 CODE 0 text37 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lldiv@dividend 73 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_epoch_now 36 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_halfsec 2B 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___rparam_used 1 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+d_to_x@dec 23 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_button_timer_interrupt 10CB8 0 CODE 0 text50 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_STVREN$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_RCREG1 FAF 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_RTCCAL F3E 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+command_at@op1 A5 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+command_at@op2 A7 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_my_terminal_loop 10A2C 0 CODE 0 text1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_SPBRG1 FB0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__pcstackBANK1 100 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_IPR1bits F9F 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_IPR2bits FA2 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_IPR5bits F99 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_ringbuf_delete 12A28 0 CODE 0 text4 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_rc_flag 2C 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+get_quot_rem@div 82 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+get_quot_rem@num 84 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_TXREG1 FAE 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_main_init 122C2 0 CODE 0 text27 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_WPDIS$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+epoch_to_caltime@month_cache FF 0 BANK0 1 dataBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_command_operation 106F4 0 CODE 0 text6 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_my_terminal_loop 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_main_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_caltime_to_RTCC 1190C 0 CODE 0 text45 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_put@asciicode 23 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+main@prev_scan B0 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_CLKOEC$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_delete@rb 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ringbuf_backspace 123DC 0 CODE 0 text5 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank0 0 0 ABS 0 bank0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank1 0 0 ABS 0 bank1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank2 0 0 ABS 0 bank2 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank3 0 0 ABS 0 bank3 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank4 0 0 ABS 0 bank4 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank5 0 0 ABS 0 bank5 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank6 0 0 ABS 0 bank6 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank7 0 0 ABS 0 bank7 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank8 0 0 ABS 0 bank8 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank9 0 0 ABS 0 bank9 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hcinit 0 0 ABS 0 cinit dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hconst 0 0 CODE 0 const dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_caltime_now 2F 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hidata 0 0 CODE 0 idata dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hidloc 0 0 IDLOC 0 idloc dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hparam 0 0 COMRAM 1 rparam dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hrdata 0 0 COMRAM 1 rdata dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hstack 0 0 STACK 2 stack dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext0 0 0 ABS 0 text0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext1 0 0 ABS 0 text1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext2 0 0 ABS 0 text2 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext3 0 0 ABS 0 text3 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext4 0 0 ABS 0 text4 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext5 0 0 ABS 0 text5 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext6 0 0 ABS 0 text6 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext7 0 0 ABS 0 text7 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext8 0 0 ABS 0 text8 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext9 0 0 ABS 0 text9 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lwdiv@counter 6A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ljflash_buffer 1F800 0 CODE 0 jflash_buffer dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank10 0 0 ABS 0 bank10 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank11 0 0 ABS 0 bank11 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank12 0 0 ABS 0 bank12 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank13 0 0 ABS 0 bank13 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbank14 0 0 ABS 0 bank14 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbigram 0 0 ABS 0 bigram dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+_command_at$3146 A9 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_main_init 12232 0 CODE 0 text27 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hcomram 0 0 ABS 0 comram dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hconfig 20000 0 CONFIG 0 config dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_command_at_hand 125DE 0 CODE 0 text11 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank0 0 0 ABS 0 bank0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank1 0 0 ABS 0 bank1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank2 0 0 ABS 0 bank2 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank3 0 0 ABS 0 bank3 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank4 0 0 ABS 0 bank4 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank5 0 0 ABS 0 bank5 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank6 0 0 ABS 0 bank6 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank7 0 0 ABS 0 bank7 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank8 0 0 ABS 0 bank8 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank9 0 0 ABS 0 bank9 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lcinit 0 0 ABS 0 cinit dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lconst 0 0 CODE 0 const dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_RTCC_from_RTCC 12A28 0 CODE 0 text19 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lidata 0 0 CODE 0 idata dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lidloc 0 0 IDLOC 0 idloc dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lnvbit 0 0 COMRAM 1 nvbit dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_display_flag 29 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lparam 0 0 COMRAM 1 rparam dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lrdata 0 0 COMRAM 1 rdata dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_x_to_d 12AE2 0 CODE 0 text21 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lstack 0 0 STACK 2 stack dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext0 0 0 ABS 0 text0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext1 0 0 ABS 0 text1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext2 0 0 ABS 0 text2 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext3 0 0 ABS 0 text3 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext4 0 0 ABS 0 text4 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext5 0 0 ABS 0 text5 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext6 0 0 ABS 0 text6 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext7 0 0 ABS 0 text7 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext8 0 0 ABS 0 text8 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext9 0 0 ABS 0 text9 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_terminal_loop@ascii 171 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hfarbss 0 0 FARRAM 0 farbss dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_PORTAbits F80 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_IOL1WAY$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+RTCC_loop@prev_halfsec 27 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+epoch_to_caltime@day 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+epoch_to_caltime@num 94 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_INTCONbits FF2 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+command_at@tx A3 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Habs1 0 0 ABS 0 abs1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hdata 0 0 ABS 0 data dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hinit 10DE 0 CODE 0 init dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hrbit 0 0 COMRAM 1 rbit dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hrbss 0 0 COMRAM 1 rbss dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htemp 0 0 COMRAM 1 temp dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext 0 0 ABS 0 text dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+?i2_ringbuf_num 1 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Labs1 0 0 ABS 0 abs1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ldata 0 0 ABS 0 data dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Linit 10DE 0 CODE 0 init dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lrbit 0 0 COMRAM 1 rbit dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lrbss 0 0 COMRAM 1 rbss dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltemp 0 0 COMRAM 1 temp dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext 0 0 ABS 0 text dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_XINST$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lmul 12564 0 CODE 0 text43 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___wmul 128EE 0 CODE 0 text25 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__LcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_PWM_set 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hintret 0 0 ABS 0 intret dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hirdata 0 0 CODE 0 irdata dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ADC 129B6 0 CODE 0 text48 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ISR 1008 0 CODE 0 intcode dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_PR2 FCB 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__S0 20000 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__S1 6E2 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__S2 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hjflash_buffer 1F800 0 CODE 0 jflash_buffer dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_DSWDTOSC$T1OSCREF 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_caltime_to_RTCC 1183A 0 CODE 0 text45 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_ADCSEL$BIT12 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_DSWDTPS$G2 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+PWM_set@color 23 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_PLLDIV$2 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+tx_sends@asciicode 6A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_my_atoi 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+PWM_set@value 6E 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_my_utoa 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+month_length@year 66 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_caltime_to_epoch 10A2C 0 CODE 0 text23 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_d_to_x 12A8C 0 CODE 0 text46 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_ADC 129E0 0 CODE 0 text48 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_ISR 10DE 0 CODE 0 intcode dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_print_time_dec 12654 0 CODE 0 text13 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_OSC_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lintentry 0 0 ABS 0 intentry dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lldiv@divisor 77 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_WPEND$PAGE_WPFP 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_rx_flag 2D 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_print_time 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_timer1_init 128AC 0 CODE 0 text29 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+RTCC_from_RTCC@ct 82 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+RTCC_from_RTCC@ep 84 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ringbuf_init 12778 0 CODE 0 text30 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_PPSCONbits EBF 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_RTCC_from_RTCC 12A4A 0 CODE 0 text19 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hramtop F00 0 RAM 0 ramtop dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_command_operation 1038E 0 CODE 0 text6 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_RTCCFGbits F3F 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_RTCC_from_epoch 12A6C 0 CODE 0 text38 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_my_strcmp 12232 0 CODE 0 text9 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hrparam 0 0 COMRAM 1 rparam dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CCPTMRS0bits F52 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CCPTMRS1bits F51 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+print_time@carrige_return 88 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+epoch_to_caltime@day_since_epoch 8E 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+caltime_to_RTCC@ct 64 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__pdataBANK0 FF 0 BANK0 1 dataBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_my_strcmp 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__activetblptr 3 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_timer3_init 12A06 0 CODE 0 text28 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hstruct 0 0 COMRAM 1 struct dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of___lmul 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of___wmul 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__LbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__LbssBANK2 0 0 ABS 0 bssBANK2 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext10 0 0 ABS 0 text10 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext11 0 0 ABS 0 text11 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext12 0 0 ABS 0 text12 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext13 0 0 ABS 0 text13 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext14 0 0 ABS 0 text14 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext15 0 0 ABS 0 text15 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext16 0 0 ABS 0 text16 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext17 0 0 ABS 0 text17 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext18 0 0 ABS 0 text18 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext19 0 0 ABS 0 text19 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext20 0 0 ABS 0 text20 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext21 0 0 ABS 0 text21 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext22 0 0 ABS 0 text22 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext23 0 0 ABS 0 text23 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext24 0 0 ABS 0 text24 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext25 0 0 ABS 0 text25 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext26 0 0 ABS 0 text26 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext27 0 0 ABS 0 text27 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext28 0 0 ABS 0 text28 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext29 0 0 ABS 0 text29 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext30 0 0 ABS 0 text30 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext31 0 0 ABS 0 text31 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext32 0 0 ABS 0 text32 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext33 0 0 ABS 0 text33 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext34 0 0 ABS 0 text34 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext35 0 0 ABS 0 text35 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext36 0 0 ABS 0 text36 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext37 0 0 ABS 0 text37 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext38 0 0 ABS 0 text38 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext39 0 0 ABS 0 text39 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext40 0 0 ABS 0 text40 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext41 0 0 ABS 0 text41 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext42 0 0 ABS 0 text42 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext43 0 0 ABS 0 text43 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext44 0 0 ABS 0 text44 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext45 0 0 ABS 0 text45 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext46 0 0 ABS 0 text46 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext47 0 0 ABS 0 text47 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext48 0 0 ABS 0 text48 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext50 0 0 ABS 0 text50 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext51 0 0 ABS 0 text51 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext52 0 0 ABS 0 text52 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext53 0 0 ABS 0 text53 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Htext54 0 0 ABS 0 text54 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ADC_init@p_ref 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_DSBOREN$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_LS48MHZ$SYS48X8 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_DSWDTEN$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___awmod@counter 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_PIE1bits F9D 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_PIE2bits FA0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_PIE5bits F91 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_RTCVALH F3B 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_RTCVALL F3A 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+i2ringbuf_pop@ret F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext10 12054 0 CODE 0 text10 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext11 125DE 0 CODE 0 text11 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext12 11334 0 CODE 0 text12 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext13 12654 0 CODE 0 text13 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext14 126B8 0 CODE 0 text14 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext15 119D6 0 CODE 0 text15 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext16 1168A 0 CODE 0 text16 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext17 12352 0 CODE 0 text17 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext18 1281A 0 CODE 0 text18 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext19 12A28 0 CODE 0 text19 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext20 11FA8 0 CODE 0 text20 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext21 12AC8 0 CODE 0 text21 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext22 12926 0 CODE 0 text22 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext23 10A2C 0 CODE 0 text23 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext24 1150A 0 CODE 0 text24 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext25 128EE 0 CODE 0 text25 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext26 124E2 0 CODE 0 text26 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext27 12232 0 CODE 0 text27 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext28 129E0 0 CODE 0 text28 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext29 12866 0 CODE 0 text29 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext30 12778 0 CODE 0 text30 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext31 12A6C 0 CODE 0 text31 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext32 1295C 0 CODE 0 text32 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext33 11D96 0 CODE 0 text33 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext34 12AE2 0 CODE 0 text34 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext35 12AAC 0 CODE 0 text35 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext36 120F8 0 CODE 0 text36 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext37 1298C 0 CODE 0 text37 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext38 12A4A 0 CODE 0 text38 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext39 11144 0 CODE 0 text39 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext40 1190C 0 CODE 0 text40 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext41 122C2 0 CODE 0 text41 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext42 11764 0 CODE 0 text42 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext43 12564 0 CODE 0 text43 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext44 11A9C 0 CODE 0 text44 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext45 1183A 0 CODE 0 text45 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext46 12A8C 0 CODE 0 text46 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext47 11EFA 0 CODE 0 text47 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext48 129B6 0 CODE 0 text48 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext50 10CB8 0 CODE 0 text50 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext51 127CC 0 CODE 0 text51 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext52 11CDE 0 CODE 0 text52 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext53 11E4A 0 CODE 0 text53 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext54 11C20 0 CODE 0 text54 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_edit_flag 2A 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___awdiv 11EFA 0 CODE 0 text47 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___awmod 122C2 0 CODE 0 text41 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+command_operation@op0 102 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+command_operation@op1 104 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+command_operation@op2 106 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+command_operation@op3 108 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lldiv 11A9C 0 CODE 0 text44 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___llmod 120F8 0 CODE 0 text36 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lwdiv 124E2 0 CODE 0 text26 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lwmod 1281A 0 CODE 0 text18 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank10 0 0 ABS 0 bank10 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank11 0 0 ABS 0 bank11 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank12 0 0 ABS 0 bank12 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank13 0 0 ABS 0 bank13 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbank14 0 0 ABS 0 bank14 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbigram 0 0 ABS 0 bigram dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_my_strcmp 12196 0 CODE 0 text9 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_d_to_x 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lmul@multiplier 67 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_MSSP7B_EN$MSK7 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_month_length 1190C 0 CODE 0 text40 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_command_at_hand 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_ringbuf_num 11764 0 CODE 0 text16 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_ringbuf_pop 11C20 0 CODE 0 text3 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_ringbuf_put 11A9C 0 CODE 0 text15 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lcomram 0 0 ABS 0 comram dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lconfig 1FFF8 0 CONFIG 0 config dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___wmul@multiplier 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ADC@ch 22 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+print_time_dec@dec 77 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+print_time_dec@str 79 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_RTCC_from_caltime 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_WPFP$PAGE_127 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_button_timer_interrupt 10F3E 0 CODE 0 text50 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+RTCC_to_caltime@ct 21 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_rx_buf E1 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_RCSTA1bits FAC 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+x_to_d@hex 20 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+main@_2516 FD 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+main@scan 179 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+main@temp 17B 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lfarbss 0 0 FARRAM 0 farbss dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_ringbuf_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lwdiv@divisor 68 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CTMUCONHbits FB3 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lfardata 0 0 FARRAM 0 fardata dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+main@value 177 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CTMUCONLbits FB2 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_print_time_dec 126B8 0 CODE 0 text13 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_PWM_set 1168A 0 CODE 0 text24 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_RTCC_to_caltime 12054 0 CODE 0 text20 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_epoch_to_caltime 11144 0 CODE 0 text39 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+timer1_init@clock_select 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_tx_buf E9 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_OSC_init 12AE2 0 CODE 0 text34 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+stackhi EAF 0 ABS 0 - C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+stacklo 6E2 0 ABS 0 - C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+_RTCC_from_epoch 12A4A 0 CODE 0 text38 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lintcode 1008 0 CODE 0 intcode dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lintret 0 0 ABS 0 intret dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_caltime_to_RTCC 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lirdata 0 0 CODE 0 irdata dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ADCON0bits FC2 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ADCON1bits FC1 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__pbssBIGRAM 2FA 0 BIGRAM 1 bssBIGRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_caltime_to_epoch 10CB8 0 CODE 0 text23 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_PADCFG1bits F3C 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_my_atoi 120F8 0 CODE 0 text10 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_my_utoa 123DC 0 CODE 0 text17 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_utoa@value 6F 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_x_to_d 12AC8 0 CODE 0 text21 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lspace_0 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lspace_1 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lspace_2 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_OSC_init 12AF0 0 CODE 0 text34 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__pbssCOMRAM 24 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+print_time@tx 86 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__HcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+button_timer_interrupt@bt 1 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_PIR1bits F9E 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_PIR2bits FA1 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lend_init 10DE 0 CODE 0 end_init dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_PIR5bits F98 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_caltime_to_epoch 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+i2ringbuf_put@asciicode B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_ringbuf_init 127CC 0 CODE 0 text30 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_month_length 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+end_of_initialization 12772 0 CODE 0 cinit dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_ringbuf_put_num 124E2 0 CODE 0 text2 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_ringbuf_put_str 1271C 0 CODE 0 text14 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_T5CONbits F22 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hintentry 0 0 ABS 0 intentry dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+i2_ringbuf_num 11C20 0 CODE 0 text54 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+i2_ringbuf_pop 11E4A 0 CODE 0 text53 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+i2_ringbuf_put 11CDE 0 CODE 0 text52 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_utoa@str 6D 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___awdiv@quotient 62 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+?___awdiv 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+?___awmod 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lwdiv@dividend 66 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+?___lldiv 73 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+?___llmod 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+?___lwdiv 66 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+?___lwmod 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_strcmp@str1 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_strcmp@str2 21 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CCP4CONbits F12 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hreset_vec 1004 0 CODE 0 reset_vec dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+main_init@rxbuf 200 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+main_init@txbuf 2FA 0 BIGRAM 1 bssBIGRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__HbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__HbssBANK2 0 0 ABS 0 bssBANK2 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_get_quot_rem 11764 0 CODE 0 text42 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___awmod@dividend 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_command_at 10F3E 0 CODE 0 text8 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lramtop F00 0 RAM 0 ramtop dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_UART_init 12A8C 0 CODE 0 text31 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lrparam 0 0 COMRAM 1 rparam dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_PWM_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__pcinit 1271C 0 CODE 0 cinit dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+epoch_to_caltime@ct 88 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+epoch_to_caltime@ep 8A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+RTCC_from_caltime@ct 98 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+RTCC_from_caltime@ep 9A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_UART_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext0 10000 0 CODE 0 text0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext1 106F4 0 CODE 0 text1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext2 12460 0 CODE 0 text2 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext3 11B62 0 CODE 0 text3 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext4 12A06 0 CODE 0 text4 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext5 123DC 0 CODE 0 text5 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext6 1038E 0 CODE 0 text6 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext7 128AC 0 CODE 0 text7 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext8 10F3E 0 CODE 0 text8 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ptext9 12196 0 CODE 0 text9 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lstruct 0 0 COMRAM 1 struct dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_RTCC_to_caltime 11FA8 0 CODE 0 text20 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_month_length 119D6 0 CODE 0 text40 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext10 0 0 ABS 0 text10 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext11 0 0 ABS 0 text11 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext12 0 0 ABS 0 text12 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext13 0 0 ABS 0 text13 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext14 0 0 ABS 0 text14 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext15 0 0 ABS 0 text15 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext16 0 0 ABS 0 text16 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext17 0 0 ABS 0 text17 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext18 0 0 ABS 0 text18 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext19 0 0 ABS 0 text19 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext20 0 0 ABS 0 text20 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext21 0 0 ABS 0 text21 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext22 0 0 ABS 0 text22 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext23 0 0 ABS 0 text23 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext24 0 0 ABS 0 text24 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext25 0 0 ABS 0 text25 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext26 0 0 ABS 0 text26 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext27 0 0 ABS 0 text27 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext28 0 0 ABS 0 text28 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext29 0 0 ABS 0 text29 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext30 0 0 ABS 0 text30 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext31 0 0 ABS 0 text31 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext32 0 0 ABS 0 text32 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext33 0 0 ABS 0 text33 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext34 0 0 ABS 0 text34 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext35 0 0 ABS 0 text35 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext36 0 0 ABS 0 text36 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext37 0 0 ABS 0 text37 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext38 0 0 ABS 0 text38 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext39 0 0 ABS 0 text39 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext40 0 0 ABS 0 text40 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext41 0 0 ABS 0 text41 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext42 0 0 ABS 0 text42 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext43 0 0 ABS 0 text43 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext44 0 0 ABS 0 text44 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext45 0 0 ABS 0 text45 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext46 0 0 ABS 0 text46 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext47 0 0 ABS 0 text47 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext48 0 0 ABS 0 text48 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext50 0 0 ABS 0 text50 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext51 0 0 ABS 0 text51 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext52 0 0 ABS 0 text52 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext53 0 0 ABS 0 text53 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Ltext54 0 0 ABS 0 text54 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+caltime_to_epoch@epoch 7D 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+caltime_to_epoch@month 81 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__ramtop F00 0 RAM 0 ramtop C:\Users\KERIKU~1\AppData\Local\Temp\s8fo.obj
+i2ringbuf_num@rb 1 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_ringbuf_delete 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lpowerup 10DE 0 CODE 0 powerup dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_WDTPS$1024 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_x_to_d 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+i2ringbuf_pop@rb 9 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+i2ringbuf_put@rb 9 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_UART_ISR 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+caltime_to_epoch@year 7B 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+command_at_hand@max A1 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+command_at_hand@min A0 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lreset_vec 1000 0 CODE 0 reset_vec dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_UART_init 12A6C 0 CODE 0 text31 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_timer1_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CCP3CONbits F15 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_put_num@digits 71 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_weekday_3char FE2D 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___param_bank 10 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of__initialization 12772 0 CODE 0 cinit dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___awmod@divisor 21 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+?_ringbuf_num 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_epoch_to_caltime 11334 0 CODE 0 text39 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ringbuf_put_num 12460 0 CODE 0 text2 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ringbuf_put_str 126B8 0 CODE 0 text14 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Libigdata 0 0 CODE 0 ibigdata dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_timer3_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__pidataBANK0 1004 0 CODE 0 idataBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_get_quot_rem 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+RTCC_from_epoch@ct 98 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+RTCC_from_epoch@ep 9A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lclrtext 0 0 ABS 0 clrtext dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_SPBRGH1 F7F 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lmul@product 6F 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_RTCC_from_epoch 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_epoch_to_caltime 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_RTCC_from_caltime 1295C 0 CODE 0 text22 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_utoa@d 72 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_utoa@v 73 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lmul@multiplicand 6B 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___lldiv@quotient 7B 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_T3CONbits F79 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+command_at_hand@hand 9E 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__pmediumconst FE2C 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_PWM_init 11D96 0 CODE 0 text33 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hend_init 10E2 0 CODE 0 end_init dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+UART_ISR@ascii 10 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___llmod@dividend 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_command_at 11144 0 CODE 0 text8 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_ringbuf_num 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_ringbuf_pop 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_ringbuf_put 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_terminal_loop@command F1 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___llmod@counter 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_main 1038E 0 CODE 0 text0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CCP2CONbits FB4 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__pintcode 1008 0 CODE 0 intcode dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_terminal_loop@rx AC 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_terminal_loop@tx AA 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CCPR1Lbits FBB 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_ADRES FC3 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_LATB2 7C52 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CCPR2Lbits FB5 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_get_quot_rem 1183A 0 CODE 0 text42 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_RPOR3 EC3 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_RPOR4 EC4 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_RPOR5 EC5 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_TMR1H FCF 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_TRISA F92 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_TRISB F93 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_TRISC F94 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_PWM_init 11E4A 0 CODE 0 text33 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_CP0$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__HRAM 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hbss 0 0 RAM 1 bss dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hram 0 0 ABS 0 ram dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hsfr 0 0 ABS 0 sfr dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__LRAM 1 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lbss 0 0 RAM 1 bss dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lram 0 0 ABS 0 ram dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lsfr 0 0 ABS 0 sfr dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_colon 28 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_terminal_loop@i_2274 170 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CCPR3Lbits F16 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+timer1_init@prescaler 21 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_UART_ISR 127CC 0 CODE 0 text51 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_ofi2_ringbuf_num 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_ofi2_ringbuf_pop 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_ofi2_ringbuf_put 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CCPR4Lbits F13 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_terminal_loop@command_init B8 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_ADC 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_ISR 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__HdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__CFG_CPUDIV$OSC1 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_utoa@digits 71 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_terminal_loop@buf 10A 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_terminal_loop@op0 B9 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_terminal_loop@op1 CD 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_terminal_loop@op2 181 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+my_terminal_loop@op3 195 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__initialization 1271C 0 CODE 0 cinit dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_BAUDCON1bits F7E 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_time_change_flag B6 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__pbssBANK0 B0 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__pbssBANK1 181 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__pbssBANK2 200 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__end_of_UART_ISR 1281A 0 CODE 0 text51 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+?_get_quot_rem 80 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_T2CONbits FCA 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_button_timer_interrupt 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hfardata 0 0 FARRAM 0 fardata dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+___wmul@product 64 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_RTCC_to_caltime 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_put_num@i 72 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+ringbuf_put_num@temp 73 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Lifardata 0 0 CODE 0 ifardata dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_my_terminal_loop$3145 16E 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+month_length@month 23 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CCP1CONbits FBA 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+command_operation@tx 100 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_ringbuf_backspace 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CTMUCONH FB3 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CTMUCONL FB2 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+_CTMUICON FB1 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__Hintcode 10DE 0 CODE 0 intcode dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+__size_of_RTCC_from_RTCC 0 0 ABS 0 - dist/default/production\PIC18F27J53-killifish_light03.X.production.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+text0 0 10000 10000 2AF0 1
+cstackCOMRAM 1 1 1 41 1
+cstackBANK0 1 60 60 A0 1
+cstackBANK1 1 100 100 A9 1
+reset_vec 0 1000 1000 5 1
+bssBANK2 1 200 200 FA 1
+intcode 0 1008 1008 DA 1
+bssBIGRAM 1 2FA 2FA 3E8 1
+mediumconst 0 FE2C FE2C 1D4 1
+config 0 1FFF8 1FFF8 8 1

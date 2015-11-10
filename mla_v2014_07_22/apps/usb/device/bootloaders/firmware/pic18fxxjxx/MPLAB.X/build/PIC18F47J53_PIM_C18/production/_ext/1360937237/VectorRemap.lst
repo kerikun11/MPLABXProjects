@@ -1,0 +1,70 @@
+MPASM 5.54                   VECTORREMAP.ASM   10-9-2015  12:05:58         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;-------------------------------------------------------------------------------
+                      00002 ;* FileName:        VectorRemap.asm
+                      00003 ;* Dependencies:    None
+                      00004 ;* Processor:       PIC18
+                      00005 ;* Compiler:        MPLAB C18 3.46+ or XC8 v1.21+
+                      00006 ;* Company:         Microchip Technology, Inc.
+                      00007 ;*
+                      00008 ;* Software License Agreement
+                      00009 ;*
+                      00010 ;* The software supplied herewith by Microchip Technology Incorporated
+                      00011 ;* (the "Company") for its PIC(R) Microcontroller is intended and
+                      00012 ;* supplied to you, the Company's customer, for use solely and
+                      00013 ;* exclusively on Microchip PIC Microcontroller products. The
+                      00014 ;* software is owned by the Company and/or its supplier, and is
+                      00015 ;* protected under applicable copyright laws. All rights are reserved.
+                      00016 ;* Any use in violation of the foregoing restrictions may subject the
+                      00017 ;* user to criminal sanctions under applicable laws, as well as to
+                      00018 ;* civil liability for the breach of the terms and conditions of this
+                      00019 ;* license.
+                      00020 ;*
+                      00021 ;* THIS SOFTWARE IS PROVIDED IN AN "AS IS"” CONDITION. NO WARRANTIES,
+                      00022 ;* WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT NOT LIMITED
+                      00023 ;* TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+                      00024 ;* PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. THE COMPANY SHALL NOT,
+                      00025 ;* IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL OR
+                      00026 ;* CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+                      00027 ;-------------------------------------------------------------------------------
+                      00028 
+                      00029     ;//High priority interrupt vector remapping
+                      00030 #ifdef __XC8__
+                      00031     PSECT HiVector,class=CODE,delta=1,abs
+                      00032 #endif
+                      00033         org 0x08
+000008 EF04 F008      00034     goto 0x1008     ;Resides at 0x0008 (hardware high priority interrupt vector), and causes PC to jump 
+                            to 0x1008 upon a high priority interrupt event
+                      00035 
+                      00036 
+                      00037     ;//Low priority interrupt vector remapping, as well as bootloader mode absolute
+                      00038     ;//entry point (located at 0x001C).
+                      00039 #ifdef __XC8__
+                      00040     PSECT LoVector,class=CODE,delta=1,abs
+                      00041 #endif
+                      00042         org 0x18
+000018 EF0C F008      00043     goto    0x1018  ;Resides at 0x0018 (hardware low priority interrupt vector), and causes PC to jump t
+                            o 0x1018 upon a low priority interrupt event
+00001C EF18 F000      00044     goto    0x30    ;Resides at 0x001C  //Serves as absolute entry point from application program into t
+                            he bootloader mode
+                      00045 
+                      00046 
+                      00047 
+                      00048     end
+MPASM 5.54                   VECTORREMAP.ASM   10-9-2015  12:05:58         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+__18F47J53                        00000001
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+
