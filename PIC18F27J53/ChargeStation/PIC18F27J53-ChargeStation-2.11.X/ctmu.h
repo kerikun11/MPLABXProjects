@@ -22,6 +22,6 @@ extern uint8_t cut_time_flag;
 void ctmu_set_ratio(uint8_t percentage);
 // タッチセンサのサンプリング
 void ctmu_sampling(void);
-void ctmu_loop(void);
+void ctmu_task(void);
 #endif	/* CTMU_H */
 

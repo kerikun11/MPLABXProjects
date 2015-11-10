@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"32 ../My_library\My_button.h
+"32 ../../../My_library\My_button.h
 [s S1226 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1226 . press long_hold_1 long_hold_2 long_hold_3 long_hold_4 long_hold_5 long_hold_6 long_hold_7 pressing long_holding_1 long_holding_2 long_holding_3 long_holding_4 long_holding_5 long_holding_6 long_holding_7 ]
 "29
@@ -9,9 +9,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [s S1224 `ui 1 `S1225 1 ]
 [n S1224 button cnt_sw . ]
 "59 PIC18F27J53-killifish_light06.c
-[c E9630 0 1 2 .. ]
-[n E9630 . TIME_SYNC_mode ADC_mode COMMAND_mode  ]
-"20 ../My_library/usb_cdc\My_usb_cdc.h
+[c E9627 0 1 2 .. ]
+[n E9627 . TIME_SYNC_mode ADC_mode COMMAND_mode  ]
+"20 ../../../My_library\My_usb_cdc.h
 [v _USB_ISR `(v ~T0 @X0 0 ef ]
 "18300 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [s S1192 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -92,7 +92,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S718 . . . . ]
 "11311
 [v _PIR2bits `VS718 ~T0 @X0 0 e@4001 ]
-"53 ../My_library\My_button.h
+"53 ../../../My_library\My_button.h
 [v _button_timer_interrupt `(v ~T0 @X0 0 ef2`*S1224`uc ]
 "8557 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [s S585 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -276,18 +276,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _CCPR3L `Vuc ~T0 @X0 0 e@3862 ]
 "1960
 [v _CCPR4L `Vuc ~T0 @X0 0 e@3859 ]
-"19 ../My_library\My_ringbuf.h
+"19 ../../../My_library\My_ringbuf.h
 [s S1223 `*uc 1 `ui 1 `ui 1 `ui 1 ]
 [n S1223 ringbuf buf size head tail ]
 "43 C:\Program Files (x86)\Microchip\xc8\v1.35\include\string.h
 [v _strcmp `(i ~T0 @X0 0 ef2`*Cuc`*Cuc ]
-"98 ../My_library\My_PIC.h
-[v _tx_sends `(v ~T0 @X0 0 ef1`*Cuc ]
-"28 ../My_library\My_terminal.h
+"34 ../../../My_library\My_ringbuf.h
+[v _ringbuf_put_str `(v ~T0 @X0 0 ef2`*S1223`*Cuc ]
+"28 ../../../My_library\My_terminal.h
 [v _terminal_time `(v ~T0 @X0 0 ef4`*S1223`*uc`*uc`*uc ]
 "55 C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdlib.h
 [v _atoi `(i ~T0 @X0 0 ef1`*Cuc ]
-"81 ../My_library\My_RTCC.h
+"81 ../../../My_library\My_RTCC.h
 [v _time_change_flag `uc ~T0 @X0 0 e ]
 "48
 [s S1229 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -305,7 +305,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RTCC_from_RTCC `(v ~T0 @X0 0 ef1`*S1230 ]
 "79
 [v _now `S1230 ~T0 @X0 0 e ]
-"22 ../My_library\My_PIC.h
+"22 ../../../My_library\My_PIC.h
 [v _OSC_init `(v ~T0 @X0 0 ef ]
 "10269 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
@@ -331,7 +331,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1187 . . . . ]
 "18230
 [v _INTCON2bits `VS1187 ~T0 @X0 0 e@4081 ]
-"34 ../My_library\My_PIC.h
+"34 ../../../My_library\My_PIC.h
 [v _timer0_init `(v ~T0 @X0 0 ef1`uc ]
 "49
 [v _timer1_init `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -339,25 +339,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _timer3_init `(v ~T0 @X0 0 ef1`uc ]
 "76
 [v _ADC_init `(v ~T0 @X0 0 ef1`uc ]
-"83 ../My_library\My_RTCC.h
+"83 ../../../My_library\My_RTCC.h
 [v _RTCC_init `(v ~T0 @X0 0 ef ]
-"21 ../My_library/usb_cdc\My_usb_cdc.h
+"21 ../../../My_library\My_usb_cdc.h
 [v _USB_init `(v ~T0 @X0 0 ef ]
-"26 ../My_library\My_ringbuf.h
+"26 ../../../My_library\My_ringbuf.h
 [v _ringbuf_init `(v ~T0 @X0 0 ef3`*S1223`*uc`ui ]
-"17 ../My_library/usb_cdc\My_usb_cdc.h
+"17 ../../../My_library\My_usb_cdc.h
 [v _usb_tx `S1223 ~T0 @X0 0 e ]
 "18
 [v _usb_rx `S1223 ~T0 @X0 0 e ]
 [p mainexit ]
-"108 ../My_library\My_RTCC.h
+"108 ../../../My_library\My_RTCC.h
 [v _RTCC_from_epoch `(v ~T0 @X0 0 ef1`*S1230 ]
-"25 ../My_library/usb_cdc\My_usb_cdc.h
-[v _USB_loop `(v ~T0 @X0 0 ef ]
-"128 ../My_library\My_RTCC.h
-[v _RTCC_loop `(v ~T0 @X0 0 ef ]
-"20 ../My_library\My_terminal.h
-[v _terminal_loop `(v ~T0 @X0 0 ef2`*S1223`*S1223 ]
+"25 ../../../My_library\My_usb_cdc.h
+[v _USB_task `(v ~T0 @X0 0 ef ]
+"128 ../../../My_library\My_RTCC.h
+[v _RTCC_task `(v ~T0 @X0 0 ef ]
+"20 ../../../My_library\My_terminal.h
+[v _terminal_task `(v ~T0 @X0 0 ef2`*S1223`*S1223 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -8605,20 +8605,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_PIC.h: 66: void timer5_init(uint8_t prescaler);
 [; ;My_library\My_PIC.h: 76: void ADC_init(uint8_t p_ref);
 [; ;My_library\My_PIC.h: 85: uint16_t ADC(uint8_t ch);
-[; ;My_library\My_PIC.h: 91: extern ringbuf_t tx_buf;
-[; ;My_library\My_PIC.h: 92: extern ringbuf_t rx_buf;
+[; ;My_library\My_PIC.h: 91: extern ringbuf_t uart_tx;
+[; ;My_library\My_PIC.h: 92: extern ringbuf_t uart_rx;
 [; ;My_library\My_PIC.h: 95: void UART_init(void);
 [; ;My_library\My_PIC.h: 96: void UART_ISR(void);
-[; ;My_library\My_PIC.h: 97: void tx_send(const char asciicode);
-[; ;My_library\My_PIC.h: 98: void tx_sends(const char *asciicode);
-[; ;My_library\My_PIC.h: 109: void tx_sendn(const uint16_t value, uint8_t digits);
-[; ;My_library\My_PIC.h: 117: void CTMU_init(void);
-[; ;My_library\My_PIC.h: 118: uint16_t CTMU_read(uint8_t ch);
-[; ;My_library\My_PIC.h: 123: void Delay_ms(uint16_t ms);
-[; ;My_library\My_PIC.h: 127: void millis_timer(void);
-[; ;My_library\My_PIC.h: 128: uint32_t millis(void);
+[; ;My_library\My_PIC.h: 97: void UART_task();
+[; ;My_library\My_PIC.h: 108: void tx_sendn(const uint16_t value, uint8_t digits);
+[; ;My_library\My_PIC.h: 116: void CTMU_init(void);
+[; ;My_library\My_PIC.h: 117: uint16_t CTMU_read(uint8_t ch);
+[; ;My_library\My_PIC.h: 122: void Delay_ms(uint16_t ms);
+[; ;My_library\My_PIC.h: 126: void millis_timer(void);
+[; ;My_library\My_PIC.h: 127: uint32_t millis(void);
 [; ;My_library\My_terminal.h: 18: void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
-[; ;My_library\My_terminal.h: 20: void terminal_loop(ringbuf_t *tx, ringbuf_t *rx);
+[; ;My_library\My_terminal.h: 20: void terminal_task(ringbuf_t *tx, ringbuf_t *rx);
 [; ;My_library\My_terminal.h: 22: void print_time_dec(ringbuf_t *tx, uint8_t dec, uint8_t edit);
 [; ;My_library\My_terminal.h: 24: void print_time(ringbuf_t *tx);
 [; ;My_library\My_terminal.h: 26: void terminal_at_hand(ringbuf_t *tx, uint8_t *hand, uint8_t min, uint8_t max, uint8_t value);
@@ -8698,15 +8697,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_RTCC.h: 122: void RTCC_adjust_time_inc(time_t *tm);
 [; ;My_library\My_RTCC.h: 124: void RTCC_adjust_time_dec(time_t *tm);
 [; ;My_library\My_RTCC.h: 126: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
-[; ;My_library\My_RTCC.h: 128: void RTCC_loop(void);
+[; ;My_library\My_RTCC.h: 128: void RTCC_task(void);
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;usb_cdc\system.h: 32: typedef enum
-[; ;usb_cdc\system.h: 33: {
-[; ;usb_cdc\system.h: 34: SYSTEM_STATE_USB_START,
-[; ;usb_cdc\system.h: 35: SYSTEM_STATE_USB_SUSPEND,
-[; ;usb_cdc\system.h: 36: SYSTEM_STATE_USB_RESUME
-[; ;usb_cdc\system.h: 37: } SYSTEM_STATE;
-[; ;usb_cdc\system.h: 51: void SYSTEM_Initialize( SYSTEM_STATE state );
+[; ;system.h: 32: typedef enum
+[; ;system.h: 33: {
+[; ;system.h: 34: SYSTEM_STATE_USB_START,
+[; ;system.h: 35: SYSTEM_STATE_USB_SUSPEND,
+[; ;system.h: 36: SYSTEM_STATE_USB_RESUME
+[; ;system.h: 37: } SYSTEM_STATE;
+[; ;system.h: 51: void SYSTEM_Initialize( SYSTEM_STATE state );
 [; ;usb_common.h: 138: typedef union
 [; ;usb_common.h: 139: {
 [; ;usb_common.h: 140: uint8_t bitmap;
@@ -9302,14 +9301,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device_cdc.h: 958: extern LINE_CODING line_coding;
 [; ;usb_device_cdc.h: 960: extern volatile CTRL_TRF_SETUP SetupPkt;
 [; ;usb_device_cdc.h: 961: extern const uint8_t configDescriptor1[];
-[; ;usb_cdc\My_usb_cdc.h: 17: extern ringbuf_t usb_tx;
-[; ;usb_cdc\My_usb_cdc.h: 18: extern ringbuf_t usb_rx;
-[; ;usb_cdc\My_usb_cdc.h: 20: void USB_ISR(void);
-[; ;usb_cdc\My_usb_cdc.h: 21: void USB_init(void);
-[; ;usb_cdc\My_usb_cdc.h: 22: int put_string_usb(char *s, int len);
-[; ;usb_cdc\My_usb_cdc.h: 23: int get_string_usb(char *s, int len);
-[; ;usb_cdc\My_usb_cdc.h: 24: void USBCBSendResume(void);
-[; ;usb_cdc\My_usb_cdc.h: 25: void USB_loop(void);
+[; ;My_library\My_usb_cdc.h: 17: extern ringbuf_t usb_tx;
+[; ;My_library\My_usb_cdc.h: 18: extern ringbuf_t usb_rx;
+[; ;My_library\My_usb_cdc.h: 20: void USB_ISR(void);
+[; ;My_library\My_usb_cdc.h: 21: void USB_init(void);
+[; ;My_library\My_usb_cdc.h: 22: int put_string_usb(char *s, int len);
+[; ;My_library\My_usb_cdc.h: 23: int get_string_usb(char *s, int len);
+[; ;My_library\My_usb_cdc.h: 24: void USBCBSendResume(void);
+[; ;My_library\My_usb_cdc.h: 25: void USB_task(void);
 "21 PIC18F27J53-killifish_light06.c
 [p x WDTEN=OFF ]
 [p x PLLDIV=2 ]
@@ -9357,15 +9356,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ADC_flag `uc ~T0 @X0 1 e ]
 [; ;PIC18F27J53-killifish_light06.c: 53: uint8_t ADC_flag;
 "59
-[v _light_mode `E9630 ~T0 @X0 1 e ]
+[v _light_mode `E9627 ~T0 @X0 1 e ]
 [; ;PIC18F27J53-killifish_light06.c: 55: enum {
 [; ;PIC18F27J53-killifish_light06.c: 56: TIME_SYNC_mode,
 [; ;PIC18F27J53-killifish_light06.c: 57: ADC_mode,
 [; ;PIC18F27J53-killifish_light06.c: 58: COMMAND_mode
 [; ;PIC18F27J53-killifish_light06.c: 59: } light_mode;
-[v F9637 `(v ~T0 @X0 1 tf ]
+[v F9634 `(v ~T0 @X0 1 tf ]
 "61
-[v _ISR `IF9637 ~T0 @X0 1 e ]
+[v _ISR `IF9634 ~T0 @X0 1 e ]
 {
 [; ;PIC18F27J53-killifish_light06.c: 61: void interrupt ISR(void) {
 [e :U _ISR ]
@@ -9739,7 +9738,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "171
 [e $ ! || ! != ( _strcmp (2 , -> _op0 `*Cuc :s 1C -> 0 `i ! != ( _strcmp (2 , -> _op0 `*Cuc :s 2C -> 0 `i 1323  ]
 {
-[; ;PIC18F27J53-killifish_light06.c: 172: tx_sends(
+[; ;PIC18F27J53-killifish_light06.c: 172: ringbuf_put_str(tx,
 [; ;PIC18F27J53-killifish_light06.c: 173: "\t**************************\n"
 [; ;PIC18F27J53-killifish_light06.c: 174: "\t**** Killifish Light  ****\n"
 [; ;PIC18F27J53-killifish_light06.c: 175: "\t**** Made by @Ryokeri ****\n"
@@ -9754,7 +9753,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;PIC18F27J53-killifish_light06.c: 184: "\tRESET();\n"
 [; ;PIC18F27J53-killifish_light06.c: 185: );
 "185
-[e ( _tx_sends (1 :s 3C ]
+[e ( _ringbuf_put_str (2 , _tx :s 3C ]
 "186
 }
 [e :U 1323 ]
@@ -9794,7 +9793,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;PIC18F27J53-killifish_light06.c: 196: light_mode = TIME_SYNC_mode;
 "196
-[e = _light_mode . `E9630 0 ]
+[e = _light_mode . `E9627 0 ]
 "197
 }
 [e :U 1327 ]
@@ -9805,7 +9804,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;PIC18F27J53-killifish_light06.c: 199: light_mode = ADC_mode;
 "199
-[e = _light_mode . `E9630 1 ]
+[e = _light_mode . `E9627 1 ]
 "200
 }
 [e :U 1328 ]
@@ -9824,7 +9823,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;PIC18F27J53-killifish_light06.c: 204: light_mode = COMMAND_mode;
 "204
-[e = _light_mode . `E9630 2 ]
+[e = _light_mode . `E9627 2 ]
 [; ;PIC18F27J53-killifish_light06.c: 205: PWM_set(0, atoi(op2) * 250 / 100);
 "205
 [e ( _PWM_set (2 , -> -> 0 `i `uc -> / * ( _atoi (1 -> _op2 `*Cuc -> 250 `i -> 100 `i `ui ]
@@ -9838,7 +9837,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;PIC18F27J53-killifish_light06.c: 208: light_mode = COMMAND_mode;
 "208
-[e = _light_mode . `E9630 2 ]
+[e = _light_mode . `E9627 2 ]
 [; ;PIC18F27J53-killifish_light06.c: 209: PWM_set(1, atoi(op2) * 250 / 100);
 "209
 [e ( _PWM_set (2 , -> -> 1 `i `uc -> / * ( _atoi (1 -> _op2 `*Cuc -> 250 `i -> 100 `i `ui ]
@@ -9852,7 +9851,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;PIC18F27J53-killifish_light06.c: 212: light_mode = COMMAND_mode;
 "212
-[e = _light_mode . `E9630 2 ]
+[e = _light_mode . `E9627 2 ]
 [; ;PIC18F27J53-killifish_light06.c: 213: PWM_set(2, atoi(op2) * 250 / 100);
 "213
 [e ( _PWM_set (2 , -> -> 2 `i `uc -> / * ( _atoi (1 -> _op2 `*Cuc -> 250 `i -> 100 `i `ui ]
@@ -9866,7 +9865,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;PIC18F27J53-killifish_light06.c: 216: light_mode = COMMAND_mode;
 "216
-[e = _light_mode . `E9630 2 ]
+[e = _light_mode . `E9627 2 ]
 [; ;PIC18F27J53-killifish_light06.c: 217: PWM_set(3, atoi(op2) * 250 / 100);
 "217
 [e ( _PWM_set (2 , -> -> 3 `i `uc -> / * ( _atoi (1 -> _op2 `*Cuc -> 250 `i -> 100 `i `ui ]
@@ -9880,7 +9879,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;PIC18F27J53-killifish_light06.c: 220: light_mode = COMMAND_mode;
 "220
-[e = _light_mode . `E9630 2 ]
+[e = _light_mode . `E9627 2 ]
 [; ;PIC18F27J53-killifish_light06.c: 221: PWM_set(0, 0);
 "221
 [e ( _PWM_set (2 , -> -> 0 `i `uc -> -> 0 `i `ui ]
@@ -9906,10 +9905,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 1322 ]
 }
 "229
-[v _light_loop `(v ~T0 @X0 1 ef ]
+[v _light_task `(v ~T0 @X0 1 ef ]
 {
-[; ;PIC18F27J53-killifish_light06.c: 229: void light_loop(void) {
-[e :U _light_loop ]
+[; ;PIC18F27J53-killifish_light06.c: 229: void light_task(void) {
+[e :U _light_task ]
 [f ]
 "230
 [v _i `uc ~T0 @X0 1 a ]
@@ -9926,7 +9925,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _RTCC_from_RTCC (1 &U _now ]
 [; ;PIC18F27J53-killifish_light06.c: 234: if (light_mode == TIME_SYNC_mode) {
 "234
-[e $ ! == -> _light_mode `i -> . `E9630 0 `i 1337  ]
+[e $ ! == -> _light_mode `i -> . `E9627 0 `i 1337  ]
 {
 "235
 [v _temp `ul ~T0 @X0 1 a ]
@@ -9980,27 +9979,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _sw_G 1 0 -> -> 0 `i `ui ]
 [; ;PIC18F27J53-killifish_light06.c: 246: light_mode = COMMAND_mode;
 "246
-[e = _light_mode . `E9630 2 ]
+[e = _light_mode . `E9627 2 ]
 "247
-[v F9657 `uc ~T0 @X0 1 s n ]
-[i F9657
+[v F9654 `uc ~T0 @X0 1 s n ]
+[i F9654
 -> -> 0 `i `uc
 ]
 [; ;PIC18F27J53-killifish_light06.c: 247: static uint8_t n = 0;
 [; ;PIC18F27J53-killifish_light06.c: 248: if (n >= 3) n = 0;
 "248
-[e $ ! >= -> F9657 `i -> 3 `i 1343  ]
-[e = F9657 -> -> 0 `i `uc ]
+[e $ ! >= -> F9654 `i -> 3 `i 1343  ]
+[e = F9654 -> -> 0 `i `uc ]
 [e $U 1344  ]
 "249
 [e :U 1343 ]
 [; ;PIC18F27J53-killifish_light06.c: 249: else n++;
-[e ++ F9657 -> -> 1 `i `uc ]
+[e ++ F9654 -> -> 1 `i `uc ]
 [e :U 1344 ]
 "250
 [v _value `uc ~T0 @X0 1 a ]
 [; ;PIC18F27J53-killifish_light06.c: 250: uint8_t value = 250 / 3 * n;
-[e = _value -> * / -> 250 `i -> 3 `i -> F9657 `i `uc ]
+[e = _value -> * / -> 250 `i -> 3 `i -> F9654 `i `uc ]
 [; ;PIC18F27J53-killifish_light06.c: 251: for (i = 0; i < 3; i++) {
 "251
 {
@@ -10034,27 +10033,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _sw_B 1 0 -> -> 0 `i `ui ]
 [; ;PIC18F27J53-killifish_light06.c: 257: light_mode = COMMAND_mode;
 "257
-[e = _light_mode . `E9630 2 ]
+[e = _light_mode . `E9627 2 ]
 "258
-[v F9659 `uc ~T0 @X0 1 s n ]
-[i F9659
+[v F9656 `uc ~T0 @X0 1 s n ]
+[i F9656
 -> -> 0 `i `uc
 ]
 [; ;PIC18F27J53-killifish_light06.c: 258: static uint8_t n = 0;
 [; ;PIC18F27J53-killifish_light06.c: 259: if (n >= 3) n = 0;
 "259
-[e $ ! >= -> F9659 `i -> 3 `i 1349  ]
-[e = F9659 -> -> 0 `i `uc ]
+[e $ ! >= -> F9656 `i -> 3 `i 1349  ]
+[e = F9656 -> -> 0 `i `uc ]
 [e $U 1350  ]
 "260
 [e :U 1349 ]
 [; ;PIC18F27J53-killifish_light06.c: 260: else n++;
-[e ++ F9659 -> -> 1 `i `uc ]
+[e ++ F9656 -> -> 1 `i `uc ]
 [e :U 1350 ]
 "261
 [v _value `uc ~T0 @X0 1 a ]
 [; ;PIC18F27J53-killifish_light06.c: 261: uint8_t value = 250 / 3 * n;
-[e = _value -> * / -> 250 `i -> 3 `i -> F9659 `i `uc ]
+[e = _value -> * / -> 250 `i -> 3 `i -> F9656 `i `uc ]
 [; ;PIC18F27J53-killifish_light06.c: 262: PWM_set(3, value);
 "262
 [e ( _PWM_set (2 , -> -> 3 `i `uc -> _value `ui ]
@@ -10071,7 +10070,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _sw_R 1 0 -> -> 0 `i `ui ]
 [; ;PIC18F27J53-killifish_light06.c: 266: light_mode = TIME_SYNC_mode;
 "266
-[e = _light_mode . `E9630 0 ]
+[e = _light_mode . `E9627 0 ]
 "267
 }
 [e :U 1351 ]
@@ -10129,17 +10128,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 "301
 [e ( _USB_init ..  ]
 "302
-[v F9663 `uc ~T0 @X0 -> 1000 `i s txbuf ]
+[v F9660 `uc ~T0 @X0 -> 1000 `i s txbuf ]
 [; ;PIC18F27J53-killifish_light06.c: 302: static uint8_t txbuf[1000];
 [; ;PIC18F27J53-killifish_light06.c: 303: ringbuf_init(&usb_tx, txbuf, sizeof (txbuf));
 "303
-[e ( _ringbuf_init (3 , , &U _usb_tx &U F9663 -> # F9663 `ui ]
+[e ( _ringbuf_init (3 , , &U _usb_tx &U F9660 -> # F9660 `ui ]
 "304
-[v F9664 `uc ~T0 @X0 -> 250 `i s rxbuf ]
+[v F9661 `uc ~T0 @X0 -> 250 `i s rxbuf ]
 [; ;PIC18F27J53-killifish_light06.c: 304: static uint8_t rxbuf[250];
 [; ;PIC18F27J53-killifish_light06.c: 305: ringbuf_init(&usb_rx, rxbuf, sizeof (rxbuf));
 "305
-[e ( _ringbuf_init (3 , , &U _usb_rx &U F9664 -> # F9664 `ui ]
+[e ( _ringbuf_init (3 , , &U _usb_rx &U F9661 -> # F9661 `ui ]
 [; ;PIC18F27J53-killifish_light06.c: 306: }
 "306
 [e :UE 1352 ]
@@ -10177,36 +10176,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;PIC18F27J53-killifish_light06.c: 318: INTCONbits.GIE = 0;
 "318
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light06.c: 319: USB_loop();
+[; ;PIC18F27J53-killifish_light06.c: 319: USB_task();
 "319
-[e ( _USB_loop ..  ]
+[e ( _USB_task ..  ]
 [; ;PIC18F27J53-killifish_light06.c: 320: INTCONbits.GIE = 1;
 "320
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 [; ;PIC18F27J53-killifish_light06.c: 322: INTCONbits.GIE = 0;
 "322
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light06.c: 323: RTCC_loop();
+[; ;PIC18F27J53-killifish_light06.c: 323: RTCC_task();
 "323
-[e ( _RTCC_loop ..  ]
+[e ( _RTCC_task ..  ]
 [; ;PIC18F27J53-killifish_light06.c: 324: INTCONbits.GIE = 1;
 "324
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 [; ;PIC18F27J53-killifish_light06.c: 326: INTCONbits.GIE = 0;
 "326
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light06.c: 327: terminal_loop(&usb_tx, &usb_rx);
+[; ;PIC18F27J53-killifish_light06.c: 327: terminal_task(&usb_tx, &usb_rx);
 "327
-[e ( _terminal_loop (2 , &U _usb_tx &U _usb_rx ]
+[e ( _terminal_task (2 , &U _usb_tx &U _usb_rx ]
 [; ;PIC18F27J53-killifish_light06.c: 328: INTCONbits.GIE = 1;
 "328
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 [; ;PIC18F27J53-killifish_light06.c: 330: INTCONbits.GIE = 0;
 "330
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light06.c: 331: light_loop();
+[; ;PIC18F27J53-killifish_light06.c: 331: light_task();
 "331
-[e ( _light_loop ..  ]
+[e ( _light_task ..  ]
 [; ;PIC18F27J53-killifish_light06.c: 332: INTCONbits.GIE = 1;
 "332
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]

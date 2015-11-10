@@ -29,22 +29,20 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="My_library" displayName="My_library" projectFiles="true">
-        <logicalFolder name="usb_cdc" displayName="usb_cdc" projectFiles="true">
-          <logicalFolder name="usb" displayName="usb" projectFiles="true">
-            <itemPath>../My_library/usb_cdc/usb/usb_device.c</itemPath>
-            <itemPath>../My_library/usb_cdc/usb/usb_device_cdc.c</itemPath>
-          </logicalFolder>
-          <itemPath>../My_library/usb_cdc/My_usb_cdc.c</itemPath>
-          <itemPath>../My_library/usb_cdc/usb_descriptors.c</itemPath>
+        <logicalFolder name="usb" displayName="usb" projectFiles="true">
+          <itemPath>../../../My_library/usb/usb_descriptors.c</itemPath>
+          <itemPath>../../../My_library/usb/usb_device.c</itemPath>
+          <itemPath>../../../My_library/usb/usb_device_cdc.c</itemPath>
         </logicalFolder>
-        <itemPath>../My_library/My_button.c</itemPath>
-        <itemPath>../My_library/My_I2C.c</itemPath>
-        <itemPath>../My_library/My_PIC.c</itemPath>
-        <itemPath>../My_library/My_ringbuf.c</itemPath>
-        <itemPath>../My_library/My_RTCC.c</itemPath>
-        <itemPath>../My_library/My_SPI.c</itemPath>
-        <itemPath>../My_library/My_ST7032.c</itemPath>
-        <itemPath>../My_library/My_terminal.c</itemPath>
+        <itemPath>../../../My_library/My_button.c</itemPath>
+        <itemPath>../../../My_library/My_I2C.c</itemPath>
+        <itemPath>../../../My_library/My_PIC.c</itemPath>
+        <itemPath>../../../My_library/My_ringbuf.c</itemPath>
+        <itemPath>../../../My_library/My_RTCC.c</itemPath>
+        <itemPath>../../../My_library/My_SPI.c</itemPath>
+        <itemPath>../../../My_library/My_ST7032.c</itemPath>
+        <itemPath>../../../My_library/My_terminal.c</itemPath>
+        <itemPath>../../../My_library/My_usb_cdc.c</itemPath>
       </logicalFolder>
       <itemPath>PIC18F27J53-killifish_light06.c</itemPath>
     </logicalFolder>
@@ -56,6 +54,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>../My_library</Elem>
+    <Elem>../../../My_library</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -95,8 +94,7 @@
       <HI-TECH-COMP>
         <property key="asmlist" value="true"/>
         <property key="define-macros" value=""/>
-        <property key="extra-include-directories"
-                  value="..\My_library;..\My_library\usb_cdc"/>
+        <property key="extra-include-directories" value="..\..\..\My_library"/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="free"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>

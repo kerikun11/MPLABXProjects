@@ -11,6 +11,10 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
+$C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
+reset_vec CODE 0 1000 1000 4 1
+end_init CODE 0 10E0 10E0 4 1
+config CONFIG 0 1FFF8 1FFF8 8 1
 $dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 cinit CODE 0 15E16 15E16 78 1
 text0 CODE 0 160D0 160D0 6C 1
@@ -122,7 +126,7 @@ bssBANK0 BANK0 1 E6 E6 1A 1
 bssBANK1 BANK1 1 100 100 91 1
 bssBANK2 BANK2 1 200 200 C2 1
 bssBANK3 BANK3 1 300 300 E4 1
-intcode CODE 0 8 8 D8 1
+intcode CODE 0 1008 1008 D8 1
 idataBANK1 CODE 0 16CAC 16CAC 3 1
 bssBIGRAMl BIGRAM 1 469 469 7D0 1
 dataBANK1 BANK1 1 1E1 1E1 3 1
@@ -160,10 +164,6 @@ text131 CODE 0 15D10 15D10 84 1
 text132 CODE 0 1620A 1620A 64 1
 bssCOMRAM COMRAM 1 1 1 2C 1
 mediumconst MEDIUMCONST 0 FA50 FA50 5B0 1
-$C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
-reset_vec CODE 0 0 0 4 1
-end_init CODE 0 E0 E0 4 1
-config CONFIG 0 1FFF8 1FFF8 8 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -179,14 +179,15 @@ SFR EB0-FFF 1
 BANK1 1E4-1FF 1
 BANK2 2C2-2FF 1
 BANK3 3E4-3FF 1
-CONST 4-7 1
-CONST E4-FA4F 1
+CONST 1004-1005 1
+CONST 10E4-FA4F 1
 CONST 16CAF-1FFF7 1
 STACK D40-EAF 1
-SMALLCONST F00-FA4F 1
+SMALLCONST 1004-1005 1
+SMALLCONST 10E4-FA4F 1
 SMALLCONST 16CAF-1FFF7 1
-CODE 4-7 1
-CODE E4-FA4F 1
+CODE 1004-1005 1
+CODE 10E4-FA4F 1
 CODE 16CAF-1FFF7 1
 BANK12 C39-CFF 1
 BANK13 D40-DFF 1
@@ -198,7 +199,9 @@ BIGRAM 3E4-3FF 1
 BIGRAM C39-CFF 1
 BIGRAM D40-EAF 1
 COMRAM 5A-5F 1
-MEDIUMCONST F00-FA4F 1
+FARRAM 0-0 1
+MEDIUMCONST 1004-1005 1
+MEDIUMCONST 10E4-FA4F 1
 MEDIUMCONST 16CAF-1FFF7 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -214,32 +217,32 @@ MEDIUMCONST 16CAF-1FFF7 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-8 intcode CODE >47:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
-8 intcode CODE >49:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-42 intcode CODE >50:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-46 intcode CODE >51:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-4C intcode CODE >52:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-4E intcode CODE >53:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-52 intcode CODE >55:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-58 intcode CODE >56:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-5A intcode CODE >57:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-5E intcode CODE >58:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-62 intcode CODE >60:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-68 intcode CODE >61:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-6C intcode CODE >62:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-6E intcode CODE >63:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-72 intcode CODE >64:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-76 intcode CODE >65:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-7A intcode CODE >66:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-86 intcode CODE >69:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-8C intcode CODE >70:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-8E intcode CODE >71:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-92 intcode CODE >73:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-98 intcode CODE >74:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-9A intcode CODE >75:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-9C intcode CODE >76:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-A0 intcode CODE >77:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-A4 intcode CODE >80:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+1008 intcode CODE >47:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
+1008 intcode CODE >49:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+1042 intcode CODE >50:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+1046 intcode CODE >51:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+104C intcode CODE >52:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+104E intcode CODE >53:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+1052 intcode CODE >55:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+1058 intcode CODE >56:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+105A intcode CODE >57:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+105E intcode CODE >58:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+1062 intcode CODE >60:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+1068 intcode CODE >61:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+106C intcode CODE >62:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+106E intcode CODE >63:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+1072 intcode CODE >64:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+1076 intcode CODE >65:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+107A intcode CODE >66:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+1086 intcode CODE >69:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+108C intcode CODE >70:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+108E intcode CODE >71:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+1092 intcode CODE >73:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+1098 intcode CODE >74:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+109A intcode CODE >75:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+109C intcode CODE >76:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+10A0 intcode CODE >77:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
+10A4 intcode CODE >80:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
 1620A text132 CODE >36:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\io.c
 1620C text132 CODE >37:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\io.c
 16232 text132 CODE >38:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\io.c
@@ -858,10 +861,10 @@ A4 intcode CODE >80:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\Charg
 16CA6 text102 CODE >7:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
 16CA6 text102 CODE >8:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
 16CAA text102 CODE >9:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
-16B58 text101 CODE >318:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16B58 text101 CODE >320:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16B64 text101 CODE >323:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16B6E text101 CODE >324:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16B58 text101 CODE >302:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16B58 text101 CODE >304:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16B64 text101 CODE >307:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16B6E text101 CODE >308:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
 16B9E text99 CODE >45:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
 16BA2 text99 CODE >46:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
 153CE text98 CODE >83:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
@@ -1067,25 +1070,25 @@ A4 intcode CODE >80:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\Charg
 153BC text80 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
 153BC text80 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
 153CC text80 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
-15192 text79 CODE >283:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-15196 text79 CODE >284:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151A8 text79 CODE >285:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151B8 text79 CODE >286:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151CE text79 CODE >287:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151D0 text79 CODE >288:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151D2 text79 CODE >289:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151D4 text79 CODE >292:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151D6 text79 CODE >293:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151DC text79 CODE >294:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151DE text79 CODE >296:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151E0 text79 CODE >297:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151E6 text79 CODE >298:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151E8 text79 CODE >300:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151EA text79 CODE >301:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151EC text79 CODE >302:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-151F0 text79 CODE >303:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-15208 text79 CODE >285:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-1520E text79 CODE >305:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+15192 text79 CODE >267:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+15196 text79 CODE >268:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151A8 text79 CODE >269:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151B8 text79 CODE >270:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151CE text79 CODE >271:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151D0 text79 CODE >272:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151D2 text79 CODE >273:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151D4 text79 CODE >276:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151D6 text79 CODE >277:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151DC text79 CODE >278:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151DE text79 CODE >280:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151E0 text79 CODE >281:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151E6 text79 CODE >282:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151E8 text79 CODE >284:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151EA text79 CODE >285:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151EC text79 CODE >286:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+151F0 text79 CODE >287:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+15208 text79 CODE >269:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+1520E text79 CODE >289:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
 15E8E text78 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c
 15E8E text78 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c
 15E98 text78 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c
@@ -1142,18 +1145,18 @@ A4 intcode CODE >80:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\Charg
 16B92 text74 CODE >137:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
 16B94 text74 CODE >138:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
 16B9C text74 CODE >139:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16ABE text73 CODE >268:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16ABE text73 CODE >269:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16AC2 text73 CODE >270:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16AC6 text73 CODE >271:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16ACA text73 CODE >273:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16ACC text73 CODE >274:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16ACE text73 CODE >275:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16AD6 text73 CODE >276:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16ADE text73 CODE >278:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16AE0 text73 CODE >279:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16AE2 text73 CODE >280:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-16AE4 text73 CODE >281:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16ABE text73 CODE >252:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16ABE text73 CODE >253:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16AC2 text73 CODE >254:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16AC6 text73 CODE >255:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16ACA text73 CODE >257:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16ACC text73 CODE >258:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16ACE text73 CODE >259:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16AD6 text73 CODE >260:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16ADE text73 CODE >262:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16AE0 text73 CODE >263:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16AE2 text73 CODE >264:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+16AE4 text73 CODE >265:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
 16BBE text72 CODE >7:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_I2C.c
 16BC2 text72 CODE >8:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_I2C.c
 16C62 text71 CODE >51:C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_I2C.c
@@ -2195,65 +2198,65 @@ A4 intcode CODE >80:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\Charg
 16134 text0 CODE >169:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
 16138 text0 CODE >170:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
 1613A text0 CODE >143:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\ChargeStation\PIC18F27J53-ChargeStation-2.11.X\main.c
-15E16 cinit CODE >12405:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E16 cinit CODE >12407:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E16 cinit CODE >12410:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E16 cinit CODE >12683:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E1A cinit CODE >12684:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E1E cinit CODE >12685:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E1E cinit CODE >12686:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E20 cinit CODE >12687:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E22 cinit CODE >12688:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E24 cinit CODE >12689:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E26 cinit CODE >12690:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E28 cinit CODE >12691:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E2A cinit CODE >12694:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E2E cinit CODE >12695:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E30 cinit CODE >12696:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E30 cinit CODE >12697:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E32 cinit CODE >12698:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E34 cinit CODE >12699:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E36 cinit CODE >12702:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E3A cinit CODE >12703:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E3C cinit CODE >12704:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E3C cinit CODE >12705:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E3E cinit CODE >12706:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E40 cinit CODE >12707:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E42 cinit CODE >12710:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E46 cinit CODE >12711:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E48 cinit CODE >12712:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E48 cinit CODE >12713:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E4A cinit CODE >12714:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E4C cinit CODE >12715:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E4E cinit CODE >12718:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E52 cinit CODE >12719:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E54 cinit CODE >12720:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E54 cinit CODE >12721:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E56 cinit CODE >12722:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E58 cinit CODE >12723:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E5A cinit CODE >12726:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E5E cinit CODE >12727:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E60 cinit CODE >12728:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E60 cinit CODE >12729:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E62 cinit CODE >12730:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E64 cinit CODE >12731:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E66 cinit CODE >12736:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E68 cinit CODE >12737:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E6A cinit CODE >12738:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E6C cinit CODE >12739:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E6E cinit CODE >12740:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E70 cinit CODE >12741:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E72 cinit CODE >12742:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E74 cinit CODE >12743:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E78 cinit CODE >12744:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E7A cinit CODE >12745:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E7E cinit CODE >12746:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E80 cinit CODE >12747:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E84 cinit CODE >12753:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E84 cinit CODE >12755:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E86 cinit CODE >12756:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E88 cinit CODE >12757:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
-15E8A cinit CODE >12758:C:\Users\KERIKU~1\AppData\Local\Temp\s37k.
+15E16 cinit CODE >12405:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E16 cinit CODE >12407:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E16 cinit CODE >12410:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E16 cinit CODE >12683:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E1A cinit CODE >12684:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E1E cinit CODE >12685:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E1E cinit CODE >12686:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E20 cinit CODE >12687:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E22 cinit CODE >12688:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E24 cinit CODE >12689:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E26 cinit CODE >12690:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E28 cinit CODE >12691:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E2A cinit CODE >12694:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E2E cinit CODE >12695:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E30 cinit CODE >12696:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E30 cinit CODE >12697:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E32 cinit CODE >12698:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E34 cinit CODE >12699:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E36 cinit CODE >12702:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E3A cinit CODE >12703:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E3C cinit CODE >12704:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E3C cinit CODE >12705:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E3E cinit CODE >12706:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E40 cinit CODE >12707:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E42 cinit CODE >12710:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E46 cinit CODE >12711:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E48 cinit CODE >12712:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E48 cinit CODE >12713:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E4A cinit CODE >12714:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E4C cinit CODE >12715:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E4E cinit CODE >12718:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E52 cinit CODE >12719:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E54 cinit CODE >12720:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E54 cinit CODE >12721:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E56 cinit CODE >12722:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E58 cinit CODE >12723:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E5A cinit CODE >12726:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E5E cinit CODE >12727:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E60 cinit CODE >12728:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E60 cinit CODE >12729:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E62 cinit CODE >12730:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E64 cinit CODE >12731:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E66 cinit CODE >12736:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E68 cinit CODE >12737:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E6A cinit CODE >12738:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E6C cinit CODE >12739:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E6E cinit CODE >12740:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E70 cinit CODE >12741:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E72 cinit CODE >12742:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E74 cinit CODE >12743:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E78 cinit CODE >12744:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E7A cinit CODE >12745:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E7E cinit CODE >12746:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E80 cinit CODE >12747:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E84 cinit CODE >12753:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E84 cinit CODE >12755:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E86 cinit CODE >12756:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E88 cinit CODE >12757:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
+15E8A cinit CODE >12758:C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -2268,11 +2271,13 @@ A4 intcode CODE >80:C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53\Charg
 %SYMTAB
 ringbuf_init@rb 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___awdiv@counter 64 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+USB_task@rx_len 74 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___lwmod@counter 64 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __LdataBANK1 0 0 ABS 0 dataBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 I2C_Send@data 62 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lmediumconst FA50 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 USBStdGetStatusHandler@p 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+terminal_task@i_3917 466 0 BANK4 1 cstackBANK4 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 LED_output@value 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hspace_0 20000 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hspace_1 C39 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2293,10 +2298,9 @@ USBTransferOnePacket@len 63 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F
 timer3_init@prescaler 61 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 settings_led_indicator@str 67 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__mediumconst FA50 0 MEDIUMCONST 0 mediumconst C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
+__mediumconst FA50 0 MEDIUMCONST 0 mediumconst C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
 hardware_init@usbrx 300 0 BANK3 1 bssBANK3 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 hardware_init@usbtx 469 0 BIGRAM 1 bssBIGRAMl dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-settings_loop@item_change_flag 99 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 I2C_Start@rw 62 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USBCtrlEPServiceComplete 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_ringbuf_put_num 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2307,6 +2311,7 @@ USBEnableEndpoint@options 35 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC
 settings_integrating_reset@str_1379 7E 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 settings_auto_stop@str_1345 7B 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _T1CONbits FCD 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+terminal_task@i 468 0 BANK4 1 cstackBANK4 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 RTCC_to_caltime@dumy 64 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __CFG_WPCFG$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 data_out@i CB 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2314,7 +2319,7 @@ data_out@p FBDC 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-
 _ms 106 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ?_ADC 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_I2C_Start 16906 0 CODE 0 text70 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-RTCC_adjust_time_dec@i_3318 97 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+RTCC_adjust_time_dec@i_3309 97 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _CDCTxService 12E34 0 CODE 0 text90 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_software_init 14074 0 CODE 0 text13 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 OUT@b 61 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2325,7 +2330,7 @@ _UEIE F37 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.pro
 _UEIR F63 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _UEP0 F26 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _UEP1 F27 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
+___sp 0 0 STACK 2 stack C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
 _atoi 14168 0 CODE 0 text8 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _main 160D0 0 CODE 0 text0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _pDst 11C 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2335,7 +2340,7 @@ __size_of_I2C_Start 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStatio
 btemp 59 0 COMRAM 1 temp dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_RTCC_adjust_time_cursor 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USBCtrlTrfTxService 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-start E0 0 CODE 0 init C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
+start 10E0 0 CODE 0 init C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
 __end_of_bootload 16676 0 CODE 0 text9 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 i2___lwdiv@quotient 31 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _LED_indicator 13A3C 0 CODE 0 text129 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2355,7 +2360,7 @@ settings_led_indicator@strp_1363 91 0 BANK0 1 cstackBANK0 dist/default/productio
 _USBDeviceInit 1329C 0 CODE 0 text61 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 display_time_1602@tm B3 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USB_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__size_of_USB_loop 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__size_of_USB_task 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ?___lmul 6D 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ?___wmul 76 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _pBDTEntryEP0OutNext B 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2368,9 +2373,8 @@ _ctmu_sampling 13D7E 0 CODE 0 text76 dist/default/production\PIC18F27J53-ChargeS
 __size_of_I2C_Send 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_I2C_Stop 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_I2C_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__size_of_terminal_loop 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__size_of_terminal_task 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_terminal_time 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-sleep_loop@i 6A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _ctmu_sampling_flag 1A 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USBDeviceTasks 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 display_time_1602@line0 B5 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2379,11 +2383,11 @@ __LidataBANK1 0 0 ABS 0 idataBANK1 dist/default/production\PIC18F27J53-ChargeSta
 RTCC_adjust_time_toggle@tm 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _I2C_LCD_Puts 15A4E 0 CODE 0 text43 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _I2C_LCD_init 15C84 0 CODE 0 text66 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-caltime_to_epoch@month_3108 80 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+caltime_to_epoch@month_3099 80 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 USBCtrlTrfInHandler@lastDTS 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBConfigureEndpoint 1592C 0 CODE 0 text123 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _I2C_Start 168D6 0 CODE 0 text70 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__Hpowerup E0 0 CODE 0 powerup dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__Hpowerup 10E0 0 CODE 0 powerup dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 settings_integrating_reset@i 96 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 settings_integrating_reset@j 98 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _UEP0bits F26 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2391,23 +2395,26 @@ __end_of_weekday_3char FBC0 0 MEDIUMCONST 0 mediumconst dist/default/production\
 _print_item 20 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _print_port FE 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _print_time 15BF8 0 CODE 0 text5 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+terminal_task@buf 400 0 BANK4 1 cstackBANK4 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+terminal_task@op0 236 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+terminal_task@op1 24F 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+terminal_task@op2 268 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+terminal_task@op3 281 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _CDCDataOutHandle 7 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___awmod@sign 65 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _CtrlTrfData D38 0 ABS 1 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ringbuf_pop@ret 6E 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 data_out@str AD 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _T0CONbits FD5 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-terminal_loop@rx 193 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-terminal_loop@tx 191 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_ADC_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 display_dec@s AF 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_USB_ISR 16CAC 0 CODE 0 text102 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__end_of_sleep_loop 1500A 0 CODE 0 text15 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
-intlevel0 0 0 CODE 0 text C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
-intlevel1 0 0 CODE 0 text C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
-intlevel2 0 0 CODE 0 text C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
-intlevel3 0 0 CODE 0 text C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
+__end_of_sleep_task 1500A 0 CODE 0 text15 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__accesstop 60 0 ABS 0 - C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
+intlevel0 0 0 CODE 0 text C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
+intlevel1 0 0 CODE 0 text C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
+intlevel2 0 0 CODE 0 text C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
+intlevel3 0 0 CODE 0 text C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
 settings_integrating_reset@strp 92 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __ptext101 16B58 0 CODE 0 text101 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __ptext102 16CA6 0 CODE 0 text102 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2463,11 +2470,12 @@ __size_of_USBEnableEndpoint 0 0 ABS 0 - dist/default/production\PIC18F27J53-Char
 _timer1_init 16550 0 CODE 0 text57 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _controlTransferState 18 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+sleep_task@i 6A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _settings_adjust_time 148A0 0 CODE 0 text21 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___awdiv@sign 65 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBCtrlTrfTxService 146E2 0 CODE 0 text128 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__end_of_terminal_loop 110F6 0 CODE 0 text1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__end_of_terminal_task 110F6 0 CODE 0 text1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_terminal_time 10D8C 0 CODE 0 text3 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USBCtrlEPAllowDataStage 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __LbssBIGRAMl 0 0 ABS 0 bssBIGRAMl dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2476,6 +2484,7 @@ ringbuf_put_num@rb 83 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-
 _timer3_init 169E8 0 CODE 0 text56 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_putUSBUSART 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___wmul@multiplicand 78 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_terminal_task$6731 464 0 BANK4 1 cstackBANK4 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _line_coding 188 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _ANCON0 F48 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _ANCON1 F49 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2484,17 +2493,17 @@ __size_of_I2C_LCD_Puts 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeSta
 __size_of_I2C_LCD_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___awdiv@dividend 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _BCL1IF 7D0B 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
 ?_CTMU_read 6D 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
 _USB_init 16BDC 0 CODE 0 text60 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_USB_loop 15ADC 0 CODE 0 text81 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_USB_task 15ADC 0 CODE 0 text81 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_USBCtrlEPServiceComplete 14168 0 CODE 0 text110 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_CDCTxService 12FC0 0 CODE 0 text90 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 i2___awdiv@divisor 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 OUT@value 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_RTCC_adjust_time_toggle 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_normal_loop 155FE 0 CODE 0 text16 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_normal_task 155FE 0 CODE 0 text16 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 epoch_to_caltime@year_cache 126 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _I2C_Send 16C62 0 CODE 0 text71 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _I2C_Stop 16C9C 0 CODE 0 text69 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2541,7 +2550,7 @@ __end_of___wmul 16840 0 CODE 0 text51 dist/default/production\PIC18F27J53-Charge
 integrate_current@i 6F 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 get_quot_rem@quot 79 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ringbuf_put_str@rb 6F 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-RTCC_adjust_time_inc@i_3288 97 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+RTCC_adjust_time_inc@i_3279 97 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ?_USBTransferOnePacket 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_USBStdGetStatusHandler 15544 0 CODE 0 text115 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _EECON2 FA7 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2552,12 +2561,11 @@ __size_of_ctmu_set_ratio 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeS
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _SetupPkt D30 0 ABS 1 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_USB_init 16BF8 0 CODE 0 text60 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__end_of_USB_loop 15B6A 0 CODE 0 text81 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__end_of_USB_task 15B6A 0 CODE 0 text81 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USBCheckCDCRequest 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 button_timer_interrupt@sw_value 85 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USBCtrlTrfOutHandler 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 USBEnableEndpoint@ep 38 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-port_button_loop@i 66 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _integrate_flag 1F 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _integrate_time 1626E 0 CODE 0 text35 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_sprintf 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2568,7 +2576,7 @@ __end_of_I2C_Stop 16CA6 0 CODE 0 text69 dist/default/production\PIC18F27J53-Char
 __end_of_I2C_init 16C8C 0 CODE 0 text65 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _ADC_init 16B7E 0 CODE 0 text74 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _ringbuf_delete 16B0C 0 CODE 0 text11 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__Hintcodelo E0 0 CODE 0 intcodelo dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__Hintcodelo 10E0 0 CODE 0 intcodelo dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_print_time 15C84 0 CODE 0 text5 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_terminal_at_hand 16392 0 CODE 0 text4 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___awdiv@divisor 62 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2600,7 +2608,7 @@ __end_of_d_to_x 16ABE 0 CODE 0 text29 dist/default/production\PIC18F27J53-Charge
 __end_ofdisplay_LCD@port_char FAF9 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _ctmu_value_m 11A 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_RTCC_init 168D6 0 CODE 0 text64 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__end_of_RTCC_loop 16762 0 CODE 0 text92 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__end_of_RTCC_task 16762 0 CODE 0 text92 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_terminal_at_hand 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ?_strcmp 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 settings_adjust_time@state 127 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2609,14 +2617,14 @@ __end_of_ADC_init 16B9E 0 CODE 0 text74 dist/default/production\PIC18F27J53-Char
 _OSCTUNEbits F9B 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USBDeviceInit 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 settings_integrating_reset@str 6A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_display_LCD$6740 1CD 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_display_LCD$6741 1D1 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_display_LCD$6742 1D5 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_display_LCD$6743 1D9 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_display_LCD$6744 1DD 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_display_LCD$6726 1CD 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_display_LCD$6727 1D1 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_display_LCD$6728 1D5 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_display_LCD$6729 1D9 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_display_LCD$6730 1DD 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _dpowers FA51 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_RTCC_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__size_of_RTCC_loop 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__size_of_RTCC_task 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ?i2___awdiv 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ?i2___lwdiv 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_USBCtrlTrfOutHandler 164AA 0 CODE 0 text124 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2632,14 +2640,14 @@ caltime_to_epoch@tm 79 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53
 _INTCON2bits FF1 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_Auto_cut 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 epoch_to_caltime@year 89 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+port_button_task@i 66 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___lwmod@dividend 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBDeferOUTDataStagePackets 12 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___lldiv@counter 6C 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__Lintcodelo E0 0 CODE 0 intcodelo dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__Lintcodelo 10E0 0 CODE 0 intcodelo dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _is_usb_available 16BF8 0 CODE 0 text88 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ringbuf_put_str@str 71 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_terminal_loop$6745 464 0 BANK4 1 cstackBANK4 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __CFG_CFGPLLEN$ON 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 start_initialization 15E16 0 CODE 0 cinit dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_I2C_LCD_SetCursor 169BC 0 CODE 0 text42 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2647,7 +2655,7 @@ RTCC_adjust_time_cursor@tm 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC1
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_ofdisplay_LCD@onoff FBDC 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _RTCC_init 168A6 0 CODE 0 text64 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_RTCC_loop 16728 0 CODE 0 text92 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_RTCC_task 16728 0 CODE 0 text92 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 integrate_time@i 62 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 i2USBTransferOnePacket@ep 31 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_ofi2_memset 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2671,7 +2679,7 @@ settings_auto_stop@str 67 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27
 __end_of_USBDeviceInit 133FE 0 CODE 0 text61 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBStdGetDscHandler 133FE 0 CODE 0 text116 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_integrate_time 162D0 0 CODE 0 text35 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_CDCTxService$5984 68 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_CDCTxService$5975 68 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _SPBRG1 FB0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __pcstackBANK1 191 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2680,7 +2688,7 @@ __end_of_USER_USB_CALLBACK_EVENT_HANDLER 16990 0 CODE 0 text118 dist/default/pro
 _IPR1bits F9F 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _SSP1IF 7CF3 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _IPR2bits FA2 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_getsUSBUSART$5936 6B 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_getsUSBUSART$5927 6B 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _IPR5bits F99 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_ringbuf_delete 16B32 0 CODE 0 text11 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _settings_led_indicator 1258A 0 CODE 0 text18 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2705,7 +2713,11 @@ ringbuf_put@asciicode 6A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J
 __end_of_USBEnableEndpoint 166EE 0 CODE 0 text122 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 settings_integrating_reset@i_1381 97 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 put_string_usb@s 6C 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+terminal_task@ascii 467 0 BANK4 1 cstackBANK4 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+settings_task@settings_state 12B 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __CFG_CLKOEC$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+terminal_task@rx 193 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+terminal_task@tx 191 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ringbuf_delete@rb 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _UIEbits F36 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _ringbuf_backspace 159C0 0 CODE 0 text12 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2724,6 +2736,7 @@ __Hbank8 0 0 ABS 0 bank8 dist/default/production\PIC18F27J53-ChargeStation-2.11.
 __Hbank9 0 0 ABS 0 bank9 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hcinit 0 0 ABS 0 cinit dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hconst 0 0 CODE 0 const dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+USB_task@data 76 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_USBWakeFromSuspend 168A6 0 CODE 0 text105 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_strcat 163F2 0 CODE 0 text41 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_strcmp 1644E 0 CODE 0 text7 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2756,7 +2769,7 @@ __Hbank14 0 0 ABS 0 bank14 dist/default/production\PIC18F27J53-ChargeStation-2.1
 __size_of_USBCtrlEPAllowStatusStage 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
 _USBCheckStdRequest 1425A 0 CODE 0 text112 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _get_string_usb 165A0 0 CODE 0 text87 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_sprintf 1051C 0 CODE 0 text45 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2773,7 +2786,7 @@ USBTransferOnePacket@handle 65 0 BANK0 1 cstackBANK0 dist/default/production\PIC
 USER_USB_CALLBACK_EVENT_HANDLER@pdata 3B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _cdc_notice 200 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _cut_time_flag 1B 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__size_of_sleep_loop 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__size_of_sleep_task 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lbank2 0 0 ABS 0 bank2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2807,7 +2820,6 @@ __Ltext6 0 0 ABS 0 text6 dist/default/production\PIC18F27J53-ChargeStation-2.11.
 __Ltext7 0 0 ABS 0 text7 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Ltext8 0 0 ABS 0 text8 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Ltext9 0 0 ABS 0 text9 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-terminal_loop@ascii 467 0 BANK4 1 cstackBANK4 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 I2C_LCD_SetCursor@row_offsets 67 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 i2_memset 16A40 0 CODE 0 text114 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2819,18 +2831,17 @@ __CFG_IOL1WAY$OFF 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-
 terminal_time@op0 D4 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 terminal_time@op1 D6 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 terminal_time@op2 D8 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-RTCC_loop@prev_halfsec 122 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 settings_integrating_reset@strp_1380 94 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 epoch_to_caltime@day 87 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 epoch_to_caltime@num 8B 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_is_usb_available$4119 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_is_usb_available$4110 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _INTCONbits FF2 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _pCDCDst 110 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _pCDCSrc 113 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 CDCTxService@i 6A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Habs1 0 0 ABS 0 abs1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hdata 0 0 ABS 0 data dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__Hinit E0 0 CODE 0 init dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__Hinit 10E0 0 CODE 0 init dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Htemp 5A 0 COMRAM 1 temp dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2838,7 +2849,7 @@ __Htext 0 0 ABS 0 text dist/default/production\PIC18F27J53-ChargeStation-2.11.X.
 I2C_LCD_Command@c 64 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Labs1 0 0 ABS 0 abs1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__Linit E0 0 CODE 0 init dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__Linit 10E0 0 CODE 0 init dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Ltemp 59 0 COMRAM 1 temp dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2874,7 +2885,7 @@ _cdc_trf_state FC 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-ChargeS
 __Hirdata 0 0 CODE 0 irdata dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _ADC 16906 0 CODE 0 text54 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _BDT D00 0 ABS 1 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_ISR 8 0 CODE 0 intcode dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_ISR 1008 0 CODE 0 intcode dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _OUT 15FEE 0 CODE 0 text52 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _UIE F36 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _UIR F62 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2889,7 +2900,7 @@ __end_of_is_usb_available 16C14 0 CODE 0 text88 dist/default/production\PIC18F27
 atoi@sign 80 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USB_ISR 16CA6 0 CODE 0 text102 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBWakeFromSuspend 16874 0 CODE 0 text105 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-I2C_LCD_SetCursor@F8633 1E1 0 BANK1 1 dataBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+I2C_LCD_SetCursor@F8630 1E1 0 BANK1 1 dataBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _cdc_tx_len FD 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBStdFeatureReqHandler 11E44 0 CODE 0 text117 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __CFG_DSWDTOSC$T1OSCREF 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2906,6 +2917,7 @@ __CFG_PLLDIV$2 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.1
 terminal_at_hand@max D0 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 terminal_at_hand@min CF 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_is_usb_available 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+settings_task@item_change_flag 99 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 month_length@year 6B 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _putUSBUSART 16B32 0 CODE 0 text86 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _ctmu_m 27 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2917,7 +2929,6 @@ i2___lwdiv@dividend 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J
 _data_item 1C 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _BaudRateGen 20A 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-USB_loop@data 76 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _ANALOG_IN 169BC 0 CODE 0 text53 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 sprintf@len A1 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2934,7 +2945,7 @@ __size_of_RTCC_adjust_time_dec 0 0 ABS 0 - dist/default/production\PIC18F27J53-C
 __size_of_RTCC_adjust_time_inc 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 LED_indicator@cnt 10A 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_ADC 16934 0 CODE 0 text54 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__end_of_ISR E0 0 CODE 0 intcode dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__end_of_ISR 10E0 0 CODE 0 intcode dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_OUT 16060 0 CODE 0 text52 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_get_string_usb 165EE 0 CODE 0 text87 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBAlternateInterface 18F 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -2942,7 +2953,6 @@ _USBDeviceState 14 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-Char
 _USBDeviceTasks 1354C 0 CODE 0 text103 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USBStdGetStatusHandler 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_terminal_operation 12332 0 CODE 0 text2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-terminal_loop@command_init 12C 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_timer0_init 16728 0 CODE 0 text58 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_ofi2_USBDeviceInit 137D4 0 CODE 0 text104 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _I2C_IdleCheck 16BBE 0 CODE 0 text72 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3099,7 +3109,7 @@ sprintf@prec 9B 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-Charge
 USBConfigureEndpoint@handle 33 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _settings_flag 21 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _settings_item FF 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_settings_loop 12A14 0 CODE 0 text17 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_settings_task 12A14 0 CODE 0 text17 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 memset@p1 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 i2memset@c 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 i2memset@n 31 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3195,8 +3205,8 @@ __ptext97 15F06 0 CODE 0 text97 dist/default/production\PIC18F27J53-ChargeStatio
 __ptext98 153CE 0 CODE 0 text98 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __ptext99 16B9E 0 CODE 0 text99 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _terminal_data_out 23 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__end_of_normal_loop 156AC 0 CODE 0 text16 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USBCtrlEPService 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__end_of_normal_task 156AC 0 CODE 0 text16 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 settings_led_indicator@i_1364 94 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___awdiv 15254 0 CODE 0 text30 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___awmod 15752 0 CODE 0 text96 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3216,7 +3226,7 @@ __Lbank14 0 0 ABS 0 bank14 dist/default/production\PIC18F27J53-ChargeStation-2.1
 i2___lwdiv@divisor 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lbigram 0 0 ABS 0 bigram dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__end_of_ctmu_loop 16C9C 0 CODE 0 text75 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__end_of_ctmu_task 16C9C 0 CODE 0 text75 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_d_to_x 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USB_CD_Ptr FA7F 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___lmul@multiplier 6D 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3234,12 +3244,11 @@ settings_auto_stop@j 95 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J5
 _terminal_operation 120C4 0 CODE 0 text2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ?_atoi 7C 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBActiveConfiguration 2B 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__size_of_ctmu_loop 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__size_of_ctmu_task 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBCtrlEPAllowStatusStage 1500A 0 CODE 0 text126 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USBConfigureEndpoint 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lcomram 0 0 ABS 0 comram dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lconfig 1FFF8 0 CONFIG 0 config dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-terminal_loop@command 180 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 settings_auto_stop@strp 8F 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __CFG_WDTEN$ON 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___wmul@multiplier 76 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3256,6 +3265,7 @@ _RCSTA1bits FAC 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11
 x_to_d@hex 61 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_I2C_LCD_Clear 16C48 0 CODE 0 text67 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+terminal_task@command 180 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_ringbuf_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 i2USBDeviceInit@i 35 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___lwdiv@divisor 7E 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3281,18 +3291,18 @@ USBEnableEndpoint@p 36 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J
 _dummy_encapsulated_cmd_response 29A 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 putUSBUSART@length 62 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _ctmu_set_ratio 1443A 0 CODE 0 text14 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-stackhi EAF 0 ABS 0 - C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
-stacklo D40 0 ABS 0 - C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
+stackhi EAF 0 ABS 0 - C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
+stacklo D40 0 ABS 0 - C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
 _cdc_mem_type 124 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _usb_rx 2B2 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _usb_tx 2BA 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_USBConfigureEndpoint 159C0 0 CODE 0 text123 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_ctmu_loop 16C8C 0 CODE 0 text75 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_ctmu_task 16C8C 0 CODE 0 text75 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_I2C_LCD_Command 1680A 0 CODE 0 text68 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _RTCC_from_epoch 16C14 0 CODE 0 text25 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBCtrlEPAllowDataStage 157F4 0 CODE 0 text111 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 terminal_at_hand@tx CB 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__Lintcode 8 0 CODE 0 intcode dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__Lintcode 1008 0 CODE 0 intcode dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_caltime_to_RTCC 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3330,8 +3340,8 @@ button_timer_interrupt@bt 83 0 BANK0 1 cstackBANK0 dist/default/production\PIC18
 I2C_Start@adrs 63 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _PIR1bits F9E 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _PIR2bits FA1 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_terminal_time$6746 DA 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__Lend_init E0 0 CODE 0 end_init dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_terminal_time$6732 DA 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__Lend_init 10E0 0 CODE 0 end_init dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _PIR5bits F98 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_caltime_to_epoch 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 display_dec@edit AE 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3341,7 +3351,6 @@ __end_of_ringbuf_init 164FE 0 CODE 0 text59 dist/default/production\PIC18F27J53-
 __size_of_month_length 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 getsUSBUSART@buffer 67 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 USBStdSetCfgHandler@i 41 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-sleep_loop@sleep_flag 26 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 end_of_initialization 15E84 0 CODE 0 cinit dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_ringbuf_put_num 15E16 0 CODE 0 text10 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_ringbuf_put_str 1620A 0 CODE 0 text48 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3377,10 +3386,10 @@ __size_of_I2C_IdleCheck 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeSt
 i2___awdiv 15D10 0 CODE 0 text131 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 get_string_usb@rx_len 72 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 i2___lwdiv 164FE 0 CODE 0 text130 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__Hreset_vec 1004 0 CODE 0 reset_vec dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _inPipes EF 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _shortPacketStatus 22 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_port_button_loop 13138 0 CODE 0 text32 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_port_button_task 13138 0 CODE 0 text32 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 get_string_usb@s 6D 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_USB_CD_Ptr FA81 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 USBTransferOnePacket@ep 64 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3418,6 +3427,7 @@ __ptext8 14168 0 CODE 0 text8 dist/default/production\PIC18F27J53-ChargeStation-
 __ptext9 16634 0 CODE 0 text9 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _software_init 13F7C 0 CODE 0 text13 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBDeviceAttach 1679A 0 CODE 0 text63 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+RTCC_task@prev_halfsec 122 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _settings_auto_stop 127D8 0 CODE 0 text20 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USBCheckStdRequest 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3517,7 +3527,7 @@ caltime_to_epoch@epoch 81 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27
 caltime_to_epoch@month 85 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_USBCheckCDCRequest 14BFE 0 CODE 0 text119 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_USBCtrlTrfInHandler 15192 0 CODE 0 text127 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__ramtop F00 0 RAM 0 ramtop C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
+__ramtop F00 0 RAM 0 ramtop C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
 _sprintf 10000 0 CODE 0 text45 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_integrate_time 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _CDCInitEP 16060 0 CODE 0 text120 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3525,10 +3535,10 @@ __end_of_ctmu_set_ratio 14520 0 CODE 0 text14 dist/default/production\PIC18F27J5
 _I2C_LCD_Command 167D2 0 CODE 0 text68 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_ringbuf_delete 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBCtrlEPServiceComplete 14074 0 CODE 0 text110 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__Lpowerup E0 0 CODE 0 powerup dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__Lpowerup 10E0 0 CODE 0 powerup dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 Auto_cut@i 7E 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _configDescriptor1 FAF9 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__size_of_settings_loop 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__size_of_settings_task 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 sprintf@ap 9F 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 sprintf@cp 9D 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 sprintf@sp 83 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3541,13 +3551,12 @@ caltime_to_epoch@year 7F 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J
 USBTransferOnePacket@data 61 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 LED_indicator@i 38 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_LED_output 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__Lreset_vec 1000 0 CODE 0 reset_vec dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _pBDTEntryOut 100 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_timer0_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-I2C_LCD_init@i_3857 69 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+I2C_LCD_init@i_3848 69 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_I2C_IdleCheck 16BDC 0 CODE 0 text72 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_timer1_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-settings_loop@settings_state 12B 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ringbuf_put_num@digits 87 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 USBCtrlEPService@setup_cnt 49 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 LED_output@b 61 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3565,13 +3574,11 @@ _ringbuf_put_num 15D94 0 CODE 0 text10 dist/default/production\PIC18F27J53-Charg
 _ringbuf_put_str 161A6 0 CODE 0 text48 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_timer3_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-USB_loop@rx_len 74 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_display 13908 0 CODE 0 text33 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USBWakeFromSuspend 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __pidataBANK1 16CAC 0 CODE 0 idataBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_ofi2_USBDeviceInit 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_get_quot_rem 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-terminal_loop@i_3926 466 0 BANK4 1 cstackBANK4 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 RTCC_from_epoch@tm 8F 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 USBCtrlTrfTxService@byteToSend 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USTATcopy 2C 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3579,9 +3586,11 @@ __Lclrtext 0 0 ABS 0 clrtext dist/default/production\PIC18F27J53-ChargeStation-2
 _SSP1CON1bits FC6 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _SSP1CON2bits FC5 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _SPBRGH1 F7F 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+terminal_task@command_init 12C 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___lmul@product 75 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_RTCC_from_epoch 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_epoch_to_caltime 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+sleep_task@sleep_flag 26 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBCheckCDCRequest 14B28 0 CODE 0 text119 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _outPipes E6 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_RTCC_from_caltime 16B0C 0 CODE 0 text6 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3589,9 +3598,9 @@ ___lmul@multiplicand 71 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J5
 __size_of_USBCtrlTrfSetupHandler 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBStatusStageTimeoutCounter 17 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___lldiv@quotient 68 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__end_of_settings_loop 12C42 0 CODE 0 text17 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__end_of_settings_task 12C42 0 CODE 0 text17 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __pcstackCOMRAM 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__size_of_normal_loop 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__size_of_normal_task 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 LED_indicator@cntf 10D 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 i2___awdiv@sign 32 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 timer0_init@prescaler 61 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3601,9 +3610,9 @@ __pmediumconst FA50 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27
 terminal_at_hand@hand CD 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _SSP1ADD FC8 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _SSP1BUF FC9 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_terminal_loop 10D8C 0 CODE 0 text1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_terminal_task 10D8C 0 CODE 0 text1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _terminal_time 109E0 0 CODE 0 text3 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__Hend_init E4 0 CODE 0 end_init dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__Hend_init 10E4 0 CODE 0 end_init dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ___llmod@dividend 6D 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_ringbuf_num 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_ringbuf_pop 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3615,14 +3624,9 @@ __end_of_USB_SD_Ptr FA7F 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC
 display@item 64 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 display@str0 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 display@str1 62 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-terminal_loop@buf 400 0 BANK4 1 cstackBANK4 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-terminal_loop@op0 236 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-terminal_loop@op1 24F 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-terminal_loop@op2 268 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-terminal_loop@op3 281 0 BANK2 1 bssBANK2 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_atoi 1425A 0 CODE 0 text8 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_main 1613C 0 CODE 0 text0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__pintcode 8 0 CODE 0 intcode dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__pintcode 1008 0 CODE 0 intcode dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 isdigit@c 62 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 USBCBSendResume@delay_count 116 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Ltext101 0 0 ABS 0 text101 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3671,7 +3675,7 @@ _LATB6 7C56 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.p
 _LATB7 7C57 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _LATC2 7C5A 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ?_sprintf 83 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_isdigit$6237 61 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_isdigit$6228 61 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __end_of_get_quot_rem 14CD2 0 CODE 0 text27 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _TMR1H FCF 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _TRISA F92 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3703,7 +3707,7 @@ _sd001 FB3C 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-Char
 _sd002 FB70 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USBSuspend 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 timer1_init@prescaler 62 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__end_of_port_button_loop 1329C 0 CODE 0 text32 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__end_of_port_button_task 1329C 0 CODE 0 text32 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 sprintf@width A9 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_ADC 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_ISR 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3717,7 +3721,7 @@ settings_led_indicator@i 93 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F
 settings_led_indicator@j 95 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __initialization 15E16 0 CODE 0 cinit dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 settings_auto_stop@state 128 0 BANK1 1 bssBANK1 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__size_of_port_button_loop 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__size_of_port_button_task 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _BAUDCON1bits F7E 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _time_change_flag 25 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __pbssBANK0 E6 0 BANK0 1 bssBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3738,7 +3742,6 @@ __end_of_integrate_current 13F7C 0 CODE 0 text36 dist/default/production\PIC18F2
 __size_of_RTCC_to_caltime 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 i2LED_output@value 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-terminal_loop@i 468 0 BANK4 1 cstackBANK4 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 i2___awdiv@dividend 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 ringbuf_put_num@i 88 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_software_init 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
@@ -3759,13 +3762,13 @@ __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\PIC18F27J53-Ch
 _CTMUICON FB1 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_USBStdFeatureReqHandler 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_terminal_operation 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-__Hintcode E0 0 CODE 0 intcode dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+__Hintcode 10E0 0 CODE 0 intcode dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 terminal_operation@tx DB 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 i2_LED_output 1620A 0 CODE 0 text132 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBStatusStageEnabledFlag1 15 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 _USBStatusStageEnabledFlag2 16 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 __size_of_RTCC_from_RTCC 0 0 ABS 0 - dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-_sleep_loop 14F40 0 CODE 0 text15 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
+_sleep_task 14F40 0 CODE 0 text15 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 i2USBTransferOnePacket@handle 32 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -3797,11 +3800,11 @@ _BDT 1 D00 30
 text45 0 10000 10000 6CAF 1
 cstackBANK0 1 60 60 A0 1
 cstackBANK4 1 400 400 69 1
-reset_vec 0 0 0 4 1
+reset_vec 0 1000 1000 4 1
 bssBANK1 1 100 100 E4 1
 bssBANK2 1 200 200 C2 1
 bssBANK3 1 300 300 E4 1
-intcode 0 8 8 DC 1
+intcode 0 1008 1008 DC 1
 bssBIGRAMl 1 469 469 7D0 1
 bssCOMRAM 1 1 1 59 1
 mediumconst 0 FA50 FA50 5B0 1

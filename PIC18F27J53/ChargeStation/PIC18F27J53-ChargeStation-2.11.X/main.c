@@ -143,20 +143,20 @@ int main(void) {
     while (1) {
         //CLRWDT();
         INTCONbits.GIE = 0;
-        RTCC_loop();
+        RTCC_task();
         INTCONbits.GIE = 1;
         INTCONbits.GIE = 0;
-        USB_loop();
+        USB_task();
         INTCONbits.GIE = 1;
         INTCONbits.GIE = 0;
-        terminal_loop(&usb_tx, &usb_rx);
+        terminal_task(&usb_tx, &usb_rx);
         INTCONbits.GIE = 1;
         INTCONbits.GIE = 0;
-        normal_loop();
+        normal_task();
         INTCONbits.GIE = 1;
         // ** temporary *************************
         INTCONbits.GIE = 0;
-        ctmu_loop();
+        ctmu_task();
         if (ctmu_m.flag.pressing &&
                 port[0].ctmu.flag.pressing &&
                 port[1].ctmu.flag.pressing &&
@@ -166,7 +166,7 @@ int main(void) {
         INTCONbits.GIE = 1;
         // **************************************
         INTCONbits.GIE = 0;
-        sleep_loop();
+        sleep_task();
         INTCONbits.GIE = 1;
     }
     return 0;

@@ -8188,7 +8188,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;settings.h: 26: uint8_t settings_auto_stop(void);
 [; ;settings.h: 27: uint8_t settings_led_indicator(void);
 [; ;settings.h: 28: uint8_t settings_integrating_reset(void);
-[; ;settings.h: 29: void settings_loop(void);
+[; ;settings.h: 29: void settings_task(void);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
@@ -8291,7 +8291,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_RTCC.h: 122: void RTCC_adjust_time_inc(time_t *tm);
 [; ;My_library\My_RTCC.h: 124: void RTCC_adjust_time_dec(time_t *tm);
 [; ;My_library\My_RTCC.h: 126: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
-[; ;My_library\My_RTCC.h: 128: void RTCC_loop(void);
+[; ;My_library\My_RTCC.h: 128: void RTCC_task(void);
 [; ;My_library\My_ringbuf.h: 19: typedef struct ringbuf {
 [; ;My_library\My_ringbuf.h: 20: char *buf;
 [; ;My_library\My_ringbuf.h: 21: uint16_t size;
@@ -8334,9 +8334,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ChargeStation_task.h: 46: void Auto_cut(void);
 [; ;ChargeStation_task.h: 48: void integrate_current(void);
 [; ;ChargeStation_task.h: 49: void integrate_time(void);
-[; ;ChargeStation_task.h: 50: void port_button_loop(void);
-[; ;ChargeStation_task.h: 51: void normal_loop(void);
-[; ;ChargeStation_task.h: 52: void sleep_loop(void);
+[; ;ChargeStation_task.h: 50: void port_button_task(void);
+[; ;ChargeStation_task.h: 51: void normal_task(void);
+[; ;ChargeStation_task.h: 52: void sleep_task(void);
 [; ;ChargeStation_task.h: 53: void bootload(void);
 [; ;ChargeStation_task.h: 54: void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
 [; ;ChargeStation_task.h: 55: void data_out(ringbuf_t *tx);
@@ -8347,7 +8347,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ctmu.h: 20: extern uint8_t cut_time_flag;
 [; ;ctmu.h: 22: void ctmu_set_ratio(uint8_t percentage);
 [; ;ctmu.h: 24: void ctmu_sampling(void);
-[; ;ctmu.h: 25: void ctmu_loop(void);
+[; ;ctmu.h: 25: void ctmu_task(void);
 [; ;LCD_print.h: 14: typedef enum PRINT_ITEM {
 [; ;LCD_print.h: 15: LOGO,
 [; ;LCD_print.h: 16: PRINT_TIME,
@@ -9129,10 +9129,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 1281 ]
 }
 "193
-[v _settings_loop `(v ~T0 @X0 1 ef ]
+[v _settings_task `(v ~T0 @X0 1 ef ]
 {
-[; ;settings.c: 193: void settings_loop(void) {
-[e :U _settings_loop ]
+[; ;settings.c: 193: void settings_task(void) {
+[e :U _settings_task ]
 [f ]
 "194
 [v F8888 `uc ~T0 @X0 1 s settings_state ]

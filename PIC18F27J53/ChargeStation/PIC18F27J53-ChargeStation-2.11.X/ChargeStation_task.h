@@ -47,9 +47,9 @@ void Auto_cut(void);
 // integrate currents of each port
 void integrate_current(void);
 void integrate_time(void);
-void port_button_loop(void);
-void normal_loop(void);
-void sleep_loop(void);
+void port_button_task(void);
+void normal_task(void);
+void sleep_task(void);
 void bootload(void);
 void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
 void data_out(ringbuf_t *tx);

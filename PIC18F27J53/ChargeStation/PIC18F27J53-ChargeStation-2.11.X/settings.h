@@ -26,6 +26,6 @@ uint8_t settings_adjust_time(void);
 uint8_t settings_auto_stop(void);
 uint8_t settings_led_indicator(void);
 uint8_t settings_integrating_reset(void);
-void settings_loop(void);
+void settings_task(void);
 
 #endif	/* SETTINGS_H */

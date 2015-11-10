@@ -190,7 +190,7 @@ uint8_t settings_integrating_reset(void) {
     return 0;
 }
 
-void settings_loop(void) {
+void settings_task(void) {
     static uint8_t settings_state = 0;
     switch (settings_state) {
         case 0:

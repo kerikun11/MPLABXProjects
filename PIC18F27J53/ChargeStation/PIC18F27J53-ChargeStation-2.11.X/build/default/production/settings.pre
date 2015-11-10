@@ -10442,7 +10442,7 @@ uint8_t settings_adjust_time(void);
 uint8_t settings_auto_stop(void);
 uint8_t settings_led_indicator(void);
 uint8_t settings_integrating_reset(void);
-void settings_loop(void);
+void settings_task(void);
 
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\__size_t.h"
 typedef unsigned size_t;
@@ -10599,7 +10599,7 @@ void RTCC_adjust_time_dec(time_t *tm);
 
 void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
 
-void RTCC_loop(void);
+void RTCC_task(void);
 
 # 19 "../../../My_library\My_ringbuf.h"
 typedef struct ringbuf {
@@ -10666,9 +10666,9 @@ void Auto_cut(void);
 
 void integrate_current(void);
 void integrate_time(void);
-void port_button_loop(void);
-void normal_loop(void);
-void sleep_loop(void);
+void port_button_task(void);
+void normal_task(void);
+void sleep_task(void);
 void bootload(void);
 void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
 void data_out(ringbuf_t *tx);
@@ -10684,7 +10684,7 @@ extern uint8_t cut_time_flag;
 void ctmu_set_ratio(uint8_t percentage);
 
 void ctmu_sampling(void);
-void ctmu_loop(void);
+void ctmu_task(void);
 
 # 14 "LCD_print.h"
 typedef enum PRINT_ITEM {
@@ -10894,7 +10894,7 @@ return 1;
 return 0;
 }
 
-void settings_loop(void) {
+void settings_task(void) {
 static uint8_t settings_state = 0;
 switch (settings_state) {
 case 0:

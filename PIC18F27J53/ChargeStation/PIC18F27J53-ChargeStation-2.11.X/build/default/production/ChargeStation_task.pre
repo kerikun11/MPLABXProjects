@@ -10521,9 +10521,9 @@ void Auto_cut(void);
 
 void integrate_current(void);
 void integrate_time(void);
-void port_button_loop(void);
-void normal_loop(void);
-void sleep_loop(void);
+void port_button_task(void);
+void normal_task(void);
+void sleep_task(void);
 void bootload(void);
 void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
 void data_out(ringbuf_t *tx);
@@ -10688,13 +10688,12 @@ extern ringbuf_t uart_rx;
 
 void UART_init(void);
 void UART_ISR(void);
-void tx_send(const char asciicode);
-void tx_sends(const char *asciicode);
+void UART_task();
 
-# 109
+# 108
 void tx_sendn(const uint16_t value, uint8_t digits);
 
-# 117
+# 116
 void CTMU_init(void);
 uint16_t CTMU_read(uint8_t ch);
 
@@ -10807,7 +10806,7 @@ void RTCC_adjust_time_dec(time_t *tm);
 
 void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
 
-void RTCC_loop(void);
+void RTCC_task(void);
 
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdbool.h"
 typedef unsigned char bool;
@@ -11780,12 +11779,12 @@ void USB_init(void);
 int put_string_usb(char *s, int len);
 int get_string_usb(char *s, int len);
 void USBCBSendResume(void);
-void USB_loop(void);
+void USB_task(void);
 
 # 18 "../../../My_library\My_terminal.h"
 void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
 
-void terminal_loop(ringbuf_t *tx, ringbuf_t *rx);
+void terminal_task(ringbuf_t *tx, ringbuf_t *rx);
 
 void print_time_dec(ringbuf_t *tx, uint8_t dec, uint8_t edit);
 
@@ -11806,7 +11805,7 @@ extern uint8_t cut_time_flag;
 void ctmu_set_ratio(uint8_t percentage);
 
 void ctmu_sampling(void);
-void ctmu_loop(void);
+void ctmu_task(void);
 
 # 14 "LCD_print.h"
 typedef enum PRINT_ITEM {
@@ -11848,7 +11847,7 @@ uint8_t settings_adjust_time(void);
 uint8_t settings_auto_stop(void);
 uint8_t settings_led_indicator(void);
 uint8_t settings_integrating_reset(void);
-void settings_loop(void);
+void settings_task(void);
 
 # 16 "ChargeStation_task.c"
 port_t port[3];
@@ -11917,7 +11916,7 @@ if (port[i].current > 100)port[i].integrated_time++;
 }
 }
 
-void port_button_loop(void) {
+void port_button_task(void) {
 uint8_t i;
 for (i = 0; i < 3; i++) {
 
@@ -11956,10 +11955,10 @@ port[i].cut_cnt = 0;
 }
 }
 
-void normal_loop(void) {
+void normal_task(void) {
 
 if (settings_flag) {
-settings_loop();
+settings_task();
 } else {
 if (ctmu_m.flag.press) {
 ctmu_m.flags = 0;
@@ -11969,7 +11968,7 @@ if (ctmu_m.flag.long_holding_2) {
 ctmu_m.flags = 0;
 settings_flag = 1;
 }
-port_button_loop();
+port_button_task();
 }
 
 if (cut_time_flag) {
@@ -11999,7 +11998,7 @@ data_out(&usb_tx);
 }
 }
 
-void sleep_loop(void) {
+void sleep_task(void) {
 static uint8_t sleep_flag = 0;
 if (ADC(12) < 2048) {
 sleep_flag = 1;

@@ -21,7 +21,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1191 . . . . . . ]
 "18341
 [v _INTCONbits `VS1191 ~T0 @X0 0 e@4082 ]
-"127 ../../../My_library\My_PIC.h
+"126 ../../../My_library\My_PIC.h
 [v _millis_timer `(v ~T0 @X0 0 ef ]
 "11054 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [s S709 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -54,10 +54,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "31 LCD_print.h
 [v _integrate_flag `uc ~T0 @X0 0 e ]
 "66 main.c
-[c E9541 0 1 2 3 .. ]
-[n E9541 PRINT_ITEM LOGO PRINT_TIME PRINT_DATA SETTINGS  ]
+[c E9538 0 1 2 3 .. ]
+[n E9538 PRINT_ITEM LOGO PRINT_TIME PRINT_DATA SETTINGS  ]
 "27 LCD_print.h
-[v _print_item `E9541 ~T0 @X0 0 e ]
+[v _print_item `E9538 ~T0 @X0 0 e ]
 "30
 [v _display_flag `uc ~T0 @X0 0 e ]
 "11291 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
@@ -152,7 +152,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RTCC_init `(v ~T0 @X0 0 ef ]
 "76 ../../../My_library\My_PIC.h
 [v _ADC_init `(v ~T0 @X0 0 ef1`uc ]
-"117
+"116
 [v _CTMU_init `(v ~T0 @X0 0 ef ]
 "21 ../../../My_library\My_usb_cdc.h
 [v _USB_init `(v ~T0 @X0 0 ef ]
@@ -188,7 +188,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "108
 [v _RTCC_from_epoch `(v ~T0 @X0 0 ef1`*S1225 ]
 "34 LCD_print.h
-[v _display `(v ~T0 @X0 0 ef3`E9541`*Cuc`*Cuc ]
+[v _display `(v ~T0 @X0 0 ef3`E9538`*Cuc`*Cuc ]
 "45 io.h
 [v _OUT `(v ~T0 @X0 0 ef2`uc`uc ]
 "49
@@ -217,21 +217,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _settings_flag `uc ~T0 @X0 0 e ]
 [p mainexit ]
 "128 ../../../My_library\My_RTCC.h
-[v _RTCC_loop `(v ~T0 @X0 0 ef ]
+[v _RTCC_task `(v ~T0 @X0 0 ef ]
 "25 ../../../My_library\My_usb_cdc.h
-[v _USB_loop `(v ~T0 @X0 0 ef ]
+[v _USB_task `(v ~T0 @X0 0 ef ]
 "20 ../../../My_library\My_terminal.h
-[v _terminal_loop `(v ~T0 @X0 0 ef2`*S1218`*S1218 ]
+[v _terminal_task `(v ~T0 @X0 0 ef2`*S1218`*S1218 ]
 "51 ChargeStation_task.h
-[v _normal_loop `(v ~T0 @X0 0 ef ]
+[v _normal_task `(v ~T0 @X0 0 ef ]
 "25 ctmu.h
-[v _ctmu_loop `(v ~T0 @X0 0 ef ]
+[v _ctmu_task `(v ~T0 @X0 0 ef ]
 "15
 [v _ctmu_m `S1219 ~T0 @X0 0 e ]
 "53 ChargeStation_task.h
 [v _bootload `(v ~T0 @X0 0 ef ]
 "52
-[v _sleep_loop `(v ~T0 @X0 0 ef ]
+[v _sleep_task `(v ~T0 @X0 0 ef ]
 "19 main.c
 [p x WDTEN=ON ]
 [p x PLLDIV=2 ]
@@ -8411,14 +8411,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_PIC.h: 92: extern ringbuf_t uart_rx;
 [; ;My_library\My_PIC.h: 95: void UART_init(void);
 [; ;My_library\My_PIC.h: 96: void UART_ISR(void);
-[; ;My_library\My_PIC.h: 97: void tx_send(const char asciicode);
-[; ;My_library\My_PIC.h: 98: void tx_sends(const char *asciicode);
-[; ;My_library\My_PIC.h: 109: void tx_sendn(const uint16_t value, uint8_t digits);
-[; ;My_library\My_PIC.h: 117: void CTMU_init(void);
-[; ;My_library\My_PIC.h: 118: uint16_t CTMU_read(uint8_t ch);
-[; ;My_library\My_PIC.h: 123: void Delay_ms(uint16_t ms);
-[; ;My_library\My_PIC.h: 127: void millis_timer(void);
-[; ;My_library\My_PIC.h: 128: uint32_t millis(void);
+[; ;My_library\My_PIC.h: 97: void UART_task();
+[; ;My_library\My_PIC.h: 108: void tx_sendn(const uint16_t value, uint8_t digits);
+[; ;My_library\My_PIC.h: 116: void CTMU_init(void);
+[; ;My_library\My_PIC.h: 117: uint16_t CTMU_read(uint8_t ch);
+[; ;My_library\My_PIC.h: 122: void Delay_ms(uint16_t ms);
+[; ;My_library\My_PIC.h: 126: void millis_timer(void);
+[; ;My_library\My_PIC.h: 127: uint32_t millis(void);
 [; ;My_library\My_I2C.h: 23: void I2C_IdleCheck(char mask);
 [; ;My_library\My_I2C.h: 24: void I2C_init(void);
 [; ;My_library\My_I2C.h: 25: uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
@@ -8508,7 +8507,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_RTCC.h: 122: void RTCC_adjust_time_inc(time_t *tm);
 [; ;My_library\My_RTCC.h: 124: void RTCC_adjust_time_dec(time_t *tm);
 [; ;My_library\My_RTCC.h: 126: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
-[; ;My_library\My_RTCC.h: 128: void RTCC_loop(void);
+[; ;My_library\My_RTCC.h: 128: void RTCC_task(void);
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;system.h: 32: typedef enum
 [; ;system.h: 33: {
@@ -9146,9 +9145,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_usb_cdc.h: 22: int put_string_usb(char *s, int len);
 [; ;My_library\My_usb_cdc.h: 23: int get_string_usb(char *s, int len);
 [; ;My_library\My_usb_cdc.h: 24: void USBCBSendResume(void);
-[; ;My_library\My_usb_cdc.h: 25: void USB_loop(void);
+[; ;My_library\My_usb_cdc.h: 25: void USB_task(void);
 [; ;My_library\My_terminal.h: 18: void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
-[; ;My_library\My_terminal.h: 20: void terminal_loop(ringbuf_t *tx, ringbuf_t *rx);
+[; ;My_library\My_terminal.h: 20: void terminal_task(ringbuf_t *tx, ringbuf_t *rx);
 [; ;My_library\My_terminal.h: 22: void print_time_dec(ringbuf_t *tx, uint8_t dec, uint8_t edit);
 [; ;My_library\My_terminal.h: 24: void print_time(ringbuf_t *tx);
 [; ;My_library\My_terminal.h: 26: void terminal_at_hand(ringbuf_t *tx, uint8_t *hand, uint8_t min, uint8_t max, uint8_t value);
@@ -9181,9 +9180,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ChargeStation_task.h: 46: void Auto_cut(void);
 [; ;ChargeStation_task.h: 48: void integrate_current(void);
 [; ;ChargeStation_task.h: 49: void integrate_time(void);
-[; ;ChargeStation_task.h: 50: void port_button_loop(void);
-[; ;ChargeStation_task.h: 51: void normal_loop(void);
-[; ;ChargeStation_task.h: 52: void sleep_loop(void);
+[; ;ChargeStation_task.h: 50: void port_button_task(void);
+[; ;ChargeStation_task.h: 51: void normal_task(void);
+[; ;ChargeStation_task.h: 52: void sleep_task(void);
 [; ;ChargeStation_task.h: 53: void bootload(void);
 [; ;ChargeStation_task.h: 54: void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
 [; ;ChargeStation_task.h: 55: void data_out(ringbuf_t *tx);
@@ -9194,7 +9193,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ctmu.h: 20: extern uint8_t cut_time_flag;
 [; ;ctmu.h: 22: void ctmu_set_ratio(uint8_t percentage);
 [; ;ctmu.h: 24: void ctmu_sampling(void);
-[; ;ctmu.h: 25: void ctmu_loop(void);
+[; ;ctmu.h: 25: void ctmu_task(void);
 [; ;LCD_print.h: 14: typedef enum PRINT_ITEM {
 [; ;LCD_print.h: 15: LOGO,
 [; ;LCD_print.h: 16: PRINT_TIME,
@@ -9227,10 +9226,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;settings.h: 26: uint8_t settings_auto_stop(void);
 [; ;settings.h: 27: uint8_t settings_led_indicator(void);
 [; ;settings.h: 28: uint8_t settings_integrating_reset(void);
-[; ;settings.h: 29: void settings_loop(void);
-[v F9586 `(v ~T0 @X0 1 tf ]
+[; ;settings.h: 29: void settings_task(void);
+[v F9583 `(v ~T0 @X0 1 tf ]
 "49 main.c
-[v _ISR `IF9586 ~T0 @X0 1 e ]
+[v _ISR `IF9583 ~T0 @X0 1 e ]
 {
 [; ;main.c: 49: void interrupt ISR(void) {
 [e :U _ISR ]
@@ -9266,18 +9265,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 "58
 [e = _cut_time_flag -> -> 1 `i `uc ]
 "59
-[v F9587 `uc ~T0 @X0 1 s cnt_t1 ]
-[i F9587
+[v F9584 `uc ~T0 @X0 1 s cnt_t1 ]
+[i F9584
 -> -> 0 `i `uc
 ]
 [; ;main.c: 59: static uint8_t cnt_t1 = 0;
 [; ;main.c: 60: if (cnt_t1) {
 "60
-[e $ ! != -> F9587 `i -> -> -> 0 `i `uc `i 1298  ]
+[e $ ! != -> F9584 `i -> -> -> 0 `i `uc `i 1298  ]
 {
 [; ;main.c: 61: cnt_t1 = 0;
 "61
-[e = F9587 -> -> 0 `i `uc ]
+[e = F9584 -> -> 0 `i `uc ]
 "62
 }
 [; ;main.c: 62: } else {
@@ -9286,7 +9285,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;main.c: 63: cnt_t1 = 1;
 "63
-[e = F9587 -> -> 1 `i `uc ]
+[e = F9584 -> -> 1 `i `uc ]
 [; ;main.c: 64: terminal_data_out_flag = 1;
 "64
 [e = _terminal_data_out_flag -> -> 1 `i `uc ]
@@ -9295,7 +9294,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _integrate_flag -> -> 1 `i `uc ]
 [; ;main.c: 66: if (print_item == PRINT_DATA)display_flag = 1;
 "66
-[e $ ! == -> _print_item `i -> . `E9541 2 `i 1300  ]
+[e $ ! == -> _print_item `i -> . `E9538 2 `i 1300  ]
 [e = _display_flag -> -> 1 `i `uc ]
 [e :U 1300 ]
 "67
@@ -9317,15 +9316,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71
 [e = _ctmu_sampling_flag -> -> 1 `i `uc ]
 "72
-[v F9588 `uc ~T0 @X0 1 s cnt ]
+[v F9585 `uc ~T0 @X0 1 s cnt ]
 [; ;main.c: 72: static uint8_t cnt;
 [; ;main.c: 73: if (cnt) {
 "73
-[e $ ! != -> F9588 `i -> -> -> 0 `i `uc `i 1302  ]
+[e $ ! != -> F9585 `i -> -> -> 0 `i `uc `i 1302  ]
 {
 [; ;main.c: 74: cnt--;
 "74
-[e -- F9588 -> -> 1 `i `uc ]
+[e -- F9585 -> -> 1 `i `uc ]
 "75
 }
 [; ;main.c: 75: } else {
@@ -9334,7 +9333,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;main.c: 76: cnt = 8;
 "76
-[e = F9588 -> -> 8 `i `uc ]
+[e = F9585 -> -> 8 `i `uc ]
 [; ;main.c: 77: LED_indicator();
 "77
 [e ( _LED_indicator ..  ]
@@ -9411,17 +9410,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 "102
 [e ( _USB_init ..  ]
 "103
-[v F9591 `uc ~T0 @X0 -> 2000 `i s usbtx ]
+[v F9588 `uc ~T0 @X0 -> 2000 `i s usbtx ]
 [; ;main.c: 103: static uint8_t usbtx[2000];
 [; ;main.c: 104: ringbuf_init(&usb_tx, usbtx, sizeof (usbtx));
 "104
-[e ( _ringbuf_init (3 , , &U _usb_tx &U F9591 -> # F9591 `ui ]
+[e ( _ringbuf_init (3 , , &U _usb_tx &U F9588 -> # F9588 `ui ]
 "105
-[v F9592 `uc ~T0 @X0 -> 100 `i s usbrx ]
+[v F9589 `uc ~T0 @X0 -> 100 `i s usbrx ]
 [; ;main.c: 105: static uint8_t usbrx[100];
 [; ;main.c: 106: ringbuf_init(&usb_rx, usbrx, sizeof (usbrx));
 "106
-[e ( _ringbuf_init (3 , , &U _usb_rx &U F9592 -> # F9592 `ui ]
+[e ( _ringbuf_init (3 , , &U _usb_rx &U F9589 -> # F9589 `ui ]
 [; ;main.c: 107: }
 "107
 [e :UE 1304 ]
@@ -9457,7 +9456,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 119: }
 [; ;main.c: 121: display(LOGO, "Charge Station", "Made by KERI");
 "121
-[e ( _display (3 , , . `E9541 0 :s 1C :s 2C ]
+[e ( _display (3 , , . `E9538 0 :s 1C :s 2C ]
 [; ;main.c: 124: for (uint8_t i = 0; i < 3; i++) {
 "124
 {
@@ -9520,45 +9519,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 145: INTCONbits.GIE = 0;
 "145
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 146: RTCC_loop();
+[; ;main.c: 146: RTCC_task();
 "146
-[e ( _RTCC_loop ..  ]
+[e ( _RTCC_task ..  ]
 [; ;main.c: 147: INTCONbits.GIE = 1;
 "147
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 [; ;main.c: 148: INTCONbits.GIE = 0;
 "148
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 149: USB_loop();
+[; ;main.c: 149: USB_task();
 "149
-[e ( _USB_loop ..  ]
+[e ( _USB_task ..  ]
 [; ;main.c: 150: INTCONbits.GIE = 1;
 "150
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 [; ;main.c: 151: INTCONbits.GIE = 0;
 "151
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 152: terminal_loop(&usb_tx, &usb_rx);
+[; ;main.c: 152: terminal_task(&usb_tx, &usb_rx);
 "152
-[e ( _terminal_loop (2 , &U _usb_tx &U _usb_rx ]
+[e ( _terminal_task (2 , &U _usb_tx &U _usb_rx ]
 [; ;main.c: 153: INTCONbits.GIE = 1;
 "153
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 [; ;main.c: 154: INTCONbits.GIE = 0;
 "154
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 155: normal_loop();
+[; ;main.c: 155: normal_task();
 "155
-[e ( _normal_loop ..  ]
+[e ( _normal_task ..  ]
 [; ;main.c: 156: INTCONbits.GIE = 1;
 "156
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 [; ;main.c: 158: INTCONbits.GIE = 0;
 "158
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 159: ctmu_loop();
+[; ;main.c: 159: ctmu_task();
 "159
-[e ( _ctmu_loop ..  ]
+[e ( _ctmu_task ..  ]
 [; ;main.c: 160: if (ctmu_m.flag.pressing &&
 [; ;main.c: 161: port[0].ctmu.flag.pressing &&
 [; ;main.c: 162: port[1].ctmu.flag.pressing &&
@@ -9579,9 +9578,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 168: INTCONbits.GIE = 0;
 "168
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 169: sleep_loop();
+[; ;main.c: 169: sleep_task();
 "169
-[e ( _sleep_loop ..  ]
+[e ( _sleep_task ..  ]
 [; ;main.c: 170: INTCONbits.GIE = 1;
 "170
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]

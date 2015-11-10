@@ -1,0 +1,182 @@
+
+# 1 "../../../My_library/My_ringbuf.c"
+
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 19 "../../../My_library/My_ringbuf.h"
+typedef struct ringbuf {
+char *buf;
+uint16_t size;
+uint16_t head;
+uint16_t tail;
+} ringbuf_t;
+
+void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
+
+uint16_t ringbuf_num(ringbuf_t *rb);
+
+void ringbuf_put(ringbuf_t *rb, char asciicode);
+
+void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
+
+void ringbuf_put_str(ringbuf_t *rb, const char *str);
+
+char ringbuf_pop(ringbuf_t *rb);
+
+void ringbuf_backspace(ringbuf_t *rb);
+
+void ringbuf_delete(ringbuf_t *rb);
+
+# 5 "../../../My_library/My_ringbuf.c"
+void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize) {
+rb->buf = internal_buf;
+rb->size = bufsize;
+rb->head = 0;
+rb->tail = 0;
+}
+
+uint16_t ringbuf_num(ringbuf_t *rb) {
+if (rb->head >= rb->tail) {
+return (rb->head - rb->tail);
+} else {
+return (rb->size + rb->head - rb->tail);
+}
+}
+
+void ringbuf_put(ringbuf_t *rb, char asciicode) {
+if (ringbuf_num(rb) < rb->size) {
+rb->buf[rb->head] = asciicode;
+if (rb->head + 1 < rb->size) rb->head++;
+else rb->head = 0;
+}
+}
+
+void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits) {
+while (digits--) {
+uint16_t temp = value;
+for (uint8_t i = 0; i < digits; i++) {
+temp /= 10;
+}
+temp %= 10;
+ringbuf_put(rb, temp + '0');
+}
+}
+
+void ringbuf_put_str(ringbuf_t *rb, const char *str) {
+while (*str) {
+ringbuf_put(rb, *str++);
+}
+}
+
+char ringbuf_pop(ringbuf_t *rb) {
+if (ringbuf_num(rb)) {
+char ret = rb->buf[rb->tail];
+if (rb->tail + 1 < rb->size) {
+rb->tail++;
+} else {
+rb->tail = 0;
+}
+return ret;
+} else {
+return 0;
+}
+}
+
+void ringbuf_backspace(ringbuf_t *rb) {
+if (ringbuf_num(rb)) {
+if (rb->head) rb->head--;
+else rb->head = rb->size - 1;
+}
+}
+
+void ringbuf_delete(ringbuf_t *rb) {
+rb->head = rb->tail;
+}

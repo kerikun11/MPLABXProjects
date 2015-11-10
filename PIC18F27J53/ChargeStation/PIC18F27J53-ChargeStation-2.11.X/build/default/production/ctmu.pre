@@ -10467,7 +10467,7 @@ extern uint8_t cut_time_flag;
 void ctmu_set_ratio(uint8_t percentage);
 
 void ctmu_sampling(void);
-void ctmu_loop(void);
+void ctmu_task(void);
 
 # 19 "../../../My_library\My_ringbuf.h"
 typedef struct ringbuf {
@@ -10521,13 +10521,12 @@ extern ringbuf_t uart_rx;
 
 void UART_init(void);
 void UART_ISR(void);
-void tx_send(const char asciicode);
-void tx_sends(const char *asciicode);
+void UART_task();
 
-# 109
+# 108
 void tx_sendn(const uint16_t value, uint8_t digits);
 
-# 117
+# 116
 void CTMU_init(void);
 uint16_t CTMU_read(uint8_t ch);
 
@@ -10582,9 +10581,9 @@ void Auto_cut(void);
 
 void integrate_current(void);
 void integrate_time(void);
-void port_button_loop(void);
-void normal_loop(void);
-void sleep_loop(void);
+void port_button_task(void);
+void normal_task(void);
+void sleep_task(void);
 void bootload(void);
 void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
 void data_out(ringbuf_t *tx);
@@ -10612,7 +10611,7 @@ button_timer_interrupt(&port[2].ctmu, !(CTMU_read(2) / port[2].ctmu_value));
 button_timer_interrupt(&ctmu_m, !(CTMU_read(3) / ctmu_value_m));
 }
 
-void ctmu_loop(void) {
+void ctmu_task(void) {
 if (ctmu_sampling_flag) {
 ctmu_sampling_flag = 0;
 ctmu_sampling();

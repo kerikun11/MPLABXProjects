@@ -79,7 +79,7 @@ void integrate_time(void) {
     }
 }
 
-void port_button_loop(void) {
+void port_button_task(void) {
     uint8_t i;
     for (i = 0; i < NUM_PORT; i++) {
         // ボタンが押されていたらLED点灯
@@ -118,10 +118,10 @@ void port_button_loop(void) {
     }
 }
 
-void normal_loop(void) {
+void normal_task(void) {
     // Settings or Port button
     if (settings_flag) {
-        settings_loop();
+        settings_task();
     } else {
         if (ctmu_m.flag.press) {
             ctmu_m.flags = 0;
@@ -131,7 +131,7 @@ void normal_loop(void) {
             ctmu_m.flags = 0;
             settings_flag = 1;
         }
-        port_button_loop();
+        port_button_task();
     }
     // cut_time_flag <- timer1 
     if (cut_time_flag) {
@@ -161,7 +161,7 @@ void normal_loop(void) {
     }
 }
 
-void sleep_loop(void) {
+void sleep_task(void) {
     static uint8_t sleep_flag = 0;
     if (ADC(POWER_SW) < 2048) {
         sleep_flag = 1;

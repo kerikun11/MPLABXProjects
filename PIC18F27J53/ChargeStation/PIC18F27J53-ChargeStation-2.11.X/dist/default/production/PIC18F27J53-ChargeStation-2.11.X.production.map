@@ -5,12 +5,14 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.sym \
   --cmf=dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.cmf \
-  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s37k.2 \
+  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s3n4.2 \
   -Mdist/default/production/PIC18F27J53-ChargeStation-2.11.X.production.map \
-  -E1 -ver=XC8 -ASTACK=0D40h-0eafh -pstack=STACK -ACODE=00h-01FFF7h \
-  -ACONST=00h-01FFF7h -ASMALLCONST=0F00h-0FFFhx496,01FF00h-01FFF7h \
-  -AMEDIUMCONST=0F00h-0FFFFh,010F00h-01FFF7h -ACOMRAM=01h-05Fh \
-  -AABS1=00h-0EAFh -ABIGRAM=01h-0EAFh \
+  -E1 -ver=XC8 -ASTACK=0D40h-0eafh -pstack=STACK \
+  -ACODE=01000h-01005h,01008h-01015h,01018h-01FFF7h \
+  -ACONST=01000h-01005h,01008h-01015h,01018h-01FFF7h \
+  -ASMALLCONST=01000h-01005h,01008h-01015h,01018h-010FFh,01100h-011FFhx494,01FF00h-01FFF7h \
+  -AMEDIUMCONST=01000h-01005h,01008h-01015h,01018h-0FFFFh,010F00h-01FFF7h \
+  -ACOMRAM=01h-05Fh -AABS1=00h-0EAFh -ABIGRAM=01h-0EAFh \
   -ARAM=060h-0FFh,0100h-01FFhx13,0E00h-0EAFh -ABANK0=060h-0FFh \
   -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh -ABANK3=0300h-03FFh \
   -ABANK4=0400h-04FFh -ABANK5=0500h-05FFh -ABANK6=0600h-06FFh \
@@ -18,7 +20,7 @@ Linker command line:
   -ABANK10=0A00h-0AFFh -ABANK11=0B00h-0BFFh -ABANK12=0C00h-0CFFh \
   -ABANK13=0D00h-0DFFh -ABANK14=0E00h-0EAFh \
   -ASFR=0EB0h-0EFFh,0F00h-0F5Fh,0F60h-0FFFh \
-  -preset_vec=00h,intcode=08h,intcodelo,powerup,init,end_init \
+  -preset_vec=01000h,intcode=01008h,intcodelo,powerup,init,end_init \
   -pramtop=0F00h -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST \
   -pconst=CONST -AFARRAM=00h-00h -ACONFIG=01FFF8h-01FFFFh -pconfig=CONFIG \
   -pjflash_buffer=01F800h \
@@ -26,7 +28,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj \
+  C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj \
   dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj 
 
 Object code version is 3.11
@@ -39,12 +41,12 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\KERIKU~1\AppData\Local\Temp\s37k.obj
-                end_init                             E0       E0        4        4       0
-                reset_vec                             0        0        4        0       0
+C:\Users\KERIKU~1\AppData\Local\Temp\s3n4.obj
+                end_init                           10E0     10E0        4      804       0
+                reset_vec                          1000     1000        4      800       0
                 config                            1FFF8    1FFF8        8    1FFF8       0
 dist/default/production\PIC18F27J53-ChargeStation-2.11.X.production.obj
-                intcode                               8        8       D8        4       0
+                intcode                            1008     1008       D8      804       0
                 temp                                 59       59        1        1       1
                 mediumconst                        FA50     FA50      5B0     7D28       0
                 text132                           1620A    1620A       64     8000       0
@@ -197,9 +199,9 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   STACK          
 
         CLASS   CODE           
-                end_init                             E0       E0        4         0
-                intcode                               8        8       D8         0
-                reset_vec                             0        0        4         0
+                end_init                           10E0     10E0        4         0
+                intcode                            1008     1008       D8         0
+                reset_vec                          1000     1000        4         0
                 text132                           1620A    1620A       64         0
                 text131                           15D10    15D10       84         0
                 text130                           164FE    164FE       52         0
@@ -406,15 +408,15 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                reset_vec                      000000  000004  000004         0       0  CODE    
                 bssCOMRAM                      000001  000059  00005A         1       1  COMRAM  
-                intcode                        000008  0000DC  0000E4         4       0  CODE    
                 cstackBANK0                    000060  0000A0  000100        60       1  BANK0   
                 bssBANK1                       000100  0000E4  0001E4       100       1  BANK1   
                 bssBANK2                       000200  0000C2  0002C2       200       1  BANK2   
                 bssBANK3                       000300  0000E4  0003E4       300       1  BANK3   
                 cstackBANK4                    000400  000069  000469       400       1  BANK4   
                 bssBIGRAMl                     000469  0007D0  000C39       469       1  BIGRAM  
+                reset_vec                      001000  000004  001004       800       0  CODE    
+                intcode                        001008  0000DC  0010E4       804       0  CODE    
                 mediumconst                    00FA50  0005B0  010000      7D28       0  MEDIUMCO
                 text45                         010000  006CAF  016CAF      8000       0  CODE    
                 config                         01FFF8  000008  020000     1FFF8       0  CONFIG  
@@ -435,14 +437,16 @@ UNUSED ADDRESS RANGES
                          003E4-003FF              1C
                          00C39-00CFF              C7
                          00D40-00EAF             170
-        CODE             00004-00007               4
-                         000E4-0FA4F            F96C
+        CODE             01004-01005               2
+                         010E4-0FA4F            E96C
                          16CAF-1FFF7            9349
         COMRAM           0005A-0005F               6
-        CONST            00004-00007               4
-                         000E4-0FA4F            F96C
+        CONST            01004-01005               2
+                         010E4-0FA4F            E96C
                          16CAF-1FFF7            9349
-        MEDIUMCONST      00F00-0FA4F            EB50
+        FARRAM           00000-00000               1
+        MEDIUMCONST      01004-01005               2
+                         010E4-0FA4F            E96C
                          16CAF-1FFF7            9349
         RAM              001E4-001FF              1C
                          002C2-002FF              3E
@@ -450,7 +454,8 @@ UNUSED ADDRESS RANGES
                          00C39-00CFF              C7
                          00D40-00EAF              C0
         SFR              00EB0-00FFF              60
-        SMALLCONST       00F00-0FA4F             100
+        SMALLCONST       01004-01005               2
+                         010E4-0FA4F             100
                          16CAF-1FFF7             100
         STACK            00D40-00EAF             170
 
@@ -490,12 +495,12 @@ I2C_LCD_Command@ans                       cstackBANK0   00065
 I2C_LCD_Command@c                         cstackBANK0   00064
 I2C_LCD_Puts@ans                          cstackBANK0   00067
 I2C_LCD_Puts@s                            cstackBANK0   00064
-I2C_LCD_SetCursor@F8633                   dataBANK1     001E1
+I2C_LCD_SetCursor@F8630                   dataBANK1     001E1
 I2C_LCD_SetCursor@col                     cstackBANK0   00069
 I2C_LCD_SetCursor@row                     cstackBANK0   00066
 I2C_LCD_SetCursor@row_offsets             cstackBANK0   00067
 I2C_LCD_init@i                            cstackBANK0   00068
-I2C_LCD_init@i_3857                       cstackBANK0   00069
+I2C_LCD_init@i_3848                       cstackBANK0   00069
 I2C_Send@data                             cstackBANK0   00062
 I2C_Start@adrs                            cstackBANK0   00063
 I2C_Start@rw                              cstackBANK0   00062
@@ -510,16 +515,16 @@ OUT@b                                     cstackBANK0   00061
 OUT@value                                 cstackBANK0   00060
 RTCC_adjust_time_cursor@tm                cstackBANK0   00060
 RTCC_adjust_time_dec@i                    cstackBANK0   00098
-RTCC_adjust_time_dec@i_3318               cstackBANK0   00097
+RTCC_adjust_time_dec@i_3309               cstackBANK0   00097
 RTCC_adjust_time_dec@tm                   cstackBANK0   00091
 RTCC_adjust_time_inc@i                    cstackBANK0   00098
-RTCC_adjust_time_inc@i_3288               cstackBANK0   00097
+RTCC_adjust_time_inc@i_3279               cstackBANK0   00097
 RTCC_adjust_time_inc@tm                   cstackBANK0   00091
 RTCC_adjust_time_toggle@tm                cstackBANK0   00060
 RTCC_from_RTCC@tm                         cstackBANK0   00086
 RTCC_from_caltime@tm                      cstackBANK0   0008F
 RTCC_from_epoch@tm                        cstackBANK0   0008F
-RTCC_loop@prev_halfsec                    bssBANK1      00122
+RTCC_task@prev_halfsec                    bssBANK1      00122
 RTCC_to_caltime@dumy                      cstackBANK0   00064
 RTCC_to_caltime@tm                        cstackBANK0   00062
 USBCBSendResume@delay_count               bssBANK1      00116
@@ -546,8 +551,8 @@ USBTransferOnePacket@dir                  cstackBANK0   00060
 USBTransferOnePacket@ep                   cstackBANK0   00064
 USBTransferOnePacket@handle               cstackBANK0   00065
 USBTransferOnePacket@len                  cstackBANK0   00063
-USB_loop@data                             cstackBANK0   00076
-USB_loop@rx_len                           cstackBANK0   00074
+USB_task@data                             cstackBANK0   00076
+USB_task@rx_len                           cstackBANK0   00074
 USER_USB_CALLBACK_EVENT_HANDLER@event     cstackCOMRAM  00039
 USER_USB_CALLBACK_EVENT_HANDLER@pdata     cstackCOMRAM  0003B
 USER_USB_CALLBACK_EVENT_HANDLER@size      cstackCOMRAM  0003D
@@ -569,7 +574,7 @@ _CDCDataInHandle                          bssBANK1      00118
 _CDCDataOutHandle                         bssCOMRAM     00007
 _CDCInitEP                                text120       16060
 _CDCTxService                             text90        12E34
-_CDCTxService$5984                        cstackBANK0   00068
+_CDCTxService$5975                        cstackBANK0   00068
 _CTMUCONH                                 (abs)         00FB3
 _CTMUCONHbits                             (abs)         00FB3
 _CTMUCONL                                 (abs)         00FB2
@@ -594,7 +599,7 @@ _INTCONbits                               (abs)         00FF2
 _IPR1bits                                 (abs)         00F9F
 _IPR2bits                                 (abs)         00FA2
 _IPR5bits                                 (abs)         00F99
-_ISR                                      intcode       00008
+_ISR                                      intcode       01008
 _LATA5                                    (abs)         07C4D
 _LATA6                                    (abs)         07C4E
 _LATA7                                    (abs)         07C4F
@@ -627,7 +632,7 @@ _RTCC_from_RTCC                           text93        16C48
 _RTCC_from_caltime                        text6         16AE6
 _RTCC_from_epoch                          text25        16C14
 _RTCC_init                                text64        168A6
-_RTCC_loop                                text92        16728
+_RTCC_task                                text92        16728
 _RTCC_to_caltime                          text98        153CE
 _RTCVALH                                  (abs)         00F3B
 _RTCVALL                                  (abs)         00F3A
@@ -705,7 +710,7 @@ _USB_CD_Ptr                               mediumconst   0FA7F
 _USB_ISR                                  text102       16CA6
 _USB_SD_Ptr                               mediumconst   0FA79
 _USB_init                                 text60        16BDC
-_USB_loop                                 text81        15ADC
+_USB_task                                 text81        15ADC
 _USER_USB_CALLBACK_EVENT_HANDLER          text118       16962
 _USTAT                                    (abs)         00F64
 _USTATcopy                                bssCOMRAM     0002C
@@ -773,7 +778,7 @@ __HcstackBANK4                            cstackBANK4   00000
 __HcstackCOMRAM                           cstackCOMRAM  00000
 __Hdata                                   data          00000
 __HdataBANK1                              dataBANK1     00000
-__Hend_init                               end_init      000E4
+__Hend_init                               end_init      010E4
 __Hfarbss                                 farbss        00000
 __Hfardata                                fardata       00000
 __Hibigdata                               ibigdata      00000
@@ -781,10 +786,10 @@ __Hidata                                  idata         00000
 __HidataBANK1                             idataBANK1    00000
 __Hidloc                                  idloc         00000
 __Hifardata                               ifardata      00000
-__Hinit                                   init          000E0
-__Hintcode                                intcode       000E0
+__Hinit                                   init          010E0
+__Hintcode                                intcode       010E0
 __Hintcode_body                           intcode_body  00000
-__Hintcodelo                              intcodelo     000E0
+__Hintcodelo                              intcodelo     010E0
 __Hintentry                               intentry      00000
 __Hintret                                 intret        00000
 __Hintsave_regs                           intsave_regs  00000
@@ -795,13 +800,13 @@ __HnvFARRAM                               nvFARRAM      00000
 __Hnvbit                                  nvbit         00000
 __Hnvrram                                 nvrram        00000
 __Hparam                                  rparam        00000
-__Hpowerup                                powerup       000E0
+__Hpowerup                                powerup       010E0
 __Hram                                    ram           00000
 __Hramtop                                 ramtop        00F00
 __Hrbit                                   rbit          00000
 __Hrbss                                   rbss          00000
 __Hrdata                                  rdata         00000
-__Hreset_vec                              reset_vec     00004
+__Hreset_vec                              reset_vec     01004
 __Hrparam                                 rparam        00000
 __Hsfr                                    sfr           00000
 __Hsmallconst                             smallconst    00000
@@ -982,7 +987,7 @@ __LcstackBANK4                            cstackBANK4   00000
 __LcstackCOMRAM                           cstackCOMRAM  00000
 __Ldata                                   data          00000
 __LdataBANK1                              dataBANK1     00000
-__Lend_init                               end_init      000E0
+__Lend_init                               end_init      010E0
 __Lfarbss                                 farbss        00000
 __Lfardata                                fardata       00000
 __Libigdata                               ibigdata      00000
@@ -990,10 +995,10 @@ __Lidata                                  idata         00000
 __LidataBANK1                             idataBANK1    00000
 __Lidloc                                  idloc         00000
 __Lifardata                               ifardata      00000
-__Linit                                   init          000E0
-__Lintcode                                intcode       00008
+__Linit                                   init          010E0
+__Lintcode                                intcode       01008
 __Lintcode_body                           intcode_body  00000
-__Lintcodelo                              intcodelo     000E0
+__Lintcodelo                              intcodelo     010E0
 __Lintentry                               intentry      00000
 __Lintret                                 intret        00000
 __Lintsave_regs                           intsave_regs  00000
@@ -1004,13 +1009,13 @@ __LnvFARRAM                               nvFARRAM      00000
 __Lnvbit                                  nvbit         00000
 __Lnvrram                                 nvrram        00000
 __Lparam                                  rparam        00000
-__Lpowerup                                powerup       000E0
+__Lpowerup                                powerup       010E0
 __Lram                                    ram           00000
 __Lramtop                                 ramtop        00F00
 __Lrbit                                   rbit          00000
 __Lrbss                                   rbss          00000
 __Lrdata                                  rdata         00000
-__Lreset_vec                              reset_vec     00000
+__Lreset_vec                              reset_vec     01000
 __Lrparam                                 rparam        00000
 __Lsfr                                    sfr           00000
 __Lsmallconst                             smallconst    00000
@@ -1218,7 +1223,7 @@ __end_of_I2C_Send                         text71        16C7A
 __end_of_I2C_Start                        text70        16906
 __end_of_I2C_Stop                         text69        16CA6
 __end_of_I2C_init                         text65        16C8C
-__end_of_ISR                              intcode       000E0
+__end_of_ISR                              intcode       010E0
 __end_of_LED_indicator                    text129       13B62
 __end_of_LED_output                       text34        15FEE
 __end_of_OUT                              text52        16060
@@ -1230,7 +1235,7 @@ __end_of_RTCC_from_RTCC                   text93        16C62
 __end_of_RTCC_from_caltime                text6         16B0C
 __end_of_RTCC_from_epoch                  text25        16C2E
 __end_of_RTCC_init                        text64        168D6
-__end_of_RTCC_loop                        text92        16762
+__end_of_RTCC_task                        text92        16762
 __end_of_RTCC_to_caltime                  text98        1548A
 __end_of_USBCheckCDCRequest               text119       14BFE
 __end_of_USBCheckStdRequest               text112       1434C
@@ -1260,7 +1265,7 @@ __end_of_USB_CD_Ptr                       mediumconst   0FA81
 __end_of_USB_ISR                          text102       16CAC
 __end_of_USB_SD_Ptr                       mediumconst   0FA7F
 __end_of_USB_init                         text60        16BF8
-__end_of_USB_loop                         text81        15B6A
+__end_of_USB_task                         text81        15B6A
 __end_of_USER_USB_CALLBACK_EVENT_HANDLER  text118       16990
 __end_of___awdiv                          text30        15312
 __end_of___awmod                          text96        157F4
@@ -1277,9 +1282,9 @@ __end_of_button_timer_interrupt           text77        113BE
 __end_of_caltime_to_RTCC                  text28        14B28
 __end_of_caltime_to_epoch                 text94        11E44
 __end_of_configDescriptor1                mediumconst   0FB3C
-__end_of_ctmu_loop                        text75        16C9C
 __end_of_ctmu_sampling                    text76        13E80
 __end_of_ctmu_set_ratio                   text14        14520
+__end_of_ctmu_task                        text75        16C9C
 __end_of_d_to_x                           text29        16ABE
 __end_of_data_out                         text44        13138
 __end_of_device_dsc                       mediumconst   0FBD2
@@ -1301,8 +1306,8 @@ __end_of_main                             text0         1613C
 __end_of_memset                           text62        16874
 __end_of_millis_timer                     text101       16B7E
 __end_of_month_length                     text95        148A0
-__end_of_normal_loop                      text16        156AC
-__end_of_port_button_loop                 text32        1329C
+__end_of_normal_task                      text16        156AC
+__end_of_port_button_task                 text32        1329C
 __end_of_print_time                       text5         15C84
 __end_of_putUSBUSART                      text86        16B58
 __end_of_put_string_usb                   text85        16962
@@ -1321,16 +1326,16 @@ __end_of_settings_adjust_time             text21        1497A
 __end_of_settings_auto_stop               text20        12A14
 __end_of_settings_integrating_reset       text19        1258A
 __end_of_settings_led_indicator           text18        127D8
-__end_of_settings_loop                    text17        12C42
-__end_of_sleep_loop                       text15        1500A
+__end_of_settings_task                    text17        12C42
+__end_of_sleep_task                       text15        1500A
 __end_of_software_init                    text13        14074
 __end_of_sprintf                          text45        1051C
 __end_of_strcat                           text41        163F2
 __end_of_strcmp                           text7         1644E
 __end_of_strcpy                           text39        1679A
 __end_of_terminal_at_hand                 text4         16392
-__end_of_terminal_loop                    text1         110F6
 __end_of_terminal_operation               text2         12332
+__end_of_terminal_task                    text1         110F6
 __end_of_terminal_time                    text3         10D8C
 __end_of_timer0_init                      text58        16728
 __end_of_timer1_init                      text57        165A0
@@ -1361,7 +1366,7 @@ __pcstackBANK4                            cstackBANK4   00400
 __pcstackCOMRAM                           cstackCOMRAM  0002D
 __pdataBANK1                              dataBANK1     001E1
 __pidataBANK1                             idataBANK1    16CAC
-__pintcode                                intcode       00008
+__pintcode                                intcode       01008
 __pmediumconst                            mediumconst   0FA50
 __ptext0                                  text0         160D0
 __ptext1                                  text1         10D8C
@@ -1526,7 +1531,7 @@ __size_of_RTCC_from_RTCC                  (abs)         00000
 __size_of_RTCC_from_caltime               (abs)         00000
 __size_of_RTCC_from_epoch                 (abs)         00000
 __size_of_RTCC_init                       (abs)         00000
-__size_of_RTCC_loop                       (abs)         00000
+__size_of_RTCC_task                       (abs)         00000
 __size_of_RTCC_to_caltime                 (abs)         00000
 __size_of_USBCheckCDCRequest              (abs)         00000
 __size_of_USBCheckStdRequest              (abs)         00000
@@ -1554,7 +1559,7 @@ __size_of_USBTransferOnePacket            (abs)         00000
 __size_of_USBWakeFromSuspend              (abs)         00000
 __size_of_USB_ISR                         (abs)         00000
 __size_of_USB_init                        (abs)         00000
-__size_of_USB_loop                        (abs)         00000
+__size_of_USB_task                        (abs)         00000
 __size_of_USER_USB_CALLBACK_EVENT_HANDLER (abs)         00000
 __size_of___awdiv                         (abs)         00000
 __size_of___awmod                         (abs)         00000
@@ -1569,9 +1574,9 @@ __size_of_bootload                        (abs)         00000
 __size_of_button_timer_interrupt          (abs)         00000
 __size_of_caltime_to_RTCC                 (abs)         00000
 __size_of_caltime_to_epoch                (abs)         00000
-__size_of_ctmu_loop                       (abs)         00000
 __size_of_ctmu_sampling                   (abs)         00000
 __size_of_ctmu_set_ratio                  (abs)         00000
+__size_of_ctmu_task                       (abs)         00000
 __size_of_d_to_x                          (abs)         00000
 __size_of_data_out                        (abs)         00000
 __size_of_display                         (abs)         00000
@@ -1591,8 +1596,8 @@ __size_of_main                            (abs)         00000
 __size_of_memset                          (abs)         00000
 __size_of_millis_timer                    (abs)         00000
 __size_of_month_length                    (abs)         00000
-__size_of_normal_loop                     (abs)         00000
-__size_of_port_button_loop                (abs)         00000
+__size_of_normal_task                     (abs)         00000
+__size_of_port_button_task                (abs)         00000
 __size_of_print_time                      (abs)         00000
 __size_of_putUSBUSART                     (abs)         00000
 __size_of_put_string_usb                  (abs)         00000
@@ -1608,16 +1613,16 @@ __size_of_settings_adjust_time            (abs)         00000
 __size_of_settings_auto_stop              (abs)         00000
 __size_of_settings_integrating_reset      (abs)         00000
 __size_of_settings_led_indicator          (abs)         00000
-__size_of_settings_loop                   (abs)         00000
-__size_of_sleep_loop                      (abs)         00000
+__size_of_settings_task                   (abs)         00000
+__size_of_sleep_task                      (abs)         00000
 __size_of_software_init                   (abs)         00000
 __size_of_sprintf                         (abs)         00000
 __size_of_strcat                          (abs)         00000
 __size_of_strcmp                          (abs)         00000
 __size_of_strcpy                          (abs)         00000
 __size_of_terminal_at_hand                (abs)         00000
-__size_of_terminal_loop                   (abs)         00000
 __size_of_terminal_operation              (abs)         00000
+__size_of_terminal_task                   (abs)         00000
 __size_of_terminal_time                   (abs)         00000
 __size_of_timer0_init                     (abs)         00000
 __size_of_timer1_init                     (abs)         00000
@@ -1645,12 +1650,12 @@ _cdc_tx_len                               bssBANK0      000FD
 _configDescriptor1                        mediumconst   0FAF9
 _controlTransferState                     bssCOMRAM     00018
 _control_signal_bitmap                    bssBANK1      00125
-_ctmu_loop                                text75        16C8C
 _ctmu_m                                   bssCOMRAM     00027
 _ctmu_ratio                               bssCOMRAM     00019
 _ctmu_sampling                            text76        13D7E
 _ctmu_sampling_flag                       bssCOMRAM     0001A
 _ctmu_set_ratio                           text14        1443A
+_ctmu_task                                text75        16C8C
 _ctmu_value_m                             bssBANK1      0011A
 _cut_time_flag                            bssCOMRAM     0001B
 _d_to_x                                   text29        16A96
@@ -1659,11 +1664,11 @@ _data_out                                 text44        12FC0
 _device_dsc                               mediumconst   0FBC0
 _display                                  text33        137D4
 _display_LCD                              text37        1051C
-_display_LCD$6740                         cstackBANK1   001CD
-_display_LCD$6741                         cstackBANK1   001D1
-_display_LCD$6742                         cstackBANK1   001D5
-_display_LCD$6743                         cstackBANK1   001D9
-_display_LCD$6744                         cstackBANK1   001DD
+_display_LCD$6726                         cstackBANK1   001CD
+_display_LCD$6727                         cstackBANK1   001D1
+_display_LCD$6728                         cstackBANK1   001D5
+_display_LCD$6729                         cstackBANK1   001D9
+_display_LCD$6730                         cstackBANK1   001DD
 _display_char                             bssBANK2      0020E
 _display_dec                              text40        1613C
 _display_flag                             bssCOMRAM     0001D
@@ -1677,23 +1682,23 @@ _epoch_to_caltime                         text26        12C42
 _get_quot_rem                             text27        14BFE
 _get_string_usb                           text87        165A0
 _getsUSBUSART                             text89        14602
-_getsUSBUSART$5936                        cstackBANK0   0006B
+_getsUSBUSART$5927                        cstackBANK0   0006B
 _hardware_init                            text55        156AC
 _inPipes                                  bssBANK0      000EF
 _integrate_current                        text36        13E80
 _integrate_flag                           bssCOMRAM     0001F
 _integrate_time                           text35        1626E
 _is_usb_available                         text88        16BF8
-_is_usb_available$4119                    cstackBANK0   00060
+_is_usb_available$4110                    cstackBANK0   00060
 _isdigit                                  text46        16A6C
-_isdigit$6237                             cstackBANK0   00061
+_isdigit$6228                             cstackBANK0   00061
 _line_coding                              bssBANK1      00188
 _main                                     text0         160D0
 _memset                                   text62        16840
 _millis_timer                             text101       16B58
 _month_length                             text95        147C2
 _ms                                       bssBANK1      00106
-_normal_loop                              text16        155FE
+_normal_task                              text16        155FE
 _now                                      bssBANK1      00172
 _outPipes                                 bssBANK0      000E6
 _pBDTEntryEP0OutCurrent                   bssCOMRAM     00009
@@ -1704,7 +1709,7 @@ _pCDCDst                                  bssBANK1      00110
 _pCDCSrc                                  bssBANK1      00113
 _pDst                                     bssBANK1      0011C
 _port                                     bssBANK1      0012D
-_port_button_loop                         text32        13138
+_port_button_task                         text32        13138
 _print_item                               bssCOMRAM     00020
 _print_port                               bssBANK0      000FE
 _print_time                               text5         15BF8
@@ -1727,9 +1732,9 @@ _settings_flag                            bssCOMRAM     00021
 _settings_integrating_reset               text19        12332
 _settings_item                            bssBANK0      000FF
 _settings_led_indicator                   text18        1258A
-_settings_loop                            text17        12A14
+_settings_task                            text17        12A14
 _shortPacketStatus                        bssCOMRAM     00022
-_sleep_loop                               text15        14F40
+_sleep_task                               text15        14F40
 _software_init                            text13        13F7C
 _sprintf                                  text45        10000
 _strcat                                   text41        16392
@@ -1738,11 +1743,11 @@ _strcpy                                   text39        16762
 _terminal_at_hand                         text4         16332
 _terminal_data_out                        bssCOMRAM     00023
 _terminal_data_out_flag                   bssCOMRAM     00024
-_terminal_loop                            text1         10D8C
-_terminal_loop$6745                       cstackBANK4   00464
 _terminal_operation                       text2         120C4
+_terminal_task                            text1         10D8C
+_terminal_task$6731                       cstackBANK4   00464
 _terminal_time                            text3         109E0
-_terminal_time$6746                       cstackBANK0   000DA
+_terminal_time$6732                       cstackBANK0   000DA
 _time_change_flag                         bssCOMRAM     00025
 _timer0_init                              text58        166EE
 _timer1_init                              text57        16550
@@ -1762,7 +1767,7 @@ button_timer_interrupt@sw_value           cstackBANK0   00085
 caltime_to_RTCC@tm                        cstackBANK0   00069
 caltime_to_epoch@epoch                    cstackBANK0   00081
 caltime_to_epoch@month                    cstackBANK0   00085
-caltime_to_epoch@month_3108               cstackBANK0   00080
+caltime_to_epoch@month_3099               cstackBANK0   00080
 caltime_to_epoch@tm                       cstackBANK0   00079
 caltime_to_epoch@year                     cstackBANK0   0007F
 ctmu_set_ratio@percentage                 cstackBANK0   00083
@@ -1848,7 +1853,7 @@ memset@p1                                 cstackBANK0   00060
 millis_timer@cnt                          bssBANK1      00120
 month_length@month                        cstackBANK0   00066
 month_length@year                         cstackBANK0   0006B
-port_button_loop@i                        cstackBANK0   00066
+port_button_task@i                        cstackBANK0   00066
 print_time@str                            cstackBANK0   000AD
 print_time@tx                             cstackBANK0   000AB
 putUSBUSART@data                          cstackBANK0   00060
@@ -1897,10 +1902,10 @@ settings_led_indicator@str                cstackBANK0   00067
 settings_led_indicator@str_1362           cstackBANK0   0007B
 settings_led_indicator@strp               cstackBANK0   0008F
 settings_led_indicator@strp_1363          cstackBANK0   00091
-settings_loop@item_change_flag            cstackBANK0   00099
-settings_loop@settings_state              bssBANK1      0012B
-sleep_loop@i                              cstackBANK0   0006A
-sleep_loop@sleep_flag                     bssCOMRAM     00026
+settings_task@item_change_flag            cstackBANK0   00099
+settings_task@settings_state              bssBANK1      0012B
+sleep_task@i                              cstackBANK0   0006A
+sleep_task@sleep_flag                     bssCOMRAM     00026
 software_init@i                           cstackBANK0   00091
 sprintf@ap                                cstackBANK0   0009F
 sprintf@c                                 cstackBANK0   000A8
@@ -1914,7 +1919,7 @@ sprintf@val                               cstackBANK0   000A3
 sprintf@width                             cstackBANK0   000A9
 stackhi                                   (abs)         00EAF
 stacklo                                   (abs)         00D40
-start                                     init          000E0
+start                                     init          010E0
 start_initialization                      cinit         15E16
 strcat@cp                                 cstackBANK0   00064
 strcat@from                               cstackBANK0   00062
@@ -1930,24 +1935,24 @@ terminal_at_hand@max                      cstackBANK0   000D0
 terminal_at_hand@min                      cstackBANK0   000CF
 terminal_at_hand@tx                       cstackBANK0   000CB
 terminal_at_hand@value                    cstackBANK0   000D1
-terminal_loop@ascii                       cstackBANK4   00467
-terminal_loop@buf                         cstackBANK4   00400
-terminal_loop@command                     bssBANK1      00180
-terminal_loop@command_init                bssBANK1      0012C
-terminal_loop@i                           cstackBANK4   00468
-terminal_loop@i_3926                      cstackBANK4   00466
-terminal_loop@op0                         bssBANK2      00236
-terminal_loop@op1                         bssBANK2      0024F
-terminal_loop@op2                         bssBANK2      00268
-terminal_loop@op3                         bssBANK2      00281
-terminal_loop@rx                          cstackBANK1   00193
-terminal_loop@tx                          cstackBANK1   00191
 terminal_operation@op0                    cstackBANK0   000DD
 terminal_operation@op1                    cstackBANK0   000DF
 terminal_operation@op2                    cstackBANK0   000E1
 terminal_operation@op3                    cstackBANK0   000E3
 terminal_operation@percentage             cstackBANK0   000E5
 terminal_operation@tx                     cstackBANK0   000DB
+terminal_task@ascii                       cstackBANK4   00467
+terminal_task@buf                         cstackBANK4   00400
+terminal_task@command                     bssBANK1      00180
+terminal_task@command_init                bssBANK1      0012C
+terminal_task@i                           cstackBANK4   00468
+terminal_task@i_3917                      cstackBANK4   00466
+terminal_task@op0                         bssBANK2      00236
+terminal_task@op1                         bssBANK2      0024F
+terminal_task@op2                         bssBANK2      00268
+terminal_task@op3                         bssBANK2      00281
+terminal_task@rx                          cstackBANK1   00193
+terminal_task@tx                          cstackBANK1   00191
 terminal_time@op0                         cstackBANK0   000D4
 terminal_time@op1                         cstackBANK0   000D6
 terminal_time@op2                         cstackBANK0   000D8
@@ -1984,21 +1989,21 @@ FUNCTION INFORMATION:
 Total ram usage:        0 bytes
  Hardware stack levels required when called:   20
  This function calls:
-		_RTCC_loop
-		_USB_loop
+		_RTCC_task
+		_USB_task
 		_bootload
-		_ctmu_loop
+		_ctmu_task
 		_hardware_init
-		_normal_loop
-		_sleep_loop
+		_normal_task
+		_sleep_task
 		_software_init
-		_terminal_loop
+		_terminal_task
  This function is called by:
 		Startup code after reset
  This function uses a non-reentrant model
 
 
- *************** function _terminal_loop *****************
+ *************** function _terminal_task *****************
  Defined at:
 		line 8 in file "../../../My_library/My_terminal.c"
  Parameters:    Size  Location     Type
@@ -2049,13 +2054,13 @@ Total ram usage:      111 bytes
   tx              2  123[BANK0 ] PTR struct ringbuf
 		 -> usb_tx(8), 
   op0             2  125[BANK0 ] PTR unsigned char 
-		 -> terminal_loop@op0(25), 
+		 -> terminal_task@op0(25), 
   op1             2  127[BANK0 ] PTR unsigned char 
-		 -> terminal_loop@op1(25), 
+		 -> terminal_task@op1(25), 
   op2             2  129[BANK0 ] PTR unsigned char 
-		 -> terminal_loop@op2(25), 
+		 -> terminal_task@op2(25), 
   op3             2  131[BANK0 ] PTR unsigned char 
-		 -> terminal_loop@op3(25), 
+		 -> terminal_task@op3(25), 
  Auto vars:     Size  Location     Type
   percentage      1  133[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
@@ -2082,7 +2087,7 @@ Total ram usage:       11 bytes
 		_strcmp
 		_terminal_time
  This function is called by:
-		_terminal_loop
+		_terminal_task
  This function uses a non-reentrant model
 
 
@@ -2093,11 +2098,11 @@ Total ram usage:       11 bytes
   tx              2  114[BANK0 ] PTR struct ringbuf
 		 -> usb_tx(8), 
   op0             2  116[BANK0 ] PTR unsigned char 
-		 -> terminal_loop@op0(25), 
+		 -> terminal_task@op0(25), 
   op1             2  118[BANK0 ] PTR unsigned char 
-		 -> terminal_loop@op1(25), 
+		 -> terminal_task@op1(25), 
   op2             2  120[BANK0 ] PTR unsigned char 
-		 -> terminal_loop@op2(25), 
+		 -> terminal_task@op2(25), 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -2237,7 +2242,7 @@ Total ram usage:        2 bytes
 		line 33 in file "C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\strcmp.c"
  Parameters:    Size  Location     Type
   s1              2    0[BANK0 ] PTR const unsigned char 
-		 -> terminal_loop@op1(25), terminal_loop@op0(25), 
+		 -> terminal_task@op1(25), terminal_task@op0(25), 
   s2              2    2[BANK0 ] PTR const unsigned char 
 		 -> STR_117(7), STR_116(2), STR_115(7), STR_114(2), 
 		 -> STR_113(5), STR_112(2), STR_111(4), STR_110(2), 
@@ -2277,7 +2282,7 @@ Total ram usage:        6 bytes
 		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\atoi.c"
  Parameters:    Size  Location     Type
   s               2   28[BANK0 ] PTR const unsigned char 
-		 -> terminal_loop@op2(25), 
+		 -> terminal_task@op2(25), 
  Auto vars:     Size  Location     Type
   a               2   33[BANK0 ] int 
   sign            1   32[BANK0 ] unsigned char 
@@ -2371,7 +2376,7 @@ Total ram usage:        8 bytes
 		___lwmod
 		_ringbuf_put
  This function is called by:
-		_terminal_loop
+		_terminal_task
  This function uses a non-reentrant model
 
 
@@ -2380,7 +2385,7 @@ Total ram usage:        8 bytes
 		line 66 in file "../../../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2    0[BANK0 ] PTR struct ringbuf
-		 -> terminal_loop@command(8), 
+		 -> terminal_task@command(8), 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -2402,7 +2407,7 @@ Total ram usage:        2 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_terminal_loop
+		_terminal_task
  This function uses a non-reentrant model
 
 
@@ -2411,7 +2416,7 @@ Total ram usage:        2 bytes
 		line 59 in file "../../../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2    8[BANK0 ] PTR struct ringbuf
-		 -> terminal_loop@command(8), 
+		 -> terminal_task@command(8), 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -2433,7 +2438,7 @@ Total ram usage:        6 bytes
  This function calls:
 		_ringbuf_num
  This function is called by:
-		_terminal_loop
+		_terminal_task
  This function uses a non-reentrant model
 
 
@@ -2505,7 +2510,7 @@ Total ram usage:        1 bytes
  This function uses a non-reentrant model
 
 
- *************** function _sleep_loop *****************
+ *************** function _sleep_task *****************
  Defined at:
 		line 164 in file "ChargeStation_task.c"
  Parameters:    Size  Location     Type
@@ -2541,7 +2546,7 @@ Total ram usage:        1 bytes
  This function uses a non-reentrant model
 
 
- *************** function _normal_loop *****************
+ *************** function _normal_task *****************
  Defined at:
 		line 121 in file "ChargeStation_task.c"
  Parameters:    Size  Location     Type
@@ -2571,14 +2576,14 @@ Total ram usage:        0 bytes
 		_display_LCD
 		_integrate_current
 		_integrate_time
-		_port_button_loop
-		_settings_loop
+		_port_button_task
+		_settings_task
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _settings_loop *****************
+ *************** function _settings_task *****************
  Defined at:
 		line 193 in file "settings.c"
  Parameters:    Size  Location     Type
@@ -2608,7 +2613,7 @@ Total ram usage:        1 bytes
 		_settings_integrating_reset
 		_settings_led_indicator
  This function is called by:
-		_normal_loop
+		_normal_task
  This function uses a non-reentrant model
 
 
@@ -2648,7 +2653,7 @@ Total ram usage:       48 bytes
 		_display
 		_strcpy
  This function is called by:
-		_settings_loop
+		_settings_task
  This function uses a non-reentrant model
 
 
@@ -2687,7 +2692,7 @@ Total ram usage:       51 bytes
 		_display
 		_strcpy
  This function is called by:
-		_settings_loop
+		_settings_task
  This function uses a non-reentrant model
 
 
@@ -2726,7 +2731,7 @@ Total ram usage:       48 bytes
 		_display
 		_strcpy
  This function is called by:
-		_settings_loop
+		_settings_task
  This function uses a non-reentrant model
 
 
@@ -2760,7 +2765,7 @@ Total ram usage:        0 bytes
 		_RTCC_adjust_time_toggle
 		_display
  This function is called by:
-		_settings_loop
+		_settings_task
  This function uses a non-reentrant model
 
 
@@ -3099,7 +3104,7 @@ Total ram usage:        2 bytes
  This function uses a non-reentrant model
 
 
- *************** function _port_button_loop *****************
+ *************** function _port_button_task *****************
  Defined at:
 		line 82 in file "ChargeStation_task.c"
  Parameters:    Size  Location     Type
@@ -3127,7 +3132,7 @@ Total ram usage:        1 bytes
 		_OUT
 		_display
  This function is called by:
-		_normal_loop
+		_normal_task
  This function uses a non-reentrant model
 
 
@@ -3172,15 +3177,15 @@ Total ram usage:        6 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_port_button_loop
-		_normal_loop
-		_sleep_loop
+		_port_button_task
+		_normal_task
+		_sleep_task
 		_software_init
 		_settings_adjust_time
 		_settings_auto_stop
 		_settings_led_indicator
 		_settings_integrating_reset
-		_settings_loop
+		_settings_task
  This function uses a non-reentrant model
 
 
@@ -3211,8 +3216,8 @@ Total ram usage:        2 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_port_button_loop
-		_sleep_loop
+		_port_button_task
+		_sleep_task
 		_software_init
 		_settings_led_indicator
  This function uses a non-reentrant model
@@ -3244,7 +3249,7 @@ Total ram usage:        3 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_normal_loop
+		_normal_task
  This function uses a non-reentrant model
 
 
@@ -3274,7 +3279,7 @@ Total ram usage:        3 bytes
  This function calls:
 		___lldiv
  This function is called by:
-		_normal_loop
+		_normal_task
  This function uses a non-reentrant model
 
 
@@ -3313,7 +3318,7 @@ Total ram usage:       85 bytes
 		_display_time_1602
 		_sprintf
  This function is called by:
-		_normal_loop
+		_normal_task
  This function uses a non-reentrant model
 
 
@@ -3500,7 +3505,7 @@ Total ram usage:        4 bytes
  This function calls:
 		_I2C_LCD_Command
  This function is called by:
-		_sleep_loop
+		_sleep_task
 		_bootload
 		_display_LCD
  This function uses a non-reentrant model
@@ -3536,7 +3541,7 @@ Total ram usage:        5 bytes
 		_I2C_Start
 		_I2C_Stop
  This function is called by:
-		_sleep_loop
+		_sleep_task
 		_bootload
 		_display_LCD
  This function uses a non-reentrant model
@@ -3573,7 +3578,7 @@ Total ram usage:       33 bytes
 		_ringbuf_put_str
 		_sprintf
  This function is called by:
-		_normal_loop
+		_normal_task
  This function uses a non-reentrant model
 
 
@@ -3727,7 +3732,7 @@ Total ram usage:        4 bytes
  This function is called by:
 		_terminal_operation
 		_data_out
-		_terminal_loop
+		_terminal_task
 		_print_time
 		_terminal_at_hand
 		_print_time_dec
@@ -3764,7 +3769,6 @@ Total ram usage:        5 bytes
 		_data_out
 		_display_LCD
 		_ringbuf_put_num
-		_tx_sendn
  This function uses a non-reentrant model
 
 
@@ -3797,7 +3801,7 @@ Total ram usage:        3 bytes
 		_OUT
 		___wmul
  This function is called by:
-		_normal_loop
+		_normal_task
  This function uses a non-reentrant model
 
 
@@ -3863,8 +3867,8 @@ Total ram usage:        2 bytes
 		Nothing
  This function is called by:
 		_Auto_cut
-		_port_button_loop
-		_sleep_loop
+		_port_button_task
+		_sleep_task
 		_software_init
  This function uses a non-reentrant model
 
@@ -3926,7 +3930,7 @@ Total ram usage:        4 bytes
 		Nothing
  This function is called by:
 		_Auto_cut
-		_sleep_loop
+		_sleep_task
  This function uses a non-reentrant model
 
 
@@ -4065,9 +4069,9 @@ Total ram usage:        2 bytes
 		line 5 in file "../../../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2    0[BANK0 ] PTR struct ringbuf
-		 -> terminal_loop@command(8), usb_rx(8), usb_tx(8), 
+		 -> terminal_task@command(8), usb_rx(8), usb_tx(8), 
   internal_buf    2    2[BANK0 ] PTR unsigned char 
-		 -> terminal_loop@buf(100), hardware_init@usbrx(100), hardware_init@usbtx(2000), 
+		 -> terminal_task@buf(100), hardware_init@usbrx(100), hardware_init@usbtx(2000), 
   bufsize         2    4[BANK0 ] unsigned int 
  Auto vars:     Size  Location     Type
 		None
@@ -4091,7 +4095,7 @@ Total ram usage:        6 bytes
 		Nothing
  This function is called by:
 		_hardware_init
-		_terminal_loop
+		_terminal_task
  This function uses a non-reentrant model
 
 
@@ -4338,7 +4342,7 @@ Total ram usage:        1 bytes
  This function calls:
 		_I2C_LCD_Command
  This function is called by:
-		_sleep_loop
+		_sleep_task
 		_bootload
 		_display_LCD
 		_I2C_LCD_init
@@ -4516,7 +4520,7 @@ Total ram usage:        2 bytes
 
  *************** function _CTMU_init *****************
  Defined at:
-		line 268 in file "../../../My_library/My_PIC.c"
+		line 252 in file "../../../My_library/My_PIC.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4574,7 +4578,7 @@ Total ram usage:        1 bytes
  This function uses a non-reentrant model
 
 
- *************** function _ctmu_loop *****************
+ *************** function _ctmu_task *****************
  Defined at:
 		line 29 in file "ctmu.c"
  Parameters:    Size  Location     Type
@@ -4632,7 +4636,7 @@ Total ram usage:        0 bytes
 		___lwdiv
 		_button_timer_interrupt
  This function is called by:
-		_ctmu_loop
+		_ctmu_task
  This function uses a non-reentrant model
 
 
@@ -4701,13 +4705,12 @@ Total ram usage:        7 bytes
 		_ctmu_set_ratio
 		_ctmu_sampling
 		_ringbuf_put_num
-		_tx_sendn
  This function uses a non-reentrant model
 
 
  *************** function _CTMU_read *****************
  Defined at:
-		line 283 in file "../../../My_library/My_PIC.c"
+		line 267 in file "../../../My_library/My_PIC.c"
  Parameters:    Size  Location     Type
   ch              1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -4774,7 +4777,7 @@ Total ram usage:       13 bytes
  This function uses a non-reentrant model
 
 
- *************** function _USB_loop *****************
+ *************** function _USB_task *****************
  Defined at:
 		line 66 in file "../../../My_library/My_usb_cdc.c"
  Parameters:    Size  Location     Type
@@ -4814,8 +4817,7 @@ Total ram usage:        3 bytes
 		line 20 in file "../../../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2    8[BANK0 ] PTR struct ringbuf
-		 -> terminal_loop@command(8), uart_rx(8), uart_tx(8), usb_rx(8), 
-		 -> usb_tx(8), 
+		 -> terminal_task@command(8), uart_rx(8), usb_rx(8), usb_tx(8), 
   asciicode       1   10[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
 		None
@@ -4840,11 +4842,9 @@ Total ram usage:        7 bytes
  This function is called by:
 		_ringbuf_put_num
 		_ringbuf_put_str
-		_terminal_loop
-		_USB_loop
+		_terminal_task
+		_USB_task
 		_UART_ISR
-		_tx_send
-		_tx_sends
  This function uses a non-reentrant model
 
 
@@ -4853,7 +4853,7 @@ Total ram usage:        7 bytes
 		line 45 in file "../../../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2    8[BANK0 ] PTR struct ringbuf
-		 -> terminal_loop@command(8), uart_tx(8), usb_rx(8), usb_tx(8), 
+		 -> terminal_task@command(8), uart_tx(8), usb_rx(8), usb_tx(8), 
  Auto vars:     Size  Location     Type
   ret             1   14[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
@@ -4875,8 +4875,8 @@ Total ram usage:        7 bytes
  This function calls:
 		_ringbuf_num
  This function is called by:
-		_terminal_loop
-		_USB_loop
+		_terminal_task
+		_USB_task
 		_UART_ISR
  This function uses a non-reentrant model
 
@@ -4886,7 +4886,7 @@ Total ram usage:        7 bytes
 		line 12 in file "../../../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2    0[BANK0 ] PTR struct ringbuf
-		 -> terminal_loop@command(8), uart_rx(8), uart_tx(8), usb_rx(8), 
+		 -> terminal_task@command(8), uart_rx(8), uart_tx(8), usb_rx(8), 
 		 -> usb_tx(8), 
  Auto vars:     Size  Location     Type
 		None
@@ -4912,9 +4912,10 @@ Total ram usage:        8 bytes
 		_ringbuf_put
 		_ringbuf_pop
 		_ringbuf_backspace
-		_terminal_loop
-		_USB_loop
+		_terminal_task
+		_USB_task
 		_UART_ISR
+		_UART_task
  This function uses a non-reentrant model
 
 
@@ -4923,7 +4924,7 @@ Total ram usage:        8 bytes
 		line 21 in file "../../../My_library/My_usb_cdc.c"
  Parameters:    Size  Location     Type
   s               2   12[BANK0 ] PTR unsigned char 
-		 -> USB_loop@data(1), 
+		 -> USB_task@data(1), 
   len             2   14[BANK0 ] int 
  Auto vars:     Size  Location     Type
 		None
@@ -4948,7 +4949,7 @@ Total ram usage:        4 bytes
 		_is_usb_available
 		_putUSBUSART
  This function is called by:
-		_USB_loop
+		_USB_task
  This function uses a non-reentrant model
 
 
@@ -4957,7 +4958,7 @@ Total ram usage:        4 bytes
 		line 613 in file "../../../My_library/usb/usb_device_cdc.c"
  Parameters:    Size  Location     Type
   data            2    0[BANK0 ] PTR unsigned char 
-		 -> USB_loop@data(1), 
+		 -> USB_task@data(1), 
   length          1    2[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
 		None
@@ -4989,7 +4990,7 @@ Total ram usage:        3 bytes
 		line 32 in file "../../../My_library/My_usb_cdc.c"
  Parameters:    Size  Location     Type
   s               2   13[BANK0 ] PTR unsigned char 
-		 -> USB_loop@data(1), 
+		 -> USB_task@data(1), 
   len             2   15[BANK0 ] int 
  Auto vars:     Size  Location     Type
   rx_len          2   18[BANK0 ] int 
@@ -5014,7 +5015,7 @@ Total ram usage:        7 bytes
 		_getsUSBUSART
 		_is_usb_available
  This function is called by:
-		_USB_loop
+		_USB_task
  This function uses a non-reentrant model
 
 
@@ -5054,7 +5055,7 @@ Total ram usage:        1 bytes
 		line 542 in file "../../../My_library/usb/usb_device_cdc.c"
  Parameters:    Size  Location     Type
   buffer          2    7[BANK0 ] PTR unsigned char 
-		 -> USB_loop@data(1), 
+		 -> USB_task@data(1), 
   len             1    9[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
 		None
@@ -5151,7 +5152,7 @@ Total ram usage:        7 bytes
  This function uses a non-reentrant model
 
 
- *************** function _RTCC_loop *****************
+ *************** function _RTCC_task *****************
  Defined at:
 		line 346 in file "../../../My_library/My_RTCC.c"
  Parameters:    Size  Location     Type
@@ -5213,7 +5214,7 @@ Total ram usage:        2 bytes
 		_display_time_1602
 		_RTCC_adjust_time_inc
 		_RTCC_adjust_time_dec
-		_RTCC_loop
+		_RTCC_task
 		_print_time
 		_display_time_0802
  This function uses a non-reentrant model
@@ -5451,7 +5452,7 @@ Total ram usage:       14 bytes
 
  *************** function _millis_timer *****************
  Defined at:
-		line 318 in file "../../../My_library/My_PIC.c"
+		line 302 in file "../../../My_library/My_PIC.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -6500,12 +6501,12 @@ Module		Function		Class		Link	Load	Size
 ../../../My_library/My_RTCC.c
 		_RTCC_adjust_time_dec		CODE           	11912	0000	677
 		_display_dec   		CODE           	1613C	0000	107
-		_RTCC_loop     		CODE           	16728	0000	59
 		_caltime_to_RTCC		CODE           	14A52	0000	215
 		_month_length  		CODE           	147C2	0000	223
 		_display_time_1602		CODE           	113BE	0000	689
 		_d_to_x        		CODE           	16A96	0000	41
 		_epoch_to_caltime		CODE           	12C42	0000	499
+		_RTCC_task     		CODE           	16728	0000	59
 		_RTCC_adjust_time_cursor		CODE           	13C7A	0000	261
 		_RTCC_from_RTCC		CODE           	16C48	0000	27
 		_RTCC_from_caltime		CODE           	16AE6	0000	39
@@ -6543,12 +6544,12 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul32.c
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul32.c estimated size: 119
 
 ../../../My_library/My_usb_cdc.c
+		_USB_task      		CODE           	15ADC	0000	143
 		_USB_ISR       		CODE           	16CA6	0000	7
 		_USER_USB_CALLBACK_EVENT_HANDLER		CODE           	16962	0000	47
 		_put_string_usb		CODE           	16934	0000	47
 		_is_usb_available		CODE           	16BF8	0000	29
 		_get_string_usb		CODE           	165A0	0000	79
-		_USB_loop      		CODE           	15ADC	0000	143
 		_USB_init      		CODE           	16BDC	0000	29
 
 ../../../My_library/My_usb_cdc.c estimated size: 381
@@ -6557,7 +6558,7 @@ settings.c
 		_settings_auto_stop		CODE           	127D8	0000	573
 		_settings_led_indicator		CODE           	1258A	0000	591
 		_settings_adjust_time		CODE           	148A0	0000	219
-		_settings_loop 		CODE           	12A14	0000	559
+		_settings_task 		CODE           	12A14	0000	559
 		_settings_integrating_reset		CODE           	12332	0000	601
 
 settings.c estimated size: 2543
@@ -6680,7 +6681,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c estimated size
 ctmu.c
 		_ctmu_set_ratio		CODE           	1443A	0000	231
 		_ctmu_sampling 		CODE           	13D7E	0000	259
-		_ctmu_loop     		CODE           	16C8C	0000	17
+		_ctmu_task     		CODE           	16C8C	0000	17
 
 ctmu.c estimated size: 507
 
@@ -6694,21 +6695,21 @@ LCD_print.c estimated size: 1530
 		_print_time    		CODE           	15BF8	0000	141
 		_terminal_at_hand		CODE           	16332	0000	97
 		_terminal_time 		CODE           	109E0	0000	941
-		_terminal_loop 		CODE           	10D8C	0000	875
+		_terminal_task 		CODE           	10D8C	0000	875
 
 ../../../My_library/My_terminal.c estimated size: 2054
 
 ChargeStation_task.c
 		_terminal_operation		CODE           	120C4	0000	623
-		_normal_loop   		CODE           	155FE	0000	175
+		_normal_task   		CODE           	155FE	0000	175
 		_integrate_time		CODE           	1626E	0000	99
-		_port_button_loop		CODE           	13138	0000	357
+		_port_button_task		CODE           	13138	0000	357
 		_LED_indicator 		CODE           	13A3C	0000	295
 		_integrate_current		CODE           	13E80	0000	253
+		_sleep_task    		CODE           	14F40	0000	203
 		_data_out      		CODE           	12FC0	0000	377
 		_Auto_cut      		CODE           	13908	0000	309
 		_bootload      		CODE           	16634	0000	67
-		_sleep_loop    		CODE           	14F40	0000	203
 
 ChargeStation_task.c estimated size: 2758
 
@@ -6728,7 +6729,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c estimated size: 189
 
 main.c
-		_ISR           		CODE           	0008	0000	217
+		_ISR           		CODE           	1008	0000	217
 		_hardware_init 		CODE           	156AC	0000	167
 		_main          		CODE           	160D0	0000	109
 		_software_init 		CODE           	13F7C	0000	249

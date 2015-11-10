@@ -26,7 +26,7 @@ void ctmu_sampling(void) {
     button_timer_interrupt(&ctmu_m, !(CTMU_read(CTMUM) / ctmu_value_m));
 }
 
-void ctmu_loop(void) {
+void ctmu_task(void) {
     if (ctmu_sampling_flag) {
         ctmu_sampling_flag = 0;
         ctmu_sampling();

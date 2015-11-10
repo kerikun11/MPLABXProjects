@@ -169,7 +169,7 @@ void PWM_set(uint8_t color, uint16_t value) {
 
 void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3) {
     if (!strcmp(op0, "help") || !strcmp(op0, "?")) {
-        tx_sends(
+        ringbuf_put_str(tx,
                 "\t**************************\n"
                 "\t**** Killifish Light  ****\n"
                 "\t**** Made by @Ryokeri ****\n"
@@ -226,7 +226,7 @@ void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op
     }
 }
 
-void light_loop(void) {
+void light_task(void) {
     uint8_t i;
     if (time_change_flag) {
         time_change_flag = 0;
@@ -316,19 +316,19 @@ int main(void) {
 
     while (1) {
         INTCONbits.GIE = 0;
-        USB_loop();
+        USB_task();
         INTCONbits.GIE = 1;
 
         INTCONbits.GIE = 0;
-        RTCC_loop();
+        RTCC_task();
         INTCONbits.GIE = 1;
 
         INTCONbits.GIE = 0;
-        terminal_loop(&usb_tx, &usb_rx);
+        terminal_task(&usb_tx, &usb_rx);
         INTCONbits.GIE = 1;
 
         INTCONbits.GIE = 0;
-        light_loop();
+        light_task();
         INTCONbits.GIE = 1;
     }
     return 0;

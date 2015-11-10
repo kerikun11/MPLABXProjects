@@ -8300,7 +8300,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_RTCC.h: 122: void RTCC_adjust_time_inc(time_t *tm);
 [; ;My_library\My_RTCC.h: 124: void RTCC_adjust_time_dec(time_t *tm);
 [; ;My_library\My_RTCC.h: 126: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
-[; ;My_library\My_RTCC.h: 128: void RTCC_loop(void);
+[; ;My_library\My_RTCC.h: 128: void RTCC_task(void);
 [; ;My_library\My_ringbuf.h: 19: typedef struct ringbuf {
 [; ;My_library\My_ringbuf.h: 20: char *buf;
 [; ;My_library\My_ringbuf.h: 21: uint16_t size;
@@ -8343,9 +8343,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ChargeStation_task.h: 46: void Auto_cut(void);
 [; ;ChargeStation_task.h: 48: void integrate_current(void);
 [; ;ChargeStation_task.h: 49: void integrate_time(void);
-[; ;ChargeStation_task.h: 50: void port_button_loop(void);
-[; ;ChargeStation_task.h: 51: void normal_loop(void);
-[; ;ChargeStation_task.h: 52: void sleep_loop(void);
+[; ;ChargeStation_task.h: 50: void port_button_task(void);
+[; ;ChargeStation_task.h: 51: void normal_task(void);
+[; ;ChargeStation_task.h: 52: void sleep_task(void);
 [; ;ChargeStation_task.h: 53: void bootload(void);
 [; ;ChargeStation_task.h: 54: void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
 [; ;ChargeStation_task.h: 55: void data_out(ringbuf_t *tx);
