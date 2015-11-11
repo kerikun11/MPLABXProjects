@@ -32,6 +32,13 @@ void RTCC_init(void) {
     PADCFG1bits.RTSECSEL1 = 1;
     RTCCAL = 0x00;
     T1CONbits.T1OSCEN = 1;
+
+    // 存在しない年月日ならば、初期化する
+    RTCC_from_RTCC(&now);
+    if (now.DD == 0) {
+        now.epoch = 0;
+        RTCC_from_epoch(&now);
+    }
 }
 
 /********************************** necessary functions **********************************/

@@ -84,29 +84,6 @@ void ADC_init(uint8_t p_ref);
 // Common Function
 uint16_t ADC(uint8_t ch);
 
-//*************************** UART ***************************//
-// UART_ISR();
-// を割り込み関数内に書いておくこと。
-// RCIF,TXIF フラグの回収はレジスタ読み込みまたは上書きにより行われる。
-extern ringbuf_t uart_tx;
-extern ringbuf_t uart_rx;
-
-#if defined(PIC18F27J53)
-void UART_init(void);
-void UART_ISR(void);
-void UART_task();
-#endif /* PIC18F27J53 */
-
-#if defined(PIC16F1827)
-void UART_init(void);
-void interrupt_TXIF(void);
-void tx_send(uint8_t asciicode);
-void tx_sends(const uint8_t *asciicode);
-#endif /* PIC16F1827 */
-
-// common function
-void tx_sendn(const uint16_t value, uint8_t digits);
-
 //*************************** CTMU ***************************//
 #define CTMU_AVERAGE_NUMBER 10
 #define CTMU_DISCHARGE_TIME 20  // [us]
