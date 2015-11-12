@@ -10844,7 +10844,7 @@ if (now.colon) strcat(line1, ":");
 else strcat(line1, " ");
 display_dec(line1, tm->mm, tm->edit.flag.mm);
 strcat(line1, "-");
-display_dec(line0, tm->ss, tm->edit.flag.ss);
+display_dec(line1, tm->ss, tm->edit.flag.ss);
 }
 
 void display_time_1602(time_t *tm, char *line0, char *line1) {

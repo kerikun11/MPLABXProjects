@@ -1,7 +1,35 @@
 #include "My_PIC.h"
 
+//*************************** OSC ***************************//
+#if defined(__18F27J53)
+//Fosc = 48MHz
+//CONFIG : #pragma config OSC = INTOSCPLL
+
+void OSC_init(void) {
+    OSCCONbits.IRCF = 7;
+    OSCTUNEbits.PLLEN = 1;
+    OSCCONbits.SCS = 0;
+}
+#endif /* PIC18F27J53 */
+
+#if defined(__18F26K22)
+// freq = 0 ~ 6 : 1MHz ~ 64MHz
+
+void OSC_init(uint8_t freq) {
+    if (freq > 4) {
+        OSCCONbits.IRCF = freq + 1; // 6 => 8MHz
+        OSCCON2bits.PLLRDY = 1;
+        OSCTUNEbits.PLLEN = 1; // clock x 4
+    } else {
+        OSCCONbits.IRCF = freq + 3; // 6 => 8MHz
+        OSCCON2bits.PLLRDY = 0;
+        OSCTUNEbits.PLLEN = 0; // clock x 1
+    }
+}
+#endif /* PIC18F26K22 */
+
 //*************************** timer0 ***************************//
-#if defined(PIC18F27J53)
+#if defined(__18F27J53)
 
 void timer0_init(uint8_t prescaler) { // prescaler is 0~8
     T0CONbits.TMR0ON = 1;
@@ -19,7 +47,8 @@ void timer0_init(uint8_t prescaler) { // prescaler is 0~8
     INTCONbits.PEIE = 1;
 }
 #endif /* PIC18F27J53 */
-#if defined(PIC16F1827)
+
+#if defined(__16F1827)
 
 void timer0_init(uint8_t prescaler) { // prescaler is 0~8
     if (prescaler == 0) {
@@ -36,7 +65,7 @@ void timer0_init(uint8_t prescaler) { // prescaler is 0~8
 #endif /* PIC16F1827 */
 
 //*************************** timer1 ***************************//
-#if defined(PIC18F27J53)
+#if defined(__18F27J53)
 
 void timer1_init(uint8_t prescaler, uint8_t clock_select) { // prescaler is 0~3
     T1CONbits.TMR1CS = clock_select;
@@ -53,7 +82,7 @@ void timer1_init(uint8_t prescaler, uint8_t clock_select) { // prescaler is 0~3
 }
 #endif /* PIC18F27J53 */
 
-#if defined(PIC16F1827)
+#if defined(__16F1827)
 
 void timer1_init(uint8_t prescaler) { // prescaler is 0~3
     T1CONbits.TMR1ON = 1;
@@ -67,7 +96,7 @@ void timer1_init(uint8_t prescaler) { // prescaler is 0~3
 #endif /* PIC16F1827 */
 
 //*************************** timer3 ***************************//
-#if defined(PIC18F27J53)
+#if defined(__18F27J53)
 
 void timer3_init(uint8_t prescaler) { // prescaler is 0~3
     T3CONbits.TMR3CS = 0; //Clock = Fosc/4
@@ -83,7 +112,7 @@ void timer3_init(uint8_t prescaler) { // prescaler is 0~3
 #endif /* PIC18F27J53 */
 
 //*************************** timer5 ***************************//
-#if defined(PIC18F27J53)
+#if defined(__18F27J53)
 
 void timer5_init(uint8_t prescaler) { // prescaler is 0~3
     T5CONbits.TMR5CS = 0; //Clock = Fosc/4
@@ -98,36 +127,8 @@ void timer5_init(uint8_t prescaler) { // prescaler is 0~3
 }
 #endif /* PIC18F27J53 */
 
-//*************************** OSC ***************************//
-#ifdef PIC18F27J53
-//Fosc = 48MHz
-//CONFIG : #pragma config OSC = INTOSCPLL
-
-void OSC_init(void) {
-    OSCCONbits.IRCF = 7;
-    OSCTUNEbits.PLLEN = 1;
-    OSCCONbits.SCS = 0;
-}
-#endif /* PIC18F27J53 */
-
-#if defined(PIC18F26K22)
-// freq = 0 ~ 6 : 1MHz ~ 64MHz
-
-void OSC_init(uint8_t freq) {
-    if (freq > 4) {
-        OSCCONbits.IRCF = freq + 1; // 6 => 8MHz
-        OSCCON2bits.PLLRDY = 1;
-        OSCTUNEbits.PLLEN = 1; // clock x 4
-    } else {
-        OSCCONbits.IRCF = freq + 3; // 6 => 8MHz
-        OSCCON2bits.PLLRDY = 0;
-        OSCTUNEbits.PLLEN = 0; // clock x 1
-    }
-}
-#endif /* PIC18F26K22 */
-
 //*************************** ADC ***************************//
-#ifdef PIC18F27J53
+#if defined(__18F27J53)
 
 void ADC_init(uint8_t p_ref) {
     ADCON0bits.VCFG1 = 0; // Vref- = Vss
@@ -139,7 +140,7 @@ void ADC_init(uint8_t p_ref) {
 }
 #endif /* PIC18F27J53 */
 
-#if defined(PIC16F1827) || defined(PIC12F1822)
+#if defined(__16F1827) || defined(__12F1822)
 
 void ADC_init(uint8_t p_ref) {
     ADCON1bits.ADFM = 0; // 0 : H + L = 8 + 2
@@ -163,7 +164,7 @@ uint16_t ADC(uint8_t ch) {
 }
 
 //*************************** CTMU ***************************//
-#if defined(PIC18F27J53) || defined(PIC18F26K22)
+#if defined(__18F27J53) || defined(__18F26K22)
 
 void CTMU_init(void) {
     CTMUCONH = 0x00;

@@ -75,7 +75,7 @@ void I2C_LCD_CreateChar(int p, char *dt) {
     I2C_Stop(); // ストップコンディションを発行する
 }
 
-void I2C_LCD_init(void) {
+void ST7032_init(void) {
     for (uint8_t i = 0; i < 40; i++) __delay_ms(1); // 電源ＯＮ後40msまで待ってから初期化
     I2C_LCD_Command(0x38); // function set           : データ線は8本・表示は２行・フォントは5x8ドット
     I2C_LCD_Command(0x39); // function set           : 拡張コマンドの設定を有効にする

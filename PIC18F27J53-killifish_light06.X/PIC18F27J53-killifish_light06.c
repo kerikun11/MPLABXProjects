@@ -1,9 +1,9 @@
 // killifish_light
 // PIC18F27J53
-// 01 2015.07.05 command operation ??
-// 02 2015.07.18 command operation ??
-// 03 2015.08.26 terminal.h ?????
-// 04 2015.09.03 teminal operation ??
+// 01 2015.07.05 command operation 原形
+// 02 2015.07.18 command operation 発展
+// 03 2015.08.26 terminal.h にまとめた
+// 04 2015.09.03 teminal operation 改良
 // 05 2015.10.07 using My_library .h & .c file
 // 06 2015.11.09 using USB CDC instead of UART
 

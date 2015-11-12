@@ -25,6 +25,7 @@
 #include <My_PIC.h>
 #include <My_button.h>
 #include <My_I2C.h>
+#include <My_I2C_LCD.h>
 #include <My_ST7032.h>
 #include <My_RTCC.h>
 #include <My_ringbuf.h>
@@ -125,7 +126,7 @@ int main(void) {
         USB_task();
         UART_task();
         RTCC_task();
-        terminal_task(&usb_tx,&usb_rx);
+        terminal_task(&usb_tx, &usb_rx);
 
         INTCONbits.GIE = 1;
     }

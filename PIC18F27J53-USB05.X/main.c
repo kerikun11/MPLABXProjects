@@ -29,15 +29,14 @@
 #include <My_RTCC.h>
 #include <My_ringbuf.h>
 #include <My_usb_cdc.h>
+#include <My_UART.h>
 
 #define LED0 LATBbits.LATB7
 #define LED1 LATBbits.LATB6
 #define LED2 LATAbits.LATA0
 #define LED3 LATAbits.LATA1
-#define LED4 LATBbits.LATA2
-#define LED5 LATBbits.LATA3
-#define LED6 LATAbits.LATA4
-#define LED7 LATAbits.LATA5
+#define LED4 LATAbits.LATA2
+#define LED5 LATAbits.LATA3
 
 #define SW0 PORTBbits.RB0
 #define SW1 PORTBbits.RB1
@@ -53,11 +52,10 @@ void interrupt ISR(void) {
     if (PIR1bits.TMR1IF && PIE1bits.TMR1IE) {
         PIR1bits.TMR1IF = 0;
         TMR1H = 0xC0;
-        LED3 = !LED3;
+        LED2 = !LED2;
     }
     if (PIR2bits.TMR3IF && PIE2bits.TMR3IE) {
         PIR2bits.TMR3IF = 0;
-        button_timer_interrupt();
     }
 }
 
@@ -74,7 +72,7 @@ void main_init(void) {
     timer1_init(0, T1OSC);
     timer3_init(2); // button
     I2C_init();
-    I2C_LCD_init();
+    ST7032_init();
     RTCC_init();
 
     USB_init();
@@ -122,7 +120,20 @@ int main(void) {
             ringbuf_put(&uart_tx, ringbuf_pop(&uart_rx));
             LED1 = !LED1;
         }
+        INTCONbits.GIE = 1;
+        LED4 = !LED4;
 
+        INTCONbits.GIE = 0;
+        if (time_change_flag) {
+            time_change_flag = 0;
+            char s[2][20];
+            display_time_0802(&now, s[0], s[1]);
+            I2C_LCD_Clear();
+            I2C_LCD_SetCursor(0, 0);
+            I2C_LCD_Puts(s[0]);
+            I2C_LCD_SetCursor(0, 1);
+            I2C_LCD_Puts(s[1]);
+        }
         INTCONbits.GIE = 1;
     }
     return 0;

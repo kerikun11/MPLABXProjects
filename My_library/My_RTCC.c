@@ -33,7 +33,7 @@ void RTCC_init(void) {
     RTCCAL = 0x00;
     T1CONbits.T1OSCEN = 1;
 
-    // 存在しない年月日ならば、初期化する
+    // ?????????????????
     RTCC_from_RTCC(&now);
     if (now.DD == 0) {
         now.epoch = 0;
@@ -82,7 +82,7 @@ epoch_t get_quot_rem(epoch_t *quot, uint8_t div) {
     // num /= div;
     // return rem;
     epoch_t num = *quot;
-    return num - (*quot = num / div) * div; // returns rem(余り)
+    return num - (*quot = num / div) * div; // returns rem(??)
 }
 
 /********************************** Transform time **********************************/
@@ -124,7 +124,7 @@ void caltime_to_RTCC(time_t *tm) {
 }
 
 void epoch_to_caltime(time_t *tm) {
-    // terminalでepoch時間を求めるコマンド
+    // terminal?epoch??????????
     // echo $(( (`date -d '2015/03/01' '+%s'` - `date -d '2000/01/01' '+%s'`) / 86400 ))
     static uint16_t day_cache = 0; //2015.03.01
     static uint8_t month_cache = 1;
@@ -158,7 +158,7 @@ void epoch_to_caltime(time_t *tm) {
         if (month == 12) {
             month = 1; // month is one-based.
             year++;
-            //3155760000 is 2000~2100の100年間の秒数
+            //3155760000 is 2000~2100?100?????
             if (year >= 100) {
                 tm->epoch -= 3155760000;
                 year = 0;
@@ -238,7 +238,7 @@ void display_time_0802(time_t *tm, char *line0, char *line1) {
     else strcat(line1, " ");
     display_dec(line1, tm->mm, tm->edit.flag.mm);
     strcat(line1, "-");
-    display_dec(line0, tm->ss, tm->edit.flag.ss);
+    display_dec(line1, tm->ss, tm->edit.flag.ss);
 }
 
 void display_time_1602(time_t *tm, char *line0, char *line1) {
@@ -352,7 +352,7 @@ void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, butt
 
 void RTCC_task(void) {
     static uint8_t prev_halfsec;
-    while (RTCCFGbits.RTCSYNC);
+    if (RTCCFGbits.RTCSYNC)return;
     now.halfsec = RTCCFGbits.HALFSEC;
     if (prev_halfsec != now.halfsec) {
         prev_halfsec = now.halfsec;

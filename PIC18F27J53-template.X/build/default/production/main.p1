@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"20 ../../../My_library\My_usb_cdc.h
+"20 ../My_library\My_usb_cdc.h
 [v _USB_ISR `(v ~T0 @X0 0 ef ]
-"33 ../../../My_library\My_UART.h
+"72 ../My_library\My_UART.h
 [v _UART_ISR `(v ~T0 @X0 0 ef ]
 "18300 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [s S1192 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -75,22 +75,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S714 . . . . ]
 "11226
 [v _PIE2bits `VS714 ~T0 @X0 0 e@4000 ]
-"17 ../../../My_library\My_ST7032.h
+"17 ../My_library\My_ST7032.h
 [v _I2C_LCD_Clear `(v ~T0 @X0 0 ef ]
 "18
 [v _I2C_LCD_SetCursor `(v ~T0 @X0 0 ef2`uc`uc ]
 "20
 [v _I2C_LCD_Puts `(v ~T0 @X0 0 ef1`*Cuc ]
-"19 ../../../My_library\My_ringbuf.h
+"19 ../My_library\My_ringbuf.h
 [s S1218 `*uc 1 `ui 1 `ui 1 `ui 1 ]
 [n S1218 ringbuf buf size head tail ]
 "43 C:\Program Files (x86)\Microchip\xc8\v1.35\include\string.h
 [v _strcmp `(i ~T0 @X0 0 ef2`*Cuc`*Cuc ]
-"34 ../../../My_library\My_ringbuf.h
+"34 ../My_library\My_ringbuf.h
 [v _ringbuf_put_str `(v ~T0 @X0 0 ef2`*S1218`*Cuc ]
-"28 ../../../My_library\My_terminal.h
+"28 ../My_library\My_terminal.h
 [v _terminal_time `(v ~T0 @X0 0 ef4`*S1218`*uc`*uc`*uc ]
-"22 ../../../My_library\My_PIC.h
+"20 ../My_library\My_PIC.h
 [v _OSC_init `(v ~T0 @X0 0 ef ]
 "10269 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
@@ -116,40 +116,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1187 . . . . ]
 "18230
 [v _INTCON2bits `VS1187 ~T0 @X0 0 e@4081 ]
-"34 ../../../My_library\My_PIC.h
+"36 ../My_library\My_PIC.h
 [v _timer0_init `(v ~T0 @X0 0 ef1`uc ]
-"49
+"51
 [v _timer1_init `(v ~T0 @X0 0 ef2`uc`uc ]
-"60
+"62
 [v _timer3_init `(v ~T0 @X0 0 ef1`uc ]
-"24 ../../../My_library\My_I2C.h
+"22 ../My_library\My_I2C.h
 [v _I2C_init `(v ~T0 @X0 0 ef ]
-"22 ../../../My_library\My_ST7032.h
+"22 ../My_library\My_ST7032.h
 [v _I2C_LCD_init `(v ~T0 @X0 0 ef ]
-"83 ../../../My_library\My_RTCC.h
+"83 ../My_library\My_RTCC.h
 [v _RTCC_init `(v ~T0 @X0 0 ef ]
-"21 ../../../My_library\My_usb_cdc.h
+"21 ../My_library\My_usb_cdc.h
 [v _USB_init `(v ~T0 @X0 0 ef ]
-"26 ../../../My_library\My_ringbuf.h
+"26 ../My_library\My_ringbuf.h
 [v _ringbuf_init `(v ~T0 @X0 0 ef3`*S1218`*uc`ui ]
-"17 ../../../My_library\My_usb_cdc.h
+"17 ../My_library\My_usb_cdc.h
 [v _usb_tx `S1218 ~T0 @X0 0 e ]
 "18
 [v _usb_rx `S1218 ~T0 @X0 0 e ]
-"32 ../../../My_library\My_UART.h
+"71 ../My_library\My_UART.h
 [v _UART_init `(v ~T0 @X0 0 ef ]
-"29
+"68
 [v _uart_tx `S1218 ~T0 @X0 0 e ]
-"30
+"69
 [v _uart_rx `S1218 ~T0 @X0 0 e ]
 [p mainexit ]
-"25 ../../../My_library\My_usb_cdc.h
+"25 ../My_library\My_usb_cdc.h
 [v _USB_task `(v ~T0 @X0 0 ef ]
-"34 ../../../My_library\My_UART.h
+"73 ../My_library\My_UART.h
 [v _UART_task `(v ~T0 @X0 0 ef ]
-"128 ../../../My_library\My_RTCC.h
+"128 ../My_library\My_RTCC.h
 [v _RTCC_task `(v ~T0 @X0 0 ef ]
-"20 ../../../My_library\My_terminal.h
+"20 ../My_library\My_terminal.h
 [v _terminal_task `(v ~T0 @X0 0 ef2`*S1218`*S1218 ]
 "7 main.c
 [p x WDTEN=OFF ]
@@ -8319,18 +8319,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
 [; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
 [; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
-[; ;My_library\My_PIC.h: 22: void OSC_init(void);
-[; ;My_library\My_PIC.h: 34: void timer0_init(uint8_t prescaler);
-[; ;My_library\My_PIC.h: 49: void timer1_init(uint8_t prescaler, uint8_t clock_select);
-[; ;My_library\My_PIC.h: 60: void timer3_init(uint8_t prescaler);
-[; ;My_library\My_PIC.h: 66: void timer5_init(uint8_t prescaler);
-[; ;My_library\My_PIC.h: 76: void ADC_init(uint8_t p_ref);
-[; ;My_library\My_PIC.h: 85: uint16_t ADC(uint8_t ch);
-[; ;My_library\My_PIC.h: 93: void CTMU_init(void);
-[; ;My_library\My_PIC.h: 94: uint16_t CTMU_read(uint8_t ch);
-[; ;My_library\My_PIC.h: 99: void Delay_ms(uint16_t ms);
-[; ;My_library\My_PIC.h: 103: void millis_timer(void);
-[; ;My_library\My_PIC.h: 104: uint32_t millis(void);
+[; ;My_library\My_PIC.h: 20: void OSC_init(void);
+[; ;My_library\My_PIC.h: 36: void timer0_init(uint8_t prescaler);
+[; ;My_library\My_PIC.h: 51: void timer1_init(uint8_t prescaler, uint8_t clock_select);
+[; ;My_library\My_PIC.h: 62: void timer3_init(uint8_t prescaler);
+[; ;My_library\My_PIC.h: 68: void timer5_init(uint8_t prescaler);
+[; ;My_library\My_PIC.h: 78: void ADC_init(uint8_t p_ref);
+[; ;My_library\My_PIC.h: 87: uint16_t ADC(uint8_t ch);
+[; ;My_library\My_PIC.h: 95: void CTMU_init(void);
+[; ;My_library\My_PIC.h: 96: uint16_t CTMU_read(uint8_t ch);
+[; ;My_library\My_PIC.h: 101: void Delay_ms(uint16_t ms);
+[; ;My_library\My_PIC.h: 105: void millis_timer(void);
+[; ;My_library\My_PIC.h: 106: uint32_t millis(void);
 [; ;My_library\My_button.h: 26: typedef struct button {
 [; ;My_library\My_button.h: 27: uint16_t cnt_sw;
 [; ;My_library\My_button.h: 29: union {
@@ -8356,13 +8356,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_button.h: 50: };
 [; ;My_library\My_button.h: 51: } button_t;
 [; ;My_library\My_button.h: 53: void button_timer_interrupt(button_t *bt, uint8_t sw_value);
-[; ;My_library\My_I2C.h: 23: void I2C_IdleCheck(char mask);
-[; ;My_library\My_I2C.h: 24: void I2C_init(void);
-[; ;My_library\My_I2C.h: 25: uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
-[; ;My_library\My_I2C.h: 26: uint8_t I2C_rStart(int adrs, int rw);
-[; ;My_library\My_I2C.h: 27: void I2C_Stop(void);
-[; ;My_library\My_I2C.h: 28: uint8_t I2C_Send(uint8_t data);
-[; ;My_library\My_I2C.h: 29: uint8_t I2C_Receive(uint8_t ack);
+[; ;My_library\My_I2C.h: 21: void I2C_IdleCheck(char mask);
+[; ;My_library\My_I2C.h: 22: void I2C_init(void);
+[; ;My_library\My_I2C.h: 23: uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
+[; ;My_library\My_I2C.h: 24: uint8_t I2C_rStart(int adrs, int rw);
+[; ;My_library\My_I2C.h: 25: void I2C_Stop(void);
+[; ;My_library\My_I2C.h: 26: uint8_t I2C_Send(uint8_t data);
+[; ;My_library\My_I2C.h: 27: uint8_t I2C_Receive(uint8_t ack);
 [; ;My_library\My_ST7032.h: 16: void I2C_LCD_Command(uint8_t c);
 [; ;My_library\My_ST7032.h: 17: void I2C_LCD_Clear(void);
 [; ;My_library\My_ST7032.h: 18: void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
@@ -9065,96 +9065,96 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_terminal.h: 24: void print_time(ringbuf_t *tx);
 [; ;My_library\My_terminal.h: 26: void terminal_at_hand(ringbuf_t *tx, uint8_t *hand, uint8_t min, uint8_t max, uint8_t value);
 [; ;My_library\My_terminal.h: 28: void terminal_time(ringbuf_t *tx, char *op0, char *op1, char *op2);
-[; ;My_library\My_UART.h: 29: extern ringbuf_t uart_tx;
-[; ;My_library\My_UART.h: 30: extern ringbuf_t uart_rx;
-[; ;My_library\My_UART.h: 32: void UART_init(void);
-[; ;My_library\My_UART.h: 33: void UART_ISR(void);
-[; ;My_library\My_UART.h: 34: void UART_task();
-[v F9474 `(v ~T0 @X0 1 tf ]
-"35 main.c
-[v _ISR `IF9474 ~T0 @X0 1 e ]
+[; ;My_library\My_UART.h: 68: extern ringbuf_t uart_tx;
+[; ;My_library\My_UART.h: 69: extern ringbuf_t uart_rx;
+[; ;My_library\My_UART.h: 71: void UART_init(void);
+[; ;My_library\My_UART.h: 72: void UART_ISR(void);
+[; ;My_library\My_UART.h: 73: void UART_task(void);
+[v F9475 `(v ~T0 @X0 1 tf ]
+"36 main.c
+[v _ISR `IF9475 ~T0 @X0 1 e ]
 {
-[; ;main.c: 35: void interrupt ISR(void) {
+[; ;main.c: 36: void interrupt ISR(void) {
 [e :U _ISR ]
 [f ]
-[; ;main.c: 36: USB_ISR();
-"36
-[e ( _USB_ISR ..  ]
-[; ;main.c: 37: UART_ISR();
+[; ;main.c: 37: USB_ISR();
 "37
-[e ( _UART_ISR ..  ]
-[; ;main.c: 38: if (INTCONbits.T0IF && INTCONbits.T0IE) {
+[e ( _USB_ISR ..  ]
+[; ;main.c: 38: UART_ISR();
 "38
+[e ( _UART_ISR ..  ]
+[; ;main.c: 39: if (INTCONbits.T0IF && INTCONbits.T0IE) {
+"39
 [e $ ! && != -> . . _INTCONbits 1 2 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCONbits 1 5 `i -> -> -> 0 `i `Vuc `i 1293  ]
 {
-[; ;main.c: 39: INTCONbits.T0IF = 0;
-"39
-[e = . . _INTCONbits 1 2 -> -> 0 `i `uc ]
+[; ;main.c: 40: INTCONbits.T0IF = 0;
 "40
+[e = . . _INTCONbits 1 2 -> -> 0 `i `uc ]
+"41
 }
 [e :U 1293 ]
-[; ;main.c: 40: }
-[; ;main.c: 41: if (PIR1bits.TMR1IF && PIE1bits.TMR1IE) {
-"41
+[; ;main.c: 41: }
+[; ;main.c: 42: if (PIR1bits.TMR1IF && PIE1bits.TMR1IE) {
+"42
 [e $ ! && != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i != -> . . _PIE1bits 0 0 `i -> -> -> 0 `i `Vuc `i 1294  ]
 {
-[; ;main.c: 42: PIR1bits.TMR1IF = 0;
-"42
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 43: TMR1H = 0xC0;
+[; ;main.c: 43: PIR1bits.TMR1IF = 0;
 "43
-[e = _TMR1H -> -> 192 `i `uc ]
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 44: TMR1H = 0xC0;
 "44
+[e = _TMR1H -> -> 192 `i `uc ]
+"45
 }
 [e :U 1294 ]
-[; ;main.c: 44: }
-[; ;main.c: 45: if (PIR2bits.TMR3IF && PIE2bits.TMR3IE) {
-"45
+[; ;main.c: 45: }
+[; ;main.c: 46: if (PIR2bits.TMR3IF && PIE2bits.TMR3IE) {
+"46
 [e $ ! && != -> . . _PIR2bits 0 1 `i -> -> -> 0 `i `Vuc `i != -> . . _PIE2bits 0 1 `i -> -> -> 0 `i `Vuc `i 1295  ]
 {
-[; ;main.c: 46: PIR2bits.TMR3IF = 0;
-"46
-[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 47: PIR2bits.TMR3IF = 0;
 "47
+[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
+"48
 }
 [e :U 1295 ]
-[; ;main.c: 47: }
 [; ;main.c: 48: }
-"48
+[; ;main.c: 49: }
+"49
 [e :UE 1292 ]
 }
-"50
+"51
 [v _bootload `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 50: void bootload(void) {
+[; ;main.c: 51: void bootload(void) {
 [e :U _bootload ]
 [f ]
-[; ;main.c: 51: I2C_LCD_Clear();
-"51
-[e ( _I2C_LCD_Clear ..  ]
-[; ;main.c: 52: I2C_LCD_SetCursor(0, 0);
+[; ;main.c: 52: I2C_LCD_Clear();
 "52
-[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 53: I2C_LCD_Puts("PIC18F27J53");
+[e ( _I2C_LCD_Clear ..  ]
+[; ;main.c: 53: I2C_LCD_SetCursor(0, 0);
 "53
-[e ( _I2C_LCD_Puts (1 :s 1C ]
-[; ;main.c: 54: I2C_LCD_SetCursor(0, 1);
+[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 54: I2C_LCD_Puts("PIC18F27J53");
 "54
-[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 55: I2C_LCD_Puts("Bootloader mode");
+[e ( _I2C_LCD_Puts (1 :s 1C ]
+[; ;main.c: 55: I2C_LCD_SetCursor(0, 1);
 "55
-[e ( _I2C_LCD_Puts (1 :s 2C ]
-[; ;main.c: 56: asm("goto   0x001C");
+[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 56: I2C_LCD_Puts("Bootloader mode");
 "56
-[; <" goto   0x001C ;# ">
-[; ;main.c: 57: }
+[e ( _I2C_LCD_Puts (1 :s 2C ]
+[; ;main.c: 57: asm("goto   0x001C");
 "57
+[; <" goto   0x001C ;# ">
+[; ;main.c: 58: }
+"58
 [e :UE 1296 ]
 }
-"59
+"60
 [v _terminal_operation `(v ~T0 @X0 1 ef5`*S1218`*uc`*uc`*uc`*uc ]
 {
-[; ;main.c: 59: void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3) {
+[; ;main.c: 60: void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3) {
 [e :U _terminal_operation ]
 [v _tx `*S1218 ~T0 @X0 1 r1 ]
 [v _op0 `*uc ~T0 @X0 1 r2 ]
@@ -9162,197 +9162,197 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _op2 `*uc ~T0 @X0 1 r4 ]
 [v _op3 `*uc ~T0 @X0 1 r5 ]
 [f ]
-[; ;main.c: 60: if (!strcmp(op0, "help") || !strcmp(op0, "?")) {
-"60
+[; ;main.c: 61: if (!strcmp(op0, "help") || !strcmp(op0, "?")) {
+"61
 [e $ ! || ! != ( _strcmp (2 , -> _op0 `*Cuc :s 3C -> 0 `i ! != ( _strcmp (2 , -> _op0 `*Cuc :s 4C -> 0 `i 1298  ]
 {
-[; ;main.c: 61: ringbuf_put_str(tx,
-[; ;main.c: 62: "\t******************************\n"
-[; ;main.c: 63: "\t**** PIC18F27J53 template ****\n"
-[; ;main.c: 64: "\t**** Made by @Ryokeri14   ****\n"
-[; ;main.c: 65: "\t******************************\n\n"
-[; ;main.c: 66: "\tprint_time(t)\n"
-[; ;main.c: 67: "\tadjust_time(at) [hand:y,M,d,h,m,s] [value(decimal)]\n"
-[; ;main.c: 68: "\n\tfor Developper\n"
-[; ;main.c: 69: "\tRESET();\n"
-[; ;main.c: 70: "\tbootload\n"
-[; ;main.c: 71: );
-"71
-[e ( _ringbuf_put_str (2 , _tx :s 5C ]
+[; ;main.c: 62: ringbuf_put_str(tx,
+[; ;main.c: 63: "\t******************************\n"
+[; ;main.c: 64: "\t**** PIC18F27J53 template ****\n"
+[; ;main.c: 65: "\t**** Made by @Ryokeri14   ****\n"
+[; ;main.c: 66: "\t******************************\n\n"
+[; ;main.c: 67: "\tprint_time(t)\n"
+[; ;main.c: 68: "\tadjust_time(at) [hand:y,M,d,h,m,s] [value(decimal)]\n"
+[; ;main.c: 69: "\n\tfor Developper\n"
+[; ;main.c: 70: "\tRESET();\n"
+[; ;main.c: 71: "\tbootload\n"
+[; ;main.c: 72: );
 "72
+[e ( _ringbuf_put_str (2 , _tx :s 5C ]
+"73
 }
 [e :U 1298 ]
-[; ;main.c: 72: }
-[; ;main.c: 73: terminal_time(tx, op0, op1, op2);
-"73
-[e ( _terminal_time (4 , , , _tx _op0 _op1 _op2 ]
-[; ;main.c: 74: if (!strcmp(op0, "RESET();")) {
+[; ;main.c: 73: }
+[; ;main.c: 74: terminal_time(tx, op0, op1, op2);
 "74
+[e ( _terminal_time (4 , , , _tx _op0 _op1 _op2 ]
+[; ;main.c: 75: if (!strcmp(op0, "RESET();")) {
+"75
 [e $ ! ! != ( _strcmp (2 , -> _op0 `*Cuc :s 6C -> 0 `i 1299  ]
 {
-[; ;main.c: 75: asm("reset");
-"75
-[; <" reset ;# ">
+[; ;main.c: 76: asm("reset");
 "76
+[; <" reset ;# ">
+"77
 }
 [e :U 1299 ]
-[; ;main.c: 76: }
-[; ;main.c: 77: if (!strcmp(op0, "bootload")) {
-"77
+[; ;main.c: 77: }
+[; ;main.c: 78: if (!strcmp(op0, "bootload")) {
+"78
 [e $ ! ! != ( _strcmp (2 , -> _op0 `*Cuc :s 7C -> 0 `i 1300  ]
 {
-[; ;main.c: 78: bootload();
-"78
-[e ( _bootload ..  ]
+[; ;main.c: 79: bootload();
 "79
+[e ( _bootload ..  ]
+"80
 }
 [e :U 1300 ]
-[; ;main.c: 79: }
 [; ;main.c: 80: }
-"80
+[; ;main.c: 81: }
+"81
 [e :UE 1297 ]
 }
-"82
+"83
 [v _main_init `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 82: void main_init(void) {
+[; ;main.c: 83: void main_init(void) {
 [e :U _main_init ]
 [f ]
-[; ;main.c: 83: OSC_init();
-"83
-[e ( _OSC_init ..  ]
-[; ;main.c: 84: TRISA = 0b00010000;
+[; ;main.c: 84: OSC_init();
 "84
-[e = _TRISA -> -> 16 `i `uc ]
-[; ;main.c: 85: TRISB = 0b00110001;
+[e ( _OSC_init ..  ]
+[; ;main.c: 85: TRISA = 0b00010000;
 "85
-[e = _TRISB -> -> 49 `i `uc ]
-[; ;main.c: 86: TRISC = 0b10111010;
+[e = _TRISA -> -> 16 `i `uc ]
+[; ;main.c: 86: TRISB = 0b00110001;
 "86
-[e = _TRISC -> -> 186 `i `uc ]
-[; ;main.c: 87: ANCON0 = 0b11111111;
+[e = _TRISB -> -> 49 `i `uc ]
+[; ;main.c: 87: TRISC = 0b10111010;
 "87
-[e = _ANCON0 -> -> 255 `i `uc ]
-[; ;main.c: 88: ANCON1 = 0b00011111;
+[e = _TRISC -> -> 186 `i `uc ]
+[; ;main.c: 88: ANCON0 = 0b11111111;
 "88
-[e = _ANCON1 -> -> 31 `i `uc ]
-[; ;main.c: 89: INTCON2bits.RBPU = 0;
+[e = _ANCON0 -> -> 255 `i `uc ]
+[; ;main.c: 89: ANCON1 = 0b00011111;
 "89
+[e = _ANCON1 -> -> 31 `i `uc ]
+[; ;main.c: 90: INTCON2bits.RBPU = 0;
+"90
 [e = . . _INTCON2bits 2 4 -> -> 0 `i `uc ]
-[; ;main.c: 91: timer0_init(6);
-"91
-[e ( _timer0_init (1 -> -> 6 `i `uc ]
-[; ;main.c: 92: timer1_init(0, 2);
+[; ;main.c: 92: timer0_init(6);
 "92
-[e ( _timer1_init (2 , -> -> 0 `i `uc -> -> 2 `i `uc ]
-[; ;main.c: 93: timer3_init(2);
+[e ( _timer0_init (1 -> -> 6 `i `uc ]
+[; ;main.c: 93: timer1_init(0, 2);
 "93
-[e ( _timer3_init (1 -> -> 2 `i `uc ]
-[; ;main.c: 94: I2C_init();
+[e ( _timer1_init (2 , -> -> 0 `i `uc -> -> 2 `i `uc ]
+[; ;main.c: 94: timer3_init(2);
 "94
-[e ( _I2C_init ..  ]
-[; ;main.c: 95: I2C_LCD_init();
+[e ( _timer3_init (1 -> -> 2 `i `uc ]
+[; ;main.c: 95: I2C_init();
 "95
-[e ( _I2C_LCD_init ..  ]
-[; ;main.c: 96: RTCC_init();
+[e ( _I2C_init ..  ]
+[; ;main.c: 96: I2C_LCD_init();
 "96
+[e ( _I2C_LCD_init ..  ]
+[; ;main.c: 97: RTCC_init();
+"97
 [e ( _RTCC_init ..  ]
-[; ;main.c: 98: USB_init();
-"98
-[e ( _USB_init ..  ]
+[; ;main.c: 99: USB_init();
 "99
-[v F9484 `uc ~T0 @X0 -> 1000 `i s usbtx ]
-[; ;main.c: 99: static uint8_t usbtx[1000];
-[; ;main.c: 100: ringbuf_init(&usb_tx, usbtx, sizeof (usbtx));
+[e ( _USB_init ..  ]
 "100
-[e ( _ringbuf_init (3 , , &U _usb_tx &U F9484 -> # F9484 `ui ]
+[v F9485 `uc ~T0 @X0 -> 1000 `i s usbtx ]
+[; ;main.c: 100: static uint8_t usbtx[1000];
+[; ;main.c: 101: ringbuf_init(&usb_tx, usbtx, sizeof (usbtx));
 "101
-[v F9485 `uc ~T0 @X0 -> 100 `i s usbrx ]
-[; ;main.c: 101: static uint8_t usbrx[100];
-[; ;main.c: 102: ringbuf_init(&usb_rx, usbrx, sizeof (usbrx));
+[e ( _ringbuf_init (3 , , &U _usb_tx &U F9485 -> # F9485 `ui ]
 "102
-[e ( _ringbuf_init (3 , , &U _usb_rx &U F9485 -> # F9485 `ui ]
-[; ;main.c: 104: UART_init();
-"104
-[e ( _UART_init ..  ]
+[v F9486 `uc ~T0 @X0 -> 100 `i s usbrx ]
+[; ;main.c: 102: static uint8_t usbrx[100];
+[; ;main.c: 103: ringbuf_init(&usb_rx, usbrx, sizeof (usbrx));
+"103
+[e ( _ringbuf_init (3 , , &U _usb_rx &U F9486 -> # F9486 `ui ]
+[; ;main.c: 105: UART_init();
 "105
-[v F9486 `uc ~T0 @X0 -> 1000 `i s uarttx ]
-[; ;main.c: 105: static uint8_t uarttx[1000];
-[; ;main.c: 106: ringbuf_init(&uart_tx, uarttx, sizeof (uarttx));
+[e ( _UART_init ..  ]
 "106
-[e ( _ringbuf_init (3 , , &U _uart_tx &U F9486 -> # F9486 `ui ]
+[v F9487 `uc ~T0 @X0 -> 1000 `i s uarttx ]
+[; ;main.c: 106: static uint8_t uarttx[1000];
+[; ;main.c: 107: ringbuf_init(&uart_tx, uarttx, sizeof (uarttx));
 "107
-[v F9487 `uc ~T0 @X0 -> 100 `i s uartrx ]
-[; ;main.c: 107: static uint8_t uartrx[100];
-[; ;main.c: 108: ringbuf_init(&uart_rx, uartrx, sizeof (uartrx));
+[e ( _ringbuf_init (3 , , &U _uart_tx &U F9487 -> # F9487 `ui ]
 "108
-[e ( _ringbuf_init (3 , , &U _uart_rx &U F9487 -> # F9487 `ui ]
-[; ;main.c: 109: }
+[v F9488 `uc ~T0 @X0 -> 100 `i s uartrx ]
+[; ;main.c: 108: static uint8_t uartrx[100];
+[; ;main.c: 109: ringbuf_init(&uart_rx, uartrx, sizeof (uartrx));
 "109
+[e ( _ringbuf_init (3 , , &U _uart_rx &U F9488 -> # F9488 `ui ]
+[; ;main.c: 110: }
+"110
 [e :UE 1301 ]
 }
-"111
+"112
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 111: int main(void) {
+[; ;main.c: 112: int main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 112: main_init();
-"112
+[; ;main.c: 113: main_init();
+"113
 [e ( _main_init ..  ]
-[; ;main.c: 114: I2C_LCD_Clear();
-"114
-[e ( _I2C_LCD_Clear ..  ]
-[; ;main.c: 115: I2C_LCD_SetCursor(0, 0);
+[; ;main.c: 115: I2C_LCD_Clear();
 "115
-[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 116: I2C_LCD_Puts("18F27J53");
+[e ( _I2C_LCD_Clear ..  ]
+[; ;main.c: 116: I2C_LCD_SetCursor(0, 0);
 "116
-[e ( _I2C_LCD_Puts (1 :s 8C ]
-[; ;main.c: 117: I2C_LCD_SetCursor(0, 1);
+[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 117: I2C_LCD_Puts("18F27J53");
 "117
-[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 118: I2C_LCD_Puts("Template");
+[e ( _I2C_LCD_Puts (1 :s 8C ]
+[; ;main.c: 118: I2C_LCD_SetCursor(0, 1);
 "118
+[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 119: I2C_LCD_Puts("Template");
+"119
 [e ( _I2C_LCD_Puts (1 :s 9C ]
-[; ;main.c: 120: INTCONbits.GIE = 1;
-"120
+[; ;main.c: 121: INTCONbits.GIE = 1;
+"121
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 122: while (1) {
-"122
+[; ;main.c: 123: while (1) {
+"123
 [e :U 1304 ]
 {
-[; ;main.c: 123: INTCONbits.GIE = 0;
-"123
+[; ;main.c: 124: INTCONbits.GIE = 0;
+"124
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 125: USB_task();
-"125
-[e ( _USB_task ..  ]
-[; ;main.c: 126: UART_task();
+[; ;main.c: 126: USB_task();
 "126
-[e ( _UART_task ..  ]
-[; ;main.c: 127: RTCC_task();
+[e ( _USB_task ..  ]
+[; ;main.c: 127: UART_task();
 "127
-[e ( _RTCC_task ..  ]
-[; ;main.c: 128: terminal_task(&usb_tx,&usb_rx);
+[e ( _UART_task ..  ]
+[; ;main.c: 128: RTCC_task();
 "128
+[e ( _RTCC_task ..  ]
+[; ;main.c: 129: terminal_task(&usb_tx, &usb_rx);
+"129
 [e ( _terminal_task (2 , &U _usb_tx &U _usb_rx ]
-[; ;main.c: 130: INTCONbits.GIE = 1;
-"130
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 131: INTCONbits.GIE = 1;
 "131
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"132
 }
 [e :U 1303 ]
-"122
+"123
 [e $U 1304  ]
 [e :U 1305 ]
-[; ;main.c: 131: }
-[; ;main.c: 132: return 0;
-"132
+[; ;main.c: 132: }
+[; ;main.c: 133: return 0;
+"133
 [e ) -> 0 `i ]
 [e $UE 1302  ]
-[; ;main.c: 133: }
-"133
+[; ;main.c: 134: }
+"134
 [e :UE 1302 ]
 }
 [a 3C 104 101 108 112 0 ]
