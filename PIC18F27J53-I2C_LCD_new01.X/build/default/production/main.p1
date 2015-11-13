@@ -3,8 +3,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _USB_ISR `(v ~T0 @X0 0 ef ]
 "72 ../My_library\My_UART.h
 [v _UART_ISR `(v ~T0 @X0 0 ef ]
-"45 ../My_library\My_I2C_LCD.h
-[v _I2C_LCD_ISR `(v ~T0 @X0 0 ef ]
+"45 ../My_library\My_ST7032.h
+[v _ST7032_ISR `(v ~T0 @X0 0 ef ]
 "18300 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [s S1192 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1192 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
@@ -150,8 +150,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _timer1_init `(v ~T0 @X0 0 ef2`uc`uc ]
 "62
 [v _timer3_init `(v ~T0 @X0 0 ef1`uc ]
-"43 ../My_library\My_I2C_LCD.h
-[v _I2C_LCD_init `(v ~T0 @X0 0 ef ]
+"43 ../My_library\My_ST7032.h
+[v _ST7032_init `(v ~T0 @X0 0 ef ]
 "83 ../My_library\My_RTCC.h
 [v _RTCC_init `(v ~T0 @X0 0 ef ]
 "21 ../My_library\My_usb_cdc.h
@@ -169,20 +169,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 "69
 [v _uart_rx `S1218 ~T0 @X0 0 e ]
 [p mainexit ]
-"33 ../My_library\My_I2C_LCD.h
-[v _I2C_LCD_clear `(v ~T0 @X0 0 ef ]
+"33 ../My_library\My_ST7032.h
+[v _ST7032_clear `(v ~T0 @X0 0 ef ]
 "35
-[v _I2C_LCD_cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+[v _ST7032_cursor `(v ~T0 @X0 0 ef2`uc`uc ]
 "39
-[v _I2C_LCD_puts `(v ~T0 @X0 0 ef1`*Cuc ]
+[v _ST7032_puts `(v ~T0 @X0 0 ef1`*Cuc ]
 "25 ../My_library\My_usb_cdc.h
 [v _USB_task `(v ~T0 @X0 0 ef ]
 "73 ../My_library\My_UART.h
 [v _UART_task `(v ~T0 @X0 0 ef ]
 "128 ../My_library\My_RTCC.h
 [v _RTCC_task `(v ~T0 @X0 0 ef ]
-"47 ../My_library\My_I2C_LCD.h
-[v _I2C_LCD_task `(v ~T0 @X0 0 ef ]
+"47 ../My_library\My_ST7032.h
+[v _ST7032_task `(v ~T0 @X0 0 ef ]
 "20 ../My_library\My_terminal.h
 [v _terminal_task `(v ~T0 @X0 0 ef2`*S1218`*S1218 ]
 "81 ../My_library\My_RTCC.h
@@ -8408,24 +8408,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_button.h: 50: };
 [; ;My_library\My_button.h: 51: } button_t;
 [; ;My_library\My_button.h: 53: void button_timer_interrupt(button_t *bt, uint8_t sw_value);
-[; ;My_library\My_I2C_LCD.h: 19: typedef enum I2C_LCD_STATE {
-[; ;My_library\My_I2C_LCD.h: 20: I2C_LCD_IDOLE,
-[; ;My_library\My_I2C_LCD.h: 21: I2C_LCD_START,
-[; ;My_library\My_I2C_LCD.h: 22: I2C_LCD_SEND,
-[; ;My_library\My_I2C_LCD.h: 23: I2C_LCD_STOP,
-[; ;My_library\My_I2C_LCD.h: 24: I2C_LCD_WAIT
-[; ;My_library\My_I2C_LCD.h: 25: } i2c_lcd_state_t;
-[; ;My_library\My_I2C_LCD.h: 27: extern ringbuf_t lcd_tx;
-[; ;My_library\My_I2C_LCD.h: 28: extern uint8_t i2c_lcd_flag;
-[; ;My_library\My_I2C_LCD.h: 31: void I2C_LCD_command(uint8_t command, uint8_t wait);
-[; ;My_library\My_I2C_LCD.h: 33: void I2C_LCD_clear(void);
-[; ;My_library\My_I2C_LCD.h: 35: void I2C_LCD_cursor(uint8_t col, uint8_t row);
-[; ;My_library\My_I2C_LCD.h: 37: void I2C_LCD_put(char c);
-[; ;My_library\My_I2C_LCD.h: 39: void I2C_LCD_puts(const uint8_t *s);
-[; ;My_library\My_I2C_LCD.h: 41: void I2C_LCD_create_char(int p, char *dt);
-[; ;My_library\My_I2C_LCD.h: 43: void I2C_LCD_init(void);
-[; ;My_library\My_I2C_LCD.h: 45: void I2C_LCD_ISR(void);
-[; ;My_library\My_I2C_LCD.h: 47: void I2C_LCD_task(void);
+[; ;My_library\My_ST7032.h: 19: typedef enum ST7032_STATE {
+[; ;My_library\My_ST7032.h: 20: ST7032_IDOLE,
+[; ;My_library\My_ST7032.h: 21: ST7032_START,
+[; ;My_library\My_ST7032.h: 22: ST7032_SEND,
+[; ;My_library\My_ST7032.h: 23: ST7032_STOP,
+[; ;My_library\My_ST7032.h: 24: ST7032_WAIT
+[; ;My_library\My_ST7032.h: 25: } st7032_state_t;
+[; ;My_library\My_ST7032.h: 27: extern ringbuf_t lcd_tx;
+[; ;My_library\My_ST7032.h: 28: extern uint8_t st7032_flag;
+[; ;My_library\My_ST7032.h: 31: void ST7032_command(uint8_t command, uint8_t wait);
+[; ;My_library\My_ST7032.h: 33: void ST7032_clear(void);
+[; ;My_library\My_ST7032.h: 35: void ST7032_cursor(uint8_t col, uint8_t row);
+[; ;My_library\My_ST7032.h: 37: void ST7032_put(char c);
+[; ;My_library\My_ST7032.h: 39: void ST7032_puts(const uint8_t *s);
+[; ;My_library\My_ST7032.h: 41: void ST7032_create_char(int p, char *dt);
+[; ;My_library\My_ST7032.h: 43: void ST7032_init(void);
+[; ;My_library\My_ST7032.h: 45: void ST7032_ISR(void);
+[; ;My_library\My_ST7032.h: 47: void ST7032_task(void);
 [; ;My_library\My_RTCC.h: 39: typedef uint32_t epoch_t;
 [; ;My_library\My_RTCC.h: 43: typedef struct {
 [; ;My_library\My_RTCC.h: 45: union {
@@ -9139,9 +9139,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 41: UART_ISR();
 "41
 [e ( _UART_ISR ..  ]
-[; ;main.c: 42: I2C_LCD_ISR();
+[; ;main.c: 42: ST7032_ISR();
 "42
-[e ( _I2C_LCD_ISR ..  ]
+[e ( _ST7032_ISR ..  ]
 [; ;main.c: 43: if (INTCONbits.T0IF && INTCONbits.T0IE) {
 "43
 [e $ ! && != -> . . _INTCONbits 1 2 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCONbits 1 5 `i -> -> -> 0 `i `Vuc `i 1293  ]
@@ -9282,9 +9282,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 90: timer3_init(2);
 "90
 [e ( _timer3_init (1 -> -> 2 `i `uc ]
-[; ;main.c: 91: I2C_LCD_init();
+[; ;main.c: 91: ST7032_init();
 "91
-[e ( _I2C_LCD_init ..  ]
+[e ( _ST7032_init ..  ]
 [; ;main.c: 92: RTCC_init();
 "92
 [e ( _RTCC_init ..  ]
@@ -9331,21 +9331,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 108: main_init();
 "108
 [e ( _main_init ..  ]
-[; ;main.c: 110: I2C_LCD_clear();
+[; ;main.c: 110: ST7032_clear();
 "110
-[e ( _I2C_LCD_clear ..  ]
-[; ;main.c: 111: I2C_LCD_cursor(0, 0);
+[e ( _ST7032_clear ..  ]
+[; ;main.c: 111: ST7032_cursor(0, 0);
 "111
-[e ( _I2C_LCD_cursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 112: I2C_LCD_puts("18F27J53");
+[e ( _ST7032_cursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 112: ST7032_puts("18F27J53");
 "112
-[e ( _I2C_LCD_puts (1 :s 6C ]
-[; ;main.c: 113: I2C_LCD_cursor(0, 1);
+[e ( _ST7032_puts (1 :s 6C ]
+[; ;main.c: 113: ST7032_cursor(0, 1);
 "113
-[e ( _I2C_LCD_cursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 114: I2C_LCD_puts("Template");
+[e ( _ST7032_cursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 114: ST7032_puts("Template");
 "114
-[e ( _I2C_LCD_puts (1 :s 7C ]
+[e ( _ST7032_puts (1 :s 7C ]
 [; ;main.c: 116: INTCONbits.GIE = 1;
 "116
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
@@ -9365,9 +9365,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 122: RTCC_task();
 "122
 [e ( _RTCC_task ..  ]
-[; ;main.c: 123: I2C_LCD_task();
+[; ;main.c: 123: ST7032_task();
 "123
-[e ( _I2C_LCD_task ..  ]
+[e ( _ST7032_task ..  ]
 [; ;main.c: 124: terminal_task(&usb_tx, &usb_rx);
 "124
 [e ( _terminal_task (2 , &U _usb_tx &U _usb_rx ]
@@ -9394,21 +9394,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 131: display_time_0802(&now, s[0], s[1]);
 "131
 [e ( _display_time_0802 (3 , , &U _now &U *U + &U _s * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux &U *U + &U _s * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux ]
-[; ;main.c: 132: I2C_LCD_clear();
+[; ;main.c: 132: ST7032_clear();
 "132
-[e ( _I2C_LCD_clear ..  ]
-[; ;main.c: 133: I2C_LCD_cursor(0, 0);
+[e ( _ST7032_clear ..  ]
+[; ;main.c: 133: ST7032_cursor(0, 0);
 "133
-[e ( _I2C_LCD_cursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 134: I2C_LCD_puts(s[0]);
+[e ( _ST7032_cursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 134: ST7032_puts(s[0]);
 "134
-[e ( _I2C_LCD_puts (1 -> &U *U + &U _s * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux `*Cuc ]
-[; ;main.c: 135: I2C_LCD_cursor(0, 1);
+[e ( _ST7032_puts (1 -> &U *U + &U _s * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux `*Cuc ]
+[; ;main.c: 135: ST7032_cursor(0, 1);
 "135
-[e ( _I2C_LCD_cursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 136: I2C_LCD_puts(s[1]);
+[e ( _ST7032_cursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 136: ST7032_puts(s[1]);
 "136
-[e ( _I2C_LCD_puts (1 -> &U *U + &U _s * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux `*Cuc ]
+[e ( _ST7032_puts (1 -> &U *U + &U _s * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux `*Cuc ]
 "137
 }
 [e :U 1305 ]

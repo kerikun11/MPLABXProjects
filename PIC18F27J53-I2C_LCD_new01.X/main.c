@@ -24,7 +24,7 @@
 #include <stdint.h>
 #include <My_PIC.h>
 #include <My_button.h>
-#include <My_I2C_LCD.h>
+#include <My_ST7032.h>
 #include <My_RTCC.h>
 #include <My_ringbuf.h>
 #include <My_usb_cdc.h>
@@ -39,7 +39,7 @@
 void interrupt ISR(void) {
     USB_ISR();
     UART_ISR();
-    I2C_LCD_ISR();
+    ST7032_ISR();
     if (INTCONbits.T0IF && INTCONbits.T0IE) {
         INTCONbits.T0IF = 0;
     }
@@ -88,7 +88,7 @@ void main_init(void) {
     timer0_init(6);
     timer1_init(0, T1OSC);
     timer3_init(2); // button
-    I2C_LCD_init();
+    ST7032_init();
     RTCC_init();
 
     USB_init();
@@ -107,11 +107,11 @@ void main_init(void) {
 int main(void) {
     main_init();
 
-    I2C_LCD_clear();
-    I2C_LCD_cursor(0, 0);
-    I2C_LCD_puts("18F27J53");
-    I2C_LCD_cursor(0, 1);
-    I2C_LCD_puts("Template");
+    ST7032_clear();
+    ST7032_cursor(0, 0);
+    ST7032_puts("18F27J53");
+    ST7032_cursor(0, 1);
+    ST7032_puts("Template");
 
     INTCONbits.GIE = 1;
 
@@ -120,7 +120,7 @@ int main(void) {
         USB_task();
         UART_task();
         RTCC_task();
-        I2C_LCD_task();
+        ST7032_task();
         terminal_task(&usb_tx, &usb_rx);
         INTCONbits.GIE = 1;
         LED1 = !LED1;
@@ -129,11 +129,11 @@ int main(void) {
             time_change_flag = 0;
             char s[2][20];
             display_time_0802(&now, s[0], s[1]);
-            I2C_LCD_clear();
-            I2C_LCD_cursor(0, 0);
-            I2C_LCD_puts(s[0]);
-            I2C_LCD_cursor(0, 1);
-            I2C_LCD_puts(s[1]);
+            ST7032_clear();
+            ST7032_cursor(0, 0);
+            ST7032_puts(s[0]);
+            ST7032_cursor(0, 1);
+            ST7032_puts(s[1]);
         }
         INTCONbits.GIE = 1;
     }

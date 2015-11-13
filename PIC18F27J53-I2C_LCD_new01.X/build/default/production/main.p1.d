@@ -3,8 +3,8 @@
  main.c  \
 ../My_library/My_PIC.h  \
 ../My_library/usb/usb.h  \
-../My_library/My_I2C_LCD.h  \
 ../My_library/My_usb_cdc.h  \
+../My_library/My_ST7032.h  \
 ../My_library/usb/usb_hal_pic18.h  \
 ../My_library/usb/usb_common.h  \
 ../My_library/usb/usb_hal.h  \

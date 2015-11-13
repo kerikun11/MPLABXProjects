@@ -1,5 +1,5 @@
 
-# 1 "../My_library/My_I2C_LCD.c"
+# 1 "../My_library/My_RTCC.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -10426,207 +10426,544 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 19 "../My_library\My_ringbuf.h"
-typedef struct ringbuf {
-char *buf;
-uint16_t size;
-uint16_t head;
-uint16_t tail;
-} ringbuf_t;
+# 26 "../My_library/My_button.h"
+typedef struct button {
+uint16_t cnt_sw;
 
-void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
+union {
+uint16_t flags;
 
-uint16_t ringbuf_num(ringbuf_t *rb);
+struct {
+uint8_t press : 1;
+uint8_t long_hold_1 : 1;
+uint8_t long_hold_2 : 1;
+uint8_t long_hold_3 : 1;
+uint8_t long_hold_4 : 1;
+uint8_t long_hold_5 : 1;
+uint8_t long_hold_6 : 1;
+uint8_t long_hold_7 : 1;
+uint8_t pressing : 1;
+uint8_t long_holding_1 : 1;
+uint8_t long_holding_2 : 1;
+uint8_t long_holding_3 : 1;
+uint8_t long_holding_4 : 1;
+uint8_t long_holding_5 : 1;
+uint8_t long_holding_6 : 1;
+uint8_t long_holding_7 : 1;
+} flag;
+};
+} button_t;
 
-void ringbuf_put(ringbuf_t *rb, char asciicode);
+void button_timer_interrupt(button_t *bt, uint8_t sw_value);
 
-void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
-
-void ringbuf_put_str(ringbuf_t *rb, const char *str);
-
-char ringbuf_pop(ringbuf_t *rb);
-
-void ringbuf_backspace(ringbuf_t *rb);
-
-void ringbuf_delete(ringbuf_t *rb);
-
-# 19 "../My_library/My_I2C_LCD.h"
-typedef enum I2C_LCD_STATE {
-I2C_LCD_IDOLE,
-I2C_LCD_START,
-I2C_LCD_SEND,
-I2C_LCD_STOP,
-I2C_LCD_WAIT
-} i2c_lcd_state_t;
-
-extern ringbuf_t lcd_tx;
-extern uint8_t i2c_lcd_flag;
+# 39 "../My_library/My_RTCC.h"
+typedef uint32_t epoch_t;
 
 
-void I2C_LCD_command(uint8_t command, uint8_t wait);
 
-void I2C_LCD_clear(void);
+typedef struct {
 
-void I2C_LCD_cursor(uint8_t col, uint8_t row);
+union {
+uint8_t flags;
 
-void I2C_LCD_put(char c);
+struct {
+uint8_t ss : 1;
+uint8_t mm : 1;
+uint8_t hh : 1;
+uint8_t DD : 1;
+uint8_t MM : 1;
+uint8_t YY : 1;
+} flag;
+};
+} edit_t;
 
-void I2C_LCD_puts(const uint8_t *s);
 
-void I2C_LCD_create_char(int p, char *dt);
 
-void I2C_LCD_init(void);
+typedef struct {
+epoch_t epoch;
+uint8_t ss;
+uint8_t mm;
+uint8_t hh;
+uint8_t EE;
+uint8_t DD;
+uint8_t MM;
+uint8_t YY;
+uint8_t colon;
+uint8_t halfsec;
+edit_t edit;
+} time_t;
 
-void I2C_LCD_ISR(void);
 
-void I2C_LCD_task(void);
+extern const char weekday_3char[7][4];
 
-# 14 "../My_library/My_I2C_LCD.c"
-i2c_lcd_state_t i2c_lcd_state;
-ringbuf_t lcd_tx;
-uint8_t i2c_lcd_flag;
 
-void I2C_LCD_command(uint8_t command, uint8_t wait) {
-ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
-ringbuf_put(&lcd_tx, 0x80);
-ringbuf_put(&lcd_tx, command);
-ringbuf_put(&lcd_tx, 0);
-ringbuf_put(&lcd_tx, wait);
+extern time_t now;
+
+extern uint8_t time_change_flag;
+
+void RTCC_init(void);
+
+
+uint8_t d_to_x(uint8_t dec);
+
+uint8_t x_to_d(uint8_t hex);
+
+uint8_t month_length(uint8_t year, uint8_t month);
+
+epoch_t get_quot_rem(epoch_t *quot, uint8_t div);
+
+
+void RTCC_to_caltime(time_t *tm);
+
+void caltime_to_RTCC(time_t *tm);
+
+void epoch_to_caltime(time_t *tm);
+
+void caltime_to_epoch(time_t *tm);
+
+
+void RTCC_from_RTCC(time_t *tm);
+
+void RTCC_from_caltime(time_t *tm);
+
+void RTCC_from_epoch(time_t *tm);
+
+
+void display_dec(char *str, uint8_t dec, uint8_t edit);
+
+void display_time_0802(time_t *tm, char *line0, char *line1);
+
+void display_time_1602(time_t *tm, char *line0, char *line1);
+
+
+void RTCC_adjust_time_toggle(time_t *tm);
+
+void RTCC_adjust_time_cursor(time_t *tm);
+
+void RTCC_adjust_time_inc(time_t *tm);
+
+void RTCC_adjust_time_dec(time_t *tm);
+
+void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
+
+void RTCC_task(void);
+
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\__size_t.h"
+typedef unsigned size_t;
+
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
+
+# 25 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\errno.h"
+extern int errno;
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\conio.h"
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
+# 14 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 34
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 17 "../My_library/My_RTCC.c"
+const char weekday_3char[7][4] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+
+time_t now;
+uint8_t time_change_flag;
+
+void RTCC_init(void) {
+RTCCFGbits.RTCWREN = 1;
+if (RTCCFGbits.RTCWREN != 1) {
+EECON2 = 0x55;
+EECON2 = 0xAA;
+RTCCFGbits.RTCWREN = 1;
+}
+RTCCFGbits.RTCEN = 1;
+RTCCFGbits.RTCOE = 0;
+PADCFG1bits.RTSECSEL0 = 1;
+PADCFG1bits.RTSECSEL1 = 1;
+RTCCAL = 0x00;
+T1CONbits.T1OSCEN = 1;
+
+
+RTCC_from_RTCC(&now);
+if (now.DD == 0) {
+now.epoch = 0;
+RTCC_from_epoch(&now);
+}
 }
 
-void I2C_LCD_clear(void) {
-I2C_LCD_command(0x01, 2);
+
+
+uint8_t d_to_x(uint8_t dec) {
+
+
+return dec / 10 * 6 + dec;
 }
 
-void I2C_LCD_cursor(uint8_t col, uint8_t row) {
-uint8_t row_offsets[] = {0x00, 0x40};
-I2C_LCD_command(0x80 | (col + row_offsets[row]), 0);
+uint8_t x_to_d(uint8_t hex) {
+return 10 * (0x0F & (hex >> 4)) + (0x0F & hex);
 }
 
-void I2C_LCD_put(char c) {
-ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
-ringbuf_put(&lcd_tx, 0b11000000);
-ringbuf_put(&lcd_tx, c);
-ringbuf_put(&lcd_tx, 0);
-ringbuf_put(&lcd_tx, 1);
+uint8_t month_length(uint8_t year, uint8_t month) {
+if (month == 2) return 28 + !(year & 3)-!(year % 100)+!(year % 400);
+else return 31 - (((-(month & 1)^month)&13) == 4);
+
+# 79
 }
 
-void I2C_LCD_puts(const uint8_t *s) {
-while (*s) {
-I2C_LCD_put(*s++);
-}
-}
+epoch_t get_quot_rem(epoch_t *quot, uint8_t div) {
 
-void I2C_LCD_create_char(int p, char *dt) {
-ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
-ringbuf_put(&lcd_tx, 0x80);
-ringbuf_put(&lcd_tx, 0x40 | (p << 3));
-ringbuf_put(&lcd_tx, 0x40);
-for (uint8_t i = 0; i < 7; i++) {
-ringbuf_put(&lcd_tx, *dt++);
 
-}
-ringbuf_put(&lcd_tx, 0);
-ringbuf_put(&lcd_tx, 1);
+epoch_t num = *quot;
+return num - (*quot = num / div) * div;
 }
 
-void I2C_LCD_init(void) {
-SSP1STAT = 0b10000000;
-SSP1CON1 = 0b00101000;
-SSP1ADD = 0x13;
-PIE1bits.SSP1IE = 1;
-IPR1bits.SSP1IP = 0;
-PIR1bits.SSP1IF = 0;
-PIE2bits.BCL1IE = 1;
-IPR2bits.BCL1IP = 0;
-PIR2bits.BCL1IF = 0;
-INTCONbits.PEIE = 1;
 
-static char buf[200];
-ringbuf_init(&lcd_tx, buf, sizeof (buf));
 
-ringbuf_put(&lcd_tx, 0);
-ringbuf_put(&lcd_tx, 3);
+void RTCC_to_caltime(time_t *tm) {
+while (RTCCFGbits.RTCSYNC);
 
-I2C_LCD_command(0x38, 1);
-I2C_LCD_command(0x39, 1);
-I2C_LCD_command(0x14, 1);
-I2C_LCD_command(0x70, 1);
-I2C_LCD_command(0x56, 1);
-I2C_LCD_command(0x6C, 3);
-I2C_LCD_command(0x38, 1);
-I2C_LCD_command(0x0C, 1);
-I2C_LCD_command(0x06, 1);
-I2C_LCD_clear();
+RTCCFGbits.RTCPTR0 = 1;
+RTCCFGbits.RTCPTR1 = 1;
+
+tm->YY = x_to_d(RTCVALL);
+uint8_t dumy = RTCVALH;
+tm->DD = x_to_d(RTCVALL);
+tm->MM = x_to_d(RTCVALH);
+tm->hh = x_to_d(RTCVALL);
+tm->EE = x_to_d(RTCVALH);
+tm->ss = x_to_d(RTCVALL);
+tm->mm = x_to_d(RTCVALH);
 }
 
-void I2C_LCD_ISR(void) {
-if (PIE1bits.SSP1IE && PIR1bits.SSP1IF) {
-PIR1bits.SSP1IF = 0;
-i2c_lcd_flag = 1;
-}
-if (PIE2bits.BCL1IE && PIR2bits.BCL1IF) {
-PIR2bits.BCL1IF = 0;
-}
+void caltime_to_RTCC(time_t *tm) {
+while (RTCCFGbits.RTCSYNC);
+RTCCFGbits.RTCPTR0 = 1;
+RTCCFGbits.RTCPTR1 = 1;
+RTCVALL = d_to_x(tm->YY);
+RTCVALH = 0x00;
+RTCCFGbits.RTCPTR0 = 0;
+RTCCFGbits.RTCPTR1 = 1;
+RTCVALL = d_to_x(tm->DD);
+RTCVALH = d_to_x(tm->MM);
+RTCCFGbits.RTCPTR0 = 1;
+RTCCFGbits.RTCPTR1 = 0;
+RTCVALL = d_to_x(tm->hh);
+RTCVALH = d_to_x(tm->EE);
+RTCCFGbits.RTCPTR0 = 0;
+RTCCFGbits.RTCPTR1 = 0;
+RTCVALL = d_to_x(tm->ss);
+RTCVALH = d_to_x(tm->mm);
 }
 
-void I2C_LCD_task(void) {
-if ((SSP1CON2 & 0x1F) | (SSP1STAT & 0x05)) {
+void epoch_to_caltime(time_t *tm) {
 
-return;
-}
-static uint16_t wait;
-static i2c_lcd_state_t i2c_lcd_state = I2C_LCD_IDOLE;
 
-switch (i2c_lcd_state) {
-case I2C_LCD_IDOLE:
-if (ringbuf_num(&lcd_tx)) {
-i2c_lcd_state = I2C_LCD_START;
-}
-break;
-case I2C_LCD_START:
-i2c_lcd_flag = 1;
-SSP1CON2bits.SEN = 1;
-i2c_lcd_state = I2C_LCD_SEND;
-break;
-case I2C_LCD_SEND:
-if (!i2c_lcd_flag) {
+static uint16_t day_cache = 0;
+static uint8_t month_cache = 1;
+static uint8_t year_cache = 0;
+uint16_t day_since_epoch;
+uint16_t day;
+uint8_t year = 0;
+uint8_t month = 1;
+epoch_t num;
 
-return;
+num = tm->epoch;
+tm->ss = get_quot_rem(&num, 60);
+tm->mm = get_quot_rem(&num, 60);
+tm->hh = get_quot_rem(&num, 24);
+day = num;
+day_since_epoch = day;
+
+num += 6;
+tm->EE = get_quot_rem(&num, 7);
+
+# 155
+while (day >= month_length(year, month)) {
+LATB2 = 1;
+day = day - month_length(year, month);
+if (month == 12) {
+month = 1;
+year++;
+
+if (year >= 100) {
+tm->epoch -= 3155760000;
+year = 0;
 }
-char data = ringbuf_pop(&lcd_tx);
-if (data != 0) {
-i2c_lcd_flag = 0;
-SSP1BUF = data;
 } else {
-wait = ringbuf_pop(&lcd_tx);
-switch (wait) {
-case 0:
-wait = 0;
-break;
-case 1:
-wait = 2;
-break;
-case 2:
-wait = 25;
-break;
-case 3:
-wait = 800;
-break;
-default:
-wait = 1;
-break;
+month++;
 }
-i2c_lcd_state = I2C_LCD_STOP;
+month_cache = month;
+year_cache = year;
 }
-break;
-case I2C_LCD_STOP:
-SSP1CON2bits.PEN = 1;
-i2c_lcd_state = I2C_LCD_WAIT;
-break;
-case I2C_LCD_WAIT:
-if (wait == 0) i2c_lcd_state = I2C_LCD_IDOLE;
-else wait--;
-break;
+day_cache = day_since_epoch - day;
+day++;
+
+tm->YY = year;
+tm->MM = month;
+tm->DD = day;
+}
+
+void caltime_to_epoch(time_t *tm) {
+epoch_t epoch = 0;
+for (uint8_t year = 0; year < tm->YY; year++) {
+for (uint8_t month = 1; month <= 12; month++) {
+epoch += ((epoch_t)60*60*24) * month_length(year, month);
+}
+}
+for (uint8_t month = 1; month < tm->MM; month++) {
+epoch += ((epoch_t)60*60*24) * month_length(tm->YY, month);
+}
+epoch += ((epoch_t)60*60*24) * (tm->DD - 1);
+epoch += ((epoch_t)60*60) * tm->hh;
+epoch += ((epoch_t)60) * tm->mm;
+epoch += tm->ss;
+
+tm->epoch = epoch;
+}
+
+
+
+void RTCC_from_RTCC(time_t *tm) {
+RTCC_to_caltime(tm);
+caltime_to_epoch(tm);
+}
+
+void RTCC_from_caltime(time_t *tm) {
+caltime_to_epoch(tm);
+epoch_to_caltime(tm);
+caltime_to_RTCC(tm);
+}
+
+void RTCC_from_epoch(time_t *tm) {
+epoch_to_caltime(tm);
+caltime_to_RTCC(tm);
+}
+
+
+
+void display_dec(char *str, uint8_t dec, uint8_t edit) {
+char s[4];
+sprintf(s, "%02d", dec);
+if (edit && now.halfsec)strcat(str, "  ");
+else strcat(str, s);
+}
+
+void display_time_0802(time_t *tm, char *line0, char *line1) {
+RTCC_from_RTCC(&now);
+
+strcpy(line0, "");
+display_dec(line0, tm->YY, tm->edit.flag.YY);
+strcat(line0, "/");
+display_dec(line0, tm->MM, tm->edit.flag.MM);
+strcat(line0, "/");
+display_dec(line0, tm->DD, tm->edit.flag.DD);
+
+strcpy(line1, "");
+display_dec(line1, tm->hh, tm->edit.flag.hh);
+if (now.colon) strcat(line1, ":");
+else strcat(line1, " ");
+display_dec(line1, tm->mm, tm->edit.flag.mm);
+strcat(line1, "-");
+display_dec(line1, tm->ss, tm->edit.flag.ss);
+}
+
+void display_time_1602(time_t *tm, char *line0, char *line1) {
+RTCC_from_RTCC(&now);
+
+strcpy(line0, "");
+display_dec(line0, 20, tm->edit.flag.YY);
+display_dec(line0, tm->YY, tm->edit.flag.YY);
+strcat(line0, "/");
+display_dec(line0, tm->MM, tm->edit.flag.MM);
+strcat(line0, "/");
+display_dec(line0, tm->DD, tm->edit.flag.DD);
+strcat(line0, "(");
+strcat(line0, weekday_3char[tm->EE]);
+strcat(line0, ")");
+
+strcpy(line1, "        ");
+display_dec(line1, tm->hh, tm->edit.flag.hh);
+if (tm->colon) strcat(line1, ":");
+else strcat(line1, " ");
+display_dec(line1, tm->mm, tm->edit.flag.mm);
+strcat(line1, "-");
+display_dec(line1, tm->ss, tm->edit.flag.ss);
+}
+
+
+
+void RTCC_adjust_time_toggle(time_t *tm) {
+if (tm->edit.flags) {
+tm->edit.flags = 0;
+} else {
+tm->edit.flag.ss = 1;
+}
+}
+
+void RTCC_adjust_time_cursor(time_t *tm) {
+if (tm->edit.flag.ss)tm->edit.flags = 0x02;
+else if (tm->edit.flag.mm)tm->edit.flags = 0x04;
+else if (tm->edit.flag.hh)tm->edit.flags = 0x08;
+else if (tm->edit.flag.DD)tm->edit.flags = 0x10;
+else if (tm->edit.flag.MM)tm->edit.flags = 0x20;
+else if (tm->edit.flag.YY)tm->edit.flags = 0x01;
+else tm->edit.flags = 0x00;
+}
+
+void RTCC_adjust_time_inc(time_t *tm) {
+RTCC_from_RTCC(tm);
+if (tm->edit.flag.ss) tm->epoch += 1;
+if (tm->edit.flag.mm) tm->epoch += ((epoch_t)60);
+if (tm->edit.flag.hh) tm->epoch += ((epoch_t)60*60);
+if (tm->edit.flag.DD) tm->epoch += ((epoch_t)60*60*24);
+if (tm->edit.flag.MM) tm->epoch += ((epoch_t)60*60*24) * month_length(tm->YY, tm->MM);
+if (tm->edit.flag.YY) {
+for (uint8_t i = tm->MM; i <= 12; i++) {
+tm->epoch += ((epoch_t)60*60*24) * month_length(tm->YY, i);
+}
+for (uint8_t i = 1; i < tm->MM; i++) {
+tm->epoch += ((epoch_t)60*60*24) * month_length(tm->YY + 1, i);
+}
+}
+
+if (tm->epoch >= 3155760000)tm->epoch -= 3155760000;
+RTCC_from_epoch(&now);
+time_change_flag = 1;
+}
+
+void RTCC_adjust_time_dec(time_t *tm) {
+RTCC_from_RTCC(tm);
+if (tm->edit.flag.ss) tm->epoch -= 1;
+if (tm->edit.flag.mm) tm->epoch -= ((epoch_t)60);
+if (tm->edit.flag.hh) tm->epoch -= ((epoch_t)60*60);
+if (tm->edit.flag.DD) tm->epoch -= ((epoch_t)60*60*24);
+if (tm->edit.flag.MM) tm->epoch -= ((epoch_t)60*60*24) * month_length(tm->YY, tm->MM);
+if (tm->edit.flag.YY) {
+for (uint8_t i = tm->MM; i >= 1; i--) {
+tm->epoch -= ((epoch_t)60*60*24) * month_length(tm->YY, i);
+}
+for (uint8_t i = 12; i > tm->MM; i--) {
+tm->epoch -= ((epoch_t)60*60*24) * month_length(tm->YY - 1, i);
+}
+}
+
+if (tm->epoch >= 3155760000)tm->epoch += 3155760000;
+RTCC_from_epoch(&now);
+time_change_flag = 1;
+}
+
+void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec) {
+if (mode->flag.long_holding_3) {
+mode->flag.long_holding_3 = 0;
+RTCC_adjust_time_toggle(tm);
+mode->flags = 0;
+cnt_inc->flags = 0;
+cnt_dec->flags = 0;
+}
+if (tm->edit.flags) {
+if (mode->flag.press) {
+mode->flag.press = 0;
+RTCC_adjust_time_cursor(tm);
+}
+if (cnt_inc->flag.press) {
+cnt_inc->flag.press = 0;
+RTCC_adjust_time_inc(tm);
+}
+if (cnt_dec->flag.press) {
+cnt_dec->flag.press = 0;
+RTCC_adjust_time_dec(tm);
+}
+}
+}
+
+void RTCC_task(void) {
+static uint8_t prev_halfsec;
+if (RTCCFGbits.RTCSYNC)return;
+now.halfsec = RTCCFGbits.HALFSEC;
+if (prev_halfsec != now.halfsec) {
+prev_halfsec = now.halfsec;
+now.colon = now.halfsec;
+time_change_flag = 1;
+RTCC_from_RTCC(&now);
 }
 }

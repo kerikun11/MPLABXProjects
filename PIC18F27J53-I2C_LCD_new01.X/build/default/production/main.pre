@@ -10533,36 +10533,36 @@ uint8_t long_holding_7 : 1;
 
 void button_timer_interrupt(button_t *bt, uint8_t sw_value);
 
-# 19 "../My_library\My_I2C_LCD.h"
-typedef enum I2C_LCD_STATE {
-I2C_LCD_IDOLE,
-I2C_LCD_START,
-I2C_LCD_SEND,
-I2C_LCD_STOP,
-I2C_LCD_WAIT
-} i2c_lcd_state_t;
+# 19 "../My_library\My_ST7032.h"
+typedef enum ST7032_STATE {
+ST7032_IDOLE,
+ST7032_START,
+ST7032_SEND,
+ST7032_STOP,
+ST7032_WAIT
+} st7032_state_t;
 
 extern ringbuf_t lcd_tx;
-extern uint8_t i2c_lcd_flag;
+extern uint8_t st7032_flag;
 
 
-void I2C_LCD_command(uint8_t command, uint8_t wait);
+void ST7032_command(uint8_t command, uint8_t wait);
 
-void I2C_LCD_clear(void);
+void ST7032_clear(void);
 
-void I2C_LCD_cursor(uint8_t col, uint8_t row);
+void ST7032_cursor(uint8_t col, uint8_t row);
 
-void I2C_LCD_put(char c);
+void ST7032_put(char c);
 
-void I2C_LCD_puts(const uint8_t *s);
+void ST7032_puts(const uint8_t *s);
 
-void I2C_LCD_create_char(int p, char *dt);
+void ST7032_create_char(int p, char *dt);
 
-void I2C_LCD_init(void);
+void ST7032_init(void);
 
-void I2C_LCD_ISR(void);
+void ST7032_ISR(void);
 
-void I2C_LCD_task(void);
+void ST7032_task(void);
 
 # 39 "../My_library\My_RTCC.h"
 typedef uint32_t epoch_t;
@@ -11657,7 +11657,7 @@ void UART_task(void);
 void interrupt ISR(void) {
 USB_ISR();
 UART_ISR();
-I2C_LCD_ISR();
+ST7032_ISR();
 if (INTCONbits.T0IF && INTCONbits.T0IE) {
 INTCONbits.T0IF = 0;
 }
@@ -11706,7 +11706,7 @@ INTCON2bits.RBPU = 0;
 timer0_init(6);
 timer1_init(0, 2);
 timer3_init(2);
-I2C_LCD_init();
+ST7032_init();
 RTCC_init();
 
 USB_init();
@@ -11725,11 +11725,11 @@ ringbuf_init(&uart_rx, uartrx, sizeof (uartrx));
 int main(void) {
 main_init();
 
-I2C_LCD_clear();
-I2C_LCD_cursor(0, 0);
-I2C_LCD_puts("18F27J53");
-I2C_LCD_cursor(0, 1);
-I2C_LCD_puts("Template");
+ST7032_clear();
+ST7032_cursor(0, 0);
+ST7032_puts("18F27J53");
+ST7032_cursor(0, 1);
+ST7032_puts("Template");
 
 INTCONbits.GIE = 1;
 
@@ -11738,7 +11738,7 @@ INTCONbits.GIE = 0;
 USB_task();
 UART_task();
 RTCC_task();
-I2C_LCD_task();
+ST7032_task();
 terminal_task(&usb_tx, &usb_rx);
 INTCONbits.GIE = 1;
 LATAbits.LATA1 = !LATAbits.LATA1;
@@ -11747,11 +11747,11 @@ if (time_change_flag) {
 time_change_flag = 0;
 char s[2][20];
 display_time_0802(&now, s[0], s[1]);
-I2C_LCD_clear();
-I2C_LCD_cursor(0, 0);
-I2C_LCD_puts(s[0]);
-I2C_LCD_cursor(0, 1);
-I2C_LCD_puts(s[1]);
+ST7032_clear();
+ST7032_cursor(0, 0);
+ST7032_puts(s[0]);
+ST7032_cursor(0, 1);
+ST7032_puts(s[1]);
 }
 INTCONbits.GIE = 1;
 }
