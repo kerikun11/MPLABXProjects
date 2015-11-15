@@ -33,7 +33,6 @@ void RTCC_init(void) {
     RTCCAL = 0x00;
     T1CONbits.T1OSCEN = 1;
 
-    // ?????????????????
     RTCC_from_RTCC(&now);
     if (now.DD == 0) {
         now.epoch = 0;
@@ -82,7 +81,7 @@ epoch_t get_quot_rem(epoch_t *quot, uint8_t div) {
     // num /= div;
     // return rem;
     epoch_t num = *quot;
-    return num - (*quot = num / div) * div; // returns rem(??)
+    return num - (*quot = num / div) * div; // returns rem
 }
 
 /********************************** Transform time **********************************/
@@ -124,7 +123,7 @@ void caltime_to_RTCC(time_t *tm) {
 }
 
 void epoch_to_caltime(time_t *tm) {
-    // terminal?epoch??????????
+    // to get epoch on terminal
     // echo $(( (`date -d '2015/03/01' '+%s'` - `date -d '2000/01/01' '+%s'`) / 86400 ))
     static uint16_t day_cache = 0; //2015.03.01
     static uint8_t month_cache = 1;

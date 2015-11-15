@@ -50,7 +50,7 @@ void ST7032_create_char(int p, char *dt) {
     ringbuf_put(&lcd_tx, (ST7032_ADDRESS << 1) + W_0);
     ringbuf_put(&lcd_tx, 0x80); // command mode
     ringbuf_put(&lcd_tx, 0x40 | (p << 3));
-    ringbuf_put(&lcd_tx, 0x40); // control byte ???(??????)
+    ringbuf_put(&lcd_tx, 0x40); // control byte
     for (uint8_t i = 0; i < 7; i++) {
         ringbuf_put(&lcd_tx, *dt++);
         // need wait
@@ -62,7 +62,7 @@ void ST7032_create_char(int p, char *dt) {
 void ST7032_init(void) {
     SSP1STAT = 0b10000000;
     SSP1CON1 = 0b00101000;
-    SSP1ADD = 0x13;
+    SSP1ADD = 0x13;// 0x77:100kHz 0x13:400kHz
     PIE1bits.SSP1IE = 1;
     IPR1bits.SSP1IP = 0;
     PIR1bits.SSP1IF = 0;

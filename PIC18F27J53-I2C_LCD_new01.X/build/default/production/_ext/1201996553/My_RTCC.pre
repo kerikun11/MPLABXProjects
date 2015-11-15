@@ -10663,7 +10663,6 @@ PADCFG1bits.RTSECSEL1 = 1;
 RTCCAL = 0x00;
 T1CONbits.T1OSCEN = 1;
 
-
 RTCC_from_RTCC(&now);
 if (now.DD == 0) {
 now.epoch = 0;
@@ -10687,7 +10686,7 @@ uint8_t month_length(uint8_t year, uint8_t month) {
 if (month == 2) return 28 + !(year & 3)-!(year % 100)+!(year % 400);
 else return 31 - (((-(month & 1)^month)&13) == 4);
 
-# 79
+# 78
 }
 
 epoch_t get_quot_rem(epoch_t *quot, uint8_t div) {
@@ -10757,7 +10756,7 @@ day_since_epoch = day;
 num += 6;
 tm->EE = get_quot_rem(&num, 7);
 
-# 155
+# 154
 while (day >= month_length(year, month)) {
 LATB2 = 1;
 day = day - month_length(year, month);

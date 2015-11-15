@@ -24,8 +24,6 @@
 #include <stdint.h>
 #include <My_PIC.h>
 #include <My_button.h>
-#include <My_I2C.h>
-#include <My_I2C_LCD.h>
 #include <My_ST7032.h>
 #include <My_RTCC.h>
 #include <My_ringbuf.h>
@@ -36,6 +34,7 @@
 void interrupt ISR(void) {
     USB_ISR();
     UART_ISR();
+    ST7032_ISR();
     if (INTCONbits.T0IF && INTCONbits.T0IE) {
         INTCONbits.T0IF = 0;
     }
@@ -46,15 +45,6 @@ void interrupt ISR(void) {
     if (PIR2bits.TMR3IF && PIE2bits.TMR3IE) {
         PIR2bits.TMR3IF = 0;
     }
-}
-
-void bootload(void) {
-    I2C_LCD_Clear();
-    I2C_LCD_SetCursor(0, 0);
-    I2C_LCD_Puts("PIC18F27J53");
-    I2C_LCD_SetCursor(0, 1);
-    I2C_LCD_Puts("Bootloader mode");
-    asm("goto   0x001C");
 }
 
 void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3) {
@@ -76,7 +66,7 @@ void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op
         RESET();
     }
     if (!strcmp(op0, "bootload")) {
-        bootload();
+        asm("goto   0x001C");
     }
 }
 
