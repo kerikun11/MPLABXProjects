@@ -8771,37 +8771,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-"20 main.c
+"10 main.c
 [p x WDTEN=OFF ]
 [p x PLLDIV=2 ]
 [p x CFGPLLEN=ON ]
 [p x STVREN=OFF ]
 [p x XINST=OFF ]
-"22
+"12
 [p x CPUDIV=OSC1 ]
 [p x CP0=OFF ]
-"24
+"14
 [p x OSC=INTOSCPLL ]
 [p x SOSCSEL=LOW ]
 [p x CLKOEC=OFF ]
 [p x FCMEN=OFF ]
 [p x IESO=OFF ]
-"26
+"16
 [p x WDTPS=1024 ]
-"28
+"18
 [p x DSWDTOSC=T1OSCREF ]
 [p x RTCOSC=T1OSCREF ]
 [p x DSBOREN=OFF ]
 [p x DSWDTEN=OFF ]
 [p x DSWDTPS=G2 ]
-"30
+"20
 [p x IOL1WAY=OFF ]
 [p x ADCSEL=BIT12 ]
 [p x MSSP7B_EN=MSK7 ]
-"32
+"22
 [p x WPFP=PAGE_127 ]
 [p x WPCFG=OFF ]
-"34
+"24
 [p x WPDIS=OFF ]
 [p x WPEND=PAGE_WPFP ]
 [p x LS48MHZ=SYS48X8 ]
@@ -12982,308 +12982,308 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 1586 ]
 }
 [v F8898 `(v ~T0 @X0 1 tf ]
-"66 main.c
+"56 main.c
 [v _ISR `IF8898 ~T0 @X0 1 e ]
 {
-[; ;main.c: 66: void interrupt ISR(void) {
+[; ;main.c: 56: void interrupt ISR(void) {
 [e :U _ISR ]
 [f ]
-[; ;main.c: 67: UART_ISR();
-"67
+[; ;main.c: 57: UART_ISR();
+"57
 [e ( _UART_ISR ..  ]
-[; ;main.c: 68: if (PIE1bits.RC1IE && PIR1bits.RC1IF) {
-"68
+[; ;main.c: 58: if (PIE1bits.RC1IE && PIR1bits.RC1IF) {
+"58
 [e $ ! && != -> . . _PIE1bits 0 5 `i -> -> -> 0 `i `Vuc `i != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i 1598  ]
 {
-[; ;main.c: 69: PIR1bits.RC1IF = 0;
-"69
+[; ;main.c: 59: PIR1bits.RC1IF = 0;
+"59
 [e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"70
+"60
 [v _ascii `uc ~T0 @X0 1 a ]
-[; ;main.c: 70: uint8_t ascii = RCREG1;
+[; ;main.c: 60: uint8_t ascii = RCREG1;
 [e = _ascii _RCREG1 ]
-[; ;main.c: 71: tx_send(ascii);
-"71
+[; ;main.c: 61: tx_send(ascii);
+"61
 [e ( _tx_send (1 _ascii ]
-"72
+"62
 }
 [e :U 1598 ]
-[; ;main.c: 72: }
-[; ;main.c: 73: if (INTCONbits.T0IE && INTCONbits.T0IF) {
-"73
+[; ;main.c: 62: }
+[; ;main.c: 63: if (INTCONbits.T0IE && INTCONbits.T0IF) {
+"63
 [e $ ! && != -> . . _INTCONbits 1 5 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCONbits 1 2 `i -> -> -> 0 `i `Vuc `i 1599  ]
 {
-[; ;main.c: 74: INTCONbits.T0IF = 0;
-"74
+[; ;main.c: 64: INTCONbits.T0IF = 0;
+"64
 [e = . . _INTCONbits 1 2 -> -> 0 `i `uc ]
-"75
+"65
 [v F8900 `ui ~T0 @X0 1 s cnt_t0 ]
-[; ;main.c: 75: static uint16_t cnt_t0;
-[; ;main.c: 76: if (cnt_t0) {
-"76
+[; ;main.c: 65: static uint16_t cnt_t0;
+[; ;main.c: 66: if (cnt_t0) {
+"66
 [e $ ! != F8900 -> -> 0 `i `ui 1600  ]
 {
-[; ;main.c: 77: cnt_t0--;
-"77
+[; ;main.c: 67: cnt_t0--;
+"67
 [e -- F8900 -> -> 1 `i `ui ]
-"78
+"68
 }
-[; ;main.c: 78: } else {
+[; ;main.c: 68: } else {
 [e $U 1601  ]
 [e :U 1600 ]
 {
-[; ;main.c: 79: cnt_t0 = 120;
-"79
+[; ;main.c: 69: cnt_t0 = 120;
+"69
 [e = F8900 -> -> 120 `i `ui ]
-[; ;main.c: 80: lchika();
-"80
+[; ;main.c: 70: lchika();
+"70
 [e ( _lchika ..  ]
-[; ;main.c: 81: display_flag = 1;
-"81
+[; ;main.c: 71: display_flag = 1;
+"71
 [e = _display_flag -> -> 1 `i `uc ]
-"82
+"72
 }
 [e :U 1601 ]
-[; ;main.c: 82: }
-[; ;main.c: 83: cut_flag = 1;
-"83
+[; ;main.c: 72: }
+[; ;main.c: 73: cut_flag = 1;
+"73
 [e = _cut_flag -> -> 1 `i `uc ]
-"84
+"74
 }
 [e :U 1599 ]
-[; ;main.c: 84: }
-[; ;main.c: 85: if (PIE1bits.TMR1IE && PIR1bits.TMR1IF) {
-"85
+[; ;main.c: 74: }
+[; ;main.c: 75: if (PIE1bits.TMR1IE && PIR1bits.TMR1IF) {
+"75
 [e $ ! && != -> . . _PIE1bits 0 0 `i -> -> -> 0 `i `Vuc `i != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i 1602  ]
 {
-[; ;main.c: 86: PIR1bits.TMR1IF = 0;
-"86
+[; ;main.c: 76: PIR1bits.TMR1IF = 0;
+"76
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 87: TMR1H = 0x80;
-"87
+[; ;main.c: 77: TMR1H = 0x80;
+"77
 [e = _TMR1H -> -> 128 `i `uc ]
-[; ;main.c: 88: integrating();
-"88
+[; ;main.c: 78: integrating();
+"78
 [e ( _integrating ..  ]
-"89
+"79
 }
 [e :U 1602 ]
-[; ;main.c: 89: }
-[; ;main.c: 90: if (PIE2bits.TMR3IE && PIR2bits.TMR3IF) {
-"90
+[; ;main.c: 79: }
+[; ;main.c: 80: if (PIE2bits.TMR3IE && PIR2bits.TMR3IF) {
+"80
 [e $ ! && != -> . . _PIE2bits 0 1 `i -> -> -> 0 `i `Vuc `i != -> . . _PIR2bits 0 1 `i -> -> -> 0 `i `Vuc `i 1603  ]
 {
-[; ;main.c: 91: PIR2bits.TMR3IF = 0;
-"91
+[; ;main.c: 81: PIR2bits.TMR3IF = 0;
+"81
 [e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 92: button_timer_interrupt(&sw, !PORTAbits.RA3);
-"92
+[; ;main.c: 82: button_timer_interrupt(&sw, !PORTAbits.RA3);
+"82
 [e ( _button_timer_interrupt (2 , &U _sw -> -> ! != -> . . _PORTAbits 0 3 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[; ;main.c: 93: button_timer_interrupt(&sw0, !PORTAbits.RA0);
-"93
+[; ;main.c: 83: button_timer_interrupt(&sw0, !PORTAbits.RA0);
+"83
 [e ( _button_timer_interrupt (2 , &U _sw0 -> -> ! != -> . . _PORTAbits 0 0 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[; ;main.c: 94: button_timer_interrupt(&sw1, !PORTAbits.RA1);
-"94
+[; ;main.c: 84: button_timer_interrupt(&sw1, !PORTAbits.RA1);
+"84
 [e ( _button_timer_interrupt (2 , &U _sw1 -> -> ! != -> . . _PORTAbits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[; ;main.c: 95: button_timer_interrupt(&sw2, !PORTAbits.RA2);
-"95
+[; ;main.c: 85: button_timer_interrupt(&sw2, !PORTAbits.RA2);
+"85
 [e ( _button_timer_interrupt (2 , &U _sw2 -> -> ! != -> . . _PORTAbits 0 2 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[; ;main.c: 96: delay_timer_interrupt(&d_display);
-"96
+[; ;main.c: 86: delay_timer_interrupt(&d_display);
+"86
 [e ( _delay_timer_interrupt (1 &U _d_display ]
-"97
+"87
 }
 [e :U 1603 ]
-[; ;main.c: 97: }
-[; ;main.c: 98: }
-"98
+[; ;main.c: 87: }
+[; ;main.c: 88: }
+"88
 [e :UE 1597 ]
 }
-"100
+"90
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 100: int main(void) {
+[; ;main.c: 90: int main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 101: main_init();
-"101
+[; ;main.c: 91: main_init();
+"91
 [e ( _main_init ..  ]
-[; ;main.c: 102: INTCONbits.GIE = 1;
-"102
+[; ;main.c: 92: INTCONbits.GIE = 1;
+"92
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 106: RTCC_from_RTCC(&caltime_now, &epoch_now);
-"106
+[; ;main.c: 96: RTCC_from_RTCC(&caltime_now, &epoch_now);
+"96
 [e ( _RTCC_from_RTCC (2 , &U _caltime_now &U _epoch_now ]
-[; ;main.c: 107: print_content = TIME;
-"107
+[; ;main.c: 97: print_content = TIME;
+"97
 [e = _print_content . `E8833 1 ]
-[; ;main.c: 109: I2C_LCD_Clear();
-"109
+[; ;main.c: 99: I2C_LCD_Clear();
+"99
 [e ( _I2C_LCD_Clear ..  ]
-[; ;main.c: 110: I2C_LCD_SetCursor(0, 0);
-"110
+[; ;main.c: 100: I2C_LCD_SetCursor(0, 0);
+"100
 [e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 111: I2C_LCD_Puts("Charge");
-"111
+[; ;main.c: 101: I2C_LCD_Puts("Charge");
+"101
 [e ( _I2C_LCD_Puts (1 :s 15C ]
-[; ;main.c: 112: I2C_LCD_SetCursor(0, 1);
-"112
+[; ;main.c: 102: I2C_LCD_SetCursor(0, 1);
+"102
 [e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 113: I2C_LCD_Puts("Station");
-"113
+[; ;main.c: 103: I2C_LCD_Puts("Station");
+"103
 [e ( _I2C_LCD_Puts (1 :s 16C ]
-[; ;main.c: 114: Delay_ms(2000);
-"114
+[; ;main.c: 104: Delay_ms(2000);
+"104
 [e ( _Delay_ms (1 -> -> 2000 `i `ui ]
-"116
+"106
 [v _i `uc ~T0 @X0 1 a ]
-[; ;main.c: 116: uint8_t i;
-[; ;main.c: 118: for (i = 0; i < 3; i++) {
-"118
+[; ;main.c: 106: uint8_t i;
+[; ;main.c: 108: for (i = 0; i < 3; i++) {
+"108
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 3 `i 1605  ]
 [e $U 1606  ]
 [e :U 1605 ]
 {
-[; ;main.c: 119: OUT(i, 1);
-"119
+[; ;main.c: 109: OUT(i, 1);
+"109
 [e ( _OUT (2 , _i -> -> 1 `i `uc ]
-[; ;main.c: 120: LED(i, 1);
-"120
+[; ;main.c: 110: LED(i, 1);
+"110
 [e ( _LED (2 , _i -> -> 1 `i `uc ]
-[; ;main.c: 121: cut_cnt[i] = 0;
-"121
+[; ;main.c: 111: cut_cnt[i] = 0;
+"111
 [e = *U + &U _cut_cnt * -> _i `ux -> -> # *U &U _cut_cnt `ui `ux -> -> 0 `i `ui ]
-[; ;main.c: 122: auto_cut_ON[i] = 1;
-"122
+[; ;main.c: 112: auto_cut_ON[i] = 1;
+"112
 [e = *U + &U _auto_cut_ON * -> _i `ux -> -> # *U &U _auto_cut_ON `ui `ux -> -> 1 `i `uc ]
-"123
+"113
 }
-"118
+"108
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 3 `i 1605  ]
 [e :U 1606 ]
-"123
+"113
 }
-[; ;main.c: 123: }
-[; ;main.c: 125: while (1) {
-"125
+[; ;main.c: 113: }
+[; ;main.c: 115: while (1) {
+"115
 [e :U 1609 ]
 {
-[; ;main.c: 126: if (!sleep_flag) {
-"126
+[; ;main.c: 116: if (!sleep_flag) {
+"116
 [e $ ! ! != -> _sleep_flag `i -> -> -> 0 `i `uc `i 1611  ]
 {
-[; ;main.c: 127: if (!edit_flag.flags) {
-"127
+[; ;main.c: 117: if (!edit_flag.flags) {
+"117
 [e $ ! ! != -> . . _edit_flag 0 0 `i -> -> -> 0 `i `uc `i 1612  ]
 {
-[; ;main.c: 128: nomal_mode_loop();
-"128
+[; ;main.c: 118: nomal_mode_loop();
+"118
 [e ( _nomal_mode_loop ..  ]
-[; ;main.c: 129: if (sw.flag.press) {
-"129
+[; ;main.c: 119: if (sw.flag.press) {
+"119
 [e $ ! != -> . . . _sw 1 1 0 `i -> -> -> 0 `i `uc `i 1613  ]
 {
-[; ;main.c: 130: sw.flag.press = 0;
-"130
+[; ;main.c: 120: sw.flag.press = 0;
+"120
 [e = . . . _sw 1 1 0 -> -> 0 `i `uc ]
-[; ;main.c: 131: if (print_content == CURRENT)print_content = INTEGRATING;
-"131
+[; ;main.c: 121: if (print_content == CURRENT)print_content = INTEGRATING;
+"121
 [e $ ! == -> _print_content `i -> . `E8833 2 `i 1614  ]
 [e = _print_content . `E8833 3 ]
 [e $U 1615  ]
-"132
+"122
 [e :U 1614 ]
-[; ;main.c: 132: else if (print_content == INTEGRATING)print_content = TIME;
+[; ;main.c: 122: else if (print_content == INTEGRATING)print_content = TIME;
 [e $ ! == -> _print_content `i -> . `E8833 3 `i 1616  ]
 [e = _print_content . `E8833 1 ]
 [e $U 1617  ]
-"133
+"123
 [e :U 1616 ]
-[; ;main.c: 133: else print_content = CURRENT;
+[; ;main.c: 123: else print_content = CURRENT;
 [e = _print_content . `E8833 2 ]
 [e :U 1617 ]
 [e :U 1615 ]
-"134
+"124
 }
 [e :U 1613 ]
-"135
+"125
 }
 [e :U 1612 ]
-[; ;main.c: 134: }
-[; ;main.c: 135: }
-[; ;main.c: 136: if (cut_flag) {
-"136
+[; ;main.c: 124: }
+[; ;main.c: 125: }
+[; ;main.c: 126: if (cut_flag) {
+"126
 [e $ ! != -> _cut_flag `i -> -> -> 0 `i `uc `i 1618  ]
 {
-[; ;main.c: 137: cut_flag = 0;
-"137
+[; ;main.c: 127: cut_flag = 0;
+"127
 [e = _cut_flag -> -> 0 `i `uc ]
-[; ;main.c: 138: Auto_cut();
-"138
+[; ;main.c: 128: Auto_cut();
+"128
 [e ( _Auto_cut ..  ]
-"139
+"129
 }
 [e :U 1618 ]
-[; ;main.c: 139: }
-[; ;main.c: 140: RTCC_loop();
-"140
+[; ;main.c: 129: }
+[; ;main.c: 130: RTCC_loop();
+"130
 [e ( _RTCC_loop ..  ]
-[; ;main.c: 141: if (time_change_flag) {
-"141
+[; ;main.c: 131: if (time_change_flag) {
+"131
 [e $ ! != -> _time_change_flag `i -> -> -> 0 `i `uc `i 1619  ]
 {
-[; ;main.c: 142: time_change_flag = 0;
-"142
+[; ;main.c: 132: time_change_flag = 0;
+"132
 [e = _time_change_flag -> -> 0 `i `uc ]
-[; ;main.c: 143: display_flag = 1;
-"143
+[; ;main.c: 133: display_flag = 1;
+"133
 [e = _display_flag -> -> 1 `i `uc ]
-"144
+"134
 }
 [e :U 1619 ]
-[; ;main.c: 144: }
-[; ;main.c: 145: if (print_content == TIME)RTCC_adjust_time_button(&sw, &sw0, &sw1);
-"145
+[; ;main.c: 134: }
+[; ;main.c: 135: if (print_content == TIME)RTCC_adjust_time_button(&sw, &sw0, &sw1);
+"135
 [e $ ! == -> _print_content `i -> . `E8833 1 `i 1620  ]
 [e ( _RTCC_adjust_time_button (3 , , &U _sw &U _sw0 &U _sw1 ]
 [e :U 1620 ]
-[; ;main.c: 146: if (display_flag) {
-"146
+[; ;main.c: 136: if (display_flag) {
+"136
 [e $ ! != -> _display_flag `i -> -> -> 0 `i `uc `i 1621  ]
 {
-[; ;main.c: 147: display_flag = 0;
-"147
+[; ;main.c: 137: display_flag = 0;
+"137
 [e = _display_flag -> -> 0 `i `uc ]
-[; ;main.c: 148: display_LCD();
-"148
+[; ;main.c: 138: display_LCD();
+"138
 [e ( _display_LCD ..  ]
-"149
+"139
 }
 [e :U 1621 ]
-"150
+"140
 }
 [e :U 1611 ]
-[; ;main.c: 149: }
-[; ;main.c: 150: }
-[; ;main.c: 151: sleep_loop();
-"151
+[; ;main.c: 139: }
+[; ;main.c: 140: }
+[; ;main.c: 141: sleep_loop();
+"141
 [e ( _sleep_loop ..  ]
-"152
+"142
 }
 [e :U 1608 ]
-"125
+"115
 [e $U 1609  ]
 [e :U 1610 ]
-[; ;main.c: 152: }
-[; ;main.c: 153: return 0;
-"153
+[; ;main.c: 142: }
+[; ;main.c: 143: return 0;
+"143
 [e ) -> 0 `i ]
 [e $UE 1604  ]
-[; ;main.c: 154: }
-"154
+[; ;main.c: 144: }
+"144
 [e :UE 1604 ]
 }
 [a 2C 82 105 103 104 116 0 ]

@@ -28,15 +28,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "29 LCD_print.h
 [v _print_port `uc ~T0 @X0 0 e ]
 "100 ChargeStation_task.c
-[c E9712 0 1 2 .. ]
-[n E9712 DATA_ITEM CURRENT INTEGRATED_CURRENT INTEGRATED_TIME  ]
+[c E9760 0 1 2 .. ]
+[n E9760 DATA_ITEM CURRENT INTEGRATED_CURRENT INTEGRATED_TIME  ]
 "28 LCD_print.h
-[v _data_item `E9712 ~T0 @X0 0 e ]
+[v _data_item `E9760 ~T0 @X0 0 e ]
 "113 ChargeStation_task.c
-[c E9706 0 1 2 3 .. ]
-[n E9706 PRINT_ITEM LOGO PRINT_TIME PRINT_DATA SETTINGS  ]
+[c E9754 0 1 2 3 .. ]
+[n E9754 PRINT_ITEM LOGO PRINT_TIME PRINT_DATA SETTINGS  ]
 "34 LCD_print.h
-[v _display `(v ~T0 @X0 0 ef3`E9706`*Cuc`*Cuc ]
+[v _display `(v ~T0 @X0 0 ef3`E9754`*Cuc`*Cuc ]
 "23 settings.h
 [v _settings_flag `uc ~T0 @X0 0 e ]
 "29
@@ -50,7 +50,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "81 ../My_library\My_RTCC.h
 [v _time_change_flag `uc ~T0 @X0 0 e ]
 "27 LCD_print.h
-[v _print_item `E9706 ~T0 @X0 0 e ]
+[v _print_item `E9754 ~T0 @X0 0 e ]
 "30
 [v _display_flag `uc ~T0 @X0 0 e ]
 "35
@@ -82,11 +82,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1191 . . . . . . ]
 "18341
 [v _INTCONbits `VS1191 ~T0 @X0 0 e@4082 ]
-"33 ../My_library\My_ST7032.h
+"31 ../My_library\My_ST7032.h
 [v _ST7032_clear `(v ~T0 @X0 0 ef ]
-"35
+"33
 [v _ST7032_cursor `(v ~T0 @X0 0 ef2`uc`uc ]
-"39
+"37
 [v _ST7032_puts `(v ~T0 @X0 0 ef1`*Cuc ]
 "43 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18.h
 [v ___nop `(v ~T0 @X0 0 ef ]
@@ -8404,6 +8404,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_PIC.h: 101: void Delay_ms(uint16_t ms);
 [; ;My_library\My_PIC.h: 105: void millis_timer(void);
 [; ;My_library\My_PIC.h: 106: uint32_t millis(void);
+[; ;My_library\My_I2C.h: 19: extern uint8_t I2C_sent_flag;
+[; ;My_library\My_I2C.h: 20: extern uint8_t I2C_cfct_flag;
+[; ;My_library\My_I2C.h: 21: extern uint8_t I2C_busy;
+[; ;My_library\My_I2C.h: 23: uint8_t I2C_idole_check(uint8_t mask);
+[; ;My_library\My_I2C.h: 24: void I2C_start(void);
+[; ;My_library\My_I2C.h: 25: void I2C_restart(void);
+[; ;My_library\My_I2C.h: 26: void I2C_stop(void);
+[; ;My_library\My_I2C.h: 27: void I2C_send(uint8_t data);
+[; ;My_library\My_I2C.h: 28: uint8_t I2C_ack(void);
+[; ;My_library\My_I2C.h: 29: void I2C_init_new(void);
+[; ;My_library\My_I2C.h: 30: void I2C_ISR(void);
+[; ;My_library\My_I2C.h: 36: void I2C_IdleCheck(char mask);
+[; ;My_library\My_I2C.h: 37: void I2C_init_old(void);
+[; ;My_library\My_I2C.h: 38: uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
+[; ;My_library\My_I2C.h: 39: uint8_t I2C_rStart(int adrs, int rw);
+[; ;My_library\My_I2C.h: 40: void I2C_Stop(void);
+[; ;My_library\My_I2C.h: 41: uint8_t I2C_Send(uint8_t data);
+[; ;My_library\My_I2C.h: 42: uint8_t I2C_Receive(uint8_t ack);
 [; ;My_library\My_ST7032.h: 19: typedef enum ST7032_STATE {
 [; ;My_library\My_ST7032.h: 20: ST7032_IDOLE,
 [; ;My_library\My_ST7032.h: 21: ST7032_START,
@@ -8412,16 +8430,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_ST7032.h: 24: ST7032_WAIT
 [; ;My_library\My_ST7032.h: 25: } st7032_state_t;
 [; ;My_library\My_ST7032.h: 27: extern ringbuf_t lcd_tx;
-[; ;My_library\My_ST7032.h: 28: extern uint8_t st7032_flag;
-[; ;My_library\My_ST7032.h: 31: void ST7032_command(uint8_t command, uint8_t wait);
-[; ;My_library\My_ST7032.h: 33: void ST7032_clear(void);
-[; ;My_library\My_ST7032.h: 35: void ST7032_cursor(uint8_t col, uint8_t row);
-[; ;My_library\My_ST7032.h: 37: void ST7032_put(char c);
-[; ;My_library\My_ST7032.h: 39: void ST7032_puts(const uint8_t *s);
-[; ;My_library\My_ST7032.h: 41: void ST7032_create_char(int p, char *dt);
-[; ;My_library\My_ST7032.h: 43: void ST7032_init(void);
-[; ;My_library\My_ST7032.h: 45: void ST7032_ISR(void);
-[; ;My_library\My_ST7032.h: 47: void ST7032_task(void);
+[; ;My_library\My_ST7032.h: 29: void ST7032_command(uint8_t command, uint8_t wait);
+[; ;My_library\My_ST7032.h: 31: void ST7032_clear(void);
+[; ;My_library\My_ST7032.h: 33: void ST7032_cursor(uint8_t col, uint8_t row);
+[; ;My_library\My_ST7032.h: 35: void ST7032_put(char c);
+[; ;My_library\My_ST7032.h: 37: void ST7032_puts(const uint8_t *s);
+[; ;My_library\My_ST7032.h: 39: void ST7032_create_char(int p, char *dt);
+[; ;My_library\My_ST7032.h: 41: void ST7032_init(void);
+[; ;My_library\My_ST7032.h: 43: void ST7032_task(void);
+[; ;My_library\My_ST7032.h: 50: void I2C_LCD_Command(uint8_t c);
+[; ;My_library\My_ST7032.h: 51: void I2C_LCD_Clear(void);
+[; ;My_library\My_ST7032.h: 52: void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
+[; ;My_library\My_ST7032.h: 53: void I2C_LCD_Putc(uint8_t c);
+[; ;My_library\My_ST7032.h: 54: void I2C_LCD_Puts(const uint8_t * s);
+[; ;My_library\My_ST7032.h: 55: void I2C_LCD_CreateChar(int p, char *dt);
+[; ;My_library\My_ST7032.h: 56: void I2C_LCD_init(void);
 [; ;My_library\My_RTCC.h: 39: typedef uint32_t epoch_t;
 [; ;My_library\My_RTCC.h: 43: typedef struct {
 [; ;My_library\My_RTCC.h: 45: union {
@@ -9175,9 +9198,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "23
 [v _i `uc ~T0 @X0 1 a ]
 "24
-[v F9751 `uc ~T0 @X0 -> 3 `i s cnt ]
+[v F9799 `uc ~T0 @X0 -> 3 `i s cnt ]
 "25
-[v F9752 `uc ~T0 @X0 -> 3 `i s cntf ]
+[v F9800 `uc ~T0 @X0 -> 3 `i s cntf ]
 [; ;ChargeStation_task.c: 23: uint8_t i;
 [; ;ChargeStation_task.c: 24: static uint8_t cnt[3];
 [; ;ChargeStation_task.c: 25: static uint8_t cntf[3];
@@ -9195,10 +9218,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ChargeStation_task.c: 29: cnt[i]++;
 "29
-[e ++ *U + &U F9751 * -> _i `ux -> -> # *U &U F9751 `ui `ux -> -> 1 `i `uc ]
+[e ++ *U + &U F9799 * -> _i `ux -> -> # *U &U F9799 `ui `ux -> -> 1 `i `uc ]
 [; ;ChargeStation_task.c: 30: if (cnt[i] % 2 == 1) {
 "30
-[e $ ! == % -> *U + &U F9751 * -> _i `ux -> -> # *U &U F9751 `ui `ux `i -> 2 `i -> 1 `i 1305  ]
+[e $ ! == % -> *U + &U F9799 * -> _i `ux -> -> # *U &U F9799 `ui `ux `i -> 2 `i -> 1 `i 1305  ]
 {
 [; ;ChargeStation_task.c: 31: LED_output(i, 0);
 "31
@@ -9211,14 +9234,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ChargeStation_task.c: 33: if (cnt[i] / 2 <= port[i].current / 100) {
 "33
-[e $ ! <= -> / -> *U + &U F9751 * -> _i `ux -> -> # *U &U F9751 `ui `ux `i -> 2 `i `ui / . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 2 -> -> 100 `i `ui 1307  ]
+[e $ ! <= -> / -> *U + &U F9799 * -> _i `ux -> -> # *U &U F9799 `ui `ux `i -> 2 `i `ui / . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 2 -> -> 100 `i `ui 1307  ]
 {
 [; ;ChargeStation_task.c: 34: LED_output(i, 1);
 "34
 [e ( _LED_output (2 , _i -> -> 1 `i `uc ]
 [; ;ChargeStation_task.c: 35: cntf[i] = 0;
 "35
-[e = *U + &U F9752 * -> _i `ux -> -> # *U &U F9752 `ui `ux -> -> 0 `i `uc ]
+[e = *U + &U F9800 * -> _i `ux -> -> # *U &U F9800 `ui `ux -> -> 0 `i `uc ]
 "36
 }
 [; ;ChargeStation_task.c: 36: } else {
@@ -9227,17 +9250,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ChargeStation_task.c: 37: cntf[i]++;
 "37
-[e ++ *U + &U F9752 * -> _i `ux -> -> # *U &U F9752 `ui `ux -> -> 1 `i `uc ]
+[e ++ *U + &U F9800 * -> _i `ux -> -> # *U &U F9800 `ui `ux -> -> 1 `i `uc ]
 [; ;ChargeStation_task.c: 38: LED_output(i, 0);
 "38
 [e ( _LED_output (2 , _i -> -> 0 `i `uc ]
 [; ;ChargeStation_task.c: 39: if (cntf[i] >= 2) {
 "39
-[e $ ! >= -> *U + &U F9752 * -> _i `ux -> -> # *U &U F9752 `ui `ux `i -> 2 `i 1309  ]
+[e $ ! >= -> *U + &U F9800 * -> _i `ux -> -> # *U &U F9800 `ui `ux `i -> 2 `i 1309  ]
 {
 [; ;ChargeStation_task.c: 40: cnt[i] = 0;
 "40
-[e = *U + &U F9751 * -> _i `ux -> -> # *U &U F9751 `ui `ux -> -> 0 `i `uc ]
+[e = *U + &U F9799 * -> _i `ux -> -> # *U &U F9799 `ui `ux -> -> 0 `i `uc ]
 "41
 }
 [e :U 1309 ]
@@ -9474,7 +9497,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1339 ]
 [; ;ChargeStation_task.c: 100: data_item = INTEGRATED_CURRENT;
 "100
-[e = _data_item . `E9712 1 ]
+[e = _data_item . `E9760 1 ]
 [; ;ChargeStation_task.c: 101: break;
 "101
 [e $U 1337  ]
@@ -9483,7 +9506,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1340 ]
 [; ;ChargeStation_task.c: 103: data_item = INTEGRATED_TIME;
 "103
-[e = _data_item . `E9712 2 ]
+[e = _data_item . `E9760 2 ]
 [; ;ChargeStation_task.c: 104: break;
 "104
 [e $U 1337  ]
@@ -9495,7 +9518,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1342 ]
 [; ;ChargeStation_task.c: 107: data_item = CURRENT;
 "107
-[e = _data_item . `E9712 0 ]
+[e = _data_item . `E9760 0 ]
 [; ;ChargeStation_task.c: 108: break;
 "108
 [e $U 1337  ]
@@ -9505,9 +9528,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1337  ]
 "98
 [e :U 1338 ]
-[e [\ _data_item , $ . `E9712 0 1339
- , $ . `E9712 1 1340
- , $ . `E9712 2 1341
+[e [\ _data_item , $ . `E9760 0 1339
+ , $ . `E9760 1 1340
+ , $ . `E9760 2 1341
  1342 ]
 "109
 [e :U 1337 ]
@@ -9526,7 +9549,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ChargeStation_task.c: 112: }
 [; ;ChargeStation_task.c: 113: display(PRINT_DATA, "", "");
 "113
-[e ( _display (3 , , . `E9706 2 :s 1C :s 2C ]
+[e ( _display (3 , , . `E9754 2 :s 1C :s 2C ]
 [; ;ChargeStation_task.c: 115: OUT(i, 1);
 "115
 [e ( _OUT (2 , _i -> -> 1 `i `uc ]
@@ -9578,7 +9601,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _ctmu_m 1 0 -> -> 0 `i `ui ]
 [; ;ChargeStation_task.c: 128: display(PRINT_TIME, "", "");
 "128
-[e ( _display (3 , , . `E9706 1 :s 3C :s 4C ]
+[e ( _display (3 , , . `E9754 1 :s 3C :s 4C ]
 "129
 }
 [e :U 1347 ]
@@ -9644,7 +9667,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _time_change_flag -> -> 0 `i `uc ]
 [; ;ChargeStation_task.c: 150: if (print_item == PRINT_TIME)display_flag = 1;
 "150
-[e $ ! == -> _print_item `i -> . `E9706 1 `i 1352  ]
+[e $ ! == -> _print_item `i -> . `E9754 1 `i 1352  ]
 [e = _display_flag -> -> 1 `i `uc ]
 [e :U 1352 ]
 "151
@@ -9690,8 +9713,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _sleep_task ]
 [f ]
 "165
-[v F9765 `uc ~T0 @X0 1 s sleep_flag ]
-[i F9765
+[v F9813 `uc ~T0 @X0 1 s sleep_flag ]
+[i F9813
 -> -> 0 `i `uc
 ]
 [; ;ChargeStation_task.c: 165: static uint8_t sleep_flag = 0;
@@ -9701,7 +9724,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ChargeStation_task.c: 167: sleep_flag = 1;
 "167
-[e = F9765 -> -> 1 `i `uc ]
+[e = F9813 -> -> 1 `i `uc ]
 [; ;ChargeStation_task.c: 168: INTCONbits.GIE = 0;
 "168
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
@@ -9759,10 +9782,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ChargeStation_task.c: 181: sleep_flag = 0;
 "181
-[e = F9765 -> -> 0 `i `uc ]
+[e = F9813 -> -> 0 `i `uc ]
 [; ;ChargeStation_task.c: 182: display(LOGO, "Charge Station", "Welcome back!");
 "182
-[e ( _display (3 , , . `E9706 0 :s 7C :s 8C ]
+[e ( _display (3 , , . `E9754 0 :s 7C :s 8C ]
 [; ;ChargeStation_task.c: 183: break;
 "183
 [e $U 1362  ]
@@ -9780,7 +9803,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 1360 ]
 "179
-[e $ != -> F9765 `i -> -> -> 0 `i `uc `i 1361  ]
+[e $ != -> F9813 `i -> -> -> 0 `i `uc `i 1361  ]
 [e :U 1362 ]
 [; ;ChargeStation_task.c: 187: }
 [; ;ChargeStation_task.c: 188: }
@@ -9993,10 +10016,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1378  ]
 [e :U 1377 ]
 {
-[v F9778 `Cuc ~T0 @X0 -> 2 `i t ]
+[v F9826 `Cuc ~T0 @X0 -> 2 `i t ]
 "260
-[v F9777 `F9778 ~T0 @X0 -> 3 `i s p ]
-[i F9777
+[v F9825 `F9826 ~T0 @X0 -> 3 `i s p ]
+[i F9825
 :U ..
 :U ..
 -> 76 `c
@@ -10020,7 +10043,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ChargeStation_task.c: 265: port[i].integrated_current
 [; ;ChargeStation_task.c: 266: );
 "266
-[e ( _sprintf (1 , , , , (. , &U _str :s 28C &U *U + &U F9777 * -> _i `ux -> * -> # *U &U *U &U F9777 `ui -> -> 2 `i `ui `ux / . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 2 -> -> 1000 `i `ui % . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 2 -> -> 1000 `i `ui . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 4 ]
+[e ( _sprintf (1 , , , , (. , &U _str :s 28C &U *U + &U F9825 * -> _i `ux -> * -> # *U &U *U &U F9825 `ui -> -> 2 `i `ui `ux / . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 2 -> -> 1000 `i `ui % . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 2 -> -> 1000 `i `ui . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 4 ]
 [; ;ChargeStation_task.c: 267: ringbuf_put_str(tx, str);
 "267
 [e ( _ringbuf_put_str (2 , _tx -> &U _str `*Cuc ]

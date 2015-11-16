@@ -13,7 +13,6 @@
 ../My_library/usb/usb_device_cdc.h  \
 ../My_library/My_UART.h  \
 ../My_library/My_terminal.h  \
-../My_library/My_I2CLCD.h  \
 ../My_library/usb/usb_device.h  \
 ../My_library/My_RTCC.h  \
 ../My_library/usb/system.h  \

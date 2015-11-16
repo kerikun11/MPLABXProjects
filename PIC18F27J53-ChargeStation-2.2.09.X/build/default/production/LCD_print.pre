@@ -10513,7 +10513,81 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 16 "../My_library\My_ST7032.h"
+# 19 "../My_library\My_ringbuf.h"
+typedef struct ringbuf {
+char *buf;
+uint16_t size;
+uint16_t head;
+uint16_t tail;
+} ringbuf_t;
+
+void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
+
+uint16_t ringbuf_num(ringbuf_t *rb);
+
+void ringbuf_put(ringbuf_t *rb, char asciicode);
+
+void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
+
+void ringbuf_put_str(ringbuf_t *rb, const char *str);
+
+char ringbuf_pop(ringbuf_t *rb);
+
+void ringbuf_backspace(ringbuf_t *rb);
+
+void ringbuf_delete(ringbuf_t *rb);
+
+# 19 "../My_library\My_I2C.h"
+extern uint8_t I2C_sent_flag;
+extern uint8_t I2C_cfct_flag;
+extern uint8_t I2C_busy;
+
+uint8_t I2C_idole_check(uint8_t mask);
+void I2C_start(void);
+void I2C_restart(void);
+void I2C_stop(void);
+void I2C_send(uint8_t data);
+uint8_t I2C_ack(void);
+void I2C_init_new(void);
+void I2C_ISR(void);
+
+# 36
+void I2C_IdleCheck(char mask);
+void I2C_init_old(void);
+uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
+uint8_t I2C_rStart(int adrs, int rw);
+void I2C_Stop(void);
+uint8_t I2C_Send(uint8_t data);
+uint8_t I2C_Receive(uint8_t ack);
+
+# 19 "../My_library\My_ST7032.h"
+typedef enum ST7032_STATE {
+ST7032_IDOLE,
+ST7032_START,
+ST7032_SEND,
+ST7032_STOP,
+ST7032_WAIT
+} st7032_state_t;
+
+extern ringbuf_t lcd_tx;
+
+void ST7032_command(uint8_t command, uint8_t wait);
+
+void ST7032_clear(void);
+
+void ST7032_cursor(uint8_t col, uint8_t row);
+
+void ST7032_put(char c);
+
+void ST7032_puts(const uint8_t *s);
+
+void ST7032_create_char(int p, char *dt);
+
+void ST7032_init(void);
+
+void ST7032_task(void);
+
+# 50
 void I2C_LCD_Command(uint8_t c);
 void I2C_LCD_Clear(void);
 void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
@@ -10643,30 +10717,6 @@ void RTCC_adjust_time_dec(time_t *tm);
 void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
 
 void RTCC_task(void);
-
-# 19 "../My_library\My_ringbuf.h"
-typedef struct ringbuf {
-char *buf;
-uint16_t size;
-uint16_t head;
-uint16_t tail;
-} ringbuf_t;
-
-void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
-
-uint16_t ringbuf_num(ringbuf_t *rb);
-
-void ringbuf_put(ringbuf_t *rb, char asciicode);
-
-void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
-
-void ringbuf_put_str(ringbuf_t *rb, const char *str);
-
-char ringbuf_pop(ringbuf_t *rb);
-
-void ringbuf_backspace(ringbuf_t *rb);
-
-void ringbuf_delete(ringbuf_t *rb);
 
 # 45 "io.h"
 void OUT(uint8_t b, uint8_t value);

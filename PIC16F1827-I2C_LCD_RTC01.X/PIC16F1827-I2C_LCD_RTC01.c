@@ -18,7 +18,7 @@
 #pragma config BORV = LO        // Brown-out Reset Voltage Selection (Brown-out Reset Voltage (Vbor), low trip point selected.)
 #pragma config LVP = OFF        // Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)
 #define _XTAL_FREQ 32000000
-#include <My_header_16F.h>
+#include "My_header_16F.h"
 
 button_t sw_RA0;
 button_t sw_RA1;
@@ -71,6 +71,7 @@ uint8_t month_length(uint8_t year, uint8_t month) {
             if (year % 4 == 0) return 29;
             else return 28;
     }
+    return 0;
 }
 
 void timeset(uint8_t *value, uint8_t min_num, uint8_t max_num, uint8_t Reg, uint8_t column, uint8_t row) {

@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"45 ../My_library\My_ST7032.h
-[v _ST7032_ISR `(v ~T0 @X0 0 ef ]
+"30 ../My_library\My_I2C.h
+[v _I2C_ISR `(v ~T0 @X0 0 ef ]
 "11054 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [s S709 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S709 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF ]
@@ -87,7 +87,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _timer0_init `(v ~T0 @X0 0 ef1`uc ]
 "51
 [v _timer1_init `(v ~T0 @X0 0 ef2`uc`uc ]
-"43 ../My_library\My_ST7032.h
+"41 ../My_library\My_ST7032.h
 [v _ST7032_init `(v ~T0 @X0 0 ef ]
 [p mainexit ]
 "18300 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
@@ -110,13 +110,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1191 . . . . . . ]
 "18341
 [v _INTCONbits `VS1191 ~T0 @X0 0 e@4082 ]
-"47 ../My_library\My_ST7032.h
+"43 ../My_library\My_ST7032.h
 [v _ST7032_task `(v ~T0 @X0 0 ef ]
-"33
+"31
 [v _ST7032_clear `(v ~T0 @X0 0 ef ]
-"35
+"33
 [v _ST7032_cursor `(v ~T0 @X0 0 ef2`uc`uc ]
-"39
+"37
 [v _ST7032_puts `(v ~T0 @X0 0 ef1`*Cuc ]
 "4 main.c
 [p x WDTEN=OFF ]
@@ -8298,6 +8298,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_PIC.h: 101: void Delay_ms(uint16_t ms);
 [; ;My_library\My_PIC.h: 105: void millis_timer(void);
 [; ;My_library\My_PIC.h: 106: uint32_t millis(void);
+[; ;My_library\My_I2C.h: 19: extern uint8_t I2C_sent_flag;
+[; ;My_library\My_I2C.h: 20: extern uint8_t I2C_cfct_flag;
+[; ;My_library\My_I2C.h: 21: extern uint8_t I2C_busy;
+[; ;My_library\My_I2C.h: 23: uint8_t I2C_idole_check(uint8_t mask);
+[; ;My_library\My_I2C.h: 24: void I2C_start(void);
+[; ;My_library\My_I2C.h: 25: void I2C_restart(void);
+[; ;My_library\My_I2C.h: 26: void I2C_stop(void);
+[; ;My_library\My_I2C.h: 27: void I2C_send(uint8_t data);
+[; ;My_library\My_I2C.h: 28: uint8_t I2C_ack(void);
+[; ;My_library\My_I2C.h: 29: void I2C_init_new(void);
+[; ;My_library\My_I2C.h: 30: void I2C_ISR(void);
 [; ;My_library\My_ST7032.h: 19: typedef enum ST7032_STATE {
 [; ;My_library\My_ST7032.h: 20: ST7032_IDOLE,
 [; ;My_library\My_ST7032.h: 21: ST7032_START,
@@ -8306,29 +8317,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_ST7032.h: 24: ST7032_WAIT
 [; ;My_library\My_ST7032.h: 25: } st7032_state_t;
 [; ;My_library\My_ST7032.h: 27: extern ringbuf_t lcd_tx;
-[; ;My_library\My_ST7032.h: 28: extern uint8_t st7032_flag;
-[; ;My_library\My_ST7032.h: 31: void ST7032_command(uint8_t command, uint8_t wait);
-[; ;My_library\My_ST7032.h: 33: void ST7032_clear(void);
-[; ;My_library\My_ST7032.h: 35: void ST7032_cursor(uint8_t col, uint8_t row);
-[; ;My_library\My_ST7032.h: 37: void ST7032_put(char c);
-[; ;My_library\My_ST7032.h: 39: void ST7032_puts(const uint8_t *s);
-[; ;My_library\My_ST7032.h: 41: void ST7032_create_char(int p, char *dt);
-[; ;My_library\My_ST7032.h: 43: void ST7032_init(void);
-[; ;My_library\My_ST7032.h: 45: void ST7032_ISR(void);
-[; ;My_library\My_ST7032.h: 47: void ST7032_task(void);
+[; ;My_library\My_ST7032.h: 29: void ST7032_command(uint8_t command, uint8_t wait);
+[; ;My_library\My_ST7032.h: 31: void ST7032_clear(void);
+[; ;My_library\My_ST7032.h: 33: void ST7032_cursor(uint8_t col, uint8_t row);
+[; ;My_library\My_ST7032.h: 35: void ST7032_put(char c);
+[; ;My_library\My_ST7032.h: 37: void ST7032_puts(const uint8_t *s);
+[; ;My_library\My_ST7032.h: 39: void ST7032_create_char(int p, char *dt);
+[; ;My_library\My_ST7032.h: 41: void ST7032_init(void);
+[; ;My_library\My_ST7032.h: 43: void ST7032_task(void);
 "31 main.c
 [v _one_second_flag `uc ~T0 @X0 1 e ]
 [; ;main.c: 31: uint8_t one_second_flag;
-[v F8613 `(v ~T0 @X0 1 tf ]
+[v F8629 `(v ~T0 @X0 1 tf ]
 "33
-[v _ISR `IF8613 ~T0 @X0 1 e ]
+[v _ISR `IF8629 ~T0 @X0 1 e ]
 {
 [; ;main.c: 33: void interrupt ISR(void) {
 [e :U _ISR ]
 [f ]
-[; ;main.c: 34: ST7032_ISR();
+[; ;main.c: 34: I2C_ISR();
 "34
-[e ( _ST7032_ISR ..  ]
+[e ( _I2C_ISR ..  ]
 [; ;main.c: 35: if (PIR1bits.TMR1IF && PIE1bits.TMR1IE) {
 "35
 [e $ ! && != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i != -> . . _PIE1bits 0 0 `i -> -> -> 0 `i `Vuc `i 1220  ]

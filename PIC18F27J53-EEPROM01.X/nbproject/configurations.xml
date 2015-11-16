@@ -12,6 +12,24 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="My_library" displayName="My_library" projectFiles="true">
+        <logicalFolder name="usb" displayName="usb" projectFiles="true">
+          <itemPath>../My_library/usb/usb_descriptors.c</itemPath>
+          <itemPath>../My_library/usb/usb_device.c</itemPath>
+          <itemPath>../My_library/usb/usb_device_cdc.c</itemPath>
+        </logicalFolder>
+        <itemPath>../My_library/My_button.c</itemPath>
+        <itemPath>../My_library/My_EEPROM.c</itemPath>
+        <itemPath>../My_library/My_I2C.c</itemPath>
+        <itemPath>../My_library/My_PIC.c</itemPath>
+        <itemPath>../My_library/My_ringbuf.c</itemPath>
+        <itemPath>../My_library/My_RTCC.c</itemPath>
+        <itemPath>../My_library/My_SPI.c</itemPath>
+        <itemPath>../My_library/My_ST7032.c</itemPath>
+        <itemPath>../My_library/My_terminal.c</itemPath>
+        <itemPath>../My_library/My_UART.c</itemPath>
+        <itemPath>../My_library/My_usb_cdc.c</itemPath>
+      </logicalFolder>
       <itemPath>PIC18F27J53-EEPROM01.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -20,6 +38,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>../My_library</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
@@ -58,7 +79,7 @@
       <HI-TECH-COMP>
         <property key="asmlist" value="true"/>
         <property key="define-macros" value=""/>
-        <property key="extra-include-directories" value="..\My_header"/>
+        <property key="extra-include-directories" value="..\My_library"/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="free"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>
@@ -121,11 +142,11 @@
       </HI-TECH-LINK>
       <PICkit3PlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="Freeze Peripherals" value="true"/>
         <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

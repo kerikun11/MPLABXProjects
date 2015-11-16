@@ -2,7 +2,7 @@
 # 1 "main.c"
 
 
-# 20
+# 21
 #pragma config WDTEN = ON, PLLDIV = 2, CFGPLLEN = ON, STVREN = OFF, XINST = OFF
 
 #pragma config CPUDIV = OSC1, CP0 = OFF
@@ -10503,6 +10503,29 @@ void Delay_ms(uint16_t ms);
 void millis_timer(void);
 uint32_t millis(void);
 
+# 19 "../My_library\My_I2C.h"
+extern uint8_t I2C_sent_flag;
+extern uint8_t I2C_cfct_flag;
+extern uint8_t I2C_busy;
+
+uint8_t I2C_idole_check(uint8_t mask);
+void I2C_start(void);
+void I2C_restart(void);
+void I2C_stop(void);
+void I2C_send(uint8_t data);
+uint8_t I2C_ack(void);
+void I2C_init_new(void);
+void I2C_ISR(void);
+
+# 36
+void I2C_IdleCheck(char mask);
+void I2C_init_old(void);
+uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
+uint8_t I2C_rStart(int adrs, int rw);
+void I2C_Stop(void);
+uint8_t I2C_Send(uint8_t data);
+uint8_t I2C_Receive(uint8_t ack);
+
 # 19 "../My_library\My_ST7032.h"
 typedef enum ST7032_STATE {
 ST7032_IDOLE,
@@ -10513,8 +10536,6 @@ ST7032_WAIT
 } st7032_state_t;
 
 extern ringbuf_t lcd_tx;
-extern uint8_t st7032_flag;
-
 
 void ST7032_command(uint8_t command, uint8_t wait);
 
@@ -10530,9 +10551,16 @@ void ST7032_create_char(int p, char *dt);
 
 void ST7032_init(void);
 
-void ST7032_ISR(void);
-
 void ST7032_task(void);
+
+# 50
+void I2C_LCD_Command(uint8_t c);
+void I2C_LCD_Clear(void);
+void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
+void I2C_LCD_Putc(uint8_t c);
+void I2C_LCD_Puts(const uint8_t * s);
+void I2C_LCD_CreateChar(int p, char *dt);
+void I2C_LCD_init(void);
 
 # 26 "../My_library\My_button.h"
 typedef struct button {
@@ -11748,9 +11776,10 @@ uint8_t settings_led_indicator(void);
 uint8_t settings_integrating_reset(void);
 void settings_task(void);
 
-# 49 "main.c"
+# 50 "main.c"
 void interrupt ISR(void) {
 USB_ISR();
+I2C_ISR();
 if (INTCONbits.T0IF && INTCONbits.T0IE) {
 INTCONbits.T0IF = 0;
 millis_timer();
@@ -11802,7 +11831,7 @@ ADC_init(0);
 CTMU_init();
 
 USB_init();
-static uint8_t usbtx[2000];
+static uint8_t usbtx[1800];
 ringbuf_init(&usb_tx, usbtx, sizeof (usbtx));
 static uint8_t usbrx[100];
 ringbuf_init(&usb_rx, usbrx, sizeof (usbrx));

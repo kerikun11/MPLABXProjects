@@ -64,9 +64,9 @@ void main_init(void) {
     ANCON1 = 0b00011111; // AN8,AN9,AN10 is analog
     INTCON2bits.RBPU = 0;
 
-    timer0_init(6); // 用
-    timer1_init(0, T1OSC); // 用
-    timer3_init(2); // button用
+    timer0_init(6); 
+    timer1_init(0, T1OSC);
+    timer3_init(2);
     I2C_init();
     I2C_LCD_init();
 
@@ -78,7 +78,6 @@ void main_init(void) {
     static uint8_t rxbuf[250];
     ringbuf_init(&rx_buf, rxbuf, sizeof (rxbuf));
 }
-// メインの処理
 
 void main() {
     main_init();

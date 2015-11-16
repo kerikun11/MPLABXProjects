@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\PIC18F27J53-ChargeStation-2.1.01.X.production.sym \
   --cmf=dist/default/production\PIC18F27J53-ChargeStation-2.1.01.X.production.cmf \
-  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s58o.2 \
+  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s2fs.2 \
   -Mdist/default/production/PIC18F27J53-ChargeStation-2.1.01.X.production.map \
   -E1 -ver=XC8 -ASTACK=01DCh-0eafh -pstack=STACK -ACODE=00h-01FFF7h \
   -ACONST=00h-01FFF7h -ASMALLCONST=0F00h-0FFFhx496,01FF00h-01FFF7h \
@@ -26,7 +26,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\KERIKU~1\AppData\Local\Temp\s58o.obj \
+  C:\Users\KERIKU~1\AppData\Local\Temp\s2fs.obj \
   dist/default/production\PIC18F27J53-ChargeStation-2.1.01.X.production.obj 
 
 Object code version is 3.11
@@ -39,7 +39,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\KERIKU~1\AppData\Local\Temp\s58o.obj
+C:\Users\KERIKU~1\AppData\Local\Temp\s2fs.obj
                 end_init                            1FE      1FE        4        4       0
                 reset_vec                             0        0        4        0       0
                 config                            1FFF8    1FFF8        8    1FFF8       0
@@ -958,7 +958,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 278 in file "main.c"
+		line 267 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1094,7 +1094,7 @@ Total ram usage:        2 bytes
 
  *************** function _sw_flag_read *****************
  Defined at:
-		line 125 in file "main.c"
+		line 114 in file "main.c"
  Parameters:    Size  Location     Type
   port            1    wreg     unsigned char 
   bit_and         1    0[BANK0 ] unsigned char 
@@ -1125,7 +1125,7 @@ Total ram usage:        2 bytes
 
  *************** function _sw_flag_clear *****************
  Defined at:
-		line 138 in file "main.c"
+		line 127 in file "main.c"
  Parameters:    Size  Location     Type
   port            1    wreg     unsigned char 
   bit_and         1    0[BANK0 ] unsigned char 
@@ -1190,7 +1190,7 @@ Total ram usage:        6 bytes
 
  *************** function _display *****************
  Defined at:
-		line 191 in file "main.c"
+		line 180 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1501,7 +1501,7 @@ Total ram usage:        0 bytes
 
  *************** function _OUT *****************
  Defined at:
-		line 85 in file "main.c"
+		line 74 in file "main.c"
  Parameters:    Size  Location     Type
   b               1    wreg     unsigned char 
   value           1    0[BANK0 ] unsigned char 
@@ -1532,7 +1532,7 @@ Total ram usage:        2 bytes
 
  *************** function _LED *****************
  Defined at:
-		line 111 in file "main.c"
+		line 100 in file "main.c"
  Parameters:    Size  Location     Type
   b               1    wreg     unsigned char 
   value           1    0[BANK0 ] unsigned char 
@@ -1886,7 +1886,7 @@ Total ram usage:        1 bytes
 
  *************** function _ISR *****************
  Defined at:
-		line 241 in file "main.c"
+		line 230 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2080,7 +2080,7 @@ Total ram usage:        1 bytes
 
  *************** function _lchika *****************
  Defined at:
-		line 152 in file "main.c"
+		line 141 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2144,7 +2144,7 @@ Total ram usage:        7 bytes
 
  *************** function i2_LED *****************
  Defined at:
-		line 111 in file "main.c"
+		line 100 in file "main.c"
  Parameters:    Size  Location     Type
   b               1    wreg     unsigned char 
   value           1    0[COMRAM] unsigned char 
@@ -2370,7 +2370,7 @@ Total ram usage:        8 bytes
 
  *************** function _Auto_cut *****************
  Defined at:
-		line 175 in file "main.c"
+		line 164 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2402,7 +2402,7 @@ Total ram usage:        3 bytes
 
  *************** function i2_OUT *****************
  Defined at:
-		line 85 in file "main.c"
+		line 74 in file "main.c"
  Parameters:    Size  Location     Type
   b               1    wreg     unsigned char 
   value           1    0[COMRAM] unsigned char 

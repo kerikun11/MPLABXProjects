@@ -21,7 +21,7 @@
 #include <stdint.h>
 #include <My_PIC.h>
 #include <My_I2C.h>
-#include <My_I2C_LCD_old.h>
+#include <My_ST7032.h>
 #include <My_ringbuf.h>
 
 #define LED0 LATAbits.LATA0
@@ -51,7 +51,6 @@ void main_init(void) {
 
     timer1_init(0, T1OSC);
 
-    I2C_init();
     I2C_LCD_init();
 }
 

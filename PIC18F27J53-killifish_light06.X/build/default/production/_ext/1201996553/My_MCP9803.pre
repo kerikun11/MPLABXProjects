@@ -1,0 +1,38 @@
+
+# 1 "../My_library/My_MCP9803.c"
+
+# 18 "../My_library/My_MCP9803.h"
+void TM_init(uint8_t config);
+uint16_t TM_Read();
+
+# 7 "../My_library/My_MCP9803.c"
+void TM_init(uint8_t config) {
+uint8_t ans;
+ans = I2C_Start(0x48, W_0);
+if (ans == 0) {
+I2C_Send(0x01);
+I2C_Send(config);
+}
+I2C_Stop();
+__delay_us(26);
+}
+
+uint16_t TM_Read() {
+uint8_t dataH;
+uint8_t dataL;
+uint8_t ans;
+ans = I2C_Start(0x48, W_0);
+if (ans == 0) {
+I2C_Send(0x00);
+}
+ans = I2C_rStart(0x48, R_1);
+if (ans == 0) {
+dataH = I2C_Receive(0);
+dataL = I2C_Receive(1);
+}
+I2C_Stop();
+__delay_us(26);
+
+# 37
+return ((0xFF00 & (dataH << 8)) + (0xFF & dataL));
+}

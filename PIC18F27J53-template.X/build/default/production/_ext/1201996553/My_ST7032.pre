@@ -91,14 +91,29 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 16 "../My_library/My_ST7032.h"
-void I2C_LCD_Command(uint8_t c);
-void I2C_LCD_Clear(void);
-void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
-void I2C_LCD_Putc(uint8_t c);
-void I2C_LCD_Puts(const uint8_t * s);
-void I2C_LCD_CreateChar(int p, char *dt);
-void I2C_LCD_init(void);
+# 19 "../My_library\My_ringbuf.h"
+typedef struct ringbuf {
+char *buf;
+uint16_t size;
+uint16_t head;
+uint16_t tail;
+} ringbuf_t;
+
+void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
+
+uint16_t ringbuf_num(ringbuf_t *rb);
+
+void ringbuf_put(ringbuf_t *rb, char asciicode);
+
+void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
+
+void ringbuf_put_str(ringbuf_t *rb, const char *str);
+
+char ringbuf_pop(ringbuf_t *rb);
+
+void ringbuf_backspace(ringbuf_t *rb);
+
+void ringbuf_delete(ringbuf_t *rb);
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -10435,40 +10450,66 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 21 "../My_library/My_I2C.h"
+# 19 "../My_library\My_I2C.h"
+extern uint8_t I2C_sent_flag;
+extern uint8_t I2C_cfct_flag;
+extern uint8_t I2C_busy;
+
+uint8_t I2C_idole_check(uint8_t mask);
+void I2C_start(void);
+void I2C_restart(void);
+void I2C_stop(void);
+void I2C_send(uint8_t data);
+uint8_t I2C_ack(void);
+void I2C_init_new(void);
+void I2C_ISR(void);
+
+# 36
 void I2C_IdleCheck(char mask);
-void I2C_init(void);
+void I2C_init_old(void);
 uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
 uint8_t I2C_rStart(int adrs, int rw);
 void I2C_Stop(void);
 uint8_t I2C_Send(uint8_t data);
 uint8_t I2C_Receive(uint8_t ack);
 
-# 19 "../My_library/My_ringbuf.h"
-typedef struct ringbuf {
-char *buf;
-uint16_t size;
-uint16_t head;
-uint16_t tail;
-} ringbuf_t;
+# 19 "../My_library/My_ST7032.h"
+typedef enum ST7032_STATE {
+ST7032_IDOLE,
+ST7032_START,
+ST7032_SEND,
+ST7032_STOP,
+ST7032_WAIT
+} st7032_state_t;
 
-void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
+extern ringbuf_t lcd_tx;
 
-uint16_t ringbuf_num(ringbuf_t *rb);
+void ST7032_command(uint8_t command, uint8_t wait);
 
-void ringbuf_put(ringbuf_t *rb, char asciicode);
+void ST7032_clear(void);
 
-void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
+void ST7032_cursor(uint8_t col, uint8_t row);
 
-void ringbuf_put_str(ringbuf_t *rb, const char *str);
+void ST7032_put(char c);
 
-char ringbuf_pop(ringbuf_t *rb);
+void ST7032_puts(const uint8_t *s);
 
-void ringbuf_backspace(ringbuf_t *rb);
+void ST7032_create_char(int p, char *dt);
 
-void ringbuf_delete(ringbuf_t *rb);
+void ST7032_init(void);
 
-# 20 "../My_library/My_PIC.h"
+void ST7032_task(void);
+
+# 50
+void I2C_LCD_Command(uint8_t c);
+void I2C_LCD_Clear(void);
+void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
+void I2C_LCD_Putc(uint8_t c);
+void I2C_LCD_Puts(const uint8_t * s);
+void I2C_LCD_CreateChar(int p, char *dt);
+void I2C_LCD_init(void);
+
+# 20 "../My_library\My_PIC.h"
 void OSC_init(void);
 
 # 36
@@ -10503,7 +10544,134 @@ void Delay_ms(uint16_t ms);
 void millis_timer(void);
 uint32_t millis(void);
 
-# 8 "../My_library/My_ST7032.c"
+# 14 "../My_library/My_ST7032.c"
+st7032_state_t st7032_state;
+ringbuf_t lcd_tx;
+
+void ST7032_command(uint8_t command, uint8_t wait) {
+ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
+ringbuf_put(&lcd_tx, 0x80);
+ringbuf_put(&lcd_tx, command);
+ringbuf_put(&lcd_tx, 0);
+ringbuf_put(&lcd_tx, wait);
+}
+
+void ST7032_clear(void) {
+ST7032_command(0x01, 2);
+}
+
+void ST7032_cursor(uint8_t col, uint8_t row) {
+uint8_t row_offsets[] = {0x00, 0x40};
+ST7032_command(0x80 | (col + row_offsets[row]), 0);
+}
+
+void ST7032_put(char c) {
+ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
+ringbuf_put(&lcd_tx, 0b11000000);
+ringbuf_put(&lcd_tx, c);
+ringbuf_put(&lcd_tx, 0);
+ringbuf_put(&lcd_tx, 1);
+}
+
+void ST7032_puts(const uint8_t *s) {
+while (*s) {
+ST7032_put(*s++);
+}
+}
+
+void ST7032_create_char(int p, char *dt) {
+ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
+ringbuf_put(&lcd_tx, 0x80);
+ringbuf_put(&lcd_tx, 0x40 | (p << 3));
+ringbuf_put(&lcd_tx, 0x40);
+for (uint8_t i = 0; i < 7; i++) {
+ringbuf_put(&lcd_tx, *dt++);
+
+}
+ringbuf_put(&lcd_tx, 0);
+ringbuf_put(&lcd_tx, 1);
+}
+
+void ST7032_init(void) {
+I2C_init_new();
+
+static char buf[200];
+ringbuf_init(&lcd_tx, buf, sizeof (buf));
+
+ringbuf_put(&lcd_tx, 0);
+ringbuf_put(&lcd_tx, 3);
+
+ST7032_command(0x38, 1);
+ST7032_command(0x39, 1);
+ST7032_command(0x14, 1);
+ST7032_command(0x70, 1);
+ST7032_command(0x56, 1);
+ST7032_command(0x6C, 3);
+ST7032_command(0x38, 1);
+ST7032_command(0x0C, 1);
+ST7032_command(0x06, 1);
+ST7032_clear();
+}
+
+void ST7032_task(void) {
+if (I2C_idole_check(0x05)) return;
+
+static uint16_t wait;
+static st7032_state_t st7032_state = ST7032_IDOLE;
+
+switch (st7032_state) {
+case ST7032_IDOLE:
+if (ringbuf_num(&lcd_tx)) {
+st7032_state = ST7032_START;
+}
+break;
+case ST7032_START:
+I2C_sent_flag = 1;
+I2C_start();
+st7032_state = ST7032_SEND;
+break;
+case ST7032_SEND:
+if (!I2C_sent_flag) return;
+uint8_t data = ringbuf_pop(&lcd_tx);
+if (data != 0) {
+I2C_sent_flag = 0;
+I2C_send(data);
+} else {
+wait = ringbuf_pop(&lcd_tx);
+switch (wait) {
+case 0:
+wait = 0;
+break;
+case 1:
+wait = 2;
+break;
+case 2:
+wait = 25;
+break;
+case 3:
+wait = 800;
+break;
+default:
+wait = 1;
+break;
+}
+st7032_state = ST7032_STOP;
+}
+break;
+case ST7032_STOP:
+I2C_stop();
+st7032_state = ST7032_WAIT;
+break;
+case ST7032_WAIT:
+if (wait == 0) st7032_state = ST7032_IDOLE;
+else wait--;
+break;
+}
+}
+
+
+
+
 void I2C_LCD_Command(uint8_t c) {
 uint8_t ans;
 
@@ -10575,6 +10743,8 @@ I2C_Stop();
 }
 
 void I2C_LCD_init(void) {
+I2C_init_old();
+
 for (uint8_t i = 0; i < 40; i++) _delay((unsigned long)((1)*(48000000/4000.0)));
 I2C_LCD_Command(0x38);
 I2C_LCD_Command(0x39);
@@ -10588,3 +10758,4 @@ I2C_LCD_Command(0x0C);
 I2C_LCD_Command(0x06);
 I2C_LCD_Clear();
 }
+

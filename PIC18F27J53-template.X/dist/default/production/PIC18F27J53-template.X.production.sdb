@@ -103,6 +103,14 @@ EVENT_EP0_REQUEST 3
 EVENT_ATTACH 4
 EVENT_TRANSFER_TERMINATED 5
 ]
+"14 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
+[e E8590 ST7032_STATE `uc
+ST7032_IDOLE 0
+ST7032_START 1
+ST7032_SEND 2
+ST7032_STOP 3
+ST7032_WAIT 4
+]
 "18 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
 [e E8794 . `uc
 DETACHED_STATE 0
@@ -159,23 +167,35 @@ EVENT_ATTACH 4
 EVENT_TRANSFER_TERMINATED 5
 ]
 "7 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_I2C.c
-[v _I2C_IdleCheck I2C_IdleCheck `(v  1 e 0 0 ]
+[v _I2C_idole_check I2C_idole_check `(uc  1 e 1 0 ]
 "11
-[v _I2C_init I2C_init `(v  1 e 0 0 ]
-"21
+[v _I2C_start I2C_start `(v  1 e 0 0 ]
+"19
+[v _I2C_stop I2C_stop `(v  1 e 0 0 ]
+"23
+[v _I2C_send I2C_send `(v  1 e 0 0 ]
+"31
+[v _I2C_init_new I2C_init_new `(v  1 e 0 0 ]
+"44
+[v _I2C_ISR I2C_ISR `(v  1 e 0 0 ]
+"58
+[v _I2C_IdleCheck I2C_IdleCheck `(v  1 e 0 0 ]
+"62
+[v _I2C_init_old I2C_init_old `(v  1 e 0 0 ]
+"72
 [v _I2C_Start I2C_Start `(uc  1 e 1 0 ]
-"45
+"96
 [v _I2C_Stop I2C_Stop `(v  1 e 0 0 ]
-"51
+"102
 [v _I2C_Send I2C_Send `(uc  1 e 1 0 ]
-"6 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
-[v _timer0_init timer0_init `(v  1 e 0 0 ]
-"42
-[v _timer1_init timer1_init `(v  1 e 0 0 ]
-"73
-[v _timer3_init timer3_init `(v  1 e 0 0 ]
-"107
+"8 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
 [v _OSC_init OSC_init `(v  1 e 0 0 ]
+"34
+[v _timer0_init timer0_init `(v  1 e 0 0 ]
+"70
+[v _timer1_init timer1_init `(v  1 e 0 0 ]
+"101
+[v _timer3_init timer3_init `(v  1 e 0 0 ]
 "5 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ringbuf.c
 [v _ringbuf_init ringbuf_init `(v  1 e 0 0 ]
 "12
@@ -197,49 +217,55 @@ EVENT_TRANSFER_TERMINATED 5
 [v _ringbuf_delete ringbuf_delete `(v  1 e 0 0 ]
 "22 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
 [v _RTCC_init RTCC_init `(v  1 e 0 0 ]
-"46
-[v _d_to_x d_to_x `(uc  1 e 1 0 ]
-"52
-[v _x_to_d x_to_d `(uc  1 e 1 0 ]
-"56
-[v _month_length month_length `(uc  1 e 1 0 ]
-"81
-[v _get_quot_rem get_quot_rem `(ul  1 e 4 0 ]
-"90
-[v _RTCC_to_caltime RTCC_to_caltime `(v  1 e 0 0 ]
-"106
-[v _caltime_to_RTCC caltime_to_RTCC `(v  1 e 0 0 ]
-"126
-[v _epoch_to_caltime epoch_to_caltime `(v  1 e 0 0 ]
-"180
-[v _caltime_to_epoch caltime_to_epoch `(v  1 e 0 0 ]
-"200
-[v _RTCC_from_RTCC RTCC_from_RTCC `(v  1 e 0 0 ]
-"205
-[v _RTCC_from_caltime RTCC_from_caltime `(v  1 e 0 0 ]
-"211
-[v _RTCC_from_epoch RTCC_from_epoch `(v  1 e 0 0 ]
-"218
-[v _display_dec display_dec `(v  1 e 0 0 ]
-"269
-[v _RTCC_adjust_time_toggle RTCC_adjust_time_toggle `(v  1 e 0 0 ]
-"277
-[v _RTCC_adjust_time_cursor RTCC_adjust_time_cursor `(v  1 e 0 0 ]
-"287
-[v _RTCC_adjust_time_inc RTCC_adjust_time_inc `(v  1 e 0 0 ]
-"308
-[v _RTCC_adjust_time_dec RTCC_adjust_time_dec `(v  1 e 0 0 ]
-"353
-[v _RTCC_task RTCC_task `(v  1 e 0 0 ]
-"8 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
-[v _I2C_LCD_Command I2C_LCD_Command `(v  1 e 0 0 ]
-"21
-[v _I2C_LCD_Clear I2C_LCD_Clear `(v  1 e 0 0 ]
-"26
-[v _I2C_LCD_SetCursor I2C_LCD_SetCursor `(v  1 e 0 0 ]
 "45
+[v _d_to_x d_to_x `(uc  1 e 1 0 ]
+"51
+[v _x_to_d x_to_d `(uc  1 e 1 0 ]
+"55
+[v _month_length month_length `(uc  1 e 1 0 ]
+"80
+[v _get_quot_rem get_quot_rem `(ul  1 e 4 0 ]
+"89
+[v _RTCC_to_caltime RTCC_to_caltime `(v  1 e 0 0 ]
+"105
+[v _caltime_to_RTCC caltime_to_RTCC `(v  1 e 0 0 ]
+"125
+[v _epoch_to_caltime epoch_to_caltime `(v  1 e 0 0 ]
+"179
+[v _caltime_to_epoch caltime_to_epoch `(v  1 e 0 0 ]
+"199
+[v _RTCC_from_RTCC RTCC_from_RTCC `(v  1 e 0 0 ]
+"204
+[v _RTCC_from_caltime RTCC_from_caltime `(v  1 e 0 0 ]
+"210
+[v _RTCC_from_epoch RTCC_from_epoch `(v  1 e 0 0 ]
+"217
+[v _display_dec display_dec `(v  1 e 0 0 ]
+"268
+[v _RTCC_adjust_time_toggle RTCC_adjust_time_toggle `(v  1 e 0 0 ]
+"276
+[v _RTCC_adjust_time_cursor RTCC_adjust_time_cursor `(v  1 e 0 0 ]
+"286
+[v _RTCC_adjust_time_inc RTCC_adjust_time_inc `(v  1 e 0 0 ]
+"307
+[v _RTCC_adjust_time_dec RTCC_adjust_time_dec `(v  1 e 0 0 ]
+"352
+[v _RTCC_task RTCC_task `(v  1 e 0 0 ]
+"17 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
+[v _ST7032_command ST7032_command `(v  1 e 0 0 ]
+"25
+[v _ST7032_clear ST7032_clear `(v  1 e 0 0 ]
+"34
+[v _ST7032_put ST7032_put `(v  1 e 0 0 ]
+"141
+[v _I2C_LCD_Command I2C_LCD_Command `(v  1 e 0 0 ]
+"154
+[v _I2C_LCD_Clear I2C_LCD_Clear `(v  1 e 0 0 ]
+"159
+[v _I2C_LCD_SetCursor I2C_LCD_SetCursor `(v  1 e 0 0 ]
+"178
 [v _I2C_LCD_Puts I2C_LCD_Puts `(v  1 e 0 0 ]
-"78
+"211
 [v _I2C_LCD_init I2C_LCD_init `(v  1 e 0 0 ]
 "8 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_terminal.c
 [v _terminal_task terminal_task `(v  1 e 0 0 ]
@@ -374,21 +400,23 @@ EVENT_TRANSFER_TERMINATED 5
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"36 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-template.X\main.c
+"34 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-template.X\main.c
 [v _ISR ISR `II(v  1 e 0 0 ]
-"51
-[v _bootload bootload `(v  1 e 0 0 ]
-"60
+"50
 [v _terminal_operation terminal_operation `(v  1 e 0 0 ]
-"83
+"73
 [v _main_init main_init `(v  1 e 0 0 ]
-"112
+"101
 [v _main main `(i  1 e 2 0 ]
-"216 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+"3 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_I2C.c
+[v _I2C_sent_flag I2C_sent_flag `uc  1 e 1 0 ]
+"4
+[v _I2C_cfct_flag I2C_cfct_flag `uc  1 e 1 0 ]
+"217 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
 [v _ms ms `ul  1 e 4 0 ]
 "17 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
 [v _weekday_3char weekday_3char `C[7][4]uc  1 e 28 0 ]
-[s S3175 . 1 `uc 1 ss 1 0 :1:0 
+[s S3345 . 1 `uc 1 ss 1 0 :1:0 
 `uc 1 mm 1 0 :1:1 
 `uc 1 hh 1 0 :1:2 
 `uc 1 DD 1 0 :1:3 
@@ -396,21 +424,23 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 YY 1 0 :1:5 
 ]
 "19
-[u S3182 . 1 `uc 1 flags 1 0 `S3175 1 flag 1 0 ]
-[s S3185 . 1 `S3182 1 . 1 0 ]
-[s S3187 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3185 1 edit 1 13 ]
-[v _now now `S3187  1 e 14 0 ]
+[u S3352 . 1 `uc 1 flags 1 0 `S3345 1 flag 1 0 ]
+[s S3355 . 1 `S3352 1 . 1 0 ]
+[s S3357 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3355 1 edit 1 13 ]
+[v _now now `S3357  1 e 14 0 ]
 "20
 [v _time_change_flag time_change_flag `uc  1 e 1 0 ]
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+"15 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
+[v _lcd_tx lcd_tx `S3289  1 e 8 0 ]
 "7 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_UART.c
-[v _uart_tx uart_tx `S3119  1 e 8 0 ]
+[v _uart_tx uart_tx `S3289  1 e 8 0 ]
 "8
-[v _uart_rx uart_rx `S3119  1 e 8 0 ]
+[v _uart_rx uart_rx `S3289  1 e 8 0 ]
 "4 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
-[v _usb_tx usb_tx `S3119  1 e 8 0 ]
+[v _usb_tx usb_tx `S3289  1 e 8 0 ]
 "5
-[v _usb_rx usb_rx `S3119  1 e 8 0 ]
+[v _usb_rx usb_rx `S3289  1 e 8 0 ]
 [s S21 _USB_DEVICE_DESCRIPTOR 18 `uc 1 bLength 1 0 `uc 1 bDescriptorType 1 1 `ui 1 bcdUSB 2 2 `uc 1 bDeviceClass 1 4 `uc 1 bDeviceSubClass 1 5 `uc 1 bDeviceProtocol 1 6 `uc 1 bMaxPacketSize0 1 7 `ui 1 idVendor 2 8 `ui 1 idProduct 2 10 `ui 1 bcdDevice 2 12 `uc 1 iManufacturer 1 14 `uc 1 iProduct 1 15 `uc 1 iSerialNumber 1 16 `uc 1 bNumConfigurations 1 17 ]
 "166 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_descriptors.c
 [v _device_dsc device_dsc `CS21  1 e 18 0 ]
@@ -634,31 +664,31 @@ EVENT_TRANSFER_TERMINATED 5
 [v _control_signal_bitmap control_signal_bitmap `S1578  1 e 1 0 ]
 "167
 [v _dummy_encapsulated_cmd_response dummy_encapsulated_cmd_response `[8]uc  1 e 8 0 ]
-[s S2595 . 1 `uc 1 . 1 0 :2:0 
+[s S2850 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T5SYNC 1 0 :1:2 
 ]
 "2756 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
-[s S2598 . 1 `uc 1 TMR5ON 1 0 :1:0 
+[s S2853 . 1 `uc 1 TMR5ON 1 0 :1:0 
 `uc 1 RD16 1 0 :1:1 
 `uc 1 nT5SYNC 1 0 :1:2 
 `uc 1 T5OSCEN 1 0 :1:3 
 `uc 1 T5CKPS 1 0 :2:4 
 `uc 1 TMR5CS 1 0 :2:6 
 ]
-[s S2605 . 1 `uc 1 . 1 0 :4:0 
+[s S2860 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 T5CKPS0 1 0 :1:4 
 `uc 1 T5CKPS1 1 0 :1:5 
 `uc 1 TMR5CS0 1 0 :1:6 
 `uc 1 TMR5CS1 1 0 :1:7 
 ]
-[s S2611 . 1 `uc 1 . 1 0 :1:0 
+[s S2866 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RD165 1 0 :1:1 
 ]
-[s S2614 . 1 `uc 1 . 1 0 :3:0 
+[s S2869 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN5 1 0 :1:3 
 ]
-[u S2617 . 1 `S2595 1 . 1 0 `S2598 1 . 1 0 `S2605 1 . 1 0 `S2611 1 . 1 0 `S2614 1 . 1 0 ]
-[v _T5CONbits T5CONbits `VES2617  1 e 1 @3874 ]
+[u S2872 . 1 `S2850 1 . 1 0 `S2853 1 . 1 0 `S2860 1 . 1 0 `S2866 1 . 1 0 `S2869 1 . 1 0 ]
+[v _T5CONbits T5CONbits `VES2872  1 e 1 @3874 ]
 "3010
 [v _UEP0 UEP0 `VEuc  1 e 1 @3878 ]
 [s S773 . 1 `uc 1 EPSTALL 1 0 :1:0 
@@ -723,16 +753,16 @@ EVENT_TRANSFER_TERMINATED 5
 [v _RTCVALL RTCVALL `VEuc  1 e 1 @3898 ]
 "5014
 [v _RTCVALH RTCVALH `VEuc  1 e 1 @3899 ]
-[s S3221 . 1 `uc 1 . 1 0 :1:0 
+[s S3391 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RTSECSEL0 1 0 :1:1 
 `uc 1 RTSECSEL1 1 0 :1:2 
 ]
 "5116
-[u S3225 . 1 `S3221 1 . 1 0 ]
-[v _PADCFG1bits PADCFG1bits `VES3225  1 e 1 @3900 ]
+[u S3395 . 1 `S3391 1 . 1 0 ]
+[v _PADCFG1bits PADCFG1bits `VES3395  1 e 1 @3900 ]
 "5194
 [v _RTCCAL RTCCAL `VEuc  1 e 1 @3902 ]
-[s S3199 . 1 `uc 1 RTCPTR0 1 0 :1:0 
+[s S3369 . 1 `uc 1 RTCPTR0 1 0 :1:0 
 `uc 1 RTCPTR1 1 0 :1:1 
 `uc 1 RTCOE 1 0 :1:2 
 `uc 1 HALFSEC 1 0 :1:3 
@@ -742,8 +772,8 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 RTCEN 1 0 :1:7 
 ]
 "5280
-[u S3208 . 1 `S3199 1 . 1 0 ]
-[v _RTCCFGbits RTCCFGbits `VES3208  1 e 1 @3903 ]
+[u S3378 . 1 `S3369 1 . 1 0 ]
+[v _RTCCFGbits RTCCFGbits `VES3378  1 e 1 @3903 ]
 "5624
 [v _ANCON0 ANCON0 `VEuc  1 e 1 @3912 ]
 "5667
@@ -778,35 +808,35 @@ EVENT_TRANSFER_TERMINATED 5
 "6470
 [u S384 . 1 `S376 1 . 1 0 ]
 [v _UCONbits UCONbits `VES384  1 e 1 @3941 ]
-[s S2474 . 1 `uc 1 . 1 0 :2:0 
+[s S2729 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T3SYNC 1 0 :1:2 
 ]
 "7639
-[s S2477 . 1 `uc 1 TMR3ON 1 0 :1:0 
+[s S2732 . 1 `uc 1 TMR3ON 1 0 :1:0 
 `uc 1 RD16 1 0 :1:1 
 `uc 1 nT3SYNC 1 0 :1:2 
 `uc 1 T3OSCEN 1 0 :1:3 
 `uc 1 T3CKPS 1 0 :2:4 
 `uc 1 TMR3CS 1 0 :2:6 
 ]
-[s S2484 . 1 `uc 1 . 1 0 :4:0 
+[s S2739 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 T3CKPS0 1 0 :1:4 
 `uc 1 T3CKPS1 1 0 :1:5 
 `uc 1 TMR3CS0 1 0 :1:6 
 `uc 1 TMR3CS1 1 0 :1:7 
 ]
-[s S2490 . 1 `uc 1 . 1 0 :7:0 
+[s S2745 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RD163 1 0 :1:7 
 ]
-[s S2493 . 1 `uc 1 . 1 0 :3:0 
+[s S2748 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN3 1 0 :1:3 
 ]
-[s S2496 . 1 `uc 1 . 1 0 :7:0 
+[s S2751 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 T3RD16 1 0 :1:7 
 ]
-[u S2499 . 1 `S2474 1 . 1 0 `S2477 1 . 1 0 `S2484 1 . 1 0 `S2490 1 . 1 0 `S2493 1 . 1 0 `S2496 1 . 1 0 ]
-[v _T3CONbits T3CONbits `VES2499  1 e 1 @3961 ]
-[s S4503 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S2754 . 1 `S2729 1 . 1 0 `S2732 1 . 1 0 `S2739 1 . 1 0 `S2745 1 . 1 0 `S2748 1 . 1 0 `S2751 1 . 1 0 ]
+[v _T3CONbits T3CONbits `VES2754  1 e 1 @3961 ]
+[s S4733 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -816,58 +846,58 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "8010
-[s S4512 . 1 `uc 1 ABDEN1 1 0 :1:0 
+[s S4742 . 1 `uc 1 ABDEN1 1 0 :1:0 
 ]
-[s S4514 . 1 `uc 1 . 1 0 :7:0 
+[s S4744 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 ABDOVF1 1 0 :1:7 
 ]
-[s S4517 . 1 `uc 1 . 1 0 :3:0 
+[s S4747 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 BRG161 1 0 :1:3 
 ]
-[s S4520 . 1 `uc 1 . 1 0 :4:0 
+[s S4750 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CKTXP 1 0 :1:4 
 ]
-[s S4523 . 1 `uc 1 . 1 0 :5:0 
+[s S4753 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 DTRXP 1 0 :1:5 
 ]
-[s S4526 . 1 `uc 1 . 1 0 :5:0 
+[s S4756 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 DTRXP1 1 0 :1:5 
 ]
-[s S4529 . 1 `uc 1 . 1 0 :6:0 
+[s S4759 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RCIDL1 1 0 :1:6 
 ]
-[s S4532 . 1 `uc 1 . 1 0 :6:0 
+[s S4762 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RCMT 1 0 :1:6 
 ]
-[s S4535 . 1 `uc 1 . 1 0 :6:0 
+[s S4765 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RCMT1 1 0 :1:6 
 ]
-[s S4538 . 1 `uc 1 . 1 0 :5:0 
+[s S4768 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RXDTP1 1 0 :1:5 
 ]
-[s S4541 . 1 `uc 1 . 1 0 :4:0 
+[s S4771 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP 1 0 :1:4 
 ]
-[s S4544 . 1 `uc 1 . 1 0 :4:0 
+[s S4774 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP1 1 0 :1:4 
 ]
-[s S4547 . 1 `uc 1 . 1 0 :4:0 
+[s S4777 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXCKP1 1 0 :1:4 
 ]
-[s S4550 . 1 `uc 1 . 1 0 :1:0 
+[s S4780 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 WUE1 1 0 :1:1 
 ]
-[s S4553 . 1 `uc 1 . 1 0 :5:0 
+[s S4783 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RXCKP 1 0 :1:5 
 ]
-[s S4556 . 1 `uc 1 . 1 0 :1:0 
+[s S4786 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 W4E 1 0 :1:1 
 ]
-[u S4559 . 1 `S4503 1 . 1 0 `S4512 1 . 1 0 `S4514 1 . 1 0 `S4517 1 . 1 0 `S4520 1 . 1 0 `S4523 1 . 1 0 `S4526 1 . 1 0 `S4529 1 . 1 0 `S4532 1 . 1 0 `S4535 1 . 1 0 `S4538 1 . 1 0 `S4541 1 . 1 0 `S4544 1 . 1 0 `S4547 1 . 1 0 `S4550 1 . 1 0 `S4553 1 . 1 0 `S4556 1 . 1 0 ]
-[v _BAUDCON1bits BAUDCON1bits `VES4559  1 e 1 @3966 ]
+[u S4789 . 1 `S4733 1 . 1 0 `S4742 1 . 1 0 `S4744 1 . 1 0 `S4747 1 . 1 0 `S4750 1 . 1 0 `S4753 1 . 1 0 `S4756 1 . 1 0 `S4759 1 . 1 0 `S4762 1 . 1 0 `S4765 1 . 1 0 `S4768 1 . 1 0 `S4771 1 . 1 0 `S4774 1 . 1 0 `S4777 1 . 1 0 `S4780 1 . 1 0 `S4783 1 . 1 0 `S4786 1 . 1 0 ]
+[v _BAUDCON1bits BAUDCON1bits `VES4789  1 e 1 @3966 ]
 "8514
 [v _SPBRGH1 SPBRGH1 `VEuc  1 e 1 @3967 ]
-[s S2706 . 1 `uc 1 TMR1GIE 1 0 :1:0 
+[s S2961 . 1 `uc 1 TMR1GIE 1 0 :1:0 
 `uc 1 TMR5GIE 1 0 :1:1 
 `uc 1 TMR5IE 1 0 :1:2 
 `uc 1 TMR6IE 1 0 :1:3 
@@ -875,15 +905,15 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 CM3IE 1 0 :1:5 
 ]
 "10235
-[u S2713 . 1 `S2706 1 . 1 0 ]
-[v _PIE5bits PIE5bits `VES2713  1 e 1 @3985 ]
+[u S2968 . 1 `S2961 1 . 1 0 ]
+[v _PIE5bits PIE5bits `VES2968  1 e 1 @3985 ]
 "10269
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "10325
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "10386
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-[s S2689 . 1 `uc 1 TMR1GIF 1 0 :1:0 
+[s S2944 . 1 `uc 1 TMR1GIF 1 0 :1:0 
 `uc 1 TMR5GIF 1 0 :1:1 
 `uc 1 TMR5IF 1 0 :1:2 
 `uc 1 TMR6IF 1 0 :1:3 
@@ -891,9 +921,9 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 CM3IF 1 0 :1:5 
 ]
 "10542
-[u S2696 . 1 `S2689 1 . 1 0 ]
-[v _PIR5bits PIR5bits `VES2696  1 e 1 @3992 ]
-[s S2646 . 1 `uc 1 TMR1GIP 1 0 :1:0 
+[u S2951 . 1 `S2944 1 . 1 0 ]
+[v _PIR5bits PIR5bits `VES2951  1 e 1 @3992 ]
+[s S2901 . 1 `uc 1 TMR1GIP 1 0 :1:0 
 `uc 1 TMR5GIP 1 0 :1:1 
 `uc 1 TMR5IP 1 0 :1:2 
 `uc 1 TMR6IP 1 0 :1:3 
@@ -901,34 +931,34 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 CM3IP 1 0 :1:5 
 ]
 "10606
-[s S2653 . 1 `uc 1 CCH05 1 0 :1:0 
+[s S2908 . 1 `uc 1 CCH05 1 0 :1:0 
 ]
-[s S2655 . 1 `uc 1 . 1 0 :1:0 
+[s S2910 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 CCH15 1 0 :1:1 
 ]
-[s S2658 . 1 `uc 1 . 1 0 :3:0 
+[s S2913 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 EVPOL05 1 0 :1:3 
 ]
-[s S2661 . 1 `uc 1 . 1 0 :4:0 
+[s S2916 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 EVPOL15 1 0 :1:4 
 ]
-[u S2664 . 1 `S2646 1 . 1 0 `S2653 1 . 1 0 `S2655 1 . 1 0 `S2658 1 . 1 0 `S2661 1 . 1 0 ]
-[v _IPR5bits IPR5bits `VES2664  1 e 1 @3993 ]
-[s S2753 . 1 `uc 1 TUN 1 0 :6:0 
+[u S2919 . 1 `S2901 1 . 1 0 `S2908 1 . 1 0 `S2910 1 . 1 0 `S2913 1 . 1 0 `S2916 1 . 1 0 ]
+[v _IPR5bits IPR5bits `VES2919  1 e 1 @3993 ]
+[s S2492 . 1 `uc 1 TUN 1 0 :6:0 
 `uc 1 PLLEN 1 0 :1:6 
 `uc 1 INTSRC 1 0 :1:7 
 ]
 "10786
-[s S2757 . 1 `uc 1 TUN0 1 0 :1:0 
+[s S2496 . 1 `uc 1 TUN0 1 0 :1:0 
 `uc 1 TUN1 1 0 :1:1 
 `uc 1 TUN2 1 0 :1:2 
 `uc 1 TUN3 1 0 :1:3 
 `uc 1 TUN4 1 0 :1:4 
 `uc 1 TUN5 1 0 :1:5 
 ]
-[u S2764 . 1 `S2753 1 . 1 0 `S2757 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES2764  1 e 1 @3995 ]
-[s S2444 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S2503 . 1 `S2492 1 . 1 0 `S2496 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES2503  1 e 1 @3995 ]
+[s S2198 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -937,14 +967,14 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 ADIE 1 0 :1:6 
 ]
 "10994
-[s S2452 . 1 `uc 1 . 1 0 :3:0 
+[s S2206 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIE 1 0 :1:3 
 `uc 1 TXIE 1 0 :1:4 
 `uc 1 RCIE 1 0 :1:5 
 ]
-[u S2457 . 1 `S2444 1 . 1 0 `S2452 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES2457  1 e 1 @3997 ]
-[s S2414 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S2211 . 1 `S2198 1 . 1 0 `S2206 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES2211  1 e 1 @3997 ]
+[s S2258 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -953,14 +983,14 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 ADIF 1 0 :1:6 
 ]
 "11070
-[s S2422 . 1 `uc 1 . 1 0 :3:0 
+[s S2266 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIF 1 0 :1:3 
 `uc 1 TXIF 1 0 :1:4 
 `uc 1 RCIF 1 0 :1:5 
 ]
-[u S2427 . 1 `S2414 1 . 1 0 `S2422 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES2427  1 e 1 @3998 ]
-[s S2384 . 1 `uc 1 TMR1IP 1 0 :1:0 
+[u S2271 . 1 `S2258 1 . 1 0 `S2266 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES2271  1 e 1 @3998 ]
+[s S2228 . 1 `uc 1 TMR1IP 1 0 :1:0 
 `uc 1 TMR2IP 1 0 :1:1 
 `uc 1 CCP1IP 1 0 :1:2 
 `uc 1 SSP1IP 1 0 :1:3 
@@ -969,13 +999,13 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 ADIP 1 0 :1:6 
 ]
 "11146
-[s S2392 . 1 `uc 1 . 1 0 :3:0 
+[s S2236 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIP 1 0 :1:3 
 `uc 1 TXIP 1 0 :1:4 
 `uc 1 RCIP 1 0 :1:5 
 ]
-[u S2397 . 1 `S2384 1 . 1 0 `S2392 1 . 1 0 ]
-[v _IPR1bits IPR1bits `VES2397  1 e 1 @3999 ]
+[u S2241 . 1 `S2228 1 . 1 0 `S2236 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES2241  1 e 1 @3999 ]
 [s S325 . 1 `uc 1 CCP2IE 1 0 :1:0 
 `uc 1 TMR3IE 1 0 :1:1 
 `uc 1 LVDIE 1 0 :1:2 
@@ -1035,7 +1065,7 @@ EVENT_TRANSFER_TERMINATED 5
 [v _IPR2bits IPR2bits `VES645  1 e 1 @4002 ]
 "11780
 [v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
-[s S4422 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S4652 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -1045,22 +1075,22 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 SPEN 1 0 :1:7 
 ]
 "12039
-[s S4431 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S4661 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :2:1 
 `uc 1 ADEN 1 0 :1:3 
 `uc 1 . 1 0 :2:4 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S4437 . 1 `uc 1 . 1 0 :6:0 
+[s S4667 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_RC8 1 0 :1:6 
 ]
-[s S4440 . 1 `uc 1 . 1 0 :6:0 
+[s S4670 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S4443 . 1 `uc 1 . 1 0 :6:0 
+[s S4673 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S4446 . 1 `uc 1 RX9D1 1 0 :1:0 
+[s S4676 . 1 `uc 1 RX9D1 1 0 :1:0 
 `uc 1 OERR1 1 0 :1:1 
 `uc 1 FERR1 1 0 :1:2 
 `uc 1 ADDEN1 1 0 :1:3 
@@ -1069,12 +1099,12 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 RX91 1 0 :1:6 
 `uc 1 SPEN1 1 0 :1:7 
 ]
-[s S4455 . 1 `uc 1 . 1 0 :5:0 
+[s S4685 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[u S4458 . 1 `S4422 1 . 1 0 `S4431 1 . 1 0 `S4437 1 . 1 0 `S4440 1 . 1 0 `S4443 1 . 1 0 `S4446 1 . 1 0 `S4455 1 . 1 0 ]
-[v _RCSTA1bits RCSTA1bits `VES4458  1 e 1 @4012 ]
-[s S4359 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S4688 . 1 `S4652 1 . 1 0 `S4661 1 . 1 0 `S4667 1 . 1 0 `S4670 1 . 1 0 `S4673 1 . 1 0 `S4676 1 . 1 0 `S4685 1 . 1 0 ]
+[v _RCSTA1bits RCSTA1bits `VES4688  1 e 1 @4012 ]
+[s S4589 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -1084,17 +1114,17 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 CSRC 1 0 :1:7 
 ]
 "12366
-[s S4368 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S4598 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S4372 . 1 `uc 1 . 1 0 :6:0 
+[s S4602 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_TX8 1 0 :1:6 
 ]
-[s S4375 . 1 `uc 1 . 1 0 :6:0 
+[s S4605 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S4378 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S4608 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -1103,8 +1133,8 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[u S4387 . 1 `S4359 1 . 1 0 `S4368 1 . 1 0 `S4372 1 . 1 0 `S4375 1 . 1 0 `S4378 1 . 1 0 ]
-[v _TXSTA1bits TXSTA1bits `VES4387  1 e 1 @4013 ]
+[u S4617 . 1 `S4589 1 . 1 0 `S4598 1 . 1 0 `S4602 1 . 1 0 `S4605 1 . 1 0 `S4608 1 . 1 0 ]
+[v _TXSTA1bits TXSTA1bits `VES4617  1 e 1 @4013 ]
 "12608
 [v _TXREG1 TXREG1 `VEuc  1 e 1 @4014 ]
 "12645
@@ -1115,7 +1145,7 @@ EVENT_TRANSFER_TERMINATED 5
 [v _CTMUICON CTMUICON `VEuc  1 e 1 @4017 ]
 "12794
 [v _CTMUCONL CTMUCONL `VEuc  1 e 1 @4018 ]
-[s S2934 . 1 `uc 1 EDG1STAT 1 0 :1:0 
+[s S3133 . 1 `uc 1 EDG1STAT 1 0 :1:0 
 `uc 1 EDG2STAT 1 0 :1:1 
 `uc 1 EDG1SEL0 1 0 :1:2 
 `uc 1 EDG1SEL1 1 0 :1:3 
@@ -1125,11 +1155,11 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 EDG2POL 1 0 :1:7 
 ]
 "12811
-[u S2943 . 1 `S2934 1 . 1 0 ]
-[v _CTMUCONLbits CTMUCONLbits `VES2943  1 e 1 @4018 ]
+[u S3142 . 1 `S3133 1 . 1 0 ]
+[v _CTMUCONLbits CTMUCONLbits `VES3142  1 e 1 @4018 ]
 "12855
 [v _CTMUCONH CTMUCONH `VEuc  1 e 1 @4019 ]
-[s S2913 . 1 `uc 1 CTTRIG 1 0 :1:0 
+[s S3112 . 1 `uc 1 CTTRIG 1 0 :1:0 
 `uc 1 IDISSEN 1 0 :1:1 
 `uc 1 EDGSEQEN 1 0 :1:2 
 `uc 1 EDGEN 1 0 :1:3 
@@ -1139,42 +1169,42 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 CTMUEN 1 0 :1:7 
 ]
 "12872
-[u S2922 . 1 `S2913 1 . 1 0 ]
-[v _CTMUCONHbits CTMUCONHbits `VES2922  1 e 1 @4019 ]
-[s S2860 . 1 `uc 1 ADCS 1 0 :3:0 
+[u S3121 . 1 `S3112 1 . 1 0 ]
+[v _CTMUCONHbits CTMUCONHbits `VES3121  1 e 1 @4019 ]
+[s S3059 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 ADCAL 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "14261
-[s S2865 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S3064 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
 `uc 1 ACQT1 1 0 :1:4 
 `uc 1 ACQT2 1 0 :1:5 
 ]
-[s S2872 . 1 `uc 1 . 1 0 :3:0 
+[s S3071 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CHSN3 1 0 :1:3 
 ]
-[s S2875 . 1 `uc 1 . 1 0 :4:0 
+[s S3074 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 VCFG01 1 0 :1:4 
 ]
-[s S2878 . 1 `uc 1 . 1 0 :5:0 
+[s S3077 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 VCFG11 1 0 :1:5 
 ]
-[u S2881 . 1 `S2860 1 . 1 0 `S2865 1 . 1 0 `S2872 1 . 1 0 `S2875 1 . 1 0 `S2878 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES2881  1 e 1 @4033 ]
-[s S2779 . 1 `uc 1 . 1 0 :1:0 
+[u S3080 . 1 `S3059 1 . 1 0 `S3064 1 . 1 0 `S3071 1 . 1 0 `S3074 1 . 1 0 `S3077 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES3080  1 e 1 @4033 ]
+[s S2978 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "14381
-[s S2782 . 1 `uc 1 ADON 1 0 :1:0 
+[s S2981 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 `uc 1 VCFG 1 0 :2:6 
 ]
-[s S2787 . 1 `uc 1 . 1 0 :1:0 
+[s S2986 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -1183,31 +1213,31 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 VCFG0 1 0 :1:6 
 `uc 1 VCFG1 1 0 :1:7 
 ]
-[s S2796 . 1 `uc 1 . 1 0 :1:0 
+[s S2995 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S2799 . 1 `uc 1 . 1 0 :1:0 
+[s S2998 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S2802 . 1 `uc 1 . 1 0 :1:0 
+[s S3001 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S2805 . 1 `uc 1 . 1 0 :1:0 
+[s S3004 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S2808 . 1 `uc 1 . 1 0 :7:0 
+[s S3007 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 ADCAL 1 0 :1:7 
 ]
-[s S2811 . 1 `uc 1 . 1 0 :1:0 
+[s S3010 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S2814 . 1 `S2779 1 . 1 0 `S2782 1 . 1 0 `S2787 1 . 1 0 `S2796 1 . 1 0 `S2799 1 . 1 0 `S2802 1 . 1 0 `S2805 1 . 1 0 `S2808 1 . 1 0 `S2811 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES2814  1 e 1 @4034 ]
+[u S3013 . 1 `S2978 1 . 1 0 `S2981 1 . 1 0 `S2986 1 . 1 0 `S2995 1 . 1 0 `S2998 1 . 1 0 `S3001 1 . 1 0 `S3004 1 . 1 0 `S3007 1 . 1 0 `S3010 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES3013  1 e 1 @4034 ]
 "14475
 [v _ADRES ADRES `VEus  1 e 2 @4035 ]
 "14519
 [v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @4037 ]
-[s S2074 . 1 `uc 1 SEN 1 0 :1:0 
+[s S2070 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -1217,102 +1247,102 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 GCEN 1 0 :1:7 
 ]
 "14600
-[s S2083 . 1 `uc 1 . 1 0 :1:0 
+[s S2079 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK1 1 0 :1:1 
 `uc 1 ADMSK2 1 0 :1:2 
 `uc 1 ADMSK3 1 0 :1:3 
 `uc 1 ADMSK4 1 0 :1:4 
 `uc 1 ADMSK5 1 0 :1:5 
 ]
-[s S2090 . 1 `uc 1 . 1 0 :5:0 
+[s S2086 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 ACKDT1 1 0 :1:5 
 ]
-[s S2093 . 1 `uc 1 . 1 0 :4:0 
+[s S2089 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 ACKEN1 1 0 :1:4 
 ]
-[s S2096 . 1 `uc 1 . 1 0 :6:0 
+[s S2092 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 ACKSTAT1 1 0 :1:6 
 ]
-[s S2099 . 1 `uc 1 . 1 0 :1:0 
+[s S2095 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK11 1 0 :1:1 
 ]
-[s S2102 . 1 `uc 1 . 1 0 :2:0 
+[s S2098 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 ADMSK21 1 0 :1:2 
 ]
-[s S2105 . 1 `uc 1 . 1 0 :3:0 
+[s S2101 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADMSK31 1 0 :1:3 
 ]
-[s S2108 . 1 `uc 1 . 1 0 :4:0 
+[s S2104 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 ADMSK41 1 0 :1:4 
 ]
-[s S2111 . 1 `uc 1 . 1 0 :5:0 
+[s S2107 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 ADMSK51 1 0 :1:5 
 ]
-[s S2114 . 1 `uc 1 . 1 0 :7:0 
+[s S2110 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 GCEN1 1 0 :1:7 
 ]
-[s S2117 . 1 `uc 1 . 1 0 :2:0 
+[s S2113 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PEN1 1 0 :1:2 
 ]
-[s S2120 . 1 `uc 1 . 1 0 :3:0 
+[s S2116 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 RCEN1 1 0 :1:3 
 ]
-[s S2123 . 1 `uc 1 . 1 0 :1:0 
+[s S2119 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN1 1 0 :1:1 
 ]
-[s S2126 . 1 `uc 1 SEN1 1 0 :1:0 
+[s S2122 . 1 `uc 1 SEN1 1 0 :1:0 
 ]
-[u S2128 . 1 `S2074 1 . 1 0 `S2083 1 . 1 0 `S2090 1 . 1 0 `S2093 1 . 1 0 `S2096 1 . 1 0 `S2099 1 . 1 0 `S2102 1 . 1 0 `S2105 1 . 1 0 `S2108 1 . 1 0 `S2111 1 . 1 0 `S2114 1 . 1 0 `S2117 1 . 1 0 `S2120 1 . 1 0 `S2123 1 . 1 0 `S2126 1 . 1 0 ]
-[v _SSP1CON2bits SSP1CON2bits `VES2128  1 e 1 @4037 ]
+[u S2124 . 1 `S2070 1 . 1 0 `S2079 1 . 1 0 `S2086 1 . 1 0 `S2089 1 . 1 0 `S2092 1 . 1 0 `S2095 1 . 1 0 `S2098 1 . 1 0 `S2101 1 . 1 0 `S2104 1 . 1 0 `S2107 1 . 1 0 `S2110 1 . 1 0 `S2113 1 . 1 0 `S2116 1 . 1 0 `S2119 1 . 1 0 `S2122 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES2124  1 e 1 @4037 ]
 "14938
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @4038 ]
-[s S3817 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S3987 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "14994
-[s S3823 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S3993 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[s S3828 . 1 `uc 1 . 1 0 :4:0 
+[s S3998 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CKP1 1 0 :1:4 
 ]
-[s S3831 . 1 `uc 1 . 1 0 :5:0 
+[s S4001 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SSPEN1 1 0 :1:5 
 ]
-[s S3834 . 1 `uc 1 SSPM01 1 0 :1:0 
+[s S4004 . 1 `uc 1 SSPM01 1 0 :1:0 
 ]
-[s S3836 . 1 `uc 1 . 1 0 :1:0 
+[s S4006 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 SSPM11 1 0 :1:1 
 ]
-[s S3839 . 1 `uc 1 . 1 0 :2:0 
+[s S4009 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 SSPM21 1 0 :1:2 
 ]
-[s S3842 . 1 `uc 1 . 1 0 :3:0 
+[s S4012 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPM31 1 0 :1:3 
 ]
-[s S3845 . 1 `uc 1 . 1 0 :6:0 
+[s S4015 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 SSPOV1 1 0 :1:6 
 ]
-[s S3848 . 1 `uc 1 . 1 0 :7:0 
+[s S4018 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 WCOL1 1 0 :1:7 
 ]
-[u S3851 . 1 `S3817 1 . 1 0 `S3823 1 . 1 0 `S3828 1 . 1 0 `S3831 1 . 1 0 `S3834 1 . 1 0 `S3836 1 . 1 0 `S3839 1 . 1 0 `S3842 1 . 1 0 `S3845 1 . 1 0 `S3848 1 . 1 0 ]
-[v _SSP1CON1bits SSP1CON1bits `VES3851  1 e 1 @4038 ]
+[u S4021 . 1 `S3987 1 . 1 0 `S3993 1 . 1 0 `S3998 1 . 1 0 `S4001 1 . 1 0 `S4004 1 . 1 0 `S4006 1 . 1 0 `S4009 1 . 1 0 `S4012 1 . 1 0 `S4015 1 . 1 0 `S4018 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES4021  1 e 1 @4038 ]
 "15217
 [v _SSP1STAT SSP1STAT `VEuc  1 e 1 @4039 ]
-[s S3897 . 1 `uc 1 . 1 0 :2:0 
+[s S4067 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "15347
-[s S3900 . 1 `uc 1 . 1 0 :5:0 
+[s S4070 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S3903 . 1 `uc 1 BF 1 0 :1:0 
+[s S4073 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -1321,115 +1351,117 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S3912 . 1 `uc 1 . 1 0 :2:0 
+[s S4082 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S3917 . 1 `uc 1 . 1 0 :2:0 
+[s S4087 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S3922 . 1 `uc 1 . 1 0 :2:0 
+[s S4092 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S3927 . 1 `uc 1 . 1 0 :2:0 
+[s S4097 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S3930 . 1 `uc 1 . 1 0 :5:0 
+[s S4100 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S3933 . 1 `uc 1 . 1 0 :2:0 
+[s S4103 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S3938 . 1 `uc 1 . 1 0 :2:0 
+[s S4108 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S3943 . 1 `uc 1 . 1 0 :2:0 
+[s S4113 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S3949 . 1 `uc 1 BF1 1 0 :1:0 
+[s S4119 . 1 `uc 1 BF1 1 0 :1:0 
 ]
-[s S3951 . 1 `uc 1 . 1 0 :6:0 
+[s S4121 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 CKE1 1 0 :1:6 
 ]
-[s S3954 . 1 `uc 1 . 1 0 :5:0 
+[s S4124 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S3957 . 1 `uc 1 . 1 0 :5:0 
+[s S4127 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 DA1 1 0 :1:5 
 ]
-[s S3960 . 1 `uc 1 . 1 0 :2:0 
+[s S4130 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 ]
-[s S3963 . 1 `uc 1 . 1 0 :2:0 
+[s S4133 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW1 1 0 :1:2 
 ]
-[s S3966 . 1 `uc 1 . 1 0 :7:0 
+[s S4136 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 SMP1 1 0 :1:7 
 ]
-[s S3969 . 1 `uc 1 . 1 0 :3:0 
+[s S4139 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 START 1 0 :1:3 
 ]
-[s S3972 . 1 `uc 1 . 1 0 :3:0 
+[s S4142 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 START1 1 0 :1:3 
 ]
-[s S3975 . 1 `uc 1 . 1 0 :4:0 
+[s S4145 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 STOP 1 0 :1:4 
 ]
-[s S3978 . 1 `uc 1 . 1 0 :4:0 
+[s S4148 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 STOP1 1 0 :1:4 
 ]
-[s S3981 . 1 `uc 1 . 1 0 :1:0 
+[s S4151 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 UA1 1 0 :1:1 
 ]
-[s S3984 . 1 `uc 1 . 1 0 :2:0 
+[s S4154 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W 1 0 :1:2 
 ]
-[s S3987 . 1 `uc 1 . 1 0 :5:0 
+[s S4157 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_A 1 0 :1:5 
 ]
-[u S3990 . 1 `S3897 1 . 1 0 `S3900 1 . 1 0 `S3903 1 . 1 0 `S3912 1 . 1 0 `S3917 1 . 1 0 `S3922 1 . 1 0 `S3927 1 . 1 0 `S3930 1 . 1 0 `S3933 1 . 1 0 `S3938 1 . 1 0 `S3943 1 . 1 0 `S3949 1 . 1 0 `S3951 1 . 1 0 `S3954 1 . 1 0 `S3957 1 . 1 0 `S3960 1 . 1 0 `S3963 1 . 1 0 `S3966 1 . 1 0 `S3969 1 . 1 0 `S3972 1 . 1 0 `S3975 1 . 1 0 `S3978 1 . 1 0 `S3981 1 . 1 0 `S3984 1 . 1 0 `S3987 1 . 1 0 ]
-[v _SSP1STATbits SSP1STATbits `VES3990  1 e 1 @4039 ]
+[u S4160 . 1 `S4067 1 . 1 0 `S4070 1 . 1 0 `S4073 1 . 1 0 `S4082 1 . 1 0 `S4087 1 . 1 0 `S4092 1 . 1 0 `S4097 1 . 1 0 `S4100 1 . 1 0 `S4103 1 . 1 0 `S4108 1 . 1 0 `S4113 1 . 1 0 `S4119 1 . 1 0 `S4121 1 . 1 0 `S4124 1 . 1 0 `S4127 1 . 1 0 `S4130 1 . 1 0 `S4133 1 . 1 0 `S4136 1 . 1 0 `S4139 1 . 1 0 `S4142 1 . 1 0 `S4145 1 . 1 0 `S4148 1 . 1 0 `S4151 1 . 1 0 `S4154 1 . 1 0 `S4157 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES4160  1 e 1 @4039 ]
 "15874
 [v _SSP1ADD SSP1ADD `VEuc  1 e 1 @4040 ]
 "16256
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @4041 ]
-[s S2333 . 1 `uc 1 . 1 0 :2:0 
+"16261
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
+[s S2627 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "16541
-[s S2336 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S2630 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 RD16 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
 `uc 1 T1CKPS 1 0 :2:4 
 `uc 1 TMR1CS 1 0 :2:6 
 ]
-[s S2343 . 1 `uc 1 . 1 0 :4:0 
+[s S2637 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 `uc 1 TMR1CS0 1 0 :1:6 
 `uc 1 TMR1CS1 1 0 :1:7 
 ]
-[s S2349 . 1 `uc 1 . 1 0 :3:0 
+[s S2643 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 ]
-[s S2352 . 1 `uc 1 . 1 0 :7:0 
+[s S2646 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 T1RD16 1 0 :1:7 
 ]
-[u S2355 . 1 `S2333 1 . 1 0 `S2336 1 . 1 0 `S2343 1 . 1 0 `S2349 1 . 1 0 `S2352 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES2355  1 e 1 @4045 ]
+[u S2649 . 1 `S2627 1 . 1 0 `S2630 1 . 1 0 `S2637 1 . 1 0 `S2643 1 . 1 0 `S2646 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES2649  1 e 1 @4045 ]
 "16635
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
 [s S553 . 1 `uc 1 NOT_BOR 1 0 :1:0 
@@ -1468,23 +1500,23 @@ EVENT_TRANSFER_TERMINATED 5
 ]
 [u S586 . 1 `S553 1 . 1 0 `S555 1 . 1 0 `S558 1 . 1 0 `S561 1 . 1 0 `S564 1 . 1 0 `S567 1 . 1 0 `S570 1 . 1 0 `S579 1 . 1 0 ]
 [v _RCONbits RCONbits `VES586  1 e 1 @4048 ]
-[s S2723 . 1 `uc 1 SCS 1 0 :2:0 
+[s S2462 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 FLTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 `uc 1 IDLEN 1 0 :1:7 
 ]
 "17443
-[s S2729 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S2468 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S2736 . 1 `S2723 1 . 1 0 `S2729 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES2736  1 e 1 @4051 ]
-[s S2224 . 1 `uc 1 T0PS 1 0 :3:0 
+[u S2475 . 1 `S2462 1 . 1 0 `S2468 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES2475  1 e 1 @4051 ]
+[s S2518 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -1492,17 +1524,17 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "17517
-[s S2231 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S2525 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S2235 . 1 `S2224 1 . 1 0 `S2231 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES2235  1 e 1 @4053 ]
-[s S2292 . 1 `uc 1 . 1 0 :7:0 
+[u S2529 . 1 `S2518 1 . 1 0 `S2525 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES2529  1 e 1 @4053 ]
+[s S2586 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "18230
-[s S2295 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S2589 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 INT3IP 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 INTEDG3 1 0 :1:3 
@@ -1511,14 +1543,14 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S2304 . 1 `uc 1 . 1 0 :1:0 
+[s S2598 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT3P 1 0 :1:1 
 `uc 1 T0IP 1 0 :1:2 
 `uc 1 . 1 0 :4:3 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S2310 . 1 `S2292 1 . 1 0 `S2295 1 . 1 0 `S2304 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES2310  1 e 1 @4081 ]
+[u S2604 . 1 `S2586 1 . 1 0 `S2589 1 . 1 0 `S2598 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES2604  1 e 1 @4081 ]
 [s S666 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -1552,28 +1584,28 @@ EVENT_TRANSFER_TERMINATED 5
 [v _SSP1IF SSP1IF `VEb  1 e 0 @31987 ]
 "354 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
 [v _dpowers dpowers `C[5]ui  1 s 10 dpowers ]
-"112 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-template.X\main.c
+"101 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-template.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"134
+"123
 } 0
 "8 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_terminal.c
 [v _terminal_task terminal_task `(v  1 e 0 0 ]
 {
 "48
-[v terminal_task@i_4309 i `uc  1 a 1 102 ]
+[v terminal_task@i_4539 i `uc  1 a 1 108 ]
 "28
-[v terminal_task@i i `uc  1 a 1 104 ]
+[v terminal_task@i i `uc  1 a 1 110 ]
 "17
-[v terminal_task@ascii ascii `uc  1 a 1 103 ]
+[v terminal_task@ascii ascii `uc  1 a 1 109 ]
 "13
-[v terminal_task@buf buf `[100]uc  1 a 100 0 ]
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[v terminal_task@buf buf `[100]uc  1 a 100 6 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
 "8
-[v terminal_task@tx tx `*.39S3119  1 p 2 0 ]
-[v terminal_task@rx rx `*.39S3119  1 p 2 2 ]
+[v terminal_task@tx tx `*.39S3289  1 p 2 0 ]
+[v terminal_task@rx rx `*.39S3289  1 p 2 2 ]
 "9
-[v terminal_task@command command `S3119  1 s 8 command ]
+[v terminal_task@command command `S3289  1 s 8 command ]
 "10
 [v terminal_task@command_init command_init `uc  1 s 1 command_init ]
 "24
@@ -1586,22 +1618,22 @@ EVENT_TRANSFER_TERMINATED 5
 [v terminal_task@op3 op3 `[25]uc  1 s 25 op3 ]
 "59
 } 0
-"60 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-template.X\main.c
+"50 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-template.X\main.c
 [v _terminal_operation terminal_operation `(v  1 e 0 0 ]
 {
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
-[v terminal_operation@tx tx `*.39S3119  1 p 2 95 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[v terminal_operation@tx tx `*.39S3289  1 p 2 95 ]
 [v terminal_operation@op0 op0 `*.39uc  1 p 2 97 ]
 [v terminal_operation@op1 op1 `*.39uc  1 p 2 99 ]
 [v terminal_operation@op2 op2 `*.39uc  1 p 2 101 ]
 [v terminal_operation@op3 op3 `*.39uc  1 p 2 103 ]
-"81
+"71
 } 0
 "93 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_terminal.c
 [v _terminal_time terminal_time `(v  1 e 0 0 ]
 {
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
-[v terminal_time@tx tx `*.39S3119  1 p 2 86 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[v terminal_time@tx tx `*.39S3289  1 p 2 86 ]
 [v terminal_time@op0 op0 `*.39uc  1 p 2 88 ]
 [v terminal_time@op1 op1 `*.39uc  1 p 2 90 ]
 [v terminal_time@op2 op2 `*.39uc  1 p 2 92 ]
@@ -1610,8 +1642,8 @@ EVENT_TRANSFER_TERMINATED 5
 "82
 [v _terminal_at_hand terminal_at_hand `(v  1 e 0 0 ]
 {
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
-[v terminal_at_hand@tx tx `*.39S3119  1 p 2 79 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[v terminal_at_hand@tx tx `*.39S3289  1 p 2 79 ]
 [v terminal_at_hand@hand hand `*.39uc  1 p 2 81 ]
 [v terminal_at_hand@min min `uc  1 p 1 83 ]
 [v terminal_at_hand@max max `uc  1 p 1 84 ]
@@ -1623,9 +1655,9 @@ EVENT_TRANSFER_TERMINATED 5
 {
 "70
 [v print_time@str str `[30]uc  1 a 30 49 ]
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
 "68
-[v print_time@tx tx `*.39S3119  1 p 2 47 ]
+[v print_time@tx tx `*.39S3289  1 p 2 47 ]
 "80
 } 0
 "492 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
@@ -1655,26 +1687,26 @@ EVENT_TRANSFER_TERMINATED 5
 "39 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ringbuf.c
 [v _ringbuf_put_str ringbuf_put_str `(v  1 e 0 0 ]
 {
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
-[v ringbuf_put_str@rb rb `*.39S3119  1 p 2 15 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[v ringbuf_put_str@rb rb `*.39S3289  1 p 2 15 ]
 [v ringbuf_put_str@str str `*.34Cuc  1 p 2 17 ]
 "43
 } 0
-"205 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
+"204 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
 [v _RTCC_from_caltime RTCC_from_caltime `(v  1 e 0 0 ]
 {
-[s S3175 . 1 `uc 1 ss 1 0 :1:0 
+[s S3345 . 1 `uc 1 ss 1 0 :1:0 
 `uc 1 mm 1 0 :1:1 
 `uc 1 hh 1 0 :1:2 
 `uc 1 DD 1 0 :1:3 
 `uc 1 MM 1 0 :1:4 
 `uc 1 YY 1 0 :1:5 
 ]
-[u S3182 . 1 `uc 1 flags 1 0 `S3175 1 flag 1 0 ]
-[s S3185 . 1 `S3182 1 . 1 0 ]
-[s S3187 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3185 1 edit 1 13 ]
-[v RTCC_from_caltime@tm tm `*.39S3187  1 p 2 47 ]
-"209
+[u S3352 . 1 `uc 1 flags 1 0 `S3345 1 flag 1 0 ]
+[s S3355 . 1 `S3352 1 . 1 0 ]
+[s S3357 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3355 1 edit 1 13 ]
+[v RTCC_from_caltime@tm tm `*.39S3357  1 p 2 47 ]
+"208
 } 0
 "33 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\strcmp.c
 [v _strcmp strcmp `(i  1 e 2 0 ]
@@ -1716,33 +1748,6 @@ EVENT_TRANSFER_TERMINATED 5
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
 } 0
-"51 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-template.X\main.c
-[v _bootload bootload `(v  1 e 0 0 ]
-{
-"58
-} 0
-"26 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
-[v _I2C_LCD_SetCursor I2C_LCD_SetCursor `(v  1 e 0 0 ]
-{
-[v I2C_LCD_SetCursor@col col `uc  1 a 1 wreg ]
-"27
-[v I2C_LCD_SetCursor@row_offsets row_offsets `[2]uc  1 a 2 7 ]
-"26
-[v I2C_LCD_SetCursor@col col `uc  1 a 1 wreg ]
-[v I2C_LCD_SetCursor@row row `uc  1 p 1 6 ]
-[v I2C_LCD_SetCursor@F8620 F8620 `[2]uc  1 s 2 F8620 ]
-[v I2C_LCD_SetCursor@col col `uc  1 a 1 9 ]
-"30
-} 0
-"45
-[v _I2C_LCD_Puts I2C_LCD_Puts `(v  1 e 0 0 ]
-{
-"46
-[v I2C_LCD_Puts@ans ans `i  1 a 2 7 ]
-"45
-[v I2C_LCD_Puts@s s `*.32Cuc  1 p 2 4 ]
-"57
-} 0
 "28 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ringbuf.c
 [v _ringbuf_put_num ringbuf_put_num `(v  1 e 0 0 ]
 {
@@ -1750,9 +1755,9 @@ EVENT_TRANSFER_TERMINATED 5
 [v ringbuf_put_num@i i `uc  1 a 1 20 ]
 "30
 [v ringbuf_put_num@temp temp `ui  1 a 2 21 ]
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
 "28
-[v ringbuf_put_num@rb rb `*.39S3119  1 p 2 15 ]
+[v ringbuf_put_num@rb rb `*.39S3289  1 p 2 15 ]
 [v ringbuf_put_num@value value `Cui  1 p 2 17 ]
 [v ringbuf_put_num@digits digits `uc  1 p 1 19 ]
 "37
@@ -1782,60 +1787,60 @@ EVENT_TRANSFER_TERMINATED 5
 "66 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ringbuf.c
 [v _ringbuf_delete ringbuf_delete `(v  1 e 0 0 ]
 {
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
-[v ringbuf_delete@rb rb `*.39S3119  1 p 2 0 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[v ringbuf_delete@rb rb `*.39S3289  1 p 2 0 ]
 "68
 } 0
 "59
 [v _ringbuf_backspace ringbuf_backspace `(v  1 e 0 0 ]
 {
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
-[v ringbuf_backspace@rb rb `*.39S3119  1 p 2 8 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[v ringbuf_backspace@rb rb `*.39S3289  1 p 2 8 ]
 "64
 } 0
-"83 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-template.X\main.c
+"73 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-template.X\main.c
 [v _main_init main_init `(v  1 e 0 0 ]
 {
-"100
+"89
 [v main_init@usbtx usbtx `[1000]uc  1 s 1000 usbtx ]
-"102
+"91
 [v main_init@usbrx usbrx `[100]uc  1 s 100 usbrx ]
-"106
+"95
 [v main_init@uarttx uarttx `[1000]uc  1 s 1000 uarttx ]
-"108
+"97
 [v main_init@uartrx uartrx `[100]uc  1 s 100 uartrx ]
-"110
+"99
 } 0
-"73 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+"101 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
 [v _timer3_init timer3_init `(v  1 e 0 0 ]
 {
 [v timer3_init@prescaler prescaler `uc  1 a 1 wreg ]
 [v timer3_init@prescaler prescaler `uc  1 a 1 wreg ]
 [v timer3_init@prescaler prescaler `uc  1 a 1 1 ]
-"83
+"111
 } 0
-"42
+"70
 [v _timer1_init timer1_init `(v  1 e 0 0 ]
 {
 [v timer1_init@prescaler prescaler `uc  1 a 1 wreg ]
 [v timer1_init@prescaler prescaler `uc  1 a 1 wreg ]
 [v timer1_init@clock_select clock_select `uc  1 p 1 0 ]
 [v timer1_init@prescaler prescaler `uc  1 a 1 2 ]
-"54
+"82
 } 0
-"6
+"34
 [v _timer0_init timer0_init `(v  1 e 0 0 ]
 {
 [v timer0_init@prescaler prescaler `uc  1 a 1 wreg ]
 [v timer0_init@prescaler prescaler `uc  1 a 1 wreg ]
 [v timer0_init@prescaler prescaler `uc  1 a 1 1 ]
-"20
+"48
 } 0
 "5 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ringbuf.c
 [v _ringbuf_init ringbuf_init `(v  1 e 0 0 ]
 {
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
-[v ringbuf_init@rb rb `*.39S3119  1 p 2 0 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[v ringbuf_init@rb rb `*.39S3289  1 p 2 0 ]
 [v ringbuf_init@internal_buf internal_buf `*.39uc  1 p 2 2 ]
 [v ringbuf_init@bufsize bufsize `ui  1 p 2 4 ]
 "10
@@ -1876,66 +1881,66 @@ EVENT_TRANSFER_TERMINATED 5
 "22 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
 [v _RTCC_init RTCC_init `(v  1 e 0 0 ]
 {
-"42
+"41
 } 0
-"211
+"210
 [v _RTCC_from_epoch RTCC_from_epoch `(v  1 e 0 0 ]
 {
-[s S3175 . 1 `uc 1 ss 1 0 :1:0 
+[s S3345 . 1 `uc 1 ss 1 0 :1:0 
 `uc 1 mm 1 0 :1:1 
 `uc 1 hh 1 0 :1:2 
 `uc 1 DD 1 0 :1:3 
 `uc 1 MM 1 0 :1:4 
 `uc 1 YY 1 0 :1:5 
 ]
-[u S3182 . 1 `uc 1 flags 1 0 `S3175 1 flag 1 0 ]
-[s S3185 . 1 `S3182 1 . 1 0 ]
-[s S3187 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3185 1 edit 1 13 ]
-[v RTCC_from_epoch@tm tm `*.39S3187  1 p 2 47 ]
-"214
+[u S3352 . 1 `uc 1 flags 1 0 `S3345 1 flag 1 0 ]
+[s S3355 . 1 `S3352 1 . 1 0 ]
+[s S3357 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3355 1 edit 1 13 ]
+[v RTCC_from_epoch@tm tm `*.39S3357  1 p 2 47 ]
+"213
 } 0
-"126
+"125
 [v _epoch_to_caltime epoch_to_caltime `(v  1 e 0 0 ]
 {
-"136
-[v epoch_to_caltime@num num `ul  1 a 4 43 ]
-"133
-[v epoch_to_caltime@day day `ui  1 a 2 39 ]
-"132
-[v epoch_to_caltime@day_since_epoch day_since_epoch `ui  1 a 2 37 ]
 "135
-[v epoch_to_caltime@month month `uc  1 a 1 42 ]
+[v epoch_to_caltime@num num `ul  1 a 4 43 ]
+"132
+[v epoch_to_caltime@day day `ui  1 a 2 39 ]
+"131
+[v epoch_to_caltime@day_since_epoch day_since_epoch `ui  1 a 2 37 ]
 "134
+[v epoch_to_caltime@month month `uc  1 a 1 42 ]
+"133
 [v epoch_to_caltime@year year `uc  1 a 1 41 ]
-[s S3175 . 1 `uc 1 ss 1 0 :1:0 
+[s S3345 . 1 `uc 1 ss 1 0 :1:0 
 `uc 1 mm 1 0 :1:1 
 `uc 1 hh 1 0 :1:2 
 `uc 1 DD 1 0 :1:3 
 `uc 1 MM 1 0 :1:4 
 `uc 1 YY 1 0 :1:5 
 ]
-"126
-[u S3182 . 1 `uc 1 flags 1 0 `S3175 1 flag 1 0 ]
-[s S3185 . 1 `S3182 1 . 1 0 ]
-[s S3187 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3185 1 edit 1 13 ]
-[v epoch_to_caltime@tm tm `*.39S3187  1 p 2 33 ]
-"129
+"125
+[u S3352 . 1 `uc 1 flags 1 0 `S3345 1 flag 1 0 ]
+[s S3355 . 1 `S3352 1 . 1 0 ]
+[s S3357 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3355 1 edit 1 13 ]
+[v epoch_to_caltime@tm tm `*.39S3357  1 p 2 33 ]
+"128
 [v epoch_to_caltime@day_cache day_cache `ui  1 s 2 day_cache ]
-"130
+"129
 [v epoch_to_caltime@month_cache month_cache `uc  1 s 1 month_cache ]
-"131
+"130
 [v epoch_to_caltime@year_cache year_cache `uc  1 s 1 year_cache ]
-"178
+"177
 } 0
-"81
+"80
 [v _get_quot_rem get_quot_rem `(ul  1 e 4 0 ]
 {
-"84
+"83
 [v get_quot_rem@num num `ul  1 a 4 29 ]
-"81
+"80
 [v get_quot_rem@quot quot `*.39ul  1 p 2 25 ]
 [v get_quot_rem@div div `uc  1 p 1 27 ]
-"86
+"85
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
@@ -1949,30 +1954,30 @@ EVENT_TRANSFER_TERMINATED 5
 [v ___lldiv@divisor divisor `ul  1 p 4 4 ]
 "31
 } 0
-"106 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
+"105 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
 [v _caltime_to_RTCC caltime_to_RTCC `(v  1 e 0 0 ]
 {
-[s S3175 . 1 `uc 1 ss 1 0 :1:0 
+[s S3345 . 1 `uc 1 ss 1 0 :1:0 
 `uc 1 mm 1 0 :1:1 
 `uc 1 hh 1 0 :1:2 
 `uc 1 DD 1 0 :1:3 
 `uc 1 MM 1 0 :1:4 
 `uc 1 YY 1 0 :1:5 
 ]
-[u S3182 . 1 `uc 1 flags 1 0 `S3175 1 flag 1 0 ]
-[s S3185 . 1 `S3182 1 . 1 0 ]
-[s S3187 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3185 1 edit 1 13 ]
-[v caltime_to_RTCC@tm tm `*.39S3187  1 p 2 9 ]
-"124
+[u S3352 . 1 `uc 1 flags 1 0 `S3345 1 flag 1 0 ]
+[s S3355 . 1 `S3352 1 . 1 0 ]
+[s S3357 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3355 1 edit 1 13 ]
+[v caltime_to_RTCC@tm tm `*.39S3357  1 p 2 9 ]
+"123
 } 0
-"46
+"45
 [v _d_to_x d_to_x `(uc  1 e 1 0 ]
 {
 [v d_to_x@dec dec `uc  1 a 1 wreg ]
 [v d_to_x@dec dec `uc  1 a 1 wreg ]
-"49
+"48
 [v d_to_x@dec dec `uc  1 a 1 8 ]
-"50
+"49
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -1987,72 +1992,29 @@ EVENT_TRANSFER_TERMINATED 5
 [v ___awdiv@divisor divisor `i  1 p 2 2 ]
 "42
 } 0
-"107 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+"8 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
 [v _OSC_init OSC_init `(v  1 e 0 0 ]
 {
-"111
+"12
 } 0
-"11 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_I2C.c
-[v _I2C_init I2C_init `(v  1 e 0 0 ]
-{
-"19
-} 0
-"78 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
+"211 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
 [v _I2C_LCD_init I2C_LCD_init `(v  1 e 0 0 ]
 {
-"86
-[v I2C_LCD_init@i_4220 i `uc  1 a 1 9 ]
-"79
+"221
+[v I2C_LCD_init@i_4452 i `uc  1 a 1 9 ]
+"214
 [v I2C_LCD_init@i i `uc  1 a 1 8 ]
-"91
+"226
 } 0
-"21
+"62 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_I2C.c
+[v _I2C_init_old I2C_init_old `(v  1 e 0 0 ]
+{
+"70
+} 0
+"154 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
 [v _I2C_LCD_Clear I2C_LCD_Clear `(v  1 e 0 0 ]
 {
-"24
-} 0
-"8
-[v _I2C_LCD_Command I2C_LCD_Command `(v  1 e 0 0 ]
-{
-[v I2C_LCD_Command@c c `uc  1 a 1 wreg ]
-"9
-[v I2C_LCD_Command@ans ans `uc  1 a 1 5 ]
-"8
-[v I2C_LCD_Command@c c `uc  1 a 1 wreg ]
-"11
-[v I2C_LCD_Command@c c `uc  1 a 1 4 ]
-"19
-} 0
-"45 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_I2C.c
-[v _I2C_Stop I2C_Stop `(v  1 e 0 0 ]
-{
-"49
-} 0
-"21
-[v _I2C_Start I2C_Start `(uc  1 e 1 0 ]
-{
-[v I2C_Start@adrs adrs `uc  1 a 1 wreg ]
-[v I2C_Start@adrs adrs `uc  1 a 1 wreg ]
-[v I2C_Start@rw rw `uc  1 p 1 2 ]
-"23
-[v I2C_Start@adrs adrs `uc  1 a 1 3 ]
-"31
-} 0
-"51
-[v _I2C_Send I2C_Send `(uc  1 e 1 0 ]
-{
-[v I2C_Send@data data `uc  1 a 1 wreg ]
-[v I2C_Send@data data `uc  1 a 1 wreg ]
-[v I2C_Send@data data `uc  1 a 1 2 ]
-"57
-} 0
-"7
-[v _I2C_IdleCheck I2C_IdleCheck `(v  1 e 0 0 ]
-{
-[v I2C_IdleCheck@mask mask `uc  1 a 1 wreg ]
-[v I2C_IdleCheck@mask mask `uc  1 a 1 wreg ]
-[v I2C_IdleCheck@mask mask `uc  1 a 1 1 ]
-"9
+"157
 } 0
 "66 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
 [v _USB_task USB_task `(v  1 e 0 0 ]
@@ -2066,8 +2028,8 @@ EVENT_TRANSFER_TERMINATED 5
 "20 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ringbuf.c
 [v _ringbuf_put ringbuf_put `(v  1 e 0 0 ]
 {
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
-[v ringbuf_put@rb rb `*.39S3119  1 p 2 8 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[v ringbuf_put@rb rb `*.39S3289  1 p 2 8 ]
 [v ringbuf_put@asciicode asciicode `uc  1 p 1 10 ]
 "26
 } 0
@@ -2076,9 +2038,9 @@ EVENT_TRANSFER_TERMINATED 5
 {
 "47
 [v ringbuf_pop@ret ret `uc  1 a 1 14 ]
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
 "45
-[v ringbuf_pop@rb rb `*.39S3119  1 p 2 8 ]
+[v ringbuf_pop@rb rb `*.39S3289  1 p 2 8 ]
 "57
 } 0
 "21 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
@@ -2175,66 +2137,66 @@ EVENT_TRANSFER_TERMINATED 5
 "12 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ringbuf.c
 [v _ringbuf_num ringbuf_num `(ui  1 e 2 0 ]
 {
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
-[v ringbuf_num@rb rb `*.39S3119  1 p 2 0 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[v ringbuf_num@rb rb `*.39S3289  1 p 2 0 ]
 "18
 } 0
-"353 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
+"352 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
 [v _RTCC_task RTCC_task `(v  1 e 0 0 ]
 {
-"354
+"353
 [v RTCC_task@prev_halfsec prev_halfsec `uc  1 s 1 prev_halfsec ]
-"363
+"362
 } 0
-"200
+"199
 [v _RTCC_from_RTCC RTCC_from_RTCC `(v  1 e 0 0 ]
 {
-[s S3175 . 1 `uc 1 ss 1 0 :1:0 
+[s S3345 . 1 `uc 1 ss 1 0 :1:0 
 `uc 1 mm 1 0 :1:1 
 `uc 1 hh 1 0 :1:2 
 `uc 1 DD 1 0 :1:3 
 `uc 1 MM 1 0 :1:4 
 `uc 1 YY 1 0 :1:5 
 ]
-[u S3182 . 1 `uc 1 flags 1 0 `S3175 1 flag 1 0 ]
-[s S3185 . 1 `S3182 1 . 1 0 ]
-[s S3187 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3185 1 edit 1 13 ]
-[v RTCC_from_RTCC@tm tm `*.39S3187  1 p 2 38 ]
-"203
+[u S3352 . 1 `uc 1 flags 1 0 `S3345 1 flag 1 0 ]
+[s S3355 . 1 `S3352 1 . 1 0 ]
+[s S3357 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3355 1 edit 1 13 ]
+[v RTCC_from_RTCC@tm tm `*.39S3357  1 p 2 38 ]
+"202
 } 0
-"180
+"179
 [v _caltime_to_epoch caltime_to_epoch `(v  1 e 0 0 ]
 {
-"183
-[v caltime_to_epoch@month month `uc  1 a 1 37 ]
-"187
-[v caltime_to_epoch@month_3467 month `uc  1 a 1 32 ]
 "182
-[v caltime_to_epoch@year year `uc  1 a 1 31 ]
+[v caltime_to_epoch@month month `uc  1 a 1 37 ]
+"186
+[v caltime_to_epoch@month_3637 month `uc  1 a 1 32 ]
 "181
+[v caltime_to_epoch@year year `uc  1 a 1 31 ]
+"180
 [v caltime_to_epoch@epoch epoch `ul  1 a 4 33 ]
-[s S3175 . 1 `uc 1 ss 1 0 :1:0 
+[s S3345 . 1 `uc 1 ss 1 0 :1:0 
 `uc 1 mm 1 0 :1:1 
 `uc 1 hh 1 0 :1:2 
 `uc 1 DD 1 0 :1:3 
 `uc 1 MM 1 0 :1:4 
 `uc 1 YY 1 0 :1:5 
 ]
-"180
-[u S3182 . 1 `uc 1 flags 1 0 `S3175 1 flag 1 0 ]
-[s S3185 . 1 `S3182 1 . 1 0 ]
-[s S3187 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3185 1 edit 1 13 ]
-[v caltime_to_epoch@tm tm `*.39S3187  1 p 2 25 ]
-"196
+"179
+[u S3352 . 1 `uc 1 flags 1 0 `S3345 1 flag 1 0 ]
+[s S3355 . 1 `S3352 1 . 1 0 ]
+[s S3357 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3355 1 edit 1 13 ]
+[v caltime_to_epoch@tm tm `*.39S3357  1 p 2 25 ]
+"195
 } 0
-"56
+"55
 [v _month_length month_length `(uc  1 e 1 0 ]
 {
 [v month_length@year year `uc  1 a 1 wreg ]
 [v month_length@year year `uc  1 a 1 wreg ]
 [v month_length@month month `uc  1 p 1 6 ]
 [v month_length@year year `uc  1 a 1 11 ]
-"79
+"78
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
@@ -2257,37 +2219,102 @@ EVENT_TRANSFER_TERMINATED 5
 [v ___lmul@multiplicand multiplicand `ul  1 p 4 17 ]
 "129
 } 0
-"90 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
+"89 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
 [v _RTCC_to_caltime RTCC_to_caltime `(v  1 e 0 0 ]
 {
-"97
+"96
 [v RTCC_to_caltime@dumy dumy `uc  1 a 1 4 ]
-[s S3175 . 1 `uc 1 ss 1 0 :1:0 
+[s S3345 . 1 `uc 1 ss 1 0 :1:0 
 `uc 1 mm 1 0 :1:1 
 `uc 1 hh 1 0 :1:2 
 `uc 1 DD 1 0 :1:3 
 `uc 1 MM 1 0 :1:4 
 `uc 1 YY 1 0 :1:5 
 ]
-"90
-[u S3182 . 1 `uc 1 flags 1 0 `S3175 1 flag 1 0 ]
-[s S3185 . 1 `S3182 1 . 1 0 ]
-[s S3187 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3185 1 edit 1 13 ]
-[v RTCC_to_caltime@tm tm `*.39S3187  1 p 2 2 ]
-"104
+"89
+[u S3352 . 1 `uc 1 flags 1 0 `S3345 1 flag 1 0 ]
+[s S3355 . 1 `S3352 1 . 1 0 ]
+[s S3357 . 14 `ul 1 epoch 4 0 `uc 1 ss 1 4 `uc 1 mm 1 5 `uc 1 hh 1 6 `uc 1 EE 1 7 `uc 1 DD 1 8 `uc 1 MM 1 9 `uc 1 YY 1 10 `uc 1 colon 1 11 `uc 1 halfsec 1 12 `S3355 1 edit 1 13 ]
+[v RTCC_to_caltime@tm tm `*.39S3357  1 p 2 2 ]
+"103
 } 0
-"52
+"51
 [v _x_to_d x_to_d `(uc  1 e 1 0 ]
 {
 [v x_to_d@hex hex `uc  1 a 1 wreg ]
 [v x_to_d@hex hex `uc  1 a 1 wreg ]
 [v x_to_d@hex hex `uc  1 a 1 1 ]
-"54
+"53
 } 0
-"36 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-template.X\main.c
+"159 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
+[v _I2C_LCD_SetCursor I2C_LCD_SetCursor `(v  1 e 0 0 ]
+{
+[v I2C_LCD_SetCursor@col col `uc  1 a 1 wreg ]
+"160
+[v I2C_LCD_SetCursor@row_offsets row_offsets `[2]uc  1 a 2 7 ]
+"159
+[v I2C_LCD_SetCursor@col col `uc  1 a 1 wreg ]
+[v I2C_LCD_SetCursor@row row `uc  1 p 1 6 ]
+[v I2C_LCD_SetCursor@F8685 F8685 `[2]uc  1 s 2 F8685 ]
+[v I2C_LCD_SetCursor@col col `uc  1 a 1 9 ]
+"163
+} 0
+"141
+[v _I2C_LCD_Command I2C_LCD_Command `(v  1 e 0 0 ]
+{
+[v I2C_LCD_Command@c c `uc  1 a 1 wreg ]
+"142
+[v I2C_LCD_Command@ans ans `uc  1 a 1 5 ]
+"141
+[v I2C_LCD_Command@c c `uc  1 a 1 wreg ]
+"144
+[v I2C_LCD_Command@c c `uc  1 a 1 4 ]
+"152
+} 0
+"178
+[v _I2C_LCD_Puts I2C_LCD_Puts `(v  1 e 0 0 ]
+{
+"179
+[v I2C_LCD_Puts@ans ans `i  1 a 2 7 ]
+"178
+[v I2C_LCD_Puts@s s `*.32Cuc  1 p 2 4 ]
+"190
+} 0
+"96 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_I2C.c
+[v _I2C_Stop I2C_Stop `(v  1 e 0 0 ]
+{
+"100
+} 0
+"72
+[v _I2C_Start I2C_Start `(uc  1 e 1 0 ]
+{
+[v I2C_Start@adrs adrs `uc  1 a 1 wreg ]
+[v I2C_Start@adrs adrs `uc  1 a 1 wreg ]
+[v I2C_Start@rw rw `uc  1 p 1 2 ]
+"74
+[v I2C_Start@adrs adrs `uc  1 a 1 3 ]
+"82
+} 0
+"102
+[v _I2C_Send I2C_Send `(uc  1 e 1 0 ]
+{
+[v I2C_Send@data data `uc  1 a 1 wreg ]
+[v I2C_Send@data data `uc  1 a 1 wreg ]
+[v I2C_Send@data data `uc  1 a 1 2 ]
+"108
+} 0
+"58
+[v _I2C_IdleCheck I2C_IdleCheck `(v  1 e 0 0 ]
+{
+[v I2C_IdleCheck@mask mask `uc  1 a 1 wreg ]
+[v I2C_IdleCheck@mask mask `uc  1 a 1 wreg ]
+[v I2C_IdleCheck@mask mask `uc  1 a 1 1 ]
+"60
+} 0
+"34 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-template.X\main.c
 [v _ISR ISR `II(v  1 e 0 0 ]
 {
-"49
+"48
 } 0
 "7 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
 [v _USB_ISR USB_ISR `(v  1 e 0 0 ]
@@ -2596,8 +2623,8 @@ EVENT_TRANSFER_TERMINATED 5
 "20 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ringbuf.c
 [v i2_ringbuf_put ringbuf_put `(v  1 e 0 0 ]
 {
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
-[v i2ringbuf_put@rb rb `*.39S3119  1 p 2 8 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[v i2ringbuf_put@rb rb `*.39S3289  1 p 2 8 ]
 [v i2ringbuf_put@asciicode asciicode `uc  1 p 1 10 ]
 "26
 } 0
@@ -2605,14 +2632,19 @@ EVENT_TRANSFER_TERMINATED 5
 [v i2_ringbuf_pop ringbuf_pop `(uc  1 e 1 0 ]
 {
 [v i2ringbuf_pop@ret ringbuf_pop `uc  1 a 1 14 ]
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
-[v i2ringbuf_pop@rb rb `*.39S3119  1 p 2 8 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[v i2ringbuf_pop@rb rb `*.39S3289  1 p 2 8 ]
 "57
 } 0
 "12
 [v i2_ringbuf_num ringbuf_num `(ui  1 e 2 0 ]
 {
-[s S3119 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
-[v i2ringbuf_num@rb rb `*.39S3119  1 p 2 0 ]
+[s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
+[v i2ringbuf_num@rb rb `*.39S3289  1 p 2 0 ]
 "18
+} 0
+"44 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_I2C.c
+[v _I2C_ISR I2C_ISR `(v  1 e 0 0 ]
+{
+"53
 } 0

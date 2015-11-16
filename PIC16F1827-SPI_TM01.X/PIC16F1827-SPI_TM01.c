@@ -23,7 +23,13 @@
 #define _XTAL_FREQ 32000000
 #define CS LATB0
 
-#include <My_header_16F.h>
+#define PIC16F1827
+#define ADT7310
+
+#define C_SEL LATAbits.LATA0
+
+#include <My_header.h>
+#include <My_SPI.h>
 
 void interrupt isr(void) {
     interrupt_TXIF();
@@ -50,15 +56,15 @@ void main(void) {
     APFCON0bits.SDO1SEL = 1;
     APFCON1bits.TXCKSEL = 1;
 
-    UART_init(PIC16F1827);
-    SPI_init(Master,0);
+    UART_init();
+    SPI_init(MASTER);
 
     char buf[30];
     ringbuf_init(&tx_buf, buf, sizeof (buf));
 
     INTCONbits.GIE = 1;
 
-    ADT7310_init();
+    SPI_TM_init();
     Delay_ms(240);
 
     while (1) {

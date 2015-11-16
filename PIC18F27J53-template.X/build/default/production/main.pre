@@ -10533,16 +10533,57 @@ uint8_t long_holding_7 : 1;
 
 void button_timer_interrupt(button_t *bt, uint8_t sw_value);
 
-# 21 "../My_library\My_I2C.h"
+# 19 "../My_library\My_I2C.h"
+extern uint8_t I2C_sent_flag;
+extern uint8_t I2C_cfct_flag;
+extern uint8_t I2C_busy;
+
+uint8_t I2C_idole_check(uint8_t mask);
+void I2C_start(void);
+void I2C_restart(void);
+void I2C_stop(void);
+void I2C_send(uint8_t data);
+uint8_t I2C_ack(void);
+void I2C_init_new(void);
+void I2C_ISR(void);
+
+# 36
 void I2C_IdleCheck(char mask);
-void I2C_init(void);
+void I2C_init_old(void);
 uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
 uint8_t I2C_rStart(int adrs, int rw);
 void I2C_Stop(void);
 uint8_t I2C_Send(uint8_t data);
 uint8_t I2C_Receive(uint8_t ack);
 
-# 16 "../My_library\My_ST7032.h"
+# 19 "../My_library\My_ST7032.h"
+typedef enum ST7032_STATE {
+ST7032_IDOLE,
+ST7032_START,
+ST7032_SEND,
+ST7032_STOP,
+ST7032_WAIT
+} st7032_state_t;
+
+extern ringbuf_t lcd_tx;
+
+void ST7032_command(uint8_t command, uint8_t wait);
+
+void ST7032_clear(void);
+
+void ST7032_cursor(uint8_t col, uint8_t row);
+
+void ST7032_put(char c);
+
+void ST7032_puts(const uint8_t *s);
+
+void ST7032_create_char(int p, char *dt);
+
+void ST7032_init(void);
+
+void ST7032_task(void);
+
+# 50
 void I2C_LCD_Command(uint8_t c);
 void I2C_LCD_Clear(void);
 void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
@@ -11640,10 +11681,11 @@ void UART_init(void);
 void UART_ISR(void);
 void UART_task(void);
 
-# 36 "main.c"
+# 34 "main.c"
 void interrupt ISR(void) {
 USB_ISR();
 UART_ISR();
+I2C_ISR();
 if (INTCONbits.T0IF && INTCONbits.T0IE) {
 INTCONbits.T0IF = 0;
 }
@@ -11654,15 +11696,6 @@ TMR1H = 0xC0;
 if (PIR2bits.TMR3IF && PIE2bits.TMR3IE) {
 PIR2bits.TMR3IF = 0;
 }
-}
-
-void bootload(void) {
-I2C_LCD_Clear();
-I2C_LCD_SetCursor(0, 0);
-I2C_LCD_Puts("PIC18F27J53");
-I2C_LCD_SetCursor(0, 1);
-I2C_LCD_Puts("Bootloader mode");
-asm("goto   0x001C");
 }
 
 void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3) {
@@ -11684,7 +11717,7 @@ if (!strcmp(op0, "RESET();")) {
 asm("reset");
 }
 if (!strcmp(op0, "bootload")) {
-bootload();
+asm("goto   0x001C");
 }
 }
 
@@ -11700,7 +11733,6 @@ INTCON2bits.RBPU = 0;
 timer0_init(6);
 timer1_init(0, 2);
 timer3_init(2);
-I2C_init();
 I2C_LCD_init();
 RTCC_init();
 

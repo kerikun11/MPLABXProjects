@@ -1,15 +1,17 @@
 
 # 1 "PIC16F1827-Inverted_Pendulum01.c"
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
+extern double __fpnormalize(double);
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\xc8debug.h"
+
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f1827.h"
+# 49 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1827.h"
 extern volatile unsigned char INDF0 @ 0x000;
 
 asm("INDF0 equ 00h");
@@ -3693,21 +3695,21 @@ extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
 
 
-# 27 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
+# 27 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
 # 76
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\eeprom_routines.h"
+# 41 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 149 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
+# 149 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
@@ -3716,7 +3718,7 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdint.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -3996,7 +3998,7 @@ tx_send('0' + temp);
 }
 }
 
-# 334
+# 333
 void Delay_ms(uint16_t ms) {
 while (ms--)_delay((unsigned long)((1)*(32000000/4000.0)));
 }
@@ -4016,6 +4018,23 @@ if (d->cnt)d->cnt--;
 void delay_set(delay_t *d, uint16_t value) {
 d->cnt = value;
 d->flag = 0;
+}
+
+
+uint32_t ms;
+
+void millis_timer() {
+static uint16_t cnt;
+if (cnt) {
+cnt;
+} else {
+cnt = 47;
+ms++;
+}
+}
+
+uint32_t millis(void) {
+return ms;
 }
 
 # 36 "PIC16F1827-Inverted_Pendulum01.c"

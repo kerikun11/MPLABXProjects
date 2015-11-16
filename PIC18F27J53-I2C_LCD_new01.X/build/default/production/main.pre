@@ -10503,6 +10503,20 @@ void Delay_ms(uint16_t ms);
 void millis_timer(void);
 uint32_t millis(void);
 
+# 19 "../My_library\My_I2C.h"
+extern uint8_t I2C_sent_flag;
+extern uint8_t I2C_cfct_flag;
+extern uint8_t I2C_busy;
+
+uint8_t I2C_idole_check(uint8_t mask);
+void I2C_start(void);
+void I2C_restart(void);
+void I2C_stop(void);
+void I2C_send(uint8_t data);
+uint8_t I2C_ack(void);
+void I2C_init_new(void);
+void I2C_ISR(void);
+
 # 19 "../My_library\My_ST7032.h"
 typedef enum ST7032_STATE {
 ST7032_IDOLE,
@@ -10513,8 +10527,6 @@ ST7032_WAIT
 } st7032_state_t;
 
 extern ringbuf_t lcd_tx;
-extern uint8_t st7032_flag;
-
 
 void ST7032_command(uint8_t command, uint8_t wait);
 
@@ -10530,15 +10542,13 @@ void ST7032_create_char(int p, char *dt);
 
 void ST7032_init(void);
 
-void ST7032_ISR(void);
-
 void ST7032_task(void);
 
 # 31 "main.c"
 uint8_t one_second_flag;
 
 void interrupt ISR(void) {
-ST7032_ISR();
+I2C_ISR();
 if (PIR1bits.TMR1IF && PIE1bits.TMR1IE) {
 PIR1bits.TMR1IF = 0;
 TMR1H = 0xC0;

@@ -8,9 +8,9 @@
 #ifndef MY_ST7032_H
 #define	MY_ST7032_H
 
-#include <xc.h>
 #include <stdint.h>
 #include <My_ringbuf.h>
+#include <My_I2C.h>
 
 #ifdef	__cplusplus
 extern "C" {
@@ -25,8 +25,6 @@ extern "C" {
     } st7032_state_t;
 
     extern ringbuf_t lcd_tx;
-    extern uint8_t st7032_flag;
-
 
     void ST7032_command(uint8_t command, uint8_t wait);
 
@@ -42,9 +40,22 @@ extern "C" {
 
     void ST7032_init(void);
 
-    void ST7032_ISR(void);
-
     void ST7032_task(void);
+
+    /*************************** old functions ***************************/
+#if I2C_OLD_FUNCTIONS
+
+#define I2C_LCD_ADRES 0x3E      // 秋月電子のI2C接続小型LCDモジュールのアドレス
+
+    void I2C_LCD_Command(uint8_t c);
+    void I2C_LCD_Clear(void);
+    void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
+    void I2C_LCD_Putc(uint8_t c);
+    void I2C_LCD_Puts(const uint8_t * s);
+    void I2C_LCD_CreateChar(int p, char *dt);
+    void I2C_LCD_init(void);
+
+#endif
 
 #ifdef	__cplusplus
 }

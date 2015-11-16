@@ -10485,7 +10485,14 @@ void Delay_ms(uint16_t ms);
 void millis_timer(void);
 uint32_t millis(void);
 
-# 6 "../My_library/My_PIC.c"
+# 8 "../My_library/My_PIC.c"
+void OSC_init(void) {
+OSCCONbits.IRCF = 7;
+OSCTUNEbits.PLLEN = 1;
+OSCCONbits.SCS = 0;
+}
+
+# 34
 void timer0_init(uint8_t prescaler) {
 T0CONbits.TMR0ON = 1;
 T0CONbits.T08BIT = 1;
@@ -10502,7 +10509,7 @@ INTCON2bits.TMR0IP = 0;
 INTCONbits.PEIE = 1;
 }
 
-# 42
+# 70
 void timer1_init(uint8_t prescaler, uint8_t clock_select) {
 T1CONbits.TMR1CS = clock_select;
 if (clock_select == 2) T1CONbits.T1OSCEN = 1;
@@ -10517,7 +10524,7 @@ PIE1bits.TMR1IE = 1;
 INTCONbits.PEIE = 1;
 }
 
-# 73
+# 101
 void timer3_init(uint8_t prescaler) {
 T3CONbits.TMR3CS = 0;
 T3CONbits.T3OSCEN = 0;
@@ -10530,7 +10537,7 @@ PIE2bits.TMR3IE = 1;
 INTCONbits.PEIE = 1;
 }
 
-# 89
+# 117
 void timer5_init(uint8_t prescaler) {
 T5CONbits.TMR5CS = 0;
 T5CONbits.T5OSCEN = 0;
@@ -10543,14 +10550,7 @@ PIE5bits.TMR5IE = 1;
 INTCONbits.PEIE = 1;
 }
 
-# 107
-void OSC_init(void) {
-OSCCONbits.IRCF = 7;
-OSCTUNEbits.PLLEN = 1;
-OSCCONbits.SCS = 0;
-}
-
-# 132
+# 133
 void ADC_init(uint8_t p_ref) {
 ADCON0bits.VCFG1 = 0;
 ADCON0bits.VCFG0 = p_ref;
@@ -10560,7 +10560,7 @@ ADCON1bits.ADCAL = 0;
 ADCON1bits.ADCS = 6;
 }
 
-# 155
+# 156
 uint16_t ADC(uint8_t ch) {
 ADCON0bits.CHS = ch;
 ADCON0bits.ADON = 1;

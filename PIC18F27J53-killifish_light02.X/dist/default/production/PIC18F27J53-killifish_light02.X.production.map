@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\PIC18F27J53-killifish_light02.X.production.sym \
   --cmf=dist/default/production\PIC18F27J53-killifish_light02.X.production.cmf \
-  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s1co.2 \
+  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s3v8.2 \
   -Mdist/default/production/PIC18F27J53-killifish_light02.X.production.map \
   -E1 -ver=XC8 -ASTACK=084Ch-0eafh -pstack=STACK -ACODE=00h-01FFF7h \
   -ACONST=00h-01FFF7h -ASMALLCONST=0F00h-0FFFhx496,01FF00h-01FFF7h \
@@ -26,7 +26,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\KERIKU~1\AppData\Local\Temp\s1co.obj \
+  C:\Users\KERIKU~1\AppData\Local\Temp\s3v8.obj \
   dist/default/production\PIC18F27J53-killifish_light02.X.production.obj 
 
 Object code version is 3.11
@@ -39,7 +39,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\KERIKU~1\AppData\Local\Temp\s1co.obj
+C:\Users\KERIKU~1\AppData\Local\Temp\s3v8.obj
                 end_init                             E4       E4        4        4       0
                 reset_vec                             0        0        4        0       0
                 config                            1FFF8    1FFF8        8    1FFF8       0
@@ -1115,7 +1115,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 419 in file "PIC18F27J53-killifish_light02.c"
+		line 424 in file "PIC18F27J53-killifish_light02.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1149,7 +1149,7 @@ Total ram usage:        0 bytes
 
  *************** function _rx_loop *****************
  Defined at:
-		line 287 in file "PIC18F27J53-killifish_light02.c"
+		line 292 in file "PIC18F27J53-killifish_light02.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1322,7 +1322,7 @@ Total ram usage:        6 bytes
 
  *************** function _command_operation *****************
  Defined at:
-		line 209 in file "PIC18F27J53-killifish_light02.c"
+		line 214 in file "PIC18F27J53-killifish_light02.c"
  Parameters:    Size  Location     Type
   opcode          2   66[BANK0 ] PTR unsigned char 
 		 -> rx_loop@opcode(100), 
@@ -1435,7 +1435,7 @@ Total ram usage:        8 bytes
 
  *************** function _comm_at *****************
  Defined at:
-		line 198 in file "PIC18F27J53-killifish_light02.c"
+		line 203 in file "PIC18F27J53-killifish_light02.c"
  Parameters:    Size  Location     Type
   hand            2   61[BANK0 ] PTR unsigned char 
 		 -> caltime_now(7), 
@@ -1471,7 +1471,7 @@ Total ram usage:        5 bytes
 
  *************** function _print_time *****************
  Defined at:
-		line 175 in file "PIC18F27J53-killifish_light02.c"
+		line 180 in file "PIC18F27J53-killifish_light02.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1505,7 +1505,7 @@ Total ram usage:        0 bytes
 
  *************** function _tx_send_dec *****************
  Defined at:
-		line 168 in file "PIC18F27J53-killifish_light02.c"
+		line 173 in file "PIC18F27J53-killifish_light02.c"
  Parameters:    Size  Location     Type
   dec             1    wreg     unsigned char 
   edit            1   21[BANK0 ] unsigned char 
@@ -1781,7 +1781,7 @@ Total ram usage:        4 bytes
 
  *************** function _normal_loop *****************
  Defined at:
-		line 340 in file "PIC18F27J53-killifish_light02.c"
+		line 345 in file "PIC18F27J53-killifish_light02.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1855,7 +1855,7 @@ Total ram usage:        9 bytes
 
  *************** function _PWM_set *****************
  Defined at:
-		line 121 in file "PIC18F27J53-killifish_light02.c"
+		line 126 in file "PIC18F27J53-killifish_light02.c"
  Parameters:    Size  Location     Type
   color           1    wreg     unsigned char 
   value           2   14[BANK0 ] unsigned int 
@@ -1987,7 +1987,7 @@ Total ram usage:        4 bytes
 
  *************** function _main_init *****************
  Defined at:
-		line 396 in file "PIC18F27J53-killifish_light02.c"
+		line 401 in file "PIC18F27J53-killifish_light02.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2211,7 +2211,7 @@ Total ram usage:        0 bytes
 
  *************** function _PWM_init *****************
  Defined at:
-		line 80 in file "PIC18F27J53-killifish_light02.c"
+		line 85 in file "PIC18F27J53-killifish_light02.c"
  Parameters:    Size  Location     Type
   PR              1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -2809,7 +2809,7 @@ Total ram usage:        8 bytes
 
  *************** function _ISR *****************
  Defined at:
-		line 62 in file "PIC18F27J53-killifish_light02.c"
+		line 67 in file "PIC18F27J53-killifish_light02.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type

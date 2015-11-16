@@ -21,7 +21,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1191 . . . . . . ]
 "18341
 [v _INTCONbits `VS1191 ~T0 @X0 0 e@4082 ]
-"103 ../My_library\My_PIC.h
+"105 ../My_library\My_PIC.h
 [v _millis_timer `(v ~T0 @X0 0 ef ]
 "11054 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [s S709 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -54,10 +54,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "31 LCD_print.h
 [v _integrate_flag `uc ~T0 @X0 0 e ]
 "66 main.c
-[c E9528 0 1 2 3 .. ]
-[n E9528 PRINT_ITEM LOGO PRINT_TIME PRINT_DATA SETTINGS  ]
+[c E9574 0 1 2 3 .. ]
+[n E9574 PRINT_ITEM LOGO PRINT_TIME PRINT_DATA SETTINGS  ]
 "27 LCD_print.h
-[v _print_item `E9528 ~T0 @X0 0 e ]
+[v _print_item `E9574 ~T0 @X0 0 e ]
 "30
 [v _display_flag `uc ~T0 @X0 0 e ]
 "11291 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
@@ -138,21 +138,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1187 . . . . ]
 "18230
 [v _INTCON2bits `VS1187 ~T0 @X0 0 e@4081 ]
-"34 ../My_library\My_PIC.h
+"36 ../My_library\My_PIC.h
 [v _timer0_init `(v ~T0 @X0 0 ef1`uc ]
-"49
+"51
 [v _timer1_init `(v ~T0 @X0 0 ef2`uc`uc ]
-"60
+"62
 [v _timer3_init `(v ~T0 @X0 0 ef1`uc ]
-"24 ../My_library\My_I2C.h
-[v _I2C_init `(v ~T0 @X0 0 ef ]
-"22 ../My_library\My_ST7032.h
+"56 ../My_library\My_ST7032.h
 [v _I2C_LCD_init `(v ~T0 @X0 0 ef ]
 "83 ../My_library\My_RTCC.h
 [v _RTCC_init `(v ~T0 @X0 0 ef ]
-"76 ../My_library\My_PIC.h
+"78 ../My_library\My_PIC.h
 [v _ADC_init `(v ~T0 @X0 0 ef1`uc ]
-"93
+"95
 [v _CTMU_init `(v ~T0 @X0 0 ef ]
 "21 ../My_library\My_usb_cdc.h
 [v _USB_init `(v ~T0 @X0 0 ef ]
@@ -170,7 +168,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "22
 [v _ctmu_set_ratio `(v ~T0 @X0 0 ef1`uc ]
 "34 LCD_print.h
-[v _display `(v ~T0 @X0 0 ef3`E9528`*Cuc`*Cuc ]
+[v _display `(v ~T0 @X0 0 ef3`E9574`*Cuc`*Cuc ]
 "45 io.h
 [v _OUT `(v ~T0 @X0 0 ef2`uc`uc ]
 "49
@@ -214,37 +212,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _bootload `(v ~T0 @X0 0 ef ]
 "52
 [v _sleep_task `(v ~T0 @X0 0 ef ]
-"19 main.c
+"20 main.c
 [p x WDTEN=ON ]
 [p x PLLDIV=2 ]
 [p x CFGPLLEN=ON ]
 [p x STVREN=OFF ]
 [p x XINST=OFF ]
-"21
+"22
 [p x CPUDIV=OSC1 ]
 [p x CP0=OFF ]
-"23
+"24
 [p x OSC=INTOSCPLL ]
 [p x SOSCSEL=LOW ]
 [p x CLKOEC=OFF ]
 [p x FCMEN=OFF ]
 [p x IESO=OFF ]
-"25
+"26
 [p x WDTPS=8 ]
-"27
+"28
 [p x DSWDTOSC=T1OSCREF ]
 [p x RTCOSC=T1OSCREF ]
 [p x DSBOREN=OFF ]
 [p x DSWDTEN=OFF ]
 [p x DSWDTPS=G2 ]
-"29
+"30
 [p x IOL1WAY=OFF ]
 [p x ADCSEL=BIT12 ]
 [p x MSSP7B_EN=MSK7 ]
-"31
+"32
 [p x WPFP=PAGE_127 ]
 [p x WPCFG=OFF ]
-"33
+"34
 [p x WPDIS=OFF ]
 [p x WPEND=PAGE_WPFP ]
 [p x LS48MHZ=SYS48X8 ]
@@ -8382,32 +8380,59 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
 [; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
 [; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
-[; ;My_library\My_PIC.h: 22: void OSC_init(void);
-[; ;My_library\My_PIC.h: 34: void timer0_init(uint8_t prescaler);
-[; ;My_library\My_PIC.h: 49: void timer1_init(uint8_t prescaler, uint8_t clock_select);
-[; ;My_library\My_PIC.h: 60: void timer3_init(uint8_t prescaler);
-[; ;My_library\My_PIC.h: 66: void timer5_init(uint8_t prescaler);
-[; ;My_library\My_PIC.h: 76: void ADC_init(uint8_t p_ref);
-[; ;My_library\My_PIC.h: 85: uint16_t ADC(uint8_t ch);
-[; ;My_library\My_PIC.h: 93: void CTMU_init(void);
-[; ;My_library\My_PIC.h: 94: uint16_t CTMU_read(uint8_t ch);
-[; ;My_library\My_PIC.h: 99: void Delay_ms(uint16_t ms);
-[; ;My_library\My_PIC.h: 103: void millis_timer(void);
-[; ;My_library\My_PIC.h: 104: uint32_t millis(void);
-[; ;My_library\My_I2C.h: 23: void I2C_IdleCheck(char mask);
-[; ;My_library\My_I2C.h: 24: void I2C_init(void);
-[; ;My_library\My_I2C.h: 25: uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
-[; ;My_library\My_I2C.h: 26: uint8_t I2C_rStart(int adrs, int rw);
-[; ;My_library\My_I2C.h: 27: void I2C_Stop(void);
-[; ;My_library\My_I2C.h: 28: uint8_t I2C_Send(uint8_t data);
-[; ;My_library\My_I2C.h: 29: uint8_t I2C_Receive(uint8_t ack);
-[; ;My_library\My_ST7032.h: 16: void I2C_LCD_Command(uint8_t c);
-[; ;My_library\My_ST7032.h: 17: void I2C_LCD_Clear(void);
-[; ;My_library\My_ST7032.h: 18: void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
-[; ;My_library\My_ST7032.h: 19: void I2C_LCD_Putc(uint8_t c);
-[; ;My_library\My_ST7032.h: 20: void I2C_LCD_Puts(const uint8_t * s);
-[; ;My_library\My_ST7032.h: 21: void I2C_LCD_CreateChar(int p, char *dt);
-[; ;My_library\My_ST7032.h: 22: void I2C_LCD_init(void);
+[; ;My_library\My_PIC.h: 20: void OSC_init(void);
+[; ;My_library\My_PIC.h: 36: void timer0_init(uint8_t prescaler);
+[; ;My_library\My_PIC.h: 51: void timer1_init(uint8_t prescaler, uint8_t clock_select);
+[; ;My_library\My_PIC.h: 62: void timer3_init(uint8_t prescaler);
+[; ;My_library\My_PIC.h: 68: void timer5_init(uint8_t prescaler);
+[; ;My_library\My_PIC.h: 78: void ADC_init(uint8_t p_ref);
+[; ;My_library\My_PIC.h: 87: uint16_t ADC(uint8_t ch);
+[; ;My_library\My_PIC.h: 95: void CTMU_init(void);
+[; ;My_library\My_PIC.h: 96: uint16_t CTMU_read(uint8_t ch);
+[; ;My_library\My_PIC.h: 101: void Delay_ms(uint16_t ms);
+[; ;My_library\My_PIC.h: 105: void millis_timer(void);
+[; ;My_library\My_PIC.h: 106: uint32_t millis(void);
+[; ;My_library\My_I2C.h: 19: extern uint8_t I2C_sent_flag;
+[; ;My_library\My_I2C.h: 20: extern uint8_t I2C_cfct_flag;
+[; ;My_library\My_I2C.h: 21: extern uint8_t I2C_busy;
+[; ;My_library\My_I2C.h: 23: uint8_t I2C_idole_check(uint8_t mask);
+[; ;My_library\My_I2C.h: 24: void I2C_start(void);
+[; ;My_library\My_I2C.h: 25: void I2C_restart(void);
+[; ;My_library\My_I2C.h: 26: void I2C_stop(void);
+[; ;My_library\My_I2C.h: 27: void I2C_send(uint8_t data);
+[; ;My_library\My_I2C.h: 28: uint8_t I2C_ack(void);
+[; ;My_library\My_I2C.h: 29: void I2C_init_new(void);
+[; ;My_library\My_I2C.h: 30: void I2C_ISR(void);
+[; ;My_library\My_I2C.h: 36: void I2C_IdleCheck(char mask);
+[; ;My_library\My_I2C.h: 37: void I2C_init_old(void);
+[; ;My_library\My_I2C.h: 38: uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
+[; ;My_library\My_I2C.h: 39: uint8_t I2C_rStart(int adrs, int rw);
+[; ;My_library\My_I2C.h: 40: void I2C_Stop(void);
+[; ;My_library\My_I2C.h: 41: uint8_t I2C_Send(uint8_t data);
+[; ;My_library\My_I2C.h: 42: uint8_t I2C_Receive(uint8_t ack);
+[; ;My_library\My_ST7032.h: 19: typedef enum ST7032_STATE {
+[; ;My_library\My_ST7032.h: 20: ST7032_IDOLE,
+[; ;My_library\My_ST7032.h: 21: ST7032_START,
+[; ;My_library\My_ST7032.h: 22: ST7032_SEND,
+[; ;My_library\My_ST7032.h: 23: ST7032_STOP,
+[; ;My_library\My_ST7032.h: 24: ST7032_WAIT
+[; ;My_library\My_ST7032.h: 25: } st7032_state_t;
+[; ;My_library\My_ST7032.h: 27: extern ringbuf_t lcd_tx;
+[; ;My_library\My_ST7032.h: 29: void ST7032_command(uint8_t command, uint8_t wait);
+[; ;My_library\My_ST7032.h: 31: void ST7032_clear(void);
+[; ;My_library\My_ST7032.h: 33: void ST7032_cursor(uint8_t col, uint8_t row);
+[; ;My_library\My_ST7032.h: 35: void ST7032_put(char c);
+[; ;My_library\My_ST7032.h: 37: void ST7032_puts(const uint8_t *s);
+[; ;My_library\My_ST7032.h: 39: void ST7032_create_char(int p, char *dt);
+[; ;My_library\My_ST7032.h: 41: void ST7032_init(void);
+[; ;My_library\My_ST7032.h: 43: void ST7032_task(void);
+[; ;My_library\My_ST7032.h: 50: void I2C_LCD_Command(uint8_t c);
+[; ;My_library\My_ST7032.h: 51: void I2C_LCD_Clear(void);
+[; ;My_library\My_ST7032.h: 52: void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
+[; ;My_library\My_ST7032.h: 53: void I2C_LCD_Putc(uint8_t c);
+[; ;My_library\My_ST7032.h: 54: void I2C_LCD_Puts(const uint8_t * s);
+[; ;My_library\My_ST7032.h: 55: void I2C_LCD_CreateChar(int p, char *dt);
+[; ;My_library\My_ST7032.h: 56: void I2C_LCD_init(void);
 [; ;My_library\My_button.h: 26: typedef struct button {
 [; ;My_library\My_button.h: 27: uint16_t cnt_sw;
 [; ;My_library\My_button.h: 29: union {
@@ -9203,9 +9228,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;settings.h: 27: uint8_t settings_led_indicator(void);
 [; ;settings.h: 28: uint8_t settings_integrating_reset(void);
 [; ;settings.h: 29: void settings_task(void);
-[v F9573 `(v ~T0 @X0 1 tf ]
+[v F9619 `(v ~T0 @X0 1 tf ]
 "49 main.c
-[v _ISR `IF9573 ~T0 @X0 1 e ]
+[v _ISR `IF9619 ~T0 @X0 1 e ]
 {
 [; ;main.c: 49: void interrupt ISR(void) {
 [e :U _ISR ]
@@ -9241,18 +9266,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 "58
 [e = _cut_time_flag -> -> 1 `i `uc ]
 "59
-[v F9574 `uc ~T0 @X0 1 s cnt_t1 ]
-[i F9574
+[v F9620 `uc ~T0 @X0 1 s cnt_t1 ]
+[i F9620
 -> -> 0 `i `uc
 ]
 [; ;main.c: 59: static uint8_t cnt_t1 = 0;
 [; ;main.c: 60: if (cnt_t1) {
 "60
-[e $ ! != -> F9574 `i -> -> -> 0 `i `uc `i 1298  ]
+[e $ ! != -> F9620 `i -> -> -> 0 `i `uc `i 1298  ]
 {
 [; ;main.c: 61: cnt_t1 = 0;
 "61
-[e = F9574 -> -> 0 `i `uc ]
+[e = F9620 -> -> 0 `i `uc ]
 "62
 }
 [; ;main.c: 62: } else {
@@ -9261,7 +9286,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;main.c: 63: cnt_t1 = 1;
 "63
-[e = F9574 -> -> 1 `i `uc ]
+[e = F9620 -> -> 1 `i `uc ]
 [; ;main.c: 64: terminal_data_out_flag = 1;
 "64
 [e = _terminal_data_out_flag -> -> 1 `i `uc ]
@@ -9270,7 +9295,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _integrate_flag -> -> 1 `i `uc ]
 [; ;main.c: 66: if (print_item == PRINT_DATA)display_flag = 1;
 "66
-[e $ ! == -> _print_item `i -> . `E9528 2 `i 1300  ]
+[e $ ! == -> _print_item `i -> . `E9574 2 `i 1300  ]
 [e = _display_flag -> -> 1 `i `uc ]
 [e :U 1300 ]
 "67
@@ -9292,15 +9317,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71
 [e = _ctmu_sampling_flag -> -> 1 `i `uc ]
 "72
-[v F9575 `uc ~T0 @X0 1 s cnt ]
+[v F9621 `uc ~T0 @X0 1 s cnt ]
 [; ;main.c: 72: static uint8_t cnt;
 [; ;main.c: 73: if (cnt) {
 "73
-[e $ ! != -> F9575 `i -> -> -> 0 `i `uc `i 1302  ]
+[e $ ! != -> F9621 `i -> -> -> 0 `i `uc `i 1302  ]
 {
 [; ;main.c: 74: cnt--;
 "74
-[e -- F9575 -> -> 1 `i `uc ]
+[e -- F9621 -> -> 1 `i `uc ]
 "75
 }
 [; ;main.c: 75: } else {
@@ -9309,7 +9334,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;main.c: 76: cnt = 8;
 "76
-[e = F9575 -> -> 8 `i `uc ]
+[e = F9621 -> -> 8 `i `uc ]
 [; ;main.c: 77: LED_indicator();
 "77
 [e ( _LED_indicator ..  ]
@@ -9367,57 +9392,54 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 95: timer3_init(2);
 "95
 [e ( _timer3_init (1 -> -> 2 `i `uc ]
-[; ;main.c: 96: I2C_init();
+[; ;main.c: 96: I2C_LCD_init();
 "96
-[e ( _I2C_init ..  ]
-[; ;main.c: 97: I2C_LCD_init();
-"97
 [e ( _I2C_LCD_init ..  ]
-[; ;main.c: 98: RTCC_init();
-"98
+[; ;main.c: 97: RTCC_init();
+"97
 [e ( _RTCC_init ..  ]
-[; ;main.c: 99: ADC_init(0);
-"99
+[; ;main.c: 98: ADC_init(0);
+"98
 [e ( _ADC_init (1 -> -> 0 `i `uc ]
-[; ;main.c: 100: CTMU_init();
-"100
+[; ;main.c: 99: CTMU_init();
+"99
 [e ( _CTMU_init ..  ]
-[; ;main.c: 102: USB_init();
-"102
+[; ;main.c: 101: USB_init();
+"101
 [e ( _USB_init ..  ]
+"102
+[v F9624 `uc ~T0 @X0 -> 1800 `i s usbtx ]
+[; ;main.c: 102: static uint8_t usbtx[1800];
+[; ;main.c: 103: ringbuf_init(&usb_tx, usbtx, sizeof (usbtx));
 "103
-[v F9578 `uc ~T0 @X0 -> 2000 `i s usbtx ]
-[; ;main.c: 103: static uint8_t usbtx[2000];
-[; ;main.c: 104: ringbuf_init(&usb_tx, usbtx, sizeof (usbtx));
+[e ( _ringbuf_init (3 , , &U _usb_tx &U F9624 -> # F9624 `ui ]
 "104
-[e ( _ringbuf_init (3 , , &U _usb_tx &U F9578 -> # F9578 `ui ]
+[v F9625 `uc ~T0 @X0 -> 100 `i s usbrx ]
+[; ;main.c: 104: static uint8_t usbrx[100];
+[; ;main.c: 105: ringbuf_init(&usb_rx, usbrx, sizeof (usbrx));
 "105
-[v F9579 `uc ~T0 @X0 -> 100 `i s usbrx ]
-[; ;main.c: 105: static uint8_t usbrx[100];
-[; ;main.c: 106: ringbuf_init(&usb_rx, usbrx, sizeof (usbrx));
+[e ( _ringbuf_init (3 , , &U _usb_rx &U F9625 -> # F9625 `ui ]
+[; ;main.c: 106: }
 "106
-[e ( _ringbuf_init (3 , , &U _usb_rx &U F9579 -> # F9579 `ui ]
-[; ;main.c: 107: }
-"107
 [e :UE 1304 ]
 }
-"109
+"108
 [v _software_init `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 109: void software_init(void) {
+[; ;main.c: 108: void software_init(void) {
 [e :U _software_init ]
 [f ]
-[; ;main.c: 111: ctmu_ratio = 90;
-"111
+[; ;main.c: 110: ctmu_ratio = 90;
+"110
 [e = _ctmu_ratio -> -> 90 `i `uc ]
-[; ;main.c: 112: ctmu_set_ratio(ctmu_ratio);
-"112
+[; ;main.c: 111: ctmu_set_ratio(ctmu_ratio);
+"111
 [e ( _ctmu_set_ratio (1 _ctmu_ratio ]
-[; ;main.c: 115: display(LOGO, "Charge Station", "Made by KERI");
-"115
-[e ( _display (3 , , . `E9528 0 :s 1C :s 2C ]
-[; ;main.c: 118: for (uint8_t i = 0; i < 3; i++) {
-"118
+[; ;main.c: 114: display(LOGO, "Charge Station", "Made by KERI");
+"114
+[e ( _display (3 , , . `E9574 0 :s 1C :s 2C ]
+[; ;main.c: 117: for (uint8_t i = 0; i < 3; i++) {
+"117
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -9425,137 +9447,137 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1307  ]
 [e :U 1306 ]
 {
-[; ;main.c: 119: OUT(i, 0);
-"119
-[e ( _OUT (2 , _i -> -> 0 `i `uc ]
-[; ;main.c: 120: LED_output(i, 0);
-"120
-[e ( _LED_output (2 , _i -> -> 0 `i `uc ]
-[; ;main.c: 121: port[i].cut_cnt = 0;
-"121
-[e = . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 6 -> -> 0 `i `ui ]
-[; ;main.c: 122: port[i].flag.auto_cut_ON = 1;
-"122
-[e = . . . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 7 1 0 -> -> 1 `i `uc ]
-[; ;main.c: 123: port[i].flag.led_indicator_ON = 1;
-"123
-[e = . . . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 7 1 1 -> -> 1 `i `uc ]
-"124
-}
+[; ;main.c: 118: OUT(i, 0);
 "118
+[e ( _OUT (2 , _i -> -> 0 `i `uc ]
+[; ;main.c: 119: LED_output(i, 0);
+"119
+[e ( _LED_output (2 , _i -> -> 0 `i `uc ]
+[; ;main.c: 120: port[i].cut_cnt = 0;
+"120
+[e = . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 6 -> -> 0 `i `ui ]
+[; ;main.c: 121: port[i].flag.auto_cut_ON = 1;
+"121
+[e = . . . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 7 1 0 -> -> 1 `i `uc ]
+[; ;main.c: 122: port[i].flag.led_indicator_ON = 1;
+"122
+[e = . . . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 7 1 1 -> -> 1 `i `uc ]
+"123
+}
+"117
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 3 `i 1306  ]
 [e :U 1307 ]
-"124
+"123
 }
-[; ;main.c: 124: }
-[; ;main.c: 127: settings_flag = 0;
-"127
+[; ;main.c: 123: }
+[; ;main.c: 126: settings_flag = 0;
+"126
 [e = _settings_flag -> -> 0 `i `uc ]
-[; ;main.c: 128: }
-"128
+[; ;main.c: 127: }
+"127
 [e :UE 1305 ]
 }
-"130
+"129
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 130: int main(void) {
+[; ;main.c: 129: int main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 132: hardware_init();
-"132
+[; ;main.c: 131: hardware_init();
+"131
 [e ( _hardware_init ..  ]
-[; ;main.c: 134: software_init();
-"134
+[; ;main.c: 133: software_init();
+"133
 [e ( _software_init ..  ]
-[; ;main.c: 136: INTCONbits.GIE = 1;
-"136
+[; ;main.c: 135: INTCONbits.GIE = 1;
+"135
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 138: while (1) {
-"138
+[; ;main.c: 137: while (1) {
+"137
 [e :U 1311 ]
 {
-[; ;main.c: 140: INTCONbits.GIE = 0;
+[; ;main.c: 139: INTCONbits.GIE = 0;
+"139
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 140: RTCC_task();
 "140
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 141: RTCC_task();
-"141
 [e ( _RTCC_task ..  ]
-[; ;main.c: 142: INTCONbits.GIE = 1;
+[; ;main.c: 141: INTCONbits.GIE = 1;
+"141
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 142: INTCONbits.GIE = 0;
 "142
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 143: INTCONbits.GIE = 0;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 143: USB_task();
 "143
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 144: USB_task();
-"144
 [e ( _USB_task ..  ]
-[; ;main.c: 145: INTCONbits.GIE = 1;
+[; ;main.c: 144: INTCONbits.GIE = 1;
+"144
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 145: INTCONbits.GIE = 0;
 "145
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 146: INTCONbits.GIE = 0;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 146: terminal_task(&usb_tx, &usb_rx);
 "146
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 147: terminal_task(&usb_tx, &usb_rx);
-"147
 [e ( _terminal_task (2 , &U _usb_tx &U _usb_rx ]
-[; ;main.c: 148: INTCONbits.GIE = 1;
+[; ;main.c: 147: INTCONbits.GIE = 1;
+"147
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 148: INTCONbits.GIE = 0;
 "148
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 149: INTCONbits.GIE = 0;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 149: normal_task();
 "149
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 150: normal_task();
-"150
 [e ( _normal_task ..  ]
-[; ;main.c: 151: INTCONbits.GIE = 1;
-"151
+[; ;main.c: 150: INTCONbits.GIE = 1;
+"150
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 153: INTCONbits.GIE = 0;
-"153
+[; ;main.c: 152: INTCONbits.GIE = 0;
+"152
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 154: ctmu_task();
-"154
+[; ;main.c: 153: ctmu_task();
+"153
 [e ( _ctmu_task ..  ]
-[; ;main.c: 155: if (ctmu_m.flag.pressing &&
-[; ;main.c: 156: port[0].ctmu.flag.pressing &&
-[; ;main.c: 157: port[1].ctmu.flag.pressing &&
-[; ;main.c: 158: port[2].ctmu.flag.pressing) {
-"158
+[; ;main.c: 154: if (ctmu_m.flag.pressing &&
+[; ;main.c: 155: port[0].ctmu.flag.pressing &&
+[; ;main.c: 156: port[1].ctmu.flag.pressing &&
+[; ;main.c: 157: port[2].ctmu.flag.pressing) {
+"157
 [e $ ! && && && != -> . . . _ctmu_m 1 1 8 `i -> -> -> 0 `i `uc `i != -> . . . . *U + &U _port * -> -> -> 0 `i `ui `ux -> -> # *U &U _port `ui `ux 0 1 1 8 `i -> -> -> 0 `i `uc `i != -> . . . . *U + &U _port * -> -> -> 1 `i `ui `ux -> -> # *U &U _port `ui `ux 0 1 1 8 `i -> -> -> 0 `i `uc `i != -> . . . . *U + &U _port * -> -> -> 2 `i `ui `ux -> -> # *U &U _port `ui `ux 0 1 1 8 `i -> -> -> 0 `i `uc `i 1313  ]
 {
-[; ;main.c: 159: bootload();
-"159
+[; ;main.c: 158: bootload();
+"158
 [e ( _bootload ..  ]
-"160
+"159
 }
 [e :U 1313 ]
-[; ;main.c: 160: }
-[; ;main.c: 161: INTCONbits.GIE = 1;
-"161
+[; ;main.c: 159: }
+[; ;main.c: 160: INTCONbits.GIE = 1;
+"160
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 163: INTCONbits.GIE = 0;
-"163
+[; ;main.c: 162: INTCONbits.GIE = 0;
+"162
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 164: sleep_task();
-"164
+[; ;main.c: 163: sleep_task();
+"163
 [e ( _sleep_task ..  ]
-[; ;main.c: 165: INTCONbits.GIE = 1;
-"165
+[; ;main.c: 164: INTCONbits.GIE = 1;
+"164
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"166
+"165
 }
 [e :U 1310 ]
-"138
+"137
 [e $U 1311  ]
 [e :U 1312 ]
-[; ;main.c: 166: }
-[; ;main.c: 167: return 0;
-"167
+[; ;main.c: 165: }
+[; ;main.c: 166: return 0;
+"166
 [e ) -> 0 `i ]
 [e $UE 1309  ]
-[; ;main.c: 168: }
-"168
+[; ;main.c: 167: }
+"167
 [e :UE 1309 ]
 }
 [a 1C 67 104 97 114 103 101 32 83 116 97 116 105 111 110 0 ]

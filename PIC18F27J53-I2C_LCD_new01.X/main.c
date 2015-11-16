@@ -31,7 +31,7 @@
 uint8_t one_second_flag;
 
 void interrupt ISR(void) {
-    ST7032_ISR();
+    I2C_ISR();
     if (PIR1bits.TMR1IF && PIE1bits.TMR1IE) {
         PIR1bits.TMR1IF = 0;
         TMR1H = 0xC0;

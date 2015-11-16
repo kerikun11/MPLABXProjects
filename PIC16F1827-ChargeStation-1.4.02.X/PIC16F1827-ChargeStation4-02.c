@@ -30,7 +30,7 @@
 #pragma config LVP = OFF        // Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)
 
 #define _XTAL_FREQ 32000000
-#include <My_header_16F.h>
+#include "My_header_16F.h"
 
 #define CUT_current 50    // ’PˆÊ‚Í[mA]
 #define CUT_time 6       // ’PˆÊ‚Í[s]

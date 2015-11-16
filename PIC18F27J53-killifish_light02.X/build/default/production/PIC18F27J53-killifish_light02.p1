@@ -483,7 +483,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RTCVALH `Vuc ~T0 @X0 0 e@3899 ]
 "20028
 [v _LATB2 `Vb ~T0 @X0 0 e@31826 ]
-"60 PIC18F27J53-killifish_light02.c
+"65 PIC18F27J53-killifish_light02.c
 [c E8783 0 1 2 .. ]
 [n E8783 . TIME_SYNC_mode ADC_mode COMMAND_mode  ]
 "16635 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
@@ -8801,37 +8801,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-"9 PIC18F27J53-killifish_light02.c
+"14 PIC18F27J53-killifish_light02.c
 [p x WDTEN=OFF ]
 [p x PLLDIV=2 ]
 [p x CFGPLLEN=ON ]
 [p x STVREN=OFF ]
 [p x XINST=OFF ]
-"11
+"16
 [p x CPUDIV=OSC1 ]
 [p x CP0=OFF ]
-"13
+"18
 [p x OSC=INTOSCPLL ]
 [p x SOSCSEL=LOW ]
 [p x CLKOEC=OFF ]
 [p x FCMEN=OFF ]
 [p x IESO=OFF ]
-"15
+"20
 [p x WDTPS=1024 ]
-"17
+"22
 [p x DSWDTOSC=T1OSCREF ]
 [p x RTCOSC=T1OSCREF ]
 [p x DSBOREN=OFF ]
 [p x DSWDTEN=OFF ]
 [p x DSWDTPS=G2 ]
-"19
+"24
 [p x IOL1WAY=OFF ]
 [p x ADCSEL=BIT12 ]
 [p x MSSP7B_EN=MSK7 ]
-"21
+"26
 [p x WPFP=PAGE_127 ]
 [p x WPCFG=OFF ]
-"23
+"28
 [p x WPDIS=OFF ]
 [p x WPEND=PAGE_WPFP ]
 [p x LS48MHZ=SYS48X8 ]
@@ -11225,861 +11225,861 @@ Version 3.2 HI-TECH Software Intermediate Code
 "60
 [e :UE 1451 ]
 }
-"47 PIC18F27J53-killifish_light02.c
+"52 PIC18F27J53-killifish_light02.c
 [v _sw_R `S1303 ~T0 @X0 1 e ]
-[; ;PIC18F27J53-killifish_light02.c: 47: button_t sw_R;
-"48
-[v _sw_G `S1303 ~T0 @X0 1 e ]
-[; ;PIC18F27J53-killifish_light02.c: 48: button_t sw_G;
-"49
-[v _sw_B `S1303 ~T0 @X0 1 e ]
-[; ;PIC18F27J53-killifish_light02.c: 49: button_t sw_B;
-"50
-[v _display_flag `uc ~T0 @X0 1 e ]
-[; ;PIC18F27J53-killifish_light02.c: 50: uint8_t display_flag;
-"51
-[v _rx_flag `uc ~T0 @X0 1 e ]
-[; ;PIC18F27J53-killifish_light02.c: 51: uint8_t rx_flag;
-"52
-[v _rc_flag `uc ~T0 @X0 1 e ]
-[; ;PIC18F27J53-killifish_light02.c: 52: uint8_t rc_flag;
+[; ;PIC18F27J53-killifish_light02.c: 52: button_t sw_R;
 "53
-[v _time_sync `uc ~T0 @X0 1 e ]
-[; ;PIC18F27J53-killifish_light02.c: 53: uint8_t time_sync;
+[v _sw_G `S1303 ~T0 @X0 1 e ]
+[; ;PIC18F27J53-killifish_light02.c: 53: button_t sw_G;
 "54
+[v _sw_B `S1303 ~T0 @X0 1 e ]
+[; ;PIC18F27J53-killifish_light02.c: 54: button_t sw_B;
+"55
+[v _display_flag `uc ~T0 @X0 1 e ]
+[; ;PIC18F27J53-killifish_light02.c: 55: uint8_t display_flag;
+"56
+[v _rx_flag `uc ~T0 @X0 1 e ]
+[; ;PIC18F27J53-killifish_light02.c: 56: uint8_t rx_flag;
+"57
+[v _rc_flag `uc ~T0 @X0 1 e ]
+[; ;PIC18F27J53-killifish_light02.c: 57: uint8_t rc_flag;
+"58
+[v _time_sync `uc ~T0 @X0 1 e ]
+[; ;PIC18F27J53-killifish_light02.c: 58: uint8_t time_sync;
+"59
 [v _t0if `uc ~T0 @X0 1 e ]
-[; ;PIC18F27J53-killifish_light02.c: 54: uint8_t t0if;
-"60
+[; ;PIC18F27J53-killifish_light02.c: 59: uint8_t t0if;
+"65
 [v _light_mode `E8783 ~T0 @X0 1 e ]
-[; ;PIC18F27J53-killifish_light02.c: 56: enum {
-[; ;PIC18F27J53-killifish_light02.c: 57: TIME_SYNC_mode,
-[; ;PIC18F27J53-killifish_light02.c: 58: ADC_mode,
-[; ;PIC18F27J53-killifish_light02.c: 59: COMMAND_mode
-[; ;PIC18F27J53-killifish_light02.c: 60: } light_mode;
+[; ;PIC18F27J53-killifish_light02.c: 61: enum {
+[; ;PIC18F27J53-killifish_light02.c: 62: TIME_SYNC_mode,
+[; ;PIC18F27J53-killifish_light02.c: 63: ADC_mode,
+[; ;PIC18F27J53-killifish_light02.c: 64: COMMAND_mode
+[; ;PIC18F27J53-killifish_light02.c: 65: } light_mode;
 [v F8790 `(v ~T0 @X0 1 tf ]
-"62
+"67
 [v _ISR `IF8790 ~T0 @X0 1 e ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 62: void interrupt ISR(void) {
+[; ;PIC18F27J53-killifish_light02.c: 67: void interrupt ISR(void) {
 [e :U _ISR ]
 [f ]
-[; ;PIC18F27J53-killifish_light02.c: 63: UART_ISR();
-"63
+[; ;PIC18F27J53-killifish_light02.c: 68: UART_ISR();
+"68
 [e ( _UART_ISR ..  ]
-[; ;PIC18F27J53-killifish_light02.c: 64: if (INTCONbits.T0IF) {
-"64
+[; ;PIC18F27J53-killifish_light02.c: 69: if (INTCONbits.T0IF) {
+"69
 [e $ ! != -> . . _INTCONbits 1 2 `i -> -> -> 0 `i `Vuc `i 1457  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 65: INTCONbits.T0IF = 0;
-"65
+[; ;PIC18F27J53-killifish_light02.c: 70: INTCONbits.T0IF = 0;
+"70
 [e = . . _INTCONbits 1 2 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 66: t0if = 1;
-"66
+[; ;PIC18F27J53-killifish_light02.c: 71: t0if = 1;
+"71
 [e = _t0if -> -> 1 `i `uc ]
-"67
+"72
 }
 [e :U 1457 ]
-[; ;PIC18F27J53-killifish_light02.c: 67: }
-[; ;PIC18F27J53-killifish_light02.c: 68: if (PIR1bits.TMR1IF) {
-"68
+[; ;PIC18F27J53-killifish_light02.c: 72: }
+[; ;PIC18F27J53-killifish_light02.c: 73: if (PIR1bits.TMR1IF) {
+"73
 [e $ ! != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i 1458  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 69: PIR1bits.TMR1IF = 0;
-"69
+[; ;PIC18F27J53-killifish_light02.c: 74: PIR1bits.TMR1IF = 0;
+"74
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 70: TMR1H = 0x80;
-"70
+[; ;PIC18F27J53-killifish_light02.c: 75: TMR1H = 0x80;
+"75
 [e = _TMR1H -> -> 128 `i `uc ]
-"71
+"76
 }
 [e :U 1458 ]
-[; ;PIC18F27J53-killifish_light02.c: 71: }
-[; ;PIC18F27J53-killifish_light02.c: 72: if (PIR2bits.TMR3IF) {
-"72
+[; ;PIC18F27J53-killifish_light02.c: 76: }
+[; ;PIC18F27J53-killifish_light02.c: 77: if (PIR2bits.TMR3IF) {
+"77
 [e $ ! != -> . . _PIR2bits 0 1 `i -> -> -> 0 `i `Vuc `i 1459  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 73: PIR2bits.TMR3IF = 0;
-"73
+[; ;PIC18F27J53-killifish_light02.c: 78: PIR2bits.TMR3IF = 0;
+"78
 [e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 74: button_timer_interrupt(&sw_R, !PORTAbits.RA5);
-"74
+[; ;PIC18F27J53-killifish_light02.c: 79: button_timer_interrupt(&sw_R, !PORTAbits.RA5);
+"79
 [e ( _button_timer_interrupt (2 , &U _sw_R -> -> ! != -> . . _PORTAbits 0 5 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 75: button_timer_interrupt(&sw_G, !PORTAbits.RA6);
-"75
+[; ;PIC18F27J53-killifish_light02.c: 80: button_timer_interrupt(&sw_G, !PORTAbits.RA6);
+"80
 [e ( _button_timer_interrupt (2 , &U _sw_G -> -> ! != -> . . _PORTAbits 0 6 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 76: button_timer_interrupt(&sw_B, !PORTAbits.RA7);
-"76
+[; ;PIC18F27J53-killifish_light02.c: 81: button_timer_interrupt(&sw_B, !PORTAbits.RA7);
+"81
 [e ( _button_timer_interrupt (2 , &U _sw_B -> -> ! != -> . . _PORTAbits 0 7 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-"77
+"82
 }
 [e :U 1459 ]
-[; ;PIC18F27J53-killifish_light02.c: 77: }
-[; ;PIC18F27J53-killifish_light02.c: 78: }
-"78
+[; ;PIC18F27J53-killifish_light02.c: 82: }
+[; ;PIC18F27J53-killifish_light02.c: 83: }
+"83
 [e :UE 1456 ]
 }
-"80
+"85
 [v _PWM_init `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 80: void PWM_init(uint8_t PR) {
+[; ;PIC18F27J53-killifish_light02.c: 85: void PWM_init(uint8_t PR) {
 [e :U _PWM_init ]
 [v _PR `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;PIC18F27J53-killifish_light02.c: 81: PPSCONbits.IOLOCK = 0;
-"81
+[; ;PIC18F27J53-killifish_light02.c: 86: PPSCONbits.IOLOCK = 0;
+"86
 [e = . . _PPSCONbits 0 0 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 82: if (PPSCONbits.IOLOCK != 0) {
-"82
+[; ;PIC18F27J53-killifish_light02.c: 87: if (PPSCONbits.IOLOCK != 0) {
+"87
 [e $ ! != -> . . _PPSCONbits 0 0 `i -> 0 `i 1461  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 83: EECON2 = 0x55;
-"83
+[; ;PIC18F27J53-killifish_light02.c: 88: EECON2 = 0x55;
+"88
 [e = _EECON2 -> -> 85 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 84: EECON2 = 0xAA;
-"84
+[; ;PIC18F27J53-killifish_light02.c: 89: EECON2 = 0xAA;
+"89
 [e = _EECON2 -> -> 170 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 85: PPSCONbits.IOLOCK = 0;
-"85
+[; ;PIC18F27J53-killifish_light02.c: 90: PPSCONbits.IOLOCK = 0;
+"90
 [e = . . _PPSCONbits 0 0 -> -> 0 `i `uc ]
-"86
+"91
 }
 [e :U 1461 ]
-[; ;PIC18F27J53-killifish_light02.c: 86: }
-[; ;PIC18F27J53-killifish_light02.c: 88: RPOR3 = 14;
-"88
-[e = _RPOR3 -> -> 14 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 89: RPOR4 = 18;
-"89
-[e = _RPOR4 -> -> 18 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 90: RPOR5 = 22;
-"90
-[e = _RPOR5 -> -> 22 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 92: CCP1CONbits.CCP1M = 12;
-"92
-[e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 93: CCP1CONbits.P1M = 0;
+[; ;PIC18F27J53-killifish_light02.c: 91: }
+[; ;PIC18F27J53-killifish_light02.c: 93: RPOR3 = 14;
 "93
-[e = . . _CCP1CONbits 0 2 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 94: CCPTMRS0bits.C1TSEL = 0;
+[e = _RPOR3 -> -> 14 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 94: RPOR4 = 18;
 "94
-[e = . . _CCPTMRS0bits 0 0 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 95: CCPR1Lbits.CCPR1L = 0;
+[e = _RPOR4 -> -> 18 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 95: RPOR5 = 22;
 "95
-[e = . . _CCPR1Lbits 0 0 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 96: CCP1CONbits.DC1B = 0;
-"96
-[e = . . _CCP1CONbits 0 1 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 98: CCP2CONbits.CCP2M = 12;
+[e = _RPOR5 -> -> 22 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 97: CCP1CONbits.CCP1M = 12;
+"97
+[e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 98: CCP1CONbits.P1M = 0;
 "98
-[e = . . _CCP2CONbits 0 0 -> -> 12 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 99: CCP2CONbits.P2M = 0;
+[e = . . _CCP1CONbits 0 2 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 99: CCPTMRS0bits.C1TSEL = 0;
 "99
-[e = . . _CCP2CONbits 0 2 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 100: CCPTMRS0bits.C2TSEL = 0;
+[e = . . _CCPTMRS0bits 0 0 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 100: CCPR1Lbits.CCPR1L = 0;
 "100
-[e = . . _CCPTMRS0bits 0 1 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 101: CCPR2Lbits.CCPR2L = 0;
+[e = . . _CCPR1Lbits 0 0 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 101: CCP1CONbits.DC1B = 0;
 "101
-[e = . . _CCPR2Lbits 0 0 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 102: CCP2CONbits.DC2B = 0;
-"102
-[e = . . _CCP2CONbits 0 1 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 104: CCP3CONbits.CCP3M = 12;
+[e = . . _CCP1CONbits 0 1 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 103: CCP2CONbits.CCP2M = 12;
+"103
+[e = . . _CCP2CONbits 0 0 -> -> 12 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 104: CCP2CONbits.P2M = 0;
 "104
-[e = . . _CCP3CONbits 0 0 -> -> 12 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 105: CCP3CONbits.P3M = 0;
+[e = . . _CCP2CONbits 0 2 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 105: CCPTMRS0bits.C2TSEL = 0;
 "105
-[e = . . _CCP3CONbits 0 2 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 106: CCPTMRS0bits.C3TSEL = 0;
+[e = . . _CCPTMRS0bits 0 1 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 106: CCPR2Lbits.CCPR2L = 0;
 "106
-[e = . . _CCPTMRS0bits 0 2 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 107: CCPR3Lbits.CCPR3L = 0;
+[e = . . _CCPR2Lbits 0 0 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 107: CCP2CONbits.DC2B = 0;
 "107
-[e = . . _CCPR3Lbits 0 0 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 108: CCP3CONbits.DC3B = 0;
-"108
-[e = . . _CCP3CONbits 0 1 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 110: CCP4CONbits.CCP4M = 12;
+[e = . . _CCP2CONbits 0 1 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 109: CCP3CONbits.CCP3M = 12;
+"109
+[e = . . _CCP3CONbits 0 0 -> -> 12 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 110: CCP3CONbits.P3M = 0;
 "110
-[e = . . _CCP4CONbits 0 0 -> -> 12 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 111: CCPTMRS1bits.C4TSEL = 0;
+[e = . . _CCP3CONbits 0 2 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 111: CCPTMRS0bits.C3TSEL = 0;
 "111
-[e = . . _CCPTMRS1bits 0 0 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 112: CCPR4Lbits.CCPR4L = 0;
+[e = . . _CCPTMRS0bits 0 2 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 112: CCPR3Lbits.CCPR3L = 0;
 "112
-[e = . . _CCPR4Lbits 0 0 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 113: CCP4CONbits.DC4B = 0;
+[e = . . _CCPR3Lbits 0 0 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 113: CCP3CONbits.DC3B = 0;
 "113
-[e = . . _CCP4CONbits 0 1 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 115: T2CONbits.T2OUTPS = 0;
+[e = . . _CCP3CONbits 0 1 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 115: CCP4CONbits.CCP4M = 12;
 "115
-[e = . . _T2CONbits 0 2 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 116: T2CONbits.T2CKPS = 2;
+[e = . . _CCP4CONbits 0 0 -> -> 12 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 116: CCPTMRS1bits.C4TSEL = 0;
 "116
-[e = . . _T2CONbits 0 0 -> -> 2 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 117: PR2 = PR - 1;
+[e = . . _CCPTMRS1bits 0 0 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 117: CCPR4Lbits.CCPR4L = 0;
 "117
-[e = _PR2 -> - -> _PR `i -> 1 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 118: T2CONbits.TMR2ON = 1;
+[e = . . _CCPR4Lbits 0 0 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 118: CCP4CONbits.DC4B = 0;
 "118
+[e = . . _CCP4CONbits 0 1 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 120: T2CONbits.T2OUTPS = 0;
+"120
+[e = . . _T2CONbits 0 2 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 121: T2CONbits.T2CKPS = 2;
+"121
+[e = . . _T2CONbits 0 0 -> -> 2 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 122: PR2 = PR - 1;
+"122
+[e = _PR2 -> - -> _PR `i -> 1 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 123: T2CONbits.TMR2ON = 1;
+"123
 [e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 119: }
-"119
+[; ;PIC18F27J53-killifish_light02.c: 124: }
+"124
 [e :UE 1460 ]
 }
-"121
+"126
 [v _PWM_set `(v ~T0 @X0 1 ef2`uc`ui ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 121: void PWM_set(uint8_t color, uint16_t value) {
+[; ;PIC18F27J53-killifish_light02.c: 126: void PWM_set(uint8_t color, uint16_t value) {
 [e :U _PWM_set ]
 [v _color `uc ~T0 @X0 1 r1 ]
 [v _value `ui ~T0 @X0 1 r2 ]
 [f ]
-[; ;PIC18F27J53-killifish_light02.c: 122: value = value * value / 100;
-"122
+[; ;PIC18F27J53-killifish_light02.c: 127: value = value * value / 100;
+"127
 [e = _value / * _value _value -> -> 100 `i `ui ]
-[; ;PIC18F27J53-killifish_light02.c: 123: switch (color) {
-"123
+[; ;PIC18F27J53-killifish_light02.c: 128: switch (color) {
+"128
 [e $U 1464  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 124: case 0:
-"124
+[; ;PIC18F27J53-killifish_light02.c: 129: case 0:
+"129
 [e :U 1465 ]
-[; ;PIC18F27J53-killifish_light02.c: 125: if (value < 100 / 4) {
-"125
+[; ;PIC18F27J53-killifish_light02.c: 130: if (value < 100 / 4) {
+"130
 [e $ ! < _value -> / -> 100 `i -> 4 `i `ui 1466  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 126: value = value;
-"126
+[; ;PIC18F27J53-killifish_light02.c: 131: value = value;
+"131
 [e = _value _value ]
-"127
+"132
 }
-[; ;PIC18F27J53-killifish_light02.c: 127: } else {
+[; ;PIC18F27J53-killifish_light02.c: 132: } else {
 [e $U 1467  ]
 [e :U 1466 ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 128: value = 2 * (value - 100 / 4) / 3 + 100 / 4;
-"128
-[e = _value + / * -> -> 2 `i `ui - _value -> / -> 100 `i -> 4 `i `ui -> -> 3 `i `ui -> / -> 100 `i -> 4 `i `ui ]
-"129
-}
-[e :U 1467 ]
-[; ;PIC18F27J53-killifish_light02.c: 129: }
-[; ;PIC18F27J53-killifish_light02.c: 130: break;
-"130
-[e $U 1463  ]
-[; ;PIC18F27J53-killifish_light02.c: 131: case 1:
-"131
-[e :U 1468 ]
-[; ;PIC18F27J53-killifish_light02.c: 132: if (value < 100 / 4) {
-"132
-[e $ ! < _value -> / -> 100 `i -> 4 `i `ui 1469  ]
-{
-[; ;PIC18F27J53-killifish_light02.c: 133: value = value;
+[; ;PIC18F27J53-killifish_light02.c: 133: value = 2 * (value - 100 / 4) / 3 + 100 / 4;
 "133
-[e = _value _value ]
+[e = _value + / * -> -> 2 `i `ui - _value -> / -> 100 `i -> 4 `i `ui -> -> 3 `i `ui -> / -> 100 `i -> 4 `i `ui ]
 "134
 }
-[; ;PIC18F27J53-killifish_light02.c: 134: } else {
+[e :U 1467 ]
+[; ;PIC18F27J53-killifish_light02.c: 134: }
+[; ;PIC18F27J53-killifish_light02.c: 135: break;
+"135
+[e $U 1463  ]
+[; ;PIC18F27J53-killifish_light02.c: 136: case 1:
+"136
+[e :U 1468 ]
+[; ;PIC18F27J53-killifish_light02.c: 137: if (value < 100 / 4) {
+"137
+[e $ ! < _value -> / -> 100 `i -> 4 `i `ui 1469  ]
+{
+[; ;PIC18F27J53-killifish_light02.c: 138: value = value;
+"138
+[e = _value _value ]
+"139
+}
+[; ;PIC18F27J53-killifish_light02.c: 139: } else {
 [e $U 1470  ]
 [e :U 1469 ]
-{
-[; ;PIC18F27J53-killifish_light02.c: 135: value = value;
-"135
-[e = _value _value ]
-"136
-}
-[e :U 1470 ]
-[; ;PIC18F27J53-killifish_light02.c: 136: }
-[; ;PIC18F27J53-killifish_light02.c: 137: break;
-"137
-[e $U 1463  ]
-[; ;PIC18F27J53-killifish_light02.c: 138: case 2:
-"138
-[e :U 1471 ]
-[; ;PIC18F27J53-killifish_light02.c: 139: if (value < 100 / 4) {
-"139
-[e $ ! < _value -> / -> 100 `i -> 4 `i `ui 1472  ]
 {
 [; ;PIC18F27J53-killifish_light02.c: 140: value = value;
 "140
 [e = _value _value ]
 "141
 }
-[; ;PIC18F27J53-killifish_light02.c: 141: } else {
+[e :U 1470 ]
+[; ;PIC18F27J53-killifish_light02.c: 141: }
+[; ;PIC18F27J53-killifish_light02.c: 142: break;
+"142
+[e $U 1463  ]
+[; ;PIC18F27J53-killifish_light02.c: 143: case 2:
+"143
+[e :U 1471 ]
+[; ;PIC18F27J53-killifish_light02.c: 144: if (value < 100 / 4) {
+"144
+[e $ ! < _value -> / -> 100 `i -> 4 `i `ui 1472  ]
+{
+[; ;PIC18F27J53-killifish_light02.c: 145: value = value;
+"145
+[e = _value _value ]
+"146
+}
+[; ;PIC18F27J53-killifish_light02.c: 146: } else {
 [e $U 1473  ]
 [e :U 1472 ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 142: value = 3 * (value - 100 / 4) / 4 + 100 / 4;
-"142
+[; ;PIC18F27J53-killifish_light02.c: 147: value = 3 * (value - 100 / 4) / 4 + 100 / 4;
+"147
 [e = _value + / * -> -> 3 `i `ui - _value -> / -> 100 `i -> 4 `i `ui -> -> 4 `i `ui -> / -> 100 `i -> 4 `i `ui ]
-"143
+"148
 }
 [e :U 1473 ]
-[; ;PIC18F27J53-killifish_light02.c: 143: }
-[; ;PIC18F27J53-killifish_light02.c: 144: break;
-"144
+[; ;PIC18F27J53-killifish_light02.c: 148: }
+[; ;PIC18F27J53-killifish_light02.c: 149: break;
+"149
 [e $U 1463  ]
-[; ;PIC18F27J53-killifish_light02.c: 145: case 3:
-"145
+[; ;PIC18F27J53-killifish_light02.c: 150: case 3:
+"150
 [e :U 1474 ]
-[; ;PIC18F27J53-killifish_light02.c: 146: break;
-"146
+[; ;PIC18F27J53-killifish_light02.c: 151: break;
+"151
 [e $U 1463  ]
-"147
+"152
 }
-[; ;PIC18F27J53-killifish_light02.c: 147: }
+[; ;PIC18F27J53-killifish_light02.c: 152: }
 [e $U 1463  ]
-"123
+"128
 [e :U 1464 ]
 [e [\ _color , $ -> -> 0 `i `uc 1465
  , $ -> -> 1 `i `uc 1468
  , $ -> -> 2 `i `uc 1471
  , $ -> -> 3 `i `uc 1474
  1463 ]
-"147
+"152
 [e :U 1463 ]
-[; ;PIC18F27J53-killifish_light02.c: 148: switch (color) {
-"148
+[; ;PIC18F27J53-killifish_light02.c: 153: switch (color) {
+"153
 [e $U 1476  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 149: case 0:
-"149
-[e :U 1477 ]
-[; ;PIC18F27J53-killifish_light02.c: 150: CCP1CONbits.DC1B = 0;
-"150
-[e = . . _CCP1CONbits 0 1 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 151: CCPR1L = value;
-"151
-[e = _CCPR1L -> _value `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 152: break;
-"152
-[e $U 1475  ]
-[; ;PIC18F27J53-killifish_light02.c: 153: case 1:
-"153
-[e :U 1478 ]
-[; ;PIC18F27J53-killifish_light02.c: 154: CCP2CONbits.DC2B = 0;
+[; ;PIC18F27J53-killifish_light02.c: 154: case 0:
 "154
-[e = . . _CCP2CONbits 0 1 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 155: CCPR2L = value;
+[e :U 1477 ]
+[; ;PIC18F27J53-killifish_light02.c: 155: CCP1CONbits.DC1B = 0;
 "155
-[e = _CCPR2L -> _value `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 156: break;
+[e = . . _CCP1CONbits 0 1 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 156: CCPR1L = value;
 "156
-[e $U 1475  ]
-[; ;PIC18F27J53-killifish_light02.c: 157: case 2:
+[e = _CCPR1L -> _value `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 157: break;
 "157
-[e :U 1479 ]
-[; ;PIC18F27J53-killifish_light02.c: 158: CCP3CONbits.DC3B = 0;
+[e $U 1475  ]
+[; ;PIC18F27J53-killifish_light02.c: 158: case 1:
 "158
-[e = . . _CCP3CONbits 0 1 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 159: CCPR3L = value;
+[e :U 1478 ]
+[; ;PIC18F27J53-killifish_light02.c: 159: CCP2CONbits.DC2B = 0;
 "159
-[e = _CCPR3L -> _value `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 160: break;
+[e = . . _CCP2CONbits 0 1 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 160: CCPR2L = value;
 "160
-[e $U 1475  ]
-[; ;PIC18F27J53-killifish_light02.c: 161: case 3:
+[e = _CCPR2L -> _value `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 161: break;
 "161
-[e :U 1480 ]
-[; ;PIC18F27J53-killifish_light02.c: 162: CCP4CONbits.DC4B = 0;
+[e $U 1475  ]
+[; ;PIC18F27J53-killifish_light02.c: 162: case 2:
 "162
-[e = . . _CCP4CONbits 0 1 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 163: CCPR4L = value;
+[e :U 1479 ]
+[; ;PIC18F27J53-killifish_light02.c: 163: CCP3CONbits.DC3B = 0;
 "163
-[e = _CCPR4L -> _value `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 164: break;
+[e = . . _CCP3CONbits 0 1 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 164: CCPR3L = value;
 "164
-[e $U 1475  ]
+[e = _CCPR3L -> _value `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 165: break;
 "165
-}
-[; ;PIC18F27J53-killifish_light02.c: 165: }
 [e $U 1475  ]
-"148
+[; ;PIC18F27J53-killifish_light02.c: 166: case 3:
+"166
+[e :U 1480 ]
+[; ;PIC18F27J53-killifish_light02.c: 167: CCP4CONbits.DC4B = 0;
+"167
+[e = . . _CCP4CONbits 0 1 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 168: CCPR4L = value;
+"168
+[e = _CCPR4L -> _value `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 169: break;
+"169
+[e $U 1475  ]
+"170
+}
+[; ;PIC18F27J53-killifish_light02.c: 170: }
+[e $U 1475  ]
+"153
 [e :U 1476 ]
 [e [\ _color , $ -> -> 0 `i `uc 1477
  , $ -> -> 1 `i `uc 1478
  , $ -> -> 2 `i `uc 1479
  , $ -> -> 3 `i `uc 1480
  1475 ]
-"165
+"170
 [e :U 1475 ]
-[; ;PIC18F27J53-killifish_light02.c: 166: }
-"166
+[; ;PIC18F27J53-killifish_light02.c: 171: }
+"171
 [e :UE 1462 ]
 }
-"168
+"173
 [v _tx_send_dec `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 168: void tx_send_dec(uint8_t dec, uint8_t edit) {
+[; ;PIC18F27J53-killifish_light02.c: 173: void tx_send_dec(uint8_t dec, uint8_t edit) {
 [e :U _tx_send_dec ]
 [v _dec `uc ~T0 @X0 1 r1 ]
 [v _edit `uc ~T0 @X0 1 r2 ]
 [f ]
-"169
+"174
 [v _str `uc ~T0 @X0 -> 10 `i a ]
-[; ;PIC18F27J53-killifish_light02.c: 169: uint8_t str[10];
-[; ;PIC18F27J53-killifish_light02.c: 170: my_utoa(&str, dec, 2);
-"170
+[; ;PIC18F27J53-killifish_light02.c: 174: uint8_t str[10];
+[; ;PIC18F27J53-killifish_light02.c: 175: my_utoa(&str, dec, 2);
+"175
 [e ( _my_utoa (3 , , &U _str -> _dec `ui -> -> 2 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 171: if (edit && RTCCFGbits.HALFSEC)tx_sends("  ");
-"171
+[; ;PIC18F27J53-killifish_light02.c: 176: if (edit && RTCCFGbits.HALFSEC)tx_sends("  ");
+"176
 [e $ ! && != -> _edit `i -> -> -> 0 `i `uc `i != -> . . _RTCCFGbits 0 3 `i -> -> -> 0 `i `Vuc `i 1482  ]
 [e ( _tx_sends (1 :s 1C ]
 [e $U 1483  ]
-"172
+"177
 [e :U 1482 ]
-[; ;PIC18F27J53-killifish_light02.c: 172: else tx_sends(str);
+[; ;PIC18F27J53-killifish_light02.c: 177: else tx_sends(str);
 [e ( _tx_sends (1 -> &U _str `*Cuc ]
 [e :U 1483 ]
-[; ;PIC18F27J53-killifish_light02.c: 173: }
-"173
+[; ;PIC18F27J53-killifish_light02.c: 178: }
+"178
 [e :UE 1481 ]
 }
-"175
+"180
 [v _print_time `(v ~T0 @X0 1 ef ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 175: void print_time(void) {
+[; ;PIC18F27J53-killifish_light02.c: 180: void print_time(void) {
 [e :U _print_time ]
 [f ]
-[; ;PIC18F27J53-killifish_light02.c: 176: RTCC_from_RTCC(&caltime_now, &epoch_now);
-"176
-[e ( _RTCC_from_RTCC (2 , &U _caltime_now &U _epoch_now ]
-[; ;PIC18F27J53-killifish_light02.c: 177: GIE = 0;
-"177
-[e = _GIE -> -> 0 `i `b ]
-[; ;PIC18F27J53-killifish_light02.c: 178: tx_sends("    ");
-"178
-[e ( _tx_sends (1 :s 2C ]
-[; ;PIC18F27J53-killifish_light02.c: 179: tx_send_dec(20, edit_flag.flag.YY);
-"179
-[e ( _tx_send_dec (2 , -> -> 20 `i `uc . . . _edit_flag 0 1 5 ]
-[; ;PIC18F27J53-killifish_light02.c: 180: tx_send_dec(caltime_now.YY, edit_flag.flag.YY);
-"180
-[e ( _tx_send_dec (2 , . _caltime_now 6 . . . _edit_flag 0 1 5 ]
-[; ;PIC18F27J53-killifish_light02.c: 181: tx_sends("/");
+[; ;PIC18F27J53-killifish_light02.c: 181: RTCC_from_RTCC(&caltime_now, &epoch_now);
 "181
-[e ( _tx_sends (1 :s 3C ]
-[; ;PIC18F27J53-killifish_light02.c: 182: tx_send_dec(caltime_now.MM, edit_flag.flag.MM);
+[e ( _RTCC_from_RTCC (2 , &U _caltime_now &U _epoch_now ]
+[; ;PIC18F27J53-killifish_light02.c: 182: GIE = 0;
 "182
-[e ( _tx_send_dec (2 , . _caltime_now 5 . . . _edit_flag 0 1 4 ]
-[; ;PIC18F27J53-killifish_light02.c: 183: tx_sends("/");
+[e = _GIE -> -> 0 `i `b ]
+[; ;PIC18F27J53-killifish_light02.c: 183: tx_sends("    ");
 "183
-[e ( _tx_sends (1 :s 4C ]
-[; ;PIC18F27J53-killifish_light02.c: 184: tx_send_dec(caltime_now.DD, edit_flag.flag.DD);
+[e ( _tx_sends (1 :s 2C ]
+[; ;PIC18F27J53-killifish_light02.c: 184: tx_send_dec(20, edit_flag.flag.YY);
 "184
-[e ( _tx_send_dec (2 , . _caltime_now 4 . . . _edit_flag 0 1 3 ]
-[; ;PIC18F27J53-killifish_light02.c: 185: tx_sends(" (");
+[e ( _tx_send_dec (2 , -> -> 20 `i `uc . . . _edit_flag 0 1 5 ]
+[; ;PIC18F27J53-killifish_light02.c: 185: tx_send_dec(caltime_now.YY, edit_flag.flag.YY);
 "185
-[e ( _tx_sends (1 :s 5C ]
-[; ;PIC18F27J53-killifish_light02.c: 186: tx_sends(weekday_3char[caltime_now.EE]);
+[e ( _tx_send_dec (2 , . _caltime_now 6 . . . _edit_flag 0 1 5 ]
+[; ;PIC18F27J53-killifish_light02.c: 186: tx_sends("/");
 "186
-[e ( _tx_sends (1 &U *U + &U _weekday_3char * -> . _caltime_now 3 `ux -> * -> # *U &U *U &U _weekday_3char `ui -> -> 4 `i `ui `ux ]
-[; ;PIC18F27J53-killifish_light02.c: 187: tx_sends(") ");
+[e ( _tx_sends (1 :s 3C ]
+[; ;PIC18F27J53-killifish_light02.c: 187: tx_send_dec(caltime_now.MM, edit_flag.flag.MM);
 "187
-[e ( _tx_sends (1 :s 6C ]
-[; ;PIC18F27J53-killifish_light02.c: 188: tx_send_dec(caltime_now.hh, edit_flag.flag.hh);
+[e ( _tx_send_dec (2 , . _caltime_now 5 . . . _edit_flag 0 1 4 ]
+[; ;PIC18F27J53-killifish_light02.c: 188: tx_sends("/");
 "188
-[e ( _tx_send_dec (2 , . _caltime_now 2 . . . _edit_flag 0 1 2 ]
-[; ;PIC18F27J53-killifish_light02.c: 189: if (colon)tx_send(':');
+[e ( _tx_sends (1 :s 4C ]
+[; ;PIC18F27J53-killifish_light02.c: 189: tx_send_dec(caltime_now.DD, edit_flag.flag.DD);
 "189
+[e ( _tx_send_dec (2 , . _caltime_now 4 . . . _edit_flag 0 1 3 ]
+[; ;PIC18F27J53-killifish_light02.c: 190: tx_sends(" (");
+"190
+[e ( _tx_sends (1 :s 5C ]
+[; ;PIC18F27J53-killifish_light02.c: 191: tx_sends(weekday_3char[caltime_now.EE]);
+"191
+[e ( _tx_sends (1 &U *U + &U _weekday_3char * -> . _caltime_now 3 `ux -> * -> # *U &U *U &U _weekday_3char `ui -> -> 4 `i `ui `ux ]
+[; ;PIC18F27J53-killifish_light02.c: 192: tx_sends(") ");
+"192
+[e ( _tx_sends (1 :s 6C ]
+[; ;PIC18F27J53-killifish_light02.c: 193: tx_send_dec(caltime_now.hh, edit_flag.flag.hh);
+"193
+[e ( _tx_send_dec (2 , . _caltime_now 2 . . . _edit_flag 0 1 2 ]
+[; ;PIC18F27J53-killifish_light02.c: 194: if (colon)tx_send(':');
+"194
 [e $ ! != -> _colon `i -> -> -> 0 `i `uc `i 1485  ]
 [e ( _tx_send (1 -> -> 58 `ui `uc ]
 [e $U 1486  ]
-"190
+"195
 [e :U 1485 ]
-[; ;PIC18F27J53-killifish_light02.c: 190: else tx_send(' ');
+[; ;PIC18F27J53-killifish_light02.c: 195: else tx_send(' ');
 [e ( _tx_send (1 -> -> 32 `ui `uc ]
 [e :U 1486 ]
-[; ;PIC18F27J53-killifish_light02.c: 191: tx_send_dec(caltime_now.mm, edit_flag.flag.mm);
-"191
-[e ( _tx_send_dec (2 , . _caltime_now 1 . . . _edit_flag 0 1 1 ]
-[; ;PIC18F27J53-killifish_light02.c: 192: tx_sends("-");
-"192
-[e ( _tx_sends (1 :s 7C ]
-[; ;PIC18F27J53-killifish_light02.c: 193: tx_send_dec(caltime_now.ss, edit_flag.flag.ss);
-"193
-[e ( _tx_send_dec (2 , . _caltime_now 0 . . . _edit_flag 0 1 0 ]
-[; ;PIC18F27J53-killifish_light02.c: 194: tx_send('\n');
-"194
-[e ( _tx_send (1 -> -> 10 `ui `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 195: GIE = 1;
-"195
-[e = _GIE -> -> 1 `i `b ]
-[; ;PIC18F27J53-killifish_light02.c: 196: }
+[; ;PIC18F27J53-killifish_light02.c: 196: tx_send_dec(caltime_now.mm, edit_flag.flag.mm);
 "196
+[e ( _tx_send_dec (2 , . _caltime_now 1 . . . _edit_flag 0 1 1 ]
+[; ;PIC18F27J53-killifish_light02.c: 197: tx_sends("-");
+"197
+[e ( _tx_sends (1 :s 7C ]
+[; ;PIC18F27J53-killifish_light02.c: 198: tx_send_dec(caltime_now.ss, edit_flag.flag.ss);
+"198
+[e ( _tx_send_dec (2 , . _caltime_now 0 . . . _edit_flag 0 1 0 ]
+[; ;PIC18F27J53-killifish_light02.c: 199: tx_send('\n');
+"199
+[e ( _tx_send (1 -> -> 10 `ui `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 200: GIE = 1;
+"200
+[e = _GIE -> -> 1 `i `b ]
+[; ;PIC18F27J53-killifish_light02.c: 201: }
+"201
 [e :UE 1484 ]
 }
-"198
+"203
 [v _comm_at `(v ~T0 @X0 1 ef4`*uc`uc`uc`uc ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 198: void comm_at(uint8_t *hand, uint8_t min, uint8_t max, uint8_t value) {
+[; ;PIC18F27J53-killifish_light02.c: 203: void comm_at(uint8_t *hand, uint8_t min, uint8_t max, uint8_t value) {
 [e :U _comm_at ]
 [v _hand `*uc ~T0 @X0 1 r1 ]
 [v _min `uc ~T0 @X0 1 r2 ]
 [v _max `uc ~T0 @X0 1 r3 ]
 [v _value `uc ~T0 @X0 1 r4 ]
 [f ]
-[; ;PIC18F27J53-killifish_light02.c: 199: if (value >= min && value <= max) {
-"199
+[; ;PIC18F27J53-killifish_light02.c: 204: if (value >= min && value <= max) {
+"204
 [e $ ! && >= -> _value `i -> _min `i <= -> _value `i -> _max `i 1488  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 200: *hand = value;
-"200
+[; ;PIC18F27J53-killifish_light02.c: 205: *hand = value;
+"205
 [e = *U _hand _value ]
-[; ;PIC18F27J53-killifish_light02.c: 201: RTCC_from_caltime(&caltime_now, &epoch_now);
-"201
+[; ;PIC18F27J53-killifish_light02.c: 206: RTCC_from_caltime(&caltime_now, &epoch_now);
+"206
 [e ( _RTCC_from_caltime (2 , &U _caltime_now &U _epoch_now ]
-[; ;PIC18F27J53-killifish_light02.c: 202: time_change_flag = 1;
-"202
+[; ;PIC18F27J53-killifish_light02.c: 207: time_change_flag = 1;
+"207
 [e = _time_change_flag -> -> 1 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 203: print_time();
-"203
+[; ;PIC18F27J53-killifish_light02.c: 208: print_time();
+"208
 [e ( _print_time ..  ]
-"204
+"209
 }
-[; ;PIC18F27J53-killifish_light02.c: 204: } else {
+[; ;PIC18F27J53-killifish_light02.c: 209: } else {
 [e $U 1489  ]
 [e :U 1488 ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 205: tx_sends("\terror\n");
-"205
+[; ;PIC18F27J53-killifish_light02.c: 210: tx_sends("\terror\n");
+"210
 [e ( _tx_sends (1 :s 8C ]
-"206
+"211
 }
 [e :U 1489 ]
-[; ;PIC18F27J53-killifish_light02.c: 206: }
-[; ;PIC18F27J53-killifish_light02.c: 207: }
-"207
+[; ;PIC18F27J53-killifish_light02.c: 211: }
+[; ;PIC18F27J53-killifish_light02.c: 212: }
+"212
 [e :UE 1487 ]
 }
-"209
+"214
 [v _command_operation `(v ~T0 @X0 1 ef4`*uc`*uc`*uc`*uc ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 209: void command_operation(char *opcode, char *opland1, char *opland2, char *opland3) {
+[; ;PIC18F27J53-killifish_light02.c: 214: void command_operation(char *opcode, char *opland1, char *opland2, char *opland3) {
 [e :U _command_operation ]
 [v _opcode `*uc ~T0 @X0 1 r1 ]
 [v _opland1 `*uc ~T0 @X0 1 r2 ]
 [v _opland2 `*uc ~T0 @X0 1 r3 ]
 [v _opland3 `*uc ~T0 @X0 1 r4 ]
 [f ]
-[; ;PIC18F27J53-killifish_light02.c: 210: if (!my_strcmp(opcode, "help") || !my_strcmp(opcode, "?")) {
-"210
+[; ;PIC18F27J53-killifish_light02.c: 215: if (!my_strcmp(opcode, "help") || !my_strcmp(opcode, "?")) {
+"215
 [e $ ! || ! != -> ( _my_strcmp (2 , -> _opcode `*Cuc :s 9C `i -> -> -> 0 `i `c `i ! != -> ( _my_strcmp (2 , -> _opcode `*Cuc :s 10C `i -> -> -> 0 `i `c `i 1491  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 211: tx_sends(
-[; ;PIC18F27J53-killifish_light02.c: 212: "\t**************************\n"
-[; ;PIC18F27J53-killifish_light02.c: 213: "\t**** Killifish Light  ****\n"
-[; ;PIC18F27J53-killifish_light02.c: 214: "\t**** Made by @Ryokeri ****\n"
-[; ;PIC18F27J53-killifish_light02.c: 215: "\t**************************\n\n"
-[; ;PIC18F27J53-killifish_light02.c: 216: "\tcommand \topeland1\topeland2\n\n"
-[; ;PIC18F27J53-killifish_light02.c: 217: "\tprint_time(t)\n"
-[; ;PIC18F27J53-killifish_light02.c: 218: "\tadjust_time(at) [hand:y,M,d,h,m,s] [value(decimal)]\n"
-[; ;PIC18F27J53-killifish_light02.c: 219: "\tpwm [color:R,G,B,W] [value(%):0~100]\n"
-[; ;PIC18F27J53-killifish_light02.c: 220: "\tpwm clear\n"
-[; ;PIC18F27J53-killifish_light02.c: 221: "\tset time_sync_mode(sync)\n"
-[; ;PIC18F27J53-killifish_light02.c: 222: "\tset ADC_mode(adc)\n"
-[; ;PIC18F27J53-killifish_light02.c: 223: "\tRESET();\n"
-[; ;PIC18F27J53-killifish_light02.c: 224: );
-"224
+[; ;PIC18F27J53-killifish_light02.c: 216: tx_sends(
+[; ;PIC18F27J53-killifish_light02.c: 217: "\t**************************\n"
+[; ;PIC18F27J53-killifish_light02.c: 218: "\t**** Killifish Light  ****\n"
+[; ;PIC18F27J53-killifish_light02.c: 219: "\t**** Made by @Ryokeri ****\n"
+[; ;PIC18F27J53-killifish_light02.c: 220: "\t**************************\n\n"
+[; ;PIC18F27J53-killifish_light02.c: 221: "\tcommand \topeland1\topeland2\n\n"
+[; ;PIC18F27J53-killifish_light02.c: 222: "\tprint_time(t)\n"
+[; ;PIC18F27J53-killifish_light02.c: 223: "\tadjust_time(at) [hand:y,M,d,h,m,s] [value(decimal)]\n"
+[; ;PIC18F27J53-killifish_light02.c: 224: "\tpwm [color:R,G,B,W] [value(%):0~100]\n"
+[; ;PIC18F27J53-killifish_light02.c: 225: "\tpwm clear\n"
+[; ;PIC18F27J53-killifish_light02.c: 226: "\tset time_sync_mode(sync)\n"
+[; ;PIC18F27J53-killifish_light02.c: 227: "\tset ADC_mode(adc)\n"
+[; ;PIC18F27J53-killifish_light02.c: 228: "\tRESET();\n"
+[; ;PIC18F27J53-killifish_light02.c: 229: );
+"229
 [e ( _tx_sends (1 :s 11C ]
-"225
+"230
 }
 [e :U 1491 ]
-[; ;PIC18F27J53-killifish_light02.c: 225: }
-[; ;PIC18F27J53-killifish_light02.c: 226: if (!my_strcmp(opcode, "RESET();")) {
-"226
+[; ;PIC18F27J53-killifish_light02.c: 230: }
+[; ;PIC18F27J53-killifish_light02.c: 231: if (!my_strcmp(opcode, "RESET();")) {
+"231
 [e $ ! ! != -> ( _my_strcmp (2 , -> _opcode `*Cuc :s 12C `i -> -> -> 0 `i `c `i 1492  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 227: asm("reset");
-"227
+[; ;PIC18F27J53-killifish_light02.c: 232: asm("reset");
+"232
 [; <" reset ;# ">
-"228
+"233
 }
 [e :U 1492 ]
-[; ;PIC18F27J53-killifish_light02.c: 228: }
-[; ;PIC18F27J53-killifish_light02.c: 229: if (!my_strcmp(opcode, "at") || !my_strcmp(opcode, "adjust_time")) {
-"229
+[; ;PIC18F27J53-killifish_light02.c: 233: }
+[; ;PIC18F27J53-killifish_light02.c: 234: if (!my_strcmp(opcode, "at") || !my_strcmp(opcode, "adjust_time")) {
+"234
 [e $ ! || ! != -> ( _my_strcmp (2 , -> _opcode `*Cuc :s 13C `i -> -> -> 0 `i `c `i ! != -> ( _my_strcmp (2 , -> _opcode `*Cuc :s 14C `i -> -> -> 0 `i `c `i 1493  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 230: if (!my_strcmp(opland1, "y")) {
-"230
+[; ;PIC18F27J53-killifish_light02.c: 235: if (!my_strcmp(opland1, "y")) {
+"235
 [e $ ! ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 15C `i -> -> -> 0 `i `c `i 1494  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 231: comm_at(&caltime_now.YY, 0, 99, my_atoi(opland2));
-"231
+[; ;PIC18F27J53-killifish_light02.c: 236: comm_at(&caltime_now.YY, 0, 99, my_atoi(opland2));
+"236
 [e ( _comm_at (4 , , , &U . _caltime_now 6 -> -> 0 `i `uc -> -> 99 `i `uc -> ( _my_atoi (1 -> _opland2 `*Cuc `uc ]
-"232
+"237
 }
 [e :U 1494 ]
-[; ;PIC18F27J53-killifish_light02.c: 232: }
-[; ;PIC18F27J53-killifish_light02.c: 233: if (!my_strcmp(opland1, "M")) {
-"233
+[; ;PIC18F27J53-killifish_light02.c: 237: }
+[; ;PIC18F27J53-killifish_light02.c: 238: if (!my_strcmp(opland1, "M")) {
+"238
 [e $ ! ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 16C `i -> -> -> 0 `i `c `i 1495  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 234: comm_at(&caltime_now.MM, 1, 12, my_atoi(opland2));
-"234
+[; ;PIC18F27J53-killifish_light02.c: 239: comm_at(&caltime_now.MM, 1, 12, my_atoi(opland2));
+"239
 [e ( _comm_at (4 , , , &U . _caltime_now 5 -> -> 1 `i `uc -> -> 12 `i `uc -> ( _my_atoi (1 -> _opland2 `*Cuc `uc ]
-"235
+"240
 }
 [e :U 1495 ]
-[; ;PIC18F27J53-killifish_light02.c: 235: }
-[; ;PIC18F27J53-killifish_light02.c: 236: if (!my_strcmp(opland1, "d")) {
-"236
+[; ;PIC18F27J53-killifish_light02.c: 240: }
+[; ;PIC18F27J53-killifish_light02.c: 241: if (!my_strcmp(opland1, "d")) {
+"241
 [e $ ! ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 17C `i -> -> -> 0 `i `c `i 1496  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 237: comm_at(&caltime_now.DD, 1, month_length(caltime_now.YY, caltime_now.MM), my_atoi(opland2));
-"237
+[; ;PIC18F27J53-killifish_light02.c: 242: comm_at(&caltime_now.DD, 1, month_length(caltime_now.YY, caltime_now.MM), my_atoi(opland2));
+"242
 [e ( _comm_at (4 , , , &U . _caltime_now 4 -> -> 1 `i `uc ( _month_length (2 , . _caltime_now 6 . _caltime_now 5 -> ( _my_atoi (1 -> _opland2 `*Cuc `uc ]
-"238
+"243
 }
 [e :U 1496 ]
-[; ;PIC18F27J53-killifish_light02.c: 238: }
-[; ;PIC18F27J53-killifish_light02.c: 239: if (!my_strcmp(opland1, "h")) {
-"239
+[; ;PIC18F27J53-killifish_light02.c: 243: }
+[; ;PIC18F27J53-killifish_light02.c: 244: if (!my_strcmp(opland1, "h")) {
+"244
 [e $ ! ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 18C `i -> -> -> 0 `i `c `i 1497  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 240: comm_at(&caltime_now.hh, 0, 23, my_atoi(opland2));
-"240
+[; ;PIC18F27J53-killifish_light02.c: 245: comm_at(&caltime_now.hh, 0, 23, my_atoi(opland2));
+"245
 [e ( _comm_at (4 , , , &U . _caltime_now 2 -> -> 0 `i `uc -> -> 23 `i `uc -> ( _my_atoi (1 -> _opland2 `*Cuc `uc ]
-"241
+"246
 }
 [e :U 1497 ]
-[; ;PIC18F27J53-killifish_light02.c: 241: }
-[; ;PIC18F27J53-killifish_light02.c: 242: if (!my_strcmp(opland1, "m")) {
-"242
+[; ;PIC18F27J53-killifish_light02.c: 246: }
+[; ;PIC18F27J53-killifish_light02.c: 247: if (!my_strcmp(opland1, "m")) {
+"247
 [e $ ! ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 19C `i -> -> -> 0 `i `c `i 1498  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 243: comm_at(&caltime_now.mm, 0, 59, my_atoi(opland2));
-"243
+[; ;PIC18F27J53-killifish_light02.c: 248: comm_at(&caltime_now.mm, 0, 59, my_atoi(opland2));
+"248
 [e ( _comm_at (4 , , , &U . _caltime_now 1 -> -> 0 `i `uc -> -> 59 `i `uc -> ( _my_atoi (1 -> _opland2 `*Cuc `uc ]
-"244
+"249
 }
 [e :U 1498 ]
-[; ;PIC18F27J53-killifish_light02.c: 244: }
-[; ;PIC18F27J53-killifish_light02.c: 245: if (!my_strcmp(opland1, "s")) {
-"245
+[; ;PIC18F27J53-killifish_light02.c: 249: }
+[; ;PIC18F27J53-killifish_light02.c: 250: if (!my_strcmp(opland1, "s")) {
+"250
 [e $ ! ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 20C `i -> -> -> 0 `i `c `i 1499  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 246: comm_at(&caltime_now.ss, 0, 59, my_atoi(opland2));
-"246
+[; ;PIC18F27J53-killifish_light02.c: 251: comm_at(&caltime_now.ss, 0, 59, my_atoi(opland2));
+"251
 [e ( _comm_at (4 , , , &U . _caltime_now 0 -> -> 0 `i `uc -> -> 59 `i `uc -> ( _my_atoi (1 -> _opland2 `*Cuc `uc ]
-"247
+"252
 }
 [e :U 1499 ]
-"248
+"253
 }
 [e :U 1493 ]
-[; ;PIC18F27J53-killifish_light02.c: 247: }
-[; ;PIC18F27J53-killifish_light02.c: 248: }
-[; ;PIC18F27J53-killifish_light02.c: 249: if (!my_strcmp(opcode, "print_time") || !my_strcmp(opcode, "t")) {
-"249
+[; ;PIC18F27J53-killifish_light02.c: 252: }
+[; ;PIC18F27J53-killifish_light02.c: 253: }
+[; ;PIC18F27J53-killifish_light02.c: 254: if (!my_strcmp(opcode, "print_time") || !my_strcmp(opcode, "t")) {
+"254
 [e $ ! || ! != -> ( _my_strcmp (2 , -> _opcode `*Cuc :s 21C `i -> -> -> 0 `i `c `i ! != -> ( _my_strcmp (2 , -> _opcode `*Cuc :s 22C `i -> -> -> 0 `i `c `i 1500  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 250: print_time();
-"250
+[; ;PIC18F27J53-killifish_light02.c: 255: print_time();
+"255
 [e ( _print_time ..  ]
-"251
+"256
 }
 [e :U 1500 ]
-[; ;PIC18F27J53-killifish_light02.c: 251: }
-[; ;PIC18F27J53-killifish_light02.c: 252: if (!my_strcmp(opcode, "set")) {
-"252
+[; ;PIC18F27J53-killifish_light02.c: 256: }
+[; ;PIC18F27J53-killifish_light02.c: 257: if (!my_strcmp(opcode, "set")) {
+"257
 [e $ ! ! != -> ( _my_strcmp (2 , -> _opcode `*Cuc :s 23C `i -> -> -> 0 `i `c `i 1501  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 253: if (!my_strcmp(opland1, "sync")) {
-"253
+[; ;PIC18F27J53-killifish_light02.c: 258: if (!my_strcmp(opland1, "sync")) {
+"258
 [e $ ! ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 24C `i -> -> -> 0 `i `c `i 1502  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 254: light_mode = TIME_SYNC_mode;
-"254
+[; ;PIC18F27J53-killifish_light02.c: 259: light_mode = TIME_SYNC_mode;
+"259
 [e = _light_mode . `E8783 0 ]
-"255
+"260
 }
 [e :U 1502 ]
-[; ;PIC18F27J53-killifish_light02.c: 255: }
-[; ;PIC18F27J53-killifish_light02.c: 256: if (!my_strcmp(opland1, "adc") || !my_strcmp(opland1, "ADC")) {
-"256
+[; ;PIC18F27J53-killifish_light02.c: 260: }
+[; ;PIC18F27J53-killifish_light02.c: 261: if (!my_strcmp(opland1, "adc") || !my_strcmp(opland1, "ADC")) {
+"261
 [e $ ! || ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 25C `i -> -> -> 0 `i `c `i ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 26C `i -> -> -> 0 `i `c `i 1503  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 257: light_mode = ADC_mode;
-"257
+[; ;PIC18F27J53-killifish_light02.c: 262: light_mode = ADC_mode;
+"262
 [e = _light_mode . `E8783 1 ]
-"258
+"263
 }
 [e :U 1503 ]
-"259
-}
-[e :U 1501 ]
-[; ;PIC18F27J53-killifish_light02.c: 258: }
-[; ;PIC18F27J53-killifish_light02.c: 259: }
-[; ;PIC18F27J53-killifish_light02.c: 260: if (!my_strcmp(opcode, "pwm") || !my_strcmp(opcode, "PWM")) {
-"260
-[e $ ! || ! != -> ( _my_strcmp (2 , -> _opcode `*Cuc :s 27C `i -> -> -> 0 `i `c `i ! != -> ( _my_strcmp (2 , -> _opcode `*Cuc :s 28C `i -> -> -> 0 `i `c `i 1504  ]
-{
-[; ;PIC18F27J53-killifish_light02.c: 261: if (!my_strcmp(opland1, "r") || !my_strcmp(opland1, "R")) {
-"261
-[e $ ! || ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 29C `i -> -> -> 0 `i `c `i ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 30C `i -> -> -> 0 `i `c `i 1505  ]
-{
-[; ;PIC18F27J53-killifish_light02.c: 262: light_mode = COMMAND_mode;
-"262
-[e = _light_mode . `E8783 2 ]
-[; ;PIC18F27J53-killifish_light02.c: 263: PWM_set(0, my_atoi(opland2));
-"263
-[e ( _PWM_set (2 , -> -> 0 `i `uc ( _my_atoi (1 -> _opland2 `*Cuc ]
 "264
 }
-[e :U 1505 ]
+[e :U 1501 ]
+[; ;PIC18F27J53-killifish_light02.c: 263: }
 [; ;PIC18F27J53-killifish_light02.c: 264: }
-[; ;PIC18F27J53-killifish_light02.c: 265: if (!my_strcmp(opland1, "g") || !my_strcmp(opland1, "G")) {
+[; ;PIC18F27J53-killifish_light02.c: 265: if (!my_strcmp(opcode, "pwm") || !my_strcmp(opcode, "PWM")) {
 "265
+[e $ ! || ! != -> ( _my_strcmp (2 , -> _opcode `*Cuc :s 27C `i -> -> -> 0 `i `c `i ! != -> ( _my_strcmp (2 , -> _opcode `*Cuc :s 28C `i -> -> -> 0 `i `c `i 1504  ]
+{
+[; ;PIC18F27J53-killifish_light02.c: 266: if (!my_strcmp(opland1, "r") || !my_strcmp(opland1, "R")) {
+"266
+[e $ ! || ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 29C `i -> -> -> 0 `i `c `i ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 30C `i -> -> -> 0 `i `c `i 1505  ]
+{
+[; ;PIC18F27J53-killifish_light02.c: 267: light_mode = COMMAND_mode;
+"267
+[e = _light_mode . `E8783 2 ]
+[; ;PIC18F27J53-killifish_light02.c: 268: PWM_set(0, my_atoi(opland2));
+"268
+[e ( _PWM_set (2 , -> -> 0 `i `uc ( _my_atoi (1 -> _opland2 `*Cuc ]
+"269
+}
+[e :U 1505 ]
+[; ;PIC18F27J53-killifish_light02.c: 269: }
+[; ;PIC18F27J53-killifish_light02.c: 270: if (!my_strcmp(opland1, "g") || !my_strcmp(opland1, "G")) {
+"270
 [e $ ! || ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 31C `i -> -> -> 0 `i `c `i ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 32C `i -> -> -> 0 `i `c `i 1506  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 266: light_mode = COMMAND_mode;
-"266
+[; ;PIC18F27J53-killifish_light02.c: 271: light_mode = COMMAND_mode;
+"271
 [e = _light_mode . `E8783 2 ]
-[; ;PIC18F27J53-killifish_light02.c: 267: PWM_set(1, my_atoi(opland2));
-"267
+[; ;PIC18F27J53-killifish_light02.c: 272: PWM_set(1, my_atoi(opland2));
+"272
 [e ( _PWM_set (2 , -> -> 1 `i `uc ( _my_atoi (1 -> _opland2 `*Cuc ]
-"268
+"273
 }
 [e :U 1506 ]
-[; ;PIC18F27J53-killifish_light02.c: 268: }
-[; ;PIC18F27J53-killifish_light02.c: 269: if (!my_strcmp(opland1, "b") || !my_strcmp(opland1, "B")) {
-"269
+[; ;PIC18F27J53-killifish_light02.c: 273: }
+[; ;PIC18F27J53-killifish_light02.c: 274: if (!my_strcmp(opland1, "b") || !my_strcmp(opland1, "B")) {
+"274
 [e $ ! || ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 33C `i -> -> -> 0 `i `c `i ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 34C `i -> -> -> 0 `i `c `i 1507  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 270: light_mode = COMMAND_mode;
-"270
+[; ;PIC18F27J53-killifish_light02.c: 275: light_mode = COMMAND_mode;
+"275
 [e = _light_mode . `E8783 2 ]
-[; ;PIC18F27J53-killifish_light02.c: 271: PWM_set(2, my_atoi(opland2));
-"271
+[; ;PIC18F27J53-killifish_light02.c: 276: PWM_set(2, my_atoi(opland2));
+"276
 [e ( _PWM_set (2 , -> -> 2 `i `uc ( _my_atoi (1 -> _opland2 `*Cuc ]
-"272
+"277
 }
 [e :U 1507 ]
-[; ;PIC18F27J53-killifish_light02.c: 272: }
-[; ;PIC18F27J53-killifish_light02.c: 273: if (!my_strcmp(opland1, "w") || !my_strcmp(opland1, "W")) {
-"273
+[; ;PIC18F27J53-killifish_light02.c: 277: }
+[; ;PIC18F27J53-killifish_light02.c: 278: if (!my_strcmp(opland1, "w") || !my_strcmp(opland1, "W")) {
+"278
 [e $ ! || ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 35C `i -> -> -> 0 `i `c `i ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 36C `i -> -> -> 0 `i `c `i 1508  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 274: light_mode = COMMAND_mode;
-"274
+[; ;PIC18F27J53-killifish_light02.c: 279: light_mode = COMMAND_mode;
+"279
 [e = _light_mode . `E8783 2 ]
-[; ;PIC18F27J53-killifish_light02.c: 275: PWM_set(3, my_atoi(opland2));
-"275
+[; ;PIC18F27J53-killifish_light02.c: 280: PWM_set(3, my_atoi(opland2));
+"280
 [e ( _PWM_set (2 , -> -> 3 `i `uc ( _my_atoi (1 -> _opland2 `*Cuc ]
-"276
+"281
 }
 [e :U 1508 ]
-[; ;PIC18F27J53-killifish_light02.c: 276: }
-[; ;PIC18F27J53-killifish_light02.c: 277: if (!my_strcmp(opland1, "clear")) {
-"277
+[; ;PIC18F27J53-killifish_light02.c: 281: }
+[; ;PIC18F27J53-killifish_light02.c: 282: if (!my_strcmp(opland1, "clear")) {
+"282
 [e $ ! ! != -> ( _my_strcmp (2 , -> _opland1 `*Cuc :s 37C `i -> -> -> 0 `i `c `i 1509  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 278: light_mode = COMMAND_mode;
-"278
-[e = _light_mode . `E8783 2 ]
-[; ;PIC18F27J53-killifish_light02.c: 279: PWM_set(0, 0);
-"279
-[e ( _PWM_set (2 , -> -> 0 `i `uc -> -> 0 `i `ui ]
-[; ;PIC18F27J53-killifish_light02.c: 280: PWM_set(1, 0);
-"280
-[e ( _PWM_set (2 , -> -> 1 `i `uc -> -> 0 `i `ui ]
-[; ;PIC18F27J53-killifish_light02.c: 281: PWM_set(2, 0);
-"281
-[e ( _PWM_set (2 , -> -> 2 `i `uc -> -> 0 `i `ui ]
-[; ;PIC18F27J53-killifish_light02.c: 282: PWM_set(3, 0);
-"282
-[e ( _PWM_set (2 , -> -> 3 `i `uc -> -> 0 `i `ui ]
+[; ;PIC18F27J53-killifish_light02.c: 283: light_mode = COMMAND_mode;
 "283
+[e = _light_mode . `E8783 2 ]
+[; ;PIC18F27J53-killifish_light02.c: 284: PWM_set(0, 0);
+"284
+[e ( _PWM_set (2 , -> -> 0 `i `uc -> -> 0 `i `ui ]
+[; ;PIC18F27J53-killifish_light02.c: 285: PWM_set(1, 0);
+"285
+[e ( _PWM_set (2 , -> -> 1 `i `uc -> -> 0 `i `ui ]
+[; ;PIC18F27J53-killifish_light02.c: 286: PWM_set(2, 0);
+"286
+[e ( _PWM_set (2 , -> -> 2 `i `uc -> -> 0 `i `ui ]
+[; ;PIC18F27J53-killifish_light02.c: 287: PWM_set(3, 0);
+"287
+[e ( _PWM_set (2 , -> -> 3 `i `uc -> -> 0 `i `ui ]
+"288
 }
 [e :U 1509 ]
-"284
+"289
 }
 [e :U 1504 ]
-[; ;PIC18F27J53-killifish_light02.c: 283: }
-[; ;PIC18F27J53-killifish_light02.c: 284: }
-[; ;PIC18F27J53-killifish_light02.c: 285: }
-"285
+[; ;PIC18F27J53-killifish_light02.c: 288: }
+[; ;PIC18F27J53-killifish_light02.c: 289: }
+[; ;PIC18F27J53-killifish_light02.c: 290: }
+"290
 [e :UE 1490 ]
 }
-"287
+"292
 [v _rx_loop `(v ~T0 @X0 1 ef ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 287: void rx_loop(void) {
+[; ;PIC18F27J53-killifish_light02.c: 292: void rx_loop(void) {
 [e :U _rx_loop ]
 [f ]
-"288
+"293
 [v F8814 `S1232 ~T0 @X0 1 s comm_buf ]
-"289
+"294
 [v F8815 `uc ~T0 @X0 1 s comm_buf_init ]
 [i F8815
 -> -> 1 `i `uc
 ]
-[; ;PIC18F27J53-killifish_light02.c: 288: static ringbuf_t comm_buf;
-[; ;PIC18F27J53-killifish_light02.c: 289: static uint8_t comm_buf_init = 1;
-[; ;PIC18F27J53-killifish_light02.c: 290: if (comm_buf_init) {
-"290
+[; ;PIC18F27J53-killifish_light02.c: 293: static ringbuf_t comm_buf;
+[; ;PIC18F27J53-killifish_light02.c: 294: static uint8_t comm_buf_init = 1;
+[; ;PIC18F27J53-killifish_light02.c: 295: if (comm_buf_init) {
+"295
 [e $ ! != -> F8815 `i -> -> -> 0 `i `uc `i 1511  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 291: comm_buf_init = 0;
-"291
+[; ;PIC18F27J53-killifish_light02.c: 296: comm_buf_init = 0;
+"296
 [e = F8815 -> -> 0 `i `uc ]
-"292
+"297
 [v _buf `uc ~T0 @X0 -> 100 `i a ]
-[; ;PIC18F27J53-killifish_light02.c: 292: char buf[100];
-[; ;PIC18F27J53-killifish_light02.c: 293: ringbuf_init(&comm_buf, buf, sizeof (buf));
-"293
+[; ;PIC18F27J53-killifish_light02.c: 297: char buf[100];
+[; ;PIC18F27J53-killifish_light02.c: 298: ringbuf_init(&comm_buf, buf, sizeof (buf));
+"298
 [e ( _ringbuf_init (3 , , &U F8814 &U _buf -> # _buf `ui ]
-"294
+"299
 }
 [e :U 1511 ]
-[; ;PIC18F27J53-killifish_light02.c: 294: }
-[; ;PIC18F27J53-killifish_light02.c: 295: if (ringbuf_num(&rx_buf)) {
-"295
+[; ;PIC18F27J53-killifish_light02.c: 299: }
+[; ;PIC18F27J53-killifish_light02.c: 300: if (ringbuf_num(&rx_buf)) {
+"300
 [e $ ! != ( _ringbuf_num (1 &U _rx_buf -> -> 0 `i `ui 1512  ]
 {
-"296
+"301
 [v _ascii `uc ~T0 @X0 1 a ]
-[; ;PIC18F27J53-killifish_light02.c: 296: char ascii = ringbuf_pop(&rx_buf);
+[; ;PIC18F27J53-killifish_light02.c: 301: char ascii = ringbuf_pop(&rx_buf);
 [e = _ascii ( _ringbuf_pop (1 &U _rx_buf ]
-[; ;PIC18F27J53-killifish_light02.c: 297: switch (ascii) {
-"297
+[; ;PIC18F27J53-killifish_light02.c: 302: switch (ascii) {
+"302
 [e $U 1514  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 298: case '\r':
-"298
-[e :U 1515 ]
-[; ;PIC18F27J53-killifish_light02.c: 299: ringbuf_put(&comm_buf, '\0');
-"299
-[e ( _ringbuf_put (2 , &U F8814 -> -> 0 `ui `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 300: tx_send('\t');
-"300
-[e ( _tx_send (1 -> -> 9 `ui `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 301: tx_sendn(ringbuf_num(&comm_buf) - 1, 2);
-"301
-[e ( _tx_sendn (2 , - ( _ringbuf_num (1 &U F8814 -> -> 1 `i `ui -> -> 2 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 302: tx_sends("\n");
-"302
-[e ( _tx_sends (1 :s 38C ]
+[; ;PIC18F27J53-killifish_light02.c: 303: case '\r':
 "303
-[v _opcode `uc ~T0 @X0 -> 100 `i a ]
+[e :U 1515 ]
+[; ;PIC18F27J53-killifish_light02.c: 304: ringbuf_put(&comm_buf, '\0');
 "304
-[v _opland1 `uc ~T0 @X0 -> 100 `i a ]
+[e ( _ringbuf_put (2 , &U F8814 -> -> 0 `ui `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 305: tx_send('\t');
 "305
-[v _opland2 `uc ~T0 @X0 -> 100 `i a ]
+[e ( _tx_send (1 -> -> 9 `ui `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 306: tx_sendn(ringbuf_num(&comm_buf) - 1, 2);
 "306
-[v _opland3 `uc ~T0 @X0 -> 100 `i a ]
+[e ( _tx_sendn (2 , - ( _ringbuf_num (1 &U F8814 -> -> 1 `i `ui -> -> 2 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 307: tx_sends("\n");
 "307
-[v _i `uc ~T0 @X0 1 a ]
-[; ;PIC18F27J53-killifish_light02.c: 303: char opcode[100];
-[; ;PIC18F27J53-killifish_light02.c: 304: char opland1[100];
-[; ;PIC18F27J53-killifish_light02.c: 305: char opland2[100];
-[; ;PIC18F27J53-killifish_light02.c: 306: char opland3[100];
-[; ;PIC18F27J53-killifish_light02.c: 307: uint8_t i;
-[; ;PIC18F27J53-killifish_light02.c: 308: for (i = 0; opcode[i] = ringbuf_pop(&comm_buf); i++);
+[e ( _tx_sends (1 :s 38C ]
 "308
+[v _opcode `uc ~T0 @X0 -> 100 `i a ]
+"309
+[v _opland1 `uc ~T0 @X0 -> 100 `i a ]
+"310
+[v _opland2 `uc ~T0 @X0 -> 100 `i a ]
+"311
+[v _opland3 `uc ~T0 @X0 -> 100 `i a ]
+"312
+[v _i `uc ~T0 @X0 1 a ]
+[; ;PIC18F27J53-killifish_light02.c: 308: char opcode[100];
+[; ;PIC18F27J53-killifish_light02.c: 309: char opland1[100];
+[; ;PIC18F27J53-killifish_light02.c: 310: char opland2[100];
+[; ;PIC18F27J53-killifish_light02.c: 311: char opland3[100];
+[; ;PIC18F27J53-killifish_light02.c: 312: uint8_t i;
+[; ;PIC18F27J53-killifish_light02.c: 313: for (i = 0; opcode[i] = ringbuf_pop(&comm_buf); i++);
+"313
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 1519  ]
@@ -12089,11 +12089,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -> = *U + &U _opcode * -> _i `ux -> -> # *U &U _opcode `ui `ux ( _ringbuf_pop (1 &U F8814 `i -> -> -> 0 `i `uc `i 1516  ]
 [e :U 1517 ]
 }
-[; ;PIC18F27J53-killifish_light02.c: 309: opcode[i] = '\0';
-"309
+[; ;PIC18F27J53-killifish_light02.c: 314: opcode[i] = '\0';
+"314
 [e = *U + &U _opcode * -> _i `ux -> -> # *U &U _opcode `ui `ux -> -> 0 `ui `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 310: for (i = 0; opland1[i] = ringbuf_pop(&comm_buf); i++);
-"310
+[; ;PIC18F27J53-killifish_light02.c: 315: for (i = 0; opland1[i] = ringbuf_pop(&comm_buf); i++);
+"315
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 1523  ]
@@ -12103,11 +12103,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -> = *U + &U _opland1 * -> _i `ux -> -> # *U &U _opland1 `ui `ux ( _ringbuf_pop (1 &U F8814 `i -> -> -> 0 `i `uc `i 1520  ]
 [e :U 1521 ]
 }
-[; ;PIC18F27J53-killifish_light02.c: 311: opland1[i] = '\0';
-"311
+[; ;PIC18F27J53-killifish_light02.c: 316: opland1[i] = '\0';
+"316
 [e = *U + &U _opland1 * -> _i `ux -> -> # *U &U _opland1 `ui `ux -> -> 0 `ui `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 312: for (i = 0; opland2[i] = ringbuf_pop(&comm_buf); i++);
-"312
+[; ;PIC18F27J53-killifish_light02.c: 317: for (i = 0; opland2[i] = ringbuf_pop(&comm_buf); i++);
+"317
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 1527  ]
@@ -12117,11 +12117,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -> = *U + &U _opland2 * -> _i `ux -> -> # *U &U _opland2 `ui `ux ( _ringbuf_pop (1 &U F8814 `i -> -> -> 0 `i `uc `i 1524  ]
 [e :U 1525 ]
 }
-[; ;PIC18F27J53-killifish_light02.c: 313: opland2[i] = '\0';
-"313
+[; ;PIC18F27J53-killifish_light02.c: 318: opland2[i] = '\0';
+"318
 [e = *U + &U _opland2 * -> _i `ux -> -> # *U &U _opland2 `ui `ux -> -> 0 `ui `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 314: for (i = 0; opland3[i] = ringbuf_pop(&comm_buf); i++);
-"314
+[; ;PIC18F27J53-killifish_light02.c: 319: for (i = 0; opland3[i] = ringbuf_pop(&comm_buf); i++);
+"319
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 1531  ]
@@ -12131,44 +12131,44 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -> = *U + &U _opland3 * -> _i `ux -> -> # *U &U _opland3 `ui `ux ( _ringbuf_pop (1 &U F8814 `i -> -> -> 0 `i `uc `i 1528  ]
 [e :U 1529 ]
 }
-[; ;PIC18F27J53-killifish_light02.c: 315: opland3[i] = '\0';
-"315
-[e = *U + &U _opland3 * -> _i `ux -> -> # *U &U _opland3 `ui `ux -> -> 0 `ui `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 316: command_operation(opcode, opland1, opland2, opland3);
-"316
-[e ( _command_operation (4 , , , &U _opcode &U _opland1 &U _opland2 &U _opland3 ]
-[; ;PIC18F27J53-killifish_light02.c: 317: break;
-"317
-[e $U 1513  ]
-[; ;PIC18F27J53-killifish_light02.c: 318: case ' ':
-"318
-[e :U 1532 ]
-[; ;PIC18F27J53-killifish_light02.c: 319: ringbuf_put(&comm_buf, '\0');
-"319
-[e ( _ringbuf_put (2 , &U F8814 -> -> 0 `ui `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 320: tx_send(' ');
+[; ;PIC18F27J53-killifish_light02.c: 320: opland3[i] = '\0';
 "320
-[e ( _tx_send (1 -> -> 32 `ui `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 321: break;
+[e = *U + &U _opland3 * -> _i `ux -> -> # *U &U _opland3 `ui `ux -> -> 0 `ui `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 321: command_operation(opcode, opland1, opland2, opland3);
 "321
-[e $U 1513  ]
-[; ;PIC18F27J53-killifish_light02.c: 322: case '\b':
+[e ( _command_operation (4 , , , &U _opcode &U _opland1 &U _opland2 &U _opland3 ]
+[; ;PIC18F27J53-killifish_light02.c: 322: break;
 "322
-[e :U 1533 ]
-[; ;PIC18F27J53-killifish_light02.c: 323: ringbuf_backspace(&comm_buf);
-"323
-[e ( _ringbuf_backspace (1 &U F8814 ]
-[; ;PIC18F27J53-killifish_light02.c: 324: tx_sends("\b \b");
-"324
-[e ( _tx_sends (1 :s 39C ]
-[; ;PIC18F27J53-killifish_light02.c: 325: break;
-"325
 [e $U 1513  ]
-[; ;PIC18F27J53-killifish_light02.c: 326: case 0x7F:
+[; ;PIC18F27J53-killifish_light02.c: 323: case ' ':
+"323
+[e :U 1532 ]
+[; ;PIC18F27J53-killifish_light02.c: 324: ringbuf_put(&comm_buf, '\0');
+"324
+[e ( _ringbuf_put (2 , &U F8814 -> -> 0 `ui `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 325: tx_send(' ');
+"325
+[e ( _tx_send (1 -> -> 32 `ui `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 326: break;
 "326
-[e :U 1534 ]
-[; ;PIC18F27J53-killifish_light02.c: 327: for (uint8_t i = 0; i < ringbuf_num(&comm_buf); i++) tx_sends("\b \b");
+[e $U 1513  ]
+[; ;PIC18F27J53-killifish_light02.c: 327: case '\b':
 "327
+[e :U 1533 ]
+[; ;PIC18F27J53-killifish_light02.c: 328: ringbuf_backspace(&comm_buf);
+"328
+[e ( _ringbuf_backspace (1 &U F8814 ]
+[; ;PIC18F27J53-killifish_light02.c: 329: tx_sends("\b \b");
+"329
+[e ( _tx_sends (1 :s 39C ]
+[; ;PIC18F27J53-killifish_light02.c: 330: break;
+"330
+[e $U 1513  ]
+[; ;PIC18F27J53-killifish_light02.c: 331: case 0x7F:
+"331
+[e :U 1534 ]
+[; ;PIC18F27J53-killifish_light02.c: 332: for (uint8_t i = 0; i < ringbuf_num(&comm_buf); i++) tx_sends("\b \b");
+"332
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -12180,127 +12180,127 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ < -> _i `ui ( _ringbuf_num (1 &U F8814 1535  ]
 [e :U 1536 ]
 }
-[; ;PIC18F27J53-killifish_light02.c: 328: ringbuf_delete(&comm_buf);
-"328
+[; ;PIC18F27J53-killifish_light02.c: 333: ringbuf_delete(&comm_buf);
+"333
 [e ( _ringbuf_delete (1 &U F8814 ]
-[; ;PIC18F27J53-killifish_light02.c: 329: break;
-"329
+[; ;PIC18F27J53-killifish_light02.c: 334: break;
+"334
 [e $U 1513  ]
-[; ;PIC18F27J53-killifish_light02.c: 330: default:
-"330
+[; ;PIC18F27J53-killifish_light02.c: 335: default:
+"335
 [e :U 1539 ]
-[; ;PIC18F27J53-killifish_light02.c: 331: if (ascii >= ' ' && ascii <= '~') {
-"331
+[; ;PIC18F27J53-killifish_light02.c: 336: if (ascii >= ' ' && ascii <= '~') {
+"336
 [e $ ! && >= -> _ascii `ui -> 32 `ui <= -> _ascii `ui -> 126 `ui 1540  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 332: ringbuf_put(&comm_buf, ascii);
-"332
+[; ;PIC18F27J53-killifish_light02.c: 337: ringbuf_put(&comm_buf, ascii);
+"337
 [e ( _ringbuf_put (2 , &U F8814 _ascii ]
-[; ;PIC18F27J53-killifish_light02.c: 333: tx_send(ascii);
-"333
+[; ;PIC18F27J53-killifish_light02.c: 338: tx_send(ascii);
+"338
 [e ( _tx_send (1 _ascii ]
-"334
+"339
 }
 [e :U 1540 ]
-[; ;PIC18F27J53-killifish_light02.c: 334: }
-[; ;PIC18F27J53-killifish_light02.c: 335: break;
-"335
+[; ;PIC18F27J53-killifish_light02.c: 339: }
+[; ;PIC18F27J53-killifish_light02.c: 340: break;
+"340
 [e $U 1513  ]
-"336
+"341
 }
-[; ;PIC18F27J53-killifish_light02.c: 336: }
+[; ;PIC18F27J53-killifish_light02.c: 341: }
 [e $U 1513  ]
-"297
+"302
 [e :U 1514 ]
 [e [\ _ascii , $ -> -> 13 `ui `uc 1515
  , $ -> -> 32 `ui `uc 1532
  , $ -> -> 8 `ui `uc 1533
  , $ -> -> 127 `i `uc 1534
  1539 ]
-"336
+"341
 [e :U 1513 ]
-"337
+"342
 }
 [e :U 1512 ]
-[; ;PIC18F27J53-killifish_light02.c: 337: }
-[; ;PIC18F27J53-killifish_light02.c: 338: }
-"338
+[; ;PIC18F27J53-killifish_light02.c: 342: }
+[; ;PIC18F27J53-killifish_light02.c: 343: }
+"343
 [e :UE 1510 ]
 }
-"340
+"345
 [v _normal_loop `(v ~T0 @X0 1 ef ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 340: void normal_loop(void) {
+[; ;PIC18F27J53-killifish_light02.c: 345: void normal_loop(void) {
 [e :U _normal_loop ]
 [f ]
-[; ;PIC18F27J53-killifish_light02.c: 341: if (time_change_flag) {
-"341
+[; ;PIC18F27J53-killifish_light02.c: 346: if (time_change_flag) {
+"346
 [e $ ! != -> _time_change_flag `i -> -> -> 0 `i `uc `i 1542  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 342: time_change_flag = 0;
-"342
+[; ;PIC18F27J53-killifish_light02.c: 347: time_change_flag = 0;
+"347
 [e = _time_change_flag -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 343: RTCC_from_RTCC(&caltime_now, &epoch_now);
-"343
+[; ;PIC18F27J53-killifish_light02.c: 348: RTCC_from_RTCC(&caltime_now, &epoch_now);
+"348
 [e ( _RTCC_from_RTCC (2 , &U _caltime_now &U _epoch_now ]
-[; ;PIC18F27J53-killifish_light02.c: 344: if (light_mode == TIME_SYNC_mode) {
-"344
+[; ;PIC18F27J53-killifish_light02.c: 349: if (light_mode == TIME_SYNC_mode) {
+"349
 [e $ ! == -> _light_mode `i -> . `E8783 0 `i 1543  ]
 {
-"345
+"350
 [v _temp `ul ~T0 @X0 1 a ]
-[; ;PIC18F27J53-killifish_light02.c: 345: epoch_t temp = (epoch_t) epoch_now % ((epoch_t)60*60*24);
+[; ;PIC18F27J53-killifish_light02.c: 350: epoch_t temp = (epoch_t) epoch_now % ((epoch_t)60*60*24);
 [e = _temp % _epoch_now * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul ]
-[; ;PIC18F27J53-killifish_light02.c: 346: if (temp > ((epoch_t)60*60*24) / 2)temp = ((epoch_t)60*60*24) - temp;
-"346
+[; ;PIC18F27J53-killifish_light02.c: 351: if (temp > ((epoch_t)60*60*24) / 2)temp = ((epoch_t)60*60*24) - temp;
+"351
 [e $ ! > _temp / * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> -> -> 2 `i `l `ul 1544  ]
 [e = _temp - * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul _temp ]
 [e :U 1544 ]
-[; ;PIC18F27J53-killifish_light02.c: 347: temp = temp * 2 * 100 / ((epoch_t)60*60*24);
-"347
-[e = _temp / * * _temp -> -> -> 2 `i `l `ul -> -> -> 100 `i `l `ul * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul ]
-[; ;PIC18F27J53-killifish_light02.c: 348: temp *= 2;
-"348
-[e =* _temp -> -> -> 2 `i `l `ul ]
-[; ;PIC18F27J53-killifish_light02.c: 349: temp /= 3;
-"349
-[e =/ _temp -> -> 3 `uc `ul ]
-[; ;PIC18F27J53-killifish_light02.c: 350: PWM_set(0, temp);
-"350
-[e ( _PWM_set (2 , -> -> 0 `i `uc -> _temp `ui ]
-[; ;PIC18F27J53-killifish_light02.c: 351: PWM_set(1, temp);
-"351
-[e ( _PWM_set (2 , -> -> 1 `i `uc -> _temp `ui ]
-[; ;PIC18F27J53-killifish_light02.c: 352: PWM_set(2, temp);
+[; ;PIC18F27J53-killifish_light02.c: 352: temp = temp * 2 * 100 / ((epoch_t)60*60*24);
 "352
-[e ( _PWM_set (2 , -> -> 2 `i `uc -> _temp `ui ]
-[; ;PIC18F27J53-killifish_light02.c: 353: PWM_set(3, temp);
+[e = _temp / * * _temp -> -> -> 2 `i `l `ul -> -> -> 100 `i `l `ul * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul ]
+[; ;PIC18F27J53-killifish_light02.c: 353: temp *= 2;
 "353
-[e ( _PWM_set (2 , -> -> 3 `i `uc -> _temp `ui ]
+[e =* _temp -> -> -> 2 `i `l `ul ]
+[; ;PIC18F27J53-killifish_light02.c: 354: temp /= 3;
 "354
+[e =/ _temp -> -> 3 `uc `ul ]
+[; ;PIC18F27J53-killifish_light02.c: 355: PWM_set(0, temp);
+"355
+[e ( _PWM_set (2 , -> -> 0 `i `uc -> _temp `ui ]
+[; ;PIC18F27J53-killifish_light02.c: 356: PWM_set(1, temp);
+"356
+[e ( _PWM_set (2 , -> -> 1 `i `uc -> _temp `ui ]
+[; ;PIC18F27J53-killifish_light02.c: 357: PWM_set(2, temp);
+"357
+[e ( _PWM_set (2 , -> -> 2 `i `uc -> _temp `ui ]
+[; ;PIC18F27J53-killifish_light02.c: 358: PWM_set(3, temp);
+"358
+[e ( _PWM_set (2 , -> -> 3 `i `uc -> _temp `ui ]
+"359
 }
 [e :U 1543 ]
-"355
+"360
 }
 [e :U 1542 ]
-[; ;PIC18F27J53-killifish_light02.c: 354: }
-[; ;PIC18F27J53-killifish_light02.c: 355: }
-[; ;PIC18F27J53-killifish_light02.c: 356: if (light_mode == ADC_mode) {
-"356
+[; ;PIC18F27J53-killifish_light02.c: 359: }
+[; ;PIC18F27J53-killifish_light02.c: 360: }
+[; ;PIC18F27J53-killifish_light02.c: 361: if (light_mode == ADC_mode) {
+"361
 [e $ ! == -> _light_mode `i -> . `E8783 1 `i 1545  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 357: PWM_set(3, 0);
-"357
+[; ;PIC18F27J53-killifish_light02.c: 362: PWM_set(3, 0);
+"362
 [e ( _PWM_set (2 , -> -> 3 `i `uc -> -> 0 `i `ui ]
-[; ;PIC18F27J53-killifish_light02.c: 358: if (t0if) {
-"358
+[; ;PIC18F27J53-killifish_light02.c: 363: if (t0if) {
+"363
 [e $ ! != -> _t0if `i -> -> -> 0 `i `uc `i 1546  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 359: t0if = 0;
-"359
+[; ;PIC18F27J53-killifish_light02.c: 364: t0if = 0;
+"364
 [e = _t0if -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 360: for (uint8_t i = 0; i < 3; i++) {
-"360
+[; ;PIC18F27J53-killifish_light02.c: 365: for (uint8_t i = 0; i < 3; i++) {
+"365
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -12308,90 +12308,90 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1548  ]
 [e :U 1547 ]
 {
-"361
+"366
 [v _scan `ui ~T0 @X0 1 a ]
-[; ;PIC18F27J53-killifish_light02.c: 361: uint16_t scan = (ADC(i) >> 4) * 100 / 255;
+[; ;PIC18F27J53-killifish_light02.c: 366: uint16_t scan = (ADC(i) >> 4) * 100 / 255;
 [e = _scan / * >> ( _ADC (1 _i -> 4 `i -> -> 100 `i `ui -> -> 255 `i `ui ]
-[; ;PIC18F27J53-killifish_light02.c: 362: PWM_set(i, scan);
-"362
+[; ;PIC18F27J53-killifish_light02.c: 367: PWM_set(i, scan);
+"367
 [e ( _PWM_set (2 , _i _scan ]
-"363
+"368
 }
-"360
+"365
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 3 `i 1547  ]
 [e :U 1548 ]
-"363
-}
-"364
-}
-[e :U 1546 ]
-"365
-}
-[e :U 1545 ]
-[; ;PIC18F27J53-killifish_light02.c: 363: }
-[; ;PIC18F27J53-killifish_light02.c: 364: }
-[; ;PIC18F27J53-killifish_light02.c: 365: }
-[; ;PIC18F27J53-killifish_light02.c: 366: if (sw_R.flag.press) {
-"366
-[e $ ! != -> . . . _sw_R 1 1 0 `i -> -> -> 0 `i `uc `i 1550  ]
-{
-[; ;PIC18F27J53-killifish_light02.c: 367: sw_R.flags = 0;
-"367
-[e = . . _sw_R 1 0 -> -> 0 `i `ui ]
-[; ;PIC18F27J53-killifish_light02.c: 368: light_mode = TIME_SYNC_mode;
 "368
-[e = _light_mode . `E8783 0 ]
+}
 "369
 }
-[e :U 1550 ]
-[; ;PIC18F27J53-killifish_light02.c: 369: }
-[; ;PIC18F27J53-killifish_light02.c: 370: if (sw_R.flag.long_holding_1) {
+[e :U 1546 ]
 "370
+}
+[e :U 1545 ]
+[; ;PIC18F27J53-killifish_light02.c: 368: }
+[; ;PIC18F27J53-killifish_light02.c: 369: }
+[; ;PIC18F27J53-killifish_light02.c: 370: }
+[; ;PIC18F27J53-killifish_light02.c: 371: if (sw_R.flag.press) {
+"371
+[e $ ! != -> . . . _sw_R 1 1 0 `i -> -> -> 0 `i `uc `i 1550  ]
+{
+[; ;PIC18F27J53-killifish_light02.c: 372: sw_R.flags = 0;
+"372
+[e = . . _sw_R 1 0 -> -> 0 `i `ui ]
+[; ;PIC18F27J53-killifish_light02.c: 373: light_mode = TIME_SYNC_mode;
+"373
+[e = _light_mode . `E8783 0 ]
+"374
+}
+[e :U 1550 ]
+[; ;PIC18F27J53-killifish_light02.c: 374: }
+[; ;PIC18F27J53-killifish_light02.c: 375: if (sw_R.flag.long_holding_1) {
+"375
 [e $ ! != -> . . . _sw_R 1 1 9 `i -> -> -> 0 `i `uc `i 1551  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 371: sw_R.flags = 0;
-"371
+[; ;PIC18F27J53-killifish_light02.c: 376: sw_R.flags = 0;
+"376
 [e = . . _sw_R 1 0 -> -> 0 `i `ui ]
-[; ;PIC18F27J53-killifish_light02.c: 372: light_mode = ADC_mode;
-"372
+[; ;PIC18F27J53-killifish_light02.c: 377: light_mode = ADC_mode;
+"377
 [e = _light_mode . `E8783 1 ]
-"373
+"378
 }
 [e :U 1551 ]
-[; ;PIC18F27J53-killifish_light02.c: 373: }
-[; ;PIC18F27J53-killifish_light02.c: 374: if (sw_G.flag.press) {
-"374
+[; ;PIC18F27J53-killifish_light02.c: 378: }
+[; ;PIC18F27J53-killifish_light02.c: 379: if (sw_G.flag.press) {
+"379
 [e $ ! != -> . . . _sw_G 1 1 0 `i -> -> -> 0 `i `uc `i 1552  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 375: sw_G.flags = 0;
-"375
+[; ;PIC18F27J53-killifish_light02.c: 380: sw_G.flags = 0;
+"380
 [e = . . _sw_G 1 0 -> -> 0 `i `ui ]
-[; ;PIC18F27J53-killifish_light02.c: 376: light_mode = COMMAND_mode;
-"376
+[; ;PIC18F27J53-killifish_light02.c: 381: light_mode = COMMAND_mode;
+"381
 [e = _light_mode . `E8783 2 ]
-"377
+"382
 [v F8834 `uc ~T0 @X0 1 s n ]
 [i F8834
 -> -> 0 `i `uc
 ]
-[; ;PIC18F27J53-killifish_light02.c: 377: static uint8_t n = 0;
-[; ;PIC18F27J53-killifish_light02.c: 378: if (n >= 4) n = 0;
-"378
+[; ;PIC18F27J53-killifish_light02.c: 382: static uint8_t n = 0;
+[; ;PIC18F27J53-killifish_light02.c: 383: if (n >= 4) n = 0;
+"383
 [e $ ! >= -> F8834 `i -> 4 `i 1553  ]
 [e = F8834 -> -> 0 `i `uc ]
 [e $U 1554  ]
-"379
+"384
 [e :U 1553 ]
-[; ;PIC18F27J53-killifish_light02.c: 379: else n++;
+[; ;PIC18F27J53-killifish_light02.c: 384: else n++;
 [e ++ F8834 -> -> 1 `i `uc ]
 [e :U 1554 ]
-"380
+"385
 [v _value `uc ~T0 @X0 1 a ]
-[; ;PIC18F27J53-killifish_light02.c: 380: uint8_t value = 100 / 4 * n;
+[; ;PIC18F27J53-killifish_light02.c: 385: uint8_t value = 100 / 4 * n;
 [e = _value -> * / -> 100 `i -> 4 `i -> F8834 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 381: for (uint8_t i = 0; i < 3; i++) {
-"381
+[; ;PIC18F27J53-killifish_light02.c: 386: for (uint8_t i = 0; i < 3; i++) {
+"386
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -12399,188 +12399,188 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1556  ]
 [e :U 1555 ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 382: PWM_set(i, value);
-"382
+[; ;PIC18F27J53-killifish_light02.c: 387: PWM_set(i, value);
+"387
 [e ( _PWM_set (2 , _i -> _value `ui ]
-"383
+"388
 }
-"381
+"386
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 3 `i 1555  ]
 [e :U 1556 ]
-"383
+"388
 }
-"384
+"389
 }
 [e :U 1552 ]
-[; ;PIC18F27J53-killifish_light02.c: 383: }
-[; ;PIC18F27J53-killifish_light02.c: 384: }
-[; ;PIC18F27J53-killifish_light02.c: 385: if (sw_B.flag.press) {
-"385
+[; ;PIC18F27J53-killifish_light02.c: 388: }
+[; ;PIC18F27J53-killifish_light02.c: 389: }
+[; ;PIC18F27J53-killifish_light02.c: 390: if (sw_B.flag.press) {
+"390
 [e $ ! != -> . . . _sw_B 1 1 0 `i -> -> -> 0 `i `uc `i 1558  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 386: sw_B.flags = 0;
-"386
+[; ;PIC18F27J53-killifish_light02.c: 391: sw_B.flags = 0;
+"391
 [e = . . _sw_B 1 0 -> -> 0 `i `ui ]
-[; ;PIC18F27J53-killifish_light02.c: 387: light_mode = COMMAND_mode;
-"387
+[; ;PIC18F27J53-killifish_light02.c: 392: light_mode = COMMAND_mode;
+"392
 [e = _light_mode . `E8783 2 ]
-"388
+"393
 [v F8837 `uc ~T0 @X0 1 s n ]
 [i F8837
 -> -> 0 `i `uc
 ]
-[; ;PIC18F27J53-killifish_light02.c: 388: static uint8_t n = 0;
-[; ;PIC18F27J53-killifish_light02.c: 389: if (n >= 4) n = 0;
-"389
+[; ;PIC18F27J53-killifish_light02.c: 393: static uint8_t n = 0;
+[; ;PIC18F27J53-killifish_light02.c: 394: if (n >= 4) n = 0;
+"394
 [e $ ! >= -> F8837 `i -> 4 `i 1559  ]
 [e = F8837 -> -> 0 `i `uc ]
 [e $U 1560  ]
-"390
+"395
 [e :U 1559 ]
-[; ;PIC18F27J53-killifish_light02.c: 390: else n++;
+[; ;PIC18F27J53-killifish_light02.c: 395: else n++;
 [e ++ F8837 -> -> 1 `i `uc ]
 [e :U 1560 ]
-"391
+"396
 [v _value `uc ~T0 @X0 1 a ]
-[; ;PIC18F27J53-killifish_light02.c: 391: uint8_t value = 100 / 4 * n;
+[; ;PIC18F27J53-killifish_light02.c: 396: uint8_t value = 100 / 4 * n;
 [e = _value -> * / -> 100 `i -> 4 `i -> F8837 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 392: PWM_set(3, value);
-"392
+[; ;PIC18F27J53-killifish_light02.c: 397: PWM_set(3, value);
+"397
 [e ( _PWM_set (2 , -> -> 3 `i `uc -> _value `ui ]
-"393
+"398
 }
 [e :U 1558 ]
-[; ;PIC18F27J53-killifish_light02.c: 393: }
-[; ;PIC18F27J53-killifish_light02.c: 394: }
-"394
+[; ;PIC18F27J53-killifish_light02.c: 398: }
+[; ;PIC18F27J53-killifish_light02.c: 399: }
+"399
 [e :UE 1541 ]
 }
-"396
+"401
 [v _main_init `(v ~T0 @X0 1 ef ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 396: void main_init(void) {
+[; ;PIC18F27J53-killifish_light02.c: 401: void main_init(void) {
 [e :U _main_init ]
 [f ]
-[; ;PIC18F27J53-killifish_light02.c: 397: OSC_init();
-"397
-[e ( _OSC_init ..  ]
-[; ;PIC18F27J53-killifish_light02.c: 398: TRISA = 0b11110111;
-"398
-[e = _TRISA -> -> 247 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 399: TRISB = 0b00000000;
-"399
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 400: TRISC = 0b10111010;
-"400
-[e = _TRISC -> -> 186 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 401: ANCON0 = 0b11111000;
-"401
-[e = _ANCON0 -> -> 248 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 402: ANCON1 = 0b00011111;
+[; ;PIC18F27J53-killifish_light02.c: 402: OSC_init();
 "402
-[e = _ANCON1 -> -> 31 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 403: INTCON2bits.RBPU = 0;
+[e ( _OSC_init ..  ]
+[; ;PIC18F27J53-killifish_light02.c: 403: TRISA = 0b11110111;
 "403
-[e = . . _INTCON2bits 2 4 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 405: timer0_init(6);
+[e = _TRISA -> -> 247 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 404: TRISB = 0b00000000;
+"404
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 405: TRISC = 0b10111010;
 "405
-[e ( _timer0_init (1 -> -> 6 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 406: timer1_init(0, 2);
+[e = _TRISC -> -> 186 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 406: ANCON0 = 0b11111000;
 "406
-[e ( _timer1_init (2 , -> -> 0 `i `uc -> -> 2 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 407: timer3_init(2);
+[e = _ANCON0 -> -> 248 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 407: ANCON1 = 0b00011111;
 "407
-[e ( _timer3_init (1 -> -> 2 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 408: ADC_init(0);
+[e = _ANCON1 -> -> 31 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 408: INTCON2bits.RBPU = 0;
 "408
-[e ( _ADC_init (1 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 409: RTCC_init();
-"409
-[e ( _RTCC_init ..  ]
-[; ;PIC18F27J53-killifish_light02.c: 410: PWM_init(100);
+[e = . . _INTCON2bits 2 4 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 410: timer0_init(6);
 "410
-[e ( _PWM_init (1 -> -> 100 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 412: UART_init();
+[e ( _timer0_init (1 -> -> 6 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 411: timer1_init(0, 2);
+"411
+[e ( _timer1_init (2 , -> -> 0 `i `uc -> -> 2 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 412: timer3_init(2);
 "412
-[e ( _UART_init ..  ]
+[e ( _timer3_init (1 -> -> 2 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 413: ADC_init(0);
 "413
-[v F8841 `uc ~T0 @X0 -> 1000 `i s txbuf ]
-[; ;PIC18F27J53-killifish_light02.c: 413: static uint8_t txbuf[1000];
-[; ;PIC18F27J53-killifish_light02.c: 414: ringbuf_init(&tx_buf, txbuf, sizeof (txbuf));
+[e ( _ADC_init (1 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 414: RTCC_init();
 "414
-[e ( _ringbuf_init (3 , , &U _tx_buf &U F8841 -> # F8841 `ui ]
+[e ( _RTCC_init ..  ]
+[; ;PIC18F27J53-killifish_light02.c: 415: PWM_init(100);
 "415
-[v F8842 `uc ~T0 @X0 -> 250 `i s rxbuf ]
-[; ;PIC18F27J53-killifish_light02.c: 415: static uint8_t rxbuf[250];
-[; ;PIC18F27J53-killifish_light02.c: 416: ringbuf_init(&rx_buf, rxbuf, sizeof (rxbuf));
-"416
-[e ( _ringbuf_init (3 , , &U _rx_buf &U F8842 -> # F8842 `ui ]
-[; ;PIC18F27J53-killifish_light02.c: 417: }
+[e ( _PWM_init (1 -> -> 100 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 417: UART_init();
 "417
+[e ( _UART_init ..  ]
+"418
+[v F8841 `uc ~T0 @X0 -> 1000 `i s txbuf ]
+[; ;PIC18F27J53-killifish_light02.c: 418: static uint8_t txbuf[1000];
+[; ;PIC18F27J53-killifish_light02.c: 419: ringbuf_init(&tx_buf, txbuf, sizeof (txbuf));
+"419
+[e ( _ringbuf_init (3 , , &U _tx_buf &U F8841 -> # F8841 `ui ]
+"420
+[v F8842 `uc ~T0 @X0 -> 250 `i s rxbuf ]
+[; ;PIC18F27J53-killifish_light02.c: 420: static uint8_t rxbuf[250];
+[; ;PIC18F27J53-killifish_light02.c: 421: ringbuf_init(&rx_buf, rxbuf, sizeof (rxbuf));
+"421
+[e ( _ringbuf_init (3 , , &U _rx_buf &U F8842 -> # F8842 `ui ]
+[; ;PIC18F27J53-killifish_light02.c: 422: }
+"422
 [e :UE 1561 ]
 }
-"419
+"424
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 419: int main(void) {
+[; ;PIC18F27J53-killifish_light02.c: 424: int main(void) {
 [e :U _main ]
 [f ]
-[; ;PIC18F27J53-killifish_light02.c: 420: main_init();
-"420
+[; ;PIC18F27J53-killifish_light02.c: 425: main_init();
+"425
 [e ( _main_init ..  ]
-[; ;PIC18F27J53-killifish_light02.c: 421: INTCONbits.GIE = 1;
-"421
+[; ;PIC18F27J53-killifish_light02.c: 426: INTCONbits.GIE = 1;
+"426
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 423: RTCC_from_RTCC(&caltime_now, &epoch_now);
-"423
+[; ;PIC18F27J53-killifish_light02.c: 428: RTCC_from_RTCC(&caltime_now, &epoch_now);
+"428
 [e ( _RTCC_from_RTCC (2 , &U _caltime_now &U _epoch_now ]
-[; ;PIC18F27J53-killifish_light02.c: 424: if (caltime_now.DD == 0) {
-"424
+[; ;PIC18F27J53-killifish_light02.c: 429: if (caltime_now.DD == 0) {
+"429
 [e $ ! == -> . _caltime_now 4 `i -> 0 `i 1563  ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 425: epoch_now = 0;
-"425
+[; ;PIC18F27J53-killifish_light02.c: 430: epoch_now = 0;
+"430
 [e = _epoch_now -> -> -> 0 `i `l `ul ]
-[; ;PIC18F27J53-killifish_light02.c: 426: RTCC_from_epoch(&caltime_now, &epoch_now);
-"426
+[; ;PIC18F27J53-killifish_light02.c: 431: RTCC_from_epoch(&caltime_now, &epoch_now);
+"431
 [e ( _RTCC_from_epoch (2 , &U _caltime_now &U _epoch_now ]
-"427
+"432
 }
 [e :U 1563 ]
-[; ;PIC18F27J53-killifish_light02.c: 427: }
-[; ;PIC18F27J53-killifish_light02.c: 429: while (1) {
-"429
+[; ;PIC18F27J53-killifish_light02.c: 432: }
+[; ;PIC18F27J53-killifish_light02.c: 434: while (1) {
+"434
 [e :U 1565 ]
 {
-[; ;PIC18F27J53-killifish_light02.c: 430: INTCONbits.GIE = 0;
-"430
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-killifish_light02.c: 431: RTCC_loop();
-"431
-[e ( _RTCC_loop ..  ]
-[; ;PIC18F27J53-killifish_light02.c: 432: rx_loop();
-"432
-[e ( _rx_loop ..  ]
-[; ;PIC18F27J53-killifish_light02.c: 433: normal_loop();
-"433
-[e ( _normal_loop ..  ]
-[; ;PIC18F27J53-killifish_light02.c: 434: INTCONbits.GIE = 1;
-"434
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 435: INTCONbits.GIE = 0;
 "435
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;PIC18F27J53-killifish_light02.c: 436: RTCC_loop();
+"436
+[e ( _RTCC_loop ..  ]
+[; ;PIC18F27J53-killifish_light02.c: 437: rx_loop();
+"437
+[e ( _rx_loop ..  ]
+[; ;PIC18F27J53-killifish_light02.c: 438: normal_loop();
+"438
+[e ( _normal_loop ..  ]
+[; ;PIC18F27J53-killifish_light02.c: 439: INTCONbits.GIE = 1;
+"439
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"440
 }
 [e :U 1564 ]
-"429
+"434
 [e $U 1565  ]
 [e :U 1566 ]
-[; ;PIC18F27J53-killifish_light02.c: 435: }
-[; ;PIC18F27J53-killifish_light02.c: 436: return 0;
-"436
+[; ;PIC18F27J53-killifish_light02.c: 440: }
+[; ;PIC18F27J53-killifish_light02.c: 441: return 0;
+"441
 [e ) -> 0 `i ]
 [e $UE 1562  ]
-[; ;PIC18F27J53-killifish_light02.c: 437: }
-"437
+[; ;PIC18F27J53-killifish_light02.c: 442: }
+"442
 [e :UE 1562 ]
 }
 [a 15C 121 0 ]

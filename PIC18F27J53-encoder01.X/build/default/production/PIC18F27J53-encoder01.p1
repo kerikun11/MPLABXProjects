@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"17503 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f27j53.h
+"17503 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [s S1134 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1134 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
 "17511
@@ -294,10 +294,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ADCON1bits `VS876 ~T0 @X0 0 e@4033 ]
 "14475
 [v _ADRES `Vus ~T0 @X0 0 e@4035 ]
-"15 ../My_header\My_ringbuf.h
-[s S1282 `*uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S1282 ringbuf buf size head tail ]
-"12332 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f27j53.h
+"17 ../My_header\My_ringbuf.h
+[s S1232 `*uc 1 `ui 1 `ui 1 `ui 1 ]
+[n S1232 ringbuf buf size head tail ]
+"12332 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [s S775 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S775 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
 "12342
@@ -405,16 +405,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SPBRGH1 `Vuc ~T0 @X0 0 e@3967 ]
 "12608
 [v _TXREG1 `Vuc ~T0 @X0 0 e@4014 ]
+"12645
+[v _RCREG1 `Vuc ~T0 @X0 0 e@4015 ]
 "12855
 [v _CTMUCONH `Vuc ~T0 @X0 0 e@4019 ]
 "12794
 [v _CTMUCONL `Vuc ~T0 @X0 0 e@4018 ]
 "12719
 [v _CTMUICON `Vuc ~T0 @X0 0 e@4017 ]
-"14330
-[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
-"14228
-[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
 "12861
 [s S804 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S804 . CTTRIG IDISSEN EDGSEQEN EDGEN TGEN CTMUSIDL . CTMUEN ]
@@ -431,16 +429,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S801 . . ]
 "12811
 [v _CTMUCONLbits `VS801 ~T0 @X0 0 e@4018 ]
-[v F9670 `(v ~T0 @X0 1 tf1`ul ]
-"161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
-[v __delay `JF9670 ~T0 @X0 0 e ]
+[v F8492 `(v ~T0 @X0 1 tf1`ul ]
+"152 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18.h
+[v __delay `JF8492 ~T0 @X0 0 e ]
 [p i __delay ]
-"352 ../My_header\My_header.h
-[s S1330 `uc 1 `ui 1 ]
-[n S1330 Delay flag cnt ]
-"12645 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f27j53.h
-[v _RCREG1 `Vuc ~T0 @X0 0 e@4015 ]
-"20038
+"337 ../My_header\My_header.h
+[s S1294 `uc 1 `ui 1 ]
+[n S1294 Delay flag cnt ]
+"20038 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [v _LATB7 `Vb ~T0 @X0 0 e@31831 ]
 "8839
 [s S598 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -486,9 +482,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "5667
 [v _ANCON1 `Vuc ~T0 @X0 0 e@3913 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
+[; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f27j53.h: 49: extern volatile unsigned char ADCTRIG @ 0xEB8;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f27j53.h
+"51 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [; ;pic18f27j53.h: 51: asm("ADCTRIG equ 0EB8h");
 [; <" ADCTRIG equ 0EB8h ;# ">
 [; ;pic18f27j53.h: 54: typedef union {
@@ -8570,929 +8567,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18f27j53.h: 21390: extern volatile __bit nW2 @ (((unsigned) &SSP2STAT)*8) + 2;
 [; ;pic18f27j53.h: 21392: extern volatile __bit nWRITE @ (((unsigned) &SSP1STAT)*8) + 2;
 [; ;pic18f27j53.h: 21394: extern volatile __bit nWRITE2 @ (((unsigned) &SSP2STAT)*8) + 2;
-[; ;adc.h: 2008: union ADCResult
-[; ;adc.h: 2009: {
-[; ;adc.h: 2010: int lr;
-[; ;adc.h: 2011: char br[2];
-[; ;adc.h: 2012: };
-[; ;adc.h: 2014: char BusyADC (void);
-[; ;adc.h: 2016: void ConvertADC (void);
-[; ;adc.h: 2018: void CloseADC(void);
-[; ;adc.h: 2026: int ReadADC(void);
-[; ;adc.h: 2052: void OpenADC ( unsigned char ,
-[; ;adc.h: 2053: unsigned char ,
-[; ;adc.h: 2054: unsigned char ,
-[; ;adc.h: 2055: unsigned int );
-[; ;adc.h: 2084: void SetChanADC(unsigned char );
-[; ;adc.h: 2100: void SelChanConvADC( unsigned char );
-[; ;ancomp.h: 202: void Close_ancomp1( void );
-[; ;ancomp.h: 203: void Open_ancomp1(unsigned char config);
-[; ;ancomp.h: 204: void Close_ancomp2( void );
-[; ;ancomp.h: 205: void Open_ancomp2(unsigned char config);
-[; ;ancomp.h: 208: void Close_ancomp3( void );
-[; ;ancomp.h: 209: void Open_ancomp3(unsigned char config);
-[; ;spi.h: 236: void OpenSPI1( unsigned char sync_mode,
-[; ;spi.h: 237: unsigned char bus_mode,
-[; ;spi.h: 238: unsigned char smp_phase );
-[; ;spi.h: 240: signed char WriteSPI1( unsigned char data_out );
-[; ;spi.h: 242: void getsSPI1( unsigned char *rdptr, unsigned char length );
-[; ;spi.h: 244: void putsSPI1( unsigned char *wrptr );
-[; ;spi.h: 246: unsigned char ReadSPI1( void );
-[; ;spi.h: 441: void OpenSPI2( unsigned char sync_mode,
-[; ;spi.h: 442: unsigned char bus_mode,
-[; ;spi.h: 443: unsigned char smp_phase );
-[; ;spi.h: 445: signed char WriteSPI2( unsigned char data_out );
-[; ;spi.h: 447: void getsSPI2( unsigned char *rdptr, unsigned char length );
-[; ;spi.h: 449: void putsSPI2( unsigned char *wrptr );
-[; ;spi.h: 451: unsigned char ReadSPI2( void );
-[; ;can2510.h: 414: void CAN2510Initialize(  unsigned int configuration,
-[; ;can2510.h: 415: unsigned char brp,
-[; ;can2510.h: 416: unsigned char interruptFlags,
-[; ;can2510.h: 417: unsigned char SPI_syncMode,
-[; ;can2510.h: 418: unsigned char SPI_busMode,
-[; ;can2510.h: 419: unsigned char SPI_smpPhase );
-[; ;can2510.h: 421: signed char CAN2510Init(  unsigned long BufferConfig,
-[; ;can2510.h: 422: unsigned long BitTimeConfig,
-[; ;can2510.h: 423: unsigned char interruptEnables,
-[; ;can2510.h: 424: unsigned char SPI_syncMode,
-[; ;can2510.h: 425: unsigned char SPI_busMode,
-[; ;can2510.h: 426: unsigned char SPI_smpPhase );
-[; ;can2510.h: 428: void CAN2510Enable( void );
-[; ;can2510.h: 430: void CAN2510Disable( void );
-[; ;can2510.h: 432: void CAN2510Reset( void );
-[; ;can2510.h: 434: void CAN2510SetMode(  unsigned char mode );
-[; ;can2510.h: 436: unsigned char CAN2510ReadMode( void );
-[; ;can2510.h: 438: unsigned char CAN2510ReadStatus( void );
-[; ;can2510.h: 440: unsigned char CAN2510ErrorState( void );
-[; ;can2510.h: 442: unsigned char CAN2510InterruptStatus( void );
-[; ;can2510.h: 444: void CAN2510InterruptEnable( unsigned char interruptFlags );
-[; ;can2510.h: 446: unsigned char CAN2510ByteRead(  unsigned char addr );
-[; ;can2510.h: 448: void CAN2510ByteWrite(  unsigned char addr,  unsigned char value );
-[; ;can2510.h: 450: void CAN2510SequentialRead(  unsigned char *DataArray,
-[; ;can2510.h: 451: unsigned char CAN2510addr,
-[; ;can2510.h: 452: unsigned char numbytes );
-[; ;can2510.h: 454: void CAN2510SequentialWrite(  unsigned char *DataArray,
-[; ;can2510.h: 455: unsigned char CAN2510addr,
-[; ;can2510.h: 456: unsigned char numbytes );
-[; ;can2510.h: 458: void CAN2510BitModify(  unsigned char address,
-[; ;can2510.h: 459: unsigned char mask,
-[; ;can2510.h: 460: unsigned char data );
-[; ;can2510.h: 462: void CAN2510SetSingleMaskStd(  unsigned char maskNum,  unsigned int mask );
-[; ;can2510.h: 464: void CAN2510SetSingleMaskXtd(  unsigned char maskNum,  unsigned long mask );
-[; ;can2510.h: 466: void CAN2510SetSingleFilterStd(  unsigned char filterNum,  unsigned int filter );
-[; ;can2510.h: 468: void CAN2510SetSingleFilterXtd(  unsigned char filterNum,  unsigned long filter );
-[; ;can2510.h: 470: signed char CAN2510SetMsgFilterStd(  unsigned char bufferNum,
-[; ;can2510.h: 471: unsigned int mask,
-[; ;can2510.h: 472: unsigned int *filters );
-[; ;can2510.h: 474: signed char CAN2510SetMsgFilterXtd(  unsigned char bufferNum,
-[; ;can2510.h: 475: unsigned long mask,
-[; ;can2510.h: 476: unsigned long *filters );
-[; ;can2510.h: 478: signed char CAN2510WriteStd(  unsigned int msgId,
-[; ;can2510.h: 479: unsigned char msgPriority,
-[; ;can2510.h: 480: unsigned char numBytes,
-[; ;can2510.h: 481: unsigned char *data );
-[; ;can2510.h: 483: signed char CAN2510WriteXtd(  unsigned long msgId,
-[; ;can2510.h: 484: unsigned char msgPriority,
-[; ;can2510.h: 485: unsigned char numBytes,
-[; ;can2510.h: 486: unsigned char *data );
-[; ;can2510.h: 488: void CAN2510LoadBufferStd(  unsigned char bufferNum,
-[; ;can2510.h: 489: unsigned int msgId,
-[; ;can2510.h: 490: unsigned char numBytes,
-[; ;can2510.h: 491: unsigned char *data );
-[; ;can2510.h: 493: void CAN2510LoadBufferXtd(  unsigned char bufferNum,
-[; ;can2510.h: 494: unsigned long msgId,
-[; ;can2510.h: 495: unsigned char numBytes,
-[; ;can2510.h: 496: unsigned char *data );
-[; ;can2510.h: 498: void CAN2510LoadRTRStd(  unsigned char bufferNum,
-[; ;can2510.h: 499: unsigned int msgId,
-[; ;can2510.h: 500: unsigned char numBytes );
-[; ;can2510.h: 502: void CAN2510LoadRTRXtd(  unsigned char bufferNum,
-[; ;can2510.h: 503: unsigned long msgId,
-[; ;can2510.h: 504: unsigned char numBytes );
-[; ;can2510.h: 506: void CAN2510SetBufferPriority(  unsigned char bufferNum,
-[; ;can2510.h: 507: unsigned char bufferPriority );
-[; ;can2510.h: 509: void CAN2510SendBuffer(  unsigned char bufferNumber );
-[; ;can2510.h: 511: signed char CAN2510WriteBuffer(  unsigned char bufferNum );
-[; ;can2510.h: 513: unsigned char CAN2510DataReady(  unsigned char bufferNum );
-[; ;can2510.h: 515: unsigned char CAN2510DataRead(  unsigned char bufferNum,
-[; ;can2510.h: 516: unsigned long *msgId,
-[; ;can2510.h: 517: unsigned char *numBytes,
-[; ;can2510.h: 518: unsigned char *data );
-[; ;capture.h: 64: union capstatus
-[; ;capture.h: 65: {
-[; ;capture.h: 73: struct
-[; ;capture.h: 74: {
-[; ;capture.h: 91: unsigned Cap4OVF:1;
-[; ;capture.h: 92: unsigned Cap5OVF:1;
-[; ;capture.h: 96: unsigned Cap6OVF:1;
-[; ;capture.h: 97: unsigned Cap7OVF:1;
-[; ;capture.h: 98: unsigned Cap8OVF:1;
-[; ;capture.h: 107: unsigned ECap1OVF:1;
-[; ;capture.h: 111: unsigned ECap2OVF:1;
-[; ;capture.h: 112: unsigned ECap3OVF:1;
-[; ;capture.h: 115: };
-[; ;capture.h: 117: unsigned :8;
-[; ;capture.h: 119: };
-[; ;capture.h: 121: extern union capstatus CapStatus;
-[; ;capture.h: 123: union CapResult
-[; ;capture.h: 124: {
-[; ;capture.h: 125: unsigned int lc;
-[; ;capture.h: 126: char bc[2];
-[; ;capture.h: 127: };
-[; ;capture.h: 507: void OpenCapture4 ( unsigned char config);
-[; ;capture.h: 508: unsigned int ReadCapture4 (void);
-[; ;capture.h: 509: void CloseCapture4 (void);
-[; ;capture.h: 511: void OpenCapture5 ( unsigned char config);
-[; ;capture.h: 512: unsigned int ReadCapture5 (void);
-[; ;capture.h: 513: void CloseCapture5 (void);
-[; ;capture.h: 520: void OpenCapture6 ( unsigned char config);
-[; ;capture.h: 521: unsigned int ReadCapture6 (void);
-[; ;capture.h: 522: void CloseCapture6 (void);
-[; ;capture.h: 524: void OpenCapture7 ( unsigned char config);
-[; ;capture.h: 525: unsigned int ReadCapture7 (void);
-[; ;capture.h: 526: void CloseCapture7 (void);
-[; ;capture.h: 528: void OpenCapture8 ( unsigned char config);
-[; ;capture.h: 529: unsigned int ReadCapture8 (void);
-[; ;capture.h: 530: void CloseCapture8 (void);
-[; ;capture.h: 568: void OpenECapture1 ( unsigned char config);
-[; ;capture.h: 569: unsigned int ReadECapture1 (void);
-[; ;capture.h: 570: void CloseECapture1 (void);
-[; ;capture.h: 573: void OpenECapture2 ( unsigned char config);
-[; ;capture.h: 574: unsigned int ReadECapture2 (void);
-[; ;capture.h: 575: void CloseECapture2 (void);
-[; ;capture.h: 577: void OpenECapture3 ( unsigned char config);
-[; ;capture.h: 578: unsigned int ReadECapture3 (void);
-[; ;capture.h: 579: void CloseECapture3 (void);
-[; ;compare.h: 403: void OpenCompare4(unsigned char config,unsigned int period);
-[; ;compare.h: 404: void CloseCompare4(void);
-[; ;compare.h: 406: void OpenCompare5(unsigned char config,unsigned int period);
-[; ;compare.h: 407: void CloseCompare5(void);
-[; ;compare.h: 411: void OpenCompare6(unsigned char config,unsigned int period);
-[; ;compare.h: 412: void CloseCompare6(void);
-[; ;compare.h: 414: void OpenCompare7(unsigned char config,unsigned int period);
-[; ;compare.h: 415: void CloseCompare7(void);
-[; ;compare.h: 417: void OpenCompare8(unsigned char config,unsigned int period);
-[; ;compare.h: 418: void CloseCompare8(void);
-[; ;compare.h: 433: void OpenECompare1(unsigned char config,unsigned int period);
-[; ;compare.h: 434: void CloseECompare1(void);
-[; ;compare.h: 439: void OpenECompare2(unsigned char config,unsigned int period);
-[; ;compare.h: 440: void CloseECompare2(void);
-[; ;compare.h: 442: void OpenECompare3(unsigned char config,unsigned int period);
-[; ;compare.h: 443: void CloseECompare3(void);
-[; ;ctmu.h: 374: void OpenCTMU(unsigned char config1,unsigned char config2,unsigned char config3);
-[; ;ctmu.h: 379: void CurrentControlCTMU(unsigned char config);
-[; ;ctmu.h: 380: void CloseCTMU(void);
-[; ;dpslp.h: 49: typedef union
-[; ;dpslp.h: 50: {
-[; ;dpslp.h: 51: struct
-[; ;dpslp.h: 52: {
-[; ;dpslp.h: 53: unsigned char DS_POR:1;
-[; ;dpslp.h: 54: unsigned char DS_MCLR:1;
-[; ;dpslp.h: 55: unsigned char DS_RTC:1;
-[; ;dpslp.h: 56: unsigned char DS_WDT:1;
-[; ;dpslp.h: 57: unsigned char DS_FLT:1;
-[; ;dpslp.h: 58: unsigned char DS_INT0:1;
-[; ;dpslp.h: 59: unsigned char DS_BOR:1;
-[; ;dpslp.h: 60: unsigned char DS_ULP:1;
-[; ;dpslp.h: 61: }WK_SRC;
-[; ;dpslp.h: 63: unsigned char WKSRC;
-[; ;dpslp.h: 65: }SRC;
-[; ;dpslp.h: 68: typedef struct
-[; ;dpslp.h: 69: {
-[; ;dpslp.h: 70: unsigned char Reg0;
-[; ;dpslp.h: 71: unsigned char Reg1;
-[; ;dpslp.h: 72: }CONTEXT;
-[; ;dpslp.h: 164: extern void DeepSleepWakeUpSource(SRC* ptr);
-[; ;dpslp.h: 165: extern void GotoDeepSleep( unsigned int config);
-[; ;dpslp.h: 166: extern signed char IsResetFromDeepSleep( void );
-[; ;dpslp.h: 167: extern void ReadDSGPR( CONTEXT* ptr );
-[; ;dpslp.h: 171: extern void ULPWakeUpEnable( void );
-[; ;stddef.h: 2: typedef int ptrdiff_t;
-[; ;stddef.h: 3: typedef unsigned size_t;
-[; ;stddef.h: 4: typedef unsigned short wchar_t;
-[; ;stddef.h: 13: extern int errno;
-[; ;GenericTypeDefs.h: 65: typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
-[; ;GenericTypeDefs.h: 68: typedef enum _BIT { CLEAR = 0, SET } BIT;
-[; ;GenericTypeDefs.h: 75: typedef signed int INT;
-[; ;GenericTypeDefs.h: 76: typedef signed char INT8;
-[; ;GenericTypeDefs.h: 77: typedef signed short int INT16;
-[; ;GenericTypeDefs.h: 78: typedef signed long int INT32;
-[; ;GenericTypeDefs.h: 82: typedef signed long long INT64;
-[; ;GenericTypeDefs.h: 86: typedef unsigned int UINT;
-[; ;GenericTypeDefs.h: 87: typedef unsigned char UINT8;
-[; ;GenericTypeDefs.h: 88: typedef unsigned short int UINT16;
-[; ;GenericTypeDefs.h: 93: typedef unsigned long int UINT32;
-[; ;GenericTypeDefs.h: 96: typedef unsigned long long UINT64;
-[; ;GenericTypeDefs.h: 99: typedef union
-[; ;GenericTypeDefs.h: 100: {
-[; ;GenericTypeDefs.h: 101: UINT8 Val;
-[; ;GenericTypeDefs.h: 102: struct
-[; ;GenericTypeDefs.h: 103: {
-[; ;GenericTypeDefs.h: 104: UINT8 b0:1;
-[; ;GenericTypeDefs.h: 105: UINT8 b1:1;
-[; ;GenericTypeDefs.h: 106: UINT8 b2:1;
-[; ;GenericTypeDefs.h: 107: UINT8 b3:1;
-[; ;GenericTypeDefs.h: 108: UINT8 b4:1;
-[; ;GenericTypeDefs.h: 109: UINT8 b5:1;
-[; ;GenericTypeDefs.h: 110: UINT8 b6:1;
-[; ;GenericTypeDefs.h: 111: UINT8 b7:1;
-[; ;GenericTypeDefs.h: 112: } bits;
-[; ;GenericTypeDefs.h: 113: } UINT8_VAL, UINT8_BITS;
-[; ;GenericTypeDefs.h: 115: typedef union
-[; ;GenericTypeDefs.h: 116: {
-[; ;GenericTypeDefs.h: 117: UINT16 Val;
-[; ;GenericTypeDefs.h: 118: UINT8 v[2] ;
-[; ;GenericTypeDefs.h: 119: struct 
-[; ;GenericTypeDefs.h: 120: {
-[; ;GenericTypeDefs.h: 121: UINT8 LB;
-[; ;GenericTypeDefs.h: 122: UINT8 HB;
-[; ;GenericTypeDefs.h: 123: } byte;
-[; ;GenericTypeDefs.h: 124: struct 
-[; ;GenericTypeDefs.h: 125: {
-[; ;GenericTypeDefs.h: 126: UINT8 b0:1;
-[; ;GenericTypeDefs.h: 127: UINT8 b1:1;
-[; ;GenericTypeDefs.h: 128: UINT8 b2:1;
-[; ;GenericTypeDefs.h: 129: UINT8 b3:1;
-[; ;GenericTypeDefs.h: 130: UINT8 b4:1;
-[; ;GenericTypeDefs.h: 131: UINT8 b5:1;
-[; ;GenericTypeDefs.h: 132: UINT8 b6:1;
-[; ;GenericTypeDefs.h: 133: UINT8 b7:1;
-[; ;GenericTypeDefs.h: 134: UINT8 b8:1;
-[; ;GenericTypeDefs.h: 135: UINT8 b9:1;
-[; ;GenericTypeDefs.h: 136: UINT8 b10:1;
-[; ;GenericTypeDefs.h: 137: UINT8 b11:1;
-[; ;GenericTypeDefs.h: 138: UINT8 b12:1;
-[; ;GenericTypeDefs.h: 139: UINT8 b13:1;
-[; ;GenericTypeDefs.h: 140: UINT8 b14:1;
-[; ;GenericTypeDefs.h: 141: UINT8 b15:1;
-[; ;GenericTypeDefs.h: 142: } bits;
-[; ;GenericTypeDefs.h: 143: } UINT16_VAL, UINT16_BITS;
-[; ;GenericTypeDefs.h: 187: typedef union
-[; ;GenericTypeDefs.h: 188: {
-[; ;GenericTypeDefs.h: 189: UINT32 Val;
-[; ;GenericTypeDefs.h: 190: UINT16 w[2] ;
-[; ;GenericTypeDefs.h: 191: UINT8 v[4] ;
-[; ;GenericTypeDefs.h: 192: struct 
-[; ;GenericTypeDefs.h: 193: {
-[; ;GenericTypeDefs.h: 194: UINT16 LW;
-[; ;GenericTypeDefs.h: 195: UINT16 HW;
-[; ;GenericTypeDefs.h: 196: } word;
-[; ;GenericTypeDefs.h: 197: struct 
-[; ;GenericTypeDefs.h: 198: {
-[; ;GenericTypeDefs.h: 199: UINT8 LB;
-[; ;GenericTypeDefs.h: 200: UINT8 HB;
-[; ;GenericTypeDefs.h: 201: UINT8 UB;
-[; ;GenericTypeDefs.h: 202: UINT8 MB;
-[; ;GenericTypeDefs.h: 203: } byte;
-[; ;GenericTypeDefs.h: 204: struct 
-[; ;GenericTypeDefs.h: 205: {
-[; ;GenericTypeDefs.h: 206: UINT16_VAL low;
-[; ;GenericTypeDefs.h: 207: UINT16_VAL high;
-[; ;GenericTypeDefs.h: 208: }wordUnion;
-[; ;GenericTypeDefs.h: 209: struct 
-[; ;GenericTypeDefs.h: 210: {
-[; ;GenericTypeDefs.h: 211: UINT8 b0:1;
-[; ;GenericTypeDefs.h: 212: UINT8 b1:1;
-[; ;GenericTypeDefs.h: 213: UINT8 b2:1;
-[; ;GenericTypeDefs.h: 214: UINT8 b3:1;
-[; ;GenericTypeDefs.h: 215: UINT8 b4:1;
-[; ;GenericTypeDefs.h: 216: UINT8 b5:1;
-[; ;GenericTypeDefs.h: 217: UINT8 b6:1;
-[; ;GenericTypeDefs.h: 218: UINT8 b7:1;
-[; ;GenericTypeDefs.h: 219: UINT8 b8:1;
-[; ;GenericTypeDefs.h: 220: UINT8 b9:1;
-[; ;GenericTypeDefs.h: 221: UINT8 b10:1;
-[; ;GenericTypeDefs.h: 222: UINT8 b11:1;
-[; ;GenericTypeDefs.h: 223: UINT8 b12:1;
-[; ;GenericTypeDefs.h: 224: UINT8 b13:1;
-[; ;GenericTypeDefs.h: 225: UINT8 b14:1;
-[; ;GenericTypeDefs.h: 226: UINT8 b15:1;
-[; ;GenericTypeDefs.h: 227: UINT8 b16:1;
-[; ;GenericTypeDefs.h: 228: UINT8 b17:1;
-[; ;GenericTypeDefs.h: 229: UINT8 b18:1;
-[; ;GenericTypeDefs.h: 230: UINT8 b19:1;
-[; ;GenericTypeDefs.h: 231: UINT8 b20:1;
-[; ;GenericTypeDefs.h: 232: UINT8 b21:1;
-[; ;GenericTypeDefs.h: 233: UINT8 b22:1;
-[; ;GenericTypeDefs.h: 234: UINT8 b23:1;
-[; ;GenericTypeDefs.h: 235: UINT8 b24:1;
-[; ;GenericTypeDefs.h: 236: UINT8 b25:1;
-[; ;GenericTypeDefs.h: 237: UINT8 b26:1;
-[; ;GenericTypeDefs.h: 238: UINT8 b27:1;
-[; ;GenericTypeDefs.h: 239: UINT8 b28:1;
-[; ;GenericTypeDefs.h: 240: UINT8 b29:1;
-[; ;GenericTypeDefs.h: 241: UINT8 b30:1;
-[; ;GenericTypeDefs.h: 242: UINT8 b31:1;
-[; ;GenericTypeDefs.h: 243: } bits;
-[; ;GenericTypeDefs.h: 244: } UINT32_VAL;
-[; ;GenericTypeDefs.h: 248: typedef union
-[; ;GenericTypeDefs.h: 249: {
-[; ;GenericTypeDefs.h: 250: UINT64 Val;
-[; ;GenericTypeDefs.h: 251: UINT32 d[2] ;
-[; ;GenericTypeDefs.h: 252: UINT16 w[4] ;
-[; ;GenericTypeDefs.h: 253: UINT8 v[8] ;
-[; ;GenericTypeDefs.h: 254: struct 
-[; ;GenericTypeDefs.h: 255: {
-[; ;GenericTypeDefs.h: 256: UINT32 LD;
-[; ;GenericTypeDefs.h: 257: UINT32 HD;
-[; ;GenericTypeDefs.h: 258: } dword;
-[; ;GenericTypeDefs.h: 259: struct 
-[; ;GenericTypeDefs.h: 260: {
-[; ;GenericTypeDefs.h: 261: UINT16 LW;
-[; ;GenericTypeDefs.h: 262: UINT16 HW;
-[; ;GenericTypeDefs.h: 263: UINT16 UW;
-[; ;GenericTypeDefs.h: 264: UINT16 MW;
-[; ;GenericTypeDefs.h: 265: } word;
-[; ;GenericTypeDefs.h: 266: struct 
-[; ;GenericTypeDefs.h: 267: {
-[; ;GenericTypeDefs.h: 268: UINT8 b0:1;
-[; ;GenericTypeDefs.h: 269: UINT8 b1:1;
-[; ;GenericTypeDefs.h: 270: UINT8 b2:1;
-[; ;GenericTypeDefs.h: 271: UINT8 b3:1;
-[; ;GenericTypeDefs.h: 272: UINT8 b4:1;
-[; ;GenericTypeDefs.h: 273: UINT8 b5:1;
-[; ;GenericTypeDefs.h: 274: UINT8 b6:1;
-[; ;GenericTypeDefs.h: 275: UINT8 b7:1;
-[; ;GenericTypeDefs.h: 276: UINT8 b8:1;
-[; ;GenericTypeDefs.h: 277: UINT8 b9:1;
-[; ;GenericTypeDefs.h: 278: UINT8 b10:1;
-[; ;GenericTypeDefs.h: 279: UINT8 b11:1;
-[; ;GenericTypeDefs.h: 280: UINT8 b12:1;
-[; ;GenericTypeDefs.h: 281: UINT8 b13:1;
-[; ;GenericTypeDefs.h: 282: UINT8 b14:1;
-[; ;GenericTypeDefs.h: 283: UINT8 b15:1;
-[; ;GenericTypeDefs.h: 284: UINT8 b16:1;
-[; ;GenericTypeDefs.h: 285: UINT8 b17:1;
-[; ;GenericTypeDefs.h: 286: UINT8 b18:1;
-[; ;GenericTypeDefs.h: 287: UINT8 b19:1;
-[; ;GenericTypeDefs.h: 288: UINT8 b20:1;
-[; ;GenericTypeDefs.h: 289: UINT8 b21:1;
-[; ;GenericTypeDefs.h: 290: UINT8 b22:1;
-[; ;GenericTypeDefs.h: 291: UINT8 b23:1;
-[; ;GenericTypeDefs.h: 292: UINT8 b24:1;
-[; ;GenericTypeDefs.h: 293: UINT8 b25:1;
-[; ;GenericTypeDefs.h: 294: UINT8 b26:1;
-[; ;GenericTypeDefs.h: 295: UINT8 b27:1;
-[; ;GenericTypeDefs.h: 296: UINT8 b28:1;
-[; ;GenericTypeDefs.h: 297: UINT8 b29:1;
-[; ;GenericTypeDefs.h: 298: UINT8 b30:1;
-[; ;GenericTypeDefs.h: 299: UINT8 b31:1;
-[; ;GenericTypeDefs.h: 300: UINT8 b32:1;
-[; ;GenericTypeDefs.h: 301: UINT8 b33:1;
-[; ;GenericTypeDefs.h: 302: UINT8 b34:1;
-[; ;GenericTypeDefs.h: 303: UINT8 b35:1;
-[; ;GenericTypeDefs.h: 304: UINT8 b36:1;
-[; ;GenericTypeDefs.h: 305: UINT8 b37:1;
-[; ;GenericTypeDefs.h: 306: UINT8 b38:1;
-[; ;GenericTypeDefs.h: 307: UINT8 b39:1;
-[; ;GenericTypeDefs.h: 308: UINT8 b40:1;
-[; ;GenericTypeDefs.h: 309: UINT8 b41:1;
-[; ;GenericTypeDefs.h: 310: UINT8 b42:1;
-[; ;GenericTypeDefs.h: 311: UINT8 b43:1;
-[; ;GenericTypeDefs.h: 312: UINT8 b44:1;
-[; ;GenericTypeDefs.h: 313: UINT8 b45:1;
-[; ;GenericTypeDefs.h: 314: UINT8 b46:1;
-[; ;GenericTypeDefs.h: 315: UINT8 b47:1;
-[; ;GenericTypeDefs.h: 316: UINT8 b48:1;
-[; ;GenericTypeDefs.h: 317: UINT8 b49:1;
-[; ;GenericTypeDefs.h: 318: UINT8 b50:1;
-[; ;GenericTypeDefs.h: 319: UINT8 b51:1;
-[; ;GenericTypeDefs.h: 320: UINT8 b52:1;
-[; ;GenericTypeDefs.h: 321: UINT8 b53:1;
-[; ;GenericTypeDefs.h: 322: UINT8 b54:1;
-[; ;GenericTypeDefs.h: 323: UINT8 b55:1;
-[; ;GenericTypeDefs.h: 324: UINT8 b56:1;
-[; ;GenericTypeDefs.h: 325: UINT8 b57:1;
-[; ;GenericTypeDefs.h: 326: UINT8 b58:1;
-[; ;GenericTypeDefs.h: 327: UINT8 b59:1;
-[; ;GenericTypeDefs.h: 328: UINT8 b60:1;
-[; ;GenericTypeDefs.h: 329: UINT8 b61:1;
-[; ;GenericTypeDefs.h: 330: UINT8 b62:1;
-[; ;GenericTypeDefs.h: 331: UINT8 b63:1;
-[; ;GenericTypeDefs.h: 332: } bits;
-[; ;GenericTypeDefs.h: 333: } UINT64_VAL;
-[; ;GenericTypeDefs.h: 339: typedef void VOID;
-[; ;GenericTypeDefs.h: 341: typedef char CHAR8;
-[; ;GenericTypeDefs.h: 342: typedef unsigned char UCHAR8;
-[; ;GenericTypeDefs.h: 344: typedef unsigned char BYTE;
-[; ;GenericTypeDefs.h: 345: typedef unsigned short int WORD;
-[; ;GenericTypeDefs.h: 346: typedef unsigned long DWORD;
-[; ;GenericTypeDefs.h: 349: typedef unsigned long long QWORD;
-[; ;GenericTypeDefs.h: 350: typedef signed char CHAR;
-[; ;GenericTypeDefs.h: 351: typedef signed short int SHORT;
-[; ;GenericTypeDefs.h: 352: typedef signed long LONG;
-[; ;GenericTypeDefs.h: 355: typedef signed long long LONGLONG;
-[; ;GenericTypeDefs.h: 356: typedef union
-[; ;GenericTypeDefs.h: 357: {
-[; ;GenericTypeDefs.h: 358: BYTE Val;
-[; ;GenericTypeDefs.h: 359: struct 
-[; ;GenericTypeDefs.h: 360: {
-[; ;GenericTypeDefs.h: 361: BYTE b0:1;
-[; ;GenericTypeDefs.h: 362: BYTE b1:1;
-[; ;GenericTypeDefs.h: 363: BYTE b2:1;
-[; ;GenericTypeDefs.h: 364: BYTE b3:1;
-[; ;GenericTypeDefs.h: 365: BYTE b4:1;
-[; ;GenericTypeDefs.h: 366: BYTE b5:1;
-[; ;GenericTypeDefs.h: 367: BYTE b6:1;
-[; ;GenericTypeDefs.h: 368: BYTE b7:1;
-[; ;GenericTypeDefs.h: 369: } bits;
-[; ;GenericTypeDefs.h: 370: } BYTE_VAL, BYTE_BITS;
-[; ;GenericTypeDefs.h: 372: typedef union
-[; ;GenericTypeDefs.h: 373: {
-[; ;GenericTypeDefs.h: 374: WORD Val;
-[; ;GenericTypeDefs.h: 375: BYTE v[2] ;
-[; ;GenericTypeDefs.h: 376: struct 
-[; ;GenericTypeDefs.h: 377: {
-[; ;GenericTypeDefs.h: 378: BYTE LB;
-[; ;GenericTypeDefs.h: 379: BYTE HB;
-[; ;GenericTypeDefs.h: 380: } byte;
-[; ;GenericTypeDefs.h: 381: struct 
-[; ;GenericTypeDefs.h: 382: {
-[; ;GenericTypeDefs.h: 383: BYTE b0:1;
-[; ;GenericTypeDefs.h: 384: BYTE b1:1;
-[; ;GenericTypeDefs.h: 385: BYTE b2:1;
-[; ;GenericTypeDefs.h: 386: BYTE b3:1;
-[; ;GenericTypeDefs.h: 387: BYTE b4:1;
-[; ;GenericTypeDefs.h: 388: BYTE b5:1;
-[; ;GenericTypeDefs.h: 389: BYTE b6:1;
-[; ;GenericTypeDefs.h: 390: BYTE b7:1;
-[; ;GenericTypeDefs.h: 391: BYTE b8:1;
-[; ;GenericTypeDefs.h: 392: BYTE b9:1;
-[; ;GenericTypeDefs.h: 393: BYTE b10:1;
-[; ;GenericTypeDefs.h: 394: BYTE b11:1;
-[; ;GenericTypeDefs.h: 395: BYTE b12:1;
-[; ;GenericTypeDefs.h: 396: BYTE b13:1;
-[; ;GenericTypeDefs.h: 397: BYTE b14:1;
-[; ;GenericTypeDefs.h: 398: BYTE b15:1;
-[; ;GenericTypeDefs.h: 399: } bits;
-[; ;GenericTypeDefs.h: 400: } WORD_VAL, WORD_BITS;
-[; ;GenericTypeDefs.h: 402: typedef union
-[; ;GenericTypeDefs.h: 403: {
-[; ;GenericTypeDefs.h: 404: DWORD Val;
-[; ;GenericTypeDefs.h: 405: WORD w[2] ;
-[; ;GenericTypeDefs.h: 406: BYTE v[4] ;
-[; ;GenericTypeDefs.h: 407: struct 
-[; ;GenericTypeDefs.h: 408: {
-[; ;GenericTypeDefs.h: 409: WORD LW;
-[; ;GenericTypeDefs.h: 410: WORD HW;
-[; ;GenericTypeDefs.h: 411: } word;
-[; ;GenericTypeDefs.h: 412: struct 
-[; ;GenericTypeDefs.h: 413: {
-[; ;GenericTypeDefs.h: 414: BYTE LB;
-[; ;GenericTypeDefs.h: 415: BYTE HB;
-[; ;GenericTypeDefs.h: 416: BYTE UB;
-[; ;GenericTypeDefs.h: 417: BYTE MB;
-[; ;GenericTypeDefs.h: 418: } byte;
-[; ;GenericTypeDefs.h: 419: struct 
-[; ;GenericTypeDefs.h: 420: {
-[; ;GenericTypeDefs.h: 421: WORD_VAL low;
-[; ;GenericTypeDefs.h: 422: WORD_VAL high;
-[; ;GenericTypeDefs.h: 423: }wordUnion;
-[; ;GenericTypeDefs.h: 424: struct 
-[; ;GenericTypeDefs.h: 425: {
-[; ;GenericTypeDefs.h: 426: BYTE b0:1;
-[; ;GenericTypeDefs.h: 427: BYTE b1:1;
-[; ;GenericTypeDefs.h: 428: BYTE b2:1;
-[; ;GenericTypeDefs.h: 429: BYTE b3:1;
-[; ;GenericTypeDefs.h: 430: BYTE b4:1;
-[; ;GenericTypeDefs.h: 431: BYTE b5:1;
-[; ;GenericTypeDefs.h: 432: BYTE b6:1;
-[; ;GenericTypeDefs.h: 433: BYTE b7:1;
-[; ;GenericTypeDefs.h: 434: BYTE b8:1;
-[; ;GenericTypeDefs.h: 435: BYTE b9:1;
-[; ;GenericTypeDefs.h: 436: BYTE b10:1;
-[; ;GenericTypeDefs.h: 437: BYTE b11:1;
-[; ;GenericTypeDefs.h: 438: BYTE b12:1;
-[; ;GenericTypeDefs.h: 439: BYTE b13:1;
-[; ;GenericTypeDefs.h: 440: BYTE b14:1;
-[; ;GenericTypeDefs.h: 441: BYTE b15:1;
-[; ;GenericTypeDefs.h: 442: BYTE b16:1;
-[; ;GenericTypeDefs.h: 443: BYTE b17:1;
-[; ;GenericTypeDefs.h: 444: BYTE b18:1;
-[; ;GenericTypeDefs.h: 445: BYTE b19:1;
-[; ;GenericTypeDefs.h: 446: BYTE b20:1;
-[; ;GenericTypeDefs.h: 447: BYTE b21:1;
-[; ;GenericTypeDefs.h: 448: BYTE b22:1;
-[; ;GenericTypeDefs.h: 449: BYTE b23:1;
-[; ;GenericTypeDefs.h: 450: BYTE b24:1;
-[; ;GenericTypeDefs.h: 451: BYTE b25:1;
-[; ;GenericTypeDefs.h: 452: BYTE b26:1;
-[; ;GenericTypeDefs.h: 453: BYTE b27:1;
-[; ;GenericTypeDefs.h: 454: BYTE b28:1;
-[; ;GenericTypeDefs.h: 455: BYTE b29:1;
-[; ;GenericTypeDefs.h: 456: BYTE b30:1;
-[; ;GenericTypeDefs.h: 457: BYTE b31:1;
-[; ;GenericTypeDefs.h: 458: } bits;
-[; ;GenericTypeDefs.h: 459: } DWORD_VAL;
-[; ;GenericTypeDefs.h: 462: typedef union
-[; ;GenericTypeDefs.h: 463: {
-[; ;GenericTypeDefs.h: 464: QWORD Val;
-[; ;GenericTypeDefs.h: 465: DWORD d[2] ;
-[; ;GenericTypeDefs.h: 466: WORD w[4] ;
-[; ;GenericTypeDefs.h: 467: BYTE v[8] ;
-[; ;GenericTypeDefs.h: 468: struct 
-[; ;GenericTypeDefs.h: 469: {
-[; ;GenericTypeDefs.h: 470: DWORD LD;
-[; ;GenericTypeDefs.h: 471: DWORD HD;
-[; ;GenericTypeDefs.h: 472: } dword;
-[; ;GenericTypeDefs.h: 473: struct 
-[; ;GenericTypeDefs.h: 474: {
-[; ;GenericTypeDefs.h: 475: WORD LW;
-[; ;GenericTypeDefs.h: 476: WORD HW;
-[; ;GenericTypeDefs.h: 477: WORD UW;
-[; ;GenericTypeDefs.h: 478: WORD MW;
-[; ;GenericTypeDefs.h: 479: } word;
-[; ;GenericTypeDefs.h: 480: struct 
-[; ;GenericTypeDefs.h: 481: {
-[; ;GenericTypeDefs.h: 482: BYTE b0:1;
-[; ;GenericTypeDefs.h: 483: BYTE b1:1;
-[; ;GenericTypeDefs.h: 484: BYTE b2:1;
-[; ;GenericTypeDefs.h: 485: BYTE b3:1;
-[; ;GenericTypeDefs.h: 486: BYTE b4:1;
-[; ;GenericTypeDefs.h: 487: BYTE b5:1;
-[; ;GenericTypeDefs.h: 488: BYTE b6:1;
-[; ;GenericTypeDefs.h: 489: BYTE b7:1;
-[; ;GenericTypeDefs.h: 490: BYTE b8:1;
-[; ;GenericTypeDefs.h: 491: BYTE b9:1;
-[; ;GenericTypeDefs.h: 492: BYTE b10:1;
-[; ;GenericTypeDefs.h: 493: BYTE b11:1;
-[; ;GenericTypeDefs.h: 494: BYTE b12:1;
-[; ;GenericTypeDefs.h: 495: BYTE b13:1;
-[; ;GenericTypeDefs.h: 496: BYTE b14:1;
-[; ;GenericTypeDefs.h: 497: BYTE b15:1;
-[; ;GenericTypeDefs.h: 498: BYTE b16:1;
-[; ;GenericTypeDefs.h: 499: BYTE b17:1;
-[; ;GenericTypeDefs.h: 500: BYTE b18:1;
-[; ;GenericTypeDefs.h: 501: BYTE b19:1;
-[; ;GenericTypeDefs.h: 502: BYTE b20:1;
-[; ;GenericTypeDefs.h: 503: BYTE b21:1;
-[; ;GenericTypeDefs.h: 504: BYTE b22:1;
-[; ;GenericTypeDefs.h: 505: BYTE b23:1;
-[; ;GenericTypeDefs.h: 506: BYTE b24:1;
-[; ;GenericTypeDefs.h: 507: BYTE b25:1;
-[; ;GenericTypeDefs.h: 508: BYTE b26:1;
-[; ;GenericTypeDefs.h: 509: BYTE b27:1;
-[; ;GenericTypeDefs.h: 510: BYTE b28:1;
-[; ;GenericTypeDefs.h: 511: BYTE b29:1;
-[; ;GenericTypeDefs.h: 512: BYTE b30:1;
-[; ;GenericTypeDefs.h: 513: BYTE b31:1;
-[; ;GenericTypeDefs.h: 514: BYTE b32:1;
-[; ;GenericTypeDefs.h: 515: BYTE b33:1;
-[; ;GenericTypeDefs.h: 516: BYTE b34:1;
-[; ;GenericTypeDefs.h: 517: BYTE b35:1;
-[; ;GenericTypeDefs.h: 518: BYTE b36:1;
-[; ;GenericTypeDefs.h: 519: BYTE b37:1;
-[; ;GenericTypeDefs.h: 520: BYTE b38:1;
-[; ;GenericTypeDefs.h: 521: BYTE b39:1;
-[; ;GenericTypeDefs.h: 522: BYTE b40:1;
-[; ;GenericTypeDefs.h: 523: BYTE b41:1;
-[; ;GenericTypeDefs.h: 524: BYTE b42:1;
-[; ;GenericTypeDefs.h: 525: BYTE b43:1;
-[; ;GenericTypeDefs.h: 526: BYTE b44:1;
-[; ;GenericTypeDefs.h: 527: BYTE b45:1;
-[; ;GenericTypeDefs.h: 528: BYTE b46:1;
-[; ;GenericTypeDefs.h: 529: BYTE b47:1;
-[; ;GenericTypeDefs.h: 530: BYTE b48:1;
-[; ;GenericTypeDefs.h: 531: BYTE b49:1;
-[; ;GenericTypeDefs.h: 532: BYTE b50:1;
-[; ;GenericTypeDefs.h: 533: BYTE b51:1;
-[; ;GenericTypeDefs.h: 534: BYTE b52:1;
-[; ;GenericTypeDefs.h: 535: BYTE b53:1;
-[; ;GenericTypeDefs.h: 536: BYTE b54:1;
-[; ;GenericTypeDefs.h: 537: BYTE b55:1;
-[; ;GenericTypeDefs.h: 538: BYTE b56:1;
-[; ;GenericTypeDefs.h: 539: BYTE b57:1;
-[; ;GenericTypeDefs.h: 540: BYTE b58:1;
-[; ;GenericTypeDefs.h: 541: BYTE b59:1;
-[; ;GenericTypeDefs.h: 542: BYTE b60:1;
-[; ;GenericTypeDefs.h: 543: BYTE b61:1;
-[; ;GenericTypeDefs.h: 544: BYTE b62:1;
-[; ;GenericTypeDefs.h: 545: BYTE b63:1;
-[; ;GenericTypeDefs.h: 546: } bits;
-[; ;GenericTypeDefs.h: 547: } QWORD_VAL;
-[; ;flash.h: 113: extern void ReadFlash(unsigned long startaddr, unsigned int num_bytes, unsigned char *flash_array);
-[; ;flash.h: 120: extern void EraseFlash(unsigned long startaddr, unsigned long endaddr);
-[; ;flash.h: 122: extern void WriteBlockFlash(unsigned long startaddr, unsigned char num_blocks, unsigned char *flash_array);
-[; ;flash.h: 124: extern void WriteBytesFlash(unsigned long startaddr, unsigned int num_bytes, unsigned char *flash_array);
-[; ;flash.h: 127: extern void WriteWordFlash(unsigned long startaddr, unsigned int data);
-[; ;i2c.h: 244: void OpenI2C1( unsigned char sync_mode, unsigned char slew );
-[; ;i2c.h: 264: unsigned char ReadI2C1( void );
-[; ;i2c.h: 279: signed char WriteI2C1( unsigned char data_out );
-[; ;i2c.h: 294: signed char getsI2C1( unsigned char *rdptr, unsigned char length );
-[; ;i2c.h: 297: signed char putsI2C1( unsigned char *wrptr );
-[; ;i2c.h: 305: signed char EEAckPolling1( unsigned char control );
-[; ;i2c.h: 308: signed char EEByteWrite1( unsigned char control,
-[; ;i2c.h: 309: unsigned char address,
-[; ;i2c.h: 310: unsigned char data );
-[; ;i2c.h: 313: signed int EECurrentAddRead1( unsigned char control );
-[; ;i2c.h: 316: signed char EEPageWrite1( unsigned char control,
-[; ;i2c.h: 317: unsigned char address,
-[; ;i2c.h: 318: unsigned char *wrptr );
-[; ;i2c.h: 321: signed int EERandomRead1( unsigned char control, unsigned char address );
-[; ;i2c.h: 324: signed char EESequentialRead1( unsigned char control,
-[; ;i2c.h: 325: unsigned char address,
-[; ;i2c.h: 326: unsigned char *rdptr,
-[; ;i2c.h: 327: unsigned char length );
-[; ;mwire.h: 200: void OpenMwire1( unsigned char sync_mode );
-[; ;mwire.h: 203: unsigned char ReadMwire1( unsigned char high_byte,
-[; ;mwire.h: 204: unsigned char low_byte );
-[; ;mwire.h: 219: signed char WriteMwire1( unsigned char data_out );
-[; ;mwire.h: 234: void getsMwire1( unsigned char *rdptr, unsigned char length );
-[; ;portb.h: 126: void OpenPORTB( unsigned char config);
-[; ;portb.h: 176: void OpenRB0INT( unsigned char config);
-[; ;portb.h: 194: void OpenRB1INT( unsigned char config);
-[; ;portb.h: 211: void OpenRB2INT( unsigned char config);
-[; ;portb.h: 230: void OpenRB3INT( unsigned char config);
-[; ;pwm.h: 85: union PWMDC
-[; ;pwm.h: 86: {
-[; ;pwm.h: 87: unsigned int lpwm;
-[; ;pwm.h: 88: char bpwm[2];
-[; ;pwm.h: 89: };
-[; ;pwm.h: 467: void OpenPWM1 ( char period);
-[; ;pwm.h: 468: void SetDCPWM1 ( unsigned int duty_cycle);
-[; ;pwm.h: 477: void ClosePWM1 (void);
-[; ;pwm.h: 538: void OpenPWM4 ( unsigned char period, unsigned char timer_source );
-[; ;pwm.h: 539: void SetDCPWM4 ( unsigned int duty_cycle);
-[; ;pwm.h: 540: void ClosePWM4 (void);
-[; ;pwm.h: 542: void OpenPWM5 ( unsigned char period, unsigned char timer_source );
-[; ;pwm.h: 543: void SetDCPWM5 ( unsigned int duty_cycle);
-[; ;pwm.h: 544: void ClosePWM5 (void);
-[; ;pwm.h: 547: void OpenPWM6 ( unsigned char period, unsigned char timer_source );
-[; ;pwm.h: 548: void SetDCPWM6 ( unsigned int duty_cycle);
-[; ;pwm.h: 549: void ClosePWM6 (void);
-[; ;pwm.h: 551: void OpenPWM7 ( unsigned char period, unsigned char timer_source );
-[; ;pwm.h: 552: void SetDCPWM7 ( unsigned int duty_cycle);
-[; ;pwm.h: 553: void ClosePWM7 (void);
-[; ;pwm.h: 555: void OpenPWM8 ( unsigned char period, unsigned char timer_source );
-[; ;pwm.h: 556: void SetDCPWM8 ( unsigned int duty_cycle);
-[; ;pwm.h: 557: void ClosePWM8 (void);
-[; ;pwm.h: 586: void OpenEPWM1( unsigned char period, unsigned char timer_source );
-[; ;pwm.h: 587: void SetDCEPWM1 ( unsigned int duty_cycle);
-[; ;pwm.h: 588: void SetOutputEPWM1 ( unsigned char output_config,
-[; ;pwm.h: 589: unsigned char pwm_mode);
-[; ;pwm.h: 590: void CloseEPWM1 (void);
-[; ;pwm.h: 594: void OpenEPWM2( unsigned char period, unsigned char timer_source );
-[; ;pwm.h: 595: void SetDCEPWM2 ( unsigned int duty_cycle);
-[; ;pwm.h: 596: void SetOutputEPWM2 ( unsigned char output_config,
-[; ;pwm.h: 597: unsigned char pwm_mode);
-[; ;pwm.h: 598: void CloseEPWM2 (void);
-[; ;pwm.h: 601: void OpenEPWM3( unsigned char period, unsigned char timer_source );
-[; ;pwm.h: 602: void SetDCEPWM3 ( unsigned int duty_cycle);
-[; ;pwm.h: 603: void SetOutputEPWM3 ( unsigned char output_config,
-[; ;pwm.h: 604: unsigned char pwm_mode);
-[; ;pwm.h: 605: void CloseEPWM3 (void);
-[; ;reset.h: 16: char isMCLR(void);
-[; ;reset.h: 17: void StatusReset(void);
-[; ;reset.h: 18: char isPOR(void);
-[; ;reset.h: 19: char isWU(void);
-[; ;reset.h: 22: char isBOR(void);
-[; ;reset.h: 26: char isWDTTO(void);
-[; ;reset.h: 27: char isWDTWU(void);
-[; ;reset.h: 31: char isLVD(void);
-[; ;rtcc.h: 43: typedef union _WORD_VAL
-[; ;rtcc.h: 44: {
-[; ;rtcc.h: 45: unsigned int Val;
-[; ;rtcc.h: 46: unsigned char v[2];
-[; ;rtcc.h: 47: struct
-[; ;rtcc.h: 48: {
-[; ;rtcc.h: 49: unsigned char LB;
-[; ;rtcc.h: 50: unsigned char HB;
-[; ;rtcc.h: 51: } byte;
-[; ;rtcc.h: 52: struct
-[; ;rtcc.h: 53: {
-[; ;rtcc.h: 54: unsigned char b0:1;
-[; ;rtcc.h: 55: unsigned char b1:1;
-[; ;rtcc.h: 56: unsigned char b2:1;
-[; ;rtcc.h: 57: unsigned char b3:1;
-[; ;rtcc.h: 58: unsigned char b4:1;
-[; ;rtcc.h: 59: unsigned char b5:1;
-[; ;rtcc.h: 60: unsigned char b6:1;
-[; ;rtcc.h: 61: unsigned char b7:1;
-[; ;rtcc.h: 62: unsigned char b8:1;
-[; ;rtcc.h: 63: unsigned char b9:1;
-[; ;rtcc.h: 64: unsigned char b10:1;
-[; ;rtcc.h: 65: unsigned char b11:1;
-[; ;rtcc.h: 66: unsigned char b12:1;
-[; ;rtcc.h: 67: unsigned char b13:1;
-[; ;rtcc.h: 68: unsigned char b14:1;
-[; ;rtcc.h: 69: unsigned char b15:1;
-[; ;rtcc.h: 70: } bits;
-[; ;rtcc.h: 71: } WORD_VAL, WORD_BITS;
-[; ;rtcc.h: 75: typedef enum
-[; ;rtcc.h: 76: {
-[; ;rtcc.h: 77: RTCCFG_MASK_RTCEN = 0x80,
-[; ;rtcc.h: 78: RTCCFG_MASK_FRZ = 0x40,
-[; ;rtcc.h: 79: RTCCFG_MASK_RTCWREN = 0x20,
-[; ;rtcc.h: 80: RTCCFG_MASK_RTCSYNC = 0x10,
-[; ;rtcc.h: 81: RTCCFG_MASK_HALFSEC = 0x08,
-[; ;rtcc.h: 82: RTCCFG_MASK_RTCOE = 0x04,
-[; ;rtcc.h: 83: RTCCFG_MASK_RTCPTR = 0x03
-[; ;rtcc.h: 84: }RTCCFG_MASK;
-[; ;rtcc.h: 89: typedef enum
-[; ;rtcc.h: 90: {
-[; ;rtcc.h: 91: ALRMCFG_MASK_ALRMEN = 0x80,
-[; ;rtcc.h: 92: ALRMCFG_MASK_CHIME = 0x40,
-[; ;rtcc.h: 93: ALRMCFG_MASK_AMASK = 0x3c,
-[; ;rtcc.h: 94: ALRMCFG_MASK_ALRMPTR = 0x03
-[; ;rtcc.h: 95: }ALRMCFG_MASK;
-[; ;rtcc.h: 100: typedef enum
-[; ;rtcc.h: 101: {
-[; ;rtcc.h: 102: RTCCPTR_MASK_SECMIN = 0x00,
-[; ;rtcc.h: 103: RTCCPTR_MASK_HRSWEEK = 0x01,
-[; ;rtcc.h: 104: RTCCPTR_MASK_DAYMON = 0x02,
-[; ;rtcc.h: 105: RTCCPTR_MASK_YEAR = 0x03
-[; ;rtcc.h: 106: }RTCCPTR_MASK;
-[; ;rtcc.h: 110: typedef union
-[; ;rtcc.h: 111: {
-[; ;rtcc.h: 112: struct
-[; ;rtcc.h: 113: {
-[; ;rtcc.h: 114: unsigned char rsvd;
-[; ;rtcc.h: 115: unsigned char sec;
-[; ;rtcc.h: 116: unsigned char min;
-[; ;rtcc.h: 117: unsigned char hour;
-[; ;rtcc.h: 118: }f;
-[; ;rtcc.h: 119: unsigned char b[4];
-[; ;rtcc.h: 120: unsigned int w[2];
-[; ;rtcc.h: 121: unsigned long l;
-[; ;rtcc.h: 122: }rtccTime;
-[; ;rtcc.h: 125: typedef union
-[; ;rtcc.h: 126: {
-[; ;rtcc.h: 127: struct
-[; ;rtcc.h: 128: {
-[; ;rtcc.h: 129: unsigned char wday;
-[; ;rtcc.h: 130: unsigned char mday;
-[; ;rtcc.h: 131: unsigned char mon;
-[; ;rtcc.h: 132: unsigned char year;
-[; ;rtcc.h: 133: }f;
-[; ;rtcc.h: 134: unsigned char b[4];
-[; ;rtcc.h: 135: unsigned int w[2];
-[; ;rtcc.h: 136: unsigned long l;
-[; ;rtcc.h: 137: }rtccDate;
-[; ;rtcc.h: 141: typedef union
-[; ;rtcc.h: 142: {
-[; ;rtcc.h: 143: struct
-[; ;rtcc.h: 144: {
-[; ;rtcc.h: 145: unsigned char year;
-[; ;rtcc.h: 146: unsigned char rsvd;
-[; ;rtcc.h: 147: unsigned char mday;
-[; ;rtcc.h: 148: unsigned char mon;
-[; ;rtcc.h: 149: unsigned char hour;
-[; ;rtcc.h: 150: unsigned char wday;
-[; ;rtcc.h: 151: unsigned char sec;
-[; ;rtcc.h: 152: unsigned char min;
-[; ;rtcc.h: 153: }f;
-[; ;rtcc.h: 154: unsigned char b[8];
-[; ;rtcc.h: 155: unsigned int w[4];
-[; ;rtcc.h: 156: unsigned long l[2];
-[; ;rtcc.h: 157: }rtccTimeDate;
-[; ;rtcc.h: 162: typedef enum
-[; ;rtcc.h: 163: {
-[; ;rtcc.h: 164: RTCC_RPT_HALF_SEC,
-[; ;rtcc.h: 165: RTCC_RPT_SEC,
-[; ;rtcc.h: 166: RTCC_RPT_TEN_SEC,
-[; ;rtcc.h: 167: RTCC_RPT_MIN,
-[; ;rtcc.h: 168: RTCC_RPT_TEN_MIN,
-[; ;rtcc.h: 169: RTCC_RPT_HOUR,
-[; ;rtcc.h: 170: RTCC_RPT_DAY,
-[; ;rtcc.h: 171: RTCC_RPT_WEEK,
-[; ;rtcc.h: 172: RTCC_RPT_MON,
-[; ;rtcc.h: 173: RTCC_RPT_YEAR
-[; ;rtcc.h: 174: }rtccRepeat;
-[; ;rtcc.h: 646: extern void RtccInitClock(void) ;
-[; ;rtcc.h: 648: extern void RtccReadAlrmDate(rtccDate* pDt) ;
-[; ;rtcc.h: 650: extern void RtccReadAlrmTime(rtccTime* pTm);
-[; ;rtcc.h: 652: extern void RtccReadAlrmTimeDate(rtccTimeDate* pTD) ;
-[; ;rtcc.h: 654: extern void RtccReadDate(rtccDate* pDt) ;
-[; ;rtcc.h: 656: extern void RtccReadTime(rtccTime* pTm) ;
-[; ;rtcc.h: 658: extern void RtccReadTimeDate(rtccTimeDate* pTD) ;
-[; ;rtcc.h: 660: extern void RtccSetAlarmRpt(rtccRepeat rpt, BOOL dsblAlrm) ;
-[; ;rtcc.h: 662: extern void RtccSetAlarmRptCount(unsigned char rptCnt, BOOL dsblAlrm) ;
-[; ;rtcc.h: 664: extern void RtccSetCalibration(int drift) ;
-[; ;rtcc.h: 666: extern void RtccSetChimeEnable(BOOL enable, BOOL dsblAlrm) ;
-[; ;rtcc.h: 668: extern BOOL RtccWriteAlrmDate(const rtccDate* pDt) ;
-[; ;rtcc.h: 670: extern BOOL RtccWriteAlrmTime(const rtccTime* pTm) ;
-[; ;rtcc.h: 672: extern BOOL RtccWriteAlrmTimeDate(const rtccTimeDate* pTD) ;
-[; ;rtcc.h: 674: extern BOOL RtccWriteDate(const rtccDate* pDt , BOOL di);
-[; ;rtcc.h: 676: extern BOOL RtccWriteTime(const rtccTime* pTm , BOOL di) ;
-[; ;rtcc.h: 678: extern BOOL RtccWriteTimeDate(const rtccTimeDate* pTD , BOOL di) ;
-[; ;rtcc.h: 680: extern void RtccWrOn(void);
-[; ;rtcc.h: 687: void Open_RTCC(void);
-[; ;rtcc.h: 688: void Close_RTCC(void);
-[; ;rtcc.h: 689: unsigned char update_RTCC(void);
-[; ;sw_i2c.h: 97: void SWStopI2C ( void );
-[; ;sw_i2c.h: 98: void SWStartI2C ( void );
-[; ;sw_i2c.h: 99: void SWRestartI2C ( void );
-[; ;sw_i2c.h: 100: void SWStopI2C ( void );
-[; ;sw_i2c.h: 102: signed char SWAckI2C( void );
-[; ;sw_i2c.h: 103: signed char Clock_test( void );
-[; ;sw_i2c.h: 104: signed int SWReadI2C( void );
-[; ;sw_i2c.h: 105: signed char SWWriteI2C(  unsigned char data_out );
-[; ;sw_i2c.h: 106: signed char SWGetsI2C(  unsigned char *rdptr,  unsigned char length );
-[; ;sw_i2c.h: 107: signed char SWPutsI2C(  unsigned char *wrptr );
-[; ;sw_spi.h: 84: void OpenSWSPI(void);
-[; ;sw_spi.h: 87: char WriteSWSPI( char output);
-[; ;sw_spi.h: 90: void SetCSSWSPI(void);
-[; ;sw_spi.h: 93: void ClearCSSWSPI(void);
-[; ;sw_uart.h: 47: void OpenUART(void);
-[; ;sw_uart.h: 49: unsigned char ReadUART(void);
-[; ;sw_uart.h: 51: void WriteUART( unsigned char);
-[; ;sw_uart.h: 53: void getsUART( char *, unsigned char);
-[; ;sw_uart.h: 55: void putsUART( char *);
-[; ;sw_uart.h: 79: extern void DelayRXBitUART (void);
-[; ;sw_uart.h: 80: extern void DelayRXHalfBitUART(void);
-[; ;sw_uart.h: 81: extern void DelayTXBitUART (void);
-[; ;timers.h: 36: union Timers
-[; ;timers.h: 37: {
-[; ;timers.h: 38: unsigned int lt;
-[; ;timers.h: 39: char bt[2];
-[; ;timers.h: 40: };
-[; ;timers.h: 118: void OpenTimer0 ( unsigned char config);
-[; ;timers.h: 119: void CloseTimer0 (void);
-[; ;timers.h: 120: unsigned int ReadTimer0 (void);
-[; ;timers.h: 121: void WriteTimer0 ( unsigned int timer0);
-[; ;timers.h: 185: void OpenTimer1 ( unsigned char config, unsigned char config1);
-[; ;timers.h: 186: void CloseTimer1 (void);
-[; ;timers.h: 187: unsigned int ReadTimer1 (void);
-[; ;timers.h: 188: void WriteTimer1 ( unsigned int timer1);
-[; ;timers.h: 325: void OpenTimer2 ( unsigned char config);
-[; ;timers.h: 326: void CloseTimer2 (void);
-[; ;timers.h: 452: void OpenTimer3 ( unsigned char config, unsigned char config1);
-[; ;timers.h: 453: void CloseTimer3 (void);
-[; ;timers.h: 454: unsigned int ReadTimer3 (void);
-[; ;timers.h: 455: void WriteTimer3 ( unsigned int timer3);
-[; ;timers.h: 541: void OpenTimer4 ( unsigned char config);
-[; ;timers.h: 542: void CloseTimer4 (void);
-[; ;timers.h: 657: void OpenTimer5 ( unsigned char config, unsigned char config1);
-[; ;timers.h: 658: void CloseTimer5 (void);
-[; ;timers.h: 659: unsigned int ReadTimer5 (void);
-[; ;timers.h: 660: void WriteTimer5 ( unsigned int Timer5);
-[; ;timers.h: 746: void OpenTimer6 ( unsigned char config);
-[; ;timers.h: 747: void CloseTimer6 (void);
-[; ;timers.h: 892: void OpenTimer8 ( unsigned char config);
-[; ;timers.h: 893: void CloseTimer8 (void);
-[; ;usart.h: 200: union USART1
-[; ;usart.h: 201: {
-[; ;usart.h: 202: unsigned char val;
-[; ;usart.h: 203: struct
-[; ;usart.h: 204: {
-[; ;usart.h: 205: unsigned RX_NINE:1;
-[; ;usart.h: 206: unsigned TX_NINE:1;
-[; ;usart.h: 207: unsigned FRAME_ERROR:1;
-[; ;usart.h: 208: unsigned OVERRUN_ERROR:1;
-[; ;usart.h: 209: unsigned fill:4;
-[; ;usart.h: 210: };
-[; ;usart.h: 211: };
-[; ;usart.h: 212: extern union USART1 USART1_Status;
-[; ;usart.h: 214: void Open1USART ( unsigned char config, unsigned int spbrg);
-[; ;usart.h: 244: char Read1USART (void);
-[; ;usart.h: 245: void Write1USART ( char data);
-[; ;usart.h: 246: void gets1USART ( char *buffer, unsigned char len);
-[; ;usart.h: 247: void puts1USART ( char *data);
-[; ;usart.h: 248: void putrs1USART ( const  char *data);
-[; ;usart.h: 305: union USART2
-[; ;usart.h: 306: {
-[; ;usart.h: 307: unsigned char val;
-[; ;usart.h: 308: struct
-[; ;usart.h: 309: {
-[; ;usart.h: 310: unsigned RX_NINE:1;
-[; ;usart.h: 311: unsigned TX_NINE:1;
-[; ;usart.h: 312: unsigned FRAME_ERROR:1;
-[; ;usart.h: 313: unsigned OVERRUN_ERROR:1;
-[; ;usart.h: 314: unsigned fill:4;
-[; ;usart.h: 315: };
-[; ;usart.h: 316: };
-[; ;usart.h: 317: extern union USART2 USART2_Status;
-[; ;usart.h: 318: void Open2USART ( unsigned char config, unsigned int spbrg);
-[; ;usart.h: 333: char Read2USART (void);
-[; ;usart.h: 334: void Write2USART ( char data);
-[; ;usart.h: 335: void gets2USART ( char *buffer, unsigned char len);
-[; ;usart.h: 336: void puts2USART ( char *data);
-[; ;usart.h: 337: void putrs2USART ( const  char *data);
-[; ;usart.h: 660: void baud1USART ( unsigned char baudconfig);
-[; ;usart.h: 665: void baud2USART ( unsigned char baudconfig);
-[; ;xlcd.h: 87: void OpenXLCD( unsigned char);
-[; ;xlcd.h: 92: void SetCGRamAddr( unsigned char);
-[; ;xlcd.h: 97: void SetDDRamAddr( unsigned char);
-[; ;xlcd.h: 102: unsigned char BusyXLCD(void);
-[; ;xlcd.h: 107: unsigned char ReadAddrXLCD(void);
-[; ;xlcd.h: 112: char ReadDataXLCD(void);
-[; ;xlcd.h: 117: void WriteCmdXLCD( unsigned char);
-[; ;xlcd.h: 122: void WriteDataXLCD( char);
-[; ;xlcd.h: 132: void putsXLCD( char *);
-[; ;xlcd.h: 137: void putrsXLCD(const char *);
-[; ;xlcd.h: 140: extern void DelayFor18TCY(void);
-[; ;xlcd.h: 141: extern void DelayPORXLCD(void);
-[; ;xlcd.h: 142: extern void DelayXLCD(void);
-[; ;delays.h: 13: void Delay1TCYx(unsigned char);
-[; ;delays.h: 19: void Delay10TCYx(unsigned char);
-[; ;delays.h: 25: void Delay100TCYx(unsigned char);
-[; ;delays.h: 31: void Delay1KTCYx(unsigned char);
-[; ;delays.h: 37: void Delay10KTCYx(unsigned char);
-[; ;pic18.h: 18: __attribute__((__unsupported__("The flash_write routine is no longer supported. Please use the peripheral library functions: WriteBytesFlash, WriteBlockFlash or WriteWordFlash"))) void flash_write(const unsigned char *, unsigned int, __far unsigned c
-[; ;pic18.h: 42: extern void __nop(void);
-[; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
-[; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
-[; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
+[; ;pic18.h: 18: __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+[; ;pic18.h: 19: __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
+[; ;pic18.h: 43: extern void __nop(void);
+[; ;pic18.h: 152: extern __nonreentrant void _delay(unsigned long);
+[; ;pic18.h: 154: extern __nonreentrant void _delaywdt(unsigned long);
+[; ;pic18.h: 156: extern __nonreentrant void _delay3(unsigned char);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -9555,147 +8635,147 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x WPDIS=OFF ]
 [p x WPEND=PAGE_WPFP ]
 [p x LS48MHZ=SYS48X8 ]
-"16 ../My_header\My_header.h
+"15 ../My_header\My_header.h
 [v _timer0_init `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_header\My_header.h: 16: void timer0_init(uint8_t prescaler) {
+[; ;My_header\My_header.h: 15: void timer0_init(uint8_t prescaler) {
 [e :U _timer0_init ]
 [v _prescaler `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_header\My_header.h: 17: T0CONbits.TMR0ON = 1;
-"17
+[; ;My_header\My_header.h: 16: T0CONbits.TMR0ON = 1;
+"16
 [e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 18: T0CONbits.T08BIT = 1;
-"18
+[; ;My_header\My_header.h: 17: T0CONbits.T08BIT = 1;
+"17
 [e = . . _T0CONbits 0 4 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 19: T0CONbits.T0CS = 0;
-"19
+[; ;My_header\My_header.h: 18: T0CONbits.T0CS = 0;
+"18
 [e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 20: if (prescaler == 0) {
+[; ;My_header\My_header.h: 19: if (prescaler == 0) {
+"19
+[e $ ! == -> _prescaler `i -> 0 `i 1219  ]
+{
+[; ;My_header\My_header.h: 20: T0CONbits.PSA = 1;
 "20
-[e $ ! == -> _prescaler `i -> 0 `i 1269  ]
-{
-[; ;My_header\My_header.h: 21: T0CONbits.PSA = 1;
-"21
 [e = . . _T0CONbits 0 1 -> -> 1 `i `uc ]
-"22
+"21
 }
-[; ;My_header\My_header.h: 22: } else {
-[e $U 1270  ]
-[e :U 1269 ]
+[; ;My_header\My_header.h: 21: } else {
+[e $U 1220  ]
+[e :U 1219 ]
 {
-[; ;My_header\My_header.h: 23: T0CONbits.PSA = 0;
-"23
+[; ;My_header\My_header.h: 22: T0CONbits.PSA = 0;
+"22
 [e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 24: T0CONbits.T0PS = prescaler - 1;
-"24
+[; ;My_header\My_header.h: 23: T0CONbits.T0PS = prescaler - 1;
+"23
 [e = . . _T0CONbits 0 0 -> - -> _prescaler `i -> 1 `i `uc ]
+"24
+}
+[e :U 1220 ]
+[; ;My_header\My_header.h: 24: }
+[; ;My_header\My_header.h: 25: INTCONbits.T0IE = 1;
 "25
-}
-[e :U 1270 ]
-[; ;My_header\My_header.h: 25: }
-[; ;My_header\My_header.h: 26: INTCONbits.T0IE = 1;
-"26
 [e = . . _INTCONbits 1 5 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 27: INTCONbits.TMR0IF = 0;
-"27
+[; ;My_header\My_header.h: 26: INTCONbits.TMR0IF = 0;
+"26
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 28: INTCON2bits.TMR0IP = 0;
-"28
+[; ;My_header\My_header.h: 27: INTCON2bits.TMR0IP = 0;
+"27
 [e = . . _INTCON2bits 1 2 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 29: INTCONbits.PEIE = 1;
-"29
+[; ;My_header\My_header.h: 28: INTCONbits.PEIE = 1;
+"28
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 30: }
-"30
-[e :UE 1268 ]
+[; ;My_header\My_header.h: 29: }
+"29
+[e :UE 1218 ]
 }
-"55
+"54
 [v _timer1_init `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;My_header\My_header.h: 55: void timer1_init(uint8_t prescaler, uint8_t clock_select) {
+[; ;My_header\My_header.h: 54: void timer1_init(uint8_t prescaler, uint8_t clock_select) {
 [e :U _timer1_init ]
 [v _prescaler `uc ~T0 @X0 1 r1 ]
 [v _clock_select `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;My_header\My_header.h: 56: T1CONbits.TMR1CS = clock_select;
-"56
+[; ;My_header\My_header.h: 55: T1CONbits.TMR1CS = clock_select;
+"55
 [e = . . _T1CONbits 1 5 _clock_select ]
-[; ;My_header\My_header.h: 57: if (clock_select == 2) T1CONbits.T1OSCEN = 1;
-"57
-[e $ ! == -> _clock_select `i -> 2 `i 1272  ]
+[; ;My_header\My_header.h: 56: if (clock_select == 2) T1CONbits.T1OSCEN = 1;
+"56
+[e $ ! == -> _clock_select `i -> 2 `i 1222  ]
 [e = . . _T1CONbits 1 3 -> -> 1 `i `uc ]
-[e $U 1273  ]
-"58
-[e :U 1272 ]
-[; ;My_header\My_header.h: 58: else T1CONbits.T1OSCEN = 0;
+[e $U 1223  ]
+"57
+[e :U 1222 ]
+[; ;My_header\My_header.h: 57: else T1CONbits.T1OSCEN = 0;
 [e = . . _T1CONbits 1 3 -> -> 0 `i `uc ]
-[e :U 1273 ]
-[; ;My_header\My_header.h: 59: T1CONbits.T1CKPS = prescaler;
-"59
+[e :U 1223 ]
+[; ;My_header\My_header.h: 58: T1CONbits.T1CKPS = prescaler;
+"58
 [e = . . _T1CONbits 1 4 _prescaler ]
-[; ;My_header\My_header.h: 60: T1CONbits.nT1SYNC = 1;
-"60
+[; ;My_header\My_header.h: 59: T1CONbits.nT1SYNC = 1;
+"59
 [e = . . _T1CONbits 1 2 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 61: T1CONbits.RD16 = 0;
-"61
+[; ;My_header\My_header.h: 60: T1CONbits.RD16 = 0;
+"60
 [e = . . _T1CONbits 1 1 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 62: T1CONbits.TMR1ON = 1;
-"62
+[; ;My_header\My_header.h: 61: T1CONbits.TMR1ON = 1;
+"61
 [e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 63: IPR1bits.TMR1IP = 0;
-"63
+[; ;My_header\My_header.h: 62: IPR1bits.TMR1IP = 0;
+"62
 [e = . . _IPR1bits 0 0 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 64: PIR1bits.TMR1IF = 0;
-"64
+[; ;My_header\My_header.h: 63: PIR1bits.TMR1IF = 0;
+"63
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 65: PIE1bits.TMR1IE = 1;
-"65
+[; ;My_header\My_header.h: 64: PIE1bits.TMR1IE = 1;
+"64
 [e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 66: INTCONbits.PEIE = 1;
-"66
+[; ;My_header\My_header.h: 65: INTCONbits.PEIE = 1;
+"65
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 67: }
-"67
-[e :UE 1271 ]
+[; ;My_header\My_header.h: 66: }
+"66
+[e :UE 1221 ]
 }
-"86
+"85
 [v _timer3_init `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_header\My_header.h: 86: void timer3_init(uint8_t prescaler) {
+[; ;My_header\My_header.h: 85: void timer3_init(uint8_t prescaler) {
 [e :U _timer3_init ]
 [v _prescaler `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_header\My_header.h: 87: T3CONbits.TMR3CS = 0;
-"87
+[; ;My_header\My_header.h: 86: T3CONbits.TMR3CS = 0;
+"86
 [e = . . _T3CONbits 1 5 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 88: T3CONbits.T3OSCEN = 0;
-"88
+[; ;My_header\My_header.h: 87: T3CONbits.T3OSCEN = 0;
+"87
 [e = . . _T3CONbits 1 3 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 89: T3CONbits.T3CKPS = prescaler;
-"89
+[; ;My_header\My_header.h: 88: T3CONbits.T3CKPS = prescaler;
+"88
 [e = . . _T3CONbits 1 4 _prescaler ]
-[; ;My_header\My_header.h: 90: T3CONbits.RD163 = 0;
-"90
+[; ;My_header\My_header.h: 89: T3CONbits.RD163 = 0;
+"89
 [e = . . _T3CONbits 3 1 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 91: T3CONbits.TMR3ON = 1;
-"91
+[; ;My_header\My_header.h: 90: T3CONbits.TMR3ON = 1;
+"90
 [e = . . _T3CONbits 1 0 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 92: IPR2bits.TMR3IP = 0;
-"92
+[; ;My_header\My_header.h: 91: IPR2bits.TMR3IP = 0;
+"91
 [e = . . _IPR2bits 0 1 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 93: PIR2bits.TMR3IF = 0;
-"93
+[; ;My_header\My_header.h: 92: PIR2bits.TMR3IF = 0;
+"92
 [e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 94: PIE2bits.TMR3IE = 1;
-"94
+[; ;My_header\My_header.h: 93: PIE2bits.TMR3IE = 1;
+"93
 [e = . . _PIE2bits 0 1 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 95: INTCONbits.PEIE = 1;
-"95
+[; ;My_header\My_header.h: 94: INTCONbits.PEIE = 1;
+"94
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 96: }
-"96
-[e :UE 1274 ]
+[; ;My_header\My_header.h: 95: }
+"95
+[e :UE 1224 ]
 }
 "101
 [v _timer5_init `(v ~T0 @X0 1 ef1`uc ]
@@ -9733,811 +8813,816 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
 [; ;My_header\My_header.h: 111: }
 "111
-[e :UE 1275 ]
+[e :UE 1225 ]
 }
-"135
+"119
 [v _OSC_init `(v ~T0 @X0 1 ef ]
 {
-[; ;My_header\My_header.h: 135: void OSC_init(void) {
+[; ;My_header\My_header.h: 119: void OSC_init(void) {
 [e :U _OSC_init ]
 [f ]
-[; ;My_header\My_header.h: 136: OSCCONbits.IRCF = 7;
-"136
+[; ;My_header\My_header.h: 120: OSCCONbits.IRCF = 7;
+"120
 [e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
-[; ;My_header\My_header.h: 137: OSCTUNEbits.PLLEN = 1;
-"137
+[; ;My_header\My_header.h: 121: OSCTUNEbits.PLLEN = 1;
+"121
 [e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 138: OSCCONbits.SCS = 0;
-"138
+[; ;My_header\My_header.h: 122: OSCCONbits.SCS = 0;
+"122
 [e = . . _OSCCONbits 0 0 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 139: }
-"139
-[e :UE 1276 ]
+[; ;My_header\My_header.h: 123: }
+"123
+[e :UE 1226 ]
 }
-"148
+"149
 [v _ADC_init `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_header\My_header.h: 148: void ADC_init(uint8_t p_ref) {
+[; ;My_header\My_header.h: 149: void ADC_init(uint8_t p_ref) {
 [e :U _ADC_init ]
 [v _p_ref `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_header\My_header.h: 149: ADCON0bits.VCFG1 = 0;
-"149
-[e = . . _ADCON0bits 2 7 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 150: ADCON0bits.VCFG0 = p_ref;
+[; ;My_header\My_header.h: 150: ADCON0bits.VCFG1 = 0;
 "150
+[e = . . _ADCON0bits 2 7 -> -> 0 `i `uc ]
+[; ;My_header\My_header.h: 151: ADCON0bits.VCFG0 = p_ref;
+"151
 [e = . . _ADCON0bits 2 6 _p_ref ]
-[; ;My_header\My_header.h: 152: ADCON1bits.ADFM = 1;
-"152
-[e = . . _ADCON1bits 0 3 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 153: ADCON1bits.ADCAL = 0;
+[; ;My_header\My_header.h: 153: ADCON1bits.ADFM = 1;
 "153
-[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 154: ADCON1bits.ADCS = 2;
+[e = . . _ADCON1bits 0 3 -> -> 1 `i `uc ]
+[; ;My_header\My_header.h: 154: ADCON1bits.ADCAL = 0;
 "154
-[e = . . _ADCON1bits 0 0 -> -> 2 `i `uc ]
-[; ;My_header\My_header.h: 155: }
+[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
+[; ;My_header\My_header.h: 155: ADCON1bits.ADCS = 6;
 "155
-[e :UE 1277 ]
+[e = . . _ADCON1bits 0 0 -> -> 6 `i `uc ]
+[; ;My_header\My_header.h: 156: }
+"156
+[e :UE 1227 ]
 }
-"169
+"172
 [v _ADC `(ui ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_header\My_header.h: 169: uint16_t ADC(uint8_t ch) {
+[; ;My_header\My_header.h: 172: uint16_t ADC(uint8_t ch) {
 [e :U _ADC ]
 [v _ch `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_header\My_header.h: 170: ADCON0bits.CHS = ch;
-"170
-[e = . . _ADCON0bits 1 2 _ch ]
-[; ;My_header\My_header.h: 171: ADCON0bits.ADON = 1;
-"171
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 173: ADCON0bits.GO_nDONE = 1;
+[; ;My_header\My_header.h: 173: ADCON0bits.CHS = ch;
 "173
-[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 174: while (ADCON0bits.GO_nDONE);
+[e = . . _ADCON0bits 1 2 _ch ]
+[; ;My_header\My_header.h: 174: ADCON0bits.ADON = 1;
 "174
-[e $U 1279  ]
-[e :U 1280 ]
-[e :U 1279 ]
-[e $ != -> . . _ADCON0bits 1 1 `i -> -> -> 0 `i `Vuc `i 1280  ]
-[e :U 1281 ]
-[; ;My_header\My_header.h: 175: return ADRES;
-"175
-[e ) -> _ADRES `ui ]
-[e $UE 1278  ]
-[; ;My_header\My_header.h: 176: }
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+[; ;My_header\My_header.h: 176: PIR1bits.ADIF = 0;
 "176
-[e :UE 1278 ]
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;My_header\My_header.h: 177: ADCON0bits.GO_nDONE = 1;
+"177
+[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
+[; ;My_header\My_header.h: 178: while (!PIR1bits.ADIF);
+"178
+[e $U 1229  ]
+[e :U 1230 ]
+[e :U 1229 ]
+[e $ ! != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i 1230  ]
+[e :U 1231 ]
+[; ;My_header\My_header.h: 179: return ADRES;
+"179
+[e ) -> _ADRES `ui ]
+[e $UE 1228  ]
+[; ;My_header\My_header.h: 180: }
+"180
+[e :UE 1228 ]
 }
-[; ;My_header\My_ringbuf.h: 15: typedef struct ringbuf {
-[; ;My_header\My_ringbuf.h: 16: char *buf;
-[; ;My_header\My_ringbuf.h: 17: uint8_t size;
-[; ;My_header\My_ringbuf.h: 18: uint8_t head;
-[; ;My_header\My_ringbuf.h: 19: uint8_t tail;
-[; ;My_header\My_ringbuf.h: 20: } ringbuf_t;
-"22 ../My_header\My_ringbuf.h
-[v _ringbuf_init `(v ~T0 @X0 1 ef3`*S1282`*uc`uc ]
+[; ;My_header\My_ringbuf.h: 17: typedef struct ringbuf {
+[; ;My_header\My_ringbuf.h: 18: char *buf;
+[; ;My_header\My_ringbuf.h: 19: uint16_t size;
+[; ;My_header\My_ringbuf.h: 20: uint16_t head;
+[; ;My_header\My_ringbuf.h: 21: uint16_t tail;
+[; ;My_header\My_ringbuf.h: 22: } ringbuf_t;
+"24 ../My_header\My_ringbuf.h
+[v _ringbuf_init `(v ~T0 @X0 1 ef3`*S1232`*uc`ui ]
 {
-[; ;My_header\My_ringbuf.h: 22: void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint8_t bufsize) {
+[; ;My_header\My_ringbuf.h: 24: void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize) {
 [e :U _ringbuf_init ]
-[v _rb `*S1282 ~T0 @X0 1 r1 ]
+[v _rb `*S1232 ~T0 @X0 1 r1 ]
 [v _internal_buf `*uc ~T0 @X0 1 r2 ]
-[v _bufsize `uc ~T0 @X0 1 r3 ]
+[v _bufsize `ui ~T0 @X0 1 r3 ]
 [f ]
-[; ;My_header\My_ringbuf.h: 23: rb->buf = internal_buf;
-"23
-[e = . *U _rb 0 _internal_buf ]
-[; ;My_header\My_ringbuf.h: 24: rb->size = bufsize;
-"24
-[e = . *U _rb 1 _bufsize ]
-[; ;My_header\My_ringbuf.h: 25: rb->head = 0;
+[; ;My_header\My_ringbuf.h: 25: rb->buf = internal_buf;
 "25
-[e = . *U _rb 2 -> -> 0 `i `uc ]
-[; ;My_header\My_ringbuf.h: 26: rb->tail = 0;
+[e = . *U _rb 0 _internal_buf ]
+[; ;My_header\My_ringbuf.h: 26: rb->size = bufsize;
 "26
-[e = . *U _rb 3 -> -> 0 `i `uc ]
-[; ;My_header\My_ringbuf.h: 27: }
+[e = . *U _rb 1 _bufsize ]
+[; ;My_header\My_ringbuf.h: 27: rb->head = 0;
 "27
-[e :UE 1283 ]
-}
+[e = . *U _rb 2 -> -> 0 `i `ui ]
+[; ;My_header\My_ringbuf.h: 28: rb->tail = 0;
+"28
+[e = . *U _rb 3 -> -> 0 `i `ui ]
+[; ;My_header\My_ringbuf.h: 29: }
 "29
-[v _ringbuf_num `(uc ~T0 @X0 1 ef1`*S1282 ]
-{
-[; ;My_header\My_ringbuf.h: 29: uint8_t ringbuf_num(ringbuf_t *rb) {
-[e :U _ringbuf_num ]
-[v _rb `*S1282 ~T0 @X0 1 r1 ]
-[f ]
-[; ;My_header\My_ringbuf.h: 30: if (rb->head >= rb->tail) {
-"30
-[e $ ! >= -> . *U _rb 2 `i -> . *U _rb 3 `i 1285  ]
-{
-[; ;My_header\My_ringbuf.h: 31: return (rb->head - rb->tail);
-"31
-[e ) -> - -> . *U _rb 2 `i -> . *U _rb 3 `i `uc ]
-[e $UE 1284  ]
-"32
+[e :UE 1233 ]
 }
-[; ;My_header\My_ringbuf.h: 32: } else {
-[e $U 1286  ]
-[e :U 1285 ]
+"31
+[v _ringbuf_num `(ui ~T0 @X0 1 ef1`*S1232 ]
 {
-[; ;My_header\My_ringbuf.h: 33: return (rb->size + rb->head - rb->tail);
+[; ;My_header\My_ringbuf.h: 31: uint16_t ringbuf_num(ringbuf_t *rb) {
+[e :U _ringbuf_num ]
+[v _rb `*S1232 ~T0 @X0 1 r1 ]
+[f ]
+[; ;My_header\My_ringbuf.h: 32: if (rb->head >= rb->tail) {
+"32
+[e $ ! >= . *U _rb 2 . *U _rb 3 1235  ]
+{
+[; ;My_header\My_ringbuf.h: 33: return (rb->head - rb->tail);
 "33
-[e ) -> - + -> . *U _rb 1 `i -> . *U _rb 2 `i -> . *U _rb 3 `i `uc ]
-[e $UE 1284  ]
+[e ) - . *U _rb 2 . *U _rb 3 ]
+[e $UE 1234  ]
 "34
 }
-[e :U 1286 ]
-[; ;My_header\My_ringbuf.h: 34: }
-[; ;My_header\My_ringbuf.h: 35: }
-"35
-[e :UE 1284 ]
-}
-"37
-[v _ringbuf_push `(v ~T0 @X0 1 ef2`*S1282`uc ]
+[; ;My_header\My_ringbuf.h: 34: } else {
+[e $U 1236  ]
+[e :U 1235 ]
 {
-[; ;My_header\My_ringbuf.h: 37: void ringbuf_push(ringbuf_t *rb, char asciicode) {
-[e :U _ringbuf_push ]
-[v _rb `*S1282 ~T0 @X0 1 r1 ]
+[; ;My_header\My_ringbuf.h: 35: return (rb->size + rb->head - rb->tail);
+"35
+[e ) - + . *U _rb 1 . *U _rb 2 . *U _rb 3 ]
+[e $UE 1234  ]
+"36
+}
+[e :U 1236 ]
+[; ;My_header\My_ringbuf.h: 36: }
+[; ;My_header\My_ringbuf.h: 37: }
+"37
+[e :UE 1234 ]
+}
+"39
+[v _ringbuf_put `(v ~T0 @X0 1 ef2`*S1232`uc ]
+{
+[; ;My_header\My_ringbuf.h: 39: void ringbuf_put(ringbuf_t *rb, char asciicode) {
+[e :U _ringbuf_put ]
+[v _rb `*S1232 ~T0 @X0 1 r1 ]
 [v _asciicode `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;My_header\My_ringbuf.h: 38: if (ringbuf_num(rb) < rb->size) {
-"38
-[e $ ! < -> ( _ringbuf_num (1 _rb `i -> . *U _rb 1 `i 1288  ]
-{
-[; ;My_header\My_ringbuf.h: 39: rb->buf[rb->head] = asciicode;
-"39
-[e = *U + . *U _rb 0 * -> . *U _rb 2 `ux -> -> # *U . *U _rb 0 `ui `ux _asciicode ]
-[; ;My_header\My_ringbuf.h: 40: if (rb->head + 1 < rb->size) rb->head++;
+[; ;My_header\My_ringbuf.h: 40: if (ringbuf_num(rb) < rb->size) {
 "40
-[e $ ! < + -> . *U _rb 2 `i -> 1 `i -> . *U _rb 1 `i 1289  ]
-[e ++ . *U _rb 2 -> -> 1 `i `uc ]
-[e $U 1290  ]
+[e $ ! < ( _ringbuf_num (1 _rb . *U _rb 1 1238  ]
+{
+[; ;My_header\My_ringbuf.h: 41: rb->buf[rb->head] = asciicode;
 "41
-[e :U 1289 ]
-[; ;My_header\My_ringbuf.h: 41: else rb->head = 0;
-[e = . *U _rb 2 -> -> 0 `i `uc ]
-[e :U 1290 ]
+[e = *U + . *U _rb 0 * -> . *U _rb 2 `ux -> -> # *U . *U _rb 0 `ui `ux _asciicode ]
+[; ;My_header\My_ringbuf.h: 42: if (rb->head + 1 < rb->size) rb->head++;
 "42
-}
-[e :U 1288 ]
-[; ;My_header\My_ringbuf.h: 42: }
-[; ;My_header\My_ringbuf.h: 43: }
+[e $ ! < + . *U _rb 2 -> -> 1 `i `ui . *U _rb 1 1239  ]
+[e ++ . *U _rb 2 -> -> 1 `i `ui ]
+[e $U 1240  ]
 "43
-[e :UE 1287 ]
+[e :U 1239 ]
+[; ;My_header\My_ringbuf.h: 43: else rb->head = 0;
+[e = . *U _rb 2 -> -> 0 `i `ui ]
+[e :U 1240 ]
+"44
 }
+[e :U 1238 ]
+[; ;My_header\My_ringbuf.h: 44: }
+[; ;My_header\My_ringbuf.h: 45: }
 "45
-[v _ringbuf_pop `(uc ~T0 @X0 1 ef1`*S1282 ]
-{
-[; ;My_header\My_ringbuf.h: 45: char ringbuf_pop(ringbuf_t *rb) {
-[e :U _ringbuf_pop ]
-[v _rb `*S1282 ~T0 @X0 1 r1 ]
-[f ]
-[; ;My_header\My_ringbuf.h: 46: if (ringbuf_num(rb)) {
-"46
-[e $ ! != -> ( _ringbuf_num (1 _rb `i -> -> -> 0 `i `uc `i 1292  ]
-{
+[e :UE 1237 ]
+}
 "47
-[v _ret `uc ~T0 @X0 1 a ]
-[; ;My_header\My_ringbuf.h: 47: uint8_t ret = rb->buf[rb->tail];
-[e = _ret *U + . *U _rb 0 * -> . *U _rb 3 `ux -> -> # *U . *U _rb 0 `ui `ux ]
-[; ;My_header\My_ringbuf.h: 48: rb->tail++;
+[v _ringbuf_put_num `(v ~T0 @X0 1 ef3`*S1232`Cui`uc ]
+{
+[; ;My_header\My_ringbuf.h: 47: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits) {
+[e :U _ringbuf_put_num ]
+[v _rb `*S1232 ~T0 @X0 1 r1 ]
+[v _value `Cui ~T0 @X0 1 r2 ]
+[v _digits `uc ~T0 @X0 1 r3 ]
+[f ]
+[; ;My_header\My_ringbuf.h: 48: while (digits--) {
 "48
-[e ++ . *U _rb 3 -> -> 1 `i `uc ]
-[; ;My_header\My_ringbuf.h: 49: if (rb->tail >= rb->size) {
+[e $U 1242  ]
+[e :U 1243 ]
+{
 "49
-[e $ ! >= -> . *U _rb 3 `i -> . *U _rb 1 `i 1293  ]
-{
-[; ;My_header\My_ringbuf.h: 50: rb->tail = 0;
+[v _temp `ui ~T0 @X0 1 a ]
+[; ;My_header\My_ringbuf.h: 49: uint16_t temp = value;
+[e = _temp _value ]
+[; ;My_header\My_ringbuf.h: 50: for (uint8_t i = 0; i < digits; i++) {
 "50
-[e = . *U _rb 3 -> -> 0 `i `uc ]
-"51
-}
-[e :U 1293 ]
-[; ;My_header\My_ringbuf.h: 51: }
-[; ;My_header\My_ringbuf.h: 52: return ret;
-"52
-[e ) _ret ]
-[e $UE 1291  ]
-"53
-}
-[; ;My_header\My_ringbuf.h: 53: } else {
-[e $U 1294  ]
-[e :U 1292 ]
 {
-[; ;My_header\My_ringbuf.h: 54: return 0;
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 1248  ]
+[e :U 1245 ]
+{
+[; ;My_header\My_ringbuf.h: 51: temp /= 10;
+"51
+[e =/ _temp -> -> 10 `uc `ui ]
+"52
+}
+"50
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 1248 ]
+[e $ < -> _i `i -> _digits `i 1245  ]
+[e :U 1246 ]
+"52
+}
+[; ;My_header\My_ringbuf.h: 52: }
+[; ;My_header\My_ringbuf.h: 53: temp %= 10;
+"53
+[e =% _temp -> -> 10 `uc `ui ]
+[; ;My_header\My_ringbuf.h: 54: ringbuf_put(rb, temp + '0');
 "54
-[e ) -> -> 0 `i `uc ]
-[e $UE 1291  ]
+[e ( _ringbuf_put (2 , _rb -> + _temp -> 48 `ui `uc ]
 "55
 }
-[e :U 1294 ]
+[e :U 1242 ]
+"48
+[e $ != -> -- _digits -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1243  ]
+[e :U 1244 ]
 [; ;My_header\My_ringbuf.h: 55: }
 [; ;My_header\My_ringbuf.h: 56: }
 "56
-[e :UE 1291 ]
+[e :UE 1241 ]
 }
 "58
-[v _ringbuf_backspace `(v ~T0 @X0 1 ef1`*S1282 ]
+[v _ringbuf_put_str `(v ~T0 @X0 1 ef2`*S1232`*Cuc ]
 {
-[; ;My_header\My_ringbuf.h: 58: void ringbuf_backspace(ringbuf_t *rb) {
-[e :U _ringbuf_backspace ]
-[v _rb `*S1282 ~T0 @X0 1 r1 ]
+[; ;My_header\My_ringbuf.h: 58: void ringbuf_put_str(ringbuf_t *rb, const char *str) {
+[e :U _ringbuf_put_str ]
+[v _rb `*S1232 ~T0 @X0 1 r1 ]
+[v _str `*Cuc ~T0 @X0 1 r2 ]
 [f ]
-[; ;My_header\My_ringbuf.h: 59: if (ringbuf_num(rb)) {
+[; ;My_header\My_ringbuf.h: 59: while (*str) {
 "59
-[e $ ! != -> ( _ringbuf_num (1 _rb `i -> -> -> 0 `i `uc `i 1296  ]
+[e $U 1250  ]
+[e :U 1251 ]
 {
-[; ;My_header\My_ringbuf.h: 60: if (rb->head) rb->head--;
+[; ;My_header\My_ringbuf.h: 60: ringbuf_put(rb, *str++);
 "60
-[e $ ! != -> . *U _rb 2 `i -> -> -> 0 `i `uc `i 1297  ]
-[e -- . *U _rb 2 -> -> 1 `i `uc ]
-[e $U 1298  ]
+[e ( _ringbuf_put (2 , _rb *U ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
 "61
-[e :U 1297 ]
-[; ;My_header\My_ringbuf.h: 61: else rb->head = rb->size - 1;
-[e = . *U _rb 2 -> - -> . *U _rb 1 `i -> 1 `i `uc ]
-[e :U 1298 ]
-"62
 }
-[e :U 1296 ]
+[e :U 1250 ]
+"59
+[e $ != -> *U _str `i -> -> -> 0 `i `Cuc `i 1251  ]
+[e :U 1252 ]
+[; ;My_header\My_ringbuf.h: 61: }
 [; ;My_header\My_ringbuf.h: 62: }
-[; ;My_header\My_ringbuf.h: 63: }
-"63
-[e :UE 1295 ]
+"62
+[e :UE 1249 ]
 }
-"65
-[v _ringbuf_delete `(v ~T0 @X0 1 ef1`*S1282 ]
+"64
+[v _ringbuf_pop `(uc ~T0 @X0 1 ef1`*S1232 ]
 {
-[; ;My_header\My_ringbuf.h: 65: void ringbuf_delete(ringbuf_t *rb) {
-[e :U _ringbuf_delete ]
-[v _rb `*S1282 ~T0 @X0 1 r1 ]
+[; ;My_header\My_ringbuf.h: 64: char ringbuf_pop(ringbuf_t *rb) {
+[e :U _ringbuf_pop ]
+[v _rb `*S1232 ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_header\My_ringbuf.h: 66: rb->head = rb->tail;
+[; ;My_header\My_ringbuf.h: 65: if (ringbuf_num(rb)) {
+"65
+[e $ ! != ( _ringbuf_num (1 _rb -> -> 0 `i `ui 1254  ]
+{
 "66
-[e = . *U _rb 2 . *U _rb 3 ]
-[; ;My_header\My_ringbuf.h: 67: }
+[v _ret `uc ~T0 @X0 1 a ]
+[; ;My_header\My_ringbuf.h: 66: char ret = rb->buf[rb->tail];
+[e = _ret *U + . *U _rb 0 * -> . *U _rb 3 `ux -> -> # *U . *U _rb 0 `ui `ux ]
+[; ;My_header\My_ringbuf.h: 67: if (rb->tail + 1 < rb->size) {
 "67
-[e :UE 1299 ]
+[e $ ! < + . *U _rb 3 -> -> 1 `i `ui . *U _rb 1 1255  ]
+{
+[; ;My_header\My_ringbuf.h: 68: rb->tail++;
+"68
+[e ++ . *U _rb 3 -> -> 1 `i `ui ]
+"69
 }
-"185 ../My_header\My_header.h
-[v _tx_buf `S1282 ~T0 @X0 1 e ]
-[; ;My_header\My_header.h: 185: ringbuf_t tx_buf;
-"189
+[; ;My_header\My_ringbuf.h: 69: } else {
+[e $U 1256  ]
+[e :U 1255 ]
+{
+[; ;My_header\My_ringbuf.h: 70: rb->tail = 0;
+"70
+[e = . *U _rb 3 -> -> 0 `i `ui ]
+"71
+}
+[e :U 1256 ]
+[; ;My_header\My_ringbuf.h: 71: }
+[; ;My_header\My_ringbuf.h: 72: return ret;
+"72
+[e ) _ret ]
+[e $UE 1253  ]
+"73
+}
+[; ;My_header\My_ringbuf.h: 73: } else {
+[e $U 1257  ]
+[e :U 1254 ]
+{
+[; ;My_header\My_ringbuf.h: 74: return 0;
+"74
+[e ) -> -> 0 `i `uc ]
+[e $UE 1253  ]
+"75
+}
+[e :U 1257 ]
+[; ;My_header\My_ringbuf.h: 75: }
+[; ;My_header\My_ringbuf.h: 76: }
+"76
+[e :UE 1253 ]
+}
+"78
+[v _ringbuf_backspace `(v ~T0 @X0 1 ef1`*S1232 ]
+{
+[; ;My_header\My_ringbuf.h: 78: void ringbuf_backspace(ringbuf_t *rb) {
+[e :U _ringbuf_backspace ]
+[v _rb `*S1232 ~T0 @X0 1 r1 ]
+[f ]
+[; ;My_header\My_ringbuf.h: 79: if (ringbuf_num(rb)) {
+"79
+[e $ ! != ( _ringbuf_num (1 _rb -> -> 0 `i `ui 1259  ]
+{
+[; ;My_header\My_ringbuf.h: 80: if (rb->head) rb->head--;
+"80
+[e $ ! != . *U _rb 2 -> -> 0 `i `ui 1260  ]
+[e -- . *U _rb 2 -> -> 1 `i `ui ]
+[e $U 1261  ]
+"81
+[e :U 1260 ]
+[; ;My_header\My_ringbuf.h: 81: else rb->head = rb->size - 1;
+[e = . *U _rb 2 - . *U _rb 1 -> -> 1 `i `ui ]
+[e :U 1261 ]
+"82
+}
+[e :U 1259 ]
+[; ;My_header\My_ringbuf.h: 82: }
+[; ;My_header\My_ringbuf.h: 83: }
+"83
+[e :UE 1258 ]
+}
+"85
+[v _ringbuf_delete `(v ~T0 @X0 1 ef1`*S1232 ]
+{
+[; ;My_header\My_ringbuf.h: 85: void ringbuf_delete(ringbuf_t *rb) {
+[e :U _ringbuf_delete ]
+[v _rb `*S1232 ~T0 @X0 1 r1 ]
+[f ]
+[; ;My_header\My_ringbuf.h: 86: rb->head = rb->tail;
+"86
+[e = . *U _rb 2 . *U _rb 3 ]
+[; ;My_header\My_ringbuf.h: 87: }
+"87
+[e :UE 1262 ]
+}
+"187 ../My_header\My_header.h
+[v _tx_buf `S1232 ~T0 @X0 1 e ]
+[; ;My_header\My_header.h: 187: ringbuf_t tx_buf;
+"188
+[v _rx_buf `S1232 ~T0 @X0 1 e ]
+[; ;My_header\My_header.h: 188: ringbuf_t rx_buf;
+"192
 [v _UART_init `(v ~T0 @X0 1 ef ]
 {
-[; ;My_header\My_header.h: 189: void UART_init(void) {
+[; ;My_header\My_header.h: 192: void UART_init(void) {
 [e :U _UART_init ]
 [f ]
-[; ;My_header\My_header.h: 190: TXSTA1bits.TX9 = 0;
-"190
-[e = . . _TXSTA1bits 0 6 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 191: TXSTA1bits.TXEN = 1;
-"191
-[e = . . _TXSTA1bits 0 5 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 192: TXSTA1bits.SYNC = 0;
-"192
-[e = . . _TXSTA1bits 0 4 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 193: TXSTA1bits.BRGH = 0;
+[; ;My_header\My_header.h: 193: TXSTA1bits.TX9 = 0;
 "193
-[e = . . _TXSTA1bits 0 2 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 194: RCSTA1bits.SPEN = 1;
+[e = . . _TXSTA1bits 0 6 -> -> 0 `i `uc ]
+[; ;My_header\My_header.h: 194: TXSTA1bits.TXEN = 1;
 "194
-[e = . . _RCSTA1bits 0 7 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 195: RCSTA1bits.RX9 = 0;
+[e = . . _TXSTA1bits 0 5 -> -> 1 `i `uc ]
+[; ;My_header\My_header.h: 195: TXSTA1bits.SYNC = 0;
 "195
-[e = . . _RCSTA1bits 0 6 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 196: RCSTA1bits.CREN = 1;
+[e = . . _TXSTA1bits 0 4 -> -> 0 `i `uc ]
+[; ;My_header\My_header.h: 196: TXSTA1bits.BRGH = 0;
 "196
-[e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 197: BAUDCON1bits.BRG16 = 0;
+[e = . . _TXSTA1bits 0 2 -> -> 0 `i `uc ]
+[; ;My_header\My_header.h: 197: RCSTA1bits.SPEN = 1;
 "197
-[e = . . _BAUDCON1bits 0 3 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 198: SPBRG1 = 48000000 / 64 / 9600 - 1;
+[e = . . _RCSTA1bits 0 7 -> -> 1 `i `uc ]
+[; ;My_header\My_header.h: 198: RCSTA1bits.RX9 = 0;
 "198
-[e = _SPBRG1 -> - / / -> 48000000 `l -> -> 64 `i `l -> -> 9600 `i `l -> -> 1 `i `l `uc ]
-[; ;My_header\My_header.h: 199: SPBRGH1 = 0;
+[e = . . _RCSTA1bits 0 6 -> -> 0 `i `uc ]
+[; ;My_header\My_header.h: 199: RCSTA1bits.CREN = 1;
 "199
-[e = _SPBRGH1 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 200: IPR1bits.RC1IP = 0;
+[e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
+[; ;My_header\My_header.h: 200: BAUDCON1bits.BRG16 = 0;
 "200
-[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 201: PIE1bits.RC1IE = 1;
+[e = . . _BAUDCON1bits 0 3 -> -> 0 `i `uc ]
+[; ;My_header\My_header.h: 201: SPBRG1 = 48000000 / 64 / 9600 - 1;
 "201
-[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 202: INTCONbits.PEIE = 1;
+[e = _SPBRG1 -> - / / -> 48000000 `l -> -> 64 `i `l -> -> 9600 `i `l -> -> 1 `i `l `uc ]
+[; ;My_header\My_header.h: 202: SPBRGH1 = 0;
 "202
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 203: }
+[e = _SPBRGH1 -> -> 0 `i `uc ]
+[; ;My_header\My_header.h: 203: IPR1bits.RC1IP = 0;
 "203
-[e :UE 1300 ]
+[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
+[; ;My_header\My_header.h: 204: PIE1bits.RCIE = 1;
+"204
+[e = . . _PIE1bits 1 3 -> -> 1 `i `uc ]
+[; ;My_header\My_header.h: 205: INTCONbits.PEIE = 1;
+"205
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;My_header\My_header.h: 206: }
+"206
+[e :UE 1263 ]
 }
-"223
-[v _interrupt_TXIF `(v ~T0 @X0 1 ef ]
+"208
+[v _UART_ISR `(v ~T0 @X0 1 ef ]
 {
-[; ;My_header\My_header.h: 223: void interrupt_TXIF(void) {
-[e :U _interrupt_TXIF ]
+[; ;My_header\My_header.h: 208: void UART_ISR(void) {
+[e :U _UART_ISR ]
 [f ]
-[; ;My_header\My_header.h: 224: if (PIE1bits.TX1IE && PIR1bits.TX1IF) {
-"224
-[e $ ! && != -> . . _PIE1bits 0 4 `i -> -> -> 0 `i `Vuc `i != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 1302  ]
+[; ;My_header\My_header.h: 209: if (PIE1bits.TXIE && PIR1bits.TXIF) {
+"209
+[e $ ! && != -> . . _PIE1bits 1 2 `i -> -> -> 0 `i `Vuc `i != -> . . _PIR1bits 1 2 `i -> -> -> 0 `i `Vuc `i 1265  ]
 {
-[; ;My_header\My_header.h: 225: PIR1bits.TX1IF = 0;
-"225
-[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 226: if (ringbuf_num(&tx_buf) > 0) {
-"226
-[e $ ! > -> ( _ringbuf_num (1 &U _tx_buf `i -> 0 `i 1303  ]
+[; ;My_header\My_header.h: 210: if (ringbuf_num(&tx_buf)) {
+"210
+[e $ ! != ( _ringbuf_num (1 &U _tx_buf -> -> 0 `i `ui 1266  ]
 {
-[; ;My_header\My_header.h: 227: TXREG1 = ringbuf_pop(&tx_buf);
-"227
+[; ;My_header\My_header.h: 211: TXREG1 = ringbuf_pop(&tx_buf);
+"211
 [e = _TXREG1 ( _ringbuf_pop (1 &U _tx_buf ]
-"228
+"212
 }
-[; ;My_header\My_header.h: 228: } else {
-[e $U 1304  ]
-[e :U 1303 ]
+[; ;My_header\My_header.h: 212: } else {
+[e $U 1267  ]
+[e :U 1266 ]
 {
-[; ;My_header\My_header.h: 229: PIE1bits.TX1IE = 0;
-"229
-[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
-"230
+[; ;My_header\My_header.h: 213: PIE1bits.TXIE = 0;
+"213
+[e = . . _PIE1bits 1 2 -> -> 0 `i `uc ]
+"214
 }
-[e :U 1304 ]
-"231
+[e :U 1267 ]
+"215
 }
-[e :U 1302 ]
-[; ;My_header\My_header.h: 230: }
-[; ;My_header\My_header.h: 231: }
-[; ;My_header\My_header.h: 232: }
-"232
-[e :UE 1301 ]
+[e :U 1265 ]
+[; ;My_header\My_header.h: 214: }
+[; ;My_header\My_header.h: 215: }
+[; ;My_header\My_header.h: 216: if (PIR1bits.RCIF && PIE1bits.RCIE) {
+"216
+[e $ ! && != -> . . _PIR1bits 1 3 `i -> -> -> 0 `i `Vuc `i != -> . . _PIE1bits 1 3 `i -> -> -> 0 `i `Vuc `i 1268  ]
+{
+"217
+[v _ascii `uc ~T0 @X0 1 a ]
+[; ;My_header\My_header.h: 217: char ascii = RCREG1;
+[e = _ascii _RCREG1 ]
+[; ;My_header\My_header.h: 218: ringbuf_put(&rx_buf, ascii);
+"218
+[e ( _ringbuf_put (2 , &U _rx_buf _ascii ]
+"219
 }
-"234
+[e :U 1268 ]
+[; ;My_header\My_header.h: 219: }
+[; ;My_header\My_header.h: 220: }
+"220
+[e :UE 1264 ]
+}
+"222
 [v _tx_send `(v ~T0 @X0 1 ef1`Cuc ]
 {
-[; ;My_header\My_header.h: 234: void tx_send(const uint8_t asciicode) {
+[; ;My_header\My_header.h: 222: void tx_send(const char asciicode) {
 [e :U _tx_send ]
 [v _asciicode `Cuc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_header\My_header.h: 235: ringbuf_push(&tx_buf, asciicode);
-"235
-[e ( _ringbuf_push (2 , &U _tx_buf _asciicode ]
-[; ;My_header\My_header.h: 236: PIE1bits.TX1IE = 1;
-"236
-[e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 237: }
-"237
-[e :UE 1305 ]
+[; ;My_header\My_header.h: 223: ringbuf_put(&tx_buf, asciicode);
+"223
+[e ( _ringbuf_put (2 , &U _tx_buf _asciicode ]
+[; ;My_header\My_header.h: 224: PIE1bits.TXIE = 1;
+"224
+[e = . . _PIE1bits 1 2 -> -> 1 `i `uc ]
+[; ;My_header\My_header.h: 225: }
+"225
+[e :UE 1269 ]
 }
-"239
+"227
 [v _tx_sends `(v ~T0 @X0 1 ef1`*Cuc ]
 {
-[; ;My_header\My_header.h: 239: void tx_sends(const uint8_t *asciicode) {
+[; ;My_header\My_header.h: 227: void tx_sends(const char *asciicode) {
 [e :U _tx_sends ]
 [v _asciicode `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_header\My_header.h: 240: while (*asciicode) {
-"240
-[e $U 1307  ]
-[e :U 1308 ]
+[; ;My_header\My_header.h: 228: while (*asciicode) {
+"228
+[e $U 1271  ]
+[e :U 1272 ]
 {
-[; ;My_header\My_header.h: 241: ringbuf_push(&tx_buf, *asciicode++);
-"241
-[e ( _ringbuf_push (2 , &U _tx_buf *U ++ _asciicode * -> -> 1 `i `x -> -> # *U _asciicode `i `x ]
-"242
+[; ;My_header\My_header.h: 229: ringbuf_put(&tx_buf, *asciicode++);
+"229
+[e ( _ringbuf_put (2 , &U _tx_buf *U ++ _asciicode * -> -> 1 `i `x -> -> # *U _asciicode `i `x ]
+"230
 }
-[e :U 1307 ]
-"240
-[e $ != -> *U _asciicode `i -> -> -> 0 `i `Cuc `i 1308  ]
-[e :U 1309 ]
-[; ;My_header\My_header.h: 242: }
-[; ;My_header\My_header.h: 243: PIE1bits.TX1IE = 1;
-"243
-[e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 244: }
-"244
-[e :UE 1306 ]
+[e :U 1271 ]
+"228
+[e $ != -> *U _asciicode `i -> -> -> 0 `i `Cuc `i 1272  ]
+[e :U 1273 ]
+[; ;My_header\My_header.h: 230: }
+[; ;My_header\My_header.h: 231: PIE1bits.TXIE = 1;
+"231
+[e = . . _PIE1bits 1 2 -> -> 1 `i `uc ]
+[; ;My_header\My_header.h: 232: }
+"232
+[e :UE 1270 ]
 }
-"284
+"272
 [v _tx_sendn `(v ~T0 @X0 1 ef2`Cui`uc ]
 {
-[; ;My_header\My_header.h: 284: void tx_sendn(const uint16_t value, uint8_t digits) {
+[; ;My_header\My_header.h: 272: void tx_sendn(const uint16_t value, uint8_t digits) {
 [e :U _tx_sendn ]
 [v _value `Cui ~T0 @X0 1 r1 ]
 [v _digits `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;My_header\My_header.h: 285: while (digits--) {
-"285
-[e $U 1311  ]
-[e :U 1312 ]
+[; ;My_header\My_header.h: 273: while (digits--) {
+"273
+[e $U 1275  ]
+[e :U 1276 ]
 {
-"286
+"274
 [v _temp `ui ~T0 @X0 1 a ]
-[; ;My_header\My_header.h: 286: uint16_t temp = value;
+[; ;My_header\My_header.h: 274: uint16_t temp = value;
 [e = _temp _value ]
-[; ;My_header\My_header.h: 287: for (uint8_t i = 0; i < digits; i++) {
-"287
+[; ;My_header\My_header.h: 275: for (uint8_t i = 0; i < digits; i++) {
+"275
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 1317  ]
-[e :U 1314 ]
+[e $U 1281  ]
+[e :U 1278 ]
 {
-[; ;My_header\My_header.h: 288: temp /= 10;
-"288
+[; ;My_header\My_header.h: 276: temp /= 10;
+"276
 [e =/ _temp -> -> 10 `uc `ui ]
-"289
+"277
 }
-"287
+"275
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 1317 ]
-[e $ < -> _i `i -> _digits `i 1314  ]
-[e :U 1315 ]
-"289
+[e :U 1281 ]
+[e $ < -> _i `i -> _digits `i 1278  ]
+[e :U 1279 ]
+"277
 }
-[; ;My_header\My_header.h: 289: }
-[; ;My_header\My_header.h: 290: temp %= 10;
-"290
+[; ;My_header\My_header.h: 277: }
+[; ;My_header\My_header.h: 278: temp %= 10;
+"278
 [e =% _temp -> -> 10 `uc `ui ]
-[; ;My_header\My_header.h: 291: tx_send('0' + temp);
-"291
+[; ;My_header\My_header.h: 279: tx_send('0' + temp);
+"279
 [e ( _tx_send (1 -> + -> 48 `ui _temp `uc ]
-"292
+"280
 }
-[e :U 1311 ]
-"285
-[e $ != -> -- _digits -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1312  ]
-[e :U 1313 ]
-[; ;My_header\My_header.h: 292: }
-[; ;My_header\My_header.h: 293: }
-"293
-[e :UE 1310 ]
+[e :U 1275 ]
+"273
+[e $ != -> -- _digits -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1276  ]
+[e :U 1277 ]
+[; ;My_header\My_header.h: 280: }
+[; ;My_header\My_header.h: 281: }
+"281
+[e :UE 1274 ]
 }
-"302
+"289
 [v _CTMU_init `(v ~T0 @X0 1 ef ]
 {
-[; ;My_header\My_header.h: 302: void CTMU_init(void) {
+[; ;My_header\My_header.h: 289: void CTMU_init(void) {
 [e :U _CTMU_init ]
 [f ]
-[; ;My_header\My_header.h: 303: CTMUCONH = 0x00;
-"303
+[; ;My_header\My_header.h: 290: CTMUCONH = 0x00;
+"290
 [e = _CTMUCONH -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 304: CTMUCONL = 0x90;
-"304
+[; ;My_header\My_header.h: 291: CTMUCONL = 0x90;
+"291
 [e = _CTMUCONL -> -> 144 `i `uc ]
-[; ;My_header\My_header.h: 305: CTMUICON = 0x01;
-"305
+[; ;My_header\My_header.h: 292: CTMUICON = 0x01;
+"292
 [e = _CTMUICON -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 306: ADCON0 = 0xFB;
-"306
-[e = _ADCON0 -> -> 251 `i `uc ]
-[; ;My_header\My_header.h: 307: ADCON1 = 0x1F;
-"307
-[e = _ADCON1 -> -> 31 `i `uc ]
-[; ;My_header\My_header.h: 309: ADCON1bits.ADFM = 1;
-"309
+[; ;My_header\My_header.h: 294: ADCON1bits.ADFM = 1;
+"294
 [e = . . _ADCON1bits 0 3 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 310: ADCON1bits.ADCAL = 0;
-"310
+[; ;My_header\My_header.h: 295: ADCON1bits.ADCAL = 0;
+"295
 [e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 311: ADCON1bits.ACQT = 1;
-"311
+[; ;My_header\My_header.h: 296: ADCON1bits.ACQT = 1;
+"296
 [e = . . _ADCON1bits 0 1 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 312: ADCON1bits.ADCS = 2;
-"312
-[e = . . _ADCON1bits 0 0 -> -> 2 `i `uc ]
-[; ;My_header\My_header.h: 314: ADCON0bits.VCFG0 = 0;
-"314
+[; ;My_header\My_header.h: 297: ADCON1bits.ADCS = 6;
+"297
+[e = . . _ADCON1bits 0 0 -> -> 6 `i `uc ]
+[; ;My_header\My_header.h: 299: ADCON0bits.VCFG0 = 0;
+"299
 [e = . . _ADCON0bits 2 6 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 315: ADCON0bits.VCFG1 = 0;
-"315
+[; ;My_header\My_header.h: 300: ADCON0bits.VCFG1 = 0;
+"300
 [e = . . _ADCON0bits 2 7 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 316: ADCON0bits.ADON = 1;
-"316
+[; ;My_header\My_header.h: 301: ADCON0bits.ADON = 1;
+"301
 [e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 317: }
-"317
-[e :UE 1318 ]
+[; ;My_header\My_header.h: 302: }
+"302
+[e :UE 1282 ]
 }
-"319
+"304
 [v _CTMU_read `(ui ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_header\My_header.h: 319: uint16_t CTMU_read(uint8_t ch) {
+[; ;My_header\My_header.h: 304: uint16_t CTMU_read(uint8_t ch) {
 [e :U _CTMU_read ]
 [v _ch `uc ~T0 @X0 1 r1 ]
 [f ]
-"320
+"305
 [v _sum `ul ~T0 @X0 1 a ]
-[; ;My_header\My_header.h: 320: uint32_t sum = 0;
+[; ;My_header\My_header.h: 305: uint32_t sum = 0;
 [e = _sum -> -> -> 0 `i `l `ul ]
-[; ;My_header\My_header.h: 321: for (uint8_t i = 0; i < 10; i++) {
-"321
+[; ;My_header\My_header.h: 306: for (uint8_t i = 0; i < 10; i++) {
+"306
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 10 `i 1320  ]
-[e $U 1321  ]
-[e :U 1320 ]
+[e $ < -> _i `i -> 10 `i 1284  ]
+[e $U 1285  ]
+[e :U 1284 ]
 {
-[; ;My_header\My_header.h: 322: ADCON0bits.CHS = ch;
-"322
+[; ;My_header\My_header.h: 307: ADCON0bits.CHS = ch;
+"307
 [e = . . _ADCON0bits 1 2 _ch ]
-[; ;My_header\My_header.h: 323: CTMUCONHbits.CTMUEN = 1;
-"323
+[; ;My_header\My_header.h: 308: CTMUCONHbits.CTMUEN = 1;
+"308
 [e = . . _CTMUCONHbits 0 7 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 324: CTMUCONLbits.EDG1STAT = 0;
-"324
+[; ;My_header\My_header.h: 309: CTMUCONLbits.EDG1STAT = 0;
+"309
 [e = . . _CTMUCONLbits 0 0 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 325: CTMUCONLbits.EDG2STAT = 0;
-"325
+[; ;My_header\My_header.h: 310: CTMUCONLbits.EDG2STAT = 0;
+"310
 [e = . . _CTMUCONLbits 0 1 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 328: CTMUCONHbits.IDISSEN = 1;
-"328
+[; ;My_header\My_header.h: 313: CTMUCONHbits.IDISSEN = 1;
+"313
 [e = . . _CTMUCONHbits 0 1 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 329: _delay((unsigned long)((20)*(48000000/4000000.0)));
-"329
+[; ;My_header\My_header.h: 314: _delay((unsigned long)((20)*(48000000/4000000.0)));
+"314
 [e ( __delay (1 -> * -> -> 20 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
-[; ;My_header\My_header.h: 330: CTMUCONHbits.IDISSEN = 0;
-"330
+[; ;My_header\My_header.h: 315: CTMUCONHbits.IDISSEN = 0;
+"315
 [e = . . _CTMUCONHbits 0 1 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 332: CTMUCONLbits.EDG1STAT = 1;
-"332
+[; ;My_header\My_header.h: 317: CTMUCONLbits.EDG1STAT = 1;
+"317
 [e = . . _CTMUCONLbits 0 0 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 333: _delay((unsigned long)((5)*(48000000/4000000.0)));
-"333
+[; ;My_header\My_header.h: 318: _delay((unsigned long)((5)*(48000000/4000000.0)));
+"318
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
-[; ;My_header\My_header.h: 334: CTMUCONLbits.EDG1STAT = 0;
-"334
+[; ;My_header\My_header.h: 319: CTMUCONLbits.EDG1STAT = 0;
+"319
 [e = . . _CTMUCONLbits 0 0 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 336: PIR1bits.ADIF = 0;
-"336
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 337: ADCON0bits.GO = 1;
-"337
-[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
-[; ;My_header\My_header.h: 338: while (!PIR1bits.ADIF);
-"338
-[e $U 1323  ]
-[e :U 1324 ]
-[e :U 1323 ]
-[e $ ! != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i 1324  ]
-[e :U 1325 ]
-[; ;My_header\My_header.h: 339: sum += ADRES;
-"339
-[e =+ _sum -> _ADRES `ul ]
-"340
-}
+[; ;My_header\My_header.h: 321: PIR1bits.ADIF = 0;
 "321
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;My_header\My_header.h: 322: ADCON0bits.GO = 1;
+"322
+[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
+[; ;My_header\My_header.h: 323: while (!PIR1bits.ADIF);
+"323
+[e $U 1287  ]
+[e :U 1288 ]
+[e :U 1287 ]
+[e $ ! != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i 1288  ]
+[e :U 1289 ]
+[; ;My_header\My_header.h: 324: sum += ADRES;
+"324
+[e =+ _sum -> _ADRES `ul ]
+"325
+}
+"306
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 10 `i 1320  ]
-[e :U 1321 ]
-"340
+[e $ < -> _i `i -> 10 `i 1284  ]
+[e :U 1285 ]
+"325
 }
-[; ;My_header\My_header.h: 340: }
-[; ;My_header\My_header.h: 341: return sum / 10;
-"341
-[e ) -> / _sum -> -> -> 10 `i `l `ul `ui ]
-[e $UE 1319  ]
-[; ;My_header\My_header.h: 342: }
-"342
-[e :UE 1319 ]
+[; ;My_header\My_header.h: 325: }
+[; ;My_header\My_header.h: 326: return sum / 10 / 4;
+"326
+[e ) -> / / _sum -> -> -> 10 `i `l `ul -> -> -> 4 `i `l `ul `ui ]
+[e $UE 1283  ]
+[; ;My_header\My_header.h: 327: }
+"327
+[e :UE 1283 ]
 }
-"348
+"333
 [v _Delay_ms `(v ~T0 @X0 1 ef1`ui ]
 {
-[; ;My_header\My_header.h: 348: void Delay_ms(uint16_t ms) {
+[; ;My_header\My_header.h: 333: void Delay_ms(uint16_t ms) {
 [e :U _Delay_ms ]
 [v _ms `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_header\My_header.h: 349: while (ms--)_delay((unsigned long)((1)*(48000000/4000.0)));
-"349
-[e $U 1327  ]
-[e :U 1328 ]
+[; ;My_header\My_header.h: 334: while (ms--)_delay((unsigned long)((1)*(48000000/4000.0)));
+"334
+[e $U 1291  ]
+[e :U 1292 ]
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
-[e :U 1327 ]
-[e $ != -- _ms -> -> 1 `i `ui -> -> 0 `i `ui 1328  ]
-[e :U 1329 ]
-[; ;My_header\My_header.h: 350: }
-"350
-[e :UE 1326 ]
+[e :U 1291 ]
+[e $ != -- _ms -> -> 1 `i `ui -> -> 0 `i `ui 1292  ]
+[e :U 1293 ]
+[; ;My_header\My_header.h: 335: }
+"335
+[e :UE 1290 ]
 }
-[; ;My_header\My_header.h: 352: typedef struct Delay {
-[; ;My_header\My_header.h: 353: uint8_t flag;
-[; ;My_header\My_header.h: 354: uint16_t cnt;
-[; ;My_header\My_header.h: 355: } delay_t;
-"357
-[v _d1 `S1330 ~T0 @X0 1 e ]
-[; ;My_header\My_header.h: 357: delay_t d1;
-"359
-[v _delay_timer_interrupt `(v ~T0 @X0 1 ef1`*S1330 ]
+[; ;My_header\My_header.h: 337: typedef struct Delay {
+[; ;My_header\My_header.h: 338: uint8_t flag;
+[; ;My_header\My_header.h: 339: uint16_t cnt;
+[; ;My_header\My_header.h: 340: } delay_t;
+"342
+[v _d1 `S1294 ~T0 @X0 1 e ]
+[; ;My_header\My_header.h: 342: delay_t d1;
+"344
+[v _delay_timer_interrupt `(v ~T0 @X0 1 ef1`*S1294 ]
 {
-[; ;My_header\My_header.h: 359: void delay_timer_interrupt(delay_t *d) {
+[; ;My_header\My_header.h: 344: void delay_timer_interrupt(delay_t *d) {
 [e :U _delay_timer_interrupt ]
-[v _d `*S1330 ~T0 @X0 1 r1 ]
+[v _d `*S1294 ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_header\My_header.h: 360: if (d->cnt)d->cnt--;
-"360
-[e $ ! != . *U _d 1 -> -> 0 `i `ui 1332  ]
-[e -- . *U _d 1 -> -> 1 `i `ui ]
-[e :U 1332 ]
-[; ;My_header\My_header.h: 361: if (d->cnt == 1)d->flag = 1;
-"361
-[e $ ! == . *U _d 1 -> -> 1 `i `ui 1333  ]
+[; ;My_header\My_header.h: 345: if (d->cnt == 1)d->flag = 1;
+"345
+[e $ ! == . *U _d 1 -> -> 1 `i `ui 1296  ]
 [e = . *U _d 0 -> -> 1 `i `uc ]
-[e :U 1333 ]
-[; ;My_header\My_header.h: 362: }
-"362
-[e :UE 1331 ]
+[e :U 1296 ]
+[; ;My_header\My_header.h: 346: if (d->cnt)d->cnt--;
+"346
+[e $ ! != . *U _d 1 -> -> 0 `i `ui 1297  ]
+[e -- . *U _d 1 -> -> 1 `i `ui ]
+[e :U 1297 ]
+[; ;My_header\My_header.h: 347: }
+"347
+[e :UE 1295 ]
 }
-"364
-[v _delay_set `(v ~T0 @X0 1 ef2`*S1330`ui ]
+"349
+[v _delay_set `(v ~T0 @X0 1 ef2`*S1294`ui ]
 {
-[; ;My_header\My_header.h: 364: void delay_set(delay_t *d, uint16_t value) {
+[; ;My_header\My_header.h: 349: void delay_set(delay_t *d, uint16_t value) {
 [e :U _delay_set ]
-[v _d `*S1330 ~T0 @X0 1 r1 ]
+[v _d `*S1294 ~T0 @X0 1 r1 ]
 [v _value `ui ~T0 @X0 1 r2 ]
 [f ]
-[; ;My_header\My_header.h: 365: d->cnt = value;
-"365
+[; ;My_header\My_header.h: 350: d->cnt = value;
+"350
 [e = . *U _d 1 _value ]
-[; ;My_header\My_header.h: 366: d->flag = 0;
-"366
+[; ;My_header\My_header.h: 351: d->flag = 0;
+"351
 [e = . *U _d 0 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 367: }
+[; ;My_header\My_header.h: 352: }
+"352
+[e :UE 1298 ]
+}
+"355
+[v _ms `ul ~T0 @X0 1 e ]
+[; ;My_header\My_header.h: 355: uint32_t ms;
+"357
+[v _millis_timer `(v ~T0 @X0 1 ef ]
+{
+[; ;My_header\My_header.h: 357: void millis_timer() {
+[e :U _millis_timer ]
+[f ]
+"358
+[v F8612 `ui ~T0 @X0 1 s cnt ]
+[; ;My_header\My_header.h: 358: static uint16_t cnt;
+[; ;My_header\My_header.h: 359: if (cnt) {
+"359
+[e $ ! != F8612 -> -> 0 `i `ui 1300  ]
+{
+[; ;My_header\My_header.h: 360: cnt;
+"360
+[e F8612 ]
+"361
+}
+[; ;My_header\My_header.h: 361: } else {
+[e $U 1301  ]
+[e :U 1300 ]
+{
+[; ;My_header\My_header.h: 362: cnt = 47;
+"362
+[e = F8612 -> -> 47 `i `ui ]
+[; ;My_header\My_header.h: 363: ms++;
+"363
+[e ++ _ms -> -> -> 1 `i `l `ul ]
+"364
+}
+[e :U 1301 ]
+[; ;My_header\My_header.h: 364: }
+[; ;My_header\My_header.h: 365: }
+"365
+[e :UE 1299 ]
+}
 "367
-[e :UE 1334 ]
-}
-"371
-[v _utoa `(v ~T0 @X0 1 ef3`*uc`ui`uc ]
+[v _millis `(ul ~T0 @X0 1 ef ]
 {
-[; ;My_header\My_header.h: 371: void utoa(uint8_t *str, uint16_t value, uint8_t digits) {
-[e :U _utoa ]
-[v _str `*uc ~T0 @X0 1 r1 ]
-[v _value `ui ~T0 @X0 1 r2 ]
-[v _digits `uc ~T0 @X0 1 r3 ]
+[; ;My_header\My_header.h: 367: uint32_t millis(void) {
+[e :U _millis ]
 [f ]
-"372
-[v _v `ui ~T0 @X0 1 a ]
-"373
-[v _d `uc ~T0 @X0 1 a ]
-[; ;My_header\My_header.h: 372: uint16_t v;
-[; ;My_header\My_header.h: 373: uint8_t d;
-[; ;My_header\My_header.h: 374: while (digits--) {
-"374
-[e $U 1336  ]
-[e :U 1337 ]
-{
-[; ;My_header\My_header.h: 375: v = value;
-"375
-[e = _v _value ]
-[; ;My_header\My_header.h: 376: d = digits;
-"376
-[e = _d _digits ]
-[; ;My_header\My_header.h: 377: while (d--) {
-"377
-[e $U 1339  ]
-[e :U 1340 ]
-{
-[; ;My_header\My_header.h: 378: v /= 10;
-"378
-[e =/ _v -> -> 10 `uc `ui ]
-"379
-}
-[e :U 1339 ]
-"377
-[e $ != -> -- _d -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1340  ]
-[e :U 1341 ]
-[; ;My_header\My_header.h: 379: }
-[; ;My_header\My_header.h: 380: v %= 10;
-"380
-[e =% _v -> -> 10 `uc `ui ]
-[; ;My_header\My_header.h: 381: *str++ = '0' + v;
-"381
-[e = *U ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x -> + -> 48 `ui _v `uc ]
-"382
-}
-[e :U 1336 ]
-"374
-[e $ != -> -- _digits -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1337  ]
-[e :U 1338 ]
-[; ;My_header\My_header.h: 382: }
-[; ;My_header\My_header.h: 383: *str = '\0';
-"383
-[e = *U _str -> -> 0 `ui `uc ]
-[; ;My_header\My_header.h: 384: }
-"384
-[e :UE 1335 ]
-}
-"386
-[v _atoi `(uc ~T0 @X0 1 ef1`*Cuc ]
-{
-[; ;My_header\My_header.h: 386: uint8_t atoi(const uint8_t *str) {
-[e :U _atoi ]
-[v _str `*Cuc ~T0 @X0 1 r1 ]
-[f ]
-"387
-[v _ret `uc ~T0 @X0 1 a ]
-[; ;My_header\My_header.h: 387: uint8_t ret = 0;
-[e = _ret -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 388: while (*str) {
-"388
-[e $U 1343  ]
-[e :U 1344 ]
-{
-[; ;My_header\My_header.h: 389: if (*str >= '0' && *str <= '9') {
-"389
-[e $ ! && >= -> *U _str `ui -> 48 `ui <= -> *U _str `ui -> 57 `ui 1346  ]
-{
-[; ;My_header\My_header.h: 390: ret *= 10;
-"390
-[e =* _ret -> -> 10 `i `uc ]
-[; ;My_header\My_header.h: 391: ret += *str - '0';
-"391
-[e =+ _ret -> - -> *U _str `ui -> 48 `ui `uc ]
-"392
-}
-[e :U 1346 ]
-[; ;My_header\My_header.h: 392: }
-[; ;My_header\My_header.h: 393: str++;
-"393
-[e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
-"394
-}
-[e :U 1343 ]
-"388
-[e $ != -> *U _str `i -> -> -> 0 `i `Cuc `i 1344  ]
-[e :U 1345 ]
-[; ;My_header\My_header.h: 394: }
-[; ;My_header\My_header.h: 395: return ret;
-"395
-[e ) _ret ]
-[e $UE 1342  ]
-[; ;My_header\My_header.h: 396: }
-"396
-[e :UE 1342 ]
-}
-"398
-[v _strcmp `(c ~T0 @X0 1 ef2`*Cuc`*Cuc ]
-{
-[; ;My_header\My_header.h: 398: int8_t strcmp(const uint8_t *str1, const uint8_t *str2) {
-[e :U _strcmp ]
-[v _str1 `*Cuc ~T0 @X0 1 r1 ]
-[v _str2 `*Cuc ~T0 @X0 1 r2 ]
-[f ]
-[; ;My_header\My_header.h: 399: while (*str1 && *str2) {
-"399
-[e $U 1348  ]
-[e :U 1349 ]
-{
-[; ;My_header\My_header.h: 400: if (*str1 != *str2)return (*str1 - *str2);
-"400
-[e $ ! != -> *U _str1 `i -> *U _str2 `i 1351  ]
-[e ) -> - -> *U _str1 `i -> *U _str2 `i `c ]
-[e $UE 1347  ]
-[e :U 1351 ]
-[; ;My_header\My_header.h: 401: str1++;
-"401
-[e ++ _str1 * -> -> 1 `i `x -> -> # *U _str1 `i `x ]
-[; ;My_header\My_header.h: 402: str2++;
-"402
-[e ++ _str2 * -> -> 1 `i `x -> -> # *U _str2 `i `x ]
-"403
-}
-[e :U 1348 ]
-"399
-[e $ && != -> *U _str1 `i -> -> -> 0 `i `Cuc `i != -> *U _str2 `i -> -> -> 0 `i `Cuc `i 1349  ]
-[e :U 1350 ]
-[; ;My_header\My_header.h: 403: }
-[; ;My_header\My_header.h: 404: return (*str1 - *str2);
-"404
-[e ) -> - -> *U _str1 `i -> *U _str2 `i `c ]
-[e $UE 1347  ]
-[; ;My_header\My_header.h: 405: }
-"405
-[e :UE 1347 ]
+[; ;My_header\My_header.h: 368: return ms;
+"368
+[e ) _ms ]
+[e $UE 1302  ]
+[; ;My_header\My_header.h: 369: }
+"369
+[e :UE 1302 ]
 }
 "31 PIC18F27J53-encoder01.c
 [v _encoder `i ~T0 @X0 1 e ]
@@ -10545,268 +9630,253 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `i
 ]
 [; ;PIC18F27J53-encoder01.c: 31: int16_t encoder = 0;
-[v F9792 `(v ~T0 @X0 1 tf ]
+[v F8618 `(v ~T0 @X0 1 tf ]
 "33
-[v _ISR `IF9792 ~T0 @X0 1 e ]
+[v _ISR `IF8618 ~T0 @X0 1 e ]
 {
 [; ;PIC18F27J53-encoder01.c: 33: void interrupt ISR(void) {
 [e :U _ISR ]
 [f ]
-[; ;PIC18F27J53-encoder01.c: 34: interrupt_TXIF();
+[; ;PIC18F27J53-encoder01.c: 34: UART_ISR();
 "34
-[e ( _interrupt_TXIF ..  ]
-[; ;PIC18F27J53-encoder01.c: 35: if (PIR1bits.RC1IF) {
+[e ( _UART_ISR ..  ]
+[; ;PIC18F27J53-encoder01.c: 35: if(INTCONbits.TMR0IF) {
 "35
-[e $ ! != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i 1353  ]
+[e $ ! != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 1304  ]
 {
+[; ;PIC18F27J53-encoder01.c: 36: INTCONbits.TMR0IF = 0;
 "36
-[v _ascii `uc ~T0 @X0 1 a ]
-[; ;PIC18F27J53-encoder01.c: 36: char ascii = RCREG1;
-[e = _ascii _RCREG1 ]
-[; ;PIC18F27J53-encoder01.c: 37: tx_send(ascii);
-"37
-[e ( _tx_send (1 _ascii ]
-"38
-}
-[e :U 1353 ]
-[; ;PIC18F27J53-encoder01.c: 38: }
-[; ;PIC18F27J53-encoder01.c: 39: if(INTCONbits.TMR0IF) {
-"39
-[e $ ! != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 1354  ]
-{
-[; ;PIC18F27J53-encoder01.c: 40: INTCONbits.TMR0IF = 0;
-"40
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"41
-[v F9794 `uc ~T0 @X0 1 s prev_A ]
-"42
-[v F9795 `uc ~T0 @X0 1 s prev_B ]
-[; ;PIC18F27J53-encoder01.c: 41: static uint8_t prev_A;
-[; ;PIC18F27J53-encoder01.c: 42: static uint8_t prev_B;
-[; ;PIC18F27J53-encoder01.c: 43: LATB7 = !LATB7;
-"43
+"37
+[v F8619 `uc ~T0 @X0 1 s prev_A ]
+"38
+[v F8620 `uc ~T0 @X0 1 s prev_B ]
+[; ;PIC18F27J53-encoder01.c: 37: static uint8_t prev_A;
+[; ;PIC18F27J53-encoder01.c: 38: static uint8_t prev_B;
+[; ;PIC18F27J53-encoder01.c: 39: LATB7 = !LATB7;
+"39
 [e = _LATB7 ! _LATB7 ]
-[; ;PIC18F27J53-encoder01.c: 44: if (PORTBbits.RB0 != prev_A) {
+[; ;PIC18F27J53-encoder01.c: 40: if (PORTBbits.RB0 != prev_A) {
+"40
+[e $ ! != -> . . _PORTBbits 0 0 `i -> F8619 `i 1305  ]
+{
+[; ;PIC18F27J53-encoder01.c: 41: prev_A = PORTBbits.RB0;
+"41
+[e = F8619 . . _PORTBbits 0 0 ]
+[; ;PIC18F27J53-encoder01.c: 42: if (PORTBbits.RB0) {
+"42
+[e $ ! != -> . . _PORTBbits 0 0 `i -> -> -> 0 `i `Vuc `i 1306  ]
+{
+[; ;PIC18F27J53-encoder01.c: 43: if (PORTBbits.RB1) {
+"43
+[e $ ! != -> . . _PORTBbits 0 1 `i -> -> -> 0 `i `Vuc `i 1307  ]
+{
+[; ;PIC18F27J53-encoder01.c: 44: encoder--;
 "44
-[e $ ! != -> . . _PORTBbits 0 0 `i -> F9794 `i 1355  ]
-{
-[; ;PIC18F27J53-encoder01.c: 45: prev_A = PORTBbits.RB0;
-"45
-[e = F9794 . . _PORTBbits 0 0 ]
-[; ;PIC18F27J53-encoder01.c: 46: if (PORTBbits.RB0) {
-"46
-[e $ ! != -> . . _PORTBbits 0 0 `i -> -> -> 0 `i `Vuc `i 1356  ]
-{
-[; ;PIC18F27J53-encoder01.c: 47: if (PORTBbits.RB1) {
-"47
-[e $ ! != -> . . _PORTBbits 0 1 `i -> -> -> 0 `i `Vuc `i 1357  ]
-{
-[; ;PIC18F27J53-encoder01.c: 48: encoder--;
-"48
 [e -- _encoder -> 1 `i ]
-"49
+"45
 }
-[; ;PIC18F27J53-encoder01.c: 49: } else {
-[e $U 1358  ]
-[e :U 1357 ]
+[; ;PIC18F27J53-encoder01.c: 45: } else {
+[e $U 1308  ]
+[e :U 1307 ]
 {
-[; ;PIC18F27J53-encoder01.c: 50: encoder++;
-"50
+[; ;PIC18F27J53-encoder01.c: 46: encoder++;
+"46
 [e ++ _encoder -> 1 `i ]
+"47
+}
+[e :U 1308 ]
+"48
+}
+[; ;PIC18F27J53-encoder01.c: 47: }
+[; ;PIC18F27J53-encoder01.c: 48: } else {
+[e $U 1309  ]
+[e :U 1306 ]
+{
+[; ;PIC18F27J53-encoder01.c: 49: if (PORTBbits.RB1) {
+"49
+[e $ ! != -> . . _PORTBbits 0 1 `i -> -> -> 0 `i `Vuc `i 1310  ]
+{
 "51
 }
-[e :U 1358 ]
-"52
-}
-[; ;PIC18F27J53-encoder01.c: 51: }
-[; ;PIC18F27J53-encoder01.c: 52: } else {
-[e $U 1359  ]
-[e :U 1356 ]
+[; ;PIC18F27J53-encoder01.c: 51: } else {
+[e $U 1311  ]
+[e :U 1310 ]
 {
-[; ;PIC18F27J53-encoder01.c: 53: if (PORTBbits.RB1) {
 "53
-[e $ ! != -> . . _PORTBbits 0 1 `i -> -> -> 0 `i `Vuc `i 1360  ]
-{
+}
+[e :U 1311 ]
+"54
+}
+[e :U 1309 ]
 "55
 }
-[; ;PIC18F27J53-encoder01.c: 55: } else {
-[e $U 1361  ]
-[e :U 1360 ]
+[e :U 1305 ]
+[; ;PIC18F27J53-encoder01.c: 53: }
+[; ;PIC18F27J53-encoder01.c: 54: }
+[; ;PIC18F27J53-encoder01.c: 55: }
+[; ;PIC18F27J53-encoder01.c: 56: if (PORTBbits.RB1 != prev_B) {
+"56
+[e $ ! != -> . . _PORTBbits 0 1 `i -> F8620 `i 1312  ]
 {
+[; ;PIC18F27J53-encoder01.c: 57: prev_B = PORTBbits.RB1;
 "57
-}
-[e :U 1361 ]
+[e = F8620 . . _PORTBbits 0 1 ]
+[; ;PIC18F27J53-encoder01.c: 58: if (PORTBbits.RB1) {
 "58
-}
-[e :U 1359 ]
+[e $ ! != -> . . _PORTBbits 0 1 `i -> -> -> 0 `i `Vuc `i 1313  ]
+{
+[; ;PIC18F27J53-encoder01.c: 59: if (PORTBbits.RB0) {
 "59
-}
-[e :U 1355 ]
-[; ;PIC18F27J53-encoder01.c: 57: }
-[; ;PIC18F27J53-encoder01.c: 58: }
-[; ;PIC18F27J53-encoder01.c: 59: }
-[; ;PIC18F27J53-encoder01.c: 60: if (PORTBbits.RB1 != prev_B) {
-"60
-[e $ ! != -> . . _PORTBbits 0 1 `i -> F9795 `i 1362  ]
+[e $ ! != -> . . _PORTBbits 0 0 `i -> -> -> 0 `i `Vuc `i 1314  ]
 {
-[; ;PIC18F27J53-encoder01.c: 61: prev_B = PORTBbits.RB1;
 "61
-[e = F9795 . . _PORTBbits 0 1 ]
-[; ;PIC18F27J53-encoder01.c: 62: if (PORTBbits.RB1) {
-"62
-[e $ ! != -> . . _PORTBbits 0 1 `i -> -> -> 0 `i `Vuc `i 1363  ]
-{
-[; ;PIC18F27J53-encoder01.c: 63: if (PORTBbits.RB0) {
-"63
-[e $ ! != -> . . _PORTBbits 0 0 `i -> -> -> 0 `i `Vuc `i 1364  ]
-{
-"65
 }
-[; ;PIC18F27J53-encoder01.c: 65: } else {
-[e $U 1365  ]
-[e :U 1364 ]
+[; ;PIC18F27J53-encoder01.c: 61: } else {
+[e $U 1315  ]
+[e :U 1314 ]
+{
+"63
+}
+[e :U 1315 ]
+"64
+}
+[; ;PIC18F27J53-encoder01.c: 63: }
+[; ;PIC18F27J53-encoder01.c: 64: } else {
+[e $U 1316  ]
+[e :U 1313 ]
+{
+[; ;PIC18F27J53-encoder01.c: 65: if (PORTBbits.RB0) {
+"65
+[e $ ! != -> . . _PORTBbits 0 0 `i -> -> -> 0 `i `Vuc `i 1317  ]
 {
 "67
 }
-[e :U 1365 ]
-"68
-}
-[; ;PIC18F27J53-encoder01.c: 67: }
-[; ;PIC18F27J53-encoder01.c: 68: } else {
-[e $U 1366  ]
-[e :U 1363 ]
+[; ;PIC18F27J53-encoder01.c: 67: } else {
+[e $U 1318  ]
+[e :U 1317 ]
 {
-[; ;PIC18F27J53-encoder01.c: 69: if (PORTBbits.RB0) {
 "69
-[e $ ! != -> . . _PORTBbits 0 0 `i -> -> -> 0 `i `Vuc `i 1367  ]
-{
+}
+[e :U 1318 ]
+"70
+}
+[e :U 1316 ]
 "71
 }
-[; ;PIC18F27J53-encoder01.c: 71: } else {
-[e $U 1368  ]
-[e :U 1367 ]
-{
-"73
+[e :U 1312 ]
+"72
 }
-[e :U 1368 ]
-"74
-}
-[e :U 1366 ]
-"75
-}
-[e :U 1362 ]
-"76
-}
-[e :U 1354 ]
+[e :U 1304 ]
+[; ;PIC18F27J53-encoder01.c: 69: }
+[; ;PIC18F27J53-encoder01.c: 70: }
+[; ;PIC18F27J53-encoder01.c: 71: }
+[; ;PIC18F27J53-encoder01.c: 72: }
 [; ;PIC18F27J53-encoder01.c: 73: }
-[; ;PIC18F27J53-encoder01.c: 74: }
-[; ;PIC18F27J53-encoder01.c: 75: }
-[; ;PIC18F27J53-encoder01.c: 76: }
-[; ;PIC18F27J53-encoder01.c: 77: }
-"77
-[e :UE 1352 ]
+"73
+[e :UE 1303 ]
 }
-"79
+"75
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;PIC18F27J53-encoder01.c: 79: int main(void) {
+[; ;PIC18F27J53-encoder01.c: 75: int main(void) {
 [e :U _main ]
 [f ]
-[; ;PIC18F27J53-encoder01.c: 80: OSC_init();
-"80
+[; ;PIC18F27J53-encoder01.c: 76: OSC_init();
+"76
 [e ( _OSC_init ..  ]
-[; ;PIC18F27J53-encoder01.c: 81: TRISA = 0b00000000;
-"81
+[; ;PIC18F27J53-encoder01.c: 77: TRISA = 0b00000000;
+"77
 [e = _TRISA -> -> 0 `i `uc ]
-[; ;PIC18F27J53-encoder01.c: 82: TRISB = 0b00000011;
-"82
+[; ;PIC18F27J53-encoder01.c: 78: TRISB = 0b00000011;
+"78
 [e = _TRISB -> -> 3 `i `uc ]
-[; ;PIC18F27J53-encoder01.c: 83: TRISC = 0b10000000;
-"83
+[; ;PIC18F27J53-encoder01.c: 79: TRISC = 0b10000000;
+"79
 [e = _TRISC -> -> 128 `i `uc ]
-[; ;PIC18F27J53-encoder01.c: 84: ANCON0 = 0b11111111;
-"84
+[; ;PIC18F27J53-encoder01.c: 80: ANCON0 = 0b11111111;
+"80
 [e = _ANCON0 -> -> 255 `i `uc ]
-[; ;PIC18F27J53-encoder01.c: 85: ANCON1 = 0b00011111;
-"85
+[; ;PIC18F27J53-encoder01.c: 81: ANCON1 = 0b00011111;
+"81
 [e = _ANCON1 -> -> 31 `i `uc ]
-[; ;PIC18F27J53-encoder01.c: 86: INTCON2bits.RBPU = 0;
-"86
+[; ;PIC18F27J53-encoder01.c: 82: INTCON2bits.RBPU = 0;
+"82
 [e = . . _INTCON2bits 2 4 -> -> 0 `i `uc ]
-[; ;PIC18F27J53-encoder01.c: 88: timer0_init(3);
-"88
+[; ;PIC18F27J53-encoder01.c: 84: timer0_init(3);
+"84
 [e ( _timer0_init (1 -> -> 3 `i `uc ]
-[; ;PIC18F27J53-encoder01.c: 90: UART_init();
-"90
+[; ;PIC18F27J53-encoder01.c: 86: UART_init();
+"86
 [e ( _UART_init ..  ]
-"91
+"87
 [v _txbuf `uc ~T0 @X0 -> 100 `i a ]
-[; ;PIC18F27J53-encoder01.c: 91: uint8_t txbuf[100];
-[; ;PIC18F27J53-encoder01.c: 92: ringbuf_init(&tx_buf, txbuf, sizeof (txbuf));
-"92
-[e ( _ringbuf_init (3 , , &U _tx_buf &U _txbuf -> -> # _txbuf `ui `uc ]
-[; ;PIC18F27J53-encoder01.c: 94: INTCONbits.GIE = 1;
-"94
+[; ;PIC18F27J53-encoder01.c: 87: uint8_t txbuf[100];
+[; ;PIC18F27J53-encoder01.c: 88: ringbuf_init(&tx_buf, txbuf, sizeof (txbuf));
+"88
+[e ( _ringbuf_init (3 , , &U _tx_buf &U _txbuf -> # _txbuf `ui ]
+[; ;PIC18F27J53-encoder01.c: 90: INTCONbits.GIE = 1;
+"90
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;PIC18F27J53-encoder01.c: 96: while (1) {
+[; ;PIC18F27J53-encoder01.c: 92: while (1) {
+"92
+[e :U 1321 ]
+{
+"93
+[v F8624 `i ~T0 @X0 1 s prev_e ]
+[; ;PIC18F27J53-encoder01.c: 93: static int16_t prev_e;
+[; ;PIC18F27J53-encoder01.c: 94: if (encoder != prev_e) {
+"94
+[e $ ! != _encoder F8624 1323  ]
+{
+[; ;PIC18F27J53-encoder01.c: 95: prev_e = encoder;
+"95
+[e = F8624 _encoder ]
+[; ;PIC18F27J53-encoder01.c: 96: if (encoder < 0) {
 "96
-[e :U 1371 ]
+[e $ ! < _encoder -> 0 `i 1324  ]
 {
+[; ;PIC18F27J53-encoder01.c: 97: tx_send('-');
 "97
-[v F9799 `i ~T0 @X0 1 s prev_e ]
-[; ;PIC18F27J53-encoder01.c: 97: static int16_t prev_e;
-[; ;PIC18F27J53-encoder01.c: 98: if (encoder != prev_e) {
-"98
-[e $ ! != _encoder F9799 1373  ]
-{
-[; ;PIC18F27J53-encoder01.c: 99: prev_e = encoder;
-"99
-[e = F9799 _encoder ]
-[; ;PIC18F27J53-encoder01.c: 100: if (encoder < 0) {
-"100
-[e $ ! < _encoder -> 0 `i 1374  ]
-{
-[; ;PIC18F27J53-encoder01.c: 101: tx_send('-');
-"101
 [e ( _tx_send (1 -> -> 45 `ui `uc ]
-[; ;PIC18F27J53-encoder01.c: 102: tx_sendn(-encoder, 5);
-"102
+[; ;PIC18F27J53-encoder01.c: 98: tx_sendn(-encoder, 5);
+"98
 [e ( _tx_sendn (2 , -> -U _encoder `ui -> -> 5 `i `uc ]
-[; ;PIC18F27J53-encoder01.c: 103: tx_send('\n');
-"103
+[; ;PIC18F27J53-encoder01.c: 99: tx_send('\n');
+"99
 [e ( _tx_send (1 -> -> 10 `ui `uc ]
+"100
+}
+[; ;PIC18F27J53-encoder01.c: 100: } else {
+[e $U 1325  ]
+[e :U 1324 ]
+{
+[; ;PIC18F27J53-encoder01.c: 101: tx_sendn(encoder, 5);
+"101
+[e ( _tx_sendn (2 , -> _encoder `ui -> -> 5 `i `uc ]
+[; ;PIC18F27J53-encoder01.c: 102: tx_send('\n');
+"102
+[e ( _tx_send (1 -> -> 10 `ui `uc ]
+"103
+}
+[e :U 1325 ]
 "104
 }
-[; ;PIC18F27J53-encoder01.c: 104: } else {
-[e $U 1375  ]
-[e :U 1374 ]
-{
-[; ;PIC18F27J53-encoder01.c: 105: tx_sendn(encoder, 5);
+[e :U 1323 ]
 "105
-[e ( _tx_sendn (2 , -> _encoder `ui -> -> 5 `i `uc ]
-[; ;PIC18F27J53-encoder01.c: 106: tx_send('\n');
+}
+[e :U 1320 ]
+"92
+[e $U 1321  ]
+[e :U 1322 ]
+[; ;PIC18F27J53-encoder01.c: 103: }
+[; ;PIC18F27J53-encoder01.c: 104: }
+[; ;PIC18F27J53-encoder01.c: 105: }
+[; ;PIC18F27J53-encoder01.c: 106: return 0;
 "106
-[e ( _tx_send (1 -> -> 10 `ui `uc ]
-"107
-}
-[e :U 1375 ]
-"108
-}
-[e :U 1373 ]
-"109
-}
-[e :U 1370 ]
-"96
-[e $U 1371  ]
-[e :U 1372 ]
-[; ;PIC18F27J53-encoder01.c: 107: }
-[; ;PIC18F27J53-encoder01.c: 108: }
-[; ;PIC18F27J53-encoder01.c: 109: }
-[; ;PIC18F27J53-encoder01.c: 110: return 0;
-"110
 [e ) -> 0 `i ]
-[e $UE 1369  ]
-[; ;PIC18F27J53-encoder01.c: 111: }
-"111
-[e :UE 1369 ]
+[e $UE 1319  ]
+[; ;PIC18F27J53-encoder01.c: 107: }
+"107
+[e :UE 1319 ]
 }

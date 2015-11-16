@@ -8427,9 +8427,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_UART.c: 43: void UART_task(void) {
 [e :U _UART_task ]
 [f ]
-[; ;My_UART.c: 44: if (!PIE1bits.TXIE && ringbuf_num(&uart_tx)) {
+[; ;My_UART.c: 44: if (ringbuf_num(&uart_tx)) {
 "44
-[e $ ! && ! != -> . . _PIE1bits 1 2 `i -> -> -> 0 `i `Vuc `i != ( _ringbuf_num (1 &U _uart_tx -> -> 0 `i `ui 1226  ]
+[e $ ! != ( _ringbuf_num (1 &U _uart_tx -> -> 0 `i `ui 1226  ]
 {
 [; ;My_UART.c: 45: PIE1bits.TXIE = 1;
 "45

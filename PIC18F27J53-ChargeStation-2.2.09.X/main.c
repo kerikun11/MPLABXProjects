@@ -36,7 +36,6 @@
 #include <xc.h>
 #include <stdint.h>
 #include <My_PIC.h>
-#include <My_I2C.h>
 #include <My_ST7032.h>
 #include <My_RTCC.h>
 #include <My_usb_cdc.h>
@@ -94,14 +93,13 @@ void hardware_init(void) {
     timer0_init(0); // Millis
     timer1_init(0, T1OSC); // Integrate
     timer3_init(2); // button,LED_indicator
-    I2C_init();
     I2C_LCD_init();
     RTCC_init();
     ADC_init(VDD);
     CTMU_init();
 
     USB_init();
-    static uint8_t usbtx[2000];
+    static uint8_t usbtx[1800];
     ringbuf_init(&usb_tx, usbtx, sizeof (usbtx));
     static uint8_t usbrx[100];
     ringbuf_init(&usb_rx, usbrx, sizeof (usbrx));

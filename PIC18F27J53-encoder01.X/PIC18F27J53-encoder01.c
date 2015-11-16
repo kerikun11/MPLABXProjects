@@ -31,11 +31,7 @@
 int16_t encoder = 0;
 
 void interrupt ISR(void) {
-    interrupt_TXIF();
-    if (PIR1bits.RC1IF) {
-        char ascii = RCREG1;
-        tx_send(ascii);
-    }
+    UART_ISR();
     if(INTCONbits.TMR0IF) {
         INTCONbits.TMR0IF = 0;
         static uint8_t prev_A;

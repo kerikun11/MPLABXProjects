@@ -10496,7 +10496,7 @@ ringbuf_put(&uart_rx, ascii);
 }
 
 void UART_task(void) {
-if (!PIE1bits.TXIE && ringbuf_num(&uart_tx)) {
+if (ringbuf_num(&uart_tx)) {
 PIE1bits.TXIE = 1;
 }
 }

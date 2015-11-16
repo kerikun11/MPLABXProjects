@@ -1,14 +1,65 @@
 #include "My_I2C.h"
 
-//************************************************************************//
-//*************************** PIC's I2C Module ***************************//
-//************************************************************************//
+uint8_t I2C_sent_flag;
+uint8_t I2C_cfct_flag;
+uint8_t I2C_busy;
+
+uint8_t I2C_idole_check(uint8_t mask) {
+    return ((SSP1CON2 & 0x1F) | (SSP1STAT & mask));
+}
+
+void I2C_start(void) {
+    SSP1CON2bits.SEN = 1;
+}
+
+void I2C_restart(void) {
+    SSP1CON2bits.RSEN = 1;
+}
+
+void I2C_stop(void) {
+    SSP1CON2bits.PEN = 1;
+}
+
+void I2C_send(uint8_t data) {
+    SSPBUF = data;
+}
+
+uint8_t I2C_ack(void) {
+    return SSP1CON2bits.ACKSTAT;
+}
+
+void I2C_init_new(void) {
+    SSP1STAT = 0b10000000;
+    SSP1CON1 = 0b00101000;
+    SSP1ADD = 0x13; // 0x77:100kHz 0x13:400kHz
+    PIE1bits.SSP1IE = 1;
+    IPR1bits.SSP1IP = 0;
+    PIR1bits.SSP1IF = 0;
+    PIE2bits.BCL1IE = 1;
+    IPR2bits.BCL1IP = 0;
+    PIR2bits.BCL1IF = 0;
+    INTCONbits.PEIE = 1;
+}
+
+void I2C_ISR(void) {
+    if (PIE1bits.SSP1IE && PIR1bits.SSP1IF) {
+        PIR1bits.SSP1IF = 0;
+        I2C_sent_flag = 1;
+    }
+    if (PIE2bits.BCL1IE && PIR2bits.BCL1IF) {
+        PIR2bits.BCL1IF = 0;
+        I2C_cfct_flag = 1;
+    }
+}
+
+//*************************** old functions ***************************//
+#if I2C_OLD_FUNCTIONS
 
 void I2C_IdleCheck(char mask) {
     while ((SSP1CON2 & 0x1F) | (SSP1STAT & mask));
 }
 
-void I2C_init(void) {
+void I2C_init_old(void) {
     SSP1STAT = 0b10000000; // 標準速度モードに設定する(100kHz)
     SSP1CON1 = 0b00101000; // SDA/SCLピンはI2Cで使用し、マスターモードとする
     SSP1ADD = 0x13; // クロック=FOSC/((SSPADD + 1)*4) 8MHz/((0x13+1)*4)=0.1(100KHz)
@@ -69,188 +120,4 @@ uint8_t I2C_Receive(uint8_t ack) {
     return data;
 }
 
-/***********************************************************************/
-/*************************** IC's I2C Module ***************************/
-/***********************************************************************/
-
-//*************************** I2C_RTC DS1307 ***************************//
-#ifdef DS1307
-
-void RTC_Write(uint8_t Reg, uint8_t data) {
-    uint8_t ans;
-
-    ans = I2C_Start(DS1307_ADRES, W_0); // スタートコンディションを発行する
-    if (ans == 0) {
-        // command word の送信
-        I2C_Send(Reg); // control byte の送信(コマンドを指定)
-        I2C_Send(data); // data byte の送信
-    }
-    I2C_Stop(); // ストップコンディションを発行する
-    __delay_us(26);
-}
-
-uint8_t RTC_Read(uint8_t Reg) {
-    uint8_t ans;
-    uint8_t data;
-
-    ans = I2C_Start(DS1307_ADRES, W_0); // スタートコンディションを発行する
-    if (ans == 0) {
-        I2C_Send(Reg); // control byte の送信(コマンドを指定)
-    }
-    ans = I2C_rStart(DS1307_ADRES, R_1); // reスタートコンディションを発行する
-    if (ans == 0) {
-        data = I2C_Receive(1);
-    }
-    I2C_Stop(); // ストップコンディションを発行する
-    __delay_us(26);
-    return data;
-}
-#endif /* DS1307 */
-
-//*************************** I2C_ThermoMeter TM ***************************//
-#ifdef MCP9803
-
-void TM_init(uint8_t config) {
-    uint8_t ans;
-    ans = I2C_Start(MCP9803_ADRES, W_0); // スタートコンディションを発行する
-    if (ans == 0) {
-        I2C_Send(0x01); // control byte の送信(コマンドを指定)
-        I2C_Send(config);
-    }
-    I2C_Stop(); // ストップコンディションを発行する
-    __delay_us(26);
-}
-
-uint16_t TM_Read() {
-    uint8_t dataH;
-    uint8_t dataL;
-    uint8_t ans;
-    ans = I2C_Start(MCP9803_ADRES, W_0); // スタートコンディションを発行する
-    if (ans == 0) {
-        I2C_Send(0x00); // control byte の送信(コマンドを指定)
-    }
-    ans = I2C_rStart(MCP9803_ADRES, R_1); // スタートコンディションを発行する
-    if (ans == 0) {
-        dataH = I2C_Receive(0); // control byte の送信(コマンドを指定)
-        dataL = I2C_Receive(1); // control byte の送信(コマンドを指定)
-    }
-    I2C_Stop(); // ストップコンディションを発行する
-    __delay_us(26);
-    /*
-    if (ans)tx_sends("Failed\n");
-    else tx_sends("Successful\n");
-     */
-    return ((0xFF00 & (dataH << 8)) + (0xFF & dataL));
-}
-#endif /* MCP9803 */
-
-//*************************** I2C_EEPROM ***************************//
-#ifdef EEPROM24LC64
-
-void EEP_write(uint8_t Reg_h, uint8_t Reg_l, uint8_t data) {
-    uint8_t ans;
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // スタートコンディションを発行する
-    if (ans == 0) {
-        // command word の送信
-        I2C_Send(Reg_h); // control byte の送信(コマンドを指定)
-        I2C_Send(Reg_l); // control byte の送信(コマンドを指定)
-        I2C_Send(data); // data byte の送信
-    }
-    I2C_Stop(); // ストップコンディションを発行する
-    __delay_us(26);
-}
-
-uint8_t EEP_read(uint8_t Reg_h, uint8_t Reg_l) {
-    uint8_t ans;
-    uint8_t data;
-
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // スタートコンディションを発行する
-    if (ans == 0) {
-        I2C_Send(Reg_h); // control byte の送信(コマンドを指定)
-        I2C_Send(Reg_l); // control byte の送信(コマンドを指定)
-    }
-    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reスタートコンディションを発行する
-    if (ans == 0) {
-        data = I2C_Receive(1);
-    }
-    I2C_Stop(); // ストップコンディションを発行する
-    __delay_us(26);
-    return data;
-}
-
-uint16_t EEP_read16(uint8_t Reg_h, uint8_t Reg_l) {
-    uint8_t ans;
-    uint8_t d[4];
-    uint16_t data;
-
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // スタートコンディションを発行する
-    if (ans == 0) {
-        I2C_Send(Reg_h); // control byte の送信(コマンドを指定)
-        I2C_Send(Reg_l); // control byte の送信(コマンドを指定)
-    }
-    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reスタートコンディションを発行する
-    if (ans == 0) {
-        d[3] = I2C_Receive(0);
-        d[2] = I2C_Receive(0);
-        d[1] = I2C_Receive(0);
-        d[0] = I2C_Receive(1);
-    }
-    I2C_Stop(); // ストップコンディションを発行する
-    __delay_us(26);
-    data = (uint16_t) ((d[1] << 8) + d[0]);
-    return data;
-}
-
-uint32_t EEP_read32(uint8_t Reg_h, uint8_t Reg_l) {
-    uint8_t ans;
-    uint8_t d[4];
-    uint32_t data;
-
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // スタートコンディションを発行する
-    if (ans == 0) {
-        I2C_Send(Reg_h); // control byte の送信(コマンドを指定)
-        I2C_Send(Reg_l); // control byte の送信(コマンドを指定)
-    }
-    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reスタートコンディションを発行する
-    if (ans == 0) {
-        d[3] = I2C_Receive(0);
-        d[2] = I2C_Receive(0);
-        d[1] = I2C_Receive(0);
-        d[0] = I2C_Receive(1);
-    }
-    I2C_Stop(); // ストップコンディションを発行する
-    __delay_us(26);
-    return (uint32_t) (d[3] << 24)+(d[2] << 16)+(d[1] << 8) + d[0];
-}
-
-void EEP_write16(uint8_t Reg_h, uint8_t Reg_l, uint16_t data) {
-    uint8_t ans;
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // スタートコンディションを発行する
-    if (ans == 0) {
-        // command word の送信
-        I2C_Send(Reg_h); // control byte の送信(コマンドを指定)
-        I2C_Send(Reg_l); // control byte の送信(コマンドを指定)
-        I2C_Send(data >> 8); // data byte の送信
-        I2C_Send(data >> 0); // data byte の送信
-    }
-    I2C_Stop(); // ストップコンディションを発行する
-    __delay_us(26);
-}
-
-void EEP_write32(uint8_t Reg_h, uint8_t Reg_l, uint32_t data) {
-    uint8_t ans;
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // スタートコンディションを発行する
-    if (ans == 0) {
-        // command word の送信
-        I2C_Send(Reg_h); // control byte の送信(コマンドを指定)
-        I2C_Send(Reg_l); // control byte の送信(コマンドを指定)
-        I2C_Send(data >> 24); // data byte の送信
-        I2C_Send(data >> 16); // data byte の送信
-        I2C_Send(data >> 8); // data byte の送信
-        I2C_Send(data >> 0); // data byte の送信
-    }
-    I2C_Stop(); // ストップコンディションを発行する
-    __delay_us(26);
-}
-#endif /* EEPROM24LC64 */
-
+#endif

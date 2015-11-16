@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.35 build -356382666 
-                                                                                               Wed Nov 11 15:02:02 2015
+                                                                                               Mon Nov 16 19:16:49 2015
 
 Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080246
      1                           	processor	18F27J53
@@ -1094,7 +1094,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1088 ;;
   1089 ;; *************** function _main *****************
   1090 ;; Defined at:
-  1091 ;;		line 330 in file "PIC18F27J53-killifish_light01.c"
+  1091 ;;		line 334 in file "PIC18F27J53-killifish_light01.c"
   1092 ;; Parameters:    Size  Location     Type
   1093 ;;		None
   1094 ;; Auto vars:     Size  Location     Type
@@ -1147,15 +1147,15 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1136  00145A                     _main:
   1137                           	opt stack 20
   1138                           
-  1139                           ;PIC18F27J53-killifish_light01.c: 331: main_init();
+  1139                           ;PIC18F27J53-killifish_light01.c: 335: main_init();
   1140                           
   1141                           ;incstack = 0
   1142  00145A  EC4A  F017         	call	_main_init	;wreg free
   1143                           
-  1144                           ;PIC18F27J53-killifish_light01.c: 332: INTCONbits.GIE = 1;
+  1144                           ;PIC18F27J53-killifish_light01.c: 336: INTCONbits.GIE = 1;
   1145  00145E  8EF2               	bsf	intcon,7,c	;volatile
   1146                           
-  1147                           ;PIC18F27J53-killifish_light01.c: 335: RTCC_from_RTCC(&caltime_now, &epoch_now);
+  1147                           ;PIC18F27J53-killifish_light01.c: 339: RTCC_from_RTCC(&caltime_now, &epoch_now);
   1148  001460  0EC2               	movlw	low _caltime_now
   1149  001462  0100               	movlb	0	; () banked
   1150  001464  6F87               	movwf	RTCC_from_RTCC@ct& (0+255),b
@@ -1170,14 +1170,14 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1159  001476  6F8A               	movwf	(RTCC_from_RTCC@ep+1)& (0+255),b
   1160  001478  ECDE  F01A         	call	_RTCC_from_RTCC	;wreg free
   1161                           
-  1162                           ;PIC18F27J53-killifish_light01.c: 336: if (caltime_now.DD == 0) {
+  1162                           ;PIC18F27J53-killifish_light01.c: 340: if (caltime_now.DD == 0) {
   1163  00147C  0100               	movlb	0	; () banked
   1164  00147E  51C6               	movf	(_caltime_now+4)& (0+255),w,b
   1165  001480  A4D8               	btfss	status,2,c
   1166  001482  D017               	goto	l5241
   1167                           
   1168                           ; BSR set to: 0
-  1169                           ;PIC18F27J53-killifish_light01.c: 337: epoch_now = 0;
+  1169                           ;PIC18F27J53-killifish_light01.c: 341: epoch_now = 0;
   1170  001484  0E00               	movlw	0
   1171  001486  0100               	movlb	0	; () banked
   1172  001488  6FC9               	movwf	_epoch_now& (0+255),b
@@ -1189,7 +1189,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1178  001494  6FCC               	movwf	(_epoch_now+3)& (0+255),b
   1179                           
   1180                           ; BSR set to: 0
-  1181                           ;PIC18F27J53-killifish_light01.c: 338: RTCC_from_epoch(&caltime_now, &epoch_now);
+  1181                           ;PIC18F27J53-killifish_light01.c: 342: RTCC_from_epoch(&caltime_now, &epoch_now);
   1182  001496  0EC2               	movlw	low _caltime_now
   1183  001498  0100               	movlb	0	; () banked
   1184  00149A  6F9D               	movwf	RTCC_from_epoch@ct& (0+255),b
@@ -1205,8 +1205,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1194  0014AE  ECEF  F01A         	call	_RTCC_from_epoch	;wreg free
   1195  0014B2                     l5241:
   1196                           
-  1197                           ;PIC18F27J53-killifish_light01.c: 339: }
-  1198                           ;PIC18F27J53-killifish_light01.c: 341: tx_sends("\n\n\n");
+  1197                           ;PIC18F27J53-killifish_light01.c: 343: }
+  1198                           ;PIC18F27J53-killifish_light01.c: 345: tx_sends("\n\n\n");
   1199  0014B2  0E28               	movlw	low STR_26
   1200  0014B4  0100               	movlb	0	; () banked
   1201  0014B6  6F6F               	movwf	tx_sends@asciicode& (0+255),b
@@ -1217,37 +1217,37 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1206  0014C2                     l629:
   1207  0014C2  0004               	clrwdt		;# 
   1208                           
-  1209                           ;PIC18F27J53-killifish_light01.c: 346: RTCC_loop();
+  1209                           ;PIC18F27J53-killifish_light01.c: 350: RTCC_loop();
   1210  0014C4  EC2C  F01A         	call	_RTCC_loop	;wreg free
   1211                           
-  1212                           ;PIC18F27J53-killifish_light01.c: 347: rx_operation();
+  1212                           ;PIC18F27J53-killifish_light01.c: 351: rx_operation();
   1213  0014C8  ECAD  F007         	call	_rx_operation	;wreg free
   1214                           
-  1215                           ;PIC18F27J53-killifish_light01.c: 348: if (time_change_flag) {
+  1215                           ;PIC18F27J53-killifish_light01.c: 352: if (time_change_flag) {
   1216  0014CC  0100               	movlb	0	; () banked
   1217  0014CE  51C0               	movf	_time_change_flag& (0+255),w,b
   1218  0014D0  B4D8               	btfsc	status,2,c
   1219  0014D2  D096               	goto	l5265
   1220                           
   1221                           ; BSR set to: 0
-  1222                           ;PIC18F27J53-killifish_light01.c: 349: time_change_flag = 0;
+  1222                           ;PIC18F27J53-killifish_light01.c: 353: time_change_flag = 0;
   1223  0014D4  0E00               	movlw	0
   1224  0014D6  0100               	movlb	0	; () banked
   1225  0014D8  6FC0               	movwf	_time_change_flag& (0+255),b
   1226                           
   1227                           ; BSR set to: 0
-  1228                           ;PIC18F27J53-killifish_light01.c: 350: print_time(2);
+  1228                           ;PIC18F27J53-killifish_light01.c: 354: print_time(2);
   1229  0014DA  0E02               	movlw	2
   1230  0014DC  ECD7  F017         	call	_print_time
   1231                           
-  1232                           ;PIC18F27J53-killifish_light01.c: 351: if (light_mode == TIME_SYNC_mode) {
+  1232                           ;PIC18F27J53-killifish_light01.c: 355: if (light_mode == TIME_SYNC_mode) {
   1233  0014E0  0100               	movlb	0	; () banked
   1234  0014E2  51BF               	movf	_light_mode& (0+255),w,b
   1235  0014E4  A4D8               	btfss	status,2,c
   1236  0014E6  D08C               	goto	l5265
   1237                           
   1238                           ; BSR set to: 0
-  1239                           ;PIC18F27J53-killifish_light01.c: 352: epoch_t temp = (epoch_t) epoch_now % ((epoch_t)60
+  1239                           ;PIC18F27J53-killifish_light01.c: 356: epoch_t temp = (epoch_t) epoch_now % ((epoch_t)60
       +                          *60*24);
   1240  0014E8  C0C9  F060         	movff	_epoch_now,___llmod@dividend
   1241  0014EC  C0CA  F061         	movff	_epoch_now+1,___llmod@dividend+1
@@ -1268,7 +1268,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1256  001516  C062  F0AD         	movff	?___llmod+2,main@temp+2
   1257  00151A  C063  F0AE         	movff	?___llmod+3,main@temp+3
   1258                           
-  1259                           ;PIC18F27J53-killifish_light01.c: 353: if (temp > ((epoch_t)60*60*24) / 2)temp = ((epoch
+  1259                           ;PIC18F27J53-killifish_light01.c: 357: if (temp > ((epoch_t)60*60*24) / 2)temp = ((epoch
       +                          _t)60*60*24) - temp;
   1260  00151E  0100               	movlb	0	; () banked
   1261  001520  51AE               	movf	(main@temp+3)& (0+255),w,b
@@ -1323,7 +1323,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1310  001584                     l5261:
   1311                           
   1312                           ; BSR set to: 0
-  1313                           ;PIC18F27J53-killifish_light01.c: 354: temp = temp * 2 * 255 / ((epoch_t)60*60*24);
+  1313                           ;PIC18F27J53-killifish_light01.c: 358: temp = temp * 2 * 255 / ((epoch_t)60*60*24);
   1314  001584  90D8               	bcf	status,0,c
   1315  001586  0100               	movlb	0	; () banked
   1316  001588  35AB               	rlcf	main@temp& (0+255),w,b
@@ -1370,33 +1370,33 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1357  0015EA  C07A  F0AD         	movff	?___lldiv+2,main@temp+2
   1358  0015EE  C07B  F0AE         	movff	?___lldiv+3,main@temp+3
   1359                           
-  1360                           ;PIC18F27J53-killifish_light01.c: 355: PWM_set(3, temp);
+  1360                           ;PIC18F27J53-killifish_light01.c: 359: PWM_set(3, temp);
   1361  0015F2  C0AB  F06E         	movff	main@temp,PWM_set@value
   1362  0015F6  C0AC  F06F         	movff	main@temp+1,PWM_set@value+1
   1363  0015FA  0E03               	movlw	3
   1364  0015FC  EC1F  F013         	call	_PWM_set
   1365  001600                     l5265:
   1366                           
-  1367                           ;PIC18F27J53-killifish_light01.c: 356: }
-  1368                           ;PIC18F27J53-killifish_light01.c: 357: }
-  1369                           ;PIC18F27J53-killifish_light01.c: 358: if (sw_G.flag.press) {
+  1367                           ;PIC18F27J53-killifish_light01.c: 360: }
+  1368                           ;PIC18F27J53-killifish_light01.c: 361: }
+  1369                           ;PIC18F27J53-killifish_light01.c: 362: if (sw_G.flag.press) {
   1370  001600  A042               	btfss	_sw_G+2,0,c
   1371  001602  D02F               	goto	l633
   1372                           
-  1373                           ;PIC18F27J53-killifish_light01.c: 359: sw_G.flags = 0;
+  1373                           ;PIC18F27J53-killifish_light01.c: 363: sw_G.flags = 0;
   1374  001604  0E00               	movlw	0
   1375  001606  6E43               	movwf	_sw_G+3,c
   1376  001608  0E00               	movlw	0
   1377  00160A  6E42               	movwf	_sw_G+2,c
   1378                           
-  1379                           ;PIC18F27J53-killifish_light01.c: 360: light_mode = COMMAND_mode;
+  1379                           ;PIC18F27J53-killifish_light01.c: 364: light_mode = COMMAND_mode;
   1380  00160C  0E02               	movlw	2
   1381  00160E  0100               	movlb	0	; () banked
   1382  001610  6FBF               	movwf	_light_mode& (0+255),b
   1383                           
   1384                           ; BSR set to: 0
-  1385                           ;PIC18F27J53-killifish_light01.c: 361: static uint8_t n = 0;
-  1386                           ;PIC18F27J53-killifish_light01.c: 362: if (n >= 4) n = 0;
+  1385                           ;PIC18F27J53-killifish_light01.c: 365: static uint8_t n = 0;
+  1386                           ;PIC18F27J53-killifish_light01.c: 366: if (n >= 4) n = 0;
   1387  001612  0E03               	movlw	3
   1388  001614  0100               	movlb	0	; () banked
   1389  001616  65CE               	cpfsgt	main@n& (0+255),b
@@ -1410,20 +1410,20 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1397  001622                     l5273:
   1398                           
   1399                           ; BSR set to: 0
-  1400                           ;PIC18F27J53-killifish_light01.c: 363: else n++;
+  1400                           ;PIC18F27J53-killifish_light01.c: 367: else n++;
   1401  001622  0100               	movlb	0	; () banked
   1402  001624  2BCE               	incf	main@n& (0+255),f,b
   1403  001626                     l5275:
   1404                           
   1405                           ; BSR set to: 0
-  1406                           ;PIC18F27J53-killifish_light01.c: 364: uint8_t value = 255 / 4 * n;
+  1406                           ;PIC18F27J53-killifish_light01.c: 368: uint8_t value = 255 / 4 * n;
   1407  001626  0100               	movlb	0	; () banked
   1408  001628  51CE               	movf	main@n& (0+255),w,b
   1409  00162A  0D3F               	mullw	63
   1410  00162C  CFF3 F0A8          	movff	prodl,main@value
   1411                           
   1412                           ; BSR set to: 0
-  1413                           ;PIC18F27J53-killifish_light01.c: 365: for (i = 0; i < 3; i++) {
+  1413                           ;PIC18F27J53-killifish_light01.c: 369: for (i = 0; i < 3; i++) {
   1414  001630  0E00               	movlw	0
   1415  001632  0100               	movlb	0	; () banked
   1416  001634  6FB0               	movwf	(main@i+1)& (0+255),b
@@ -1442,7 +1442,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1429  001648  D00C               	goto	l633
   1430                           
   1431                           ; BSR set to: 0
-  1432                           ;PIC18F27J53-killifish_light01.c: 366: PWM_set(i, value);
+  1432                           ;PIC18F27J53-killifish_light01.c: 370: PWM_set(i, value);
   1433                           
   1434                           ; BSR set to: 0
   1435                           
@@ -1459,26 +1459,26 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1446  001660  D7EC               	goto	l5279
   1447  001662                     l633:
   1448                           
-  1449                           ;PIC18F27J53-killifish_light01.c: 367: }
-  1450                           ;PIC18F27J53-killifish_light01.c: 368: }
-  1451                           ;PIC18F27J53-killifish_light01.c: 369: if (sw_B.flag.press) {
+  1449                           ;PIC18F27J53-killifish_light01.c: 371: }
+  1450                           ;PIC18F27J53-killifish_light01.c: 372: }
+  1451                           ;PIC18F27J53-killifish_light01.c: 373: if (sw_B.flag.press) {
   1452  001662  A03E               	btfss	_sw_B+2,0,c
   1453  001664  D01D               	goto	l5301
   1454                           
-  1455                           ;PIC18F27J53-killifish_light01.c: 370: sw_B.flags = 0;
+  1455                           ;PIC18F27J53-killifish_light01.c: 374: sw_B.flags = 0;
   1456  001666  0E00               	movlw	0
   1457  001668  6E3F               	movwf	_sw_B+3,c
   1458  00166A  0E00               	movlw	0
   1459  00166C  6E3E               	movwf	_sw_B+2,c
   1460                           
-  1461                           ;PIC18F27J53-killifish_light01.c: 371: light_mode = COMMAND_mode;
+  1461                           ;PIC18F27J53-killifish_light01.c: 375: light_mode = COMMAND_mode;
   1462  00166E  0E02               	movlw	2
   1463  001670  0100               	movlb	0	; () banked
   1464  001672  6FBF               	movwf	_light_mode& (0+255),b
   1465                           
   1466                           ; BSR set to: 0
-  1467                           ;PIC18F27J53-killifish_light01.c: 372: static uint8_t n = 0;
-  1468                           ;PIC18F27J53-killifish_light01.c: 373: if (n >= 4) n = 0;
+  1467                           ;PIC18F27J53-killifish_light01.c: 376: static uint8_t n = 0;
+  1468                           ;PIC18F27J53-killifish_light01.c: 377: if (n >= 4) n = 0;
   1469  001674  0E03               	movlw	3
   1470  001676  0100               	movlb	0	; () banked
   1471  001678  65CD               	cpfsgt	main@_2482& (0+255),b
@@ -1492,20 +1492,20 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1479  001684                     l5295:
   1480                           
   1481                           ; BSR set to: 0
-  1482                           ;PIC18F27J53-killifish_light01.c: 374: else n++;
+  1482                           ;PIC18F27J53-killifish_light01.c: 378: else n++;
   1483  001684  0100               	movlb	0	; () banked
   1484  001686  2BCD               	incf	main@_2482& (0+255),f,b
   1485  001688                     l5297:
   1486                           
   1487                           ; BSR set to: 0
-  1488                           ;PIC18F27J53-killifish_light01.c: 375: uint8_t value = 255 / 4 * n;
+  1488                           ;PIC18F27J53-killifish_light01.c: 379: uint8_t value = 255 / 4 * n;
   1489  001688  0100               	movlb	0	; () banked
   1490  00168A  51CD               	movf	main@_2482& (0+255),w,b
   1491  00168C  0D3F               	mullw	63
   1492  00168E  CFF3 F0A9          	movff	prodl,main@value_2483
   1493                           
   1494                           ; BSR set to: 0
-  1495                           ;PIC18F27J53-killifish_light01.c: 376: PWM_set(3, value);
+  1495                           ;PIC18F27J53-killifish_light01.c: 380: PWM_set(3, value);
   1496  001692  C0A9  F06E         	movff	main@value_2483,PWM_set@value
   1497  001696  0100               	movlb	0	; () banked
   1498  001698  6B6F               	clrf	(PWM_set@value+1)& (0+255),b
@@ -1513,18 +1513,18 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1500  00169C  EC1F  F013         	call	_PWM_set
   1501  0016A0                     l5301:
   1502                           
-  1503                           ;PIC18F27J53-killifish_light01.c: 377: }
-  1504                           ;PIC18F27J53-killifish_light01.c: 378: if (sw_R.flag.press) {
+  1503                           ;PIC18F27J53-killifish_light01.c: 381: }
+  1504                           ;PIC18F27J53-killifish_light01.c: 382: if (sw_R.flag.press) {
   1505  0016A0  A046               	btfss	_sw_R+2,0,c
   1506  0016A2  D018               	goto	l5315
   1507                           
-  1508                           ;PIC18F27J53-killifish_light01.c: 379: sw_R.flags = 0;
+  1508                           ;PIC18F27J53-killifish_light01.c: 383: sw_R.flags = 0;
   1509  0016A4  0E00               	movlw	0
   1510  0016A6  6E47               	movwf	_sw_R+3,c
   1511  0016A8  0E00               	movlw	0
   1512  0016AA  6E46               	movwf	_sw_R+2,c
   1513                           
-  1514                           ;PIC18F27J53-killifish_light01.c: 380: if (light_mode == TIME_SYNC_mode)light_mode = ADC
+  1514                           ;PIC18F27J53-killifish_light01.c: 384: if (light_mode == TIME_SYNC_mode)light_mode = ADC
       +                          _mode;
   1515  0016AC  0100               	movlb	0	; () banked
   1516  0016AE  51BF               	movf	_light_mode& (0+255),w,b
@@ -1537,7 +1537,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1523  0016B8                     l5307:
   1524                           
   1525                           ; BSR set to: 0
-  1526                           ;PIC18F27J53-killifish_light01.c: 381: else if (light_mode == ADC_mode)light_mode = COMM
+  1526                           ;PIC18F27J53-killifish_light01.c: 385: else if (light_mode == ADC_mode)light_mode = COMM
       +                          AND_mode;
   1527  0016B8  0100               	movlb	0	; () banked
   1528  0016BA  05BF               	decf	_light_mode& (0+255),w,b
@@ -1550,7 +1550,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1535  0016C4                     l5311:
   1536                           
   1537                           ; BSR set to: 0
-  1538                           ;PIC18F27J53-killifish_light01.c: 382: else if (light_mode == COMMAND_mode)light_mode = 
+  1538                           ;PIC18F27J53-killifish_light01.c: 386: else if (light_mode == COMMAND_mode)light_mode = 
       +                          TIME_SYNC_mode;
   1539  0016C4  0E02               	movlw	2
   1540  0016C6  0100               	movlb	0	; () banked
@@ -1565,15 +1565,15 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1549  0016D2  6FBF               	movwf	_light_mode& (0+255),b
   1550  0016D4                     l5315:
   1551                           
-  1552                           ;PIC18F27J53-killifish_light01.c: 383: }
-  1553                           ;PIC18F27J53-killifish_light01.c: 384: if (light_mode == ADC_mode) {
+  1552                           ;PIC18F27J53-killifish_light01.c: 387: }
+  1553                           ;PIC18F27J53-killifish_light01.c: 388: if (light_mode == ADC_mode) {
   1554  0016D4  0100               	movlb	0	; () banked
   1555  0016D6  05BF               	decf	_light_mode& (0+255),w,b
   1556  0016D8  A4D8               	btfss	status,2,c
   1557  0016DA  D6F3               	goto	l629
   1558                           
   1559                           ; BSR set to: 0
-  1560                           ;PIC18F27J53-killifish_light01.c: 385: for (i = 0; i < 3; i++) {
+  1560                           ;PIC18F27J53-killifish_light01.c: 389: for (i = 0; i < 3; i++) {
   1561  0016DC  0E00               	movlw	0
   1562  0016DE  0100               	movlb	0	; () banked
   1563  0016E0  6FB0               	movwf	(main@i+1)& (0+255),b
@@ -1597,7 +1597,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1581  0016FA                     l5323:
   1582                           
   1583                           ; BSR set to: 0
-  1584                           ;PIC18F27J53-killifish_light01.c: 386: uint8_t scan = (ADC(i) >> 4);
+  1584                           ;PIC18F27J53-killifish_light01.c: 390: uint8_t scan = (ADC(i) >> 4);
   1585  0016FA  0100               	movlb	0	; () banked
   1586  0016FC  51AF               	movf	main@i& (0+255),w,b
   1587  0016FE  EC9D  F01A         	call	_ADC
@@ -1618,8 +1618,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1602  00171C  6FAA               	movwf	main@scan& (0+255),b
   1603                           
   1604                           ; BSR set to: 0
-  1605                           ;PIC18F27J53-killifish_light01.c: 387: static uint8_t prev_scan[3];
-  1606                           ;PIC18F27J53-killifish_light01.c: 388: if (scan != prev_scan[i]) {
+  1605                           ;PIC18F27J53-killifish_light01.c: 391: static uint8_t prev_scan[3];
+  1606                           ;PIC18F27J53-killifish_light01.c: 392: if (scan != prev_scan[i]) {
   1607  00171E  0EB8               	movlw	low main@prev_scan
   1608  001720  0100               	movlb	0	; () banked
   1609  001722  25AF               	addwf	main@i& (0+255),w,b
@@ -1635,7 +1635,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1619  001736  D012               	goto	l5331
   1620                           
   1621                           ; BSR set to: 0
-  1622                           ;PIC18F27J53-killifish_light01.c: 389: prev_scan[i] = scan;
+  1622                           ;PIC18F27J53-killifish_light01.c: 393: prev_scan[i] = scan;
   1623  001738  0EB8               	movlw	low main@prev_scan
   1624  00173A  0100               	movlb	0	; () banked
   1625  00173C  25AF               	addwf	main@i& (0+255),w,b
@@ -1647,7 +1647,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1631  001748  C0AA  FFDF         	movff	main@scan,indf2
   1632                           
   1633                           ; BSR set to: 0
-  1634                           ;PIC18F27J53-killifish_light01.c: 390: PWM_set(i, scan);
+  1634                           ;PIC18F27J53-killifish_light01.c: 394: PWM_set(i, scan);
   1635  00174C  C0AA  F06E         	movff	main@scan,PWM_set@value
   1636  001750  0100               	movlb	0	; () banked
   1637  001752  6B6F               	clrf	(PWM_set@value+1)& (0+255),b
@@ -1692,7 +1692,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1676                           
   1677 ;; *************** function _rx_operation *****************
   1678 ;; Defined at:
-  1679 ;;		line 231 in file "PIC18F27J53-killifish_light01.c"
+  1679 ;;		line 235 in file "PIC18F27J53-killifish_light01.c"
   1680 ;; Parameters:    Size  Location     Type
   1681 ;;		None
   1682 ;; Auto vars:     Size  Location     Type
@@ -1740,7 +1740,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1719  000F5A                     _rx_operation:
   1720                           	opt stack 21
   1721                           
-  1722                           ;PIC18F27J53-killifish_light01.c: 232: if (rx_flag) {
+  1722                           ;PIC18F27J53-killifish_light01.c: 236: if (rx_flag) {
   1723                           
   1724                           ; BSR set to: 0
   1725                           ;incstack = 0
@@ -1748,21 +1748,21 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1727  000F5C  B4D8               	btfsc	status,2,c
   1728  000F5E  0012               	return	
   1729                           
-  1730                           ;PIC18F27J53-killifish_light01.c: 233: uint8_t i;
-  1731                           ;PIC18F27J53-killifish_light01.c: 234: rx_flag = 0;
+  1730                           ;PIC18F27J53-killifish_light01.c: 237: uint8_t i;
+  1731                           ;PIC18F27J53-killifish_light01.c: 238: rx_flag = 0;
   1732  000F60  0E00               	movlw	0
   1733  000F62  6E2A               	movwf	_rx_flag,c
   1734                           
-  1735                           ;PIC18F27J53-killifish_light01.c: 235: uint8_t opcode[250];
-  1736                           ;PIC18F27J53-killifish_light01.c: 236: uint8_t opland1[250];
-  1737                           ;PIC18F27J53-killifish_light01.c: 237: uint8_t opland2[250];
-  1738                           ;PIC18F27J53-killifish_light01.c: 239: uint8_t cnt_char = 0;
+  1735                           ;PIC18F27J53-killifish_light01.c: 239: uint8_t opcode[250];
+  1736                           ;PIC18F27J53-killifish_light01.c: 240: uint8_t opland1[250];
+  1737                           ;PIC18F27J53-killifish_light01.c: 241: uint8_t opland2[250];
+  1738                           ;PIC18F27J53-killifish_light01.c: 243: uint8_t cnt_char = 0;
   1739  000F64  0E00               	movlw	0
   1740  000F66  0100               	movlb	0	; () banked
   1741  000F68  6FA2               	movwf	rx_operation@cnt_char& (0+255),b
   1742                           
-  1743                           ;PIC18F27J53-killifish_light01.c: 240: uint8_t cmd[250];
-  1744                           ;PIC18F27J53-killifish_light01.c: 242: for (i = 0; opcode[i] = ringbuf_pop(&rx_buf); i++
+  1743                           ;PIC18F27J53-killifish_light01.c: 244: uint8_t cmd[250];
+  1744                           ;PIC18F27J53-killifish_light01.c: 246: for (i = 0; opcode[i] = ringbuf_pop(&rx_buf); i++
       +                          ) {
   1745  000F6A  0E00               	movlw	0
   1746  000F6C  0100               	movlb	0	; () banked
@@ -1771,7 +1771,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1749  000F72                     l4943:
   1750                           
   1751                           ; BSR set to: 0
-  1752                           ;PIC18F27J53-killifish_light01.c: 243: cmd[cnt_char++] = opcode[i];
+  1752                           ;PIC18F27J53-killifish_light01.c: 247: cmd[cnt_char++] = opcode[i];
   1753  000F72  0100               	movlb	0	; () banked
   1754  000F74  51A3               	movf	rx_operation@i& (0+255),w,b
   1755  000F76  0D01               	mullw	1
@@ -1826,8 +1826,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1804  000FD0  D7D0               	goto	l4943
   1805                           
   1806                           ; BSR set to: 0
-  1807                           ;PIC18F27J53-killifish_light01.c: 244: }
-  1808                           ;PIC18F27J53-killifish_light01.c: 245: opcode[i] = '\0';
+  1807                           ;PIC18F27J53-killifish_light01.c: 248: }
+  1808                           ;PIC18F27J53-killifish_light01.c: 249: opcode[i] = '\0';
   1809                           
   1810                           ; BSR set to: 0
   1811  000FD2  0100               	movlb	0	; () banked
@@ -1842,7 +1842,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1820  000FE4  0E00               	movlw	0
   1821  000FE6  6EDF               	movwf	indf2,c
   1822                           
-  1823                           ;PIC18F27J53-killifish_light01.c: 246: cmd[cnt_char++] = ' ';
+  1823                           ;PIC18F27J53-killifish_light01.c: 250: cmd[cnt_char++] = ' ';
   1824  000FE8  0100               	movlb	0	; () banked
   1825  000FEA  51A2               	movf	rx_operation@cnt_char& (0+255),w,b
   1826  000FEC  0D01               	mullw	1
@@ -1860,7 +1860,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1838  001000  2BA2               	incf	rx_operation@cnt_char& (0+255),f,b
   1839                           
   1840                           ; BSR set to: 0
-  1841                           ;PIC18F27J53-killifish_light01.c: 247: for (i = 0; opland1[i] = ringbuf_pop(&rx_buf); i+
+  1841                           ;PIC18F27J53-killifish_light01.c: 251: for (i = 0; opland1[i] = ringbuf_pop(&rx_buf); i+
       +                          +) {
   1842  001002  0E00               	movlw	0
   1843  001004  0100               	movlb	0	; () banked
@@ -1869,7 +1869,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1846  00100A                     l4957:
   1847                           
   1848                           ; BSR set to: 0
-  1849                           ;PIC18F27J53-killifish_light01.c: 248: cmd[cnt_char++] = opcode[i];
+  1849                           ;PIC18F27J53-killifish_light01.c: 252: cmd[cnt_char++] = opcode[i];
   1850  00100A  0100               	movlb	0	; () banked
   1851  00100C  51A3               	movf	rx_operation@i& (0+255),w,b
   1852  00100E  0D01               	mullw	1
@@ -1924,8 +1924,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1901  001068  D7D0               	goto	l4957
   1902                           
   1903                           ; BSR set to: 0
-  1904                           ;PIC18F27J53-killifish_light01.c: 249: }
-  1905                           ;PIC18F27J53-killifish_light01.c: 250: opland1[i] = '\0';
+  1904                           ;PIC18F27J53-killifish_light01.c: 253: }
+  1905                           ;PIC18F27J53-killifish_light01.c: 254: opland1[i] = '\0';
   1906                           
   1907                           ; BSR set to: 0
   1908  00106A  0100               	movlb	0	; () banked
@@ -1940,7 +1940,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1917  00107C  0E00               	movlw	0
   1918  00107E  6EDF               	movwf	indf2,c
   1919                           
-  1920                           ;PIC18F27J53-killifish_light01.c: 251: cmd[cnt_char++] = ' ';
+  1920                           ;PIC18F27J53-killifish_light01.c: 255: cmd[cnt_char++] = ' ';
   1921  001080  0100               	movlb	0	; () banked
   1922  001082  51A2               	movf	rx_operation@cnt_char& (0+255),w,b
   1923  001084  0D01               	mullw	1
@@ -1958,7 +1958,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1935  001098  2BA2               	incf	rx_operation@cnt_char& (0+255),f,b
   1936                           
   1937                           ; BSR set to: 0
-  1938                           ;PIC18F27J53-killifish_light01.c: 252: for (i = 0; opland2[i] = ringbuf_pop(&rx_buf); i+
+  1938                           ;PIC18F27J53-killifish_light01.c: 256: for (i = 0; opland2[i] = ringbuf_pop(&rx_buf); i+
       +                          +) {
   1939  00109A  0E00               	movlw	0
   1940  00109C  0100               	movlb	0	; () banked
@@ -1967,7 +1967,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1943  0010A2                     l4971:
   1944                           
   1945                           ; BSR set to: 0
-  1946                           ;PIC18F27J53-killifish_light01.c: 253: cmd[cnt_char++] = opcode[i];
+  1946                           ;PIC18F27J53-killifish_light01.c: 257: cmd[cnt_char++] = opcode[i];
   1947  0010A2  0100               	movlb	0	; () banked
   1948  0010A4  51A3               	movf	rx_operation@i& (0+255),w,b
   1949  0010A6  0D01               	mullw	1
@@ -2022,8 +2022,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1998  001100  D7D0               	goto	l4971
   1999                           
   2000                           ; BSR set to: 0
-  2001                           ;PIC18F27J53-killifish_light01.c: 254: }
-  2002                           ;PIC18F27J53-killifish_light01.c: 255: opland2[i] = '\0';
+  2001                           ;PIC18F27J53-killifish_light01.c: 258: }
+  2002                           ;PIC18F27J53-killifish_light01.c: 259: opland2[i] = '\0';
   2003                           
   2004                           ; BSR set to: 0
   2005  001102  0100               	movlb	0	; () banked
@@ -2038,7 +2038,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2014  001114  0E00               	movlw	0
   2015  001116  6EDF               	movwf	indf2,c
   2016                           
-  2017                           ;PIC18F27J53-killifish_light01.c: 256: cmd[cnt_char] = '\0';
+  2017                           ;PIC18F27J53-killifish_light01.c: 260: cmd[cnt_char] = '\0';
   2018  001118  0100               	movlb	0	; () banked
   2019  00111A  51A2               	movf	rx_operation@cnt_char& (0+255),w,b
   2020  00111C  0D01               	mullw	1
@@ -2052,7 +2052,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2028  00112C  6EDF               	movwf	indf2,c
   2029                           
   2030                           ; BSR set to: 0
-  2031                           ;PIC18F27J53-killifish_light01.c: 258: if (!my_strcmp(opcode, "ts")) {
+  2031                           ;PIC18F27J53-killifish_light01.c: 262: if (!my_strcmp(opcode, "ts")) {
   2032  00112E  0E00               	movlw	low rx_operation@opcode
   2033  001130  0100               	movlb	0	; () banked
   2034  001132  6F60               	movwf	my_strcmp@str1& (0+255),b
@@ -2070,7 +2070,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2046  00114C  A4D8               	btfss	status,2,c
   2047  00114E  D0BF               	goto	l5009
   2048                           
-  2049                           ;PIC18F27J53-killifish_light01.c: 259: if (!my_strcmp(opland1, "y")) {
+  2049                           ;PIC18F27J53-killifish_light01.c: 263: if (!my_strcmp(opland1, "y")) {
   2050  001150  0E00               	movlw	low rx_operation@opland1
   2051  001152  0100               	movlb	0	; () banked
   2052  001154  6F60               	movwf	my_strcmp@str1& (0+255),b
@@ -2088,7 +2088,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2064  00116E  A4D8               	btfss	status,2,c
   2065  001170  D00C               	goto	l4987
   2066                           
-  2067                           ;PIC18F27J53-killifish_light01.c: 260: caltime_now.YY = my_atoi(opland2);
+  2067                           ;PIC18F27J53-killifish_light01.c: 264: caltime_now.YY = my_atoi(opland2);
   2068  001172  0E00               	movlw	low rx_operation@opland2
   2069  001174  0100               	movlb	0	; () banked
   2070  001176  6F66               	movwf	my_atoi@str& (0+255),b
@@ -2102,8 +2102,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2078  001188  6FC8               	movwf	(_caltime_now+6)& (0+255),b
   2079  00118A                     l4987:
   2080                           
-  2081                           ;PIC18F27J53-killifish_light01.c: 261: }
-  2082                           ;PIC18F27J53-killifish_light01.c: 262: if (!my_strcmp(opland1, "M")) {
+  2081                           ;PIC18F27J53-killifish_light01.c: 265: }
+  2082                           ;PIC18F27J53-killifish_light01.c: 266: if (!my_strcmp(opland1, "M")) {
   2083  00118A  0E00               	movlw	low rx_operation@opland1
   2084  00118C  0100               	movlb	0	; () banked
   2085  00118E  6F60               	movwf	my_strcmp@str1& (0+255),b
@@ -2121,7 +2121,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2097  0011A8  A4D8               	btfss	status,2,c
   2098  0011AA  D00C               	goto	l4991
   2099                           
-  2100                           ;PIC18F27J53-killifish_light01.c: 263: caltime_now.MM = my_atoi(opland2);
+  2100                           ;PIC18F27J53-killifish_light01.c: 267: caltime_now.MM = my_atoi(opland2);
   2101  0011AC  0E00               	movlw	low rx_operation@opland2
   2102  0011AE  0100               	movlb	0	; () banked
   2103  0011B0  6F66               	movwf	my_atoi@str& (0+255),b
@@ -2135,8 +2135,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2111  0011C2  6FC7               	movwf	(_caltime_now+5)& (0+255),b
   2112  0011C4                     l4991:
   2113                           
-  2114                           ;PIC18F27J53-killifish_light01.c: 264: }
-  2115                           ;PIC18F27J53-killifish_light01.c: 265: if (!my_strcmp(opland1, "d")) {
+  2114                           ;PIC18F27J53-killifish_light01.c: 268: }
+  2115                           ;PIC18F27J53-killifish_light01.c: 269: if (!my_strcmp(opland1, "d")) {
   2116  0011C4  0E00               	movlw	low rx_operation@opland1
   2117  0011C6  0100               	movlb	0	; () banked
   2118  0011C8  6F60               	movwf	my_strcmp@str1& (0+255),b
@@ -2154,7 +2154,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2130  0011E2  A4D8               	btfss	status,2,c
   2131  0011E4  D00C               	goto	l4995
   2132                           
-  2133                           ;PIC18F27J53-killifish_light01.c: 266: caltime_now.DD = my_atoi(opland2);
+  2133                           ;PIC18F27J53-killifish_light01.c: 270: caltime_now.DD = my_atoi(opland2);
   2134  0011E6  0E00               	movlw	low rx_operation@opland2
   2135  0011E8  0100               	movlb	0	; () banked
   2136  0011EA  6F66               	movwf	my_atoi@str& (0+255),b
@@ -2168,8 +2168,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2144  0011FC  6FC6               	movwf	(_caltime_now+4)& (0+255),b
   2145  0011FE                     l4995:
   2146                           
-  2147                           ;PIC18F27J53-killifish_light01.c: 267: }
-  2148                           ;PIC18F27J53-killifish_light01.c: 268: if (!my_strcmp(opland1, "h")) {
+  2147                           ;PIC18F27J53-killifish_light01.c: 271: }
+  2148                           ;PIC18F27J53-killifish_light01.c: 272: if (!my_strcmp(opland1, "h")) {
   2149  0011FE  0E00               	movlw	low rx_operation@opland1
   2150  001200  0100               	movlb	0	; () banked
   2151  001202  6F60               	movwf	my_strcmp@str1& (0+255),b
@@ -2187,7 +2187,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2163  00121C  A4D8               	btfss	status,2,c
   2164  00121E  D00C               	goto	l4999
   2165                           
-  2166                           ;PIC18F27J53-killifish_light01.c: 269: caltime_now.hh = my_atoi(opland2);
+  2166                           ;PIC18F27J53-killifish_light01.c: 273: caltime_now.hh = my_atoi(opland2);
   2167  001220  0E00               	movlw	low rx_operation@opland2
   2168  001222  0100               	movlb	0	; () banked
   2169  001224  6F66               	movwf	my_atoi@str& (0+255),b
@@ -2201,8 +2201,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2177  001236  6FC4               	movwf	(_caltime_now+2)& (0+255),b
   2178  001238                     l4999:
   2179                           
-  2180                           ;PIC18F27J53-killifish_light01.c: 270: }
-  2181                           ;PIC18F27J53-killifish_light01.c: 271: if (!my_strcmp(opland1, "m")) {
+  2180                           ;PIC18F27J53-killifish_light01.c: 274: }
+  2181                           ;PIC18F27J53-killifish_light01.c: 275: if (!my_strcmp(opland1, "m")) {
   2182  001238  0E00               	movlw	low rx_operation@opland1
   2183  00123A  0100               	movlb	0	; () banked
   2184  00123C  6F60               	movwf	my_strcmp@str1& (0+255),b
@@ -2220,7 +2220,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2196  001256  A4D8               	btfss	status,2,c
   2197  001258  D00C               	goto	l5003
   2198                           
-  2199                           ;PIC18F27J53-killifish_light01.c: 272: caltime_now.mm = my_atoi(opland2);
+  2199                           ;PIC18F27J53-killifish_light01.c: 276: caltime_now.mm = my_atoi(opland2);
   2200  00125A  0E00               	movlw	low rx_operation@opland2
   2201  00125C  0100               	movlb	0	; () banked
   2202  00125E  6F66               	movwf	my_atoi@str& (0+255),b
@@ -2234,8 +2234,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2210  001270  6FC3               	movwf	(_caltime_now+1)& (0+255),b
   2211  001272                     l5003:
   2212                           
-  2213                           ;PIC18F27J53-killifish_light01.c: 273: }
-  2214                           ;PIC18F27J53-killifish_light01.c: 274: if (!my_strcmp(opland1, "s")) {
+  2213                           ;PIC18F27J53-killifish_light01.c: 277: }
+  2214                           ;PIC18F27J53-killifish_light01.c: 278: if (!my_strcmp(opland1, "s")) {
   2215  001272  0E00               	movlw	low rx_operation@opland1
   2216  001274  0100               	movlb	0	; () banked
   2217  001276  6F60               	movwf	my_strcmp@str1& (0+255),b
@@ -2253,7 +2253,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2229  001290  A4D8               	btfss	status,2,c
   2230  001292  D00C               	goto	l610
   2231                           
-  2232                           ;PIC18F27J53-killifish_light01.c: 275: caltime_now.ss = my_atoi(opland2);
+  2232                           ;PIC18F27J53-killifish_light01.c: 279: caltime_now.ss = my_atoi(opland2);
   2233  001294  0E00               	movlw	low rx_operation@opland2
   2234  001296  0100               	movlb	0	; () banked
   2235  001298  6F66               	movwf	my_atoi@str& (0+255),b
@@ -2267,8 +2267,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2243  0012AA  6FC2               	movwf	_caltime_now& (0+255),b
   2244  0012AC                     l610:
   2245                           
-  2246                           ;PIC18F27J53-killifish_light01.c: 276: }
-  2247                           ;PIC18F27J53-killifish_light01.c: 277: RTCC_from_caltime(&caltime_now, &epoch_now);
+  2246                           ;PIC18F27J53-killifish_light01.c: 280: }
+  2247                           ;PIC18F27J53-killifish_light01.c: 281: RTCC_from_caltime(&caltime_now, &epoch_now);
   2248  0012AC  0EC2               	movlw	low _caltime_now
   2249  0012AE  0100               	movlb	0	; () banked
   2250  0012B0  6F9D               	movwf	RTCC_from_caltime@ct& (0+255),b
@@ -2283,14 +2283,14 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2259  0012C2  6FA0               	movwf	(RTCC_from_caltime@ep+1)& (0+255),b
   2260  0012C4  EC50  F01A         	call	_RTCC_from_caltime	;wreg free
   2261                           
-  2262                           ;PIC18F27J53-killifish_light01.c: 278: time_change_flag = 1;
+  2262                           ;PIC18F27J53-killifish_light01.c: 282: time_change_flag = 1;
   2263  0012C8  0E01               	movlw	1
   2264  0012CA  0100               	movlb	0	; () banked
   2265  0012CC  6FC0               	movwf	_time_change_flag& (0+255),b
   2266  0012CE                     l5009:
   2267                           
-  2268                           ;PIC18F27J53-killifish_light01.c: 279: }
-  2269                           ;PIC18F27J53-killifish_light01.c: 280: if (!my_strcmp(opcode, "set")) {
+  2268                           ;PIC18F27J53-killifish_light01.c: 283: }
+  2269                           ;PIC18F27J53-killifish_light01.c: 284: if (!my_strcmp(opcode, "set")) {
   2270  0012CE  0E00               	movlw	low rx_operation@opcode
   2271  0012D0  0100               	movlb	0	; () banked
   2272  0012D2  6F60               	movwf	my_strcmp@str1& (0+255),b
@@ -2308,7 +2308,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2284  0012EC  A4D8               	btfss	status,2,c
   2285  0012EE  0012               	return	
   2286                           
-  2287                           ;PIC18F27J53-killifish_light01.c: 281: if (!my_strcmp(opland1, "sync")) {
+  2287                           ;PIC18F27J53-killifish_light01.c: 285: if (!my_strcmp(opland1, "sync")) {
   2288  0012F0  0E00               	movlw	low rx_operation@opland1
   2289  0012F2  0100               	movlb	0	; () banked
   2290  0012F4  6F60               	movwf	my_strcmp@str1& (0+255),b
@@ -2326,14 +2326,14 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2302  00130E  A4D8               	btfss	status,2,c
   2303  001310  D003               	goto	l5015
   2304                           
-  2305                           ;PIC18F27J53-killifish_light01.c: 282: light_mode = TIME_SYNC_mode;
+  2305                           ;PIC18F27J53-killifish_light01.c: 286: light_mode = TIME_SYNC_mode;
   2306  001312  0E00               	movlw	0
   2307  001314  0100               	movlb	0	; () banked
   2308  001316  6FBF               	movwf	_light_mode& (0+255),b
   2309  001318                     l5015:
   2310                           
-  2311                           ;PIC18F27J53-killifish_light01.c: 283: }
-  2312                           ;PIC18F27J53-killifish_light01.c: 284: if (!my_strcmp(opland1, "adc")) {
+  2311                           ;PIC18F27J53-killifish_light01.c: 287: }
+  2312                           ;PIC18F27J53-killifish_light01.c: 288: if (!my_strcmp(opland1, "adc")) {
   2313  001318  0E00               	movlw	low rx_operation@opland1
   2314  00131A  0100               	movlb	0	; () banked
   2315  00131C  6F60               	movwf	my_strcmp@str1& (0+255),b
@@ -2351,14 +2351,14 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2327  001336  A4D8               	btfss	status,2,c
   2328  001338  D003               	goto	l5019
   2329                           
-  2330                           ;PIC18F27J53-killifish_light01.c: 285: light_mode = ADC_mode;
+  2330                           ;PIC18F27J53-killifish_light01.c: 289: light_mode = ADC_mode;
   2331  00133A  0E01               	movlw	1
   2332  00133C  0100               	movlb	0	; () banked
   2333  00133E  6FBF               	movwf	_light_mode& (0+255),b
   2334  001340                     l5019:
   2335                           
-  2336                           ;PIC18F27J53-killifish_light01.c: 286: }
-  2337                           ;PIC18F27J53-killifish_light01.c: 287: if (!my_strcmp(opland1, "r")) {
+  2336                           ;PIC18F27J53-killifish_light01.c: 290: }
+  2337                           ;PIC18F27J53-killifish_light01.c: 291: if (!my_strcmp(opland1, "r")) {
   2338  001340  0E00               	movlw	low rx_operation@opland1
   2339  001342  0100               	movlb	0	; () banked
   2340  001344  6F60               	movwf	my_strcmp@str1& (0+255),b
@@ -2376,13 +2376,13 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2352  00135E  A4D8               	btfss	status,2,c
   2353  001360  D012               	goto	l5025
   2354                           
-  2355                           ;PIC18F27J53-killifish_light01.c: 288: light_mode = COMMAND_mode;
+  2355                           ;PIC18F27J53-killifish_light01.c: 292: light_mode = COMMAND_mode;
   2356  001362  0E02               	movlw	2
   2357  001364  0100               	movlb	0	; () banked
   2358  001366  6FBF               	movwf	_light_mode& (0+255),b
   2359                           
   2360                           ; BSR set to: 0
-  2361                           ;PIC18F27J53-killifish_light01.c: 289: PWM_set(0, my_atoi(opland2));
+  2361                           ;PIC18F27J53-killifish_light01.c: 293: PWM_set(0, my_atoi(opland2));
   2362  001368  0E00               	movlw	low rx_operation@opland2
   2363  00136A  0100               	movlb	0	; () banked
   2364  00136C  6F66               	movwf	my_atoi@str& (0+255),b
@@ -2396,8 +2396,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2372  001382  EC1F  F013         	call	_PWM_set
   2373  001386                     l5025:
   2374                           
-  2375                           ;PIC18F27J53-killifish_light01.c: 290: }
-  2376                           ;PIC18F27J53-killifish_light01.c: 291: if (!my_strcmp(opland1, "g")) {
+  2375                           ;PIC18F27J53-killifish_light01.c: 294: }
+  2376                           ;PIC18F27J53-killifish_light01.c: 295: if (!my_strcmp(opland1, "g")) {
   2377  001386  0E00               	movlw	low rx_operation@opland1
   2378  001388  0100               	movlb	0	; () banked
   2379  00138A  6F60               	movwf	my_strcmp@str1& (0+255),b
@@ -2415,13 +2415,13 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2391  0013A4  A4D8               	btfss	status,2,c
   2392  0013A6  D012               	goto	l5031
   2393                           
-  2394                           ;PIC18F27J53-killifish_light01.c: 292: light_mode = COMMAND_mode;
+  2394                           ;PIC18F27J53-killifish_light01.c: 296: light_mode = COMMAND_mode;
   2395  0013A8  0E02               	movlw	2
   2396  0013AA  0100               	movlb	0	; () banked
   2397  0013AC  6FBF               	movwf	_light_mode& (0+255),b
   2398                           
   2399                           ; BSR set to: 0
-  2400                           ;PIC18F27J53-killifish_light01.c: 293: PWM_set(1, my_atoi(opland2));
+  2400                           ;PIC18F27J53-killifish_light01.c: 297: PWM_set(1, my_atoi(opland2));
   2401  0013AE  0E00               	movlw	low rx_operation@opland2
   2402  0013B0  0100               	movlb	0	; () banked
   2403  0013B2  6F66               	movwf	my_atoi@str& (0+255),b
@@ -2435,8 +2435,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2411  0013C8  EC1F  F013         	call	_PWM_set
   2412  0013CC                     l5031:
   2413                           
-  2414                           ;PIC18F27J53-killifish_light01.c: 294: }
-  2415                           ;PIC18F27J53-killifish_light01.c: 295: if (!my_strcmp(opland1, "b")) {
+  2414                           ;PIC18F27J53-killifish_light01.c: 298: }
+  2415                           ;PIC18F27J53-killifish_light01.c: 299: if (!my_strcmp(opland1, "b")) {
   2416  0013CC  0E00               	movlw	low rx_operation@opland1
   2417  0013CE  0100               	movlb	0	; () banked
   2418  0013D0  6F60               	movwf	my_strcmp@str1& (0+255),b
@@ -2454,13 +2454,13 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2430  0013EA  A4D8               	btfss	status,2,c
   2431  0013EC  D012               	goto	l5037
   2432                           
-  2433                           ;PIC18F27J53-killifish_light01.c: 296: light_mode = COMMAND_mode;
+  2433                           ;PIC18F27J53-killifish_light01.c: 300: light_mode = COMMAND_mode;
   2434  0013EE  0E02               	movlw	2
   2435  0013F0  0100               	movlb	0	; () banked
   2436  0013F2  6FBF               	movwf	_light_mode& (0+255),b
   2437                           
   2438                           ; BSR set to: 0
-  2439                           ;PIC18F27J53-killifish_light01.c: 297: PWM_set(2, my_atoi(opland2));
+  2439                           ;PIC18F27J53-killifish_light01.c: 301: PWM_set(2, my_atoi(opland2));
   2440  0013F4  0E00               	movlw	low rx_operation@opland2
   2441  0013F6  0100               	movlb	0	; () banked
   2442  0013F8  6F66               	movwf	my_atoi@str& (0+255),b
@@ -2474,8 +2474,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2450  00140E  EC1F  F013         	call	_PWM_set
   2451  001412                     l5037:
   2452                           
-  2453                           ;PIC18F27J53-killifish_light01.c: 298: }
-  2454                           ;PIC18F27J53-killifish_light01.c: 299: if (!my_strcmp(opland1, "w")) {
+  2453                           ;PIC18F27J53-killifish_light01.c: 302: }
+  2454                           ;PIC18F27J53-killifish_light01.c: 303: if (!my_strcmp(opland1, "w")) {
   2455  001412  0E00               	movlw	low rx_operation@opland1
   2456  001414  0100               	movlb	0	; () banked
   2457  001416  6F60               	movwf	my_strcmp@str1& (0+255),b
@@ -2493,13 +2493,13 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2469  001430  A4D8               	btfss	status,2,c
   2470  001432  0012               	return	
   2471                           
-  2472                           ;PIC18F27J53-killifish_light01.c: 300: light_mode = COMMAND_mode;
+  2472                           ;PIC18F27J53-killifish_light01.c: 304: light_mode = COMMAND_mode;
   2473  001434  0E02               	movlw	2
   2474  001436  0100               	movlb	0	; () banked
   2475  001438  6FBF               	movwf	_light_mode& (0+255),b
   2476                           
   2477                           ; BSR set to: 0
-  2478                           ;PIC18F27J53-killifish_light01.c: 301: PWM_set(3, my_atoi(opland2));
+  2478                           ;PIC18F27J53-killifish_light01.c: 305: PWM_set(3, my_atoi(opland2));
   2479  00143A  0E00               	movlw	low rx_operation@opland2
   2480  00143C  0100               	movlb	0	; () banked
   2481  00143E  6F66               	movwf	my_atoi@str& (0+255),b
@@ -3146,7 +3146,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3102                           
   3103 ;; *************** function _PWM_set *****************
   3104 ;; Defined at:
-  3105 ;;		line 163 in file "PIC18F27J53-killifish_light01.c"
+  3105 ;;		line 167 in file "PIC18F27J53-killifish_light01.c"
   3106 ;; Parameters:    Size  Location     Type
   3107 ;;  color           1    wreg     unsigned char 
   3108 ;;  value           2   14[BANK0 ] unsigned int 
@@ -3193,7 +3193,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3144  00263E  0100               	movlb	0	; () banked
   3145  002640  6F70               	movwf	PWM_set@color& (0+255),b
   3146                           
-  3147                           ;PIC18F27J53-killifish_light01.c: 164: value = value * value / 255;
+  3147                           ;PIC18F27J53-killifish_light01.c: 168: value = value * value / 255;
   3148  002642  C06E  F060         	movff	PWM_set@value,___wmul@multiplier
   3149  002646  C06F  F061         	movff	PWM_set@value+1,___wmul@multiplier+1
   3150  00264A  C06E  F062         	movff	PWM_set@value,___wmul@multiplicand
@@ -3209,15 +3209,15 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3160  00266A  C066  F06E         	movff	?___lwdiv,PWM_set@value
   3161  00266E  C067  F06F         	movff	?___lwdiv+1,PWM_set@value+1
   3162                           
-  3163                           ;PIC18F27J53-killifish_light01.c: 165: switch (color) {
+  3163                           ;PIC18F27J53-killifish_light01.c: 169: switch (color) {
   3164  002672  D03C               	goto	l4755
   3165  002674                     l4737:
   3166                           
-  3167                           ;PIC18F27J53-killifish_light01.c: 167: CCP1CONbits.DC1B = 0;
+  3167                           ;PIC18F27J53-killifish_light01.c: 171: CCP1CONbits.DC1B = 0;
   3168  002674  0ECF               	movlw	-49
   3169  002676  16BA               	andwf	4026,f,c	;volatile
   3170                           
-  3171                           ;PIC18F27J53-killifish_light01.c: 168: CCPR1L = value * 2 / 3;
+  3171                           ;PIC18F27J53-killifish_light01.c: 172: CCPR1L = value * 2 / 3;
   3172  002678  90D8               	bcf	status,0,c
   3173  00267A  0100               	movlb	0	; () banked
   3174  00267C  356E               	rlcf	PWM_set@value& (0+255),w,b
@@ -3237,31 +3237,31 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3188  00269A  5166               	movf	?___lwdiv& (0+255),w,b
   3189  00269C  6EBB               	movwf	4027,c	;volatile
   3190                           
-  3191                           ;PIC18F27J53-killifish_light01.c: 169: break;
+  3191                           ;PIC18F27J53-killifish_light01.c: 173: break;
   3192  00269E  0012               	return	
   3193  0026A0                     l4741:
   3194                           
   3195                           ; BSR set to: 0
-  3196                           ;PIC18F27J53-killifish_light01.c: 171: CCP2CONbits.DC2B = 0;
+  3196                           ;PIC18F27J53-killifish_light01.c: 175: CCP2CONbits.DC2B = 0;
   3197  0026A0  0ECF               	movlw	-49
   3198  0026A2  16B4               	andwf	4020,f,c	;volatile
   3199                           
   3200                           ; BSR set to: 0
-  3201                           ;PIC18F27J53-killifish_light01.c: 172: CCPR2L = value;
+  3201                           ;PIC18F27J53-killifish_light01.c: 176: CCPR2L = value;
   3202  0026A4  C06E  FFB5         	movff	PWM_set@value,4021	;volatile
   3203                           
-  3204                           ;PIC18F27J53-killifish_light01.c: 173: break;
+  3204                           ;PIC18F27J53-killifish_light01.c: 177: break;
   3205  0026A8  0012               	return	
   3206  0026AA                     l4745:
   3207                           
   3208                           ; BSR set to: 0
-  3209                           ;PIC18F27J53-killifish_light01.c: 175: CCP3CONbits.DC3B = 0;
+  3209                           ;PIC18F27J53-killifish_light01.c: 179: CCP3CONbits.DC3B = 0;
   3210  0026AA  0ECF               	movlw	-49
   3211  0026AC  010F               	movlb	15	; () banked
   3212  0026AE  1715               	andwf	21,f,b	;volatile
   3213                           
   3214                           ; BSR set to: 15
-  3215                           ;PIC18F27J53-killifish_light01.c: 176: CCPR3L = value * 3 / 4;
+  3215                           ;PIC18F27J53-killifish_light01.c: 180: CCPR3L = value * 3 / 4;
   3216  0026B0  C06E  F060         	movff	PWM_set@value,___wmul@multiplier
   3217  0026B4  C06F  F061         	movff	PWM_set@value+1,___wmul@multiplier+1
   3218  0026B8  0E00               	movlw	0
@@ -3283,23 +3283,23 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3234  0026DA  010F               	movlb	15	; () banked
   3235  0026DC  6F16               	movwf	22,b	;volatile
   3236                           
-  3237                           ;PIC18F27J53-killifish_light01.c: 177: break;
+  3237                           ;PIC18F27J53-killifish_light01.c: 181: break;
   3238  0026DE  0012               	return	
   3239  0026E0                     l4749:
   3240                           
-  3241                           ;PIC18F27J53-killifish_light01.c: 179: CCP4CONbits.DC4B = 0;
+  3241                           ;PIC18F27J53-killifish_light01.c: 183: CCP4CONbits.DC4B = 0;
   3242  0026E0  0ECF               	movlw	-49
   3243  0026E2  010F               	movlb	15	; () banked
   3244  0026E4  1712               	andwf	18,f,b	;volatile
   3245                           
   3246                           ; BSR set to: 15
-  3247                           ;PIC18F27J53-killifish_light01.c: 180: CCPR4L = value;
+  3247                           ;PIC18F27J53-killifish_light01.c: 184: CCPR4L = value;
   3248  0026E6  C06E  FF13         	movff	PWM_set@value,3859	;volatile
   3249                           
   3250                           ; BSR set to: 15
-  3251                           ;PIC18F27J53-killifish_light01.c: 182: }
+  3251                           ;PIC18F27J53-killifish_light01.c: 186: }
   3252                           
-  3253                           ;PIC18F27J53-killifish_light01.c: 181: break;
+  3253                           ;PIC18F27J53-killifish_light01.c: 185: break;
   3254  0026EA  0012               	return	
   3255  0026EC                     l4755:
   3256  0026EC  0100               	movlb	0	; () banked
@@ -3441,7 +3441,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3387                           
   3388 ;; *************** function _print_time *****************
   3389 ;; Defined at:
-  3390 ;;		line 211 in file "PIC18F27J53-killifish_light01.c"
+  3390 ;;		line 215 in file "PIC18F27J53-killifish_light01.c"
   3391 ;; Parameters:    Size  Location     Type
   3392 ;;  row             1    wreg     unsigned char 
   3393 ;; Auto vars:     Size  Location     Type
@@ -3489,11 +3489,11 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3430  002FAE  0100               	movlb	0	; () banked
   3431  002FB0  6F81               	movwf	print_time@row& (0+255),b
   3432                           
-  3433                           ;PIC18F27J53-killifish_light01.c: 212: uint8_t i;
-  3434                           ;PIC18F27J53-killifish_light01.c: 213: GIE = 0;
+  3433                           ;PIC18F27J53-killifish_light01.c: 216: uint8_t i;
+  3434                           ;PIC18F27J53-killifish_light01.c: 217: GIE = 0;
   3435  002FB2  9EF2               	bcf	intcon,7,c	;volatile
   3436                           
-  3437                           ;PIC18F27J53-killifish_light01.c: 214: for (i = 0; i < row; i++) tx_sends(cursor_down);
+  3437                           ;PIC18F27J53-killifish_light01.c: 218: for (i = 0; i < row; i++) tx_sends(cursor_down);
   3438  002FB4  0E00               	movlw	0
   3439  002FB6  0100               	movlb	0	; () banked
   3440  002FB8  6F82               	movwf	print_time@i& (0+255),b
@@ -3521,12 +3521,12 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3462  002FDA  D7F0               	goto	l4911
   3463                           
   3464                           ; BSR set to: 0
-  3465                           ;PIC18F27J53-killifish_light01.c: 215: tx_send_time();
+  3465                           ;PIC18F27J53-killifish_light01.c: 219: tx_send_time();
   3466                           
   3467                           ; BSR set to: 0
   3468  002FDC  EC11  F010         	call	_tx_send_time	;wreg free
   3469                           
-  3470                           ;PIC18F27J53-killifish_light01.c: 216: for (i = 0; i < 26; i++) tx_send('\b');
+  3470                           ;PIC18F27J53-killifish_light01.c: 220: for (i = 0; i < 26; i++) tx_send('\b');
   3471  002FE0  0E00               	movlw	0
   3472  002FE2  0100               	movlb	0	; () banked
   3473  002FE4  6F82               	movwf	print_time@i& (0+255),b
@@ -3549,7 +3549,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3490  002FFC                     l4931:
   3491                           
   3492                           ; BSR set to: 0
-  3493                           ;PIC18F27J53-killifish_light01.c: 217: for (i = 0; i < row; i++) tx_sends(cursor_up);
+  3493                           ;PIC18F27J53-killifish_light01.c: 221: for (i = 0; i < row; i++) tx_sends(cursor_up);
   3494  002FFC  0E00               	movlw	0
   3495  002FFE  0100               	movlb	0	; () banked
   3496  003000  6F82               	movwf	print_time@i& (0+255),b
@@ -3577,7 +3577,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3518  003022  D7F0               	goto	l4933
   3519                           
   3520                           ; BSR set to: 0
-  3521                           ;PIC18F27J53-killifish_light01.c: 218: GIE = 1;
+  3521                           ;PIC18F27J53-killifish_light01.c: 222: GIE = 1;
   3522  003024  8EF2               	bsf	intcon,7,c	;volatile
   3523                           
   3524                           ; BSR set to: 0
@@ -3607,7 +3607,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3548                           
   3549 ;; *************** function _tx_send_time *****************
   3550 ;; Defined at:
-  3551 ;;		line 192 in file "PIC18F27J53-killifish_light01.c"
+  3551 ;;		line 196 in file "PIC18F27J53-killifish_light01.c"
   3552 ;; Parameters:    Size  Location     Type
   3553 ;;		None
   3554 ;; Auto vars:     Size  Location     Type
@@ -3648,7 +3648,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3584  002022                     _tx_send_time:
   3585                           	opt stack 20
   3586                           
-  3587                           ;PIC18F27J53-killifish_light01.c: 193: tx_send_dec(20, edit_flag.flag.YY);
+  3587                           ;PIC18F27J53-killifish_light01.c: 197: tx_send_dec(20, edit_flag.flag.YY);
   3588                           
   3589                           ; BSR set to: 0
   3590                           ;incstack = 0
@@ -3660,7 +3660,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3596  00202C  0E14               	movlw	20
   3597  00202E  EC8A  F019         	call	_tx_send_dec
   3598                           
-  3599                           ;PIC18F27J53-killifish_light01.c: 194: tx_send_dec(caltime_now.YY, edit_flag.flag.YY);
+  3599                           ;PIC18F27J53-killifish_light01.c: 198: tx_send_dec(caltime_now.YY, edit_flag.flag.YY);
   3600  002032  0E00               	movlw	0
   3601  002034  BA29               	btfsc	_edit_flag,5,c
   3602  002036  0E01               	movlw	1
@@ -3670,7 +3670,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3606  00203E  51C8               	movf	(_caltime_now+6)& (0+255),w,b
   3607  002040  EC8A  F019         	call	_tx_send_dec
   3608                           
-  3609                           ;PIC18F27J53-killifish_light01.c: 195: tx_sends("/");
+  3609                           ;PIC18F27J53-killifish_light01.c: 199: tx_sends("/");
   3610  002044  0E45               	movlw	low STR_6
   3611  002046  0100               	movlb	0	; () banked
   3612  002048  6F6F               	movwf	tx_sends@asciicode& (0+255),b
@@ -3679,7 +3679,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3615  00204E  6F70               	movwf	(tx_sends@asciicode+1)& (0+255),b
   3616  002050  ECC6  F018         	call	_tx_sends	;wreg free
   3617                           
-  3618                           ;PIC18F27J53-killifish_light01.c: 196: tx_send_dec(caltime_now.MM, edit_flag.flag.MM);
+  3618                           ;PIC18F27J53-killifish_light01.c: 200: tx_send_dec(caltime_now.MM, edit_flag.flag.MM);
   3619  002054  0E00               	movlw	0
   3620  002056  B829               	btfsc	_edit_flag,4,c
   3621  002058  0E01               	movlw	1
@@ -3689,7 +3689,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3625  002060  51C7               	movf	(_caltime_now+5)& (0+255),w,b
   3626  002062  EC8A  F019         	call	_tx_send_dec
   3627                           
-  3628                           ;PIC18F27J53-killifish_light01.c: 197: tx_sends("/");
+  3628                           ;PIC18F27J53-killifish_light01.c: 201: tx_sends("/");
   3629  002066  0E45               	movlw	low STR_6
   3630  002068  0100               	movlb	0	; () banked
   3631  00206A  6F6F               	movwf	tx_sends@asciicode& (0+255),b
@@ -3698,7 +3698,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3634  002070  6F70               	movwf	(tx_sends@asciicode+1)& (0+255),b
   3635  002072  ECC6  F018         	call	_tx_sends	;wreg free
   3636                           
-  3637                           ;PIC18F27J53-killifish_light01.c: 198: tx_send_dec(caltime_now.DD, edit_flag.flag.DD);
+  3637                           ;PIC18F27J53-killifish_light01.c: 202: tx_send_dec(caltime_now.DD, edit_flag.flag.DD);
   3638  002076  0E00               	movlw	0
   3639  002078  B629               	btfsc	_edit_flag,3,c
   3640  00207A  0E01               	movlw	1
@@ -3708,7 +3708,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3644  002082  51C6               	movf	(_caltime_now+4)& (0+255),w,b
   3645  002084  EC8A  F019         	call	_tx_send_dec
   3646                           
-  3647                           ;PIC18F27J53-killifish_light01.c: 199: tx_sends(" (");
+  3647                           ;PIC18F27J53-killifish_light01.c: 203: tx_sends(" (");
   3648  002088  0E3D               	movlw	low STR_8
   3649  00208A  0100               	movlb	0	; () banked
   3650  00208C  6F6F               	movwf	tx_sends@asciicode& (0+255),b
@@ -3717,7 +3717,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3653  002092  6F70               	movwf	(tx_sends@asciicode+1)& (0+255),b
   3654  002094  ECC6  F018         	call	_tx_sends	;wreg free
   3655                           
-  3656                           ;PIC18F27J53-killifish_light01.c: 200: tx_sends(weekday_3char[caltime_now.EE]);
+  3656                           ;PIC18F27J53-killifish_light01.c: 204: tx_sends(weekday_3char[caltime_now.EE]);
   3657  002098  0100               	movlb	0	; () banked
   3658  00209A  51C5               	movf	(_caltime_now+3)& (0+255),w,b
   3659  00209C  0D04               	mullw	4
@@ -3731,7 +3731,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3667  0020AC  6F70               	movwf	(tx_sends@asciicode+1)& (0+255),b
   3668  0020AE  ECC6  F018         	call	_tx_sends	;wreg free
   3669                           
-  3670                           ;PIC18F27J53-killifish_light01.c: 201: tx_sends(") ");
+  3670                           ;PIC18F27J53-killifish_light01.c: 205: tx_sends(") ");
   3671  0020B2  0E3A               	movlw	low STR_9
   3672  0020B4  0100               	movlb	0	; () banked
   3673  0020B6  6F6F               	movwf	tx_sends@asciicode& (0+255),b
@@ -3740,7 +3740,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3676  0020BC  6F70               	movwf	(tx_sends@asciicode+1)& (0+255),b
   3677  0020BE  ECC6  F018         	call	_tx_sends	;wreg free
   3678                           
-  3679                           ;PIC18F27J53-killifish_light01.c: 202: tx_send_dec(caltime_now.hh, edit_flag.flag.hh);
+  3679                           ;PIC18F27J53-killifish_light01.c: 206: tx_send_dec(caltime_now.hh, edit_flag.flag.hh);
   3680  0020C2  0E00               	movlw	0
   3681  0020C4  B429               	btfsc	_edit_flag,2,c
   3682  0020C6  0E01               	movlw	1
@@ -3750,7 +3750,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3686  0020CE  51C4               	movf	(_caltime_now+2)& (0+255),w,b
   3687  0020D0  EC8A  F019         	call	_tx_send_dec
   3688                           
-  3689                           ;PIC18F27J53-killifish_light01.c: 203: if (colon)tx_send(':');
+  3689                           ;PIC18F27J53-killifish_light01.c: 207: if (colon)tx_send(':');
   3690  0020D4  5027               	movf	_colon,w,c
   3691  0020D6  B4D8               	btfsc	status,2,c
   3692  0020D8  D004               	goto	l4769
@@ -3759,12 +3759,12 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3695  0020E0  D003               	goto	l4771
   3696  0020E2                     l4769:
   3697                           
-  3698                           ;PIC18F27J53-killifish_light01.c: 204: else tx_send(' ');
+  3698                           ;PIC18F27J53-killifish_light01.c: 208: else tx_send(' ');
   3699  0020E2  0E20               	movlw	32
   3700  0020E4  EC41  F01B         	call	_tx_send
   3701  0020E8                     l4771:
   3702                           
-  3703                           ;PIC18F27J53-killifish_light01.c: 205: tx_send_dec(caltime_now.mm, edit_flag.flag.mm);
+  3703                           ;PIC18F27J53-killifish_light01.c: 209: tx_send_dec(caltime_now.mm, edit_flag.flag.mm);
   3704  0020E8  0E00               	movlw	0
   3705  0020EA  B229               	btfsc	_edit_flag,1,c
   3706  0020EC  0E01               	movlw	1
@@ -3774,7 +3774,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3710  0020F4  51C3               	movf	(_caltime_now+1)& (0+255),w,b
   3711  0020F6  EC8A  F019         	call	_tx_send_dec
   3712                           
-  3713                           ;PIC18F27J53-killifish_light01.c: 206: tx_sends("-");
+  3713                           ;PIC18F27J53-killifish_light01.c: 210: tx_sends("-");
   3714  0020FA  0E43               	movlw	low STR_10
   3715  0020FC  0100               	movlb	0	; () banked
   3716  0020FE  6F6F               	movwf	tx_sends@asciicode& (0+255),b
@@ -3783,7 +3783,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3719  002104  6F70               	movwf	(tx_sends@asciicode+1)& (0+255),b
   3720  002106  ECC6  F018         	call	_tx_sends	;wreg free
   3721                           
-  3722                           ;PIC18F27J53-killifish_light01.c: 207: tx_send_dec(caltime_now.ss, edit_flag.flag.ss);
+  3722                           ;PIC18F27J53-killifish_light01.c: 211: tx_send_dec(caltime_now.ss, edit_flag.flag.ss);
   3723  00210A  0E00               	movlw	0
   3724  00210C  B029               	btfsc	_edit_flag,0,c
   3725  00210E  0E01               	movlw	1
@@ -3793,7 +3793,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3729  002116  51C2               	movf	_caltime_now& (0+255),w,b
   3730  002118  EC8A  F019         	call	_tx_send_dec
   3731                           
-  3732                           ;PIC18F27J53-killifish_light01.c: 208: tx_sends(" ");
+  3732                           ;PIC18F27J53-killifish_light01.c: 212: tx_sends(" ");
   3733  00211C  0E38               	movlw	low (STR_5+1)
   3734  00211E  0100               	movlb	0	; () banked
   3735  002120  6F6F               	movwf	tx_sends@asciicode& (0+255),b
@@ -3827,7 +3827,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3763                           
   3764 ;; *************** function _tx_send_dec *****************
   3765 ;; Defined at:
-  3766 ;;		line 185 in file "PIC18F27J53-killifish_light01.c"
+  3766 ;;		line 189 in file "PIC18F27J53-killifish_light01.c"
   3767 ;; Parameters:    Size  Location     Type
   3768 ;;  dec             1    wreg     unsigned char 
   3769 ;;  edit            1   21[BANK0 ] unsigned char 
@@ -3874,8 +3874,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3805  003314  0100               	movlb	0	; () banked
   3806  003316  6F80               	movwf	tx_send_dec@dec& (0+255),b
   3807                           
-  3808                           ;PIC18F27J53-killifish_light01.c: 186: uint8_t str[10];
-  3809                           ;PIC18F27J53-killifish_light01.c: 187: my_utoa(&str, dec, 2);
+  3808                           ;PIC18F27J53-killifish_light01.c: 190: uint8_t str[10];
+  3809                           ;PIC18F27J53-killifish_light01.c: 191: my_utoa(&str, dec, 2);
   3810  003318  0E76               	movlw	low tx_send_dec@str
   3811  00331A  0100               	movlb	0	; () banked
   3812  00331C  6F6D               	movwf	my_utoa@str& (0+255),b
@@ -3890,7 +3890,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3821  003330  6F71               	movwf	my_utoa@digits& (0+255),b
   3822  003332  EC93  F017         	call	_my_utoa	;wreg free
   3823                           
-  3824                           ;PIC18F27J53-killifish_light01.c: 188: if (edit && RTCCFGbits.HALFSEC)tx_sends("  ");
+  3824                           ;PIC18F27J53-killifish_light01.c: 192: if (edit && RTCCFGbits.HALFSEC)tx_sends("  ");
   3825  003336  0100               	movlb	0	; () banked
   3826  003338  5175               	movf	tx_send_dec@edit& (0+255),w,b
   3827  00333A  0100               	movlb	0	; () banked
@@ -3913,7 +3913,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3844  003356  0012               	return	
   3845  003358                     l4531:
   3846                           
-  3847                           ;PIC18F27J53-killifish_light01.c: 189: else tx_sends(str);
+  3847                           ;PIC18F27J53-killifish_light01.c: 193: else tx_sends(str);
   3848  003358  0E76               	movlw	low tx_send_dec@str
   3849  00335A  0100               	movlb	0	; () banked
   3850  00335C  6F6F               	movwf	tx_sends@asciicode& (0+255),b
@@ -4978,7 +4978,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   4874                           
   4875 ;; *************** function _main_init *****************
   4876 ;; Defined at:
-  4877 ;;		line 307 in file "PIC18F27J53-killifish_light01.c"
+  4877 ;;		line 311 in file "PIC18F27J53-killifish_light01.c"
   4878 ;; Parameters:    Size  Location     Type
   4879 ;;		None
   4880 ;; Auto vars:     Size  Location     Type
@@ -5024,67 +5024,67 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   4915  002E94                     _main_init:
   4916                           	opt stack 24
   4917                           
-  4918                           ;PIC18F27J53-killifish_light01.c: 308: OSC_init();
+  4918                           ;PIC18F27J53-killifish_light01.c: 312: OSC_init();
   4919                           
   4920                           ; BSR set to: 0
   4921                           ;incstack = 0
   4922  002E94  EC63  F01B         	call	_OSC_init	;wreg free
   4923                           
-  4924                           ;PIC18F27J53-killifish_light01.c: 309: TRISA = 0b11100111;
+  4924                           ;PIC18F27J53-killifish_light01.c: 313: TRISA = 0b11100111;
   4925  002E98  0EE7               	movlw	231
   4926  002E9A  6E92               	movwf	3986,c	;volatile
   4927                           
-  4928                           ;PIC18F27J53-killifish_light01.c: 310: TRISB = 0b00000000;
+  4928                           ;PIC18F27J53-killifish_light01.c: 314: TRISB = 0b00000000;
   4929  002E9C  0E00               	movlw	0
   4930  002E9E  6E93               	movwf	3987,c	;volatile
   4931                           
-  4932                           ;PIC18F27J53-killifish_light01.c: 311: TRISC = 0b10111010;
+  4932                           ;PIC18F27J53-killifish_light01.c: 315: TRISC = 0b10111010;
   4933  002EA0  0EBA               	movlw	186
   4934  002EA2  6E94               	movwf	3988,c	;volatile
   4935                           
-  4936                           ;PIC18F27J53-killifish_light01.c: 312: ANCON0 = 0b11111000;
+  4936                           ;PIC18F27J53-killifish_light01.c: 316: ANCON0 = 0b11111000;
   4937  002EA4  0EF8               	movlw	248
   4938  002EA6  010F               	movlb	15	; () banked
   4939  002EA8  6F48               	movwf	72,b	;volatile
   4940                           
   4941                           ; BSR set to: 15
-  4942                           ;PIC18F27J53-killifish_light01.c: 313: ANCON1 = 0b00011111;
+  4942                           ;PIC18F27J53-killifish_light01.c: 317: ANCON1 = 0b00011111;
   4943  002EAA  0E1F               	movlw	31
   4944  002EAC  010F               	movlb	15	; () banked
   4945  002EAE  6F49               	movwf	73,b	;volatile
   4946                           
   4947                           ; BSR set to: 15
-  4948                           ;PIC18F27J53-killifish_light01.c: 314: INTCON2bits.RBPU = 0;
+  4948                           ;PIC18F27J53-killifish_light01.c: 318: INTCON2bits.RBPU = 0;
   4949  002EB0  9EF1               	bcf	intcon2,7,c	;volatile
   4950                           
   4951                           ; BSR set to: 15
-  4952                           ;PIC18F27J53-killifish_light01.c: 317: timer1_init(0, 2);
+  4952                           ;PIC18F27J53-killifish_light01.c: 321: timer1_init(0, 2);
   4953  002EB2  0E02               	movlw	2
   4954  002EB4  0100               	movlb	0	; () banked
   4955  002EB6  6F60               	movwf	timer1_init@clock_select& (0+255),b
   4956  002EB8  0E00               	movlw	0
   4957  002EBA  ECDF  F019         	call	_timer1_init
   4958                           
-  4959                           ;PIC18F27J53-killifish_light01.c: 318: timer3_init(2);
+  4959                           ;PIC18F27J53-killifish_light01.c: 322: timer3_init(2);
   4960  002EBE  0E02               	movlw	2
   4961  002EC0  ECB4  F01A         	call	_timer3_init
   4962                           
-  4963                           ;PIC18F27J53-killifish_light01.c: 319: ADC_init(0);
+  4963                           ;PIC18F27J53-killifish_light01.c: 323: ADC_init(0);
   4964  002EC4  0E00               	movlw	0
   4965  002EC6  EC21  F01B         	call	_ADC_init
   4966                           
-  4967                           ;PIC18F27J53-killifish_light01.c: 320: RTCC_init();
+  4967                           ;PIC18F27J53-killifish_light01.c: 324: RTCC_init();
   4968  002ECA  EC86  F01A         	call	_RTCC_init	;wreg free
   4969                           
-  4970                           ;PIC18F27J53-killifish_light01.c: 321: PWM_init(255);
+  4970                           ;PIC18F27J53-killifish_light01.c: 325: PWM_init(255);
   4971  002ECE  0EFF               	movlw	255
   4972  002ED0  ECE4  F013         	call	_PWM_init
   4973                           
-  4974                           ;PIC18F27J53-killifish_light01.c: 323: UART_init();
+  4974                           ;PIC18F27J53-killifish_light01.c: 327: UART_init();
   4975  002ED4  EC11  F01B         	call	_UART_init	;wreg free
   4976                           
-  4977                           ;PIC18F27J53-killifish_light01.c: 324: static uint8_t txbuf[250];
-  4978                           ;PIC18F27J53-killifish_light01.c: 325: ringbuf_init(&tx_buf, txbuf, sizeof (txbuf));
+  4977                           ;PIC18F27J53-killifish_light01.c: 328: static uint8_t txbuf[250];
+  4978                           ;PIC18F27J53-killifish_light01.c: 329: ringbuf_init(&tx_buf, txbuf, sizeof (txbuf));
   4979  002ED8  0E34               	movlw	low _tx_buf
   4980  002EDA  0100               	movlb	0	; () banked
   4981  002EDC  6F60               	movwf	ringbuf_init@rb& (0+255),b
@@ -5104,8 +5104,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   4995  002EF8  6F64               	movwf	ringbuf_init@bufsize& (0+255),b
   4996  002EFA  ECB5  F019         	call	_ringbuf_init	;wreg free
   4997                           
-  4998                           ;PIC18F27J53-killifish_light01.c: 326: static uint8_t rxbuf[250];
-  4999                           ;PIC18F27J53-killifish_light01.c: 327: ringbuf_init(&rx_buf, rxbuf, sizeof (rxbuf));
+  4998                           ;PIC18F27J53-killifish_light01.c: 330: static uint8_t rxbuf[250];
+  4999                           ;PIC18F27J53-killifish_light01.c: 331: ringbuf_init(&rx_buf, rxbuf, sizeof (rxbuf));
   5000  002EFE  0E2C               	movlw	low _rx_buf
   5001  002F00  0100               	movlb	0	; () banked
   5002  002F02  6F60               	movwf	ringbuf_init@rb& (0+255),b
@@ -5753,7 +5753,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   5619                           
   5620 ;; *************** function _PWM_init *****************
   5621 ;; Defined at:
-  5622 ;;		line 122 in file "PIC18F27J53-killifish_light01.c"
+  5622 ;;		line 126 in file "PIC18F27J53-killifish_light01.c"
   5623 ;; Parameters:    Size  Location     Type
   5624 ;;  PR              1    wreg     unsigned char 
   5625 ;; Auto vars:     Size  Location     Type
@@ -5798,107 +5798,107 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   5659  0027C8  0100               	movlb	0	; () banked
   5660  0027CA  6F60               	movwf	PWM_init@PR& (0+255),b
   5661                           
-  5662                           ;PIC18F27J53-killifish_light01.c: 123: PPSCONbits.IOLOCK = 0;
+  5662                           ;PIC18F27J53-killifish_light01.c: 127: PPSCONbits.IOLOCK = 0;
   5663  0027CC  010E               	movlb	14	; () banked
   5664  0027CE  91BF               	bcf	191,0,b	;volatile
   5665                           
-  5666                           ;PIC18F27J53-killifish_light01.c: 124: if (PPSCONbits.IOLOCK != 0) {
+  5666                           ;PIC18F27J53-killifish_light01.c: 128: if (PPSCONbits.IOLOCK != 0) {
   5667  0027D0  010E               	movlb	14	; () banked
   5668  0027D2  A1BF               	btfss	191,0,b	;volatile
   5669  0027D4  D006               	goto	l548
   5670                           
   5671                           ; BSR set to: 14
-  5672                           ;PIC18F27J53-killifish_light01.c: 125: EECON2 = 0x55;
+  5672                           ;PIC18F27J53-killifish_light01.c: 129: EECON2 = 0x55;
   5673  0027D6  0E55               	movlw	85
   5674  0027D8  6EA7               	movwf	4007,c	;volatile
   5675                           
-  5676                           ;PIC18F27J53-killifish_light01.c: 126: EECON2 = 0xAA;
+  5676                           ;PIC18F27J53-killifish_light01.c: 130: EECON2 = 0xAA;
   5677  0027DA  0EAA               	movlw	170
   5678  0027DC  6EA7               	movwf	4007,c	;volatile
   5679                           
   5680                           ; BSR set to: 14
-  5681                           ;PIC18F27J53-killifish_light01.c: 127: PPSCONbits.IOLOCK = 0;
+  5681                           ;PIC18F27J53-killifish_light01.c: 131: PPSCONbits.IOLOCK = 0;
   5682  0027DE  010E               	movlb	14	; () banked
   5683  0027E0  91BF               	bcf	191,0,b	;volatile
   5684  0027E2                     l548:
   5685                           
   5686                           ; BSR set to: 14
-  5687                           ;PIC18F27J53-killifish_light01.c: 128: }
-  5688                           ;PIC18F27J53-killifish_light01.c: 130: RPOR3 = 14;
+  5687                           ;PIC18F27J53-killifish_light01.c: 132: }
+  5688                           ;PIC18F27J53-killifish_light01.c: 134: RPOR3 = 14;
   5689  0027E2  0E0E               	movlw	14
   5690  0027E4  010E               	movlb	14	; () banked
   5691  0027E6  6FC3               	movwf	195,b	;volatile
   5692                           
-  5693                           ;PIC18F27J53-killifish_light01.c: 131: RPOR4 = 18;
+  5693                           ;PIC18F27J53-killifish_light01.c: 135: RPOR4 = 18;
   5694  0027E8  0E12               	movlw	18
   5695  0027EA  010E               	movlb	14	; () banked
   5696  0027EC  6FC4               	movwf	196,b	;volatile
   5697                           
-  5698                           ;PIC18F27J53-killifish_light01.c: 132: RPOR5 = 22;
+  5698                           ;PIC18F27J53-killifish_light01.c: 136: RPOR5 = 22;
   5699  0027EE  0E16               	movlw	22
   5700  0027F0  010E               	movlb	14	; () banked
   5701  0027F2  6FC5               	movwf	197,b	;volatile
   5702                           
   5703                           ; BSR set to: 14
-  5704                           ;PIC18F27J53-killifish_light01.c: 134: CCP1CONbits.CCP1M = 12;
+  5704                           ;PIC18F27J53-killifish_light01.c: 138: CCP1CONbits.CCP1M = 12;
   5705  0027F4  50BA               	movf	4026,w,c	;volatile
   5706  0027F6  0BF0               	andlw	-16
   5707  0027F8  090C               	iorlw	12
   5708  0027FA  6EBA               	movwf	4026,c	;volatile
   5709                           
   5710                           ; BSR set to: 14
-  5711                           ;PIC18F27J53-killifish_light01.c: 135: CCP1CONbits.P1M = 0;
+  5711                           ;PIC18F27J53-killifish_light01.c: 139: CCP1CONbits.P1M = 0;
   5712  0027FC  0E3F               	movlw	-193
   5713  0027FE  16BA               	andwf	4026,f,c	;volatile
   5714                           
   5715                           ; BSR set to: 14
-  5716                           ;PIC18F27J53-killifish_light01.c: 136: CCPTMRS0bits.C1TSEL = 0;
+  5716                           ;PIC18F27J53-killifish_light01.c: 140: CCPTMRS0bits.C1TSEL = 0;
   5717  002800  010F               	movlb	15	; () banked
   5718  002802  9152               	bcf	82,0,b	;volatile
   5719  002804  9352               	bcf	82,1,b	;volatile
   5720  002806  9552               	bcf	82,2,b	;volatile
   5721                           
   5722                           ; BSR set to: 15
-  5723                           ;PIC18F27J53-killifish_light01.c: 137: CCPR1Lbits.CCPR1L = 0;
+  5723                           ;PIC18F27J53-killifish_light01.c: 141: CCPR1Lbits.CCPR1L = 0;
   5724  002808  0E00               	movlw	0
   5725  00280A  6EBB               	movwf	4027,c	;volatile
   5726                           
   5727                           ; BSR set to: 15
-  5728                           ;PIC18F27J53-killifish_light01.c: 138: CCP1CONbits.DC1B = 0;
+  5728                           ;PIC18F27J53-killifish_light01.c: 142: CCP1CONbits.DC1B = 0;
   5729  00280C  0ECF               	movlw	-49
   5730  00280E  16BA               	andwf	4026,f,c	;volatile
   5731                           
   5732                           ; BSR set to: 15
-  5733                           ;PIC18F27J53-killifish_light01.c: 140: CCP2CONbits.CCP2M = 12;
+  5733                           ;PIC18F27J53-killifish_light01.c: 144: CCP2CONbits.CCP2M = 12;
   5734  002810  50B4               	movf	4020,w,c	;volatile
   5735  002812  0BF0               	andlw	-16
   5736  002814  090C               	iorlw	12
   5737  002816  6EB4               	movwf	4020,c	;volatile
   5738                           
   5739                           ; BSR set to: 15
-  5740                           ;PIC18F27J53-killifish_light01.c: 141: CCP2CONbits.P2M = 0;
+  5740                           ;PIC18F27J53-killifish_light01.c: 145: CCP2CONbits.P2M = 0;
   5741  002818  0E3F               	movlw	-193
   5742  00281A  16B4               	andwf	4020,f,c	;volatile
   5743                           
   5744                           ; BSR set to: 15
-  5745                           ;PIC18F27J53-killifish_light01.c: 142: CCPTMRS0bits.C2TSEL = 0;
+  5745                           ;PIC18F27J53-killifish_light01.c: 146: CCPTMRS0bits.C2TSEL = 0;
   5746  00281C  010F               	movlb	15	; () banked
   5747  00281E  9752               	bcf	82,3,b	;volatile
   5748  002820  9952               	bcf	82,4,b	;volatile
   5749  002822  9B52               	bcf	82,5,b	;volatile
   5750                           
   5751                           ; BSR set to: 15
-  5752                           ;PIC18F27J53-killifish_light01.c: 143: CCPR2Lbits.CCPR2L = 0;
+  5752                           ;PIC18F27J53-killifish_light01.c: 147: CCPR2Lbits.CCPR2L = 0;
   5753  002824  0E00               	movlw	0
   5754  002826  6EB5               	movwf	4021,c	;volatile
   5755                           
   5756                           ; BSR set to: 15
-  5757                           ;PIC18F27J53-killifish_light01.c: 144: CCP2CONbits.DC2B = 0;
+  5757                           ;PIC18F27J53-killifish_light01.c: 148: CCP2CONbits.DC2B = 0;
   5758  002828  0ECF               	movlw	-49
   5759  00282A  16B4               	andwf	4020,f,c	;volatile
   5760                           
   5761                           ; BSR set to: 15
-  5762                           ;PIC18F27J53-killifish_light01.c: 146: CCP3CONbits.CCP3M = 12;
+  5762                           ;PIC18F27J53-killifish_light01.c: 150: CCP3CONbits.CCP3M = 12;
   5763  00282C  010F               	movlb	15	; () banked
   5764  00282E  5115               	movf	21,w,b	;volatile
   5765  002830  0BF0               	andlw	-16
@@ -5906,31 +5906,31 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   5767  002834  6F15               	movwf	21,b	;volatile
   5768                           
   5769                           ; BSR set to: 15
-  5770                           ;PIC18F27J53-killifish_light01.c: 147: CCP3CONbits.P3M = 0;
+  5770                           ;PIC18F27J53-killifish_light01.c: 151: CCP3CONbits.P3M = 0;
   5771  002836  0E3F               	movlw	-193
   5772  002838  010F               	movlb	15	; () banked
   5773  00283A  1715               	andwf	21,f,b	;volatile
   5774                           
   5775                           ; BSR set to: 15
-  5776                           ;PIC18F27J53-killifish_light01.c: 148: CCPTMRS0bits.C3TSEL = 0;
+  5776                           ;PIC18F27J53-killifish_light01.c: 152: CCPTMRS0bits.C3TSEL = 0;
   5777  00283C  0E3F               	movlw	-193
   5778  00283E  010F               	movlb	15	; () banked
   5779  002840  1752               	andwf	82,f,b	;volatile
   5780                           
   5781                           ; BSR set to: 15
-  5782                           ;PIC18F27J53-killifish_light01.c: 149: CCPR3Lbits.CCPR3L = 0;
+  5782                           ;PIC18F27J53-killifish_light01.c: 153: CCPR3Lbits.CCPR3L = 0;
   5783  002842  0E00               	movlw	0
   5784  002844  010F               	movlb	15	; () banked
   5785  002846  6F16               	movwf	22,b	;volatile
   5786                           
   5787                           ; BSR set to: 15
-  5788                           ;PIC18F27J53-killifish_light01.c: 150: CCP3CONbits.DC3B = 0;
+  5788                           ;PIC18F27J53-killifish_light01.c: 154: CCP3CONbits.DC3B = 0;
   5789  002848  0ECF               	movlw	-49
   5790  00284A  010F               	movlb	15	; () banked
   5791  00284C  1715               	andwf	21,f,b	;volatile
   5792                           
   5793                           ; BSR set to: 15
-  5794                           ;PIC18F27J53-killifish_light01.c: 152: CCP4CONbits.CCP4M = 12;
+  5794                           ;PIC18F27J53-killifish_light01.c: 156: CCP4CONbits.CCP4M = 12;
   5795  00284E  010F               	movlb	15	; () banked
   5796  002850  5112               	movf	18,w,b	;volatile
   5797  002852  0BF0               	andlw	-16
@@ -5938,45 +5938,45 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   5799  002856  6F12               	movwf	18,b	;volatile
   5800                           
   5801                           ; BSR set to: 15
-  5802                           ;PIC18F27J53-killifish_light01.c: 153: CCPTMRS1bits.C4TSEL = 0;
+  5802                           ;PIC18F27J53-killifish_light01.c: 157: CCPTMRS1bits.C4TSEL = 0;
   5803  002858  0EFC               	movlw	-4
   5804  00285A  010F               	movlb	15	; () banked
   5805  00285C  1751               	andwf	81,f,b	;volatile
   5806                           
   5807                           ; BSR set to: 15
-  5808                           ;PIC18F27J53-killifish_light01.c: 154: CCPR4Lbits.CCPR4L = 0;
+  5808                           ;PIC18F27J53-killifish_light01.c: 158: CCPR4Lbits.CCPR4L = 0;
   5809  00285E  0E00               	movlw	0
   5810  002860  010F               	movlb	15	; () banked
   5811  002862  6F13               	movwf	19,b	;volatile
   5812                           
   5813                           ; BSR set to: 15
-  5814                           ;PIC18F27J53-killifish_light01.c: 155: CCP4CONbits.DC4B = 0;
+  5814                           ;PIC18F27J53-killifish_light01.c: 159: CCP4CONbits.DC4B = 0;
   5815  002864  0ECF               	movlw	-49
   5816  002866  010F               	movlb	15	; () banked
   5817  002868  1712               	andwf	18,f,b	;volatile
   5818                           
   5819                           ; BSR set to: 15
-  5820                           ;PIC18F27J53-killifish_light01.c: 157: T2CONbits.T2OUTPS = 0;
+  5820                           ;PIC18F27J53-killifish_light01.c: 161: T2CONbits.T2OUTPS = 0;
   5821  00286A  96CA               	bcf	4042,3,c	;volatile
   5822  00286C  98CA               	bcf	4042,4,c	;volatile
   5823  00286E  9ACA               	bcf	4042,5,c	;volatile
   5824  002870  9CCA               	bcf	4042,6,c	;volatile
   5825                           
   5826                           ; BSR set to: 15
-  5827                           ;PIC18F27J53-killifish_light01.c: 158: T2CONbits.T2CKPS = 2;
+  5827                           ;PIC18F27J53-killifish_light01.c: 162: T2CONbits.T2CKPS = 2;
   5828  002872  50CA               	movf	4042,w,c	;volatile
   5829  002874  0BFC               	andlw	-4
   5830  002876  0902               	iorlw	2
   5831  002878  6ECA               	movwf	4042,c	;volatile
   5832                           
   5833                           ; BSR set to: 15
-  5834                           ;PIC18F27J53-killifish_light01.c: 159: PR2 = PR - 1;
+  5834                           ;PIC18F27J53-killifish_light01.c: 163: PR2 = PR - 1;
   5835  00287A  0100               	movlb	0	; () banked
   5836  00287C  0560               	decf	PWM_init@PR& (0+255),w,b
   5837  00287E  6ECB               	movwf	4043,c	;volatile
   5838                           
   5839                           ; BSR set to: 0
-  5840                           ;PIC18F27J53-killifish_light01.c: 160: T2CONbits.TMR2ON = 1;
+  5840                           ;PIC18F27J53-killifish_light01.c: 164: T2CONbits.TMR2ON = 1;
   5841  002880  84CA               	bsf	4042,2,c	;volatile
   5842                           
   5843                           ; BSR set to: 0
@@ -9180,7 +9180,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   8945                           
   8946 ;; *************** function _ISR *****************
   8947 ;; Defined at:
-  8948 ;;		line 100 in file "PIC18F27J53-killifish_light01.c"
+  8948 ;;		line 104 in file "PIC18F27J53-killifish_light01.c"
   8949 ;; Parameters:    Size  Location     Type
   8950 ;;		None
   8951 ;; Auto vars:     Size  Location     Type
@@ -9238,53 +9238,53 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   8998  00003A  CFF8 F022          	movff	tblptru,??_ISR+12
   8999  00003E  CFF5 F023          	movff	tablat,??_ISR+13
   9000                           
-  9001                           ;PIC18F27J53-killifish_light01.c: 101: UART_ISR();
+  9001                           ;PIC18F27J53-killifish_light01.c: 105: UART_ISR();
   9002  000042  EC07  F01A         	call	_UART_ISR	;wreg free
   9003                           
-  9004                           ;PIC18F27J53-killifish_light01.c: 102: if (PIR1bits.RC1IF) {
+  9004                           ;PIC18F27J53-killifish_light01.c: 106: if (PIR1bits.RC1IF) {
   9005  000046  AA9E               	btfss	3998,5,c	;volatile
   9006  000048  D006               	goto	i2l4035
   9007                           
-  9008                           ;PIC18F27J53-killifish_light01.c: 103: PIR1bits.RC1IF = 0;
+  9008                           ;PIC18F27J53-killifish_light01.c: 107: PIR1bits.RC1IF = 0;
   9009  00004A  9A9E               	bcf	3998,5,c	;volatile
   9010                           
-  9011                           ;PIC18F27J53-killifish_light01.c: 104: uint8_t ascii = RCREG1;
+  9011                           ;PIC18F27J53-killifish_light01.c: 108: uint8_t ascii = RCREG1;
   9012  00004C  CFAF F024          	movff	4015,ISR@ascii	;volatile
   9013                           
-  9014                           ;PIC18F27J53-killifish_light01.c: 105: judgement(ascii);
+  9014                           ;PIC18F27J53-killifish_light01.c: 109: judgement(ascii);
   9015  000050  5024               	movf	ISR@ascii,w,c
   9016  000052  EC31  F00F         	call	_judgement
   9017  000056                     i2l4035:
   9018                           
-  9019                           ;PIC18F27J53-killifish_light01.c: 106: }
-  9020                           ;PIC18F27J53-killifish_light01.c: 107: if (INTCONbits.T0IF) {
+  9019                           ;PIC18F27J53-killifish_light01.c: 110: }
+  9020                           ;PIC18F27J53-killifish_light01.c: 111: if (INTCONbits.T0IF) {
   9021  000056  B4F2               	btfsc	intcon,2,c	;volatile
   9022                           
-  9023                           ;PIC18F27J53-killifish_light01.c: 108: INTCONbits.T0IF = 0;
+  9023                           ;PIC18F27J53-killifish_light01.c: 112: INTCONbits.T0IF = 0;
   9024  000058  94F2               	bcf	intcon,2,c	;volatile
   9025                           
-  9026                           ;PIC18F27J53-killifish_light01.c: 109: }
-  9027                           ;PIC18F27J53-killifish_light01.c: 110: if (PIR1bits.TMR1IF) {
+  9026                           ;PIC18F27J53-killifish_light01.c: 113: }
+  9027                           ;PIC18F27J53-killifish_light01.c: 114: if (PIR1bits.TMR1IF) {
   9028  00005A  A09E               	btfss	3998,0,c	;volatile
   9029  00005C  D003               	goto	i2l4043
   9030                           
-  9031                           ;PIC18F27J53-killifish_light01.c: 111: PIR1bits.TMR1IF = 0;
+  9031                           ;PIC18F27J53-killifish_light01.c: 115: PIR1bits.TMR1IF = 0;
   9032  00005E  909E               	bcf	3998,0,c	;volatile
   9033                           
-  9034                           ;PIC18F27J53-killifish_light01.c: 112: TMR1H = 0x80;
+  9034                           ;PIC18F27J53-killifish_light01.c: 116: TMR1H = 0x80;
   9035  000060  0E80               	movlw	128
   9036  000062  6ECF               	movwf	4047,c	;volatile
   9037  000064                     i2l4043:
   9038                           
-  9039                           ;PIC18F27J53-killifish_light01.c: 113: }
-  9040                           ;PIC18F27J53-killifish_light01.c: 114: if (PIR2bits.TMR3IF) {
+  9039                           ;PIC18F27J53-killifish_light01.c: 117: }
+  9040                           ;PIC18F27J53-killifish_light01.c: 118: if (PIR2bits.TMR3IF) {
   9041  000064  A2A1               	btfss	4001,1,c	;volatile
   9042  000066  D025               	goto	i2l545
   9043                           
-  9044                           ;PIC18F27J53-killifish_light01.c: 115: PIR2bits.TMR3IF = 0;
+  9044                           ;PIC18F27J53-killifish_light01.c: 119: PIR2bits.TMR3IF = 0;
   9045  000068  92A1               	bcf	4001,1,c	;volatile
   9046                           
-  9047                           ;PIC18F27J53-killifish_light01.c: 116: button_timer_interrupt(&sw_R, !PORTAbits.RA5);
+  9047                           ;PIC18F27J53-killifish_light01.c: 120: button_timer_interrupt(&sw_R, !PORTAbits.RA5);
   9048  00006A  0E44               	movlw	low _sw_R
   9049  00006C  6E01               	movwf	button_timer_interrupt@bt,c
   9050  00006E  0E00               	movlw	high _sw_R
@@ -9299,7 +9299,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9059  00007C  6E03               	movwf	button_timer_interrupt@sw_value,c
   9060  00007E  ECFA  F00C         	call	_button_timer_interrupt	;wreg free
   9061                           
-  9062                           ;PIC18F27J53-killifish_light01.c: 117: button_timer_interrupt(&sw_G, !PORTAbits.RA6);
+  9062                           ;PIC18F27J53-killifish_light01.c: 121: button_timer_interrupt(&sw_G, !PORTAbits.RA6);
   9063  000082  0E40               	movlw	low _sw_G
   9064  000084  6E01               	movwf	button_timer_interrupt@bt,c
   9065  000086  0E00               	movlw	high _sw_G
@@ -9314,7 +9314,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9074  000094  6E03               	movwf	button_timer_interrupt@sw_value,c
   9075  000096  ECFA  F00C         	call	_button_timer_interrupt	;wreg free
   9076                           
-  9077                           ;PIC18F27J53-killifish_light01.c: 118: button_timer_interrupt(&sw_B, !PORTAbits.RA7);
+  9077                           ;PIC18F27J53-killifish_light01.c: 122: button_timer_interrupt(&sw_B, !PORTAbits.RA7);
   9078  00009A  0E3C               	movlw	low _sw_B
   9079  00009C  6E01               	movwf	button_timer_interrupt@bt,c
   9080  00009E  0E00               	movlw	high _sw_B
@@ -9375,7 +9375,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9135                           
   9136 ;; *************** function _judgement *****************
   9137 ;; Defined at:
-  9138 ;;		line 60 in file "PIC18F27J53-killifish_light01.c"
+  9138 ;;		line 64 in file "PIC18F27J53-killifish_light01.c"
   9139 ;; Parameters:    Size  Location     Type
   9140 ;;  ascii           1    wreg     unsigned char 
   9141 ;; Auto vars:     Size  Location     Type
@@ -9424,15 +9424,15 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9179                           ;judgement@ascii stored from wreg
   9180  001E62  6E14               	movwf	judgement@ascii,c
   9181                           
-  9182                           ;PIC18F27J53-killifish_light01.c: 61: uint8_t i;
-  9183                           ;PIC18F27J53-killifish_light01.c: 62: tx_sends(cursor_down);
+  9182                           ;PIC18F27J53-killifish_light01.c: 65: uint8_t i;
+  9183                           ;PIC18F27J53-killifish_light01.c: 66: tx_sends(cursor_down);
   9184  001E64  0ED4               	movlw	low _cursor_down
   9185  001E66  6E10               	movwf	i2tx_sends@asciicode,c
   9186  001E68  0E00               	movlw	high _cursor_down
   9187  001E6A  6E11               	movwf	i2tx_sends@asciicode+1,c
   9188  001E6C  EC2C  F019         	call	i2_tx_sends	;wreg free
   9189                           
-  9190                           ;PIC18F27J53-killifish_light01.c: 63: for (i = 0; i < ringbuf_num(&rx_buf); i++) tx_send
+  9190                           ;PIC18F27J53-killifish_light01.c: 67: for (i = 0; i < ringbuf_num(&rx_buf); i++) tx_send
       +                          s(cursor_right);
   9191  001E70  0E00               	movlw	0
   9192  001E72  6E15               	movwf	judgement@i,c
@@ -9462,11 +9462,11 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9216  001EA2  D7E9               	goto	i2l3651
   9217  001EA4                     i2l3657:
   9218                           
-  9219                           ;PIC18F27J53-killifish_light01.c: 67: rx_flag = 1;
+  9219                           ;PIC18F27J53-killifish_light01.c: 71: rx_flag = 1;
   9220  001EA4  0E01               	movlw	1
   9221  001EA6  6E2A               	movwf	_rx_flag,c
   9222                           
-  9223                           ;PIC18F27J53-killifish_light01.c: 68: ringbuf_put(&rx_buf, '\0');
+  9223                           ;PIC18F27J53-killifish_light01.c: 72: ringbuf_put(&rx_buf, '\0');
   9224  001EA8  0E2C               	movlw	low _rx_buf
   9225  001EAA  6E09               	movwf	i2ringbuf_put@rb,c
   9226  001EAC  0E00               	movlw	high _rx_buf
@@ -9475,15 +9475,15 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9229  001EB2  6E0B               	movwf	i2ringbuf_put@asciicode,c
   9230  001EB4  EC59  F015         	call	i2_ringbuf_put	;wreg free
   9231                           
-  9232                           ;PIC18F27J53-killifish_light01.c: 69: tx_send(' ');
+  9232                           ;PIC18F27J53-killifish_light01.c: 73: tx_send(' ');
   9233  001EB8  0E20               	movlw	32
   9234  001EBA  EC4F  F01B         	call	i2_tx_send
   9235                           
-  9236                           ;PIC18F27J53-killifish_light01.c: 70: break;
+  9236                           ;PIC18F27J53-killifish_light01.c: 74: break;
   9237  001EBE  D065               	goto	i2l3693
   9238  001EC0                     i2l3663:
   9239                           
-  9240                           ;PIC18F27J53-killifish_light01.c: 72: ringbuf_put(&rx_buf, '\0');
+  9240                           ;PIC18F27J53-killifish_light01.c: 76: ringbuf_put(&rx_buf, '\0');
   9241  001EC0  0E2C               	movlw	low _rx_buf
   9242  001EC2  6E09               	movwf	i2ringbuf_put@rb,c
   9243  001EC4  0E00               	movlw	high _rx_buf
@@ -9492,40 +9492,40 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9246  001ECA  6E0B               	movwf	i2ringbuf_put@asciicode,c
   9247  001ECC  EC59  F015         	call	i2_ringbuf_put	;wreg free
   9248                           
-  9249                           ;PIC18F27J53-killifish_light01.c: 73: tx_send(' ');
+  9249                           ;PIC18F27J53-killifish_light01.c: 77: tx_send(' ');
   9250  001ED0  0E20               	movlw	32
   9251  001ED2  EC4F  F01B         	call	i2_tx_send
   9252                           
-  9253                           ;PIC18F27J53-killifish_light01.c: 74: tx_sends("_\b");
+  9253                           ;PIC18F27J53-killifish_light01.c: 78: tx_sends("_\b");
   9254  001ED6  0E34               	movlw	low STR_1
   9255  001ED8  6E10               	movwf	i2tx_sends@asciicode,c
   9256  001EDA  0E0F               	movlw	high STR_1
   9257  001EDC  6E11               	movwf	i2tx_sends@asciicode+1,c
   9258  001EDE  EC2C  F019         	call	i2_tx_sends	;wreg free
   9259                           
-  9260                           ;PIC18F27J53-killifish_light01.c: 75: break;
+  9260                           ;PIC18F27J53-killifish_light01.c: 79: break;
   9261  001EE2  D053               	goto	i2l3693
   9262  001EE4                     i2l3667:
   9263                           
-  9264                           ;PIC18F27J53-killifish_light01.c: 77: ringbuf_backspace(&rx_buf);
+  9264                           ;PIC18F27J53-killifish_light01.c: 81: ringbuf_backspace(&rx_buf);
   9265  001EE4  0E2C               	movlw	low _rx_buf
   9266  001EE6  6E09               	movwf	ringbuf_backspace@rb,c
   9267  001EE8  0E00               	movlw	high _rx_buf
   9268  001EEA  6E0A               	movwf	ringbuf_backspace@rb+1,c
   9269  001EEC  EC8B  F018         	call	_ringbuf_backspace	;wreg free
   9270                           
-  9271                           ;PIC18F27J53-killifish_light01.c: 78: tx_sends("\b_ \b\b");
+  9271                           ;PIC18F27J53-killifish_light01.c: 82: tx_sends("\b_ \b\b");
   9272  001EF0  0E1D               	movlw	low STR_2
   9273  001EF2  6E10               	movwf	i2tx_sends@asciicode,c
   9274  001EF4  0E0F               	movlw	high STR_2
   9275  001EF6  6E11               	movwf	i2tx_sends@asciicode+1,c
   9276  001EF8  EC2C  F019         	call	i2_tx_sends	;wreg free
   9277                           
-  9278                           ;PIC18F27J53-killifish_light01.c: 79: break;
+  9278                           ;PIC18F27J53-killifish_light01.c: 83: break;
   9279  001EFC  D046               	goto	i2l3693
   9280  001EFE                     i2l3671:
   9281                           
-  9282                           ;PIC18F27J53-killifish_light01.c: 81: for (i = 0; i < ringbuf_num(&rx_buf); i++) tx_send
+  9282                           ;PIC18F27J53-killifish_light01.c: 85: for (i = 0; i < ringbuf_num(&rx_buf); i++) tx_send
       +                          s("\b_ \b\b");
   9283  001EFE  0E00               	movlw	0
   9284  001F00  6E15               	movwf	judgement@i,c
@@ -9553,18 +9553,18 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9306  001F2C  A0D8               	btfss	status,0,c
   9307  001F2E  D7EA               	goto	i2l3673
   9308                           
-  9309                           ;PIC18F27J53-killifish_light01.c: 82: ringbuf_delete(&rx_buf);
+  9309                           ;PIC18F27J53-killifish_light01.c: 86: ringbuf_delete(&rx_buf);
   9310  001F30  0E2C               	movlw	low _rx_buf
   9311  001F32  6E01               	movwf	ringbuf_delete@rb,c
   9312  001F34  0E00               	movlw	high _rx_buf
   9313  001F36  6E02               	movwf	ringbuf_delete@rb+1,c
   9314  001F38  EC00  F01B         	call	_ringbuf_delete	;wreg free
   9315                           
-  9316                           ;PIC18F27J53-killifish_light01.c: 83: break;
+  9316                           ;PIC18F27J53-killifish_light01.c: 87: break;
   9317  001F3C  D026               	goto	i2l3693
   9318  001F3E                     i2l3681:
   9319                           
-  9320                           ;PIC18F27J53-killifish_light01.c: 85: if (ascii >= ' ' && ascii <= '~') {
+  9320                           ;PIC18F27J53-killifish_light01.c: 89: if (ascii >= ' ' && ascii <= '~') {
   9321  001F3E  0E1F               	movlw	31
   9322  001F40  6414               	cpfsgt	judgement@ascii,c
   9323  001F42  D023               	goto	i2l3693
@@ -9572,7 +9572,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9325  001F46  6014               	cpfslt	judgement@ascii,c
   9326  001F48  D020               	goto	i2l3693
   9327                           
-  9328                           ;PIC18F27J53-killifish_light01.c: 86: ringbuf_put(&rx_buf, ascii);
+  9328                           ;PIC18F27J53-killifish_light01.c: 90: ringbuf_put(&rx_buf, ascii);
   9329  001F4A  0E2C               	movlw	low _rx_buf
   9330  001F4C  6E09               	movwf	i2ringbuf_put@rb,c
   9331  001F4E  0E00               	movlw	high _rx_buf
@@ -9580,21 +9580,21 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9333  001F52  C014  F00B         	movff	judgement@ascii,i2ringbuf_put@asciicode
   9334  001F56  EC59  F015         	call	i2_ringbuf_put	;wreg free
   9335                           
-  9336                           ;PIC18F27J53-killifish_light01.c: 87: tx_send(ascii);
+  9336                           ;PIC18F27J53-killifish_light01.c: 91: tx_send(ascii);
   9337  001F5A  5014               	movf	judgement@ascii,w,c
   9338  001F5C  EC4F  F01B         	call	i2_tx_send
   9339                           
-  9340                           ;PIC18F27J53-killifish_light01.c: 88: tx_sends("_\b");
+  9340                           ;PIC18F27J53-killifish_light01.c: 92: tx_sends("_\b");
   9341  001F60  0E34               	movlw	low STR_1
   9342  001F62  6E10               	movwf	i2tx_sends@asciicode,c
   9343  001F64  0E0F               	movlw	high STR_1
   9344  001F66  6E11               	movwf	i2tx_sends@asciicode+1,c
   9345  001F68  EC2C  F019         	call	i2_tx_sends	;wreg free
   9346                           
-  9347                           ;PIC18F27J53-killifish_light01.c: 91: }
+  9347                           ;PIC18F27J53-killifish_light01.c: 95: }
   9348                           
-  9349                           ;PIC18F27J53-killifish_light01.c: 89: }
-  9350                           ;PIC18F27J53-killifish_light01.c: 90: break;
+  9349                           ;PIC18F27J53-killifish_light01.c: 93: }
+  9350                           ;PIC18F27J53-killifish_light01.c: 94: break;
   9351  001F6C  D00E               	goto	i2l3693
   9352  001F6E                     i2l3691:
   9353  001F6E  5014               	movf	judgement@ascii,w,c
@@ -9620,12 +9620,12 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9373  001F88  D7DA               	goto	i2l3681
   9374  001F8A                     i2l3693:
   9375                           
-  9376                           ;PIC18F27J53-killifish_light01.c: 92: if (rx_flag) {
+  9376                           ;PIC18F27J53-killifish_light01.c: 96: if (rx_flag) {
   9377  001F8A  502A               	movf	_rx_flag,w,c
   9378  001F8C  B4D8               	btfsc	status,2,c
   9379  001F8E  D02C               	goto	i2l3711
   9380                           
-  9381                           ;PIC18F27J53-killifish_light01.c: 93: for (i = 0; i < ringbuf_num(&rx_buf); i++) tx_send
+  9381                           ;PIC18F27J53-killifish_light01.c: 97: for (i = 0; i < ringbuf_num(&rx_buf); i++) tx_send
       +                          ('\b');
   9382  001F90  0E00               	movlw	0
   9383  001F92  6E15               	movwf	judgement@i,c
@@ -9650,7 +9650,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9402  001FB8  A0D8               	btfss	status,0,c
   9403  001FBA  D7ED               	goto	i2l3697
   9404                           
-  9405                           ;PIC18F27J53-killifish_light01.c: 94: for (i = 0; i < ringbuf_num(&rx_buf); i++) tx_send
+  9405                           ;PIC18F27J53-killifish_light01.c: 98: for (i = 0; i < ringbuf_num(&rx_buf); i++) tx_send
       +                          (' ');
   9406  001FBC  0E00               	movlw	0
   9407  001FBE  6E15               	movwf	judgement@i,c
@@ -9676,9 +9676,9 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9427  001FE6  D7ED               	goto	i2l3705
   9428  001FE8                     i2l3711:
   9429                           
-  9430                           ;PIC18F27J53-killifish_light01.c: 95: }
-  9431                           ;PIC18F27J53-killifish_light01.c: 96: for (i = 0; i < ringbuf_num(&rx_buf); i++) tx_send
-      +                          ('\b');
+  9430                           ;PIC18F27J53-killifish_light01.c: 99: }
+  9431                           ;PIC18F27J53-killifish_light01.c: 100: for (i = 0; i < ringbuf_num(&rx_buf); i++) tx_sen
+      +                          d('\b');
   9432  001FE8  0E00               	movlw	0
   9433  001FEA  6E15               	movwf	judgement@i,c
   9434  001FEC  D004               	goto	i2l3717
@@ -9702,7 +9702,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   9452  002010  A0D8               	btfss	status,0,c
   9453  002012  D7ED               	goto	i2l3713
   9454                           
-  9455                           ;PIC18F27J53-killifish_light01.c: 97: tx_sends(cursor_up);
+  9455                           ;PIC18F27J53-killifish_light01.c: 101: tx_sends(cursor_up);
   9456  002014  0EDC               	movlw	low _cursor_up
   9457  002016  6E10               	movwf	i2tx_sends@asciicode,c
   9458  002018  0E00               	movlw	high _cursor_up
@@ -12006,7 +12006,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.35 build -356382666 
-Symbol Table                                                                                   Wed Nov 11 15:02:02 2015
+Symbol Table                                                                                   Mon Nov 16 19:16:49 2015
 
           __size_of_rx_operation 0500                    my_strcmp@str1 0060  
                   my_strcmp@str2 0062                               _d1 00B5  

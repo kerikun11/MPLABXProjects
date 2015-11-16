@@ -10427,7 +10427,7 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 
 
-# 20 "main.c"
+# 10 "main.c"
 #pragma config WDTEN = OFF, PLLDIV = 2, CFGPLLEN = ON, STVREN = OFF, XINST = OFF
 
 #pragma config CPUDIV = OSC1, CP0 = OFF
@@ -11674,7 +11674,7 @@ __nop();
 }
 }
 
-# 66 "main.c"
+# 56 "main.c"
 void interrupt ISR(void) {
 UART_ISR();
 if (PIE1bits.RC1IE && PIR1bits.RC1IF) {

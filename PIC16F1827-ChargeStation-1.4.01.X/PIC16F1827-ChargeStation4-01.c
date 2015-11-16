@@ -28,7 +28,7 @@
 #pragma config LVP = OFF        // Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)
 
 #define _XTAL_FREQ 32000000
-#include <My_header_16F.h>
+#include "My_header_16F.h"
 
 #define CUT_current 50    // ’PˆÊ‚Í[mA]
 #define CUT_time 6       // ’PˆÊ‚Í[s]
@@ -327,7 +327,7 @@ int main(void) {
         __delay_ms(1);
         uint8_t data_3 = EEP_Read(i, 3);
         __delay_ms(1);
-        ss[i] = (0xFF000000 & (data_0 << 24)) +(0xFF0000 & (data_1 << 16))+ (0xFF00 & (data_2 << 8))+ (0xFF & (data_3 << 0));
+        ss[i] = (0xFF000000 & ((uint32_t) data_0 << 24)) +(0xFF0000 & ((uint32_t) data_1 << 16))+ (0xFF00 & (data_2 << 8))+ (0xFF & (data_3 << 0));
     }
 
     INTCONbits.GIE = 1;

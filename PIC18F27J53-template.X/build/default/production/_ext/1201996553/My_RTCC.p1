@@ -8428,383 +8428,383 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_RTCC.c: 34: T1CONbits.T1OSCEN = 1;
 "34
 [e = . . _T1CONbits 1 3 -> -> 1 `i `uc ]
-[; ;My_RTCC.c: 37: RTCC_from_RTCC(&now);
-"37
+[; ;My_RTCC.c: 36: RTCC_from_RTCC(&now);
+"36
 [e ( _RTCC_from_RTCC (1 &U _now ]
-[; ;My_RTCC.c: 38: if (now.DD == 0) {
-"38
+[; ;My_RTCC.c: 37: if (now.DD == 0) {
+"37
 [e $ ! == -> . _now 5 `i -> 0 `i 1228  ]
 {
-[; ;My_RTCC.c: 39: now.epoch = 0;
-"39
+[; ;My_RTCC.c: 38: now.epoch = 0;
+"38
 [e = . _now 0 -> -> -> 0 `i `l `ul ]
-[; ;My_RTCC.c: 40: RTCC_from_epoch(&now);
-"40
+[; ;My_RTCC.c: 39: RTCC_from_epoch(&now);
+"39
 [e ( _RTCC_from_epoch (1 &U _now ]
-"41
+"40
 }
 [e :U 1228 ]
+[; ;My_RTCC.c: 40: }
 [; ;My_RTCC.c: 41: }
-[; ;My_RTCC.c: 42: }
-"42
+"41
 [e :UE 1226 ]
 }
-"46
+"45
 [v _d_to_x `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_RTCC.c: 46: uint8_t d_to_x(uint8_t dec) {
+[; ;My_RTCC.c: 45: uint8_t d_to_x(uint8_t dec) {
 [e :U _d_to_x ]
 [v _dec `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_RTCC.c: 49: return dec / 10 * 6 + dec;
-"49
+[; ;My_RTCC.c: 48: return dec / 10 * 6 + dec;
+"48
 [e ) -> + * / -> _dec `i -> 10 `i -> 6 `i -> _dec `i `uc ]
 [e $UE 1229  ]
-[; ;My_RTCC.c: 50: }
-"50
+[; ;My_RTCC.c: 49: }
+"49
 [e :UE 1229 ]
 }
-"52
+"51
 [v _x_to_d `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_RTCC.c: 52: uint8_t x_to_d(uint8_t hex) {
+[; ;My_RTCC.c: 51: uint8_t x_to_d(uint8_t hex) {
 [e :U _x_to_d ]
 [v _hex `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_RTCC.c: 53: return 10 * (0x0F & (hex >> 4)) + (0x0F & hex);
-"53
+[; ;My_RTCC.c: 52: return 10 * (0x0F & (hex >> 4)) + (0x0F & hex);
+"52
 [e ) -> + * -> 10 `i & -> 15 `i >> -> _hex `i -> 4 `i & -> 15 `i -> _hex `i `uc ]
 [e $UE 1230  ]
-[; ;My_RTCC.c: 54: }
-"54
+[; ;My_RTCC.c: 53: }
+"53
 [e :UE 1230 ]
 }
-"56
+"55
 [v _month_length `(uc ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;My_RTCC.c: 56: uint8_t month_length(uint8_t year, uint8_t month) {
+[; ;My_RTCC.c: 55: uint8_t month_length(uint8_t year, uint8_t month) {
 [e :U _month_length ]
 [v _year `uc ~T0 @X0 1 r1 ]
 [v _month `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;My_RTCC.c: 57: if (month == 2) return 28 + !(year & 3)-!(year % 100)+!(year % 400);
-"57
+[; ;My_RTCC.c: 56: if (month == 2) return 28 + !(year & 3)-!(year % 100)+!(year % 400);
+"56
 [e $ ! == -> _month `i -> 2 `i 1232  ]
 [e ) -> + - + -> 28 `i -> ! != & -> _year `i -> 3 `i -> 0 `i `i -> ! != % -> _year `i -> 100 `i -> 0 `i `i -> ! != % -> _year `i -> 400 `i -> 0 `i `i `uc ]
 [e $UE 1231  ]
 [e $U 1233  ]
-"58
+"57
 [e :U 1232 ]
-[; ;My_RTCC.c: 58: else return 31 - (((-(month & 1)^month)&13) == 4);
+[; ;My_RTCC.c: 57: else return 31 - (((-(month & 1)^month)&13) == 4);
 [e ) -> - -> 31 `i -> == & ^ -U & -> _month `i -> 1 `i -> _month `i -> 13 `i -> 4 `i `i `uc ]
 [e $UE 1231  ]
 [e :U 1233 ]
-[; ;My_RTCC.c: 79: }
-"79
+[; ;My_RTCC.c: 78: }
+"78
 [e :UE 1231 ]
 }
-"81
+"80
 [v _get_quot_rem `(ul ~T0 @X0 1 ef2`*ul`uc ]
 {
-[; ;My_RTCC.c: 81: epoch_t get_quot_rem(epoch_t *quot, uint8_t div) {
+[; ;My_RTCC.c: 80: epoch_t get_quot_rem(epoch_t *quot, uint8_t div) {
 [e :U _get_quot_rem ]
 [v _quot `*ul ~T0 @X0 1 r1 ]
 [v _div `uc ~T0 @X0 1 r2 ]
 [f ]
-"84
+"83
 [v _num `ul ~T0 @X0 1 a ]
-[; ;My_RTCC.c: 84: epoch_t num = *quot;
+[; ;My_RTCC.c: 83: epoch_t num = *quot;
 [e = _num *U _quot ]
-[; ;My_RTCC.c: 85: return num - (*quot = num / div) * div;
-"85
+[; ;My_RTCC.c: 84: return num - (*quot = num / div) * div;
+"84
 [e ) - _num * = *U _quot / _num -> _div `ul -> _div `ul ]
 [e $UE 1234  ]
-[; ;My_RTCC.c: 86: }
-"86
+[; ;My_RTCC.c: 85: }
+"85
 [e :UE 1234 ]
 }
-"90
+"89
 [v _RTCC_to_caltime `(v ~T0 @X0 1 ef1`*S1224 ]
 {
-[; ;My_RTCC.c: 90: void RTCC_to_caltime(time_t *tm) {
+[; ;My_RTCC.c: 89: void RTCC_to_caltime(time_t *tm) {
 [e :U _RTCC_to_caltime ]
 [v _tm `*S1224 ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_RTCC.c: 91: while (RTCCFGbits.RTCSYNC);
-"91
+[; ;My_RTCC.c: 90: while (RTCCFGbits.RTCSYNC);
+"90
 [e $U 1236  ]
 [e :U 1237 ]
 [e :U 1236 ]
 [e $ != -> . . _RTCCFGbits 0 4 `i -> -> -> 0 `i `Vuc `i 1237  ]
 [e :U 1238 ]
-[; ;My_RTCC.c: 93: RTCCFGbits.RTCPTR0 = 1;
-"93
+[; ;My_RTCC.c: 92: RTCCFGbits.RTCPTR0 = 1;
+"92
 [e = . . _RTCCFGbits 0 0 -> -> 1 `i `uc ]
-[; ;My_RTCC.c: 94: RTCCFGbits.RTCPTR1 = 1;
-"94
+[; ;My_RTCC.c: 93: RTCCFGbits.RTCPTR1 = 1;
+"93
 [e = . . _RTCCFGbits 0 1 -> -> 1 `i `uc ]
-[; ;My_RTCC.c: 96: tm->YY = x_to_d(RTCVALL);
-"96
+[; ;My_RTCC.c: 95: tm->YY = x_to_d(RTCVALL);
+"95
 [e = . *U _tm 7 ( _x_to_d (1 _RTCVALL ]
-"97
+"96
 [v _dumy `uc ~T0 @X0 1 a ]
-[; ;My_RTCC.c: 97: uint8_t dumy = RTCVALH;
+[; ;My_RTCC.c: 96: uint8_t dumy = RTCVALH;
 [e = _dumy _RTCVALH ]
-[; ;My_RTCC.c: 98: tm->DD = x_to_d(RTCVALL);
-"98
+[; ;My_RTCC.c: 97: tm->DD = x_to_d(RTCVALL);
+"97
 [e = . *U _tm 5 ( _x_to_d (1 _RTCVALL ]
-[; ;My_RTCC.c: 99: tm->MM = x_to_d(RTCVALH);
-"99
+[; ;My_RTCC.c: 98: tm->MM = x_to_d(RTCVALH);
+"98
 [e = . *U _tm 6 ( _x_to_d (1 _RTCVALH ]
-[; ;My_RTCC.c: 100: tm->hh = x_to_d(RTCVALL);
-"100
+[; ;My_RTCC.c: 99: tm->hh = x_to_d(RTCVALL);
+"99
 [e = . *U _tm 3 ( _x_to_d (1 _RTCVALL ]
-[; ;My_RTCC.c: 101: tm->EE = x_to_d(RTCVALH);
-"101
+[; ;My_RTCC.c: 100: tm->EE = x_to_d(RTCVALH);
+"100
 [e = . *U _tm 4 ( _x_to_d (1 _RTCVALH ]
-[; ;My_RTCC.c: 102: tm->ss = x_to_d(RTCVALL);
-"102
+[; ;My_RTCC.c: 101: tm->ss = x_to_d(RTCVALL);
+"101
 [e = . *U _tm 1 ( _x_to_d (1 _RTCVALL ]
-[; ;My_RTCC.c: 103: tm->mm = x_to_d(RTCVALH);
-"103
+[; ;My_RTCC.c: 102: tm->mm = x_to_d(RTCVALH);
+"102
 [e = . *U _tm 2 ( _x_to_d (1 _RTCVALH ]
-[; ;My_RTCC.c: 104: }
-"104
+[; ;My_RTCC.c: 103: }
+"103
 [e :UE 1235 ]
 }
-"106
+"105
 [v _caltime_to_RTCC `(v ~T0 @X0 1 ef1`*S1224 ]
 {
-[; ;My_RTCC.c: 106: void caltime_to_RTCC(time_t *tm) {
+[; ;My_RTCC.c: 105: void caltime_to_RTCC(time_t *tm) {
 [e :U _caltime_to_RTCC ]
 [v _tm `*S1224 ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_RTCC.c: 107: while (RTCCFGbits.RTCSYNC);
-"107
+[; ;My_RTCC.c: 106: while (RTCCFGbits.RTCSYNC);
+"106
 [e $U 1240  ]
 [e :U 1241 ]
 [e :U 1240 ]
 [e $ != -> . . _RTCCFGbits 0 4 `i -> -> -> 0 `i `Vuc `i 1241  ]
 [e :U 1242 ]
-[; ;My_RTCC.c: 108: RTCCFGbits.RTCPTR0 = 1;
+[; ;My_RTCC.c: 107: RTCCFGbits.RTCPTR0 = 1;
+"107
+[e = . . _RTCCFGbits 0 0 -> -> 1 `i `uc ]
+[; ;My_RTCC.c: 108: RTCCFGbits.RTCPTR1 = 1;
 "108
-[e = . . _RTCCFGbits 0 0 -> -> 1 `i `uc ]
-[; ;My_RTCC.c: 109: RTCCFGbits.RTCPTR1 = 1;
+[e = . . _RTCCFGbits 0 1 -> -> 1 `i `uc ]
+[; ;My_RTCC.c: 109: RTCVALL = d_to_x(tm->YY);
 "109
-[e = . . _RTCCFGbits 0 1 -> -> 1 `i `uc ]
-[; ;My_RTCC.c: 110: RTCVALL = d_to_x(tm->YY);
-"110
 [e = _RTCVALL ( _d_to_x (1 . *U _tm 7 ]
-[; ;My_RTCC.c: 111: RTCVALH = 0x00;
-"111
+[; ;My_RTCC.c: 110: RTCVALH = 0x00;
+"110
 [e = _RTCVALH -> -> 0 `i `uc ]
-[; ;My_RTCC.c: 112: RTCCFGbits.RTCPTR0 = 0;
+[; ;My_RTCC.c: 111: RTCCFGbits.RTCPTR0 = 0;
+"111
+[e = . . _RTCCFGbits 0 0 -> -> 0 `i `uc ]
+[; ;My_RTCC.c: 112: RTCCFGbits.RTCPTR1 = 1;
 "112
-[e = . . _RTCCFGbits 0 0 -> -> 0 `i `uc ]
-[; ;My_RTCC.c: 113: RTCCFGbits.RTCPTR1 = 1;
-"113
 [e = . . _RTCCFGbits 0 1 -> -> 1 `i `uc ]
-[; ;My_RTCC.c: 114: RTCVALL = d_to_x(tm->DD);
-"114
+[; ;My_RTCC.c: 113: RTCVALL = d_to_x(tm->DD);
+"113
 [e = _RTCVALL ( _d_to_x (1 . *U _tm 5 ]
-[; ;My_RTCC.c: 115: RTCVALH = d_to_x(tm->MM);
-"115
+[; ;My_RTCC.c: 114: RTCVALH = d_to_x(tm->MM);
+"114
 [e = _RTCVALH ( _d_to_x (1 . *U _tm 6 ]
-[; ;My_RTCC.c: 116: RTCCFGbits.RTCPTR0 = 1;
-"116
+[; ;My_RTCC.c: 115: RTCCFGbits.RTCPTR0 = 1;
+"115
 [e = . . _RTCCFGbits 0 0 -> -> 1 `i `uc ]
-[; ;My_RTCC.c: 117: RTCCFGbits.RTCPTR1 = 0;
+[; ;My_RTCC.c: 116: RTCCFGbits.RTCPTR1 = 0;
+"116
+[e = . . _RTCCFGbits 0 1 -> -> 0 `i `uc ]
+[; ;My_RTCC.c: 117: RTCVALL = d_to_x(tm->hh);
 "117
-[e = . . _RTCCFGbits 0 1 -> -> 0 `i `uc ]
-[; ;My_RTCC.c: 118: RTCVALL = d_to_x(tm->hh);
-"118
 [e = _RTCVALL ( _d_to_x (1 . *U _tm 3 ]
-[; ;My_RTCC.c: 119: RTCVALH = d_to_x(tm->EE);
-"119
+[; ;My_RTCC.c: 118: RTCVALH = d_to_x(tm->EE);
+"118
 [e = _RTCVALH ( _d_to_x (1 . *U _tm 4 ]
-[; ;My_RTCC.c: 120: RTCCFGbits.RTCPTR0 = 0;
-"120
+[; ;My_RTCC.c: 119: RTCCFGbits.RTCPTR0 = 0;
+"119
 [e = . . _RTCCFGbits 0 0 -> -> 0 `i `uc ]
-[; ;My_RTCC.c: 121: RTCCFGbits.RTCPTR1 = 0;
-"121
+[; ;My_RTCC.c: 120: RTCCFGbits.RTCPTR1 = 0;
+"120
 [e = . . _RTCCFGbits 0 1 -> -> 0 `i `uc ]
-[; ;My_RTCC.c: 122: RTCVALL = d_to_x(tm->ss);
-"122
+[; ;My_RTCC.c: 121: RTCVALL = d_to_x(tm->ss);
+"121
 [e = _RTCVALL ( _d_to_x (1 . *U _tm 1 ]
-[; ;My_RTCC.c: 123: RTCVALH = d_to_x(tm->mm);
-"123
+[; ;My_RTCC.c: 122: RTCVALH = d_to_x(tm->mm);
+"122
 [e = _RTCVALH ( _d_to_x (1 . *U _tm 2 ]
-[; ;My_RTCC.c: 124: }
-"124
+[; ;My_RTCC.c: 123: }
+"123
 [e :UE 1239 ]
 }
-"126
+"125
 [v _epoch_to_caltime `(v ~T0 @X0 1 ef1`*S1224 ]
 {
-[; ;My_RTCC.c: 126: void epoch_to_caltime(time_t *tm) {
+[; ;My_RTCC.c: 125: void epoch_to_caltime(time_t *tm) {
 [e :U _epoch_to_caltime ]
 [v _tm `*S1224 ~T0 @X0 1 r1 ]
 [f ]
-"129
+"128
 [v F8797 `ui ~T0 @X0 1 s day_cache ]
 [i F8797
 -> -> 0 `i `ui
 ]
-"130
+"129
 [v F8798 `uc ~T0 @X0 1 s month_cache ]
 [i F8798
 -> -> 1 `i `uc
 ]
-"131
+"130
 [v F8799 `uc ~T0 @X0 1 s year_cache ]
 [i F8799
 -> -> 0 `i `uc
 ]
-"132
+"131
 [v _day_since_epoch `ui ~T0 @X0 1 a ]
-"133
+"132
 [v _day `ui ~T0 @X0 1 a ]
-"134
+"133
 [v _year `uc ~T0 @X0 1 a ]
-[; ;My_RTCC.c: 129: static uint16_t day_cache = 0;
-[; ;My_RTCC.c: 130: static uint8_t month_cache = 1;
-[; ;My_RTCC.c: 131: static uint8_t year_cache = 0;
-[; ;My_RTCC.c: 132: uint16_t day_since_epoch;
-[; ;My_RTCC.c: 133: uint16_t day;
-[; ;My_RTCC.c: 134: uint8_t year = 0;
+[; ;My_RTCC.c: 128: static uint16_t day_cache = 0;
+[; ;My_RTCC.c: 129: static uint8_t month_cache = 1;
+[; ;My_RTCC.c: 130: static uint8_t year_cache = 0;
+[; ;My_RTCC.c: 131: uint16_t day_since_epoch;
+[; ;My_RTCC.c: 132: uint16_t day;
+[; ;My_RTCC.c: 133: uint8_t year = 0;
 [e = _year -> -> 0 `i `uc ]
-"135
+"134
 [v _month `uc ~T0 @X0 1 a ]
-[; ;My_RTCC.c: 135: uint8_t month = 1;
+[; ;My_RTCC.c: 134: uint8_t month = 1;
 [e = _month -> -> 1 `i `uc ]
-"136
+"135
 [v _num `ul ~T0 @X0 1 a ]
-[; ;My_RTCC.c: 136: epoch_t num;
-[; ;My_RTCC.c: 138: num = tm->epoch;
-"138
+[; ;My_RTCC.c: 135: epoch_t num;
+[; ;My_RTCC.c: 137: num = tm->epoch;
+"137
 [e = _num . *U _tm 0 ]
-[; ;My_RTCC.c: 139: tm->ss = get_quot_rem(&num, 60);
-"139
+[; ;My_RTCC.c: 138: tm->ss = get_quot_rem(&num, 60);
+"138
 [e = . *U _tm 1 -> ( _get_quot_rem (2 , &U _num -> -> 60 `i `uc `uc ]
-[; ;My_RTCC.c: 140: tm->mm = get_quot_rem(&num, 60);
-"140
+[; ;My_RTCC.c: 139: tm->mm = get_quot_rem(&num, 60);
+"139
 [e = . *U _tm 2 -> ( _get_quot_rem (2 , &U _num -> -> 60 `i `uc `uc ]
-[; ;My_RTCC.c: 141: tm->hh = get_quot_rem(&num, 24);
-"141
+[; ;My_RTCC.c: 140: tm->hh = get_quot_rem(&num, 24);
+"140
 [e = . *U _tm 3 -> ( _get_quot_rem (2 , &U _num -> -> 24 `i `uc `uc ]
-[; ;My_RTCC.c: 142: day = num;
-"142
+[; ;My_RTCC.c: 141: day = num;
+"141
 [e = _day -> _num `ui ]
-[; ;My_RTCC.c: 143: day_since_epoch = day;
-"143
+[; ;My_RTCC.c: 142: day_since_epoch = day;
+"142
 [e = _day_since_epoch _day ]
-[; ;My_RTCC.c: 145: num += 6;
-"145
+[; ;My_RTCC.c: 144: num += 6;
+"144
 [e =+ _num -> -> -> 6 `i `l `ul ]
-[; ;My_RTCC.c: 146: tm->EE = get_quot_rem(&num, 7);
-"146
+[; ;My_RTCC.c: 145: tm->EE = get_quot_rem(&num, 7);
+"145
 [e = . *U _tm 4 -> ( _get_quot_rem (2 , &U _num -> -> 7 `i `uc `uc ]
-[; ;My_RTCC.c: 155: while (day >= month_length(year, month)) {
-"155
+[; ;My_RTCC.c: 154: while (day >= month_length(year, month)) {
+"154
 [e $U 1244  ]
 [e :U 1245 ]
 {
-[; ;My_RTCC.c: 156: LATB2 = 1;
-"156
+[; ;My_RTCC.c: 155: LATB2 = 1;
+"155
 [e = _LATB2 -> -> 1 `i `b ]
-[; ;My_RTCC.c: 157: day = day - month_length(year, month);
-"157
+[; ;My_RTCC.c: 156: day = day - month_length(year, month);
+"156
 [e = _day - _day -> ( _month_length (2 , _year _month `ui ]
-[; ;My_RTCC.c: 158: if (month == 12) {
-"158
+[; ;My_RTCC.c: 157: if (month == 12) {
+"157
 [e $ ! == -> _month `i -> 12 `i 1247  ]
 {
-[; ;My_RTCC.c: 159: month = 1;
-"159
+[; ;My_RTCC.c: 158: month = 1;
+"158
 [e = _month -> -> 1 `i `uc ]
-[; ;My_RTCC.c: 160: year++;
-"160
+[; ;My_RTCC.c: 159: year++;
+"159
 [e ++ _year -> -> 1 `i `uc ]
-[; ;My_RTCC.c: 162: if (year >= 100) {
-"162
+[; ;My_RTCC.c: 161: if (year >= 100) {
+"161
 [e $ ! >= -> _year `i -> 100 `i 1248  ]
 {
-[; ;My_RTCC.c: 163: tm->epoch -= 3155760000;
-"163
+[; ;My_RTCC.c: 162: tm->epoch -= 3155760000;
+"162
 [e =- . *U _tm 0 -> -1139207296 `ul ]
-[; ;My_RTCC.c: 164: year = 0;
-"164
+[; ;My_RTCC.c: 163: year = 0;
+"163
 [e = _year -> -> 0 `i `uc ]
-"165
+"164
 }
 [e :U 1248 ]
-"166
+"165
 }
-[; ;My_RTCC.c: 165: }
-[; ;My_RTCC.c: 166: } else {
+[; ;My_RTCC.c: 164: }
+[; ;My_RTCC.c: 165: } else {
 [e $U 1249  ]
 [e :U 1247 ]
 {
-[; ;My_RTCC.c: 167: month++;
-"167
+[; ;My_RTCC.c: 166: month++;
+"166
 [e ++ _month -> -> 1 `i `uc ]
-"168
+"167
 }
 [e :U 1249 ]
-[; ;My_RTCC.c: 168: }
-[; ;My_RTCC.c: 169: month_cache = month;
-"169
+[; ;My_RTCC.c: 167: }
+[; ;My_RTCC.c: 168: month_cache = month;
+"168
 [e = F8798 _month ]
-[; ;My_RTCC.c: 170: year_cache = year;
-"170
+[; ;My_RTCC.c: 169: year_cache = year;
+"169
 [e = F8799 _year ]
-"171
+"170
 }
 [e :U 1244 ]
-"155
+"154
 [e $ >= _day -> ( _month_length (2 , _year _month `ui 1245  ]
 [e :U 1246 ]
-[; ;My_RTCC.c: 171: }
-[; ;My_RTCC.c: 172: day_cache = day_since_epoch - day;
-"172
+[; ;My_RTCC.c: 170: }
+[; ;My_RTCC.c: 171: day_cache = day_since_epoch - day;
+"171
 [e = F8797 - _day_since_epoch _day ]
-[; ;My_RTCC.c: 173: day++;
-"173
+[; ;My_RTCC.c: 172: day++;
+"172
 [e ++ _day -> -> 1 `i `ui ]
-[; ;My_RTCC.c: 175: tm->YY = year;
-"175
+[; ;My_RTCC.c: 174: tm->YY = year;
+"174
 [e = . *U _tm 7 _year ]
-[; ;My_RTCC.c: 176: tm->MM = month;
-"176
+[; ;My_RTCC.c: 175: tm->MM = month;
+"175
 [e = . *U _tm 6 _month ]
-[; ;My_RTCC.c: 177: tm->DD = day;
-"177
+[; ;My_RTCC.c: 176: tm->DD = day;
+"176
 [e = . *U _tm 5 -> _day `uc ]
-[; ;My_RTCC.c: 178: }
-"178
+[; ;My_RTCC.c: 177: }
+"177
 [e :UE 1243 ]
 }
-"180
+"179
 [v _caltime_to_epoch `(v ~T0 @X0 1 ef1`*S1224 ]
 {
-[; ;My_RTCC.c: 180: void caltime_to_epoch(time_t *tm) {
+[; ;My_RTCC.c: 179: void caltime_to_epoch(time_t *tm) {
 [e :U _caltime_to_epoch ]
 [v _tm `*S1224 ~T0 @X0 1 r1 ]
 [f ]
-"181
+"180
 [v _epoch `ul ~T0 @X0 1 a ]
-[; ;My_RTCC.c: 181: epoch_t epoch = 0;
+[; ;My_RTCC.c: 180: epoch_t epoch = 0;
 [e = _epoch -> -> -> 0 `i `l `ul ]
-[; ;My_RTCC.c: 182: for (uint8_t year = 0; year < tm->YY; year++) {
-"182
+[; ;My_RTCC.c: 181: for (uint8_t year = 0; year < tm->YY; year++) {
+"181
 {
 [v _year `uc ~T0 @X0 1 a ]
 [e = _year -> -> 0 `i `uc ]
 [e $U 1254  ]
 [e :U 1251 ]
 {
-[; ;My_RTCC.c: 183: for (uint8_t month = 1; month <= 12; month++) {
-"183
+[; ;My_RTCC.c: 182: for (uint8_t month = 1; month <= 12; month++) {
+"182
 {
 [v _month `uc ~T0 @X0 1 a ]
 [e = _month -> -> 1 `i `uc ]
@@ -8812,357 +8812,357 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1256  ]
 [e :U 1255 ]
 {
-[; ;My_RTCC.c: 184: epoch += ((epoch_t)60*60*24) * month_length(year, month);
-"184
-[e =+ _epoch * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> ( _month_length (2 , _year _month `ul ]
-"185
-}
+[; ;My_RTCC.c: 183: epoch += ((epoch_t)60*60*24) * month_length(year, month);
 "183
+[e =+ _epoch * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> ( _month_length (2 , _year _month `ul ]
+"184
+}
+"182
 [e ++ _month -> -> 1 `i `uc ]
 [e $ <= -> _month `i -> 12 `i 1255  ]
 [e :U 1256 ]
+"184
+}
 "185
 }
-"186
-}
-"182
+"181
 [e ++ _year -> -> 1 `i `uc ]
 [e :U 1254 ]
 [e $ < -> _year `i -> . *U _tm 7 `i 1251  ]
 [e :U 1252 ]
-"186
+"185
 }
+[; ;My_RTCC.c: 184: }
 [; ;My_RTCC.c: 185: }
-[; ;My_RTCC.c: 186: }
-[; ;My_RTCC.c: 187: for (uint8_t month = 1; month < tm->MM; month++) {
-"187
+[; ;My_RTCC.c: 186: for (uint8_t month = 1; month < tm->MM; month++) {
+"186
 {
 [v _month `uc ~T0 @X0 1 a ]
 [e = _month -> -> 1 `i `uc ]
 [e $U 1261  ]
 [e :U 1258 ]
 {
-[; ;My_RTCC.c: 188: epoch += ((epoch_t)60*60*24) * month_length(tm->YY, month);
-"188
-[e =+ _epoch * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> ( _month_length (2 , . *U _tm 7 _month `ul ]
-"189
-}
+[; ;My_RTCC.c: 187: epoch += ((epoch_t)60*60*24) * month_length(tm->YY, month);
 "187
+[e =+ _epoch * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> ( _month_length (2 , . *U _tm 7 _month `ul ]
+"188
+}
+"186
 [e ++ _month -> -> 1 `i `uc ]
 [e :U 1261 ]
 [e $ < -> _month `i -> . *U _tm 6 `i 1258  ]
 [e :U 1259 ]
-"189
+"188
 }
-[; ;My_RTCC.c: 189: }
-[; ;My_RTCC.c: 190: epoch += ((epoch_t)60*60*24) * (tm->DD - 1);
-"190
+[; ;My_RTCC.c: 188: }
+[; ;My_RTCC.c: 189: epoch += ((epoch_t)60*60*24) * (tm->DD - 1);
+"189
 [e =+ _epoch * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> -> - -> . *U _tm 5 `i -> 1 `i `l `ul ]
-[; ;My_RTCC.c: 191: epoch += ((epoch_t)60*60) * tm->hh;
-"191
+[; ;My_RTCC.c: 190: epoch += ((epoch_t)60*60) * tm->hh;
+"190
 [e =+ _epoch * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> . *U _tm 3 `ul ]
-[; ;My_RTCC.c: 192: epoch += ((epoch_t)60) * tm->mm;
-"192
+[; ;My_RTCC.c: 191: epoch += ((epoch_t)60) * tm->mm;
+"191
 [e =+ _epoch * -> -> 60 `i `ul -> . *U _tm 2 `ul ]
-[; ;My_RTCC.c: 193: epoch += tm->ss;
-"193
+[; ;My_RTCC.c: 192: epoch += tm->ss;
+"192
 [e =+ _epoch -> . *U _tm 1 `ul ]
-[; ;My_RTCC.c: 195: tm->epoch = epoch;
-"195
+[; ;My_RTCC.c: 194: tm->epoch = epoch;
+"194
 [e = . *U _tm 0 _epoch ]
-[; ;My_RTCC.c: 196: }
-"196
+[; ;My_RTCC.c: 195: }
+"195
 [e :UE 1250 ]
 }
-"200
+"199
 [v _RTCC_from_RTCC `(v ~T0 @X0 1 ef1`*S1224 ]
 {
-[; ;My_RTCC.c: 200: void RTCC_from_RTCC(time_t *tm) {
+[; ;My_RTCC.c: 199: void RTCC_from_RTCC(time_t *tm) {
 [e :U _RTCC_from_RTCC ]
 [v _tm `*S1224 ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_RTCC.c: 201: RTCC_to_caltime(tm);
-"201
+[; ;My_RTCC.c: 200: RTCC_to_caltime(tm);
+"200
 [e ( _RTCC_to_caltime (1 _tm ]
-[; ;My_RTCC.c: 202: caltime_to_epoch(tm);
-"202
+[; ;My_RTCC.c: 201: caltime_to_epoch(tm);
+"201
 [e ( _caltime_to_epoch (1 _tm ]
-[; ;My_RTCC.c: 203: }
-"203
+[; ;My_RTCC.c: 202: }
+"202
 [e :UE 1262 ]
 }
-"205
+"204
 [v _RTCC_from_caltime `(v ~T0 @X0 1 ef1`*S1224 ]
 {
-[; ;My_RTCC.c: 205: void RTCC_from_caltime(time_t *tm) {
+[; ;My_RTCC.c: 204: void RTCC_from_caltime(time_t *tm) {
 [e :U _RTCC_from_caltime ]
 [v _tm `*S1224 ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_RTCC.c: 206: caltime_to_epoch(tm);
-"206
+[; ;My_RTCC.c: 205: caltime_to_epoch(tm);
+"205
 [e ( _caltime_to_epoch (1 _tm ]
-[; ;My_RTCC.c: 207: epoch_to_caltime(tm);
-"207
+[; ;My_RTCC.c: 206: epoch_to_caltime(tm);
+"206
 [e ( _epoch_to_caltime (1 _tm ]
-[; ;My_RTCC.c: 208: caltime_to_RTCC(tm);
-"208
+[; ;My_RTCC.c: 207: caltime_to_RTCC(tm);
+"207
 [e ( _caltime_to_RTCC (1 _tm ]
-[; ;My_RTCC.c: 209: }
-"209
+[; ;My_RTCC.c: 208: }
+"208
 [e :UE 1263 ]
 }
-"211
+"210
 [v _RTCC_from_epoch `(v ~T0 @X0 1 ef1`*S1224 ]
 {
-[; ;My_RTCC.c: 211: void RTCC_from_epoch(time_t *tm) {
+[; ;My_RTCC.c: 210: void RTCC_from_epoch(time_t *tm) {
 [e :U _RTCC_from_epoch ]
 [v _tm `*S1224 ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_RTCC.c: 212: epoch_to_caltime(tm);
-"212
+[; ;My_RTCC.c: 211: epoch_to_caltime(tm);
+"211
 [e ( _epoch_to_caltime (1 _tm ]
-[; ;My_RTCC.c: 213: caltime_to_RTCC(tm);
-"213
+[; ;My_RTCC.c: 212: caltime_to_RTCC(tm);
+"212
 [e ( _caltime_to_RTCC (1 _tm ]
-[; ;My_RTCC.c: 214: }
-"214
+[; ;My_RTCC.c: 213: }
+"213
 [e :UE 1264 ]
 }
-"218
+"217
 [v _display_dec `(v ~T0 @X0 1 ef3`*uc`uc`uc ]
 {
-[; ;My_RTCC.c: 218: void display_dec(char *str, uint8_t dec, uint8_t edit) {
+[; ;My_RTCC.c: 217: void display_dec(char *str, uint8_t dec, uint8_t edit) {
 [e :U _display_dec ]
 [v _str `*uc ~T0 @X0 1 r1 ]
 [v _dec `uc ~T0 @X0 1 r2 ]
 [v _edit `uc ~T0 @X0 1 r3 ]
 [f ]
-"219
+"218
 [v _s `uc ~T0 @X0 -> 4 `i a ]
-[; ;My_RTCC.c: 219: char s[4];
-[; ;My_RTCC.c: 220: sprintf(s, "%02d", dec);
-"220
+[; ;My_RTCC.c: 218: char s[4];
+[; ;My_RTCC.c: 219: sprintf(s, "%02d", dec);
+"219
 [e ( _sprintf (1 , (. , &U _s :s 1C -> _dec `i ]
-[; ;My_RTCC.c: 221: if (edit && now.halfsec)strcat(str, "  ");
-"221
+[; ;My_RTCC.c: 220: if (edit && now.halfsec)strcat(str, "  ");
+"220
 [e $ ! && != -> _edit `i -> -> -> 0 `i `uc `i != -> . _now 9 `i -> -> -> 0 `i `uc `i 1266  ]
 [e ( _strcat (2 , _str :s 2C ]
 [e $U 1267  ]
-"222
+"221
 [e :U 1266 ]
-[; ;My_RTCC.c: 222: else strcat(str, s);
+[; ;My_RTCC.c: 221: else strcat(str, s);
 [e ( _strcat (2 , _str -> &U _s `*Cuc ]
 [e :U 1267 ]
-[; ;My_RTCC.c: 223: }
-"223
+[; ;My_RTCC.c: 222: }
+"222
 [e :UE 1265 ]
 }
-"225
+"224
 [v _display_time_0802 `(v ~T0 @X0 1 ef3`*S1224`*uc`*uc ]
 {
-[; ;My_RTCC.c: 225: void display_time_0802(time_t *tm, char *line0, char *line1) {
+[; ;My_RTCC.c: 224: void display_time_0802(time_t *tm, char *line0, char *line1) {
 [e :U _display_time_0802 ]
 [v _tm `*S1224 ~T0 @X0 1 r1 ]
 [v _line0 `*uc ~T0 @X0 1 r2 ]
 [v _line1 `*uc ~T0 @X0 1 r3 ]
 [f ]
-[; ;My_RTCC.c: 226: RTCC_from_RTCC(&now);
-"226
+[; ;My_RTCC.c: 225: RTCC_from_RTCC(&now);
+"225
 [e ( _RTCC_from_RTCC (1 &U _now ]
-[; ;My_RTCC.c: 228: strcpy(line0, "");
-"228
+[; ;My_RTCC.c: 227: strcpy(line0, "");
+"227
 [e ( _strcpy (2 , _line0 :s 3C ]
-[; ;My_RTCC.c: 229: display_dec(line0, tm->YY, tm->edit.flag.YY);
-"229
+[; ;My_RTCC.c: 228: display_dec(line0, tm->YY, tm->edit.flag.YY);
+"228
 [e ( _display_dec (3 , , _line0 . *U _tm 7 . . . . *U _tm 10 0 1 5 ]
-[; ;My_RTCC.c: 230: strcat(line0, "/");
-"230
+[; ;My_RTCC.c: 229: strcat(line0, "/");
+"229
 [e ( _strcat (2 , _line0 :s 4C ]
-[; ;My_RTCC.c: 231: display_dec(line0, tm->MM, tm->edit.flag.MM);
-"231
+[; ;My_RTCC.c: 230: display_dec(line0, tm->MM, tm->edit.flag.MM);
+"230
 [e ( _display_dec (3 , , _line0 . *U _tm 6 . . . . *U _tm 10 0 1 4 ]
-[; ;My_RTCC.c: 232: strcat(line0, "/");
-"232
+[; ;My_RTCC.c: 231: strcat(line0, "/");
+"231
 [e ( _strcat (2 , _line0 :s 5C ]
-[; ;My_RTCC.c: 233: display_dec(line0, tm->DD, tm->edit.flag.DD);
-"233
+[; ;My_RTCC.c: 232: display_dec(line0, tm->DD, tm->edit.flag.DD);
+"232
 [e ( _display_dec (3 , , _line0 . *U _tm 5 . . . . *U _tm 10 0 1 3 ]
-[; ;My_RTCC.c: 235: strcpy(line1, "");
-"235
+[; ;My_RTCC.c: 234: strcpy(line1, "");
+"234
 [e ( _strcpy (2 , _line1 :s 6C ]
-[; ;My_RTCC.c: 236: display_dec(line1, tm->hh, tm->edit.flag.hh);
-"236
+[; ;My_RTCC.c: 235: display_dec(line1, tm->hh, tm->edit.flag.hh);
+"235
 [e ( _display_dec (3 , , _line1 . *U _tm 3 . . . . *U _tm 10 0 1 2 ]
-[; ;My_RTCC.c: 237: if (now.colon) strcat(line1, ":");
-"237
+[; ;My_RTCC.c: 236: if (now.colon) strcat(line1, ":");
+"236
 [e $ ! != -> . _now 8 `i -> -> -> 0 `i `uc `i 1269  ]
 [e ( _strcat (2 , _line1 :s 7C ]
 [e $U 1270  ]
-"238
+"237
 [e :U 1269 ]
-[; ;My_RTCC.c: 238: else strcat(line1, " ");
+[; ;My_RTCC.c: 237: else strcat(line1, " ");
 [e ( _strcat (2 , _line1 :s 8C ]
 [e :U 1270 ]
-[; ;My_RTCC.c: 239: display_dec(line1, tm->mm, tm->edit.flag.mm);
-"239
+[; ;My_RTCC.c: 238: display_dec(line1, tm->mm, tm->edit.flag.mm);
+"238
 [e ( _display_dec (3 , , _line1 . *U _tm 2 . . . . *U _tm 10 0 1 1 ]
-[; ;My_RTCC.c: 240: strcat(line1, "-");
-"240
+[; ;My_RTCC.c: 239: strcat(line1, "-");
+"239
 [e ( _strcat (2 , _line1 :s 9C ]
-[; ;My_RTCC.c: 241: display_dec(line0, tm->ss, tm->edit.flag.ss);
+[; ;My_RTCC.c: 240: display_dec(line1, tm->ss, tm->edit.flag.ss);
+"240
+[e ( _display_dec (3 , , _line1 . *U _tm 1 . . . . *U _tm 10 0 1 0 ]
+[; ;My_RTCC.c: 241: }
 "241
-[e ( _display_dec (3 , , _line0 . *U _tm 1 . . . . *U _tm 10 0 1 0 ]
-[; ;My_RTCC.c: 242: }
-"242
 [e :UE 1268 ]
 }
-"244
+"243
 [v _display_time_1602 `(v ~T0 @X0 1 ef3`*S1224`*uc`*uc ]
 {
-[; ;My_RTCC.c: 244: void display_time_1602(time_t *tm, char *line0, char *line1) {
+[; ;My_RTCC.c: 243: void display_time_1602(time_t *tm, char *line0, char *line1) {
 [e :U _display_time_1602 ]
 [v _tm `*S1224 ~T0 @X0 1 r1 ]
 [v _line0 `*uc ~T0 @X0 1 r2 ]
 [v _line1 `*uc ~T0 @X0 1 r3 ]
 [f ]
-[; ;My_RTCC.c: 245: RTCC_from_RTCC(&now);
-"245
+[; ;My_RTCC.c: 244: RTCC_from_RTCC(&now);
+"244
 [e ( _RTCC_from_RTCC (1 &U _now ]
-[; ;My_RTCC.c: 247: strcpy(line0, "");
-"247
+[; ;My_RTCC.c: 246: strcpy(line0, "");
+"246
 [e ( _strcpy (2 , _line0 :s 10C ]
-[; ;My_RTCC.c: 248: display_dec(line0, 20, tm->edit.flag.YY);
-"248
+[; ;My_RTCC.c: 247: display_dec(line0, 20, tm->edit.flag.YY);
+"247
 [e ( _display_dec (3 , , _line0 -> -> 20 `i `uc . . . . *U _tm 10 0 1 5 ]
-[; ;My_RTCC.c: 249: display_dec(line0, tm->YY, tm->edit.flag.YY);
-"249
+[; ;My_RTCC.c: 248: display_dec(line0, tm->YY, tm->edit.flag.YY);
+"248
 [e ( _display_dec (3 , , _line0 . *U _tm 7 . . . . *U _tm 10 0 1 5 ]
-[; ;My_RTCC.c: 250: strcat(line0, "/");
-"250
+[; ;My_RTCC.c: 249: strcat(line0, "/");
+"249
 [e ( _strcat (2 , _line0 :s 11C ]
-[; ;My_RTCC.c: 251: display_dec(line0, tm->MM, tm->edit.flag.MM);
-"251
+[; ;My_RTCC.c: 250: display_dec(line0, tm->MM, tm->edit.flag.MM);
+"250
 [e ( _display_dec (3 , , _line0 . *U _tm 6 . . . . *U _tm 10 0 1 4 ]
-[; ;My_RTCC.c: 252: strcat(line0, "/");
-"252
+[; ;My_RTCC.c: 251: strcat(line0, "/");
+"251
 [e ( _strcat (2 , _line0 :s 12C ]
-[; ;My_RTCC.c: 253: display_dec(line0, tm->DD, tm->edit.flag.DD);
-"253
+[; ;My_RTCC.c: 252: display_dec(line0, tm->DD, tm->edit.flag.DD);
+"252
 [e ( _display_dec (3 , , _line0 . *U _tm 5 . . . . *U _tm 10 0 1 3 ]
-[; ;My_RTCC.c: 254: strcat(line0, "(");
-"254
+[; ;My_RTCC.c: 253: strcat(line0, "(");
+"253
 [e ( _strcat (2 , _line0 :s 13C ]
-[; ;My_RTCC.c: 255: strcat(line0, weekday_3char[tm->EE]);
-"255
+[; ;My_RTCC.c: 254: strcat(line0, weekday_3char[tm->EE]);
+"254
 [e ( _strcat (2 , _line0 &U *U + &U _weekday_3char * -> . *U _tm 4 `ux -> * -> # *U &U *U &U _weekday_3char `ui -> -> 4 `i `ui `ux ]
-[; ;My_RTCC.c: 256: strcat(line0, ")");
-"256
+[; ;My_RTCC.c: 255: strcat(line0, ")");
+"255
 [e ( _strcat (2 , _line0 :s 14C ]
-[; ;My_RTCC.c: 258: strcpy(line1, "        ");
-"258
+[; ;My_RTCC.c: 257: strcpy(line1, "        ");
+"257
 [e ( _strcpy (2 , _line1 :s 15C ]
-[; ;My_RTCC.c: 259: display_dec(line1, tm->hh, tm->edit.flag.hh);
-"259
+[; ;My_RTCC.c: 258: display_dec(line1, tm->hh, tm->edit.flag.hh);
+"258
 [e ( _display_dec (3 , , _line1 . *U _tm 3 . . . . *U _tm 10 0 1 2 ]
-[; ;My_RTCC.c: 260: if (tm->colon) strcat(line1, ":");
-"260
+[; ;My_RTCC.c: 259: if (tm->colon) strcat(line1, ":");
+"259
 [e $ ! != -> . *U _tm 8 `i -> -> -> 0 `i `uc `i 1272  ]
 [e ( _strcat (2 , _line1 :s 16C ]
 [e $U 1273  ]
-"261
+"260
 [e :U 1272 ]
-[; ;My_RTCC.c: 261: else strcat(line1, " ");
+[; ;My_RTCC.c: 260: else strcat(line1, " ");
 [e ( _strcat (2 , _line1 :s 17C ]
 [e :U 1273 ]
-[; ;My_RTCC.c: 262: display_dec(line1, tm->mm, tm->edit.flag.mm);
-"262
+[; ;My_RTCC.c: 261: display_dec(line1, tm->mm, tm->edit.flag.mm);
+"261
 [e ( _display_dec (3 , , _line1 . *U _tm 2 . . . . *U _tm 10 0 1 1 ]
-[; ;My_RTCC.c: 263: strcat(line1, "-");
-"263
+[; ;My_RTCC.c: 262: strcat(line1, "-");
+"262
 [e ( _strcat (2 , _line1 :s 18C ]
-[; ;My_RTCC.c: 264: display_dec(line1, tm->ss, tm->edit.flag.ss);
-"264
+[; ;My_RTCC.c: 263: display_dec(line1, tm->ss, tm->edit.flag.ss);
+"263
 [e ( _display_dec (3 , , _line1 . *U _tm 1 . . . . *U _tm 10 0 1 0 ]
-[; ;My_RTCC.c: 265: }
-"265
+[; ;My_RTCC.c: 264: }
+"264
 [e :UE 1271 ]
 }
-"269
+"268
 [v _RTCC_adjust_time_toggle `(v ~T0 @X0 1 ef1`*S1224 ]
 {
-[; ;My_RTCC.c: 269: void RTCC_adjust_time_toggle(time_t *tm) {
+[; ;My_RTCC.c: 268: void RTCC_adjust_time_toggle(time_t *tm) {
 [e :U _RTCC_adjust_time_toggle ]
 [v _tm `*S1224 ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_RTCC.c: 270: if (tm->edit.flags) {
-"270
+[; ;My_RTCC.c: 269: if (tm->edit.flags) {
+"269
 [e $ ! != -> . . . *U _tm 10 0 0 `i -> -> -> 0 `i `uc `i 1275  ]
 {
-[; ;My_RTCC.c: 271: tm->edit.flags = 0;
-"271
+[; ;My_RTCC.c: 270: tm->edit.flags = 0;
+"270
 [e = . . . *U _tm 10 0 0 -> -> 0 `i `uc ]
-"272
+"271
 }
-[; ;My_RTCC.c: 272: } else {
+[; ;My_RTCC.c: 271: } else {
 [e $U 1276  ]
 [e :U 1275 ]
 {
-[; ;My_RTCC.c: 273: tm->edit.flag.ss = 1;
-"273
+[; ;My_RTCC.c: 272: tm->edit.flag.ss = 1;
+"272
 [e = . . . . *U _tm 10 0 1 0 -> -> 1 `i `uc ]
-"274
+"273
 }
 [e :U 1276 ]
+[; ;My_RTCC.c: 273: }
 [; ;My_RTCC.c: 274: }
-[; ;My_RTCC.c: 275: }
-"275
+"274
 [e :UE 1274 ]
 }
-"277
+"276
 [v _RTCC_adjust_time_cursor `(v ~T0 @X0 1 ef1`*S1224 ]
 {
-[; ;My_RTCC.c: 277: void RTCC_adjust_time_cursor(time_t *tm) {
+[; ;My_RTCC.c: 276: void RTCC_adjust_time_cursor(time_t *tm) {
 [e :U _RTCC_adjust_time_cursor ]
 [v _tm `*S1224 ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_RTCC.c: 278: if (tm->edit.flag.ss)tm->edit.flags = 0x02;
-"278
+[; ;My_RTCC.c: 277: if (tm->edit.flag.ss)tm->edit.flags = 0x02;
+"277
 [e $ ! != -> . . . . *U _tm 10 0 1 0 `i -> -> -> 0 `i `uc `i 1278  ]
 [e = . . . *U _tm 10 0 0 -> -> 2 `i `uc ]
 [e $U 1279  ]
-"279
+"278
 [e :U 1278 ]
-[; ;My_RTCC.c: 279: else if (tm->edit.flag.mm)tm->edit.flags = 0x04;
+[; ;My_RTCC.c: 278: else if (tm->edit.flag.mm)tm->edit.flags = 0x04;
 [e $ ! != -> . . . . *U _tm 10 0 1 1 `i -> -> -> 0 `i `uc `i 1280  ]
 [e = . . . *U _tm 10 0 0 -> -> 4 `i `uc ]
 [e $U 1281  ]
-"280
+"279
 [e :U 1280 ]
-[; ;My_RTCC.c: 280: else if (tm->edit.flag.hh)tm->edit.flags = 0x08;
+[; ;My_RTCC.c: 279: else if (tm->edit.flag.hh)tm->edit.flags = 0x08;
 [e $ ! != -> . . . . *U _tm 10 0 1 2 `i -> -> -> 0 `i `uc `i 1282  ]
 [e = . . . *U _tm 10 0 0 -> -> 8 `i `uc ]
 [e $U 1283  ]
-"281
+"280
 [e :U 1282 ]
-[; ;My_RTCC.c: 281: else if (tm->edit.flag.DD)tm->edit.flags = 0x10;
+[; ;My_RTCC.c: 280: else if (tm->edit.flag.DD)tm->edit.flags = 0x10;
 [e $ ! != -> . . . . *U _tm 10 0 1 3 `i -> -> -> 0 `i `uc `i 1284  ]
 [e = . . . *U _tm 10 0 0 -> -> 16 `i `uc ]
 [e $U 1285  ]
-"282
+"281
 [e :U 1284 ]
-[; ;My_RTCC.c: 282: else if (tm->edit.flag.MM)tm->edit.flags = 0x20;
+[; ;My_RTCC.c: 281: else if (tm->edit.flag.MM)tm->edit.flags = 0x20;
 [e $ ! != -> . . . . *U _tm 10 0 1 4 `i -> -> -> 0 `i `uc `i 1286  ]
 [e = . . . *U _tm 10 0 0 -> -> 32 `i `uc ]
 [e $U 1287  ]
-"283
+"282
 [e :U 1286 ]
-[; ;My_RTCC.c: 283: else if (tm->edit.flag.YY)tm->edit.flags = 0x01;
+[; ;My_RTCC.c: 282: else if (tm->edit.flag.YY)tm->edit.flags = 0x01;
 [e $ ! != -> . . . . *U _tm 10 0 1 5 `i -> -> -> 0 `i `uc `i 1288  ]
 [e = . . . *U _tm 10 0 0 -> -> 1 `i `uc ]
 [e $U 1289  ]
-"284
+"283
 [e :U 1288 ]
-[; ;My_RTCC.c: 284: else tm->edit.flags = 0x00;
+[; ;My_RTCC.c: 283: else tm->edit.flags = 0x00;
 [e = . . . *U _tm 10 0 0 -> -> 0 `i `uc ]
 [e :U 1289 ]
 [e :U 1287 ]
@@ -9170,51 +9170,51 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1283 ]
 [e :U 1281 ]
 [e :U 1279 ]
-[; ;My_RTCC.c: 285: }
-"285
+[; ;My_RTCC.c: 284: }
+"284
 [e :UE 1277 ]
 }
-"287
+"286
 [v _RTCC_adjust_time_inc `(v ~T0 @X0 1 ef1`*S1224 ]
 {
-[; ;My_RTCC.c: 287: void RTCC_adjust_time_inc(time_t *tm) {
+[; ;My_RTCC.c: 286: void RTCC_adjust_time_inc(time_t *tm) {
 [e :U _RTCC_adjust_time_inc ]
 [v _tm `*S1224 ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_RTCC.c: 288: RTCC_from_RTCC(tm);
-"288
+[; ;My_RTCC.c: 287: RTCC_from_RTCC(tm);
+"287
 [e ( _RTCC_from_RTCC (1 _tm ]
-[; ;My_RTCC.c: 289: if (tm->edit.flag.ss) tm->epoch += 1;
-"289
+[; ;My_RTCC.c: 288: if (tm->edit.flag.ss) tm->epoch += 1;
+"288
 [e $ ! != -> . . . . *U _tm 10 0 1 0 `i -> -> -> 0 `i `uc `i 1291  ]
 [e =+ . *U _tm 0 -> -> -> 1 `i `l `ul ]
 [e :U 1291 ]
-[; ;My_RTCC.c: 290: if (tm->edit.flag.mm) tm->epoch += ((epoch_t)60);
-"290
+[; ;My_RTCC.c: 289: if (tm->edit.flag.mm) tm->epoch += ((epoch_t)60);
+"289
 [e $ ! != -> . . . . *U _tm 10 0 1 1 `i -> -> -> 0 `i `uc `i 1292  ]
 [e =+ . *U _tm 0 -> -> 60 `i `ul ]
 [e :U 1292 ]
-[; ;My_RTCC.c: 291: if (tm->edit.flag.hh) tm->epoch += ((epoch_t)60*60);
-"291
+[; ;My_RTCC.c: 290: if (tm->edit.flag.hh) tm->epoch += ((epoch_t)60*60);
+"290
 [e $ ! != -> . . . . *U _tm 10 0 1 2 `i -> -> -> 0 `i `uc `i 1293  ]
 [e =+ . *U _tm 0 * -> -> 60 `i `ul -> -> -> 60 `i `l `ul ]
 [e :U 1293 ]
-[; ;My_RTCC.c: 292: if (tm->edit.flag.DD) tm->epoch += ((epoch_t)60*60*24);
-"292
+[; ;My_RTCC.c: 291: if (tm->edit.flag.DD) tm->epoch += ((epoch_t)60*60*24);
+"291
 [e $ ! != -> . . . . *U _tm 10 0 1 3 `i -> -> -> 0 `i `uc `i 1294  ]
 [e =+ . *U _tm 0 * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul ]
 [e :U 1294 ]
-[; ;My_RTCC.c: 293: if (tm->edit.flag.MM) tm->epoch += ((epoch_t)60*60*24) * month_length(tm->YY, tm->MM);
-"293
+[; ;My_RTCC.c: 292: if (tm->edit.flag.MM) tm->epoch += ((epoch_t)60*60*24) * month_length(tm->YY, tm->MM);
+"292
 [e $ ! != -> . . . . *U _tm 10 0 1 4 `i -> -> -> 0 `i `uc `i 1295  ]
 [e =+ . *U _tm 0 * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> ( _month_length (2 , . *U _tm 7 . *U _tm 6 `ul ]
 [e :U 1295 ]
-[; ;My_RTCC.c: 294: if (tm->edit.flag.YY) {
-"294
+[; ;My_RTCC.c: 293: if (tm->edit.flag.YY) {
+"293
 [e $ ! != -> . . . . *U _tm 10 0 1 5 `i -> -> -> 0 `i `uc `i 1296  ]
 {
-[; ;My_RTCC.c: 295: for (uint8_t i = tm->MM; i <= 12; i++) {
-"295
+[; ;My_RTCC.c: 294: for (uint8_t i = tm->MM; i <= 12; i++) {
+"294
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i . *U _tm 6 ]
@@ -9222,99 +9222,99 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1298  ]
 [e :U 1297 ]
 {
-[; ;My_RTCC.c: 296: tm->epoch += ((epoch_t)60*60*24) * month_length(tm->YY, i);
-"296
-[e =+ . *U _tm 0 * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> ( _month_length (2 , . *U _tm 7 _i `ul ]
-"297
-}
+[; ;My_RTCC.c: 295: tm->epoch += ((epoch_t)60*60*24) * month_length(tm->YY, i);
 "295
+[e =+ . *U _tm 0 * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> ( _month_length (2 , . *U _tm 7 _i `ul ]
+"296
+}
+"294
 [e ++ _i -> -> 1 `i `uc ]
 [e $ <= -> _i `i -> 12 `i 1297  ]
 [e :U 1298 ]
-"297
+"296
 }
-[; ;My_RTCC.c: 297: }
-[; ;My_RTCC.c: 298: for (uint8_t i = 1; i < tm->MM; i++) {
-"298
+[; ;My_RTCC.c: 296: }
+[; ;My_RTCC.c: 297: for (uint8_t i = 1; i < tm->MM; i++) {
+"297
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 1 `i `uc ]
 [e $U 1303  ]
 [e :U 1300 ]
 {
-[; ;My_RTCC.c: 299: tm->epoch += ((epoch_t)60*60*24) * month_length(tm->YY + 1, i);
-"299
-[e =+ . *U _tm 0 * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> ( _month_length (2 , -> + -> . *U _tm 7 `i -> 1 `i `uc _i `ul ]
-"300
-}
+[; ;My_RTCC.c: 298: tm->epoch += ((epoch_t)60*60*24) * month_length(tm->YY + 1, i);
 "298
+[e =+ . *U _tm 0 * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> ( _month_length (2 , -> + -> . *U _tm 7 `i -> 1 `i `uc _i `ul ]
+"299
+}
+"297
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 1303 ]
 [e $ < -> _i `i -> . *U _tm 6 `i 1300  ]
 [e :U 1301 ]
+"299
+}
 "300
 }
-"301
-}
 [e :U 1296 ]
+[; ;My_RTCC.c: 299: }
 [; ;My_RTCC.c: 300: }
-[; ;My_RTCC.c: 301: }
-[; ;My_RTCC.c: 303: if (tm->epoch >= 3155760000)tm->epoch -= 3155760000;
-"303
+[; ;My_RTCC.c: 302: if (tm->epoch >= 3155760000)tm->epoch -= 3155760000;
+"302
 [e $ ! >= . *U _tm 0 -> -1139207296 `ul 1304  ]
 [e =- . *U _tm 0 -> -1139207296 `ul ]
 [e :U 1304 ]
-[; ;My_RTCC.c: 304: RTCC_from_epoch(&now);
-"304
+[; ;My_RTCC.c: 303: RTCC_from_epoch(&now);
+"303
 [e ( _RTCC_from_epoch (1 &U _now ]
-[; ;My_RTCC.c: 305: time_change_flag = 1;
-"305
+[; ;My_RTCC.c: 304: time_change_flag = 1;
+"304
 [e = _time_change_flag -> -> 1 `i `uc ]
-[; ;My_RTCC.c: 306: }
-"306
+[; ;My_RTCC.c: 305: }
+"305
 [e :UE 1290 ]
 }
-"308
+"307
 [v _RTCC_adjust_time_dec `(v ~T0 @X0 1 ef1`*S1224 ]
 {
-[; ;My_RTCC.c: 308: void RTCC_adjust_time_dec(time_t *tm) {
+[; ;My_RTCC.c: 307: void RTCC_adjust_time_dec(time_t *tm) {
 [e :U _RTCC_adjust_time_dec ]
 [v _tm `*S1224 ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_RTCC.c: 309: RTCC_from_RTCC(tm);
-"309
+[; ;My_RTCC.c: 308: RTCC_from_RTCC(tm);
+"308
 [e ( _RTCC_from_RTCC (1 _tm ]
-[; ;My_RTCC.c: 310: if (tm->edit.flag.ss) tm->epoch -= 1;
-"310
+[; ;My_RTCC.c: 309: if (tm->edit.flag.ss) tm->epoch -= 1;
+"309
 [e $ ! != -> . . . . *U _tm 10 0 1 0 `i -> -> -> 0 `i `uc `i 1306  ]
 [e =- . *U _tm 0 -> -> -> 1 `i `l `ul ]
 [e :U 1306 ]
-[; ;My_RTCC.c: 311: if (tm->edit.flag.mm) tm->epoch -= ((epoch_t)60);
-"311
+[; ;My_RTCC.c: 310: if (tm->edit.flag.mm) tm->epoch -= ((epoch_t)60);
+"310
 [e $ ! != -> . . . . *U _tm 10 0 1 1 `i -> -> -> 0 `i `uc `i 1307  ]
 [e =- . *U _tm 0 -> -> 60 `i `ul ]
 [e :U 1307 ]
-[; ;My_RTCC.c: 312: if (tm->edit.flag.hh) tm->epoch -= ((epoch_t)60*60);
-"312
+[; ;My_RTCC.c: 311: if (tm->edit.flag.hh) tm->epoch -= ((epoch_t)60*60);
+"311
 [e $ ! != -> . . . . *U _tm 10 0 1 2 `i -> -> -> 0 `i `uc `i 1308  ]
 [e =- . *U _tm 0 * -> -> 60 `i `ul -> -> -> 60 `i `l `ul ]
 [e :U 1308 ]
-[; ;My_RTCC.c: 313: if (tm->edit.flag.DD) tm->epoch -= ((epoch_t)60*60*24);
-"313
+[; ;My_RTCC.c: 312: if (tm->edit.flag.DD) tm->epoch -= ((epoch_t)60*60*24);
+"312
 [e $ ! != -> . . . . *U _tm 10 0 1 3 `i -> -> -> 0 `i `uc `i 1309  ]
 [e =- . *U _tm 0 * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul ]
 [e :U 1309 ]
-[; ;My_RTCC.c: 314: if (tm->edit.flag.MM) tm->epoch -= ((epoch_t)60*60*24) * month_length(tm->YY, tm->MM);
-"314
+[; ;My_RTCC.c: 313: if (tm->edit.flag.MM) tm->epoch -= ((epoch_t)60*60*24) * month_length(tm->YY, tm->MM);
+"313
 [e $ ! != -> . . . . *U _tm 10 0 1 4 `i -> -> -> 0 `i `uc `i 1310  ]
 [e =- . *U _tm 0 * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> ( _month_length (2 , . *U _tm 7 . *U _tm 6 `ul ]
 [e :U 1310 ]
-[; ;My_RTCC.c: 315: if (tm->edit.flag.YY) {
-"315
+[; ;My_RTCC.c: 314: if (tm->edit.flag.YY) {
+"314
 [e $ ! != -> . . . . *U _tm 10 0 1 5 `i -> -> -> 0 `i `uc `i 1311  ]
 {
-[; ;My_RTCC.c: 316: for (uint8_t i = tm->MM; i >= 1; i--) {
-"316
+[; ;My_RTCC.c: 315: for (uint8_t i = tm->MM; i >= 1; i--) {
+"315
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i . *U _tm 6 ]
@@ -9322,186 +9322,184 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1313  ]
 [e :U 1312 ]
 {
-[; ;My_RTCC.c: 317: tm->epoch -= ((epoch_t)60*60*24) * month_length(tm->YY, i);
-"317
-[e =- . *U _tm 0 * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> ( _month_length (2 , . *U _tm 7 _i `ul ]
-"318
-}
+[; ;My_RTCC.c: 316: tm->epoch -= ((epoch_t)60*60*24) * month_length(tm->YY, i);
 "316
+[e =- . *U _tm 0 * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> ( _month_length (2 , . *U _tm 7 _i `ul ]
+"317
+}
+"315
 [e -- _i -> -> 1 `i `uc ]
 [e $ >= -> _i `i -> 1 `i 1312  ]
 [e :U 1313 ]
-"318
+"317
 }
-[; ;My_RTCC.c: 318: }
-[; ;My_RTCC.c: 319: for (uint8_t i = 12; i > tm->MM; i--) {
-"319
+[; ;My_RTCC.c: 317: }
+[; ;My_RTCC.c: 318: for (uint8_t i = 12; i > tm->MM; i--) {
+"318
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 12 `i `uc ]
 [e $U 1318  ]
 [e :U 1315 ]
 {
-[; ;My_RTCC.c: 320: tm->epoch -= ((epoch_t)60*60*24) * month_length(tm->YY - 1, i);
-"320
-[e =- . *U _tm 0 * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> ( _month_length (2 , -> - -> . *U _tm 7 `i -> 1 `i `uc _i `ul ]
-"321
-}
+[; ;My_RTCC.c: 319: tm->epoch -= ((epoch_t)60*60*24) * month_length(tm->YY - 1, i);
 "319
+[e =- . *U _tm 0 * * * -> -> 60 `i `ul -> -> -> 60 `i `l `ul -> -> -> 24 `i `l `ul -> ( _month_length (2 , -> - -> . *U _tm 7 `i -> 1 `i `uc _i `ul ]
+"320
+}
+"318
 [e -- _i -> -> 1 `i `uc ]
 [e :U 1318 ]
 [e $ > -> _i `i -> . *U _tm 6 `i 1315  ]
 [e :U 1316 ]
+"320
+}
 "321
 }
-"322
-}
 [e :U 1311 ]
+[; ;My_RTCC.c: 320: }
 [; ;My_RTCC.c: 321: }
-[; ;My_RTCC.c: 322: }
-[; ;My_RTCC.c: 324: if (tm->epoch >= 3155760000)tm->epoch += 3155760000;
-"324
+[; ;My_RTCC.c: 323: if (tm->epoch >= 3155760000)tm->epoch += 3155760000;
+"323
 [e $ ! >= . *U _tm 0 -> -1139207296 `ul 1319  ]
 [e =+ . *U _tm 0 -> -1139207296 `ul ]
 [e :U 1319 ]
-[; ;My_RTCC.c: 325: RTCC_from_epoch(&now);
-"325
+[; ;My_RTCC.c: 324: RTCC_from_epoch(&now);
+"324
 [e ( _RTCC_from_epoch (1 &U _now ]
-[; ;My_RTCC.c: 326: time_change_flag = 1;
-"326
+[; ;My_RTCC.c: 325: time_change_flag = 1;
+"325
 [e = _time_change_flag -> -> 1 `i `uc ]
-[; ;My_RTCC.c: 327: }
-"327
+[; ;My_RTCC.c: 326: }
+"326
 [e :UE 1305 ]
 }
-"329
+"328
 [v _RTCC_adjust_time_button `(v ~T0 @X0 1 ef4`*S1224`*S1218`*S1218`*S1218 ]
 {
-[; ;My_RTCC.c: 329: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec) {
+[; ;My_RTCC.c: 328: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec) {
 [e :U _RTCC_adjust_time_button ]
 [v _tm `*S1224 ~T0 @X0 1 r1 ]
 [v _mode `*S1218 ~T0 @X0 1 r2 ]
 [v _cnt_inc `*S1218 ~T0 @X0 1 r3 ]
 [v _cnt_dec `*S1218 ~T0 @X0 1 r4 ]
 [f ]
-[; ;My_RTCC.c: 330: if (mode->flag.long_holding_3) {
-"330
+[; ;My_RTCC.c: 329: if (mode->flag.long_holding_3) {
+"329
 [e $ ! != -> . . . *U _mode 1 1 11 `i -> -> -> 0 `i `uc `i 1321  ]
 {
-[; ;My_RTCC.c: 331: mode->flag.long_holding_3 = 0;
-"331
+[; ;My_RTCC.c: 330: mode->flag.long_holding_3 = 0;
+"330
 [e = . . . *U _mode 1 1 11 -> -> 0 `i `uc ]
-[; ;My_RTCC.c: 332: RTCC_adjust_time_toggle(tm);
-"332
+[; ;My_RTCC.c: 331: RTCC_adjust_time_toggle(tm);
+"331
 [e ( _RTCC_adjust_time_toggle (1 _tm ]
-[; ;My_RTCC.c: 333: mode->flags = 0;
-"333
+[; ;My_RTCC.c: 332: mode->flags = 0;
+"332
 [e = . . *U _mode 1 0 -> -> 0 `i `ui ]
-[; ;My_RTCC.c: 334: cnt_inc->flags = 0;
-"334
+[; ;My_RTCC.c: 333: cnt_inc->flags = 0;
+"333
 [e = . . *U _cnt_inc 1 0 -> -> 0 `i `ui ]
-[; ;My_RTCC.c: 335: cnt_dec->flags = 0;
-"335
+[; ;My_RTCC.c: 334: cnt_dec->flags = 0;
+"334
 [e = . . *U _cnt_dec 1 0 -> -> 0 `i `ui ]
-"336
+"335
 }
 [e :U 1321 ]
-[; ;My_RTCC.c: 336: }
-[; ;My_RTCC.c: 337: if (tm->edit.flags) {
-"337
+[; ;My_RTCC.c: 335: }
+[; ;My_RTCC.c: 336: if (tm->edit.flags) {
+"336
 [e $ ! != -> . . . *U _tm 10 0 0 `i -> -> -> 0 `i `uc `i 1322  ]
 {
-[; ;My_RTCC.c: 338: if (mode->flag.press) {
-"338
+[; ;My_RTCC.c: 337: if (mode->flag.press) {
+"337
 [e $ ! != -> . . . *U _mode 1 1 0 `i -> -> -> 0 `i `uc `i 1323  ]
 {
-[; ;My_RTCC.c: 339: mode->flag.press = 0;
-"339
+[; ;My_RTCC.c: 338: mode->flag.press = 0;
+"338
 [e = . . . *U _mode 1 1 0 -> -> 0 `i `uc ]
-[; ;My_RTCC.c: 340: RTCC_adjust_time_cursor(tm);
-"340
+[; ;My_RTCC.c: 339: RTCC_adjust_time_cursor(tm);
+"339
 [e ( _RTCC_adjust_time_cursor (1 _tm ]
-"341
+"340
 }
 [e :U 1323 ]
-[; ;My_RTCC.c: 341: }
-[; ;My_RTCC.c: 342: if (cnt_inc->flag.press) {
-"342
+[; ;My_RTCC.c: 340: }
+[; ;My_RTCC.c: 341: if (cnt_inc->flag.press) {
+"341
 [e $ ! != -> . . . *U _cnt_inc 1 1 0 `i -> -> -> 0 `i `uc `i 1324  ]
 {
-[; ;My_RTCC.c: 343: cnt_inc->flag.press = 0;
-"343
+[; ;My_RTCC.c: 342: cnt_inc->flag.press = 0;
+"342
 [e = . . . *U _cnt_inc 1 1 0 -> -> 0 `i `uc ]
-[; ;My_RTCC.c: 344: RTCC_adjust_time_inc(tm);
-"344
+[; ;My_RTCC.c: 343: RTCC_adjust_time_inc(tm);
+"343
 [e ( _RTCC_adjust_time_inc (1 _tm ]
-"345
+"344
 }
 [e :U 1324 ]
-[; ;My_RTCC.c: 345: }
-[; ;My_RTCC.c: 346: if (cnt_dec->flag.press) {
-"346
+[; ;My_RTCC.c: 344: }
+[; ;My_RTCC.c: 345: if (cnt_dec->flag.press) {
+"345
 [e $ ! != -> . . . *U _cnt_dec 1 1 0 `i -> -> -> 0 `i `uc `i 1325  ]
 {
-[; ;My_RTCC.c: 347: cnt_dec->flag.press = 0;
-"347
+[; ;My_RTCC.c: 346: cnt_dec->flag.press = 0;
+"346
 [e = . . . *U _cnt_dec 1 1 0 -> -> 0 `i `uc ]
-[; ;My_RTCC.c: 348: RTCC_adjust_time_dec(tm);
-"348
+[; ;My_RTCC.c: 347: RTCC_adjust_time_dec(tm);
+"347
 [e ( _RTCC_adjust_time_dec (1 _tm ]
-"349
+"348
 }
 [e :U 1325 ]
-"350
+"349
 }
 [e :U 1322 ]
+[; ;My_RTCC.c: 348: }
 [; ;My_RTCC.c: 349: }
 [; ;My_RTCC.c: 350: }
-[; ;My_RTCC.c: 351: }
-"351
+"350
 [e :UE 1320 ]
 }
-"353
+"352
 [v _RTCC_task `(v ~T0 @X0 1 ef ]
 {
-[; ;My_RTCC.c: 353: void RTCC_task(void) {
+[; ;My_RTCC.c: 352: void RTCC_task(void) {
 [e :U _RTCC_task ]
 [f ]
-"354
+"353
 [v F8853 `uc ~T0 @X0 1 s prev_halfsec ]
-[; ;My_RTCC.c: 354: static uint8_t prev_halfsec;
-[; ;My_RTCC.c: 355: while (RTCCFGbits.RTCSYNC);
-"355
-[e $U 1327  ]
-[e :U 1328 ]
+[; ;My_RTCC.c: 353: static uint8_t prev_halfsec;
+[; ;My_RTCC.c: 354: if (RTCCFGbits.RTCSYNC)return;
+"354
+[e $ ! != -> . . _RTCCFGbits 0 4 `i -> -> -> 0 `i `Vuc `i 1327  ]
+[e $UE 1326  ]
 [e :U 1327 ]
-[e $ != -> . . _RTCCFGbits 0 4 `i -> -> -> 0 `i `Vuc `i 1328  ]
-[e :U 1329 ]
-[; ;My_RTCC.c: 356: now.halfsec = RTCCFGbits.HALFSEC;
-"356
+[; ;My_RTCC.c: 355: now.halfsec = RTCCFGbits.HALFSEC;
+"355
 [e = . _now 9 . . _RTCCFGbits 0 3 ]
-[; ;My_RTCC.c: 357: if (prev_halfsec != now.halfsec) {
-"357
-[e $ ! != -> F8853 `i -> . _now 9 `i 1330  ]
+[; ;My_RTCC.c: 356: if (prev_halfsec != now.halfsec) {
+"356
+[e $ ! != -> F8853 `i -> . _now 9 `i 1328  ]
 {
-[; ;My_RTCC.c: 358: prev_halfsec = now.halfsec;
-"358
+[; ;My_RTCC.c: 357: prev_halfsec = now.halfsec;
+"357
 [e = F8853 . _now 9 ]
-[; ;My_RTCC.c: 359: now.colon = now.halfsec;
-"359
+[; ;My_RTCC.c: 358: now.colon = now.halfsec;
+"358
 [e = . _now 8 . _now 9 ]
-[; ;My_RTCC.c: 360: time_change_flag = 1;
-"360
+[; ;My_RTCC.c: 359: time_change_flag = 1;
+"359
 [e = _time_change_flag -> -> 1 `i `uc ]
-[; ;My_RTCC.c: 361: RTCC_from_RTCC(&now);
-"361
+[; ;My_RTCC.c: 360: RTCC_from_RTCC(&now);
+"360
 [e ( _RTCC_from_RTCC (1 &U _now ]
-"362
+"361
 }
-[e :U 1330 ]
+[e :U 1328 ]
+[; ;My_RTCC.c: 361: }
 [; ;My_RTCC.c: 362: }
-[; ;My_RTCC.c: 363: }
-"363
+"362
 [e :UE 1326 ]
 }
 [p f _sprintf 8421508 ]

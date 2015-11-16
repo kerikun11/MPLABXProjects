@@ -1,9 +1,9 @@
 // killifish_light
 // PIC18F27J53
-// 01 2015.07.05 command operation Œ´Œ`
-// 02 2015.07.18 command operation ”­“W
-// 03 2015.08.26 terminal.h ‚É‚Ü‚Æ‚ß‚½
-// 04 2015.09.03 teminal operation ‰ü—Ç
+// 01 2015.07.05 command operation åŸå½¢
+// 02 2015.07.18 command operation ç™ºå±•
+// 03 2015.08.26 terminal.h ã«ã¾ã¨ã‚ãŸ
+// 04 2015.09.03 teminal operation æ”¹è‰¯
 // 05 2015.10.07 using My_library .h & .c file
 // 06 2015.11.09 using USB CDC instead of UART
 
@@ -293,9 +293,9 @@ void main_init(void) {
     ANCON1 = 0b00011111; // all digital
     INTCON2bits.RBPU = 0; // PORTB Pull-Up Enable
 
-    timer0_init(8); // —p
-    timer1_init(0, T1OSC); // —p
-    timer3_init(2); // button—p
+    timer0_init(8); // ç”¨
+    timer1_init(0, T1OSC); // ç”¨
+    timer3_init(2); // buttonç”¨
     ADC_init(VDD);
     RTCC_init();
     PWM_init(PR_VALUE); //250 is 3kHz

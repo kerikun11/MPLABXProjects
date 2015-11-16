@@ -1,1 +1,0 @@
- build/default/production/src/PIC18F27J53-USB01.d  build/default/production/src/PIC18F27J53-USB01.p1:  src/PIC18F27J53-USB01.c ../My_header/My_header.h src/pic18f47j53_pim/usart.h ../My_header/My_stdlib.h src/pic18f47j53_pim/adc.h ../My_header/My_RTCC.h ../My_header/My_I2C.h ../My_header/My_ringbuf.h ../My_header/My_button.h

@@ -15,6 +15,7 @@
 // 2.2.08 2015.09.16 settings改良
 // 2.2.09 2015.09.17 ファイル分割 My_library
 // 2.2.10 2015.11.13 ST7032 new program without delay and while
+
 // default,-0-FFF,-1006-1007,-1016-1017
 // CONFIG1L
 #pragma config WDTEN = ON, PLLDIV = 2, CFGPLLEN = ON, STVREN = OFF, XINST = OFF
@@ -48,6 +49,7 @@
 
 void interrupt ISR(void) {
     USB_ISR();
+    I2C_ISR();
     if (INTCONbits.T0IF && INTCONbits.T0IE) {
         INTCONbits.T0IF = 0;
         millis_timer();
@@ -99,7 +101,7 @@ void hardware_init(void) {
     CTMU_init();
 
     USB_init();
-    static uint8_t usbtx[2000];
+    static uint8_t usbtx[1800];
     ringbuf_init(&usb_tx, usbtx, sizeof (usbtx));
     static uint8_t usbrx[100];
     ringbuf_init(&usb_rx, usbrx, sizeof (usbrx));

@@ -1,6 +1,120 @@
 
 # 1 "../My_library/My_ST7032.c"
 
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 19 "../My_library\My_ringbuf.h"
+typedef struct ringbuf {
+char *buf;
+uint16_t size;
+uint16_t head;
+uint16_t tail;
+} ringbuf_t;
+
+void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
+
+uint16_t ringbuf_num(ringbuf_t *rb);
+
+void ringbuf_put(ringbuf_t *rb, char asciicode);
+
+void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
+
+void ringbuf_put_str(ringbuf_t *rb, const char *str);
+
+char ringbuf_pop(ringbuf_t *rb);
+
+void ringbuf_backspace(ringbuf_t *rb);
+
+void ringbuf_delete(ringbuf_t *rb);
+
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
@@ -10336,119 +10450,28 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdint.h"
-typedef signed char int8_t;
+# 19 "../My_library\My_I2C.h"
+extern uint8_t I2C_sent_flag;
+extern uint8_t I2C_cfct_flag;
+extern uint8_t I2C_busy;
 
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
+uint8_t I2C_idole_check(uint8_t mask);
+void I2C_start(void);
+void I2C_restart(void);
+void I2C_stop(void);
+void I2C_send(uint8_t data);
+uint8_t I2C_ack(void);
+void I2C_init_new(void);
+void I2C_ISR(void);
 
 # 36
-typedef signed long int int32_t;
-
-# 43
-typedef unsigned char uint8_t;
-
-# 49
-typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
-# 19 "../My_library\My_ringbuf.h"
-typedef struct ringbuf {
-char *buf;
-uint16_t size;
-uint16_t head;
-uint16_t tail;
-} ringbuf_t;
-
-void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
-
-uint16_t ringbuf_num(ringbuf_t *rb);
-
-void ringbuf_put(ringbuf_t *rb, char asciicode);
-
-void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
-
-void ringbuf_put_str(ringbuf_t *rb, const char *str);
-
-char ringbuf_pop(ringbuf_t *rb);
-
-void ringbuf_backspace(ringbuf_t *rb);
-
-void ringbuf_delete(ringbuf_t *rb);
+void I2C_IdleCheck(char mask);
+void I2C_init_old(void);
+uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
+uint8_t I2C_rStart(int adrs, int rw);
+void I2C_Stop(void);
+uint8_t I2C_Send(uint8_t data);
+uint8_t I2C_Receive(uint8_t ack);
 
 # 19 "../My_library/My_ST7032.h"
 typedef enum ST7032_STATE {
@@ -10460,8 +10483,6 @@ ST7032_WAIT
 } st7032_state_t;
 
 extern ringbuf_t lcd_tx;
-extern uint8_t st7032_flag;
-
 
 void ST7032_command(uint8_t command, uint8_t wait);
 
@@ -10477,14 +10498,20 @@ void ST7032_create_char(int p, char *dt);
 
 void ST7032_init(void);
 
-void ST7032_ISR(void);
-
 void ST7032_task(void);
 
-# 14 "../My_library/My_ST7032.c"
+# 50
+void I2C_LCD_Command(uint8_t c);
+void I2C_LCD_Clear(void);
+void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
+void I2C_LCD_Putc(uint8_t c);
+void I2C_LCD_Puts(const uint8_t * s);
+void I2C_LCD_CreateChar(int p, char *dt);
+void I2C_LCD_init(void);
+
+# 13 "../My_library/My_ST7032.c"
 st7032_state_t st7032_state;
 ringbuf_t lcd_tx;
-uint8_t st7032_flag;
 
 void ST7032_command(uint8_t command, uint8_t wait) {
 ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
@@ -10531,16 +10558,7 @@ ringbuf_put(&lcd_tx, 1);
 }
 
 void ST7032_init(void) {
-SSP1STAT = 0b10000000;
-SSP1CON1 = 0b00101000;
-SSP1ADD = 0x13;
-PIE1bits.SSP1IE = 1;
-IPR1bits.SSP1IP = 0;
-PIR1bits.SSP1IF = 0;
-PIE2bits.BCL1IE = 1;
-IPR2bits.BCL1IP = 0;
-PIR2bits.BCL1IF = 0;
-INTCONbits.PEIE = 1;
+I2C_init_new();
 
 static char buf[200];
 ringbuf_init(&lcd_tx, buf, sizeof (buf));
@@ -10560,21 +10578,9 @@ ST7032_command(0x06, 1);
 ST7032_clear();
 }
 
-void ST7032_ISR(void) {
-if (PIE1bits.SSP1IE && PIR1bits.SSP1IF) {
-PIR1bits.SSP1IF = 0;
-st7032_flag = 1;
-}
-if (PIE2bits.BCL1IE && PIR2bits.BCL1IF) {
-PIR2bits.BCL1IF = 0;
-}
-}
-
 void ST7032_task(void) {
-if ((SSP1CON2 & 0x1F) | (SSP1STAT & 0x05)) {
+if (I2C_idole_check(0x05)) return;
 
-return;
-}
 static uint16_t wait;
 static st7032_state_t st7032_state = ST7032_IDOLE;
 
@@ -10585,19 +10591,16 @@ st7032_state = ST7032_START;
 }
 break;
 case ST7032_START:
-st7032_flag = 1;
-SSP1CON2bits.SEN = 1;
+I2C_sent_flag = 1;
+I2C_start();
 st7032_state = ST7032_SEND;
 break;
 case ST7032_SEND:
-if (!st7032_flag) {
-
-return;
-}
-char data = ringbuf_pop(&lcd_tx);
+if (!I2C_sent_flag) return;
+uint8_t data = ringbuf_pop(&lcd_tx);
 if (data != 0) {
-st7032_flag = 0;
-SSP1BUF = data;
+I2C_sent_flag = 0;
+I2C_send(data);
 } else {
 wait = ringbuf_pop(&lcd_tx);
 switch (wait) {
@@ -10621,7 +10624,7 @@ st7032_state = ST7032_STOP;
 }
 break;
 case ST7032_STOP:
-SSP1CON2bits.PEN = 1;
+I2C_stop();
 st7032_state = ST7032_WAIT;
 break;
 case ST7032_WAIT:
@@ -10630,3 +10633,127 @@ else wait--;
 break;
 }
 }
+
+# 20 "../My_library\My_PIC.h"
+void OSC_init(void);
+
+# 36
+void timer0_init(uint8_t prescaler);
+
+# 51
+void timer1_init(uint8_t prescaler, uint8_t clock_select);
+
+# 62
+void timer3_init(uint8_t prescaler);
+
+# 68
+void timer5_init(uint8_t prescaler);
+
+# 78
+void ADC_init(uint8_t p_ref);
+
+# 87
+uint16_t ADC(uint8_t ch);
+
+# 95
+void CTMU_init(void);
+uint16_t CTMU_read(uint8_t ch);
+
+
+
+
+void Delay_ms(uint16_t ms);
+
+
+
+void millis_timer(void);
+uint32_t millis(void);
+
+# 141 "../My_library/My_ST7032.c"
+void I2C_LCD_Command(uint8_t c) {
+uint8_t ans;
+
+ans = I2C_Start(0x3E, 0);
+if (ans == 0) {
+
+I2C_Send(0b10000000);
+I2C_Send(c);
+}
+I2C_Stop();
+_delay((unsigned long)((26)*(48000000/4000000.0)));
+}
+
+void I2C_LCD_Clear(void) {
+I2C_LCD_Command(0x01);
+_delay((unsigned long)((1100)*(48000000/4000000.0)));
+}
+
+void I2C_LCD_SetCursor(uint8_t col, uint8_t row) {
+uint8_t row_offsets[] = {0x00, 0x40};
+
+I2C_LCD_Command(0x80 | (col + row_offsets[row]));
+}
+
+void I2C_LCD_Putc(uint8_t c) {
+uint8_t ans;
+
+ans = I2C_Start(0x3E, 0);
+if (ans == 0) {
+
+I2C_Send(0b11000000);
+I2C_Send(c);
+}
+I2C_Stop();
+_delay((unsigned long)((26)*(48000000/4000000.0)));
+}
+
+void I2C_LCD_Puts(const uint8_t * s) {
+int ans;
+
+ans = I2C_Start(0x3E, 0);
+if (ans == 0) {
+I2C_Send(0b01000000);
+while (*s) {
+I2C_Send(*s++);
+_delay((unsigned long)((26)*(48000000/4000000.0)));
+}
+}
+I2C_Stop();
+}
+
+void I2C_LCD_CreateChar(int p, char *dt) {
+uint8_t ans;
+
+ans = I2C_Start(0x3E, 0);
+if (ans == 0) {
+
+I2C_Send(0b10000000);
+I2C_Send(0x40 | (p << 3));
+_delay((unsigned long)((26)*(48000000/4000000.0)));
+
+I2C_Send(0b01000000);
+for (uint8_t i = 0; i < 7; i++) {
+I2C_Send(*dt++);
+_delay((unsigned long)((26)*(48000000/4000000.0)));
+}
+}
+I2C_Stop();
+}
+
+void I2C_LCD_init(void) {
+I2C_init_old();
+
+for (uint8_t i = 0; i < 40; i++) _delay((unsigned long)((1)*(48000000/4000.0)));
+I2C_LCD_Command(0x38);
+I2C_LCD_Command(0x39);
+I2C_LCD_Command(0x14);
+I2C_LCD_Command(0x70);
+I2C_LCD_Command(0x56);
+I2C_LCD_Command(0x6C);
+for (uint8_t i = 0; i < 40; i++) _delay((unsigned long)((1)*(48000000/4000.0)));
+I2C_LCD_Command(0x38);
+I2C_LCD_Command(0x0C);
+I2C_LCD_Command(0x06);
+I2C_LCD_Clear();
+}
+

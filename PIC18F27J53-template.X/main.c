@@ -34,7 +34,7 @@
 void interrupt ISR(void) {
     USB_ISR();
     UART_ISR();
-    ST7032_ISR();
+    I2C_ISR();
     if (INTCONbits.T0IF && INTCONbits.T0IE) {
         INTCONbits.T0IF = 0;
     }
@@ -82,7 +82,6 @@ void main_init(void) {
     timer0_init(6);
     timer1_init(0, T1OSC);
     timer3_init(2); // button
-    I2C_init();
     I2C_LCD_init();
     RTCC_init();
 

@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1423 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f1827.h
+"1423 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1827.h
 [s S79 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S79 . PS0 PS1 PS2 PSA TMR0SE TMR0CS INTEDG nWPUEN ]
 "1433
@@ -84,7 +84,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "17 ../My_header\My_ringbuf.h
 [s S360 `*uc 1 `ui 1 `ui 1 `ui 1 ]
 [n S360 ringbuf buf size head tail ]
-"7270 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f1827.h
+"7270 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1827.h
 [v _SPEN `Vb ~T0 @X0 0 e@3311 ]
 "3232
 [v _RCSTA `Vuc ~T0 @X0 0 e@413 ]
@@ -98,14 +98,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TXSTA `Vuc ~T0 @X0 0 e@414 ]
 "3117
 [v _TXREG `Vuc ~T0 @X0 0 e@410 ]
-[v F2764 `(v ~T0 @X0 1 tf1`ul ]
-"150 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h
-[v __delay `JF2764 ~T0 @X0 0 e ]
+[v F2766 `(v ~T0 @X0 1 tf1`ul ]
+"150 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic.h
+[v __delay `JF2766 ~T0 @X0 0 e ]
 [p i __delay ]
-"338 ../My_header\My_header.h
+"337 ../My_header\My_header.h
 [s S413 `uc 1 `ui 1 ]
 [n S413 Delay flag cnt ]
-"3749 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f1827.h
+"3749 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1827.h
 [s S204 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S204 . SSPM0 SSPM1 SSPM2 SSPM3 CKP SSPEN SSPOV WCOL ]
 "3759
@@ -172,9 +172,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "2788
 [v _APFCON1bits `VS139 ~T0 @X0 0 e@286 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
+[; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1827.h: 49: extern volatile unsigned char INDF0 @ 0x000;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f1827.h
+"51 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1827.h
 [; ;pic16f1827.h: 51: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16f1827.h: 54: typedef union {
@@ -3584,70 +3585,123 @@ Version 3.2 HI-TECH Software Intermediate Code
 "281
 [e :UE 401 ]
 }
-"334
+"333
 [v _Delay_ms `(v ~T0 @X0 1 ef1`ui ]
 {
-[; ;My_header\My_header.h: 334: void Delay_ms(uint16_t ms) {
+[; ;My_header\My_header.h: 333: void Delay_ms(uint16_t ms) {
 [e :U _Delay_ms ]
 [v _ms `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_header\My_header.h: 335: while (ms--)_delay((unsigned long)((1)*(32000000/4000.0)));
-"335
+[; ;My_header\My_header.h: 334: while (ms--)_delay((unsigned long)((1)*(32000000/4000.0)));
+"334
 [e $U 410  ]
 [e :U 411 ]
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 [e :U 410 ]
 [e $ != -- _ms -> -> 1 `i `ui -> -> 0 `i `ui 411  ]
 [e :U 412 ]
-[; ;My_header\My_header.h: 336: }
-"336
+[; ;My_header\My_header.h: 335: }
+"335
 [e :UE 409 ]
 }
-[; ;My_header\My_header.h: 338: typedef struct Delay {
-[; ;My_header\My_header.h: 339: uint8_t flag;
-[; ;My_header\My_header.h: 340: uint16_t cnt;
-[; ;My_header\My_header.h: 341: } delay_t;
-"343
+[; ;My_header\My_header.h: 337: typedef struct Delay {
+[; ;My_header\My_header.h: 338: uint8_t flag;
+[; ;My_header\My_header.h: 339: uint16_t cnt;
+[; ;My_header\My_header.h: 340: } delay_t;
+"342
 [v _d1 `S413 ~T0 @X0 1 e ]
-[; ;My_header\My_header.h: 343: delay_t d1;
-"345
+[; ;My_header\My_header.h: 342: delay_t d1;
+"344
 [v _delay_timer_interrupt `(v ~T0 @X0 1 ef1`*S413 ]
 {
-[; ;My_header\My_header.h: 345: void delay_timer_interrupt(delay_t *d) {
+[; ;My_header\My_header.h: 344: void delay_timer_interrupt(delay_t *d) {
 [e :U _delay_timer_interrupt ]
 [v _d `*S413 ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_header\My_header.h: 346: if (d->cnt == 1)d->flag = 1;
-"346
+[; ;My_header\My_header.h: 345: if (d->cnt == 1)d->flag = 1;
+"345
 [e $ ! == . *U _d 1 -> -> 1 `i `ui 415  ]
 [e = . *U _d 0 -> -> 1 `i `uc ]
 [e :U 415 ]
-[; ;My_header\My_header.h: 347: if (d->cnt)d->cnt--;
-"347
+[; ;My_header\My_header.h: 346: if (d->cnt)d->cnt--;
+"346
 [e $ ! != . *U _d 1 -> -> 0 `i `ui 416  ]
 [e -- . *U _d 1 -> -> 1 `i `ui ]
 [e :U 416 ]
-[; ;My_header\My_header.h: 348: }
-"348
+[; ;My_header\My_header.h: 347: }
+"347
 [e :UE 414 ]
 }
-"350
+"349
 [v _delay_set `(v ~T0 @X0 1 ef2`*S413`ui ]
 {
-[; ;My_header\My_header.h: 350: void delay_set(delay_t *d, uint16_t value) {
+[; ;My_header\My_header.h: 349: void delay_set(delay_t *d, uint16_t value) {
 [e :U _delay_set ]
 [v _d `*S413 ~T0 @X0 1 r1 ]
 [v _value `ui ~T0 @X0 1 r2 ]
 [f ]
-[; ;My_header\My_header.h: 351: d->cnt = value;
-"351
+[; ;My_header\My_header.h: 350: d->cnt = value;
+"350
 [e = . *U _d 1 _value ]
-[; ;My_header\My_header.h: 352: d->flag = 0;
-"352
+[; ;My_header\My_header.h: 351: d->flag = 0;
+"351
 [e = . *U _d 0 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 353: }
-"353
+[; ;My_header\My_header.h: 352: }
+"352
 [e :UE 417 ]
+}
+"355
+[v _ms `ul ~T0 @X0 1 e ]
+[; ;My_header\My_header.h: 355: uint32_t ms;
+"357
+[v _millis_timer `(v ~T0 @X0 1 ef ]
+{
+[; ;My_header\My_header.h: 357: void millis_timer() {
+[e :U _millis_timer ]
+[f ]
+"358
+[v F2867 `ui ~T0 @X0 1 s cnt ]
+[; ;My_header\My_header.h: 358: static uint16_t cnt;
+[; ;My_header\My_header.h: 359: if (cnt) {
+"359
+[e $ ! != F2867 -> -> 0 `i `ui 419  ]
+{
+[; ;My_header\My_header.h: 360: cnt;
+"360
+[e F2867 ]
+"361
+}
+[; ;My_header\My_header.h: 361: } else {
+[e $U 420  ]
+[e :U 419 ]
+{
+[; ;My_header\My_header.h: 362: cnt = 47;
+"362
+[e = F2867 -> -> 47 `i `ui ]
+[; ;My_header\My_header.h: 363: ms++;
+"363
+[e ++ _ms -> -> -> 1 `i `l `ul ]
+"364
+}
+[e :U 420 ]
+[; ;My_header\My_header.h: 364: }
+[; ;My_header\My_header.h: 365: }
+"365
+[e :UE 418 ]
+}
+"367
+[v _millis `(ul ~T0 @X0 1 ef ]
+{
+[; ;My_header\My_header.h: 367: uint32_t millis(void) {
+[e :U _millis ]
+[f ]
+[; ;My_header\My_header.h: 368: return ms;
+"368
+[e ) _ms ]
+[e $UE 421  ]
+[; ;My_header\My_header.h: 369: }
+"369
+[e :UE 421 ]
 }
 "15 ../My_header\My_SPI.h
 [v _SPI_init `(v ~T0 @X0 1 ef1`uc ]
@@ -3667,7 +3721,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _SSP1STATbits 0 6 -> -> 0 `i `uc ]
 [; ;My_header\My_SPI.h: 19: if (mode == 0) {
 "19
-[e $ ! == -> _mode `i -> 0 `i 419  ]
+[e $ ! == -> _mode `i -> 0 `i 423  ]
 {
 [; ;My_header\My_SPI.h: 20: SSP1CON1bits.SSPM = 2;
 "20
@@ -3675,9 +3729,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "21
 }
 [; ;My_header\My_SPI.h: 21: } else if (mode == 1) {
-[e $U 420  ]
-[e :U 419 ]
-[e $ ! == -> _mode `i -> 1 `i 421  ]
+[e $U 424  ]
+[e :U 423 ]
+[e $ ! == -> _mode `i -> 1 `i 425  ]
 {
 [; ;My_header\My_SPI.h: 22: SSP1CON1bits.SSPM = 4;
 "22
@@ -3687,12 +3741,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _SSP1STATbits 0 7 -> -> 0 `i `uc ]
 "24
 }
-[e :U 421 ]
+[e :U 425 ]
 "25
-[e :U 420 ]
+[e :U 424 ]
 [; ;My_header\My_SPI.h: 24: }
 [; ;My_header\My_SPI.h: 25: if (mode == 1) {
-[e $ ! == -> _mode `i -> 1 `i 422  ]
+[e $ ! == -> _mode `i -> 1 `i 426  ]
 {
 [; ;My_header\My_SPI.h: 26: SSP1IF = 0;
 "26
@@ -3705,11 +3759,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
 "29
 }
-[e :U 422 ]
+[e :U 426 ]
 [; ;My_header\My_SPI.h: 29: }
 [; ;My_header\My_SPI.h: 30: }
 "30
-[e :UE 418 ]
+[e :UE 422 ]
 }
 "32
 [v _SPI_Transfer `(uc ~T0 @X0 1 ef1`uc ]
@@ -3732,21 +3786,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _SSP1BUF _txdata ]
 [; ;My_header\My_SPI.h: 38: while (!SSP1IF);
 "38
-[e $U 424  ]
-[e :U 425 ]
-[e :U 424 ]
-[e $ ! _SSP1IF 425  ]
-[e :U 426 ]
+[e $U 428  ]
+[e :U 429 ]
+[e :U 428 ]
+[e $ ! _SSP1IF 429  ]
+[e :U 430 ]
 [; ;My_header\My_SPI.h: 39: rxdata = SSP1BUF;
 "39
 [e = _rxdata _SSP1BUF ]
 [; ;My_header\My_SPI.h: 40: return rxdata;
 "40
 [e ) _rxdata ]
-[e $UE 423  ]
+[e $UE 427  ]
 [; ;My_header\My_SPI.h: 41: }
 "41
-[e :UE 423 ]
+[e :UE 427 ]
 }
 "73
 [v _SPI_LCD_Command `(v ~T0 @X0 1 ef1`uc ]
@@ -3770,7 +3824,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _LATA7 -> -> 1 `i `b ]
 [; ;My_header\My_SPI.h: 78: }
 "78
-[e :UE 427 ]
+[e :UE 431 ]
 }
 "80
 [v _SPI_LCD_Data `(v ~T0 @X0 1 ef1`uc ]
@@ -3794,7 +3848,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _LATA7 -> -> 1 `i `b ]
 [; ;My_header\My_SPI.h: 85: }
 "85
-[e :UE 428 ]
+[e :UE 432 ]
 }
 "87
 [v _SPI_LCD_init `(v ~T0 @X0 1 ef ]
@@ -3855,7 +3909,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _SPI_LCD_Command (1 -> -> 175 `i `uc ]
 [; ;My_header\My_SPI.h: 108: }
 "108
-[e :UE 429 ]
+[e :UE 433 ]
 }
 "110
 [v _SPI_LCD_Cursor `(v ~T0 @X0 1 ef2`uc`uc ]
@@ -3876,11 +3930,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _SPI_LCD_Command (1 -> | -> 0 `i & -> 15 `i -> _column `i `uc ]
 [; ;My_header\My_SPI.h: 114: }
 "114
-[e :UE 430 ]
+[e :UE 434 ]
 }
-[v F2882 `uc ~T0 @X0 -> 5 `i t ]
+[v F2889 `uc ~T0 @X0 -> 5 `i t ]
 "34 PIC16F1827-SPILCD01.c
-[v _pattern `F2882 ~T0 @X0 -> 0 `x e ]
+[v _pattern `F2889 ~T0 @X0 -> 0 `x e ]
 [i _pattern
 :U ..
 :U ..
@@ -4077,9 +4131,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;PIC16F1827-SPILCD01.c: 113: 0b10000011
 [; ;PIC16F1827-SPILCD01.c: 114: }
 [; ;PIC16F1827-SPILCD01.c: 115: };
-[v F2885 `(v ~T0 @X0 1 tf ]
+[v F2892 `(v ~T0 @X0 1 tf ]
 "117
-[v _isr `IF2885 ~T0 @X0 1 e ]
+[v _isr `IF2892 ~T0 @X0 1 e ]
 {
 [; ;PIC16F1827-SPILCD01.c: 117: void interrupt isr(void) {
 [e :U _isr ]
@@ -4089,18 +4143,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _interrupt_TXIF ..  ]
 [; ;PIC16F1827-SPILCD01.c: 119: if (TMR0IF) {
 "119
-[e $ ! _TMR0IF 432  ]
+[e $ ! _TMR0IF 436  ]
 {
 [; ;PIC16F1827-SPILCD01.c: 120: TMR0 = 0;
 "120
 [e = _TMR0 -> -> 0 `i `uc ]
 "121
 }
-[e :U 432 ]
+[e :U 436 ]
 [; ;PIC16F1827-SPILCD01.c: 121: }
 [; ;PIC16F1827-SPILCD01.c: 122: if (RCIF) {
 "122
-[e $ ! _RCIF 433  ]
+[e $ ! _RCIF 437  ]
 {
 [; ;PIC16F1827-SPILCD01.c: 123: RCIF = 0;
 "123
@@ -4114,11 +4168,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _tx_send (1 _ascii ]
 "126
 }
-[e :U 433 ]
+[e :U 437 ]
 [; ;PIC16F1827-SPILCD01.c: 126: }
 [; ;PIC16F1827-SPILCD01.c: 127: }
 "127
-[e :UE 431 ]
+[e :UE 435 ]
 }
 "129
 [v _main `(v ~T0 @X0 1 ef ]
@@ -4187,9 +4241,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "153
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 6 `i 435  ]
-[e $U 436  ]
-[e :U 435 ]
+[e $ < -> _i `i -> 6 `i 439  ]
+[e $U 440  ]
+[e :U 439 ]
 {
 [; ;PIC16F1827-SPILCD01.c: 154: SPI_LCD_Cursor(i, 0);
 "154
@@ -4198,9 +4252,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "155
 {
 [e = _j -> -> 0 `i `uc ]
-[e $ < -> _j `i -> 128 `i 438  ]
-[e $U 439  ]
-[e :U 438 ]
+[e $ < -> _j `i -> 128 `i 442  ]
+[e $U 443  ]
+[e :U 442 ]
 {
 [; ;PIC16F1827-SPILCD01.c: 156: SPI_LCD_Data(0x00);
 "156
@@ -4209,31 +4263,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "155
 [e ++ _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 128 `i 438  ]
-[e :U 439 ]
+[e $ < -> _j `i -> 128 `i 442  ]
+[e :U 443 ]
 "157
 }
 "158
 }
 "153
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 6 `i 435  ]
-[e :U 436 ]
+[e $ < -> _i `i -> 6 `i 439  ]
+[e :U 440 ]
 "158
 }
 [; ;PIC16F1827-SPILCD01.c: 157: }
 [; ;PIC16F1827-SPILCD01.c: 158: }
 [; ;PIC16F1827-SPILCD01.c: 160: while (1) {
 "160
-[e :U 442 ]
+[e :U 446 ]
 {
 [; ;PIC16F1827-SPILCD01.c: 161: for (i = 0; i < 6; i++) {
 "161
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 6 `i 444  ]
-[e $U 445  ]
-[e :U 444 ]
+[e $ < -> _i `i -> 6 `i 448  ]
+[e $U 449  ]
+[e :U 448 ]
 {
 [; ;PIC16F1827-SPILCD01.c: 162: SPI_LCD_Cursor(i, 0x00);
 "162
@@ -4242,9 +4296,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "163
 {
 [e = _j -> -> 0 `i `uc ]
-[e $ < -> _j `i -> 10 `i 447  ]
-[e $U 448  ]
-[e :U 447 ]
+[e $ < -> _j `i -> 10 `i 451  ]
+[e $U 452  ]
+[e :U 451 ]
 {
 [; ;PIC16F1827-SPILCD01.c: 164: SPI_LCD_Data(~pattern[j][0]);
 "164
@@ -4268,8 +4322,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "163
 [e ++ _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 10 `i 447  ]
-[e :U 448 ]
+[e $ < -> _j `i -> 10 `i 451  ]
+[e :U 452 ]
 "170
 }
 [; ;PIC16F1827-SPILCD01.c: 170: }
@@ -4277,9 +4331,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "171
 {
 [e = _j -> -> 0 `i `uc ]
-[e $ < -> _j `i -> 10 `i 450  ]
-[e $U 451  ]
-[e :U 450 ]
+[e $ < -> _j `i -> 10 `i 454  ]
+[e $U 455  ]
+[e :U 454 ]
 {
 [; ;PIC16F1827-SPILCD01.c: 172: SPI_LCD_Data(~pattern[j][0]);
 "172
@@ -4303,28 +4357,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "171
 [e ++ _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 10 `i 450  ]
-[e :U 451 ]
+[e $ < -> _j `i -> 10 `i 454  ]
+[e :U 455 ]
 "178
 }
 "179
 }
 "161
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 6 `i 444  ]
-[e :U 445 ]
+[e $ < -> _i `i -> 6 `i 448  ]
+[e :U 449 ]
 "179
 }
 "180
 }
-[e :U 441 ]
+[e :U 445 ]
 "160
-[e $U 442  ]
-[e :U 443 ]
+[e $U 446  ]
+[e :U 447 ]
 [; ;PIC16F1827-SPILCD01.c: 178: }
 [; ;PIC16F1827-SPILCD01.c: 179: }
 [; ;PIC16F1827-SPILCD01.c: 180: }
 [; ;PIC16F1827-SPILCD01.c: 181: }
 "181
-[e :UE 434 ]
+[e :UE 438 ]
 }

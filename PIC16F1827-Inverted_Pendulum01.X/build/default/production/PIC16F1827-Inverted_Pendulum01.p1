@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1423 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f1827.h
+"1423 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1827.h
 [s S79 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S79 . PS0 PS1 PS2 PSA TMR0SE TMR0CS INTEDG nWPUEN ]
 "1433
@@ -84,7 +84,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "17 ../My_header\My_ringbuf.h
 [s S360 `*uc 1 `ui 1 `ui 1 `ui 1 ]
 [n S360 ringbuf buf size head tail ]
-"7270 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f1827.h
+"7270 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1827.h
 [v _SPEN `Vb ~T0 @X0 0 e@3311 ]
 "3232
 [v _RCSTA `Vuc ~T0 @X0 0 e@413 ]
@@ -98,14 +98,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TXSTA `Vuc ~T0 @X0 0 e@414 ]
 "3117
 [v _TXREG `Vuc ~T0 @X0 0 e@410 ]
-[v F2764 `(v ~T0 @X0 1 tf1`ul ]
-"150 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h
-[v __delay `JF2764 ~T0 @X0 0 e ]
+[v F2766 `(v ~T0 @X0 1 tf1`ul ]
+"150 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic.h
+[v __delay `JF2766 ~T0 @X0 0 e ]
 [p i __delay ]
-"338 ../My_header\My_header.h
+"337 ../My_header\My_header.h
 [s S413 `uc 1 `ui 1 ]
 [n S413 Delay flag cnt ]
-"7418 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f1827.h
+"7418 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1827.h
 [v _TMR0IF `Vb ~T0 @X0 0 e@90 ]
 "7434
 [v _TMR1IF `Vb ~T0 @X0 0 e@136 ]
@@ -203,9 +203,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "7064
 [v _LATB5 `Vb ~T0 @X0 0 e@2157 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
+[; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1827.h: 49: extern volatile unsigned char INDF0 @ 0x000;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f1827.h
+"51 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1827.h
 [; ;pic16f1827.h: 51: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16f1827.h: 54: typedef union {
@@ -3615,74 +3616,127 @@ Version 3.2 HI-TECH Software Intermediate Code
 "281
 [e :UE 401 ]
 }
-"334
+"333
 [v _Delay_ms `(v ~T0 @X0 1 ef1`ui ]
 {
-[; ;My_header\My_header.h: 334: void Delay_ms(uint16_t ms) {
+[; ;My_header\My_header.h: 333: void Delay_ms(uint16_t ms) {
 [e :U _Delay_ms ]
 [v _ms `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_header\My_header.h: 335: while (ms--)_delay((unsigned long)((1)*(32000000/4000.0)));
-"335
+[; ;My_header\My_header.h: 334: while (ms--)_delay((unsigned long)((1)*(32000000/4000.0)));
+"334
 [e $U 410  ]
 [e :U 411 ]
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 [e :U 410 ]
 [e $ != -- _ms -> -> 1 `i `ui -> -> 0 `i `ui 411  ]
 [e :U 412 ]
-[; ;My_header\My_header.h: 336: }
-"336
+[; ;My_header\My_header.h: 335: }
+"335
 [e :UE 409 ]
 }
-[; ;My_header\My_header.h: 338: typedef struct Delay {
-[; ;My_header\My_header.h: 339: uint8_t flag;
-[; ;My_header\My_header.h: 340: uint16_t cnt;
-[; ;My_header\My_header.h: 341: } delay_t;
-"343
+[; ;My_header\My_header.h: 337: typedef struct Delay {
+[; ;My_header\My_header.h: 338: uint8_t flag;
+[; ;My_header\My_header.h: 339: uint16_t cnt;
+[; ;My_header\My_header.h: 340: } delay_t;
+"342
 [v _d1 `S413 ~T0 @X0 1 e ]
-[; ;My_header\My_header.h: 343: delay_t d1;
-"345
+[; ;My_header\My_header.h: 342: delay_t d1;
+"344
 [v _delay_timer_interrupt `(v ~T0 @X0 1 ef1`*S413 ]
 {
-[; ;My_header\My_header.h: 345: void delay_timer_interrupt(delay_t *d) {
+[; ;My_header\My_header.h: 344: void delay_timer_interrupt(delay_t *d) {
 [e :U _delay_timer_interrupt ]
 [v _d `*S413 ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_header\My_header.h: 346: if (d->cnt == 1)d->flag = 1;
-"346
+[; ;My_header\My_header.h: 345: if (d->cnt == 1)d->flag = 1;
+"345
 [e $ ! == . *U _d 1 -> -> 1 `i `ui 415  ]
 [e = . *U _d 0 -> -> 1 `i `uc ]
 [e :U 415 ]
-[; ;My_header\My_header.h: 347: if (d->cnt)d->cnt--;
-"347
+[; ;My_header\My_header.h: 346: if (d->cnt)d->cnt--;
+"346
 [e $ ! != . *U _d 1 -> -> 0 `i `ui 416  ]
 [e -- . *U _d 1 -> -> 1 `i `ui ]
 [e :U 416 ]
-[; ;My_header\My_header.h: 348: }
-"348
+[; ;My_header\My_header.h: 347: }
+"347
 [e :UE 414 ]
 }
-"350
+"349
 [v _delay_set `(v ~T0 @X0 1 ef2`*S413`ui ]
 {
-[; ;My_header\My_header.h: 350: void delay_set(delay_t *d, uint16_t value) {
+[; ;My_header\My_header.h: 349: void delay_set(delay_t *d, uint16_t value) {
 [e :U _delay_set ]
 [v _d `*S413 ~T0 @X0 1 r1 ]
 [v _value `ui ~T0 @X0 1 r2 ]
 [f ]
-[; ;My_header\My_header.h: 351: d->cnt = value;
-"351
+[; ;My_header\My_header.h: 350: d->cnt = value;
+"350
 [e = . *U _d 1 _value ]
-[; ;My_header\My_header.h: 352: d->flag = 0;
-"352
+[; ;My_header\My_header.h: 351: d->flag = 0;
+"351
 [e = . *U _d 0 -> -> 0 `i `uc ]
-[; ;My_header\My_header.h: 353: }
-"353
+[; ;My_header\My_header.h: 352: }
+"352
 [e :UE 417 ]
 }
-[v F2865 `(v ~T0 @X0 1 tf ]
+"355
+[v _ms `ul ~T0 @X0 1 e ]
+[; ;My_header\My_header.h: 355: uint32_t ms;
+"357
+[v _millis_timer `(v ~T0 @X0 1 ef ]
+{
+[; ;My_header\My_header.h: 357: void millis_timer() {
+[e :U _millis_timer ]
+[f ]
+"358
+[v F2867 `ui ~T0 @X0 1 s cnt ]
+[; ;My_header\My_header.h: 358: static uint16_t cnt;
+[; ;My_header\My_header.h: 359: if (cnt) {
+"359
+[e $ ! != F2867 -> -> 0 `i `ui 419  ]
+{
+[; ;My_header\My_header.h: 360: cnt;
+"360
+[e F2867 ]
+"361
+}
+[; ;My_header\My_header.h: 361: } else {
+[e $U 420  ]
+[e :U 419 ]
+{
+[; ;My_header\My_header.h: 362: cnt = 47;
+"362
+[e = F2867 -> -> 47 `i `ui ]
+[; ;My_header\My_header.h: 363: ms++;
+"363
+[e ++ _ms -> -> -> 1 `i `l `ul ]
+"364
+}
+[e :U 420 ]
+[; ;My_header\My_header.h: 364: }
+[; ;My_header\My_header.h: 365: }
+"365
+[e :UE 418 ]
+}
+"367
+[v _millis `(ul ~T0 @X0 1 ef ]
+{
+[; ;My_header\My_header.h: 367: uint32_t millis(void) {
+[e :U _millis ]
+[f ]
+[; ;My_header\My_header.h: 368: return ms;
+"368
+[e ) _ms ]
+[e $UE 421  ]
+[; ;My_header\My_header.h: 369: }
+"369
+[e :UE 421 ]
+}
+[v F2872 `(v ~T0 @X0 1 tf ]
 "36 PIC16F1827-Inverted_Pendulum01.c
-[v _isr `IF2865 ~T0 @X0 1 e ]
+[v _isr `IF2872 ~T0 @X0 1 e ]
 {
 [; ;PIC16F1827-Inverted_Pendulum01.c: 36: void interrupt isr(void) {
 [e :U _isr ]
@@ -3692,29 +3746,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _interrupt_TXIF ..  ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 38: if (TMR0IF) {
 "38
-[e $ ! _TMR0IF 419  ]
+[e $ ! _TMR0IF 423  ]
 {
 [; ;PIC16F1827-Inverted_Pendulum01.c: 39: TMR0IF = 0;
 "39
 [e = _TMR0IF -> -> 0 `i `b ]
 "40
 }
-[e :U 419 ]
+[e :U 423 ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 40: }
 [; ;PIC16F1827-Inverted_Pendulum01.c: 41: if (TMR1IF) {
 "41
-[e $ ! _TMR1IF 420  ]
+[e $ ! _TMR1IF 424  ]
 {
 [; ;PIC16F1827-Inverted_Pendulum01.c: 42: TMR1IF = 0;
 "42
 [e = _TMR1IF -> -> 0 `i `b ]
 "45
 }
-[e :U 420 ]
+[e :U 424 ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 45: }
 [; ;PIC16F1827-Inverted_Pendulum01.c: 46: if (RCIF) {
 "46
-[e $ ! _RCIF 421  ]
+[e $ ! _RCIF 425  ]
 {
 [; ;PIC16F1827-Inverted_Pendulum01.c: 47: RCIF = 0;
 "47
@@ -3728,11 +3782,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _tx_send (1 _ascii ]
 "50
 }
-[e :U 421 ]
+[e :U 425 ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 50: }
 [; ;PIC16F1827-Inverted_Pendulum01.c: 51: }
 "51
-[e :UE 418 ]
+[e :UE 422 ]
 }
 "53
 [v _PWM_init `(v ~T0 @X0 1 ef ]
@@ -3784,7 +3838,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _T2CONbits 0 2 -> -> 1 `i `uc ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 70: }
 "70
-[e :UE 422 ]
+[e :UE 426 ]
 }
 "72
 [v _PWM_set `(v ~T0 @X0 1 ef1`uc ]
@@ -3807,7 +3861,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _CCPR2L _value ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 77: }
 "77
-[e :UE 423 ]
+[e :UE 427 ]
 }
 "79
 [v _drive `(v ~T0 @X0 1 ef1`uc ]
@@ -3818,11 +3872,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 80: switch (dir) {
 "80
-[e $U 426  ]
+[e $U 430  ]
 {
 [; ;PIC16F1827-Inverted_Pendulum01.c: 81: case 0:
 "81
-[e :U 427 ]
+[e :U 431 ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 82: LATA6 = 0;
 "82
 [e = _LATA6 -> -> 0 `i `b ]
@@ -3837,10 +3891,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _LATA3 -> -> 0 `i `b ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 86: break;
 "86
-[e $U 425  ]
+[e $U 429  ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 87: case 1:
 "87
-[e :U 428 ]
+[e :U 432 ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 88: LATA6 = 1;
 "88
 [e = _LATA6 -> -> 1 `i `b ]
@@ -3855,10 +3909,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _LATA3 -> -> 0 `i `b ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 92: break;
 "92
-[e $U 425  ]
+[e $U 429  ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 93: case 2:
 "93
-[e :U 429 ]
+[e :U 433 ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 94: LATA6 = 0;
 "94
 [e = _LATA6 -> -> 0 `i `b ]
@@ -3873,10 +3927,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _LATA3 -> -> 1 `i `b ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 98: break;
 "98
-[e $U 425  ]
+[e $U 429  ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 99: case 3:
 "99
-[e :U 430 ]
+[e :U 434 ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 100: LATA6 = 1;
 "100
 [e = _LATA6 -> -> 1 `i `b ]
@@ -3891,23 +3945,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _LATA3 -> -> 1 `i `b ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 104: break;
 "104
-[e $U 425  ]
+[e $U 429  ]
 "105
 }
 [; ;PIC16F1827-Inverted_Pendulum01.c: 105: }
-[e $U 425  ]
+[e $U 429  ]
 "80
-[e :U 426 ]
-[e [\ _dir , $ -> -> 0 `i `uc 427
- , $ -> -> 1 `i `uc 428
- , $ -> -> 2 `i `uc 429
- , $ -> -> 3 `i `uc 430
- 425 ]
+[e :U 430 ]
+[e [\ _dir , $ -> -> 0 `i `uc 431
+ , $ -> -> 1 `i `uc 432
+ , $ -> -> 2 `i `uc 433
+ , $ -> -> 3 `i `uc 434
+ 429 ]
 "105
-[e :U 425 ]
+[e :U 429 ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 106: }
 "106
-[e :UE 424 ]
+[e :UE 428 ]
 }
 "108
 [v _main `(i ~T0 @X0 1 ef ]
@@ -3959,28 +4013,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;PIC16F1827-Inverted_Pendulum01.c: 126: uint8_t i;
 [; ;PIC16F1827-Inverted_Pendulum01.c: 128: while (1) {
 "128
-[e :U 433 ]
+[e :U 437 ]
 {
 "129
 [v _scan `ui ~T0 @X0 1 a ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 129: uint16_t scan = ADC(0);
 [e = _scan ( _ADC (1 -> -> 0 `i `uc ]
 "130
-[v F2878 `ui ~T0 @X0 1 s last_scan ]
-[i F2878
+[v F2885 `ui ~T0 @X0 1 s last_scan ]
+[i F2885
 -> -> 127 `i `ui
 ]
 "131
 [v _sub `i ~T0 @X0 1 a ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 130: static uint16_t last_scan = 127;
 [; ;PIC16F1827-Inverted_Pendulum01.c: 131: int16_t sub = scan - last_scan;
-[e = _sub -> - _scan F2878 `i ]
+[e = _sub -> - _scan F2885 `i ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 132: last_scan = scan;
 "132
-[e = F2878 _scan ]
+[e = F2885 _scan ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 133: if (sub > 0) {
 "133
-[e $ ! > _sub -> 0 `i 435  ]
+[e $ ! > _sub -> 0 `i 439  ]
 {
 [; ;PIC16F1827-Inverted_Pendulum01.c: 134: drive(1);
 "134
@@ -3997,9 +4051,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "138
 }
 [; ;PIC16F1827-Inverted_Pendulum01.c: 138: } else if (sub < 0) {
-[e $U 436  ]
-[e :U 435 ]
-[e $ ! < _sub -> 0 `i 437  ]
+[e $U 440  ]
+[e :U 439 ]
+[e $ ! < _sub -> 0 `i 441  ]
 {
 [; ;PIC16F1827-Inverted_Pendulum01.c: 139: drive(2);
 "139
@@ -4016,8 +4070,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "143
 }
 [; ;PIC16F1827-Inverted_Pendulum01.c: 143: } else {
-[e $U 438  ]
-[e :U 437 ]
+[e $U 442  ]
+[e :U 441 ]
 {
 [; ;PIC16F1827-Inverted_Pendulum01.c: 144: drive(0);
 "144
@@ -4030,24 +4084,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _LATB5 -> -> 0 `i `b ]
 "147
 }
-[e :U 438 ]
-[e :U 436 ]
+[e :U 442 ]
+[e :U 440 ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 147: }
 [; ;PIC16F1827-Inverted_Pendulum01.c: 148: _delay((unsigned long)((10)*(32000000/4000.0)));
 "148
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 "149
 }
-[e :U 432 ]
+[e :U 436 ]
 "128
-[e $U 433  ]
-[e :U 434 ]
+[e $U 437  ]
+[e :U 438 ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 149: }
 [; ;PIC16F1827-Inverted_Pendulum01.c: 150: return 0;
 "150
 [e ) -> 0 `i ]
-[e $UE 431  ]
+[e $UE 435  ]
 [; ;PIC16F1827-Inverted_Pendulum01.c: 151: }
 "151
-[e :UE 431 ]
+[e :UE 435 ]
 }

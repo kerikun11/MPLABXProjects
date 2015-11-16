@@ -5,6 +5,7 @@
 ../My_library/usb/usb.h  \
 settings.h  \
 ../My_library/My_usb_cdc.h  \
+../My_library/My_I2C.h  \
 ../My_library/My_ST7032.h  \
 ../My_library/usb/usb_hal_pic18.h  \
 io.h  \

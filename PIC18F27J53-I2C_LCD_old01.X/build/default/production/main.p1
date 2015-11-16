@@ -83,9 +83,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTCON2bits `VS1187 ~T0 @X0 0 e@4081 ]
 "51 ../My_library\My_PIC.h
 [v _timer1_init `(v ~T0 @X0 0 ef2`uc`uc ]
-"22 ../My_library\My_I2C.h
-[v _I2C_init `(v ~T0 @X0 0 ef ]
-"22 ../My_library\My_I2C_LCD_old.h
+"56 ../My_library\My_ST7032.h
 [v _I2C_LCD_init `(v ~T0 @X0 0 ef ]
 [p mainexit ]
 "18300 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
@@ -108,11 +106,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1191 . . . . . . ]
 "18341
 [v _INTCONbits `VS1191 ~T0 @X0 0 e@4082 ]
-"17 ../My_library\My_I2C_LCD_old.h
+"51 ../My_library\My_ST7032.h
 [v _I2C_LCD_Clear `(v ~T0 @X0 0 ef ]
-"18
+"52
 [v _I2C_LCD_SetCursor `(v ~T0 @X0 0 ef2`uc`uc ]
-"20
+"54
 [v _I2C_LCD_Puts `(v ~T0 @X0 0 ef1`*Cuc ]
 "4 main.c
 [p x WDTEN=OFF ]
@@ -8294,26 +8292,53 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_PIC.h: 101: void Delay_ms(uint16_t ms);
 [; ;My_library\My_PIC.h: 105: void millis_timer(void);
 [; ;My_library\My_PIC.h: 106: uint32_t millis(void);
-[; ;My_library\My_I2C.h: 21: void I2C_IdleCheck(char mask);
-[; ;My_library\My_I2C.h: 22: void I2C_init(void);
-[; ;My_library\My_I2C.h: 23: uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
-[; ;My_library\My_I2C.h: 24: uint8_t I2C_rStart(int adrs, int rw);
-[; ;My_library\My_I2C.h: 25: void I2C_Stop(void);
-[; ;My_library\My_I2C.h: 26: uint8_t I2C_Send(uint8_t data);
-[; ;My_library\My_I2C.h: 27: uint8_t I2C_Receive(uint8_t ack);
-[; ;My_library\My_I2C_LCD_old.h: 16: void I2C_LCD_Command(uint8_t c);
-[; ;My_library\My_I2C_LCD_old.h: 17: void I2C_LCD_Clear(void);
-[; ;My_library\My_I2C_LCD_old.h: 18: void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
-[; ;My_library\My_I2C_LCD_old.h: 19: void I2C_LCD_Putc(uint8_t c);
-[; ;My_library\My_I2C_LCD_old.h: 20: void I2C_LCD_Puts(const uint8_t * s);
-[; ;My_library\My_I2C_LCD_old.h: 21: void I2C_LCD_CreateChar(int p, char *dt);
-[; ;My_library\My_I2C_LCD_old.h: 22: void I2C_LCD_init(void);
+[; ;My_library\My_I2C.h: 19: extern uint8_t I2C_sent_flag;
+[; ;My_library\My_I2C.h: 20: extern uint8_t I2C_cfct_flag;
+[; ;My_library\My_I2C.h: 21: extern uint8_t I2C_busy;
+[; ;My_library\My_I2C.h: 23: uint8_t I2C_idole_check(uint8_t mask);
+[; ;My_library\My_I2C.h: 24: void I2C_start(void);
+[; ;My_library\My_I2C.h: 25: void I2C_restart(void);
+[; ;My_library\My_I2C.h: 26: void I2C_stop(void);
+[; ;My_library\My_I2C.h: 27: void I2C_send(uint8_t data);
+[; ;My_library\My_I2C.h: 28: uint8_t I2C_ack(void);
+[; ;My_library\My_I2C.h: 29: void I2C_init_new(void);
+[; ;My_library\My_I2C.h: 30: void I2C_ISR(void);
+[; ;My_library\My_I2C.h: 36: void I2C_IdleCheck(char mask);
+[; ;My_library\My_I2C.h: 37: void I2C_init_old(void);
+[; ;My_library\My_I2C.h: 38: uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
+[; ;My_library\My_I2C.h: 39: uint8_t I2C_rStart(int adrs, int rw);
+[; ;My_library\My_I2C.h: 40: void I2C_Stop(void);
+[; ;My_library\My_I2C.h: 41: uint8_t I2C_Send(uint8_t data);
+[; ;My_library\My_I2C.h: 42: uint8_t I2C_Receive(uint8_t ack);
+[; ;My_library\My_ST7032.h: 19: typedef enum ST7032_STATE {
+[; ;My_library\My_ST7032.h: 20: ST7032_IDOLE,
+[; ;My_library\My_ST7032.h: 21: ST7032_START,
+[; ;My_library\My_ST7032.h: 22: ST7032_SEND,
+[; ;My_library\My_ST7032.h: 23: ST7032_STOP,
+[; ;My_library\My_ST7032.h: 24: ST7032_WAIT
+[; ;My_library\My_ST7032.h: 25: } st7032_state_t;
+[; ;My_library\My_ST7032.h: 27: extern ringbuf_t lcd_tx;
+[; ;My_library\My_ST7032.h: 29: void ST7032_command(uint8_t command, uint8_t wait);
+[; ;My_library\My_ST7032.h: 31: void ST7032_clear(void);
+[; ;My_library\My_ST7032.h: 33: void ST7032_cursor(uint8_t col, uint8_t row);
+[; ;My_library\My_ST7032.h: 35: void ST7032_put(char c);
+[; ;My_library\My_ST7032.h: 37: void ST7032_puts(const uint8_t *s);
+[; ;My_library\My_ST7032.h: 39: void ST7032_create_char(int p, char *dt);
+[; ;My_library\My_ST7032.h: 41: void ST7032_init(void);
+[; ;My_library\My_ST7032.h: 43: void ST7032_task(void);
+[; ;My_library\My_ST7032.h: 50: void I2C_LCD_Command(uint8_t c);
+[; ;My_library\My_ST7032.h: 51: void I2C_LCD_Clear(void);
+[; ;My_library\My_ST7032.h: 52: void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
+[; ;My_library\My_ST7032.h: 53: void I2C_LCD_Putc(uint8_t c);
+[; ;My_library\My_ST7032.h: 54: void I2C_LCD_Puts(const uint8_t * s);
+[; ;My_library\My_ST7032.h: 55: void I2C_LCD_CreateChar(int p, char *dt);
+[; ;My_library\My_ST7032.h: 56: void I2C_LCD_init(void);
 "32 main.c
 [v _one_second_flag `uc ~T0 @X0 1 e ]
 [; ;main.c: 32: uint8_t one_second_flag;
-[v F8615 `(v ~T0 @X0 1 tf ]
+[v F8661 `(v ~T0 @X0 1 tf ]
 "34
-[v _ISR `IF8615 ~T0 @X0 1 e ]
+[v _ISR `IF8661 ~T0 @X0 1 e ]
 {
 [; ;main.c: 34: void interrupt ISR(void) {
 [e :U _ISR ]
@@ -8372,74 +8397,71 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 52: timer1_init(0, 2);
 "52
 [e ( _timer1_init (2 , -> -> 0 `i `uc -> -> 2 `i `uc ]
-[; ;main.c: 54: I2C_init();
+[; ;main.c: 54: I2C_LCD_init();
 "54
-[e ( _I2C_init ..  ]
-[; ;main.c: 55: I2C_LCD_init();
-"55
 [e ( _I2C_LCD_init ..  ]
-[; ;main.c: 56: }
-"56
+[; ;main.c: 55: }
+"55
 [e :UE 1221 ]
 }
-"58
+"57
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 58: int main(void) {
+[; ;main.c: 57: int main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 59: main_init();
-"59
+[; ;main.c: 58: main_init();
+"58
 [e ( _main_init ..  ]
-[; ;main.c: 60: INTCONbits.GIE = 1;
-"60
+[; ;main.c: 59: INTCONbits.GIE = 1;
+"59
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 62: while (1) {
-"62
+[; ;main.c: 61: while (1) {
+"61
 [e :U 1224 ]
 {
-[; ;main.c: 64: LATAbits.LATA1 = !LATAbits.LATA1;
-"64
+[; ;main.c: 63: LATAbits.LATA1 = !LATAbits.LATA1;
+"63
 [e = . . _LATAbits 0 1 -> -> ! != -> . . _LATAbits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[; ;main.c: 66: if (one_second_flag) {
-"66
+[; ;main.c: 65: if (one_second_flag) {
+"65
 [e $ ! != -> _one_second_flag `i -> -> -> 0 `i `uc `i 1226  ]
 {
-[; ;main.c: 67: one_second_flag = 0;
-"67
+[; ;main.c: 66: one_second_flag = 0;
+"66
 [e = _one_second_flag -> -> 0 `i `uc ]
-[; ;main.c: 68: I2C_LCD_Clear();
-"68
+[; ;main.c: 67: I2C_LCD_Clear();
+"67
 [e ( _I2C_LCD_Clear ..  ]
-[; ;main.c: 69: I2C_LCD_SetCursor(0, 0);
-"69
+[; ;main.c: 68: I2C_LCD_SetCursor(0, 0);
+"68
 [e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 70: I2C_LCD_Puts("18F27J53");
-"70
+[; ;main.c: 69: I2C_LCD_Puts("18F27J53");
+"69
 [e ( _I2C_LCD_Puts (1 :s 1C ]
-[; ;main.c: 71: I2C_LCD_SetCursor(0, 1);
-"71
+[; ;main.c: 70: I2C_LCD_SetCursor(0, 1);
+"70
 [e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 72: I2C_LCD_Puts("I2C_old");
-"72
+[; ;main.c: 71: I2C_LCD_Puts("I2C_old");
+"71
 [e ( _I2C_LCD_Puts (1 :s 2C ]
-"73
+"72
 }
 [e :U 1226 ]
-"74
+"73
 }
 [e :U 1223 ]
-"62
+"61
 [e $U 1224  ]
 [e :U 1225 ]
+[; ;main.c: 72: }
 [; ;main.c: 73: }
-[; ;main.c: 74: }
-[; ;main.c: 75: return 0;
-"75
+[; ;main.c: 74: return 0;
+"74
 [e ) -> 0 `i ]
 [e $UE 1222  ]
-[; ;main.c: 76: }
-"76
+[; ;main.c: 75: }
+"75
 [e :UE 1222 ]
 }
 [a 2C 73 50 67 95 111 108 100 0 ]

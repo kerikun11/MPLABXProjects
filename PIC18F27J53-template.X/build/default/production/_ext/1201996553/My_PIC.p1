@@ -1,5 +1,27 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"17503 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
+"17427 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
+[s S1131 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S1131 . SCS FLTS OSTS IRCF IDLEN ]
+"17434
+[s S1132 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1132 . SCS0 SCS1 . IRCF0 IRCF1 IRCF2 ]
+"17426
+[u S1130 `S1131 1 `S1132 1 ]
+[n S1130 . . . ]
+"17443
+[v _OSCCONbits `VS1130 ~T0 @X0 0 e@4051 ]
+"10772
+[s S697 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S697 . TUN PLLEN INTSRC ]
+"10777
+[s S698 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S698 . TUN0 TUN1 TUN2 TUN3 TUN4 TUN5 ]
+"10771
+[u S696 `S697 1 `S698 1 ]
+[n S696 . . . ]
+"10786
+[v _OSCTUNEbits `VS696 ~T0 @X0 0 e@3995 ]
+"17503
 [s S1134 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1134 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
 "17511
@@ -218,28 +240,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S667 . . ]
 "10235
 [v _PIE5bits `VS667 ~T0 @X0 0 e@3985 ]
-"17427
-[s S1131 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S1131 . SCS FLTS OSTS IRCF IDLEN ]
-"17434
-[s S1132 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1132 . SCS0 SCS1 . IRCF0 IRCF1 IRCF2 ]
-"17426
-[u S1130 `S1131 1 `S1132 1 ]
-[n S1130 . . . ]
-"17443
-[v _OSCCONbits `VS1130 ~T0 @X0 0 e@4051 ]
-"10772
-[s S697 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S697 . TUN PLLEN INTSRC ]
-"10777
-[s S698 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S698 . TUN0 TUN1 TUN2 TUN3 TUN4 TUN5 ]
-"10771
-[u S696 `S697 1 `S698 1 ]
-[n S696 . . . ]
-"10786
-[v _OSCTUNEbits `VS696 ~T0 @X0 0 e@3995 ]
 "14336
 [s S883 :1 `uc 1 :1 `uc 1 ]
 [n S883 . . GO_NOT_DONE ]
@@ -8466,318 +8466,318 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_PIC.h: 101: void Delay_ms(uint16_t ms);
 [; ;My_PIC.h: 105: void millis_timer(void);
 [; ;My_PIC.h: 106: uint32_t millis(void);
-"6 ../My_library/My_PIC.c
+"8 ../My_library/My_PIC.c
+[v _OSC_init `(v ~T0 @X0 1 ef ]
+{
+[; ;My_PIC.c: 8: void OSC_init(void) {
+[e :U _OSC_init ]
+[f ]
+[; ;My_PIC.c: 9: OSCCONbits.IRCF = 7;
+"9
+[e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
+[; ;My_PIC.c: 10: OSCTUNEbits.PLLEN = 1;
+"10
+[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 11: OSCCONbits.SCS = 0;
+"11
+[e = . . _OSCCONbits 0 0 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 12: }
+"12
+[e :UE 1219 ]
+}
+"34
 [v _timer0_init `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_PIC.c: 6: void timer0_init(uint8_t prescaler) {
+[; ;My_PIC.c: 34: void timer0_init(uint8_t prescaler) {
 [e :U _timer0_init ]
 [v _prescaler `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_PIC.c: 7: T0CONbits.TMR0ON = 1;
-"7
+[; ;My_PIC.c: 35: T0CONbits.TMR0ON = 1;
+"35
 [e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 8: T0CONbits.T08BIT = 1;
-"8
+[; ;My_PIC.c: 36: T0CONbits.T08BIT = 1;
+"36
 [e = . . _T0CONbits 0 4 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 9: T0CONbits.T0CS = 0;
-"9
+[; ;My_PIC.c: 37: T0CONbits.T0CS = 0;
+"37
 [e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 10: if (prescaler == 0) {
-"10
-[e $ ! == -> _prescaler `i -> 0 `i 1220  ]
+[; ;My_PIC.c: 38: if (prescaler == 0) {
+"38
+[e $ ! == -> _prescaler `i -> 0 `i 1221  ]
 {
-[; ;My_PIC.c: 11: T0CONbits.PSA = 1;
-"11
+[; ;My_PIC.c: 39: T0CONbits.PSA = 1;
+"39
 [e = . . _T0CONbits 0 1 -> -> 1 `i `uc ]
-"12
+"40
 }
-[; ;My_PIC.c: 12: } else {
-[e $U 1221  ]
-[e :U 1220 ]
-{
-[; ;My_PIC.c: 13: T0CONbits.PSA = 0;
-"13
-[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 14: T0CONbits.T0PS = prescaler - 1;
-"14
-[e = . . _T0CONbits 0 0 -> - -> _prescaler `i -> 1 `i `uc ]
-"15
-}
+[; ;My_PIC.c: 40: } else {
+[e $U 1222  ]
 [e :U 1221 ]
-[; ;My_PIC.c: 15: }
-[; ;My_PIC.c: 16: INTCONbits.T0IE = 1;
-"16
-[e = . . _INTCONbits 1 5 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 17: INTCONbits.TMR0IF = 0;
-"17
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 18: INTCON2bits.TMR0IP = 0;
-"18
-[e = . . _INTCON2bits 1 2 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 19: INTCONbits.PEIE = 1;
-"19
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 20: }
-"20
-[e :UE 1219 ]
-}
+{
+[; ;My_PIC.c: 41: T0CONbits.PSA = 0;
+"41
+[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 42: T0CONbits.T0PS = prescaler - 1;
 "42
+[e = . . _T0CONbits 0 0 -> - -> _prescaler `i -> 1 `i `uc ]
+"43
+}
+[e :U 1222 ]
+[; ;My_PIC.c: 43: }
+[; ;My_PIC.c: 44: INTCONbits.T0IE = 1;
+"44
+[e = . . _INTCONbits 1 5 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 45: INTCONbits.TMR0IF = 0;
+"45
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 46: INTCON2bits.TMR0IP = 0;
+"46
+[e = . . _INTCON2bits 1 2 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 47: INTCONbits.PEIE = 1;
+"47
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 48: }
+"48
+[e :UE 1220 ]
+}
+"70
 [v _timer1_init `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;My_PIC.c: 42: void timer1_init(uint8_t prescaler, uint8_t clock_select) {
+[; ;My_PIC.c: 70: void timer1_init(uint8_t prescaler, uint8_t clock_select) {
 [e :U _timer1_init ]
 [v _prescaler `uc ~T0 @X0 1 r1 ]
 [v _clock_select `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;My_PIC.c: 43: T1CONbits.TMR1CS = clock_select;
-"43
+[; ;My_PIC.c: 71: T1CONbits.TMR1CS = clock_select;
+"71
 [e = . . _T1CONbits 1 5 _clock_select ]
-[; ;My_PIC.c: 44: if (clock_select == 2) T1CONbits.T1OSCEN = 1;
-"44
-[e $ ! == -> _clock_select `i -> 2 `i 1223  ]
+[; ;My_PIC.c: 72: if (clock_select == 2) T1CONbits.T1OSCEN = 1;
+"72
+[e $ ! == -> _clock_select `i -> 2 `i 1224  ]
 [e = . . _T1CONbits 1 3 -> -> 1 `i `uc ]
-[e $U 1224  ]
-"45
-[e :U 1223 ]
-[; ;My_PIC.c: 45: else T1CONbits.T1OSCEN = 0;
-[e = . . _T1CONbits 1 3 -> -> 0 `i `uc ]
-[e :U 1224 ]
-[; ;My_PIC.c: 46: T1CONbits.T1CKPS = prescaler;
-"46
-[e = . . _T1CONbits 1 4 _prescaler ]
-[; ;My_PIC.c: 47: T1CONbits.nT1SYNC = 1;
-"47
-[e = . . _T1CONbits 1 2 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 48: T1CONbits.RD16 = 0;
-"48
-[e = . . _T1CONbits 1 1 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 49: T1CONbits.TMR1ON = 1;
-"49
-[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 50: IPR1bits.TMR1IP = 0;
-"50
-[e = . . _IPR1bits 0 0 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 51: PIR1bits.TMR1IF = 0;
-"51
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 52: PIE1bits.TMR1IE = 1;
-"52
-[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 53: INTCONbits.PEIE = 1;
-"53
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 54: }
-"54
-[e :UE 1222 ]
-}
+[e $U 1225  ]
 "73
+[e :U 1224 ]
+[; ;My_PIC.c: 73: else T1CONbits.T1OSCEN = 0;
+[e = . . _T1CONbits 1 3 -> -> 0 `i `uc ]
+[e :U 1225 ]
+[; ;My_PIC.c: 74: T1CONbits.T1CKPS = prescaler;
+"74
+[e = . . _T1CONbits 1 4 _prescaler ]
+[; ;My_PIC.c: 75: T1CONbits.nT1SYNC = 1;
+"75
+[e = . . _T1CONbits 1 2 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 76: T1CONbits.RD16 = 0;
+"76
+[e = . . _T1CONbits 1 1 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 77: T1CONbits.TMR1ON = 1;
+"77
+[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 78: IPR1bits.TMR1IP = 0;
+"78
+[e = . . _IPR1bits 0 0 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 79: PIR1bits.TMR1IF = 0;
+"79
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 80: PIE1bits.TMR1IE = 1;
+"80
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 81: INTCONbits.PEIE = 1;
+"81
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 82: }
+"82
+[e :UE 1223 ]
+}
+"101
 [v _timer3_init `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_PIC.c: 73: void timer3_init(uint8_t prescaler) {
+[; ;My_PIC.c: 101: void timer3_init(uint8_t prescaler) {
 [e :U _timer3_init ]
 [v _prescaler `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_PIC.c: 74: T3CONbits.TMR3CS = 0;
-"74
+[; ;My_PIC.c: 102: T3CONbits.TMR3CS = 0;
+"102
 [e = . . _T3CONbits 1 5 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 75: T3CONbits.T3OSCEN = 0;
-"75
+[; ;My_PIC.c: 103: T3CONbits.T3OSCEN = 0;
+"103
 [e = . . _T3CONbits 1 3 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 76: T3CONbits.T3CKPS = prescaler;
-"76
+[; ;My_PIC.c: 104: T3CONbits.T3CKPS = prescaler;
+"104
 [e = . . _T3CONbits 1 4 _prescaler ]
-[; ;My_PIC.c: 77: T3CONbits.RD163 = 0;
-"77
+[; ;My_PIC.c: 105: T3CONbits.RD163 = 0;
+"105
 [e = . . _T3CONbits 3 1 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 78: T3CONbits.TMR3ON = 1;
-"78
+[; ;My_PIC.c: 106: T3CONbits.TMR3ON = 1;
+"106
 [e = . . _T3CONbits 1 0 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 79: IPR2bits.TMR3IP = 0;
-"79
+[; ;My_PIC.c: 107: IPR2bits.TMR3IP = 0;
+"107
 [e = . . _IPR2bits 0 1 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 80: PIR2bits.TMR3IF = 0;
-"80
+[; ;My_PIC.c: 108: PIR2bits.TMR3IF = 0;
+"108
 [e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 81: PIE2bits.TMR3IE = 1;
-"81
+[; ;My_PIC.c: 109: PIE2bits.TMR3IE = 1;
+"109
 [e = . . _PIE2bits 0 1 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 82: INTCONbits.PEIE = 1;
-"82
+[; ;My_PIC.c: 110: INTCONbits.PEIE = 1;
+"110
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 83: }
-"83
-[e :UE 1225 ]
+[; ;My_PIC.c: 111: }
+"111
+[e :UE 1226 ]
 }
-"89
+"117
 [v _timer5_init `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_PIC.c: 89: void timer5_init(uint8_t prescaler) {
+[; ;My_PIC.c: 117: void timer5_init(uint8_t prescaler) {
 [e :U _timer5_init ]
 [v _prescaler `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_PIC.c: 90: T5CONbits.TMR5CS = 0;
-"90
+[; ;My_PIC.c: 118: T5CONbits.TMR5CS = 0;
+"118
 [e = . . _T5CONbits 1 5 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 91: T5CONbits.T5OSCEN = 0;
-"91
+[; ;My_PIC.c: 119: T5CONbits.T5OSCEN = 0;
+"119
 [e = . . _T5CONbits 1 3 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 92: T5CONbits.T5CKPS = prescaler;
-"92
+[; ;My_PIC.c: 120: T5CONbits.T5CKPS = prescaler;
+"120
 [e = . . _T5CONbits 1 4 _prescaler ]
-[; ;My_PIC.c: 93: T5CONbits.RD165 = 0;
-"93
+[; ;My_PIC.c: 121: T5CONbits.RD165 = 0;
+"121
 [e = . . _T5CONbits 3 1 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 94: T5CONbits.TMR5ON = 1;
-"94
+[; ;My_PIC.c: 122: T5CONbits.TMR5ON = 1;
+"122
 [e = . . _T5CONbits 1 0 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 95: IPR5bits.TMR5IP = 0;
-"95
+[; ;My_PIC.c: 123: IPR5bits.TMR5IP = 0;
+"123
 [e = . . _IPR5bits 0 2 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 96: PIR5bits.TMR5IF = 0;
-"96
+[; ;My_PIC.c: 124: PIR5bits.TMR5IF = 0;
+"124
 [e = . . _PIR5bits 0 2 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 97: PIE5bits.TMR5IE = 1;
-"97
+[; ;My_PIC.c: 125: PIE5bits.TMR5IE = 1;
+"125
 [e = . . _PIE5bits 0 2 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 98: INTCONbits.PEIE = 1;
-"98
+[; ;My_PIC.c: 126: INTCONbits.PEIE = 1;
+"126
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 99: }
-"99
-[e :UE 1226 ]
-}
-"107
-[v _OSC_init `(v ~T0 @X0 1 ef ]
-{
-[; ;My_PIC.c: 107: void OSC_init(void) {
-[e :U _OSC_init ]
-[f ]
-[; ;My_PIC.c: 108: OSCCONbits.IRCF = 7;
-"108
-[e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
-[; ;My_PIC.c: 109: OSCTUNEbits.PLLEN = 1;
-"109
-[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 110: OSCCONbits.SCS = 0;
-"110
-[e = . . _OSCCONbits 0 0 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 111: }
-"111
+[; ;My_PIC.c: 127: }
+"127
 [e :UE 1227 ]
 }
-"132
+"133
 [v _ADC_init `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_PIC.c: 132: void ADC_init(uint8_t p_ref) {
+[; ;My_PIC.c: 133: void ADC_init(uint8_t p_ref) {
 [e :U _ADC_init ]
 [v _p_ref `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_PIC.c: 133: ADCON0bits.VCFG1 = 0;
-"133
-[e = . . _ADCON0bits 2 7 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 134: ADCON0bits.VCFG0 = p_ref;
+[; ;My_PIC.c: 134: ADCON0bits.VCFG1 = 0;
 "134
+[e = . . _ADCON0bits 2 7 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 135: ADCON0bits.VCFG0 = p_ref;
+"135
 [e = . . _ADCON0bits 2 6 _p_ref ]
-[; ;My_PIC.c: 136: ADCON1bits.ADFM = 1;
-"136
-[e = . . _ADCON1bits 0 3 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 137: ADCON1bits.ADCAL = 0;
+[; ;My_PIC.c: 137: ADCON1bits.ADFM = 1;
 "137
-[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 138: ADCON1bits.ADCS = 6;
+[e = . . _ADCON1bits 0 3 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 138: ADCON1bits.ADCAL = 0;
 "138
-[e = . . _ADCON1bits 0 0 -> -> 6 `i `uc ]
-[; ;My_PIC.c: 139: }
+[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 139: ADCON1bits.ADCS = 6;
 "139
+[e = . . _ADCON1bits 0 0 -> -> 6 `i `uc ]
+[; ;My_PIC.c: 140: }
+"140
 [e :UE 1228 ]
 }
-"155
+"156
 [v _ADC `(ui ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_PIC.c: 155: uint16_t ADC(uint8_t ch) {
+[; ;My_PIC.c: 156: uint16_t ADC(uint8_t ch) {
 [e :U _ADC ]
 [v _ch `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_PIC.c: 156: ADCON0bits.CHS = ch;
-"156
-[e = . . _ADCON0bits 1 2 _ch ]
-[; ;My_PIC.c: 157: ADCON0bits.ADON = 1;
+[; ;My_PIC.c: 157: ADCON0bits.CHS = ch;
 "157
+[e = . . _ADCON0bits 1 2 _ch ]
+[; ;My_PIC.c: 158: ADCON0bits.ADON = 1;
+"158
 [e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 159: PIR1bits.ADIF = 0;
-"159
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 160: ADCON0bits.GO_nDONE = 1;
+[; ;My_PIC.c: 160: PIR1bits.ADIF = 0;
 "160
-[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 161: while (!PIR1bits.ADIF);
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 161: ADCON0bits.GO_nDONE = 1;
 "161
+[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 162: while (!PIR1bits.ADIF);
+"162
 [e $U 1230  ]
 [e :U 1231 ]
 [e :U 1230 ]
 [e $ ! != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i 1231  ]
 [e :U 1232 ]
-[; ;My_PIC.c: 162: return ADRES;
-"162
+[; ;My_PIC.c: 163: return ADRES;
+"163
 [e ) -> _ADRES `ui ]
 [e $UE 1229  ]
-[; ;My_PIC.c: 163: }
-"163
+[; ;My_PIC.c: 164: }
+"164
 [e :UE 1229 ]
 }
-"168
+"169
 [v _CTMU_init `(v ~T0 @X0 1 ef ]
 {
-[; ;My_PIC.c: 168: void CTMU_init(void) {
+[; ;My_PIC.c: 169: void CTMU_init(void) {
 [e :U _CTMU_init ]
 [f ]
-[; ;My_PIC.c: 169: CTMUCONH = 0x00;
-"169
-[e = _CTMUCONH -> -> 0 `i `uc ]
-[; ;My_PIC.c: 170: CTMUCONL = 0x90;
+[; ;My_PIC.c: 170: CTMUCONH = 0x00;
 "170
-[e = _CTMUCONL -> -> 144 `i `uc ]
-[; ;My_PIC.c: 171: CTMUICON = 0x01;
+[e = _CTMUCONH -> -> 0 `i `uc ]
+[; ;My_PIC.c: 171: CTMUCONL = 0x90;
 "171
+[e = _CTMUCONL -> -> 144 `i `uc ]
+[; ;My_PIC.c: 172: CTMUICON = 0x01;
+"172
 [e = _CTMUICON -> -> 1 `i `uc ]
-[; ;My_PIC.c: 173: ADCON1bits.ADFM = 1;
-"173
-[e = . . _ADCON1bits 0 3 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 174: ADCON1bits.ADCAL = 0;
+[; ;My_PIC.c: 174: ADCON1bits.ADFM = 1;
 "174
-[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 175: ADCON1bits.ACQT = 1;
+[e = . . _ADCON1bits 0 3 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 175: ADCON1bits.ADCAL = 0;
 "175
-[e = . . _ADCON1bits 0 1 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 176: ADCON1bits.ADCS = 6;
+[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 176: ADCON1bits.ACQT = 1;
 "176
+[e = . . _ADCON1bits 0 1 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 177: ADCON1bits.ADCS = 6;
+"177
 [e = . . _ADCON1bits 0 0 -> -> 6 `i `uc ]
-[; ;My_PIC.c: 178: ADCON0bits.VCFG0 = 0;
-"178
-[e = . . _ADCON0bits 2 6 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 179: ADCON0bits.VCFG1 = 0;
+[; ;My_PIC.c: 179: ADCON0bits.VCFG0 = 0;
 "179
-[e = . . _ADCON0bits 2 7 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 180: ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 2 6 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 180: ADCON0bits.VCFG1 = 0;
 "180
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 181: }
+[e = . . _ADCON0bits 2 7 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 181: ADCON0bits.ADON = 1;
 "181
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 182: }
+"182
 [e :UE 1233 ]
 }
-"183
+"184
 [v _CTMU_read `(ui ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_PIC.c: 183: uint16_t CTMU_read(uint8_t ch) {
+[; ;My_PIC.c: 184: uint16_t CTMU_read(uint8_t ch) {
 [e :U _CTMU_read ]
 [v _ch `uc ~T0 @X0 1 r1 ]
 [f ]
-"184
-[v _sum `ul ~T0 @X0 1 a ]
-[; ;My_PIC.c: 184: uint32_t sum = 0;
-[e = _sum -> -> -> 0 `i `l `ul ]
-[; ;My_PIC.c: 185: for (uint8_t i = 0; i < 10; i++) {
 "185
+[v _sum `ul ~T0 @X0 1 a ]
+[; ;My_PIC.c: 185: uint32_t sum = 0;
+[e = _sum -> -> -> 0 `i `l `ul ]
+[; ;My_PIC.c: 186: for (uint8_t i = 0; i < 10; i++) {
+"186
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -8785,138 +8785,138 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1236  ]
 [e :U 1235 ]
 {
-[; ;My_PIC.c: 186: ADCON0bits.CHS = ch;
-"186
-[e = . . _ADCON0bits 1 2 _ch ]
-[; ;My_PIC.c: 187: CTMUCONHbits.CTMUEN = 1;
+[; ;My_PIC.c: 187: ADCON0bits.CHS = ch;
 "187
-[e = . . _CTMUCONHbits 0 7 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 188: CTMUCONLbits.EDG1STAT = 0;
+[e = . . _ADCON0bits 1 2 _ch ]
+[; ;My_PIC.c: 188: CTMUCONHbits.CTMUEN = 1;
 "188
-[e = . . _CTMUCONLbits 0 0 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 189: CTMUCONLbits.EDG2STAT = 0;
+[e = . . _CTMUCONHbits 0 7 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 189: CTMUCONLbits.EDG1STAT = 0;
 "189
-[e = . . _CTMUCONLbits 0 1 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 192: CTMUCONHbits.IDISSEN = 1;
-"192
-[e = . . _CTMUCONHbits 0 1 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 193: _delay((unsigned long)((20)*(48000000/4000000.0)));
-"193
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
-[; ;My_PIC.c: 194: CTMUCONHbits.IDISSEN = 0;
-"194
-[e = . . _CTMUCONHbits 0 1 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 196: CTMUCONLbits.EDG1STAT = 1;
-"196
-[e = . . _CTMUCONLbits 0 0 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 197: _delay((unsigned long)((5)*(48000000/4000000.0)));
-"197
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
-[; ;My_PIC.c: 198: CTMUCONLbits.EDG1STAT = 0;
-"198
 [e = . . _CTMUCONLbits 0 0 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 200: PIR1bits.ADIF = 0;
-"200
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;My_PIC.c: 201: ADCON0bits.GO = 1;
+[; ;My_PIC.c: 190: CTMUCONLbits.EDG2STAT = 0;
+"190
+[e = . . _CTMUCONLbits 0 1 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 193: CTMUCONHbits.IDISSEN = 1;
+"193
+[e = . . _CTMUCONHbits 0 1 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 194: _delay((unsigned long)((20)*(48000000/4000000.0)));
+"194
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
+[; ;My_PIC.c: 195: CTMUCONHbits.IDISSEN = 0;
+"195
+[e = . . _CTMUCONHbits 0 1 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 197: CTMUCONLbits.EDG1STAT = 1;
+"197
+[e = . . _CTMUCONLbits 0 0 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 198: _delay((unsigned long)((5)*(48000000/4000000.0)));
+"198
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
+[; ;My_PIC.c: 199: CTMUCONLbits.EDG1STAT = 0;
+"199
+[e = . . _CTMUCONLbits 0 0 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 201: PIR1bits.ADIF = 0;
 "201
-[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
-[; ;My_PIC.c: 202: while (!PIR1bits.ADIF);
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;My_PIC.c: 202: ADCON0bits.GO = 1;
 "202
+[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
+[; ;My_PIC.c: 203: while (!PIR1bits.ADIF);
+"203
 [e $U 1238  ]
 [e :U 1239 ]
 [e :U 1238 ]
 [e $ ! != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i 1239  ]
 [e :U 1240 ]
-[; ;My_PIC.c: 203: sum += ADRES;
-"203
-[e =+ _sum -> _ADRES `ul ]
+[; ;My_PIC.c: 204: sum += ADRES;
 "204
+[e =+ _sum -> _ADRES `ul ]
+"205
 }
-"185
+"186
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 10 `i 1235  ]
 [e :U 1236 ]
-"204
-}
-[; ;My_PIC.c: 204: }
-[; ;My_PIC.c: 205: return sum / 10 / 4;
 "205
+}
+[; ;My_PIC.c: 205: }
+[; ;My_PIC.c: 206: return sum / 10 / 4;
+"206
 [e ) -> / / _sum -> -> -> 10 `i `l `ul -> -> -> 4 `i `l `ul `ui ]
 [e $UE 1234  ]
-[; ;My_PIC.c: 206: }
-"206
+[; ;My_PIC.c: 207: }
+"207
 [e :UE 1234 ]
 }
-"211
+"212
 [v _Delay_ms `(v ~T0 @X0 1 ef1`ui ]
 {
-[; ;My_PIC.c: 211: void Delay_ms(uint16_t ms) {
+[; ;My_PIC.c: 212: void Delay_ms(uint16_t ms) {
 [e :U _Delay_ms ]
 [v _ms `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_PIC.c: 212: while (ms--)_delay((unsigned long)((1)*(48000000/4000.0)));
-"212
+[; ;My_PIC.c: 213: while (ms--)_delay((unsigned long)((1)*(48000000/4000.0)));
+"213
 [e $U 1242  ]
 [e :U 1243 ]
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
 [e :U 1242 ]
 [e $ != -- _ms -> -> 1 `i `ui -> -> 0 `i `ui 1243  ]
 [e :U 1244 ]
-[; ;My_PIC.c: 213: }
-"213
+[; ;My_PIC.c: 214: }
+"214
 [e :UE 1241 ]
 }
-"216
+"217
 [v _ms `ul ~T0 @X0 1 e ]
-[; ;My_PIC.c: 216: uint32_t ms;
-"218
+[; ;My_PIC.c: 217: uint32_t ms;
+"219
 [v _millis_timer `(v ~T0 @X0 1 ef ]
 {
-[; ;My_PIC.c: 218: void millis_timer() {
+[; ;My_PIC.c: 219: void millis_timer() {
 [e :U _millis_timer ]
 [f ]
-"219
-[v F8597 `ui ~T0 @X0 1 s cnt ]
-[; ;My_PIC.c: 219: static uint16_t cnt;
-[; ;My_PIC.c: 220: if (cnt) {
 "220
+[v F8597 `ui ~T0 @X0 1 s cnt ]
+[; ;My_PIC.c: 220: static uint16_t cnt;
+[; ;My_PIC.c: 221: if (cnt) {
+"221
 [e $ ! != F8597 -> -> 0 `i `ui 1246  ]
 {
-[; ;My_PIC.c: 221: cnt;
-"221
-[e F8597 ]
+[; ;My_PIC.c: 222: cnt;
 "222
+[e F8597 ]
+"223
 }
-[; ;My_PIC.c: 222: } else {
+[; ;My_PIC.c: 223: } else {
 [e $U 1247  ]
 [e :U 1246 ]
 {
-[; ;My_PIC.c: 223: cnt = 47;
-"223
-[e = F8597 -> -> 47 `i `ui ]
-[; ;My_PIC.c: 224: ms++;
+[; ;My_PIC.c: 224: cnt = 47;
 "224
-[e ++ _ms -> -> -> 1 `i `l `ul ]
+[e = F8597 -> -> 47 `i `ui ]
+[; ;My_PIC.c: 225: ms++;
 "225
+[e ++ _ms -> -> -> 1 `i `l `ul ]
+"226
 }
 [e :U 1247 ]
-[; ;My_PIC.c: 225: }
 [; ;My_PIC.c: 226: }
-"226
+[; ;My_PIC.c: 227: }
+"227
 [e :UE 1245 ]
 }
-"228
+"229
 [v _millis `(ul ~T0 @X0 1 ef ]
 {
-[; ;My_PIC.c: 228: uint32_t millis(void) {
+[; ;My_PIC.c: 229: uint32_t millis(void) {
 [e :U _millis ]
 [f ]
-[; ;My_PIC.c: 229: return ms;
-"229
+[; ;My_PIC.c: 230: return ms;
+"230
 [e ) _ms ]
 [e $UE 1248  ]
-[; ;My_PIC.c: 230: }
-"230
+[; ;My_PIC.c: 231: }
+"231
 [e :UE 1248 ]
 }

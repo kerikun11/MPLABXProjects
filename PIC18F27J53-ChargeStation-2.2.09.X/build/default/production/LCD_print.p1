@@ -5,39 +5,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 "9
 [c E8533 0 1 2 .. ]
 [n E8533 DATA_ITEM CURRENT INTEGRATED_CURRENT INTEGRATED_TIME  ]
-"17 ../My_library\My_ST7032.h
+"51 ../My_library\My_ST7032.h
 [v _I2C_LCD_Clear `(v ~T0 @X0 0 ef ]
-"18
+"52
 [v _I2C_LCD_SetCursor `(v ~T0 @X0 0 ef2`uc`uc ]
-"20
+"54
 [v _I2C_LCD_Puts `(v ~T0 @X0 0 ef1`*Cuc ]
 "48 ../My_library\My_RTCC.h
-[s S1224 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1224 . ss mm hh DD MM YY ]
+[s S1225 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1225 . ss mm hh DD MM YY ]
 "45
-[u S1223 `uc 1 `S1224 1 ]
-[n S1223 . flags flag ]
+[u S1224 `uc 1 `S1225 1 ]
+[n S1224 . flags flag ]
 "43
-[s S1222 `S1223 1 ]
-[n S1222 . . ]
+[s S1223 `S1224 1 ]
+[n S1223 . . ]
 "61
-[s S1225 `ul 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `S1222 1 ]
-[n S1225 . epoch ss mm hh EE DD MM YY colon halfsec edit ]
+[s S1226 `ul 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `S1223 1 ]
+[n S1226 . epoch ss mm hh EE DD MM YY colon halfsec edit ]
 "115
-[v _display_time_1602 `(v ~T0 @X0 0 ef3`*S1225`*uc`*uc ]
+[v _display_time_1602 `(v ~T0 @X0 0 ef3`*S1226`*uc`*uc ]
 "79
-[v _now `S1225 ~T0 @X0 0 e ]
+[v _now `S1226 ~T0 @X0 0 e ]
 "194 C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "32 ../My_library\My_button.h
-[s S1221 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1221 . press long_hold_1 long_hold_2 long_hold_3 long_hold_4 long_hold_5 long_hold_6 long_hold_7 pressing long_holding_1 long_holding_2 long_holding_3 long_holding_4 long_holding_5 long_holding_6 long_holding_7 ]
+[s S1222 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1222 . press long_hold_1 long_hold_2 long_hold_3 long_hold_4 long_hold_5 long_hold_6 long_hold_7 pressing long_holding_1 long_holding_2 long_holding_3 long_holding_4 long_holding_5 long_holding_6 long_holding_7 ]
 "29
-[u S1220 `ui 1 `S1221 1 ]
-[n S1220 . flags flag ]
+[u S1221 `ui 1 `S1222 1 ]
+[n S1221 . flags flag ]
 "26
-[s S1219 `ui 1 `S1220 1 ]
-[n S1219 button cnt_sw . ]
+[s S1220 `ui 1 `S1221 1 ]
+[n S1220 button cnt_sw . ]
 "29 ChargeStation_task.h
 [s S1229 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1229 . auto_cut_ON led_indicator_ON out_flag led_flag ]
@@ -45,7 +45,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [u S1228 `uc 1 `S1229 1 ]
 [n S1228 . flags flag ]
 "17
-[s S1227 `S1219 1 `ui 1 `ui 1 `ul 1 `ul 1 `ul 1 `ui 1 `S1228 1 ]
+[s S1227 `S1220 1 `ui 1 `ui 1 `ul 1 `ul 1 `ul 1 `ui 1 `S1228 1 ]
 [n S1227 . ctmu ctmu_value current integrated_current_sec integrated_current integrated_time cut_cnt . ]
 "38
 [v _port `S1227 ~T0 @X0 -> 0 `x e ]
@@ -8218,13 +8218,61 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;My_library\My_ST7032.h: 16: void I2C_LCD_Command(uint8_t c);
-[; ;My_library\My_ST7032.h: 17: void I2C_LCD_Clear(void);
-[; ;My_library\My_ST7032.h: 18: void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
-[; ;My_library\My_ST7032.h: 19: void I2C_LCD_Putc(uint8_t c);
-[; ;My_library\My_ST7032.h: 20: void I2C_LCD_Puts(const uint8_t * s);
-[; ;My_library\My_ST7032.h: 21: void I2C_LCD_CreateChar(int p, char *dt);
-[; ;My_library\My_ST7032.h: 22: void I2C_LCD_init(void);
+[; ;My_library\My_ringbuf.h: 19: typedef struct ringbuf {
+[; ;My_library\My_ringbuf.h: 20: char *buf;
+[; ;My_library\My_ringbuf.h: 21: uint16_t size;
+[; ;My_library\My_ringbuf.h: 22: uint16_t head;
+[; ;My_library\My_ringbuf.h: 23: uint16_t tail;
+[; ;My_library\My_ringbuf.h: 24: } ringbuf_t;
+[; ;My_library\My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
+[; ;My_library\My_ringbuf.h: 28: uint16_t ringbuf_num(ringbuf_t *rb);
+[; ;My_library\My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, char asciicode);
+[; ;My_library\My_ringbuf.h: 32: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
+[; ;My_library\My_ringbuf.h: 34: void ringbuf_put_str(ringbuf_t *rb, const char *str);
+[; ;My_library\My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
+[; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
+[; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
+[; ;My_library\My_I2C.h: 19: extern uint8_t I2C_sent_flag;
+[; ;My_library\My_I2C.h: 20: extern uint8_t I2C_cfct_flag;
+[; ;My_library\My_I2C.h: 21: extern uint8_t I2C_busy;
+[; ;My_library\My_I2C.h: 23: uint8_t I2C_idole_check(uint8_t mask);
+[; ;My_library\My_I2C.h: 24: void I2C_start(void);
+[; ;My_library\My_I2C.h: 25: void I2C_restart(void);
+[; ;My_library\My_I2C.h: 26: void I2C_stop(void);
+[; ;My_library\My_I2C.h: 27: void I2C_send(uint8_t data);
+[; ;My_library\My_I2C.h: 28: uint8_t I2C_ack(void);
+[; ;My_library\My_I2C.h: 29: void I2C_init_new(void);
+[; ;My_library\My_I2C.h: 30: void I2C_ISR(void);
+[; ;My_library\My_I2C.h: 36: void I2C_IdleCheck(char mask);
+[; ;My_library\My_I2C.h: 37: void I2C_init_old(void);
+[; ;My_library\My_I2C.h: 38: uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
+[; ;My_library\My_I2C.h: 39: uint8_t I2C_rStart(int adrs, int rw);
+[; ;My_library\My_I2C.h: 40: void I2C_Stop(void);
+[; ;My_library\My_I2C.h: 41: uint8_t I2C_Send(uint8_t data);
+[; ;My_library\My_I2C.h: 42: uint8_t I2C_Receive(uint8_t ack);
+[; ;My_library\My_ST7032.h: 19: typedef enum ST7032_STATE {
+[; ;My_library\My_ST7032.h: 20: ST7032_IDOLE,
+[; ;My_library\My_ST7032.h: 21: ST7032_START,
+[; ;My_library\My_ST7032.h: 22: ST7032_SEND,
+[; ;My_library\My_ST7032.h: 23: ST7032_STOP,
+[; ;My_library\My_ST7032.h: 24: ST7032_WAIT
+[; ;My_library\My_ST7032.h: 25: } st7032_state_t;
+[; ;My_library\My_ST7032.h: 27: extern ringbuf_t lcd_tx;
+[; ;My_library\My_ST7032.h: 29: void ST7032_command(uint8_t command, uint8_t wait);
+[; ;My_library\My_ST7032.h: 31: void ST7032_clear(void);
+[; ;My_library\My_ST7032.h: 33: void ST7032_cursor(uint8_t col, uint8_t row);
+[; ;My_library\My_ST7032.h: 35: void ST7032_put(char c);
+[; ;My_library\My_ST7032.h: 37: void ST7032_puts(const uint8_t *s);
+[; ;My_library\My_ST7032.h: 39: void ST7032_create_char(int p, char *dt);
+[; ;My_library\My_ST7032.h: 41: void ST7032_init(void);
+[; ;My_library\My_ST7032.h: 43: void ST7032_task(void);
+[; ;My_library\My_ST7032.h: 50: void I2C_LCD_Command(uint8_t c);
+[; ;My_library\My_ST7032.h: 51: void I2C_LCD_Clear(void);
+[; ;My_library\My_ST7032.h: 52: void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
+[; ;My_library\My_ST7032.h: 53: void I2C_LCD_Putc(uint8_t c);
+[; ;My_library\My_ST7032.h: 54: void I2C_LCD_Puts(const uint8_t * s);
+[; ;My_library\My_ST7032.h: 55: void I2C_LCD_CreateChar(int p, char *dt);
+[; ;My_library\My_ST7032.h: 56: void I2C_LCD_init(void);
 [; ;My_library\My_button.h: 26: typedef struct button {
 [; ;My_library\My_button.h: 27: uint16_t cnt_sw;
 [; ;My_library\My_button.h: 29: union {
@@ -8301,20 +8349,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_RTCC.h: 124: void RTCC_adjust_time_dec(time_t *tm);
 [; ;My_library\My_RTCC.h: 126: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
 [; ;My_library\My_RTCC.h: 128: void RTCC_task(void);
-[; ;My_library\My_ringbuf.h: 19: typedef struct ringbuf {
-[; ;My_library\My_ringbuf.h: 20: char *buf;
-[; ;My_library\My_ringbuf.h: 21: uint16_t size;
-[; ;My_library\My_ringbuf.h: 22: uint16_t head;
-[; ;My_library\My_ringbuf.h: 23: uint16_t tail;
-[; ;My_library\My_ringbuf.h: 24: } ringbuf_t;
-[; ;My_library\My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
-[; ;My_library\My_ringbuf.h: 28: uint16_t ringbuf_num(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, char asciicode);
-[; ;My_library\My_ringbuf.h: 32: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
-[; ;My_library\My_ringbuf.h: 34: void ringbuf_put_str(ringbuf_t *rb, const char *str);
-[; ;My_library\My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
 [; ;io.h: 45: void OUT(uint8_t b, uint8_t value);
 [; ;io.h: 47: uint8_t ANALOG_IN(uint8_t b);
 [; ;io.h: 49: void LED_output(uint8_t b, uint8_t value);
@@ -8492,9 +8526,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCD_print.c: 44: {
 "44
 {
-[v F8828 `uc ~T0 @X0 -> 20 `i t ]
+[v F8890 `uc ~T0 @X0 -> 20 `i t ]
 "45
-[v _str `F8828 ~T0 @X0 -> 2 `i a ]
+[v _str `F8890 ~T0 @X0 -> 2 `i a ]
 [; ;LCD_print.c: 45: char str[2][20];
 [; ;LCD_print.c: 46: display_time_1602(&now, str[0], str[1]);
 "46
@@ -8525,11 +8559,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 "55
 [v _str `uc ~T0 @X0 -> 20 `i a ]
-[v F8832 `Cuc ~T0 @X0 -> 20 `i t ]
-[v F8831 `F8832 ~T0 @X0 -> 3 `i t ]
+[v F8894 `Cuc ~T0 @X0 -> 20 `i t ]
+[v F8893 `F8894 ~T0 @X0 -> 3 `i t ]
 "56
-[v F8830 `F8831 ~T0 @X0 -> 2 `i s port_char ]
-[i F8830
+[v F8892 `F8893 ~T0 @X0 -> 2 `i s port_char ]
+[i F8892
 :U ..
 :U ..
 :U ..
@@ -8621,10 +8655,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[v F8834 `Cuc ~T0 @X0 -> 5 `i t ]
+[v F8896 `Cuc ~T0 @X0 -> 5 `i t ]
 "60
-[v F8833 `F8834 ~T0 @X0 -> 2 `i s onoff ]
-[i F8833
+[v F8895 `F8896 ~T0 @X0 -> 2 `i s onoff ]
+[i F8895
 :U ..
 :U ..
 -> 32 `c
@@ -8651,7 +8685,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCD_print.c: 61: sprintf(str, "%s %s", port_char[port[print_port].flag.auto_cut_ON][print_port],
 [; ;LCD_print.c: 62: onoff[(port[print_port].current > 100)]);
 "62
-[e ( _sprintf (1 , , (. , &U _str :s 1C &U *U + &U *U + &U F8830 * -> . . . *U + &U _port * -> _print_port `ux -> -> # *U &U _port `ui `ux 7 1 0 `ux -> * * -> # *U &U *U &U F8830 `ui -> -> 3 `i `ui -> -> 20 `i `ui `ux * -> _print_port `ux -> * -> # *U &U *U &U *U + &U F8830 * -> . . . *U + &U _port * -> _print_port `ux -> -> # *U &U _port `ui `ux 7 1 0 `ux -> * * -> # *U &U *U &U F8830 `ui -> -> 3 `i `ui -> -> 20 `i `ui `ux `ui -> -> 20 `i `ui `ux &U *U + &U F8833 * -> -> > . *U + &U _port * -> _print_port `ux -> -> # *U &U _port `ui `ux 2 -> -> 100 `i `ui `x `ux -> * -> # *U &U *U &U F8833 `ui -> -> 5 `i `ui `ux ]
+[e ( _sprintf (1 , , (. , &U _str :s 1C &U *U + &U *U + &U F8892 * -> . . . *U + &U _port * -> _print_port `ux -> -> # *U &U _port `ui `ux 7 1 0 `ux -> * * -> # *U &U *U &U F8892 `ui -> -> 3 `i `ui -> -> 20 `i `ui `ux * -> _print_port `ux -> * -> # *U &U *U &U *U + &U F8892 * -> . . . *U + &U _port * -> _print_port `ux -> -> # *U &U _port `ui `ux 7 1 0 `ux -> * * -> # *U &U *U &U F8892 `ui -> -> 3 `i `ui -> -> 20 `i `ui `ux `ui -> -> 20 `i `ui `ux &U *U + &U F8895 * -> -> > . *U + &U _port * -> _print_port `ux -> -> # *U &U _port `ui `ux 2 -> -> 100 `i `ui `x `ux -> * -> # *U &U *U &U F8895 `ui -> -> 5 `i `ui `ux ]
 [; ;LCD_print.c: 63: I2C_LCD_SetCursor(0, 0);
 "63
 [e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]

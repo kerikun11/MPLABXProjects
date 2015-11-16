@@ -1,15 +1,15 @@
-Microchip MPLAB XC8 Compiler V1.33 ()
+Microchip MPLAB XC8 Compiler V1.35 ()
 
 Linker command line:
 
---edf=C:\Program Files (x86)\Microchip\xc8\v1.33\dat\en_msgs.txt -cs \
+--edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\PIC16F1827-UART03.X.production.sym \
   --cmf=dist/default/production\PIC16F1827-UART03.X.production.cmf -z \
-  -Q16F1827 -oC:\Users\KERIKU~1\AppData\Local\Temp\s4ek.6 \
+  -Q16F1827 -oC:\Users\KERIKU~1\AppData\Local\Temp\s64c.2 \
   -Mdist/default/production/PIC16F1827-UART03.X.production.map -E1 -ver=XC8 \
-  -ASTACK=02000h-0216fh -pstack=STACK -ACONST=00h-0FFhx16 \
-  -ACODE=00h-07FFhx2 -ASTRCODE=00h-0FFFh -AENTRY=00h-0FFhx16 \
-  -ASTRING=00h-0FFhx16 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
+  -ASTACK=02000h-0216fh -pstack=STACK -ACODE=00h-07FFhx2 \
+  -ASTRCODE=00h-0FFFh -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 \
+  -AENTRY=00h-0FFhx16 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
   -ABANK1=0A0h-0EFh -ABANK2=0120h-016Fh -ABANK3=01A0h-01EFh \
   -ABANK4=0220h-024Fh -ABIGRAM=02000h-0216Fh \
   -ARAM=020h-06Fh,0A0h-0EFh,0120h-016Fh,01A0h-01EFh,0220h-024Fh \
@@ -29,7 +29,7 @@ Linker command line:
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\KERIKU~1\AppData\Local\Temp\s4ek.obj \
+  C:\Users\KERIKU~1\AppData\Local\Temp\s64c.obj \
   dist/default/production\PIC16F1827-UART03.X.production.obj 
 
 Object code version is 3.11
@@ -39,7 +39,7 @@ Machine type is 16F1827
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\KERIKU~1\AppData\Local\Temp\s4ek.obj
+C:\Users\KERIKU~1\AppData\Local\Temp\s64c.obj
                 end_init                             14       14        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2    1000E       0
@@ -54,8 +54,6 @@ dist/default/production\PIC16F1827-UART03.X.production.obj
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
-        CLASS   CONST          
-
         CLASS   CODE           
                 end_init                             14       14        2         0
                 cinit                                16       16        6         0
@@ -66,9 +64,11 @@ TOTAL           Name                               Link     Load   Length     Sp
 
         CLASS   STRCODE        
 
-        CLASS   ENTRY          
-
         CLASS   STRING         
+
+        CLASS   CONST          
+
+        CLASS   ENTRY          
 
         CLASS   COMMON         
                 cstackCOMMON                         70       70        5         1
@@ -528,11 +528,11 @@ __ptext1                 text1        00051
 __size_of_RSI            (abs)        00000
 __size_of_main           (abs)        00000
 __size_of_tx             (abs)        00000
-_cnt1                    bssCOMMON    00075
 _main                    maintext     0001C
 _tx                      text1        00051
 btemp                    (abs)        0007E
 end_of_initialization    cinit        00018
+int$flags                (abs)        0007E
 intlevel0                functab      00000
 intlevel1                functab      00000
 intlevel2                functab      00000
@@ -544,7 +544,6 @@ ltemp0                   (abs)        0007E
 ltemp1                   (abs)        00082
 ltemp2                   (abs)        00086
 ltemp3                   (abs)        00080
-pic14e$flags             (abs)        0007E
 reset_vec                reset_vec    00000
 stackhi                  (abs)        0216F
 stacklo                  (abs)        02000
@@ -577,7 +576,7 @@ FUNCTION INFORMATION:
  Auto vars:     Size  Location     Type
   a               2    0        int 
  Return value:  Size  Location     Type
-                  2   62[COMMON] int 
+                  2   62[None  ] int 
  Registers used:
 		wreg, status,2, status,0, pclath, cstack
  Tracked objects:
@@ -662,14 +661,14 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 PIC16F1827-UART03.c
-		_main          		CODE           	001C	0000	53
-		_RSI           		CODE           	0004	0000	16
-		_tx            		CODE           	0051	0000	7
+		_main          		CODE           	001C	0000	54
+		_RSI           		CODE           	0004	0000	17
+		_tx            		CODE           	0051	0000	8
 
-PIC16F1827-UART03.c estimated size: 76
+PIC16F1827-UART03.c estimated size: 79
 
 shared
-		__initializatio		CODE           	0016	0000	2
+		__initialization		CODE           	0016	0000	3
 
-shared estimated size: 2
+shared estimated size: 3
 
