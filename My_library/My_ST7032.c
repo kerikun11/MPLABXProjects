@@ -152,7 +152,7 @@ void I2C_LCD_Command(uint8_t c) {
 }
 
 void I2C_LCD_Clear(void) {
-    I2C_LCD_Command(0x01); // Clear Display : 画面全体に20Hのｽﾍﾟｰｽで表示、ｶｰｿﾙはcol=0,row=0に移動
+    I2C_LCD_Command(0x01); // Clear Display : 画面全体に20Hのスペースで表示、カーソルはcol=0,row=0に移動
     __delay_us(1100); // LCDが処理(1.08ms)するのを待ちます
 }
 

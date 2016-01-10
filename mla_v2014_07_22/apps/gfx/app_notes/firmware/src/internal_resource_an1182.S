@@ -29,7 +29,7 @@
   You should refer to the license agreement accompanying this Software
   for additional information regarding your rights and obligations.
  
-  SOFTWARE AND DOCUMENTATION ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY
+  SOFTWARE AND DOCUMENTATION ARE PROVIDED ÂçÖS IS„É¢ WITHOUT WARRANTY OF ANY
   KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY WARRANTY
   OF MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR
   PURPOSE. IN NO EVENT SHALL MICROCHIP OR ITS LICENSORS BE LIABLE OR
@@ -152,8 +152,8 @@
  * -----
  * ChineseFont - Height: 22 pixels, 2 bits per pixel, Range: '!' to '?'
  * JapaneseFont - Height: 25 pixels, 2 bits per pixel, Range: '!' to '?'
- * HindiFont - Height: 31 pixels, 2 bits per pixel, Range: ' ' to '≈'
- * ThaiFont - Height: 29 pixels, 2 bits per pixel, Range: '!' to 'â'
+ * HindiFont - Height: 31 pixels, 2 bits per pixel, Range: ' ' to '„Éä'
+ * ThaiFont - Height: 29 pixels, 2 bits per pixel, Range: '!' to '
  *****************************************************************************/
 
 /*****************************************************************************
@@ -970,7 +970,7 @@ GRC_CONST_SECTION
 /*********************************
  * TTF Font File Structure
  * Label: HindiFont
- * Description:  Height: 31 pixels, 2 bits per pixel, Range: ' ' to '≈'
+ * Description:  Height: 31 pixels, 2 bits per pixel, Range: ' ' to '
  ***********************************/
 GRC_FONT_SECTION
 .global ___HindiFont    // for XC16
@@ -1366,7 +1366,7 @@ GRC_CONST_SECTION
 /*********************************
  * TTF Font File Structure
  * Label: ThaiFont
- * Description:  Height: 29 pixels, 2 bits per pixel, Range: '!' to 'â'
+ * Description:  Height: 29 pixels, 2 bits per pixel, Range: '!' to '
  ***********************************/
 GRC_FONT_SECTION
 .global ___ThaiFont    // for XC16

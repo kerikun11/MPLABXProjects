@@ -12,8 +12,8 @@
  Software License Agreement:
 
  The software supplied herewith by Microchip Technology Incorporated
- (the ï¿½Companyï¿½) for its PICï¿½ Microcontroller is intended and
- supplied to you, the Companyï¿½s customer, for use solely and
+ (the 誰多遜Company誰多遜) for its PIC誰多遜 Microcontroller is intended and
+ supplied to you, the Company誰多遜s customer, for use solely and
  exclusively on Microchip PIC Microcontroller products. The
  software is owned by the Company and/or its supplier, and is
  protected under applicable copyright laws. All rights are reserved.
@@ -22,7 +22,7 @@
  civil liability for the breach of the terms and conditions of this
  license.
 
- THIS SOFTWARE IS PROVIDED IN AN ï¿½AS ISï¿½ CONDITION. NO WARRANTIES,
+ THIS SOFTWARE IS PROVIDED IN AN 誰多遜AS IS誰多遜 CONDITION. NO WARRANTIES,
  WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT NOT LIMITED
  TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
  PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. THE COMPANY SHALL NOT,
@@ -374,7 +374,7 @@ const struct{uint8_t report[HID_RPT01_SIZE];}hid_rpt01={
     0x26, 0xC0, 0x12,     //       LOGICAL_MAXIMUM (4800)   	//This is the maximum value the firmware should send for the X coordinate contact point.  It can potentially make the firmware design mathematically simpler if this is set to some meaningful value, such as equal to the PHYSICAL_MAXIMUM (which specifies the dimensions of the actual touch screen, in terms of the UNITS parameter).
     0x75, 0x10,           //       REPORT_SIZE (16)
     0x55, 0x0E,           //       UNIT_EXPONENT (-2)       //10^(-2)
-    0x65, 0x33,           //       UNIT (Inches, English Linear)  //But exponent -2, so Physical Maximum is in 10ï¿½s of mils.
+    0x65, 0x33,           //       UNIT (Inches, English Linear)  //But exponent -2, so Physical Maximum is in 10誰多遜s of mils.
     0x09, 0x30,           //       USAGE (X)
     0x35, 0x00,           //       PHYSICAL_MINIMUM (0)
     0x46, 0x40, 0x06,     //       PHYSICAL_MAXIMUM (0x640 = 1600)     //1600 * 10^(-2) = 16 inches X-dimension
@@ -404,7 +404,7 @@ const struct{uint8_t report[HID_RPT01_SIZE];}hid_rpt01={
     0x26, 0xC0, 0x12,     //       LOGICAL_MAXIMUM (4800)
     0x75, 0x10,           //       REPORT_SIZE (16)
     0x55, 0x0E,           //       UNIT_EXPONENT (-2)       //10^(-2)
-    0x65, 0x33,           //       UNIT (Inches, English Linear)  //But exponent -2, so Physical Maximum is in 10ï¿½s of mils.
+    0x65, 0x33,           //       UNIT (Inches, English Linear)  //But exponent -2, so Physical Maximum is in 10誰多遜s of mils.
     0x09, 0x30,           //       USAGE (X)
     0x35, 0x00,           //       PHYSICAL_MINIMUM (0)
     0x46, 0x40, 0x06,     //       PHYSICAL_MAXIMUM (0x640 = 1600)     //1600 * 10^(-2) = 16 inches X-dimension
@@ -434,7 +434,7 @@ const struct{uint8_t report[HID_RPT01_SIZE];}hid_rpt01={
     0x26, 0xC0, 0x12,     //       LOGICAL_MAXIMUM (4800)
     0x75, 0x10,           //       REPORT_SIZE (16)
     0x55, 0x0E,           //       UNIT_EXPONENT (-2)       //10^(-2)
-    0x65, 0x33,           //       UNIT (Inches, English Linear)  //But exponent -2, so Physical Maximum is in 10ï¿½s of mils.
+    0x65, 0x33,           //       UNIT (Inches, English Linear)  //But exponent -2, so Physical Maximum is in 10誰多遜s of mils.
     0x09, 0x30,           //       USAGE (X)
     0x35, 0x00,           //       PHYSICAL_MINIMUM (0)
     0x46, 0x40, 0x06,     //       PHYSICAL_MAXIMUM (0x640 = 1600)     //1600 * 10^(-2) = 16 inches X-dimension
@@ -564,7 +564,7 @@ const struct{uint8_t report[HID_RPT01_SIZE];}hid_rpt01={
     0x75, 0x10,           //       REPORT_SIZE (16)
     0x95, 0x01,             //     REPORT_COUNT (1)   			//one
     0x55, 0x0E,           //       UNIT_EXPONENT (-2)       //10^(-2)
-    0x65, 0x33,           //       UNIT (Inches, English Linear)  //But exponent -2, so Physical Maximum is in 10ï¿½s of mils.
+    0x65, 0x33,           //       UNIT (Inches, English Linear)  //But exponent -2, so Physical Maximum is in 10誰多遜s of mils.
     0x09, 0x30,           //       USAGE (X)
     0x35, 0x00,           //       PHYSICAL_MINIMUM (0)
     0x46, 0x40, 0x06,     //       PHYSICAL_MAXIMUM (0x640 = 1600)     //1600 * 10^(-2) = 16 inches X-dimension

@@ -9,11 +9,11 @@
 #define	MY_UART_18F_H
 
 //*************************** UART ***************************//
-// interrupt_TXIF();�����荞�݊֐����ɏ����Ă������ƁB
+// interrupt_TXIF();を割り込み関数内に書いておくこと。
 // if(RC1IF){
 //      dumy=RCREG1;
 // }
-// RCIF,TXIF �t���O�̉���̓��W�X�^�ǂݍ��݂܂��͏㏑���ɂ��s����B
+// RCIF,TXIF フラグの回収はレジスタ読み込みまたは上書きにより行われる。
 #include <My_ringbuf.h>
 
 ringbuf_t tx_buf;

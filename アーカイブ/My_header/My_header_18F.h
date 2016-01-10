@@ -145,8 +145,8 @@ uint16_t ADC(uint8_t ch) {
 // if(RC1IF){
 //      char ascii = RCREG1;
 // }
-// �����荞�݊֐����ɏ����Ă������ƁB
-// RCIF,TXIF �t���O�̉���̓��W�X�^�ǂݍ��݂܂��͏㏑���ɂ��s����B
+// を割り込み関数内に書いておくこと。
+// RCIF,TXIF フラグの回収はレジスタ読み込みまたは上書きにより行われる。
 #include <My_ringbuf.h>
 
 ringbuf_t tx_buf;
@@ -235,15 +235,15 @@ uint16_t CTMU_read(uint8_t ch) {
         CTMUCONLbits.EDG1STAT = 0;
         CTMUCONLbits.EDG2STAT = 0;
 
-        // �[���d�ʂ���J�n������ׂɓd�ׂ���d������
+        // ゼロ電位から開始させる為に電荷を放電させる
         CTMUCONHbits.IDISSEN = 1;
         __delay_us(CTMU_DISCHARGE_TIME);
         CTMUCONHbits.IDISSEN = 0;
-        // �d�ɂɏ[�d���s��
+        // 電極に充電を行う
         CTMUCONLbits.EDG1STAT = 1;
         __delay_us(CTMU_CHARGE_TIME);
         CTMUCONLbits.EDG1STAT = 0;
-        // �d�ɂ̓d��(AN0)��ǂݎ��
+        // 電極の電圧(AN0)を読み取る
         PIR1bits.ADIF = 0;
         ADCON0bits.GO = 1;
         while (!PIR1bits.ADIF);

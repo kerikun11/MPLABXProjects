@@ -99,7 +99,7 @@ typedef enum
 
 #if defined(MRF24WG)
     /*-------------------------------------------------------------*/
-    /* Connection Profile Element ID’s                             */
+    /* Connection Profile Element IDç—´                             */
     /* Used in conjunction with the WF_CP_SET_ELEMENT_SUBTYPE and  */
     /* WF_CP_GET_ELEMENT_SUBTYPE message subtypes                  */
     /*-------------------------------------------------------------*/
@@ -119,7 +119,7 @@ typedef enum
     } tCPElementIds;
 #else /* MRF24WB */
     /*-------------------------------------------------------------*/
-    /* Connection Profile Element ID’s                             */
+    /* Connection Profile Element IDç—´                             */
     /* Used in conjunction with the WF_CP_SET_ELEMENT_SUBTYPE and  */
     /* WF_CP_GET_ELEMENT_SUBTYPE message subtypes                  */
     /*-------------------------------------------------------------*/
@@ -139,7 +139,7 @@ typedef enum
 
 #if defined(MRF24WG)
     /*-------------------------------------------------------------*/
-    /* Connection Algorithm Element ID’s                           */
+    /* Connection Algorithm Element IDç—´                           */
     /* Used in conjunction with the WF_CA_SET_ELEMENT_SUBTYPE and  */
     /* WF_CA_GET_ELEMENT_SUBTYPE message subtypes                  */
     /*-------------------------------------------------------------*/
@@ -166,7 +166,7 @@ typedef enum
 
 #else /* MRF24WB */
     /*-------------------------------------------------------------*/
-    /* Connection Algorithm Element ID’s                           */
+    /* Connection Algorithm Element IDç—´                           */
     /* Used in conjunction with the WF_CA_SET_ELEMENT_SUBTYPE and  */
     /* WF_CA_GET_ELEMENT_SUBTYPE message subtypes                  */
     /*-------------------------------------------------------------*/
@@ -192,7 +192,7 @@ typedef enum
 
 #if defined(WF_CM_DEBUG)
 /*-------------------------------------------------------------*/
-/* CM INFO ID’s                                                */
+/* CM INFO IDç—´                                                */
 /* Used in conjunction with the WF_CM_INFO_SUBTYPE             */
 /*-------------------------------------------------------------*/
 typedef enum

@@ -11041,7 +11041,7 @@ uint8_t Val;
 uint16_t_VAL  wCount;
 }IN_PIPE;
 
-extern volatile IN_PIPE inPipes[];
+extern  IN_PIPE inPipes[];
 
 typedef struct 
 {
@@ -11067,10 +11067,10 @@ void (*pFunc)(void);
 }OUT_PIPE;
 
 # 1904
-extern volatile bool RemoteWakeup;
-extern volatile bool USBBusIsSuspended;
-extern volatile USB_DEVICE_STATE USBDeviceState;
-extern volatile uint8_t USBActiveConfiguration;
+extern  bool RemoteWakeup;
+extern  bool USBBusIsSuspended;
+extern  USB_DEVICE_STATE USBDeviceState;
+extern  uint8_t USBActiveConfiguration;
 
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\__size_t.h"
 typedef unsigned size_t;
@@ -11199,9 +11199,9 @@ const uint16_t* wRom;
 } POINTER;
 
 # 601
-extern volatile uint8_t USBActiveConfiguration;
-extern volatile IN_PIPE inPipes[1];
-extern volatile OUT_PIPE outPipes[1];
+extern  uint8_t USBActiveConfiguration;
+extern  IN_PIPE inPipes[1];
+extern  OUT_PIPE outPipes[1];
 
 
 extern volatile BDT_ENTRY* pBDTEntryOut[2+1];
@@ -11248,7 +11248,7 @@ bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t 
 # 603
 bool USBHALInitialize ( unsigned long flags );
 
-# 542 "../My_library\usb/usb_device_cdc.h"
+# 542 "../My_library/usb/usb_device_cdc.h"
 void CDCInitEP(void);
 
 # 568
@@ -11391,7 +11391,7 @@ extern LINE_CODING line_coding;
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 
-# 19 "../My_library\My_ringbuf.h"
+# 19 "../My_library/My_ringbuf.h"
 typedef struct ringbuf {
 char *buf;
 uint16_t size;
@@ -11415,28 +11415,34 @@ void ringbuf_backspace(ringbuf_t *rb);
 
 void ringbuf_delete(ringbuf_t *rb);
 
-# 17 "../My_library/My_usb_cdc.h"
+# 39 "../My_library/My_usb_cdc.h"
 extern ringbuf_t usb_tx;
 extern ringbuf_t usb_rx;
 
+# 46
 void USB_ISR(void);
+
 void USB_init(void);
-int put_string_usb(char *s, int len);
-int get_string_usb(char *s, int len);
-void USBCBSendResume(void);
+
 void USB_task(void);
+
+
+
+
+void usb_char_send(char c);
+uint8_t usb_char_get(char *c);
+void USBCBSendResume(void);
 
 # 4 "../My_library/My_usb_cdc.c"
 ringbuf_t usb_tx;
 ringbuf_t usb_rx;
 
 void USB_ISR(void) {
-USBDeviceTasks();
 }
 
 void USB_init(void) {
 USBDeviceInit();
-USBDeviceAttach();
+;
 {line_coding.dwDTERate=115200;};
 }
 
@@ -11444,27 +11450,26 @@ bool is_usb_available(void) {
 return !(USBDeviceState < CONFIGURED_STATE || UCONbits.SUSPND == 1);
 }
 
-int put_string_usb(char *s, int len) {
+void usb_char_send(char c) {
 if (!is_usb_available()) {
 
-return 1;
+return;
 }
 while (!(cdc_trf_state == 0)) CDCTxService();
-putUSBUSART(s, len);
+putUSBUSART(&c, 1);
 CDCTxService();
-return 0;
 }
 
-int get_string_usb(char *s, int len) {
-int rx_len;
+uint8_t usb_char_get(char *c) {
 if (!is_usb_available()) {
 
 return 0;
 }
 while (!(cdc_trf_state == 0)) CDCTxService();
-rx_len = getsUSBUSART(s, len);
+uint8_t ans;
+ans = getsUSBUSART(c, 1);
 CDCTxService();
-return rx_len;
+return ans;
 }
 
 bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t size) {
@@ -11491,13 +11496,14 @@ UCONbits.RESUME = 0;
 
 void USB_task(void) {
 char data;
-int rx_len;
-rx_len = get_string_usb(&data, 1);
-if (rx_len) {
+
+while (usb_char_get(&data)) {
 ringbuf_put(&usb_rx, data);
 }
-if (ringbuf_num(&usb_tx)) {
+
+while (ringbuf_num(&usb_tx)) {
 data = ringbuf_pop(&usb_tx);
-put_string_usb(&data, 1);
+usb_char_send(data);
 }
+USBDeviceTasks();
 }

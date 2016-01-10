@@ -1,14 +1,14 @@
 // skI2CLCDlib.h
-// ‚h‚Q‚bÚ‘±‚k‚b‚cŠÖ”ƒ‰ƒCƒuƒ‰ƒŠ—pƒCƒ“ƒNƒ‹[ƒhƒtƒ@ƒCƒ‹
+// ï¼©ï¼’ï¼£æ¥ç¶šï¼¬ï¼£ï¼¤é–¢æ•°ãƒ©ã‚¤ãƒ–ãƒ©ãƒªç”¨ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãƒ•ã‚¡ã‚¤ãƒ«
 #ifndef _SKI2CLCDLIB_H_
 #define _SKI2CLCDLIB_H_
 
 #ifndef _XTAL_FREQ
  // Unless already defined assume 8MHz system frequency
  // This definition is required to calibrate __delay_us() and __delay_ms()
- #define _XTAL_FREQ 8000000    // g—p‚·‚éPIC“™‚É‚æ‚è“®ìü”g”’l‚ğİ’è‚·‚é
+ #define _XTAL_FREQ 8000000    // ä½¿ç”¨ã™ã‚‹PICç­‰ã«ã‚ˆã‚Šå‹•ä½œå‘¨æ³¢æ•°å€¤ã‚’è¨­å®šã™ã‚‹
 #endif
-#define ST7032_ADRES 0x3E      // HŒ“dq‚ÌI2CÚ‘±¬Œ^LCDƒ‚ƒWƒ…[ƒ‹‚ÌƒAƒhƒŒƒX
+#define ST7032_ADRES 0x3E      // ç§‹æœˆé›»å­ã®I2Cæ¥ç¶šå°å‹LCDãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 
 void LCD_Clear(void) ;
 void LCD_SetCursor(int col, int row) ;

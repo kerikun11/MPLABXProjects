@@ -45,7 +45,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "driver/touch_screen/drv_touch_resistive_adc.h"
 
 // Default Calibration Inset Value (percentage of vertical or horizontal resolution)
-// Calibration Inset = ( CALIBRATIONINSET / 2 ) % , Range of 0�20% with 0.5% resolution
+// Calibration Inset = ( CALIBRATIONINSET / 2 ) % , Range of 0・ス20% with 0.5% resolution
 // Example with CALIBRATIONINSET == 20, the calibration points are measured
 // 10% from the corners.
 #ifndef CALIBRATIONINSET

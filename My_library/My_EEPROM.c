@@ -6,14 +6,14 @@
 
 void EEP_write(uint8_t Reg_h, uint8_t Reg_l, uint8_t data) {
     uint8_t ans;
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
-        I2C_Send(data); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(data); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 
@@ -21,16 +21,16 @@ uint8_t EEP_read(uint8_t Reg_h, uint8_t Reg_l) {
     uint8_t ans;
     uint8_t data;
 
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
     }
-    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
         data = I2C_Receive(1);
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
     return data;
 }
@@ -40,19 +40,19 @@ uint16_t EEP_read16(uint8_t Reg_h, uint8_t Reg_l) {
     uint8_t d[4];
     uint16_t data;
 
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
     }
-    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
         d[3] = I2C_Receive(0);
         d[2] = I2C_Receive(0);
         d[1] = I2C_Receive(0);
         d[0] = I2C_Receive(1);
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
     data = (uint16_t) ((d[1] << 8) + d[0]);
     return data;
@@ -63,49 +63,49 @@ uint32_t EEP_read32(uint8_t Reg_h, uint8_t Reg_l) {
     uint8_t d[4];
     uint32_t data;
 
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
     }
-    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
         d[3] = I2C_Receive(0);
         d[2] = I2C_Receive(0);
         d[1] = I2C_Receive(0);
         d[0] = I2C_Receive(1);
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
     return (uint32_t) ((uint32_t) d[3] << 24)+((uint32_t) d[2] << 16)+(d[1] << 8) + d[0];
 }
 
 void EEP_write16(uint8_t Reg_h, uint8_t Reg_l, uint16_t data) {
     uint8_t ans;
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
-        I2C_Send(data >> 8); // data byte ‚Ì‘—M
-        I2C_Send(data >> 0); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(data >> 8); // data byte ã®é€ä¿¡
+        I2C_Send(data >> 0); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 
 void EEP_write32(uint8_t Reg_h, uint8_t Reg_l, uint32_t data) {
     uint8_t ans;
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
-        I2C_Send(data >> 24); // data byte ‚Ì‘—M
-        I2C_Send(data >> 16); // data byte ‚Ì‘—M
-        I2C_Send(data >> 8); // data byte ‚Ì‘—M
-        I2C_Send(data >> 0); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(data >> 24); // data byte ã®é€ä¿¡
+        I2C_Send(data >> 16); // data byte ã®é€ä¿¡
+        I2C_Send(data >> 8); // data byte ã®é€ä¿¡
+        I2C_Send(data >> 0); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }

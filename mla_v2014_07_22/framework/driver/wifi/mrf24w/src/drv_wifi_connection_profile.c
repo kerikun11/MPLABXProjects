@@ -203,7 +203,7 @@ void WF_CPDelete(uint8_t CpId)
     p_cpIdList - Pointer to value representing the bit mask where each bit
                   index (plus 1) corresponds to a Connection Profile ID that has
                   been created.  For example, if this value is 0x03, then
-                  Connection Profile IDïs 1 and and 2 have been created.
+                  Connection Profile IDãƒ» 1 and and 2 have been created.
 
   Returns:
     None.

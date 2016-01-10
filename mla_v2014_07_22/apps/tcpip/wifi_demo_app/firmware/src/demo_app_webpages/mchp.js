@@ -1,4 +1,4 @@
-// Copyright © 2002-2010 Microchip Technology Inc.  All rights reserved.
+// Copyright ã‚¥ 2002-2010 Microchip Technology Inc.  All rights reserved.
 // See Microchip TCP/IP Stack documentation for license information.
 
 

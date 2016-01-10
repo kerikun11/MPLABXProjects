@@ -57,7 +57,7 @@ uint16_t adc(uint8_t ch) {
 }
 
 //*************************** button ***************************//
-//ƒ^ƒCƒ}[Š„‚èž‚ÝŠÖ”‚Ébutton_timer_interrupt(&button_t,!SW)‚ð‘‚¢‚Ä‚¨‚­‚±‚ÆB
+//ã‚¿ã‚¤ãƒžãƒ¼å‰²ã‚Šè¾¼ã¿é–¢æ•°ã«button_timer_interrupt(&button_t,!SW)ã‚’æ›¸ã„ã¦ãŠãã“ã¨ã€‚
 // 32MHz, 16bit, prescaler=1:4
 #define PRESS_LEVEL 2
 #define LONG_HOLD_LEVEL1  30
@@ -101,7 +101,7 @@ void button_timer_interrupt(button_t *bt, uint8_t sw_value) {
 }
 
 //*************************** ringbuf ***************************//
-//ringbuf_init()‚ðs‚¤‚±‚ÆB
+//ringbuf_init()ã‚’è¡Œã†ã“ã¨ã€‚
 
 typedef struct ringbuf {
     uint8_t *buf;
@@ -160,41 +160,41 @@ void I2C_IdleCheck(char mask) {
 }
 
 void I2C_init(void) {
-    SSP1STAT = 0b10000000; // •W€‘¬“xƒ‚[ƒh‚ÉÝ’è‚·‚é(100kHz)
-    SSP1CON1 = 0b00101000; // SDA/SCLƒsƒ“‚ÍI2C‚ÅŽg—p‚µAƒ}ƒXƒ^[ƒ‚[ƒh‚Æ‚·‚é
-    SSP1ADD = 0x13; // ƒNƒƒbƒN=FOSC/((SSPADD + 1)*4) 8MHz/((0x13+1)*4)=0.1(100KHz)
-    //SSP1IE = 1; // SSP(I2C)Š„‚èž‚Ý‚ð‹–‰Â‚·‚é
-    //BCL1IE = 1; // MSSP(I2C)ƒoƒXÕ“ËŠ„‚èž‚Ý‚ð‹–‰Â‚·‚é
-    SSP1IF = 0; // SSP(I2C)Š„‚èž‚Ýƒtƒ‰ƒO‚ðƒNƒŠƒA‚·‚é
-    BCL1IF = 0; // MSSP(I2C)ƒoƒXÕ“ËŠ„‚èž‚Ýƒtƒ‰ƒO‚ðƒNƒŠƒA‚·‚é
+    SSP1STAT = 0b10000000; // æ¨™æº–é€Ÿåº¦ãƒ¢ãƒ¼ãƒ‰ã«è¨­å®šã™ã‚‹(100kHz)
+    SSP1CON1 = 0b00101000; // SDA/SCLãƒ”ãƒ³ã¯I2Cã§ä½¿ç”¨ã—ã€ãƒžã‚¹ã‚¿ãƒ¼ãƒ¢ãƒ¼ãƒ‰ã¨ã™ã‚‹
+    SSP1ADD = 0x13; // ã‚¯ãƒ­ãƒƒã‚¯=FOSC/((SSPADD + 1)*4) 8MHz/((0x13+1)*4)=0.1(100KHz)
+    //SSP1IE = 1; // SSP(I2C)å‰²ã‚Šè¾¼ã¿ã‚’è¨±å¯ã™ã‚‹
+    //BCL1IE = 1; // MSSP(I2C)ãƒã‚¹è¡çªå‰²ã‚Šè¾¼ã¿ã‚’è¨±å¯ã™ã‚‹
+    SSP1IF = 0; // SSP(I2C)å‰²ã‚Šè¾¼ã¿ãƒ•ãƒ©ã‚°ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹
+    BCL1IF = 0; // MSSP(I2C)ãƒã‚¹è¡çªå‰²ã‚Šè¾¼ã¿ãƒ•ãƒ©ã‚°ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹
 }
 
 uint8_t I2C_Start(uint8_t adrs, uint8_t rw) {
-    // ƒXƒ^[ƒg(START CONDITION)
+    // ã‚¹ã‚¿ãƒ¼ãƒˆ(START CONDITION)
     I2C_IdleCheck(0x5);
     SSP1CON2bits.SEN = 1;
-    // [ƒXƒŒ[ƒu‚ÌƒAƒhƒŒƒX]‚ð‘—M‚·‚é
+    // [ã‚¹ãƒ¬ãƒ¼ãƒ–ã®ã‚¢ãƒ‰ãƒ¬ã‚¹]ã‚’é€ä¿¡ã™ã‚‹
     I2C_IdleCheck(0x5);
     SSP1IF = 0;
-    SSP1BUF = (uint8_t) ((adrs << 1) + rw); // ƒAƒhƒŒƒX + R/W‚ð‘—M
-    while (!SSP1IF); // ‘ŠŽè‚©‚ç‚ÌACK•Ô“š‚ð‘Ò‚Â
+    SSP1BUF = (uint8_t) ((adrs << 1) + rw); // ã‚¢ãƒ‰ãƒ¬ã‚¹ + R/Wã‚’é€ä¿¡
+    while (!SSP1IF); // ç›¸æ‰‹ã‹ã‚‰ã®ACKè¿”ç­”ã‚’å¾…ã¤
     return SSP1CON2bits.ACKSTAT;
 }
 
 uint8_t I2C_rStart(int adrs, int rw) {
-    // ƒŠƒs[ƒgEƒXƒ^[ƒg(REPEATED START CONDITION)
+    // ãƒªãƒ”ãƒ¼ãƒˆãƒ»ã‚¹ã‚¿ãƒ¼ãƒˆ(REPEATED START CONDITION)
     I2C_IdleCheck(0x5);
     SSP1CON2bits.RSEN = 1;
-    // [ƒXƒŒ[ƒu‚ÌƒAƒhƒŒƒX]‚ð‘—M‚·‚é
+    // [ã‚¹ãƒ¬ãƒ¼ãƒ–ã®ã‚¢ãƒ‰ãƒ¬ã‚¹]ã‚’é€ä¿¡ã™ã‚‹
     I2C_IdleCheck(0x5);
     SSP1IF = 0;
-    SSP1BUF = (char) ((adrs << 1) + rw); // ƒAƒhƒŒƒX + R/W‚ð‘—M
-    while (!SSP1IF); // ‘ŠŽè‚©‚ç‚ÌACK•Ô“š‚ð‘Ò‚Â
+    SSP1BUF = (char) ((adrs << 1) + rw); // ã‚¢ãƒ‰ãƒ¬ã‚¹ + R/Wã‚’é€ä¿¡
+    while (!SSP1IF); // ç›¸æ‰‹ã‹ã‚‰ã®ACKè¿”ç­”ã‚’å¾…ã¤
     return SSP1CON2bits.ACKSTAT;
 }
 
 void I2C_Stop(void) {
-    // ƒXƒgƒbƒv(STOP CONDITION)
+    // ã‚¹ãƒˆãƒƒãƒ—(STOP CONDITION)
     I2C_IdleCheck(0x5);
     SSP1CON2bits.PEN = 1;
 }
@@ -202,8 +202,8 @@ void I2C_Stop(void) {
 uint8_t I2C_Send(uint8_t data) {
     I2C_IdleCheck(0x5);
     SSP1IF = 0;
-    SSP1BUF = data; // ƒf[ƒ^‚ð‘—M
-    while (!SSP1IF); // ‘ŠŽè‚©‚ç‚ÌACK•Ô“š‚ð‘Ò‚Â
+    SSP1BUF = data; // ãƒ‡ãƒ¼ã‚¿ã‚’é€ä¿¡
+    while (!SSP1IF); // ç›¸æ‰‹ã‹ã‚‰ã®ACKè¿”ç­”ã‚’å¾…ã¤
     return SSP1CON2bits.ACKSTAT;
 }
 
@@ -211,34 +211,34 @@ uint8_t I2C_Receive(uint8_t ack) {
     uint8_t data;
 
     I2C_IdleCheck(0x5);
-    SSP1CON2bits.RCEN = 1; // ŽóM‚ð‹–‰Â‚·‚é
+    SSP1CON2bits.RCEN = 1; // å—ä¿¡ã‚’è¨±å¯ã™ã‚‹
     I2C_IdleCheck(0x4);
-    data = SSP1BUF; // ƒf[ƒ^‚ÌŽóM
+    data = SSP1BUF; // ãƒ‡ãƒ¼ã‚¿ã®å—ä¿¡
     I2C_IdleCheck(0x5);
-    SSP1CON2bits.ACKDT = ack; // ACKƒf[ƒ^‚ÌƒZƒbƒg
-    SSP1CON2bits.ACKEN = 1; // ACKƒf[ƒ^‚ð•Ô‚·
+    SSP1CON2bits.ACKDT = ack; // ACKãƒ‡ãƒ¼ã‚¿ã®ã‚»ãƒƒãƒˆ
+    SSP1CON2bits.ACKEN = 1; // ACKãƒ‡ãƒ¼ã‚¿ã‚’è¿”ã™
     return data;
 }
 
 //*************************** I2C_LCD ***************************//
-#define ST7032_ADRES 0x3E      // HŒŽ“dŽq‚ÌI2CÚ‘±¬Œ^LCDƒ‚ƒWƒ…[ƒ‹‚ÌƒAƒhƒŒƒX
+#define ST7032_ADRES 0x3E      // ç§‹æœˆé›»å­ã®I2CæŽ¥ç¶šå°åž‹LCDãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 
 void LCD_Command(uint8_t c) {
     uint8_t ans;
 
-    ans = I2C_Start(ST7032_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(ST7032_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(0b10000000); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(c); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(0b10000000); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(c); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 
 void LCD_Clear(void) {
-    LCD_Command(0x01); // Clear Display : ‰æ–Ê‘S‘Ì‚É20H‚Ì½Íß°½‚Å•\Ž¦A¶°¿Ù‚Ícol=0,row=0‚ÉˆÚ“®
-    __delay_us(1100); // LCD‚ªˆ—(1.08ms)‚·‚é‚Ì‚ð‘Ò‚¿‚Ü‚·
+    LCD_Command(0x01); // Clear Display : ç”»é¢å…¨ä½“ã«20Hã®ã‚¹ãƒšãƒ¼ã‚¹ã§è¡¨ç¤ºã€ã‚«ãƒ¼ã‚½ãƒ«ã¯col=0,row=0ã«ç§»å‹•
+    __delay_us(1100); // LCDãŒå‡¦ç†(1.08ms)ã™ã‚‹ã®ã‚’å¾…ã¡ã¾ã™
 }
 
 void LCD_SetCursor(uint8_t col, uint8_t row) {
@@ -250,62 +250,62 @@ void LCD_SetCursor(uint8_t col, uint8_t row) {
 void LCD_Putc(uint8_t c) {
     uint8_t ans;
 
-    ans = I2C_Start(ST7032_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(ST7032_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(0b11000000); // control byte ‚Ì‘—M(ƒf[ƒ^‚ðŽw’è)
-        I2C_Send(c); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(0b11000000); // control byte ã®é€ä¿¡(ãƒ‡ãƒ¼ã‚¿ã‚’æŒ‡å®š)
+        I2C_Send(c); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 
 void LCD_Puts(const uint8_t * s) {
     int ans;
 
-    ans = I2C_Start(ST7032_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(ST7032_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(0b01000000); // control byte ‚Ì‘—M(ƒf[ƒ^‚ðŽw’è)
+        I2C_Send(0b01000000); // control byte ã®é€ä¿¡(ãƒ‡ãƒ¼ã‚¿ã‚’æŒ‡å®š)
         while (*s) {
-            I2C_Send(*s++); // data byte ‚Ì‘—M(˜A‘±‘—M)
+            I2C_Send(*s++); // data byte ã®é€ä¿¡(é€£ç¶šé€ä¿¡)
             __delay_us(26);
         }
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
 }
 
 void LCD_CreateChar(int p, char *dt) {
     uint8_t ans;
 
-    ans = I2C_Start(ST7032_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(ST7032_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        //  LCD‚ÉƒLƒƒƒ‰•Û‘¶æ‚ÌƒAƒhƒŒƒX‚ðŽwŽ¦‚·‚é
-        I2C_Send(0b10000000); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
+        //  LCDã«ã‚­ãƒ£ãƒ©ä¿å­˜å…ˆã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’æŒ‡ç¤ºã™ã‚‹
+        I2C_Send(0b10000000); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
         I2C_Send(0x40 | (p << 3));
         __delay_us(26);
-        //  LCD‚ÉƒLƒƒƒ‰ƒf[ƒ^‚ð‘—M‚·‚é
-        I2C_Send(0b01000000); // control byte ‚Ì‘—M(ƒf[ƒ^‚ðŽw’è)
+        //  LCDã«ã‚­ãƒ£ãƒ©ãƒ‡ãƒ¼ã‚¿ã‚’é€ä¿¡ã™ã‚‹
+        I2C_Send(0b01000000); // control byte ã®é€ä¿¡(ãƒ‡ãƒ¼ã‚¿ã‚’æŒ‡å®š)
         for (uint8_t i = 0; i < 7; i++) {
             I2C_Send(*dt++);
             __delay_us(26);
         }
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
 }
 
 void LCD_init(void) {
-    __delay_ms(40); // “dŒ¹‚n‚mŒã40ms‚Ü‚Å‘Ò‚Á‚Ä‚©‚ç‰Šú‰»
-    LCD_Command(0x38); // function set           : ƒf[ƒ^ü‚Í8–{E•\Ž¦‚Í‚QsEƒtƒHƒ“ƒg‚Í5x8ƒhƒbƒg
-    LCD_Command(0x39); // function set           : Šg’£ƒRƒ}ƒ“ƒh‚ÌÝ’è‚ð—LŒø‚É‚·‚é
-    LCD_Command(0x14); // Internal OSC frequency : ƒoƒCƒAƒX‚Ì‘I‘ð‚Æ“à•”OSCŽü”g”‚Ì’²®
-    LCD_Command(0x78); // Contrast set           : ƒRƒ“ƒgƒ‰ƒXƒg’²®ƒf[ƒ^(‰ºˆÊ4ƒrƒbƒg)
-    LCD_Command(0x54); // Contrast set           : ¸ˆ³‰ñ˜H—LŒøAƒRƒ“ƒgƒ‰ƒXƒg’²®ƒf[ƒ^(ãˆÊ2ƒrƒbƒg)
-    LCD_Command(0x6C); // Follower control       : ƒtƒHƒƒA‰ñ˜H‚ðONA‘•—¦‚Ì’²®‚ðs‚¤
-    __delay_ms(200); // “d—Í‚ªˆÀ’è‚·‚é‚Ü‚Å‘Ò‚Â
-    LCD_Command(0x38); // function set           : Šg’£ƒRƒ}ƒ“ƒh‚ðÝ’è‚ð–³Œø‚É‚·‚é
-    LCD_Command(0x0C); // display control        : ‰æ–Ê•\Ž¦‚ÍONEƒJ[ƒ\ƒ‹•\Ž¦‚ÍOFFEƒJ[ƒ\ƒ‹“_–Å‚ÍOFF
-    LCD_Command(0x06); // entry mode set         : •¶Žš‚ð•\Ž¦‚µ‚½ŽŸ‚ÉƒJ[ƒ\ƒ‹‚ðˆÚ“®‚·‚é‚ðŽwŽ¦
-    LCD_Clear(); // Clear Display          : ‰æ–Ê‚ðÁ‹Ž‚·‚é
+    __delay_ms(40); // é›»æºï¼¯ï¼®å¾Œ40msã¾ã§å¾…ã£ã¦ã‹ã‚‰åˆæœŸåŒ–
+    LCD_Command(0x38); // function set           : ãƒ‡ãƒ¼ã‚¿ç·šã¯8æœ¬ãƒ»è¡¨ç¤ºã¯ï¼’è¡Œãƒ»ãƒ•ã‚©ãƒ³ãƒˆã¯5x8ãƒ‰ãƒƒãƒˆ
+    LCD_Command(0x39); // function set           : æ‹¡å¼µã‚³ãƒžãƒ³ãƒ‰ã®è¨­å®šã‚’æœ‰åŠ¹ã«ã™ã‚‹
+    LCD_Command(0x14); // Internal OSC frequency : ãƒã‚¤ã‚¢ã‚¹ã®é¸æŠžã¨å†…éƒ¨OSCå‘¨æ³¢æ•°ã®èª¿æ•´
+    LCD_Command(0x78); // Contrast set           : ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆèª¿æ•´ãƒ‡ãƒ¼ã‚¿(ä¸‹ä½4ãƒ“ãƒƒãƒˆ)
+    LCD_Command(0x54); // Contrast set           : æ˜‡åœ§å›žè·¯æœ‰åŠ¹ã€ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆèª¿æ•´ãƒ‡ãƒ¼ã‚¿(ä¸Šä½2ãƒ“ãƒƒãƒˆ)
+    LCD_Command(0x6C); // Follower control       : ãƒ•ã‚©ãƒ­ã‚¢å›žè·¯ã‚’ONã€å¢—å¹…çŽ‡ã®èª¿æ•´ã‚’è¡Œã†
+    __delay_ms(200); // é›»åŠ›ãŒå®‰å®šã™ã‚‹ã¾ã§å¾…ã¤
+    LCD_Command(0x38); // function set           : æ‹¡å¼µã‚³ãƒžãƒ³ãƒ‰ã‚’è¨­å®šã‚’ç„¡åŠ¹ã«ã™ã‚‹
+    LCD_Command(0x0C); // display control        : ç”»é¢è¡¨ç¤ºã¯ONãƒ»ã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤ºã¯OFFãƒ»ã‚«ãƒ¼ã‚½ãƒ«ç‚¹æ»…ã¯OFF
+    LCD_Command(0x06); // entry mode set         : æ–‡å­—ã‚’è¡¨ç¤ºã—ãŸæ¬¡ã«ã‚«ãƒ¼ã‚½ãƒ«ã‚’ç§»å‹•ã™ã‚‹ã‚’æŒ‡ç¤º
+    LCD_Clear(); // Clear Display          : ç”»é¢ã‚’æ¶ˆåŽ»ã™ã‚‹
 }
 
 //*************************** I2C_RTC ***************************//
@@ -314,13 +314,13 @@ void LCD_init(void) {
 void RTC_Write(uint8_t Reg, uint8_t data) {
     uint8_t ans;
 
-    ans = I2C_Start(DS1307_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(DS1307_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(Reg); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(data); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(Reg); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(data); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 
@@ -328,15 +328,15 @@ uint8_t RTC_Read(uint8_t Reg) {
     uint8_t ans;
     uint8_t data;
 
-    ans = I2C_Start(DS1307_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(DS1307_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(Reg); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
+        I2C_Send(Reg); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
     }
-    ans = I2C_rStart(DS1307_ADRES, R_1); // reƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_rStart(DS1307_ADRES, R_1); // reã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
         data = I2C_Receive(1);
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
     return data;
 }
@@ -345,12 +345,12 @@ uint8_t RTC_Read(uint8_t Reg) {
 
 void TM_init(uint8_t config) {
     uint8_t ans;
-    ans = I2C_Start(MCP9803_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(MCP9803_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(0x01); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
+        I2C_Send(0x01); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
         I2C_Send(config);
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 
@@ -358,16 +358,16 @@ uint16_t TM_Read() {
     uint8_t dataH;
     uint8_t dataL;
     uint8_t ans;
-    ans = I2C_Start(MCP9803_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(MCP9803_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(0x00); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
+        I2C_Send(0x00); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
     }
-    ans = I2C_rStart(MCP9803_ADRES, R_1); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_rStart(MCP9803_ADRES, R_1); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        dataH = I2C_Receive(0); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        dataL = I2C_Receive(1); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
+        dataH = I2C_Receive(0); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        dataL = I2C_Receive(1); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
     /*
     if (ans)tx_sends("Failed\n");
@@ -380,14 +380,14 @@ uint16_t TM_Read() {
 
 void EEP_Write(uint8_t Reg_h, uint8_t Reg_l, uint8_t data) {
     uint8_t ans;
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(data); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(data); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 
@@ -395,31 +395,31 @@ uint8_t EEP_Read(uint8_t Reg_h, uint8_t Reg_l) {
     uint8_t ans;
     uint8_t data;
 
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
     }
-    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_rStart(EEPROM24LC64_ADRES, R_1); // reã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
         data = I2C_Receive(1);
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
     return data;
 }
 
 void EEP_Writes(uint8_t Reg_h, uint8_t Reg_l, uint8_t data_0, uint8_t data_1) {
     uint8_t ans;
-    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    ans = I2C_Start(EEPROM24LC64_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(Reg_h); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(Reg_l); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ðŽw’è)
-        I2C_Send(data_0); // data byte ‚Ì‘—M
-        I2C_Send(data_1); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(Reg_h); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(Reg_l); // control byte ã®é€ä¿¡(ã‚³ãƒžãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(data_0); // data byte ã®é€ä¿¡
+        I2C_Send(data_1); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ð”­s‚·‚é
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     __delay_us(26);
 }
 

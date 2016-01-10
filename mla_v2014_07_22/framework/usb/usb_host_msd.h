@@ -1,4 +1,4 @@
-﻿//DOM-IGNORE-BEGIN
+//DOM-IGNORE-BEGIN
 /*******************************************************************************
 Software License Agreement
 

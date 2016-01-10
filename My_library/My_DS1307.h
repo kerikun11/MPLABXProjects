@@ -11,6 +11,8 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
+    
+#include <stdint.h>
 
     //*************************** I2C_RTC DS1307 ***************************//
 #define DS1307_ADRES 0x68

@@ -1,9 +1,9 @@
 // PIC16F1827 Configuration Bit Settings
 //2014.10.29
 //RA0~3:adc, RB0~3:output, RA4~7:sw
-//LEDƒCƒ“ƒWƒP[ƒ^[ƒIƒt(ƒeƒXƒg—p)
-//LED‚Ío—Í‚ÆƒŠƒ“ƒN‚µ‚ÄŒõ‚é
-//ˆê”Ê—p
+//LEDã‚¤ãƒ³ã‚¸ã‚±ãƒ¼ã‚¿ãƒ¼ã‚ªãƒ•(ãƒ†ã‚¹ãƒˆç”¨)
+//LEDã¯å‡ºåŠ›ã¨ãƒªãƒ³ã‚¯ã—ã¦å…‰ã‚‹
+//ä¸€èˆ¬ç”¨
 #include <xc.h>
 #include <stdint.h>
 // CONFIG1
@@ -122,7 +122,7 @@ int main(void) {
                 cutf[i] = 0;
                 cut[i] = 0;
             }
-            //cut[i]‚Í1•b‚Å5ŒÂi‚Ş
+            //cut[i]ã¯1ç§’ã§5å€‹é€²ã‚€
             if (cut[i] >= 10) {
                 switch (i) {
                     case 0:

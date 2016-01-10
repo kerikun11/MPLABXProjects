@@ -11,7 +11,7 @@
 #include <stdint.h>
 
 //*************************** button ***************************//
-//ƒ^ƒCƒ}[Š„‚è‚İŠÖ”‚Ébutton_timer_interrupt(&button_t,!SW)‚ğ‘‚¢‚Ä‚¨‚­‚±‚ÆB
+//ã‚¿ã‚¤ãƒãƒ¼å‰²ã‚Šè¾¼ã¿é–¢æ•°ã«button_timer_interrupt(&button_t,!SW)ã‚’æ›¸ã„ã¦ãŠãã“ã¨ã€‚
 // 48MHz, 16bit, prescaler=1:4
 
 #define PRESS_LEVEL 2

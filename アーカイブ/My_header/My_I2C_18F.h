@@ -19,41 +19,41 @@ void I2C_IdleCheck(char mask) {
 }
 
 void I2C_init(void) {
-    SSP1STAT = 0b10000000; // �W�����x���[�h�ɐݒ肷��(100kHz)
-    SSP1CON1 = 0b00101000; // SDA/SCL�s����I2C�Ŏg�p���A�}�X�^�[���[�h�Ƃ���
-    SSP1ADD = 0x13; // �N���b�N=FOSC/((SSPADD + 1)*4) 8MHz/((0x13+1)*4)=0.1(100KHz)
-    //SSP1IE = 1; // SSP(I2C)���荞�݂�������
-    //BCL1IE = 1; // MSSP(I2C)�o�X�Փˊ��荞�݂�������
-    SSP1IF = 0; // SSP(I2C)���荞�݃t���O���N���A����
-    BCL1IF = 0; // MSSP(I2C)�o�X�Փˊ��荞�݃t���O���N���A����
+    SSP1STAT = 0b10000000; // 標準速度モードに設定する(100kHz)
+    SSP1CON1 = 0b00101000; // SDA/SCLピンはI2Cで使用し、マスターモードとする
+    SSP1ADD = 0x13; // クロック=FOSC/((SSPADD + 1)*4) 8MHz/((0x13+1)*4)=0.1(100KHz)
+    //SSP1IE = 1; // SSP(I2C)割り込みを許可する
+    //BCL1IE = 1; // MSSP(I2C)バス衝突割り込みを許可する
+    SSP1IF = 0; // SSP(I2C)割り込みフラグをクリアする
+    BCL1IF = 0; // MSSP(I2C)バス衝突割り込みフラグをクリアする
 }
 
 uint8_t I2C_Start(uint8_t adrs, uint8_t rw) {
-    // �X�^�[�g(START CONDITION)
+    // スタート(START CONDITION)
     I2C_IdleCheck(0x5);
     SSP1CON2bits.SEN = 1;
-    // [�X���[�u�̃A�h���X]�𑗐M����
+    // [スレーブのアドレス]を送信する
     I2C_IdleCheck(0x5);
     SSP1IF = 0;
-    SSP1BUF = (uint8_t) ((adrs << 1) + rw); // �A�h���X + R/W�𑗐M
-    while (!SSP1IF); // ���肩���ACK�ԓ���҂�
+    SSP1BUF = (uint8_t) ((adrs << 1) + rw); // アドレス + R/Wを送信
+    while (!SSP1IF); // 相手からのACK返答を待つ
     return SSP1CON2bits.ACKSTAT;
 }
 
 uint8_t I2C_rStart(int adrs, int rw) {
-    // ���s�[�g�E�X�^�[�g(REPEATED START CONDITION)
+    // リピート・スタート(REPEATED START CONDITION)
     I2C_IdleCheck(0x5);
     SSP1CON2bits.RSEN = 1;
-    // [�X���[�u�̃A�h���X]�𑗐M����
+    // [スレーブのアドレス]を送信する
     I2C_IdleCheck(0x5);
     SSP1IF = 0;
-    SSP1BUF = (char) ((adrs << 1) + rw); // �A�h���X + R/W�𑗐M
-    while (!SSP1IF); // ���肩���ACK�ԓ���҂�
+    SSP1BUF = (char) ((adrs << 1) + rw); // アドレス + R/Wを送信
+    while (!SSP1IF); // 相手からのACK返答を待つ
     return SSP1CON2bits.ACKSTAT;
 }
 
 void I2C_Stop(void) {
-    // �X�g�b�v(STOP CONDITION)
+    // ストップ(STOP CONDITION)
     I2C_IdleCheck(0x5);
     SSP1CON2bits.PEN = 1;
 }
@@ -61,8 +61,8 @@ void I2C_Stop(void) {
 uint8_t I2C_Send(uint8_t data) {
     I2C_IdleCheck(0x5);
     SSP1IF = 0;
-    SSP1BUF = data; // �f�[�^�𑗐M
-    while (!SSP1IF); // ���肩���ACK�ԓ���҂�
+    SSP1BUF = data; // データを送信
+    while (!SSP1IF); // 相手からのACK返答を待つ
     return SSP1CON2bits.ACKSTAT;
 }
 
@@ -70,12 +70,12 @@ uint8_t I2C_Receive(uint8_t ack) {
     uint8_t data;
 
     I2C_IdleCheck(0x5);
-    SSP1CON2bits.RCEN = 1; // ��M��������
+    SSP1CON2bits.RCEN = 1; // 受信を許可する
     I2C_IdleCheck(0x4);
-    data = SSP1BUF; // �f�[�^�̎�M
+    data = SSP1BUF; // データの受信
     I2C_IdleCheck(0x5);
-    SSP1CON2bits.ACKDT = ack; // ACK�f�[�^�̃Z�b�g
-    SSP1CON2bits.ACKEN = 1; // ACK�f�[�^��Ԃ�
+    SSP1CON2bits.ACKDT = ack; // ACKデータのセット
+    SSP1CON2bits.ACKEN = 1; // ACKデータを返す
     return data;
 }
 

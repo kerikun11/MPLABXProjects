@@ -7,29 +7,29 @@
 void RTC_Write(uint8_t Reg, uint8_t data) {
     uint8_t ans;
 
-    ans = I2C_Start(DS1307_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_Start(DS1307_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        // command word ‚Ì‘—M
-        I2C_Send(Reg); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
-        I2C_Send(data); // data byte ‚Ì‘—M
+        // command word ã®é€ä¿¡
+        I2C_Send(Reg); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
+        I2C_Send(data); // data byte ã®é€ä¿¡
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
-    __delay_us(26);
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
+    //__delay_us(26);
 }
 
 uint8_t RTC_Read(uint8_t Reg) {
     uint8_t ans;
     uint8_t data;
 
-    ans = I2C_Start(DS1307_ADRES, W_0); // ƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_Start(DS1307_ADRES, W_0); // ã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
-        I2C_Send(Reg); // control byte ‚Ì‘—M(ƒRƒ}ƒ“ƒh‚ğw’è)
+        I2C_Send(Reg); // control byte ã®é€ä¿¡(ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š)
     }
-    ans = I2C_rStart(DS1307_ADRES, R_1); // reƒXƒ^[ƒgƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
+    ans = I2C_rStart(DS1307_ADRES, R_1); // reã‚¹ã‚¿ãƒ¼ãƒˆã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
     if (ans == 0) {
         data = I2C_Receive(1);
     }
-    I2C_Stop(); // ƒXƒgƒbƒvƒRƒ“ƒfƒBƒVƒ‡ƒ“‚ğ”­s‚·‚é
-    __delay_us(26);
+    I2C_Stop(); // ã‚¹ãƒˆãƒƒãƒ—ã‚³ãƒ³ãƒ‡ã‚£ã‚·ãƒ§ãƒ³ã‚’ç™ºè¡Œã™ã‚‹
+    //__delay_us(26);
     return data;
 }

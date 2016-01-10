@@ -10450,13 +10450,13 @@ void ringbuf_backspace(ringbuf_t *rb);
 
 void ringbuf_delete(ringbuf_t *rb);
 
-# 29 "../My_library/My_UART.h"
+# 68 "../My_library/My_UART.h"
 extern ringbuf_t uart_tx;
 extern ringbuf_t uart_rx;
 
 void UART_init(void);
 void UART_ISR(void);
-void UART_task();
+void UART_task(void);
 
 # 7 "../My_library/My_UART.c"
 ringbuf_t uart_tx;
@@ -10473,7 +10473,10 @@ RCSTA1bits.CREN = 1;
 BAUDCON1bits.BRG16 = 1;
 SPBRG1 = 48000000 / 16 / 115200 - 1;
 SPBRGH1 = (48000000 / 16 / 115200 - 1) >> 8;
+
 IPR1bits.RC1IP = 0;
+IPR1bits.TX1IP = 0;
+
 PIE1bits.RCIE = 1;
 INTCONbits.PEIE = 1;
 }

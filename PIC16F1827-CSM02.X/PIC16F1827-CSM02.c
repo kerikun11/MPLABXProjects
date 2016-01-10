@@ -81,7 +81,7 @@ void main() {
         if (intFlag) { // Every 16.384ms
             intFlag = 0;
 
-            CPSCON0bits.CPSON = 0; // ƒTƒ“ƒvƒŠƒ“ƒOI—¹
+            CPSCON0bits.CPSON = 0; // ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°çµ‚äº†
 
             cap = (TMR1H << 8) + TMR1L;
 
@@ -95,9 +95,9 @@ void main() {
 
             TMR1L = 0;
             TMR1H = 0;
-            CPSCON0bits.CPSON = 1; // Ÿ‚ÌƒTƒ“ƒvƒŠƒ“ƒOŠJn
+            CPSCON0bits.CPSON = 1; // æ¬¡ã®ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°é–‹å§‹
 
-            if (cnt++ >= 10) { // 10‰ñ‚É1“x(16.384 * 10[ms])‚­‚ç‚¢‚É‚µ‚È‚¢‚Æ‘‚·‚¬‚é
+            if (cnt++ >= 10) { // 10å›ã«1åº¦(16.384 * 10[ms])ãã‚‰ã„ã«ã—ãªã„ã¨æ—©ã™ãã‚‹
                 tx_send(cap >> 8);
                 cnt = 0;
             }

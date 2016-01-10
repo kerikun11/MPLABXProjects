@@ -192,7 +192,7 @@ uint16_t APP_CreateAN1136(void)
 
     if (!(pSld = GFX_GOL_ScrollBarCreate
         (
-            ID_SLD1,                // object�s ID
+            ID_SLD1,                // object・スs ID
             SLDR_XSTART,
             SLDR_YSTART,
             SLDR_XSTART+SLDR_WIDTH,

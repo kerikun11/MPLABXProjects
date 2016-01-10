@@ -10,7 +10,7 @@
 
 #include <xc.h>
 #include <stdint.h>
-#include "My_ringbuf.h"
+//#include "My_ringbuf.h"
 
 //*************************** OSC ***************************//
 #if defined(__18F27J53)
@@ -97,8 +97,9 @@ uint16_t CTMU_read(uint8_t ch);
 #endif  /* PIC18F27J53 || PIC18F26K22 */
 
 //*************************** Delay_ms ***************************//
-
+#ifdef _XTAL_FREQ
 void Delay_ms(uint16_t ms);
+#endif
 
 //*************************** millis ***************************//
 

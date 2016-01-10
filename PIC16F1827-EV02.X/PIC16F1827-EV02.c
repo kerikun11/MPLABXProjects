@@ -1,6 +1,6 @@
 // PIC16F1827 Configuration Bit Settings
 // 2015.2.7
-// NJW1159D 電子ボリュームIC使用
+// NJW1159D 髮ｻ蟄舌�懊Μ繝･繝ｼ繝IC菴ｿ逕ｨ
 
 #include <xc.h>
 #include <stdint.h>

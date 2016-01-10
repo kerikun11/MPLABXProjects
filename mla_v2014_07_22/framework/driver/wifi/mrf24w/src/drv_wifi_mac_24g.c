@@ -547,7 +547,7 @@ static void ConfigWep(tWFWpsCred *cred, uint8_t *secType, union sec_key *key)
     MACInit must be called first.
 
   Parameters:
-    CpId - Connection Profile� ID
+    CpId - Connection Profile・ス ID
 
   Returns:
     None.

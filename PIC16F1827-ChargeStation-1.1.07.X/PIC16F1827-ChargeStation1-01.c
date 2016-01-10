@@ -1,8 +1,8 @@
 // PIC16F1827 Configuration Bit Settings
 // 2014.10.29
 // RA0~3:adc, RB0~3:output, RA4~7:sw
-// ChargeStation Ver.1 ‹à‘®ƒP[ƒX—p
-// ˆÀ’èŠ®¬”Å
+// ChargeStation Ver.1 é‡‘å±ã‚±ãƒ¼ã‚¹ç”¨
+// å®‰å®šå®Œæˆç‰ˆ
 
 #include <xc.h>
 #include <stdint.h>

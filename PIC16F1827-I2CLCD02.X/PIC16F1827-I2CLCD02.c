@@ -2,8 +2,8 @@
 __CONFIG(CLKOUTEN_OFF & FOSC_INTOSC & FCMEN_OFF & IESO_OFF & BOREN_ON &
         PWRTE_ON & WDTE_OFF & MCLRE_OFF & CP_OFF & CPD_OFF);
 __CONFIG(PLLEN_OFF & STVREN_ON & WRT_OFF & BORV_HI & LVP_OFF);
-#define _XTAL_FREQ 8000000    // �g�p����PIC���ɂ�蓮����g���l��ݒ肷��
-#define ST7032_ADRES 0x3E      // �H���d�q��I2C�ڑ����^LCD���W���[���̃A�h���X
+#define _XTAL_FREQ 8000000    // 使用するPIC等により動作周波数値を設定する
+#define ST7032_ADRES 0x3E      // 秋月電子のI2C接続小型LCDモジュールのアドレス
 #define DS1307_ADRES 0x68
 #define ACK   0
 #define NOACK 1
@@ -38,38 +38,38 @@ char heart[7] = {
 };
 
 /*******************************************************************************
- *  InterFunction()   ���荞�݂̏���                                            *
+ *  InterFunction()   割り込みの処理                                            *
  *******************************************************************************/
 void interrupt InterFunction(void) {
-    // �h�Q�b�֘A�̊��荞�ݏ���
+    // Ｉ２Ｃ関連の割り込み処理
     InterI2C();
 }
 /*******************************************************************************
- *  skI2Clib - �h�Q�b�֐����C�u����(PIC12F/16F18xx�V���[�Y�p)                   *
- *             ���̃��C�u������I2C�f�o�C�X(RTC/EEPROM��)�Ɛڑ����s���ׂ̊֐��W  *
+ *  skI2Clib - Ｉ２Ｃ関数ライブラリ(PIC12F/16F18xxシリーズ用)                   *
+ *             このライブラリはI2Cデバイス(RTC/EEPROM等)と接続を行う為の関数集  *
  *                                                                              *
- *    InterI2C       - �h�Q�b�֘A�̊��荞�ݏ���                                 *
- *    InitI2C_Master - �h�Q�b�ʐM�̃}�X�^�[���[�h�ŏ��������s������             *
- *    I2C_Start      - �X���[�u�ɃX�^�[�g�R���f�B�V�����𔭍s���鏈��           *
- *    I2C_rStart     - �X���[�u�Ƀ��s�[�g�E�X�^�[�g�R���f�B�V�����𔭍s���鏈�� *
- *    I2C_Stop       - �X���[�u�ɃX�g�b�v�R���f�B�V�����𔭍s���鏈��           *
- *    I2C_Send       - �X���[�u�Ƀf�[�^���P�o�C�g���M���鏈��                   *
- *    I2C_Receive    - �X���[�u����f�[�^���P�o�C�g��M���鏈��                 *
+ *    InterI2C       - Ｉ２Ｃ関連の割り込み処理                                 *
+ *    InitI2C_Master - Ｉ２Ｃ通信のマスターモードで初期化を行う処理             *
+ *    I2C_Start      - スレーブにスタートコンディションを発行する処理           *
+ *    I2C_rStart     - スレーブにリピート・スタートコンディションを発行する処理 *
+ *    I2C_Stop       - スレーブにストップコンディションを発行する処理           *
+ *    I2C_Send       - スレーブにデータを１バイト送信する処理                   *
+ *    I2C_Receive    - スレーブからデータを１バイト受信する処理                 *
  *                                                                              *
- *    �����FSDA/SCL�s���͕K���u�f�W�^�����̓s���v�ɐݒ���s���ĉ������B         *
- *          �ʐM�N���b�N��100KHz(CPU8MHz)�ł̏������ł��B                       *
+ *    メモ：SDA/SCLピンは必ず「デジタル入力ピン」に設定を行って下さい。         *
+ *          通信クロックは100KHz(CPU8MHz)での初期化です。                       *
  * ============================================================================ *
  *  VERSION DATE        BY                    CHANGE/COMMENT                    *
  * ---------------------------------------------------------------------------- *
- *  1.00    2012-01-20  ���ޒ��H�[(���ނ���)  Create                            *
- *  1.01    2013-02-16  ���ޒ��H�[(���ނ���)  XC8 C Compiler �Ή��ɕύX         *
+ *  1.00    2012-01-20  きむ茶工房(きむしげ)  Create                            *
+ *  1.01    2013-02-16  きむ茶工房(きむしげ)  XC8 C Compiler 対応に変更         *
  * ============================================================================ *
- *  PIC 12F1822 16F18xx (16F1827��SSP2���p�s��)(16F19xx�͗��p�s��)              *
+ *  PIC 12F1822 16F18xx (16F1827はSSP2利用不可)(16F19xxは利用不可)              *
  *  MPLAB IDE(V8.84)                                                            *
  *  MPLAB(R) XC8 C Compiler Version 1.00                                        *
  *******************************************************************************/
-// �A�C�h����Ԃ̃`�F�b�N
-// ACKEN RCEN PEN RSEN SEN R/W BF ���S�ĂO�Ȃ�n�j
+// アイドル状態のチェック
+// ACKEN RCEN PEN RSEN SEN R/W BF が全て０ならＯＫ
 
 void I2C_IdleCheck(char mask) {
     while ((SSP1CON2 & 0x1F) | (SSP1STAT & mask));
@@ -77,177 +77,177 @@ void I2C_IdleCheck(char mask) {
 
 /*******************************************************************************
  *  InterI2C( void )                                                            *
- *    �h�Q�b�֘A�̊��荞�ݏ���                                                  *
- *     ���̊֐��̓��C���v���O�����̊����݊֐��ŌĂт܂�                         *
+ *    Ｉ２Ｃ関連の割り込み処理                                                  *
+ *     この関数はメインプログラムの割込み関数で呼びます                         *
  *******************************************************************************/
 void InterI2C(void) {
-    if (SSP1IF == 1) { // SSP(I2C)���荞�ݔ������H
+    if (SSP1IF == 1) { // SSP(I2C)割り込み発生か？
         if (AckCheck == 1) AckCheck = 0;
-        SSP1IF = 0; // �t���O�N���A
+        SSP1IF = 0; // フラグクリア
     }
-    if (BCL1IF == 1) { // MSSP(I2C)�o�X�Փˊ��荞�ݔ������H
-        BCL1IF = 0; // ����̓t���O�̂݃N���A����(������)
+    if (BCL1IF == 1) { // MSSP(I2C)バス衝突割り込み発生か？
+        BCL1IF = 0; // 今回はフラグのみクリアする(無処理)
     }
 }
 
 /*******************************************************************************
  *  InitI2C_Master()                                                            *
- *    �h�Q�b�ʐM�̃}�X�^�[���[�h�ŏ��������s������                              *
+ *    Ｉ２Ｃ通信のマスターモードで初期化を行う処理                              *
  *                                                                              *
- *    ��)�N���b�N8MHz�ł̐ݒ�ł��A���̃N���b�N��SSP1ADD��ύX����K�v���L��܂�*
+ *    注)クロック8MHzでの設定です、他のクロックはSSP1ADDを変更する必要が有ります*
  *******************************************************************************/
 void InitI2C_Master(void) {
-    SSP1STAT = 0b10000000; // �W�����x���[�h�ɐݒ肷��(100kHz)
-    SSP1CON1 = 0b00101000; // SDA/SCL�s����I2C�Ŏg�p���A�}�X�^�[���[�h�Ƃ���
-    SSP1ADD = 0x13; // �N���b�N=FOSC/((SSPADD + 1)*4) 8MHz/((0x13+1)*4)=0.1(100KHz)
-    SSP1IE = 1; // SSP(I2C)���荞�݂�������
-    BCL1IE = 1; // MSSP(I2C)�o�X�Փˊ��荞�݂�������
-    PEIE = 1; // ���ӑ��u���荞�݂�������
-    GIE = 1; // �S���荞�ݏ�����������
-    SSP1IF = 0; // SSP(I2C)���荞�݃t���O���N���A����
-    BCL1IF = 0; // MSSP(I2C)�o�X�Փˊ��荞�݃t���O���N���A����
+    SSP1STAT = 0b10000000; // 標準速度モードに設定する(100kHz)
+    SSP1CON1 = 0b00101000; // SDA/SCLピンはI2Cで使用し、マスターモードとする
+    SSP1ADD = 0x13; // クロック=FOSC/((SSPADD + 1)*4) 8MHz/((0x13+1)*4)=0.1(100KHz)
+    SSP1IE = 1; // SSP(I2C)割り込みを許可する
+    BCL1IE = 1; // MSSP(I2C)バス衝突割り込みを許可する
+    PEIE = 1; // 周辺装置割り込みを許可する
+    GIE = 1; // 全割り込み処理を許可する
+    SSP1IF = 0; // SSP(I2C)割り込みフラグをクリアする
+    BCL1IF = 0; // MSSP(I2C)バス衝突割り込みフラグをクリアする
 }
 
 /*******************************************************************************
  *  ans = I2C_Start(adrs,rw)                                                    *
- *    �X���[�u�ɃX�^�[�g�R���f�B�V�����𔭍s���鏈��                            *
+ *    スレーブにスタートコンディションを発行する処理                            *
  *                                                                              *
- *    adrs : �X���[�u�̃A�h���X���w�肵�܂�                                     *
- *    rw   : �X���[�u�ɑ΂��铮��̎w������܂�                                 *
- *           0=�X���[�u�ɏ����݂Ȃ����v���@1=�X���[�u�ɑ��M���Ȃ����v��         *
- *    ans  : 0=����@1=�ُ�(���肩��ACK���Ԃ��Ă��Ȃ�)                          *
+ *    adrs : スレーブのアドレスを指定します                                     *
+ *    rw   : スレーブに対する動作の指定をします                                 *
+ *           0=スレーブに書込みなさい要求　1=スレーブに送信しなさい要求         *
+ *    ans  : 0=正常　1=異常(相手からACKが返ってこない)                          *
  *******************************************************************************/
 int I2C_Start(int adrs, int rw) {
-    // �X�^�[�g(START CONDITION)
+    // スタート(START CONDITION)
     I2C_IdleCheck(0x5);
     SSP1CON2bits.SEN = 1;
-    // [�X���[�u�̃A�h���X]�𑗐M����
+    // [スレーブのアドレス]を送信する
     I2C_IdleCheck(0x5);
     AckCheck = 1;
-    SSP1BUF = (char) ((adrs << 1) + rw); // �A�h���X + R/W�𑗐M
-    while (AckCheck); // ���肩���ACK�ԓ���҂�
+    SSP1BUF = (char) ((adrs << 1) + rw); // アドレス + R/Wを送信
+    while (AckCheck); // 相手からのACK返答を待つ
     return SSP1CON2bits.ACKSTAT;
 }
 
 /*******************************************************************************
  *  ans = I2C_rStart(adrs,rw)                                                   *
- *    �X���[�u�Ƀ��s�[�g�E�X�^�[�g�R���f�B�V�����𔭍s���鏈��                  *
+ *    スレーブにリピート・スタートコンディションを発行する処理                  *
  *                                                                              *
- *    adrs : �X���[�u�̃A�h���X���w�肵�܂�                                     *
- *    rw   : �X���[�u�ɑ΂��铮��̎w������܂�                                 *
- *           0=�X���[�u�ɏ����݂Ȃ����v���@1=�X���[�u�ɑ��M���Ȃ����v��         *
- *    ans  : 0=����@1:�ُ�(���肩��ACK���Ԃ��Ă��Ȃ�)                          *
+ *    adrs : スレーブのアドレスを指定します                                     *
+ *    rw   : スレーブに対する動作の指定をします                                 *
+ *           0=スレーブに書込みなさい要求　1=スレーブに送信しなさい要求         *
+ *    ans  : 0=正常　1:異常(相手からACKが返ってこない)                          *
  *******************************************************************************/
 int I2C_rStart(int adrs, int rw) {
-    // ���s�[�g�E�X�^�[�g(REPEATED START CONDITION)
+    // リピート・スタート(REPEATED START CONDITION)
     I2C_IdleCheck(0x5);
     SSP1CON2bits.RSEN = 1;
-    // [�X���[�u�̃A�h���X]�𑗐M����
+    // [スレーブのアドレス]を送信する
     I2C_IdleCheck(0x5);
     AckCheck = 1;
-    SSP1BUF = (char) ((adrs << 1) + rw); // �A�h���X + R/W�𑗐M
-    while (AckCheck); // ���肩���ACK�ԓ���҂�
+    SSP1BUF = (char) ((adrs << 1) + rw); // アドレス + R/Wを送信
+    while (AckCheck); // 相手からのACK返答を待つ
     return SSP1CON2bits.ACKSTAT;
 }
 
 /*******************************************************************************
  *  I2C_Stop()                                                                  *
- *    �X���[�u�ɃX�g�b�v�R���f�B�V�����𔭍s���鏈��                            *
+ *    スレーブにストップコンディションを発行する処理                            *
  *******************************************************************************/
 void I2C_Stop(void) {
-    // �X�g�b�v(STOP CONDITION)
+    // ストップ(STOP CONDITION)
     I2C_IdleCheck(0x5);
     SSP1CON2bits.PEN = 1;
 }
 
 /*******************************************************************************
  *  ans = I2C_Send(dt)                                                          *
- *    �X���[�u�Ƀf�[�^���P�o�C�g���M���鏈��                                    *
+ *    スレーブにデータを１バイト送信する処理                                    *
  *                                                                              *
- *    dt  : ���M����f�[�^���w�肵�܂�                                          *
- *    ans  : 0=����@1=�ُ�(���肩��ACK���Ԃ��Ă��Ȃ�����NOACK��Ԃ���)         *
+ *    dt  : 送信するデータを指定します                                          *
+ *    ans  : 0=正常　1=異常(相手からACKが返ってこない又はNOACKを返した)         *
  *******************************************************************************/
 int I2C_Send(char dt) {
     I2C_IdleCheck(0x5);
     AckCheck = 1;
-    SSP1BUF = dt; // �f�[�^�𑗐M
-    while (AckCheck); // ���肩���ACK�ԓ���҂�
+    SSP1BUF = dt; // データを送信
+    while (AckCheck); // 相手からのACK返答を待つ
     return SSP1CON2bits.ACKSTAT;
 }
 
 /*******************************************************************************
  *  ans = I2C_Receive(ack)                                                      *
- *    �X���[�u����f�[�^���P�o�C�g��M���鏈��                                  *
+ *    スレーブからデータを１バイト受信する処理                                  *
  *                                                                              *
- *    ack  : �X���[�u�ւ̕ԓ��f�[�^���w�肵�܂�                                 *
- *           0:ACK��Ԃ��@1:NOACK��Ԃ�(��M�f�[�^���Ō�Ȃ�1)                  *
- *    ans  : ��M�����f�[�^��Ԃ�                                               *
+ *    ack  : スレーブへの返答データを指定します                                 *
+ *           0:ACKを返す　1:NOACKを返す(受信データが最後なら1)                  *
+ *    ans  : 受信したデータを返す                                               *
  *******************************************************************************/
 char I2C_Receive(int ack) {
     char dt;
 
     I2C_IdleCheck(0x5);
-    SSP1CON2bits.RCEN = 1; // ��M��������
+    SSP1CON2bits.RCEN = 1; // 受信を許可する
     I2C_IdleCheck(0x4);
-    dt = SSP1BUF; // �f�[�^�̎�M
+    dt = SSP1BUF; // データの受信
     I2C_IdleCheck(0x5);
-    SSP1CON2bits.ACKDT = ack; // ACK�f�[�^�̃Z�b�g
-    SSP1CON2bits.ACKEN = 1; // ACK�f�[�^��Ԃ�
+    SSP1CON2bits.ACKDT = ack; // ACKデータのセット
+    SSP1CON2bits.ACKEN = 1; // ACKデータを返す
     return dt;
 }
 /*******************************************************************************
- *  skI2CLCDlib - �h�Q�b�ڑ��k�b�c�֐����C�u����                                *
- *             ���̃��C�u�����́A�H���d�q�h�Q�b�ڑ����^�k�b�c���W���[���p�ł��B *
+ *  skI2CLCDlib - Ｉ２Ｃ接続ＬＣＤ関数ライブラリ                                *
+ *             このライブラリは、秋月電子Ｉ２Ｃ接続小型ＬＣＤモジュール用です。 *
  *                                                                              *
- *    LCD_Init      - �k�b�c�̏��������s������                                  *
- *    LCD_Clear     - �k�b�c���W���[���̉�ʂ���������                          *
- *    LCD_SetCursor - �k�b�c���W���[����ʓ��̃J�[�\���ʒu���ړ����鏈��        *
- *    LCD_Putc      - �k�b�c�Ƀf�[�^���P�o�C�g�o�͂��鏈��                      *
- *    LCD_Puts      - �k�b�c�ɕ�����f�[�^���o�͂��鏈��                        *
- *    LCD_CreateChar - �I���W�i���̃L�����N�^��o�^���܂�                       *
+ *    LCD_Init      - ＬＣＤの初期化を行う処理                                  *
+ *    LCD_Clear     - ＬＣＤモジュールの画面を消す処理                          *
+ *    LCD_SetCursor - ＬＣＤモジュール画面内のカーソル位置を移動する処理        *
+ *    LCD_Putc      - ＬＣＤにデータを１バイト出力する処理                      *
+ *    LCD_Puts      - ＬＣＤに文字列データを出力する処理                        *
+ *    LCD_CreateChar - オリジナルのキャラクタを登録します                       *
  *                                                                              *
- *    �����F__delay_us() and __delay_ms() ���g�p���Ă���̂� "skI2CLCDlib.h" �� *
- *         "#define _XTAL_FREQ 8000000"���L�q����Ă��܂��A                     *
- *         8MHz�ȊO��CPU�N���b�N�ɂ���l�͏��������܂��傤�B                    *
+ *    メモ：__delay_us() and __delay_ms() を使用しているので "skI2CLCDlib.h" に *
+ *         "#define _XTAL_FREQ 8000000"が記述されています、                     *
+ *         8MHz以外のCPUクロックにする人は書き換えましょう。                    *
  * ============================================================================ *
  *  VERSION DATE        BY                    CHANGE/COMMENT                    *
  * ---------------------------------------------------------------------------- *
- *  1.00    2013-07-25  ���ޒ��H�[(���ނ���)  Create                            *
+ *  1.00    2013-07-25  きむ茶工房(きむしげ)  Create                            *
  * ============================================================================ *
- *  PIC 12F1822 16F1827 (���̃��C�u�������̂͑��̂o�h�b�ł��n�j�Ǝv���܂�)      *
+ *  PIC 12F1822 16F1827 (このライブラリ自体は他のＰＩＣでもＯＫと思います)      *
  *  MPLAB IDE(V8.84)                                                            *
  *  MPLAB(R) XC8 C Compiler Version 1.00                                        *
  *******************************************************************************/
-// �k�b�c�ɃR�}���h�𔭍s���鏈��
+// ＬＣＤにコマンドを発行する処理
 
 void command(unsigned char c) {
     int ans;
 
-    ans = I2C_Start(ST7032_ADRES, W_0); // �X�^�[�g�R���f�B�V�����𔭍s����
+    ans = I2C_Start(ST7032_ADRES, W_0); // スタートコンディションを発行する
     if (ans == 0) {
-        // command word �̑��M
-        I2C_Send(0b10000000); // control byte �̑��M(�R�}���h���w��)
-        I2C_Send(c); // data byte �̑��M
+        // command word の送信
+        I2C_Send(0b10000000); // control byte の送信(コマンドを指定)
+        I2C_Send(c); // data byte の送信
     }
-    I2C_Stop(); // �X�g�b�v�R���f�B�V�����𔭍s����
+    I2C_Stop(); // ストップコンディションを発行する
     __delay_us(26);
 }
 
 /*******************************************************************************
  *  LCD_Clear( )                                                                *
- *    �k�b�c���W���[���̉�ʂ���������                                          *
+ *    ＬＣＤモジュールの画面を消す処理                                          *
  *******************************************************************************/
 void LCD_Clear(void) {
-    command(0x01); // Clear Display : ��ʑS�̂�20H�̽�߰��ŕ\���A���ق�col=0,row=0�Ɉړ�
-    __delay_us(1100); // LCD������(1.08ms)����̂�҂��܂�
+    command(0x01); // Clear Display : 画面全体に20Hのスペースで表示、カーソルはcol=0,row=0に移動
+    __delay_us(1100); // LCDが処理(1.08ms)するのを待ちます
 }
 
 /*******************************************************************************
  *  LCD_SetCursor(col,row)                                                      *
- *    �k�b�c���W���[����ʓ��̃J�[�\���ʒu���ړ����鏈��                        *
+ *    ＬＣＤモジュール画面内のカーソル位置を移動する処理                        *
  *                                                                              *
- *    col : ��(��)�����̃J�[�\���ʒu(0-7)                                       *
- *    row : �c(�s)�����̃J�[�\���ʒu(0-1)                                       *
+ *    col : 横(列)方向のカーソル位置(0-7)                                       *
+ *    row : 縦(行)方向のカーソル位置(0-1)                                       *
  *******************************************************************************/
 void LCD_SetCursor(int col, int row) {
     int row_offsets[] = {0x00, 0x40};
@@ -257,99 +257,99 @@ void LCD_SetCursor(int col, int row) {
 
 /*******************************************************************************
  *  LCD_Putc(c)                                                                 *
- *    ������́ANULL(0x00)�܂ŌJ�Ԃ��o�͂��܂��B                                *
+ *    文字列は、NULL(0x00)まで繰返し出力します。                                *
  *                                                                              *
- *    c :  �o�͂��镶���f�[�^���w��                                             *
+ *    c :  出力する文字データを指定                                             *
  *******************************************************************************/
 void LCD_Putc(char c) {
     int ans;
 
-    ans = I2C_Start(ST7032_ADRES, W_0); // �X�^�[�g�R���f�B�V�����𔭍s����
+    ans = I2C_Start(ST7032_ADRES, W_0); // スタートコンディションを発行する
     if (ans == 0) {
-        // command word �̑��M
-        I2C_Send(0b11000000); // control byte �̑��M(�f�[�^���w��)
-        I2C_Send(c); // data byte �̑��M
+        // command word の送信
+        I2C_Send(0b11000000); // control byte の送信(データを指定)
+        I2C_Send(c); // data byte の送信
     }
-    I2C_Stop(); // �X�g�b�v�R���f�B�V�����𔭍s����
+    I2C_Stop(); // ストップコンディションを発行する
     __delay_us(26);
 }
 
 /*******************************************************************************
  *  LCD_Puts(*s)                                                                *
- *    �k�b�c�ɕ�����f�[�^���o�͂��鏈��                                        *
- *    ������́ANULL(0x00)�܂ŌJ�Ԃ��o�͂��܂��B                                *
+ *    ＬＣＤに文字列データを出力する処理                                        *
+ *    文字列は、NULL(0x00)まで繰返し出力します。                                *
  *                                                                              *
- *    *s :  �o�͂��镶����̃f�[�^���i�[�����ꏊ�̃A�h���X���w��                *
+ *    *s :  出力する文字列のデータを格納した場所のアドレスを指定                *
  *******************************************************************************/
 void LCD_Puts(const char * s) {
     int ans;
 
-    ans = I2C_Start(ST7032_ADRES, W_0); // �X�^�[�g�R���f�B�V�����𔭍s����
+    ans = I2C_Start(ST7032_ADRES, W_0); // スタートコンディションを発行する
     if (ans == 0) {
-        I2C_Send(0b01000000); // control byte �̑��M(�f�[�^���w��)
+        I2C_Send(0b01000000); // control byte の送信(データを指定)
         while (*s) {
-            I2C_Send(*s++); // data byte �̑��M(�A�����M)
+            I2C_Send(*s++); // data byte の送信(連続送信)
             __delay_us(26);
         }
     }
-    I2C_Stop(); // �X�g�b�v�R���f�B�V�����𔭍s����
+    I2C_Stop(); // ストップコンディションを発行する
 }
 
 /*******************************************************************************
  *  LCD_CreateChar(p,*dt)                                                       *
- *    �I���W�i���̃L�����N�^��o�^���܂�                                        *
+ *    オリジナルのキャラクタを登録します                                        *
  *                                                                              *
- *    p   : �o�^����ꏊ�̎w��(�O�`�T�̂U�����̂�)                              *
- *    *dt : �o�^�������L�����N�^�̃f�[�^���i�[�����o�b�t�@���w��                *
+ *    p   : 登録する場所の指定(０〜５の６ヶ所のみ)                              *
+ *    *dt : 登録したいキャラクタのデータを格納したバッファを指定                *
  ********************************************************************************/
 void LCD_CreateChar(int p, char *dt) {
     int ans;
 
-    ans = I2C_Start(ST7032_ADRES, W_0); // �X�^�[�g�R���f�B�V�����𔭍s����
+    ans = I2C_Start(ST7032_ADRES, W_0); // スタートコンディションを発行する
     if (ans == 0) {
-        //  LCD�ɃL�����ۑ���̃A�h���X���w������
-        I2C_Send(0b10000000); // control byte �̑��M(�R�}���h���w��)
+        //  LCDにキャラ保存先のアドレスを指示する
+        I2C_Send(0b10000000); // control byte の送信(コマンドを指定)
         I2C_Send(0x40 | (p << 3));
         __delay_us(26);
-        //  LCD�ɃL�����f�[�^�𑗐M����
-        I2C_Send(0b01000000); // control byte �̑��M(�f�[�^���w��)
+        //  LCDにキャラデータを送信する
+        I2C_Send(0b01000000); // control byte の送信(データを指定)
         for (int i = 0; i < 7; i++) {
             I2C_Send(*dt++);
             __delay_us(26);
         }
     }
-    I2C_Stop(); // �X�g�b�v�R���f�B�V�����𔭍s����
+    I2C_Stop(); // ストップコンディションを発行する
 }
 
 /*******************************************************************************
  *  LCD_Init( )                                                                 *
- *    �k�b�c�̏��������s������                                                  *
+ *    ＬＣＤの初期化を行う処理                                                  *
  *******************************************************************************/
 void LCD_Init(void) {
-    __delay_ms(40); // �d���n�m��40ms�܂ő҂��Ă��珉����
-    command(0x38); // function set           : �f�[�^����8�{�E�\���͂Q�s�E�t�H���g��5x8�h�b�g
-    command(0x39); // function set           : �g���R�}���h�̐ݒ��L���ɂ���
-    command(0x14); // Internal OSC frequency : �o�C�A�X�̑I���Ɠ���OSC���g���̒���
-    command(0x70); // Contrast set           : �R���g���X�g�����f�[�^(����4�r�b�g)
-    command(0x56); // Contrast set           : ������H�L���A�R���g���X�g�����f�[�^(���2�r�b�g)
-    command(0x6C); // Follower control       : �t�H���A��H��ON�A�������̒������s��
-    __delay_ms(200); // �d�͂����肷��܂ő҂�
-    command(0x38); // function set           : �g���R�}���h��ݒ�𖳌��ɂ���
-    command(0x0C); // display control        : ��ʕ\����ON�E�J�[�\���\����OFF�E�J�[�\���_�ł�OFF
-    command(0x06); // entry mode set         : ������\���������ɃJ�[�\�����ړ�������w��
-    LCD_Clear(); // Clear Display          : ��ʂ���������
+    __delay_ms(40); // 電源ＯＮ後40msまで待ってから初期化
+    command(0x38); // function set           : データ線は8本・表示は２行・フォントは5x8ドット
+    command(0x39); // function set           : 拡張コマンドの設定を有効にする
+    command(0x14); // Internal OSC frequency : バイアスの選択と内部OSC周波数の調整
+    command(0x70); // Contrast set           : コントラスト調整データ(下位4ビット)
+    command(0x56); // Contrast set           : 昇圧回路有効、コントラスト調整データ(上位2ビット)
+    command(0x6C); // Follower control       : フォロア回路をON、増幅率の調整を行う
+    __delay_ms(200); // 電力が安定するまで待つ
+    command(0x38); // function set           : 拡張コマンドを設定を無効にする
+    command(0x0C); // display control        : 画面表示はON・カーソル表示はOFF・カーソル点滅はOFF
+    command(0x06); // entry mode set         : 文字を表示した次にカーソルを移動するを指示
+    LCD_Clear(); // Clear Display          : 画面を消去する
 }
 
 void RTC_write(unsigned char Reg, unsigned char c) {
     int ans;
 
-    ans = I2C_Start(DS1307_ADRES, W_0); // �X�^�[�g�R���f�B�V�����𔭍s����
+    ans = I2C_Start(DS1307_ADRES, W_0); // スタートコンディションを発行する
     if (ans == 0) {
-        // command word �̑��M
-        I2C_Send(Reg); // control byte �̑��M(�R�}���h���w��)
-        I2C_Send(c); // data byte �̑��M
+        // command word の送信
+        I2C_Send(Reg); // control byte の送信(コマンドを指定)
+        I2C_Send(c); // data byte の送信
     }
-    I2C_Stop(); // �X�g�b�v�R���f�B�V�����𔭍s����
+    I2C_Stop(); // ストップコンディションを発行する
     __delay_us(26);
 }
 
@@ -357,46 +357,46 @@ unsigned char RTC_read(unsigned char Reg, unsigned char c) {
     int ans;
     unsigned char data;
 
-    ans = I2C_Start(DS1307_ADRES, W_0); // �X�^�[�g�R���f�B�V�����𔭍s����
+    ans = I2C_Start(DS1307_ADRES, W_0); // スタートコンディションを発行する
     if (ans == 0) {
-        // command word �̑��M
-        I2C_Send(Reg); // control byte �̑��M(�R�}���h���w��)
+        // command word の送信
+        I2C_Send(Reg); // control byte の送信(コマンドを指定)
     }
-    ans = I2C_Start(DS1307_ADRES, R_1); // �X�^�[�g�R���f�B�V�����𔭍s����
+    ans = I2C_Start(DS1307_ADRES, R_1); // スタートコンディションを発行する
     if (ans == 0) {
-        // command word �̑��M
-        data = I2C_Receive(1); // control byte �̑��M(�R�}���h���w��)
+        // command word の送信
+        data = I2C_Receive(1); // control byte の送信(コマンドを指定)
     }
-    I2C_Stop(); // �X�g�b�v�R���f�B�V�����𔭍s����
+    I2C_Stop(); // ストップコンディションを発行する
     __delay_us(26);
     return data;
 }
 
 /*******************************************************************************
- *  ���C���̏���                                                                *
+ *  メインの処理                                                                *
  *******************************************************************************/
 void main(void) {
-    OSCCON = 0b01110010; // �����N���b�N�͂W�l�g���Ƃ���
-    OPTION_REG = 0b00000000; // �f�W�^��I/O�ɓ����v���A�b�v��R���g�p����
-    ANSELA = 0b00000000; // AN0-AN4�͎g�p���Ȃ��S�ăf�W�^��I/O�Ƃ���
-    ANSELB = 0b00000000; // AN5-AN11�͎g�p���Ȃ��S�ăf�W�^��I/O�Ƃ���
-    TRISA = 0b00000000; // �s��(RA)�͑S�ďo�͂Ɋ����Ă�(RA5�͓��݂͂̂ƂȂ�)
-    TRISB = 0b00010010; // �s��(RB)��RB4(SCL1)/RB1(SDA1)�̂ݓ���
-    WPUB = 0b00010010; // RB1/4�͓����v���A�b�v��R���w�肷��
-    PORTA = 0b00000000; // RA�o�̓s���̏�����(�S��LOW�ɂ���)
-    PORTB = 0b00000000; // RB�o�̓s���̏�����(�S��LOW�ɂ���)
+    OSCCON = 0b01110010; // 内部クロックは８ＭＨｚとする
+    OPTION_REG = 0b00000000; // デジタルI/Oに内部プルアップ抵抗を使用する
+    ANSELA = 0b00000000; // AN0-AN4は使用しない全てデジタルI/Oとする
+    ANSELB = 0b00000000; // AN5-AN11は使用しない全てデジタルI/Oとする
+    TRISA = 0b00000000; // ピン(RA)は全て出力に割当てる(RA5は入力のみとなる)
+    TRISB = 0b00010010; // ピン(RB)はRB4(SCL1)/RB1(SDA1)のみ入力
+    WPUB = 0b00010010; // RB1/4は内部プルアップ抵抗を指定する
+    PORTA = 0b00000000; // RA出力ピンの初期化(全てLOWにする)
+    PORTB = 0b00000000; // RB出力ピンの初期化(全てLOWにする)
 
-    InitI2C_Master(); // �h�Q�b�̏���������
+    InitI2C_Master(); // Ｉ２Ｃの初期化処理
 
-    // �k�b�c���W���[���̏���������
+    // ＬＣＤモジュールの初期化処理
     LCD_Init();
 
-    LCD_CreateChar(0x00, heart); // 1�ԂɃI���W�i���L�����N�^��o�^����
+    LCD_CreateChar(0x00, heart); // 1番にオリジナルキャラクタを登録する
 
-    LCD_SetCursor(0, 0); // �\���ʒu��ݒ肷��
+    LCD_SetCursor(0, 0); // 表示位置を設定する
     LCD_Puts("Hello");
-    //LCD_Putc(0x00) ;            // 1�Ԃɓo�^�����L������\������
-    LCD_SetCursor(2, 1); // �\���ʒu��ݒ肷��
+    //LCD_Putc(0x00) ;            // 1番に登録したキャラを表示する
+    LCD_SetCursor(2, 1); // 表示位置を設定する
     LCD_Puts("World!");
 
     while (1) {

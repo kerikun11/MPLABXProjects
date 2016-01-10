@@ -273,11 +273,11 @@ typedef struct WFMacStatsStruct
 
     /**
       Number of frames received where the Protected Frame subfield of the Frame Control Field is set to
-      one and the WEPOn value for the key mapped to the transmitterís MAC address indicates the frame
+      one and the WEPOn value for the key mapped to the transmitterÁó¥ MAC address indicates the frame
       should not have been encrypted.
       */
     uint32_t MibRxWEPUndecryptCtr;
-    uint32_t MibRxFragAgedCtr; // Number of times that fragments ëaged outí, or were not received in the allowable time.
+    uint32_t MibRxFragAgedCtr; // Number of times that fragments Áñéged out or were not received in the allowable time.
     uint32_t MibRxMICFailureCtr; // Number of MIC failures that have occurred.
 } tWFMacStats;
 
@@ -484,7 +484,7 @@ enum SoftAPEventReason {SOFTAP_EVENT_LINK_LOST, SOFTAP_EVENT_RECEIVED_DEAUTH };
 typedef struct WFCPElementsStruct
 {
     /**
-      SSID, which must be less than or equal to 32 characters.  Set to all 0ís
+      SSID, which must be less than or equal to 32 characters.  Set to all 0Áó¥
       if not being used.  If ssidLength is 0 this field is ignored.  If SSID is
       not defined then the MRF24W, when using this profile to connect, will
       scan all channels within its regional domain.
@@ -499,7 +499,7 @@ typedef struct WFCPElementsStruct
       be used in lieu of the SSID.
 
       Set each byte to 0xFF if BSSID is not going to be used.
-      Default: BSSID not used (all FFís)
+      Default: BSSID not used (all FFÁó¥)
       */
     uint8_t  bssid[WF_BSSID_LENGTH];
     /**
@@ -551,12 +551,12 @@ typedef struct WFCPElementsStruct
                          The keys must be contiguous within this field.  For example, if
                          using 5 bytes keys the first key starts at index 0, the second
                          key at index 5, the third key at index 10, and the last key at
-                         index 15.  Unused keys should be set to all 0ís.
+                         index 15.  Unused keys should be set to all 0Áó¥.
         WPA/WPA2 Keys   If using WPA or WPA2 you can provide the actual binary key or
                          ASCII passphrase used to generate a key.  [64 byte array covers
                          all cases of keys or passphrases].  If using this field for a
                          security passphrase the MRF24W will need to calculate the
-                         binary key after the call to WF_CMConnect() ñ this can add about
+                         binary key after the call to WF_CMConnect() this can add about
                          30 seconds to the connection time.
       </table>
       Default: No security key defined
@@ -645,7 +645,7 @@ typedef struct WFCAElementsStruct
     /**
       Specifies RSSI restrictions when connecting.  This field is only used if:
       1.  The Connection Profile has not defined a SSID or BSSID, or
-      2.  An SSID is defined in the Connection Profile and multiple APís are discovered with the same SSID.
+      2.  An SSID is defined in the Connection Profile and multiple APÁó¥ are discovered with the same SSID.
 
       <table>
         0       Connect to the first network found
@@ -655,7 +655,7 @@ typedef struct WFCAElementsStruct
       */
     uint8_t   rssi;
     /**
-      <b>Note: Connection Profile lists are not yet supported.  This array should be set to all FFís.</b>
+      <b>Note: Connection Profile lists are not yet supported.  This array should be set to all FFÁó¥.</b>
       */
     uint8_t   connectionProfileList[WF_CP_LIST_LENGTH];
     /**
@@ -862,8 +862,8 @@ typedef struct
       List of Network basic rates.  Each rate has the following format:
 
       Bit 7
-      * 0 ñ rate is not part of the basic rates set
-      * 1 ñ rate is part of the basic rates set
+      * 0 rate is not part of the basic rates set
+      * 1 rate is part of the basic rates set
 
       Bits 6:0
       Multiple of 500kbps giving the supported rate.  For example, a value of 2
@@ -1084,7 +1084,7 @@ void WFEintISR(void);
   Description:
     Directs the MRF24W to use the input MAC address instead of its
     factory-default MAC address.  This function does not overwrite the factory
-    default, which is in FLASH memory ñ it simply tells the MRF24W to use a
+    default, which is in FLASH memory it simply tells the MRF24W to use a
     different MAC.
 
   Precondition:
@@ -1206,7 +1206,7 @@ void WF_CPDelete(uint8_t CpId);
     p_cpIdList - Pointer to value representing the bit mask where each bit
                   index (plus 1) corresponds to a Connection Profile ID that has
                   been created.  For example, if this value is 0x03, then
-                  Connection Profile IDÔs 1 and and 2 have been created.
+                  Connection Profile IDÈó¢ 1 and and 2 have been created.
 
   Returns:
     None.
@@ -2293,7 +2293,7 @@ void WF_CAGetElements(tWFCAElements *p_elements);
     MACInit must be called first.
 
   Parameters:
-    CpId - If this value is equal to an existing Connection ProfileÔøΩs ID than
+    CpId - If this value is equal to an existing Connection ProfileÈêÉ ID than
             only that Connection Profile will be used to attempt a connection to
             a WiFi network.
             If this value is set to WF_CM_CONNECT_USING_LIST then the
@@ -2831,7 +2831,7 @@ void WiFiTask(void);
 
   Description:
     Sets the RTS/CTS packet size threshold for when RTS/CTS frame will be sent.
-    The default is 2347 bytes ñ the maximum for 802.11.  It is recommended that
+    The default is 2347 bytes the maximum for 802.11.  It is recommended that
     the user leave the default at 2347 until they understand the performance and
     power ramifications of setting it smaller.  Valid values are from 0 to
     WF_RTS_THRESHOLD_MAX (2347).
@@ -3000,7 +3000,7 @@ void WF_GetRegionalDomain(uint8_t *p_regionalDomain);  /* see tWFRegDomain enume
   Description:
     This function allows the application to configure up to two Multicast
     Address Filters on the MRF24WB0M.  If two active multicast filters are set
-    up they are ORíd together ñ the MRF24WB0M will receive and pass to the Host
+    up they are ORÂ£á together the MRF24WB0M will receive and pass to the Host
     CPU received packets from either multicast address.
     The allowable values for the multicast filter are:
     * WF_MULTICAST_FILTER_1
@@ -3092,7 +3092,7 @@ void WF_GetRegionalDomain(uint8_t *p_regionalDomain);  /* see tWFRegDomain enume
   Description:
     This function allows the application to configure up to two Multicast
     Address Filters on the MRF24W.  If two active multicast filters are set
-    up they are ORíd together ñ the MRF24W will receive and pass to the Host
+    up they are ORÂ£á together the MRF24W will receive and pass to the Host
     CPU received packets from either multicast address.
     The allowable values in p_config (tWFMultiCastConfig / WFMulticastConfigStruct)
     are:
@@ -3101,7 +3101,7 @@ void WF_GetRegionalDomain(uint8_t *p_regionalDomain);  /* see tWFRegDomain enume
 
     * action   -- WF_MULTICAST_DISABLE_ALL (default)
                    The Multicast Filter discards all received
-                   multicast messages ñ they will not be forwarded
+                   multicast messages they will not be forwarded
                    to the Host PIC.  The remaining fields in this
                    structure are ignored.
 
@@ -3117,13 +3117,13 @@ void WF_GetRegionalDomain(uint8_t *p_regionalDomain);  /* see tWFRegDomain enume
 
     * macBytes -- Array containing the MAC address to filter on (using the destination
                 address of each incoming 802.11 frame).  Specific bytes with the
-                MAC address can be designated as ëdonít careí bytes.  See macBitMask.
+                MAC address can be designated as ÁßüonÁ®ö carebytes.  See macBitMask.
                 This field in only used if action = WF_MULTICAST_USE_FILTERS.
 
     * macBitMask -- A byte where bits 5:0 correspond to macBytes[5:0].  If the bit is
                   zero then the corresponding MAC byte must be an exact match for the
                   frame to be forwarded to the Host PIC.  If the bit is one then the
-                  corresponding MAC byte is a ëdonít careí and not used in the
+                  corresponding MAC byte is a ÁßüonÁ®ö careand not used in the
                   Multicast filtering process.  This field in only used if
                   action = WF_MULTICAST_USE_FILTERS.
 
@@ -3244,7 +3244,7 @@ void WF_GetMacStats(tWFMacStats *p_macStats);
             Valid CpId
             * If CP has a defined SSID only scan results with that SSID are
                retained.
-            * If CP does not have a defined SSID then all scanned SSIDís will be
+            * If CP does not have a defined SSID then all scanned SSIDÁó¥ will be
                retained
             * Only scan results from Infrastructure or AdHoc networks are
                retained, depending on the value of networkType in the Connection Profile
@@ -3255,7 +3255,7 @@ void WF_GetMacStats(tWFMacStats *p_macStats);
             CpId is equal to WF_SCAN_ALL
             * All scan results are retained (both Infrastructure and Ad Hoc
                networks).
-            * All channels within the MRF24Wís regional domain will be
+            * All channels within the MRF24WÁó¥ regional domain will be
                scanned.
             * No Connection Profiles need to be defined before calling this
                function.

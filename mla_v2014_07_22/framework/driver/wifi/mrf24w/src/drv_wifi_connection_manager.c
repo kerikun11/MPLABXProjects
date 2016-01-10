@@ -85,7 +85,7 @@ static bool g_LogicalConnection = false;
     MACInit must be called first.
 
   Parameters:
-    CpId - If this value is equal to an existing Connection Profile�s ID than
+    CpId - If this value is equal to an existing Connection Profile・スs ID than
             only that Connection Profile will be used to attempt a connection to
             a WiFi network.
             If this value is set to WF_CM_CONNECT_USING_LIST then the

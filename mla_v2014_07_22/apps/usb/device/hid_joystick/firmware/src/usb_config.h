@@ -4,7 +4,7 @@
                	Situational: usb_function_hid.h, usb_function_cdc.h, usb_function_msd.h, etc.
  Processor:		PIC18 or PIC24 USB Microcontrollers
  Hardware:		The code is natively intended to be used on the following
- 				hardware platforms: PICDEM� FS USB Demo Board, 
+ 				hardware platforms: PICDEM・ス FS USB Demo Board, 
  				PIC18F87J50 FS USB Plug-In Module, or
  				Explorer 16 + PIC24 USB PIM.  The firmware may be
  				modified for use on other USB platforms by editing the

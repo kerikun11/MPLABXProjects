@@ -1,5 +1,5 @@
 // skI2Clib.h
-// ‚h‚Q‚bŠÖ”ƒ‰ƒCƒuƒ‰ƒŠ—pƒCƒ“ƒNƒ‹[ƒhƒtƒ@ƒCƒ‹
+// ï¼©ï¼’ï¼£é–¢æ•°ãƒ©ã‚¤ãƒ–ãƒ©ãƒªç”¨ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãƒ•ã‚¡ã‚¤ãƒ«
 #ifndef _SKI2CLIB_H_
 #define _SKI2CLIB_H_
 

@@ -54,8 +54,8 @@ void interrupt ISR(void) {
         button_timer_interrupt(&dec, !DEC_BUTTON);
     }
     if (PIR1bits.RCIF && PIE1bits.RCIE) {
-        while (!PIR1bits.TXIF); // ‘—MŠ®—¹‚Ü‚Å‘Ò‚ÂB
-        TXREG1 = RCREG1; // óMƒf[ƒ^‚ğ‚»‚Ì‚Ü‚Ü‘—M
+        while (!PIR1bits.TXIF); // é€ä¿¡å®Œäº†ã¾ã§å¾…ã¤ã€‚
+        TXREG1 = RCREG1; // å—ä¿¡ãƒ‡ãƒ¼ã‚¿ã‚’ãã®ã¾ã¾é€ä¿¡
     }
 }
 
@@ -132,7 +132,7 @@ int main(void) {
                     now.mm,
                     now.ss);
             for (uint8_t i = 0; str[i]; i++) {
-                while (!PIR1bits.TXIF); //‘—MŠ®—¹‚Ü‚Å‘Ò‚Â
+                while (!PIR1bits.TXIF); //é€ä¿¡å®Œäº†ã¾ã§å¾…ã¤
                 TXREG1 = str[i];
             }
         }

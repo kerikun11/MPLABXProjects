@@ -1,4 +1,4 @@
-﻿'/********************************************************************
+'/********************************************************************
 ' FileName:		Form1.vb
 ' Dependencies:	When compiled, needs .NET framework 2.0 redistributable 
 '               to be installed in order to run.
@@ -12,7 +12,7 @@
 ' Software License Agreement:
 
 ' The software supplied herewith by Microchip Technology Incorporated
-' (the “Company”) for its PIC® Microcontroller is intended and
+' (the “Company”) for its PICR Microcontroller is intended and
 ' supplied to you, the Company’s customer, for use solely and
 ' exclusively with Microchip PIC Microcontroller products. The
 ' software is owned by the Company and/or its supplier, and is

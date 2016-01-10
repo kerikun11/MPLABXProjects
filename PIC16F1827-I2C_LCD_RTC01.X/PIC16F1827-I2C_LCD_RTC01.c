@@ -79,12 +79,12 @@ void timeset(uint8_t *value, uint8_t min_num, uint8_t max_num, uint8_t Reg, uint
     sw_RA1.flags = 0;
     while (!sw_RA0.flag.press) {
         if (cnt_t1 % 16 >= 8) {
-            LCD_SetCursor(column, row); // �\���ʒu��ݒ肷��
+            LCD_SetCursor(column, row); // 表示位置を設定する
             LCD_Puts("  ");
         } else {
             *value = RTC_Read(Reg);
             display();
-            LCD_SetCursor(column, row); // �\���ʒu��ݒ肷��
+            LCD_SetCursor(column, row); // 表示位置を設定する
             LCD_Putc(*value / 16 + '0');
             LCD_Putc(*value % 16 + '0');
         }
@@ -122,7 +122,7 @@ void display(void) {
     DD = RTC_Read(0x04);
     MM = RTC_Read(0x05);
     YY = RTC_Read(0x06);
-    LCD_SetCursor(0, 0); // �\���ʒu��ݒ肷��
+    LCD_SetCursor(0, 0); // 表示位置を設定する
     LCD_Putc(YY / 16 + '0');
     LCD_Putc(YY % 16 + '0');
     LCD_Putc('/');
@@ -131,7 +131,7 @@ void display(void) {
     LCD_Putc('/');
     LCD_Putc(DD / 16 + '0');
     LCD_Putc(DD % 16 + '0');
-    LCD_SetCursor(0, 1); // �\���ʒu��ݒ肷��
+    LCD_SetCursor(0, 1); // 表示位置を設定する
     LCD_Putc(hh / 16 + '0');
     LCD_Putc(hh % 16 + '0');
     LCD_Putc(':');
@@ -143,15 +143,15 @@ void display(void) {
 }
 
 void main(void) {
-    OSCCON = 0b11110000; // �����N���b�N�͂W�l�g���Ƃ���
-    OPTION_REG = 0b00000000; // �f�W�^��I/O�ɓ����v���A�b�v��R���g�p����
-    ANSELA = 0b00000000; // AN0-AN4�͎g�p���Ȃ��S�ăf�W�^��I/O�Ƃ���
-    ANSELB = 0b00000000; // AN5-AN11�͎g�p���Ȃ��S�ăf�W�^��I/O�Ƃ���
-    TRISA = 0b00000011; // �s��(RA)�͑S�ďo�͂Ɋ����Ă�(RA5�͓��݂͂̂ƂȂ�)
-    TRISB = 0b00010110; // �s��(RB)��RB4(SCL1)/RB1(SDA1)�̂ݓ���
-    WPUB = 0b00010010; // RB1/4�͓����v���A�b�v��R���w�肷��
-    PORTA = 0b00000000; // RA�o�̓s���̏�����(�S��LOW�ɂ���)
-    PORTB = 0b00000000; // RB�o�̓s���̏�����(�S��LOW�ɂ���)
+    OSCCON = 0b11110000; // 内部クロックは８ＭＨｚとする
+    OPTION_REG = 0b00000000; // デジタルI/Oに内部プルアップ抵抗を使用する
+    ANSELA = 0b00000000; // AN0-AN4は使用しない全てデジタルI/Oとする
+    ANSELB = 0b00000000; // AN5-AN11は使用しない全てデジタルI/Oとする
+    TRISA = 0b00000011; // ピン(RA)は全て出力に割当てる(RA5は入力のみとなる)
+    TRISB = 0b00010110; // ピン(RB)はRB4(SCL1)/RB1(SDA1)のみ入力
+    WPUB = 0b00010010; // RB1/4は内部プルアップ抵抗を指定する
+    PORTA = 0b00000000; // RA出力ピンの初期化(全てLOWにする)
+    PORTB = 0b00000000; // RB出力ピンの初期化(全てLOWにする)
     APFCON0bits.RXDTSEL = 1;
     APFCON1bits.TXCKSEL = 1;
 

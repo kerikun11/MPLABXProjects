@@ -2,7 +2,7 @@
 <!-- saved from url=(0076)http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/12F1822/LCD/LCD.htm -->
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
 
-<title>PIC12F1822�g�����FI2C�ڑ�LCD�ɕ\�����s��</title>
+<title>PIC12F1822使い方：I2C接続LCDに表示を行う</title>
 <meta http-equiv="Content-Style-Type" content="text/css">
 <style type="text/css">
 h1 { font-size:22pt;}
@@ -12,287 +12,287 @@ h1 { font-size:22pt;}
 <body style="background-color:#ffffff; padding:0px; margin:0px; text-align:left;">
 <basefont size="3">
 
-<h1>�H���d�q�h�Q�b�ڑ����^�k�b�c���W���[���ɕ\�����s��</h1>
+<h1>秋月電子Ｉ２Ｃ接続小型ＬＣＤモジュールに表示を行う</h1>
 <p align="right">
 <a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/MPLAB_use5.htm">
-�k�o�h�b�̓�����������ɖ߂�l
+〔ＰＩＣの動かせ方入門に戻る〕
 </a>
 </p><hr align="center">
-<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/16F819/LCD/LCD.htm">�ȑO</a>�A�L�����N�^LCD��<a href="http://akizukidenshi.com/catalog/g/gP-01675/" target="_blank">SD1602</a>��PIC16F819�ŕ\�����s��<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/16F819/LCD/LCD.htm">�L��</a>�͏����܂����B<br>
-����LCD�́A�Œ�ł��U�{�̐���z�����Ȃ��ƕ\���ł��܂���ł����B<br>
-�ł����A�H���d�q��<a href="http://akizukidenshi.com/catalog/g/gP-06669/" target="_blank">I2C�ڑ����^LCD���W���[��(AQM0802A)</a>��I2C�Ŕz�����܂��̂łQ�{�ōς݂܂��A<br>
-�Ȃ̂�PIC12F1822�ł����p�\�ƌ������ɂȂ�܂��B<br>
-�A���A����I2C�ڑ�LCD�̐ڑ��[�q�ԃs�b�`�� 1�D5mm �Ȃ̂ŁA<br>
-�������<a href="http://akizukidenshi.com/catalog/g/gK-06795/" target="_blank">I2C�ڑ����^LCD���W���[���s�b�`�ϊ��L�b�g</a>�𗘗p���܂����A<br>
-�L�b�g�Ȃ̂Ŕ��c�t���K�v�ł��B�i���₟�`�A1�D5mm�s�b�`�̔��c�t�����J���܂������j<br>
+<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/16F819/LCD/LCD.htm">以前</a>、キャラクタLCDの<a href="http://akizukidenshi.com/catalog/g/gP-01675/" target="_blank">SD1602</a>をPIC16F819で表示を行う<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/16F819/LCD/LCD.htm">記事</a>は書きました。<br>
+このLCDは、最低でも６本の線を配線しないと表示できませんでした。<br>
+ですが、秋月電子の<a href="http://akizukidenshi.com/catalog/g/gP-06669/" target="_blank">I2C接続小型LCDモジュール(AQM0802A)</a>はI2Cで配線しますので２本で済みます、<br>
+なのでPIC12F1822でも利用可能と言う事になります。<br>
+但し、このI2C接続LCDの接続端子間ピッチが 1．5mm なので、<br>
+こちらの<a href="http://akizukidenshi.com/catalog/g/gK-06795/" target="_blank">I2C接続小型LCDモジュールピッチ変換キット</a>を利用しました、<br>
+キットなので半田付け必要です。（いやぁ〜、1．5mmピッチの半田付け一苦労しましたぁ）<br>
 <h3 align="center">
 <font color="#800000">
-�s�z���}�t
+《配線図》
 </font>
 </h3>
-<img alt="LCD�s���\���}" border="0" src="./PIC12F1822�g�����FI2C�ڑ�LCD�ɕ\�����s��_files/Fig1.jpg" align="left">
-�@����I2C�ڑ�LCD�̃s���\���}�ł��B<br>
-�@RESET��LOW�Ń��Z�b�g��������̂Œʏ��VDD�ɐڑ��ł��B<br>
-�@���̕ϊ���̓R���f���T�[�ނ���t���Ă���̂ŁA<br>
-�@�O�t�����i�͕K�v����܂���A�܂��A�����"PU"�ɔ��c��<br>
-�@�����I2C�v���A�b�v��R(10K��)���\�Ȃ悤�ł��B<br>
+<img alt="LCDピン構成図" border="0" src="./PIC12F1822使い方：I2C接続LCDに表示を行う_files/Fig1.jpg" align="left">
+　左がI2C接続LCDのピン構成図です。<br>
+　RESETはLOWでリセットがかかるので通常はVDDに接続です。<br>
+　この変換基板はコンデンサー類が取付けてあるので、<br>
+　外付け部品は必要ありません、また、基板裏の"PU"に半田を<br>
+　盛ればI2Cプルアップ抵抗(10KΩ)も可能なようです。<br>
 <br>
-�@�܂��A�o�b�N���C�g�͖����A�R���g���X�g�̓R�}���h�Őݒ肵�܂��B<br>
+　また、バックライトは無く、コントラストはコマンドで設定します。<br>
 <br clear="all">
 <br>
-<img alt="12F1822�z���}" border="0" src="./PIC12F1822�g�����FI2C�ڑ�LCD�ɕ\�����s��_files/Fig2.jpg" align="left">
-�@���}��<b>PIC12F1822</b>�ł̔z���}�ł��B<br>
+<img alt="12F1822配線図" border="0" src="./PIC12F1822使い方：I2C接続LCDに表示を行う_files/Fig2.jpg" align="left">
+　左図が<b>PIC12F1822</b>での配線図です。<br>
 <br>
-�@I2C�ڑ�LCD��3�D3V�Ȃ̂�PIC��3�D3V�ŋ쓮�����܂��B<br>
-�@PIC�̂U�Ԃ�SCL�[�q�łT�Ԃ�SDA�[�q�ł��B<br>
+　I2C接続LCDは3．3VなのでPICも3．3Vで駆動させます。<br>
+　PICの６番がSCL端子で５番がSDA端子です。<br>
 <br>
-�@I2C�M���p�v���A�b�v��R��PIC�����̃v���A�b�v���B<br>
-�@�g�p���Ă��܂��B<br>
+　I2C信号用プルアップ抵抗はPIC内蔵のプルアップを。<br>
+　使用しています。<br>
 <br>
-�@<b>PIC12F1823</b>�ł̐ڑ���<br>
-�@�P�O�Ԃ�SCL�[�q�łX�Ԃ�SDA�[�q�ł��B<br>
+　<b>PIC12F1823</b>での接続は<br>
+　１０番がSCL端子で９番がSDA端子です。<br>
 <br>
-�@<b>PIC16F1827</b>�ł̐ڑ���<br>
-�@�P�O�Ԃ�SCL1�[�q�łV�Ԃ�SDA1�[�q�ł��B<br>
+　<b>PIC16F1827</b>での接続は<br>
+　１０番がSCL1端子で７番がSDA1端子です。<br>
 <br clear="all">
 <h3 align="center">
-<font color="#800000"><a name="Downlode">�s�_�E�����[�h�v���O�����ɂ��āt</a></font>
+<font color="#800000"><a name="Downlode">《ダウンロードプログラムについて》</a></font>
 </h3>
-����������T���v���v���O�����\�[�X�t�@�C�����_�E�����[�h���ĉ������B<br>
-<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/12F1822/LCD/LCD.lzh">LCD�Dlzh(Ver1.00)</a><br>
+↓ここからサンプルプログラムソースファイルをダウンロードして下さい。<br>
+<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/12F1822/LCD/LCD.lzh">LCD．lzh(Ver1.00)</a><br>
 <br>
-�v���O�����\�[�X���_�E�����[�h������AMPLAB�ɂ�<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/MPLAB_use1.htm">�v���W�F�N�g���쐬</a>���܂��B<br>
-�ȉ��̃t�@�C�����v���W�F�N�g�f�B���N�g���ɃR�s�[����<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/MPLAB_use2.htm#import">�v���W�F�N�g�Ɏ捞</a>��ŉ������B<br>
-����<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/MPLAB_use3.htm">�R���p�C��</a>��<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/MPLAB_use4.htm">�o�h�b��������</a>�����s���ĉ������B<br>
-MPLAB(R) XC8 C Compiler Version 1.00�R���p�C�����g�p���Ă��܂��B<br>
+プログラムソースをダウンロードしたら、MPLABにて<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/MPLAB_use1.htm">プロジェクトを作成</a>します。<br>
+以下のファイルをプロジェクトディレクトリにコピーして<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/MPLAB_use2.htm#import">プロジェクトに取込</a>んで下さい。<br>
+次に<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/MPLAB_use3.htm">コンパイル</a>と<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/MPLAB/MPLAB_use4.htm">ＰＩＣ書き込み</a>を実行して下さい。<br>
+MPLAB(R) XC8 C Compiler Version 1.00コンパイラを使用しています。<br>
 <br>
-�_�E�����[�h������𓀂��ĉ������A�ȉ��̃t�@�C���\���ł��B<br>
-�@LCD1<b>.</b>c����������PIC12F1822�p�@�{�̂̃\�[�X�v���O����<br>
-�@LCD2<b>.</b>c����������PIC16F1827�p�@�{�̂̃\�[�X�v���O����<br>
-�@skI2CLCDlib<b>.</b>c�����h�Q�b�ڑ��k�b�c���C�u�����֐��\�[�X�t�@�C��<br>
-�@skI2CLCDlib<b>.</b>h�����h�Q�b�ڑ��k�b�c���C�u�����p�C���N���[�h�t�@�C��<br>
-�@skI2Clib<b>.</b>c���������h�Q�b�ʐM���s���֐��\�[�X�t�@�C��<br>
-�@skI2Clib<b>.</b>h���������h�Q�b�ʐM���s���֐��̃C���N���[�h�t�@�C��<br>
+ダウンロードしたら解凍して下さい、以下のファイル構成です。<br>
+　LCD1<b>.</b>c・・・・・・・・・・PIC12F1822用　本体のソースプログラム<br>
+　LCD2<b>.</b>c・・・・・・・・・・PIC16F1827用　本体のソースプログラム<br>
+　skI2CLCDlib<b>.</b>c・・・・Ｉ２Ｃ接続ＬＣＤライブラリ関数ソースファイル<br>
+　skI2CLCDlib<b>.</b>h・・・・Ｉ２Ｃ接続ＬＣＤライブラリ用インクルードファイル<br>
+　skI2Clib<b>.</b>c・・・・・・・・Ｉ２Ｃ通信を行う関数ソースファイル<br>
+　skI2Clib<b>.</b>h・・・・・・・・Ｉ２Ｃ通信を行う関数のインクルードファイル<br>
 <br>
-���C���v���O�����\�[�X��12F1822�p��16F1827�p��t���Ƃ��܂����̂ŁA�D���ȕ��ŃR���p�C����<br>
-�s���ĉ������B<br>
+メインプログラムソースに12F1822用と16F1827用を付けときましたので、好きな方でコンパイルを<br>
+行って下さい。<br>
 <br>
-<b><font color="#A04000">�k�b�c�D��</font></b><br>
+<b><font color="#A04000">ＬＣＤ．ｃ</font></b><br>
 <br>
-<img alt="LCD���" border="0" src="./PIC12F1822�g�����FI2C�ڑ�LCD�ɕ\�����s��_files/Fig3.jpg" align="left">
-�@�v���O���������s������ƍ��}�̗l�ɕ\�����܂��B<br>
+<img alt="LCD画面" border="0" src="./PIC12F1822使い方：I2C接続LCDに表示を行う_files/Fig3.jpg" align="left">
+　プログラムを実行させると左図の様に表示します。<br>
 <br>
-�@�b�o�t�̃N���b�N�͂W�l�g����z�肵�Ă��܂��B<br>
-�@�N���b�N��ύX����ꍇ�́A"skI2CLCDlib.h"��"skI2Clib.c"��<br>
-�@�ύX����K�v���L��܂��B<br>
+　ＣＰＵのクロックは８ＭＨｚを想定しています。<br>
+　クロックを変更する場合は、"skI2CLCDlib.h"と"skI2Clib.c"を<br>
+　変更する必要が有ります。<br>
 <br>
-�@LCD�̎ʐ^���B���āA�ی�t�C�������\���ėL��̂ɋC�t�����悧<br>
+　LCDの写真を撮って、保護フイルムが貼って有るのに気付いたよぉ<br>
 <br clear="all">
 <br>
-<font color="#A04000"><b>�����h�Q�b�k�b�c�������D��</b></font><br>
+<font color="#A04000"><b>ｓｋＩ２ＣＬＣＤｌｉｂ．ｈ</b></font><br>
 <br>
-�h�Q�b�ڑ��k�b�c�ɃA�N�Z�X����ׂ̃��C�u�����p�̃C���N���[�h�t�@�C���ł��B<br>
-"skI2CLCDlib�Dc"�𗘗p����ꍇ��<br>
-#include "skI2CLCDlib�Dh" ���v���O�����̐擪�ŋL�q���ĉ������B<br>
+Ｉ２Ｃ接続ＬＣＤにアクセスする為のライブラリ用のインクルードファイルです。<br>
+"skI2CLCDlib．c"を利用する場合に<br>
+#include "skI2CLCDlib．h" をプログラムの先頭で記述して下さい。<br>
 <br>
-����͂W�l�g���ŗ��p���Ă���̂ŁA<br>
+今回は８ＭＨｚで利用しているので、<br>
 <pre>#ifndef _XTAL_FREQ
  // Unless already defined assume 8MHz system frequency
  // This definition is required to calibrate __delay_us() and __delay_ms()
- #define _XTAL_FREQ 8000000    // �g�p����PIC���ɂ�蓮����g���l��ݒ肷��
+ #define _XTAL_FREQ 8000000    // 使用するPIC等により動作周波数値を設定する
 #endif
 </pre>
-�ƋL�q���Ă��܂��A�W�l�g���ȊO�ŗ��p����l��"8000000"�����������ĉ������B<br>
+と記述しています、８ＭＨｚ以外で利用する人は"8000000"を書き換えて下さい。<br>
 <br>
-<b>�h�Q�b�X���[�u�A�h���X�ɂ���</b>�@�@*1)<br>
+<b>Ｉ２Ｃスレーブアドレスについて</b>　　*1)<br>
 <br>
-<img alt="�A�h���X�ݒ�" border="0" src="./PIC12F1822�g�����FI2C�ڑ�LCD�ɕ\�����s��_files/Fig7.jpg" align="left">
-�@�A�h���X��<font color="#ff0000">�V�r�b�g</font>�ŕ\���܂��A���}�̂P�`�V�r�b�g�ł��B<br>
-�@�O�r�b�g�ڂ�R/W�ł���̓X���[�u�ɑ΂���Ǐ����w���r�b�g�ł��B<br>
-�@R/W=0 �F �������ݗv���ł�(�X���[�u�͎�M���[�h)<br>
-�@R/W=1 �F �ǂݍ��ݗv���ł�(�X���[�u�͑��M���[�h)<br>
+<img alt="アドレス設定" border="0" src="./PIC12F1822使い方：I2C接続LCDに表示を行う_files/Fig7.jpg" align="left">
+　アドレスは<font color="#ff0000">７ビット</font>で表します、左図の１〜７ビットです。<br>
+　０ビット目はR/Wでこれはスレーブに対する読書き指示ビットです。<br>
+　R/W=0 ： 書き込み要求です(スレーブは受信モード)<br>
+　R/W=1 ： 読み込み要求です(スレーブは送信モード)<br>
 <br clear="all">
-�����I2C�ڑ����^LCD���W���[���A�h���X�́A"0111110"(0x3e)�ł��B("0111110"+R/W)<br>
-�����ɂ���ẮAR/W=0�Ƃ���"0111110"+"0"��0x7c�̂W�r�b�g�ŋL�ڂ���Ă��܂����ӂ��܂��傤�B<br>
-����Ă����ł�<br>
-#define ST7032_ADRES 0x3E      // �H���d�q��I2C�ڑ����^LCD���W���[���̃A�h���X<br>
-�ƂȂ��Ă��܂��B<br>
+今回のI2C接続小型LCDモジュールアドレスは、"0111110"(0x3e)です。("0111110"+R/W)<br>
+資料によっては、R/W=0として"0111110"+"0"で0x7cの８ビットで記載されています注意しましょう。<br>
+よってここでは<br>
+#define ST7032_ADRES 0x3E      // 秋月電子のI2C接続小型LCDモジュールのアドレス<br>
+となっています。<br>
 <br>
-<b><font color="#A04000">�����h�Q�b�k�b�c�������D��</font></b><br>
+<b><font color="#A04000">ｓｋＩ２ＣＬＣＤｌｉｂ．ｃ</font></b><br>
 <br>
-���̃��C�u�����͂h�Q�b�ڑ��k�b�c�ɃA�N�Z�X(�\��)���s���ׂ̊֐��W�ł��B<br>
-���A���̃��C�u�����́AI2C�ڑ����^LCD���W���[��(AQM0802A)��z�肵�Ă��܂��A<br>
-�Ȃ̂ő���I2C�ڑ�LCD�œ��삷��̂��͕s���ł��B<br>
-���̊֐��W���̂͑��̂o�h�b�ł��g�p�o���܂��B<br>
+このライブラリはＩ２Ｃ接続ＬＣＤにアクセス(表示)を行う為の関数集です。<br>
+尚、このライブラリは、I2C接続小型LCDモジュール(AQM0802A)を想定しています、<br>
+なので他のI2C接続LCDで動作するのかは不明です。<br>
+この関数集自体は他のＰＩＣでも使用出来ます。<br>
 <br>
-�h�Q�b�ڑ��k�b�c�ɃA�N�Z�X���s���֐��̎g������������܂��B<br>
+Ｉ２Ｃ接続ＬＣＤにアクセスを行う関数の使い方を説明します。<br>
 <br>
-�@<b>LCD_Init( )</b><br>
-�@�@�h�Q�b�ڑ��k�b�c�̏��������s�������ł��B<br>
-�@�@�R���g���X�g�̕ύX�͉��L�Q�s�����������܂��B<br>
-<pre>     command(0x70) ;     // Contrast set           : �R���g���X�g�����f�[�^(����4�r�b�g)
-     command(0x56) ;     // Contrast set           : ������H�L���A�R���g���X�g�����f�[�^(���2�r�b�g)
+　<b>LCD_Init( )</b><br>
+　　Ｉ２Ｃ接続ＬＣＤの初期化を行う処理です。<br>
+　　コントラストの変更は下記２行を書き換えます。<br>
+<pre>     command(0x70) ;     // Contrast set           : コントラスト調整データ(下位4ビット)
+     command(0x56) ;     // Contrast set           : 昇圧回路有効、コントラスト調整データ(上位2ビット)
 </pre>
-�@�@�R���g���X�g�͂U�r�b�g�f�[�^�łO�`�U�R��ݒ�A����͂R�Q(0b<font color="#0000FF">10</font><font color="#00FF00">0000</font>)��ݒ肵�Ă��܂��B<br>
-�@�@�O���V�O���O�P�P�P���������@���@����4�r�b�g(0b<font color="#00FF00">0000</font>)�����������ɐݒ�<br>
-�@�@�O���T�U���O�P�O�P�O�P�����@���@���2�r�b�g(0b<font color="#0000FF">10</font>)�������ɐݒ�<br>
+　　コントラストは６ビットデータで０〜６３を設定、今回は３２(0b<font color="#0000FF">10</font><font color="#00FF00">0000</font>)を設定しています。<br>
+　　０ｘ７０＝０１１１ｘｘｘｘ　→　下位4ビット(0b<font color="#00FF00">0000</font>)をｘｘｘｘに設定<br>
+　　０ｘ５６＝０１０１０１ｘｘ　→　上位2ビット(0b<font color="#0000FF">10</font>)をｘｘに設定<br>
 <br>
-�@<b>LCD_Clear( )</b><br>
-�@�@�k�b�c���W���[���̉�ʂ����������ł��B<br>
-�@�@��ʑS�̂�0x20�̃X�y�[�X�ŏ�����A�J�[�\���͂P�s�ڂ̂P���ڂɈړ����܂��B<br>
+　<b>LCD_Clear( )</b><br>
+　　ＬＣＤモジュールの画面を消す処理です。<br>
+　　画面全体が0x20のスペースで消され、カーソルは１行目の１桁目に移動します。<br>
 <br>
-�@<b>LCD_SetCursor(col, row)</b><br>
-�@�@�k�b�c���W���[����ʓ��̃J�[�\���ʒu��ݒ肷�鏈���ł��B<br>
-�@�@�@col�F��(��)�����̃J�[�\���ʒu(0-7)���w��<br>
-�@�@�@row�F�c(�s)�����̃J�[�\���ʒu(0-1)���w��<br>
+　<b>LCD_SetCursor(col, row)</b><br>
+　　ＬＣＤモジュール画面内のカーソル位置を設定する処理です。<br>
+　　　col：横(列)方向のカーソル位置(0-7)を指定<br>
+　　　row：縦(行)方向のカーソル位置(0-1)を指定<br>
 <br>
-�@<b>LCD_Putc(c)</b><br>
-�@�@�k�b�c�Ƀf�[�^���P�o�C�g�o�͂��鏈���ł��B<br>
-�@�@�@c �F�o�͂��镶���f�[�^���w��<br>
+　<b>LCD_Putc(c)</b><br>
+　　ＬＣＤにデータを１バイト出力する処理です。<br>
+　　　c ：出力する文字データを指定<br>
 <br>
-�@<b>LCD_Puts(*s)</b><br>
-�@�@�k�b�c�ɕ�����f�[�^���o�͂��鏈���ł��B<br>
-�@�@������́ANULL(0x00)�܂ŌJ�Ԃ��o�͂��܂��B<br>
-�@�@�@*s �F�o�͂��镶����̃f�[�^���i�[�����ꏊ�̃A�h���X���w�� <br>
+　<b>LCD_Puts(*s)</b><br>
+　　ＬＣＤに文字列データを出力する処理です。<br>
+　　文字列は、NULL(0x00)まで繰返し出力します。<br>
+　　　*s ：出力する文字列のデータを格納した場所のアドレスを指定 <br>
 <br>
-�@�@��j
-<pre>�@�@char mes[5]= {0xca,0xdb,0xb0,0x21,0x00} ; // "�n���[!"
+　　例）
+<pre>　　char mes[5]= {0xca,0xdb,0xb0,0x21,0x00} ; // "ハロー!"
 
-�@�@     LCD_SetCursor(0,0) ;      // �J�[�\���͂P�s�ڂ̂P���ڂɈړ�
-�@�@     LCD_Puts(mes) ;           // �������\������
+　　     LCD_SetCursor(0,0) ;      // カーソルは１行目の１桁目に移動
+　　     LCD_Puts(mes) ;           // 文字列を表示する
 </pre>
 <br>
-�@<b>LCD_CreateChar(p,*dt)</b><br>
-�@�@�I���W�i���̃L�����N�^(5x7�h�b�g)��o�^���鏈���ł��B<br>
-�@�@�L�����N�^�R�[�h��0x00�`0x05�ɓo�^�\�ł��B<br>
-�@�@�@p�@�F�o�^����ꏊ�̎w��(�O�`�T�̂U�����̂�)<br>
-�@�@�@*dt�F�o�^�������L�����N�^�̃f�[�^���i�[�����o�b�t�@���w��<br>
+　<b>LCD_CreateChar(p,*dt)</b><br>
+　　オリジナルのキャラクタ(5x7ドット)を登録する処理です。<br>
+　　キャラクタコードの0x00〜0x05に登録可能です。<br>
+　　　p　：登録する場所の指定(０〜５の６ヶ所のみ)<br>
+　　　*dt：登録したいキャラクタのデータを格納したバッファを指定<br>
 <br>
-�@�@����)���̊֐����R�[���������LCD�̃A�h���X�J�E���^�[��CGRAM�ɂȂ��Ă���̂�<br>
-�@�@�@�@�@ ���̌�ɕ\�����s���ꍇ�́ADDRAM�ɃA�h���X��ݒ肷��K�v���L��܂��A<br>
-�@�@�@�@�@ �\������O��"LCD_SetCursor()"�֐����Ăяo���Ηǂ��ł��傤�B<br>
-�@�@��j
-<pre>�@�@char heart[7] = {
-�@�@  0b01010,
-�@�@  0b11011,
-�@�@  0b11111,
-�@�@  0b11111,
-�@�@  0b01110,
-�@�@  0b00100,
-�@�@  0b00000,
-�@�@} ;
+　　注意)この関数をコールした後はLCDのアドレスカウンターがCGRAMになっているので<br>
+　　　　　 この後に表示を行う場合は、DDRAMにアドレスを設定する必要が有ります、<br>
+　　　　　 表示する前に"LCD_SetCursor()"関数を呼び出せば良いでしょう。<br>
+　　例）
+<pre>　　char heart[7] = {
+　　  0b01010,
+　　  0b11011,
+　　  0b11111,
+　　  0b11111,
+　　  0b01110,
+　　  0b00100,
+　　  0b00000,
+　　} ;
 
-�@�@     LCD_CreateChar(2,heart) ; // �Q�Ԃɓo�^����
-�@�@     LCD_SetCursor(0,1) ;      // ���̍s���Ȃ��ƕ\�����Ȃ�
-�@�@     LCD_Putc(0x02) ;          // �Q�Ԃɓo�^�����L������\������
+　　     LCD_CreateChar(2,heart) ; // ２番に登録する
+　　     LCD_SetCursor(0,1) ;      // この行がないと表示しない
+　　     LCD_Putc(0x02) ;          // ２番に登録したキャラを表示する
 </pre>
 <br>
-<font color="#A04000"><b>�����h�Q�b�������D��</b></font><br>
+<font color="#A04000"><b>ｓｋＩ２Ｃｌｉｂ．ｈ</b></font><br>
 <br>
-�h�Q�b�ʐM�̊֐����C�u�����p�C���N���[�h�t�@�C���ł��B<br>
-"skI2Clib.c"�𗘗p����ꍇ��<br>
-#include "skI2Clib�Dh" ���v���O�����̐擪�ŋL�q���Ȃ��Ƃ��߂ł��B<br>
+Ｉ２Ｃ通信の関数ライブラリ用インクルードファイルです。<br>
+"skI2Clib.c"を利用する場合に<br>
+#include "skI2Clib．h" をプログラムの先頭で記述しないとだめです。<br>
 <br>
-<b><font color="#A04000">�����h�Q�b�������D��</font></b><br>
+<b><font color="#A04000">ｓｋＩ２Ｃｌｉｂ．ｃ</font></b><br>
 <br>
-���̃��C�u������I2C�f�o�C�X(RTC/EEPROM��)�Ɛڑ����s���ׂ̊֐��W�ł��B<br>
-���̊֐��W��12F1822/16F1827/16F18xx�n�ŗ��p�o���܂��B<br>
-�A���A16F1827��SSP2���p�s�ł��A���p����ꍇ�̓��W�X�^����ύX���Ȃ��ƃ_���ł��B<br>
+このライブラリはI2Cデバイス(RTC/EEPROM等)と接続を行う為の関数集です。<br>
+この関数集は12F1822/16F1827/16F18xx系で利用出来ます。<br>
+但し、16F1827はSSP2利用不可です、利用する場合はレジスタ名を変更しないとダメです。<br>
 <br>
-�h�Q�b�ʐM�̊֐����C�u�����̎g������������܂��B<br>
+Ｉ２Ｃ通信の関数ライブラリの使い方を説明します。<br>
 <br>
-�@<b>InitI2C_Master()</b><br>
-�@�@�h�Q�b�ʐM�̃}�X�^�[���[�h�ŏ��������s�������ł��B<br>
-�@�@I2C�ʐM�p�̑��x�N���b�N���g����100KHz�ł̐ݒ�ł��A<br>
-�@�@���̑��x��FOSC(PIC��CPU���g��)8MHz�̏ꍇ�ŏ���������Ă��܂��B<br>
-�@�@FOSC��ς����ꍇ��<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/I2C/I2C_2.htm#SSP1ADD">������</a>���Q�l��SSPADD���W�X�^��ς��ĉ������B<br>
+　<b>InitI2C_Master()</b><br>
+　　Ｉ２Ｃ通信のマスターモードで初期化を行う処理です。<br>
+　　I2C通信用の速度クロック周波数は100KHzでの設定です、<br>
+　　この速度はFOSC(PICのCPU周波数)8MHzの場合で初期化されています。<br>
+　　FOSCを変えた場合は<a href="http://www.geocities.jp/zattouka/GarageHouse/micon/I2C/I2C_2.htm#SSP1ADD">こちら</a>を参考にSSPADDレジスタを変えて下さい。<br>
 <br>
-�@�@�܂��A����LCD��I2C�ʐM�p�̑��x�N���b�N���g��400KHz�ɂ��Ή����Ă��܂��B<br>
-�@�@FOSC��8MHz�Ƃ�400KHz�œ��삳����ꍇ�͉��L�̗l�ɕύX���܂��B<br>
-�@�@�@SSPSTAT= 0b00000000 ;�@�@�@// �������[�h�ɐݒ肷��(400kHz)<br>
-�@�@�@SSPADD = 0x4 ;<br>
+　　また、このLCDはI2C通信用の速度クロック周波数400KHzにも対応しています。<br>
+　　FOSCを8MHzとし400KHzで動作させる場合は下記の様に変更します。<br>
+　　　SSPSTAT= 0b00000000 ;　　　// 高速モードに設定する(400kHz)<br>
+　　　SSPADD = 0x4 ;<br>
 <br>
-�@<b>ans = I2C_Start(adrs,rw)</b><br>
-�@�@�X���[�u�ɃX�^�[�g�R���f�B�V�����𔭍s���鏈���ł��B<br>
-�@�@�@adrs&nbsp;&nbsp;�F�X���[�u�̃A�h���X���w�肵�܂�<br>
-�@�@�@rw &nbsp;&nbsp;&nbsp;&nbsp;�F�X���[�u�ɑ΂��铮��̎w������܂�<br>
-�@�@�@�@�@�@�@ 0 = �X���[�u�ɏ����݂Ȃ����v���@�@1 = �X���[�u�ɑ��M���Ȃ����v��<br>
-�@�@�@ans&nbsp;&nbsp; �F0 = ����@1 = �ُ�(���肩��ACK���Ԃ��Ă��Ȃ�)<br>
+　<b>ans = I2C_Start(adrs,rw)</b><br>
+　　スレーブにスタートコンディションを発行する処理です。<br>
+　　　adrs&nbsp;&nbsp;：スレーブのアドレスを指定します<br>
+　　　rw &nbsp;&nbsp;&nbsp;&nbsp;：スレーブに対する動作の指定をします<br>
+　　　　　　　 0 = スレーブに書込みなさい要求　　1 = スレーブに送信しなさい要求<br>
+　　　ans&nbsp;&nbsp; ：0 = 正常　1 = 異常(相手からACKが返ってこない)<br>
 <br>
-�@<b>ans = I2C_rStart(adrs,rw)</b><br>
-�@�@�X���[�u�Ƀ��s�[�g�E�X�^�[�g�R���f�B�V�����𔭍s���鏈���ł��B<br>
-�@�@�@adrs&nbsp;&nbsp;�F�X���[�u�̃A�h���X���w�肵�܂�<br>
-�@�@�@rw &nbsp;&nbsp;&nbsp;&nbsp;�F�X���[�u�ɑ΂��铮��̎w������܂�<br>
-�@�@�@�@�@�@�@ 0 = �X���[�u�ɏ����݂Ȃ����v���@�@1 = �X���[�u�ɑ��M���Ȃ����v��<br>
-�@�@�@ans&nbsp;&nbsp; �F0 = ����@1 = �ُ�(���肩��ACK���Ԃ��Ă��Ȃ�)<br>
+　<b>ans = I2C_rStart(adrs,rw)</b><br>
+　　スレーブにリピート・スタートコンディションを発行する処理です。<br>
+　　　adrs&nbsp;&nbsp;：スレーブのアドレスを指定します<br>
+　　　rw &nbsp;&nbsp;&nbsp;&nbsp;：スレーブに対する動作の指定をします<br>
+　　　　　　　 0 = スレーブに書込みなさい要求　　1 = スレーブに送信しなさい要求<br>
+　　　ans&nbsp;&nbsp; ：0 = 正常　1 = 異常(相手からACKが返ってこない)<br>
 <br>
-�@<b>I2C_Stop()</b><br>
-�@�@�X���[�u�ɃX�g�b�v�R���f�B�V�����𔭍s���鏈���ł��B<br>
+　<b>I2C_Stop()</b><br>
+　　スレーブにストップコンディションを発行する処理です。<br>
 <br>
-�@<b>ans = I2C_Send(dt)</b><br>
-�@�@�X���[�u�Ƀf�[�^���P�o�C�g���M���鏈���ł��B<br>
-�@�@�@dt &nbsp;&nbsp;&nbsp;&nbsp;�F���M����f�[�^���w�肵�܂�<br>
-�@�@�@ans&nbsp;&nbsp; �F0 = ����@1 = �ُ�(���肩��ACK���Ԃ��Ă��Ȃ�����NOACK��Ԃ���)<br>
-<pre>�@�@��jslave_adrs�ւ̂Q�o�C�g���M
-     ans = I2C_Start(slave_adrs,RW_0);  // �X�^�[�g�R���f�B�V�����𔭍s����
+　<b>ans = I2C_Send(dt)</b><br>
+　　スレーブにデータを１バイト送信する処理です。<br>
+　　　dt &nbsp;&nbsp;&nbsp;&nbsp;：送信するデータを指定します<br>
+　　　ans&nbsp;&nbsp; ：0 = 正常　1 = 異常(相手からACKが返ってこない又はNOACKを返した)<br>
+<pre>　　例）slave_adrsへの２バイト送信
+     ans = I2C_Start(slave_adrs,RW_0);  // スタートコンディションを発行する
      if (ans == 0) {
-          I2C_Send(dt) ;                // �P�o�C�g�ڂ𑗐M����
-          I2C_Send(dt) ;                // �Q�o�C�g�ڂ𑗐M����
-     } else �ُ� ;
-     I2C_Stop() ;                       // �X�g�b�v�R���f�B�V�����𔭍s����
+          I2C_Send(dt) ;                // １バイト目を送信する
+          I2C_Send(dt) ;                // ２バイト目を送信する
+     } else 異常 ;
+     I2C_Stop() ;                       // ストップコンディションを発行する
 </pre>
-�@<b>c = I2C_Receive(ack)</b><br>
-�@�@�X���[�u����f�[�^���P�o�C�g��M���鏈���ł��B<br>
-�@�@�@ack&nbsp;&nbsp;&nbsp;&nbsp;�F�X���[�u����f�[�^����M������ɕԓ�����f�[�^���w�肵�܂�<br>
-�@�@�@�@�@�@�@�@0 = ACK���X���[�u�ɕԂ��@1 = NOACK���X���[�u�ɕԂ�(��M�f�[�^���Ō�Ȃ�1)<br>
-�@�@�@c &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;�F��M�����P�o�C�g�̃f�[�^��Ԃ�<br>
-<pre>�@�@��jslave_adrs����Q�o�C�g��M����
-     ans = I2C_Start(slave_adrs,RW_1) ;  // �X�^�[�g�R���f�B�V�����𔭍s����
+　<b>c = I2C_Receive(ack)</b><br>
+　　スレーブからデータを１バイト受信する処理です。<br>
+　　　ack&nbsp;&nbsp;&nbsp;&nbsp;：スレーブからデータを受信した後に返答するデータを指定します<br>
+　　　　　　　　0 = ACKをスレーブに返す　1 = NOACKをスレーブに返す(受信データが最後なら1)<br>
+　　　c &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：受信した１バイトのデータを返す<br>
+<pre>　　例）slave_adrsから２バイト受信する
+     ans = I2C_Start(slave_adrs,RW_1) ;  // スタートコンディションを発行する
      if (ans == 0) {
-          dt1 = I2C_Receive(ACK) ;       // �P�o�C�g�ڂ���M����
-          dt2 = I2C_Receive(NOACK) ;     // �Q�o�C�g�ڂ���M����
-     } else �ُ� ;
-     I2C_Stop() ;                        // �X�g�b�v�R���f�B�V�����𔭍s����
+          dt1 = I2C_Receive(ACK) ;       // １バイト目を受信する
+          dt2 = I2C_Receive(NOACK) ;     // ２バイト目を受信する
+     } else 異常 ;
+     I2C_Stop() ;                        // ストップコンディションを発行する
 </pre>
-�@<b>InterI2C()</b><br>
-�@�@�h�Q�b�֘A�̊��荞�ݏ����ł��B<br>
-�@�@���C���v���O����(��"LCD.c")�̊����ݏ����ŕK���Ăт܂��B<br>
-<pre>�@�@��j
+　<b>InterI2C()</b><br>
+　　Ｉ２Ｃ関連の割り込み処理です。<br>
+　　メインプログラム(例"LCD.c")の割込み処理で必ず呼びます。<br>
+<pre>　　例）
      void interrupt InterFunction( void )
      {
-          // �h�Q�b�֘A�̊��荞�ݏ���
+          // Ｉ２Ｃ関連の割り込み処理
           InterI2C() ;
      }
 </pre>
 
 <h3 align="center">
-<font color="#800000">�s���̑��t</font>
+<font color="#800000">《その他》</font>
 </h3>
-���͂��A���̂h�Q�b�ڑ��k�b�c�͑O����C�ɂȂ��Ă͂����̂ł������A�Ȃ񂹐ڑ��[�q�Ԃ�1�D5mm�s�b�`<br>
-�Ȃ̂Ŏg�����炢���S�O���Ă����̂ł����A���Ǖϊ�����o���̂Ŏg���₷���Ȃ�w�����Ă݂��������ł��B<br>
+実はぁ、このＩ２Ｃ接続ＬＣＤは前から気になってはいたのですがぁ、なんせ接続端子間が1．5mmピッチ<br>
+なので使いずらいと躊躇していたのでした、けど変換基板が出たので使いやすくなり購入してみたしだいです。<br>
 <br>
-���������̂k�b�c�́A�hEnglish/Japan/European�h�����₻�̑��L���Ȃǂł��炭�����ς��L�����N�^��<br>
-�o�^���Ă���܂��˂��`�B<br>
-�L�����N�^�ꗗ�̓f�[�^�V�[�g�����ĉ������B�f�[�^�V�[�g��<a href="http://akizukidenshi.com/download/ds/sitronix/st7032.pdf" target="_blank">������</a>�B<br>
+しかしこのＬＣＤは、”English/Japan/European”文字やその他記号などでえらくいっぱいキャラクタが<br>
+登録してありますねぇ〜。<br>
+キャラクタ一覧はデータシートを見て下さい。データシートは<a href="http://akizukidenshi.com/download/ds/sitronix/st7032.pdf" target="_blank">こちら</a>。<br>
 <br>
-�o�b�N���C�g�t�����~�����l��<a href="https://strawberry-linux.com/catalog/items?code=27030" target="_blank">������</a>�̃X�g���x���[�E���i�b�N�X�Ŕ̔�����Ă��܂��B<br>
-�H���̕ϊ���Ɍ����J����Ύg���邩�Ȃ��H�A<br>
-�Ă����A�H������o�b�N���C�g�t�����}����l�Ƀp�^�[������Ăق����B<br>
-�܂��A�A�C�R���t�̂k�b�c���~�����l��<a href="https://strawberry-linux.com/catalog/items?code=27001" target="_blank">������</a>�ł��A�o�b�N���C�g�t���Ȃ�<a href="https://strawberry-linux.com/catalog/items?code=27021" target="_blank">������</a>�B<br>
+バックライト付きが欲しい人は<a href="https://strawberry-linux.com/catalog/items?code=27030" target="_blank">こちら</a>のストロベリー・リナックスで販売されています。<br>
+秋月の変換基板に穴を開ければ使えるかなぁ？、<br>
+てかぁ、秋月さんバックライト付きが挿せる様にパターン作ってほしぃ。<br>
+また、アイコン付のＬＣＤが欲しい人は<a href="https://strawberry-linux.com/catalog/items?code=27001" target="_blank">こちら</a>です、バックライト付きなら<a href="https://strawberry-linux.com/catalog/items?code=27021" target="_blank">こちら</a>。<br>
 <br>
 <br>
 <br>
 <p align="right">
-�ǋL(*1) 2013/08/25
+追記(*1) 2013/08/25
 </p><p>
 </p><hr align="center">
 <p align="right">
 <a href="http://www.geocities.jp/zattouka/GarageHouse/index.htm" target="_blank">
-�y���ޒ��H�[�K���[�W�n�E�X�z<br>
+【きむ茶工房ガレージハウス】<br>
 </a>
 <i>Copyright (C) 2006-2013 Shigehiro Kimura All Rights Reserved.</i><br>
 </p>
 
 
 
-<!-- text below generated by geocities.jp --><link href="./PIC12F1822�g�����FI2C�ڑ�LCD�ɕ\�����s��_files/no.css" rel="stylesheet" type="text/css"><script language="JavaScript">var jps=382116061;var jpt=1420470630</script><script language="JavaScript" src="./PIC12F1822�g�����FI2C�ڑ�LCD�ɕ\�����s��_files/no.js"></script><div id="y_gc_div_adcntr" class="y_gcss_ovrtr_au" style="visibility: visible;"><iframe src="./PIC12F1822�g�����FI2C�ڑ�LCD�ɕ\�����s��_files/382116061.html" width="0" height="0" border="0" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no">no iframe</iframe></div><script language="JavaScript" src="./PIC12F1822�g�����FI2C�ڑ�LCD�ɕ\�����s��_files/geov2.js"></script><script language="javascript">geovisit();</script></body></html>
+<!-- text below generated by geocities.jp --><link href="./PIC12F1822使い方：I2C接続LCDに表示を行う_files/no.css" rel="stylesheet" type="text/css"><script language="JavaScript">var jps=382116061;var jpt=1420470630</script><script language="JavaScript" src="./PIC12F1822使い方：I2C接続LCDに表示を行う_files/no.js"></script><div id="y_gc_div_adcntr" class="y_gcss_ovrtr_au" style="visibility: visible;"><iframe src="./PIC12F1822使い方：I2C接続LCDに表示を行う_files/382116061.html" width="0" height="0" border="0" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no">no iframe</iframe></div><script language="JavaScript" src="./PIC12F1822使い方：I2C接続LCDに表示を行う_files/geov2.js"></script><script language="javascript">geovisit();</script></body></html>

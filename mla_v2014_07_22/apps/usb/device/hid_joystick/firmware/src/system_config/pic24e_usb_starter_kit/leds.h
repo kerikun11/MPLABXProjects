@@ -154,7 +154,7 @@ typedef enum
 *        be ported to other boards).
 *         i.e. - LEDConfigure(LED_CONNECTION_DETECTED);
 *
-* Output: TRUE if successful, FALSE if LED not configured or doesn�t 
+* Output: TRUE if successful, FALSE if LED not configured or doesn・スt 
 *         exist for this board.
 *
 ********************************************************************/

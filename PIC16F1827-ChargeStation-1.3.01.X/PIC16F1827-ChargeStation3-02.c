@@ -1,10 +1,10 @@
 // PIC16F1827 Configuration Bit Settings
 // 2014.12.12
 // RA 0,1,2:adc, RB 0,3,4:output, RA 3,4,5:sw, RB5,RA6,7:LED
-// UARTƒeƒXƒg—p
-// ChargeStation Ver.3@o—Í3‚Â—p
-// “_–ÅLEDŠ®¬”Å
-// UART scrollboard‚Öo—Í‚Ì‚İ¨pinƒAƒTƒCƒ“‚»‚Ì‚Ü‚Ü
+// UARTãƒ†ã‚¹ãƒˆç”¨
+// ChargeStation Ver.3ã€€å‡ºåŠ›3ã¤ç”¨
+// ç‚¹æ»…LEDå®Œæˆç‰ˆ
+// UART scrollboardã¸å‡ºåŠ›ã®ã¿â†’pinã‚¢ã‚µã‚¤ãƒ³ãã®ã¾ã¾
 
 #include <xc.h>
 #include <stdint.h>
@@ -27,8 +27,8 @@
 #pragma config LVP = OFF        // Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)
 
 #define _XTAL_FREQ 32000000
-#define CUT_current 50          // ’PˆÊ‚Í[mA]
-#define CUT_time 6              // ’PˆÊ‚Í[s]
+#define CUT_current 50          // å˜ä½ã¯[mA]
+#define CUT_time 6              // å˜ä½ã¯[s]
 
 typedef struct ringbuf {
     uint8_t *buf;
@@ -95,12 +95,12 @@ void interrupt isr(void) {
         for (i = 0; i < 3; i++) {
             v[i] = 2 * adc(2-i) * 3 / 4;
 
-            if (v[i] < CUT_current) { //‚à‚µˆê’è“d—¬‚ğ‰º‰ñ‚Á‚½‚çƒJƒEƒ“ƒgƒAƒbƒvƒXƒ^[ƒg
+            if (v[i] < CUT_current) { //ã‚‚ã—ä¸€å®šé›»æµã‚’ä¸‹å›ã£ãŸã‚‰ã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—ã‚¹ã‚¿ãƒ¼ãƒˆ
                 cut[i]++;
-                if (cut[i] >= 8 * CUT_time) { //ˆê’èŠÔ‚½‚Á‚½‚çAo—ÍƒVƒƒƒbƒgƒAƒEƒg
+                if (cut[i] >= 8 * CUT_time) { //ä¸€å®šæ™‚é–“ãŸã£ãŸã‚‰ã€å‡ºåŠ›ã‚·ãƒ£ãƒƒãƒˆã‚¢ã‚¦ãƒˆ
                     OUT(i, 0);
                 }
-            } else { //Œo‰ßŠÔƒJƒEƒ“ƒgƒŠƒZƒbƒg
+            } else { //çµŒéæ™‚é–“ã‚«ã‚¦ãƒ³ãƒˆãƒªã‚»ãƒƒãƒˆ
                 cut[i] = 0;
             }
         }
@@ -119,17 +119,17 @@ void lchika(void) {
     uint8_t i;
     for (i = 0; i < 3; i++) {
         cnt[i]++;
-        //Šï”‚È‚çLED‚ÍÁ“”
+        //å¥‡æ•°ãªã‚‰LEDã¯æ¶ˆç¯
         if (cnt[i] % 2 == 1) {
             LED(i, 0);
-        } else {//‹ô”‚Ì‚Æ‚«
-            if (cnt[i] / 2 <= v[i] / 100) {//LED“_–Å‰ñ”‚Ì‚Ù‚¤‚ª“d—¬‚æ‚è­‚È‚¢ŠÔLED“_“”
+        } else {//å¶æ•°ã®ã¨ã
+            if (cnt[i] / 2 <= v[i] / 100) {//LEDç‚¹æ»…å›æ•°ã®ã»ã†ãŒé›»æµã‚ˆã‚Šå°‘ãªã„é–“LEDç‚¹ç¯
                 LED(i, 1);
-                cntf[i] = 0; //ƒtƒ‰ƒOƒŠƒZƒbƒg
-            } else {//LED‚Ì“_–Å‰ñ”‚Ì‚Ù‚¤‚ª“d—¬‚æ‚è‘½‚­‚È‚Á‚½‚Æ‚«ƒtƒ‰ƒO‰ÁZ
+                cntf[i] = 0; //ãƒ•ãƒ©ã‚°ãƒªã‚»ãƒƒãƒˆ
+            } else {//LEDã®ç‚¹æ»…å›æ•°ã®ã»ã†ãŒé›»æµã‚ˆã‚Šå¤šããªã£ãŸã¨ããƒ•ãƒ©ã‚°åŠ ç®—
                 cntf[i]++;
                 LED(i, 0);
-                if (cntf[i] >= 2) {//ƒtƒ‰ƒO‚ª2‚É‚È‚Á‚½‚çAŒ³‚É–ß‚é
+                if (cntf[i] >= 2) {//ãƒ•ãƒ©ã‚°ãŒ2ã«ãªã£ãŸã‚‰ã€å…ƒã«æˆ»ã‚‹
                     cnt[i] = 0;
                 }
             }

@@ -105,7 +105,7 @@ static bool WF_CMIsHostScanAllowed(void)
             Valid CpId
             * If CP has a defined SSID only scan results with that SSID are
                retained.
-            * If CP does not have a defined SSID then all scanned SSID’s will be
+            * If CP does not have a defined SSID then all scanned SSIDç—´ will be
                retained
             * Only scan results from Infrastructure or AdHoc networks are
                retained, depending on the value of networkType in the Connection Profile
@@ -116,7 +116,7 @@ static bool WF_CMIsHostScanAllowed(void)
             CpId is equal to WF_SCAN_ALL
             * All scan results are retained (both Infrastructure and Ad Hoc
                networks).
-            * All channels within the MRF24W’s regional domain will be
+            * All channels within the MRF24Wç—´ regional domain will be
                scanned.
             * No Connection Profiles need to be defined before calling this
                function.

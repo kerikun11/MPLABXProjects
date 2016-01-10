@@ -11041,7 +11041,7 @@ uint8_t Val;
 uint16_t_VAL  wCount;
 }IN_PIPE;
 
-extern volatile IN_PIPE inPipes[];
+extern  IN_PIPE inPipes[];
 
 typedef struct 
 {
@@ -11067,10 +11067,10 @@ void (*pFunc)(void);
 }OUT_PIPE;
 
 # 1904
-extern volatile bool RemoteWakeup;
-extern volatile bool USBBusIsSuspended;
-extern volatile USB_DEVICE_STATE USBDeviceState;
-extern volatile uint8_t USBActiveConfiguration;
+extern  bool RemoteWakeup;
+extern  bool USBBusIsSuspended;
+extern  USB_DEVICE_STATE USBDeviceState;
+extern  uint8_t USBActiveConfiguration;
 
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\__size_t.h"
 typedef unsigned size_t;
@@ -11199,9 +11199,9 @@ const uint16_t* wRom;
 } POINTER;
 
 # 601
-extern volatile uint8_t USBActiveConfiguration;
-extern volatile IN_PIPE inPipes[1];
-extern volatile OUT_PIPE outPipes[1];
+extern  uint8_t USBActiveConfiguration;
+extern  IN_PIPE inPipes[1];
+extern  OUT_PIPE outPipes[1];
 
 
 extern volatile BDT_ENTRY* pBDTEntryOut[2+1];
@@ -11561,12 +11561,12 @@ void putUSBUSART(uint8_t *data, uint8_t length)
 {
 
 # 638
-{PIE2bits.USBIE = 0;};
+;
 if(cdc_trf_state == 0)
 {
 { pCDCSrc.bRam = (uint8_t*)data; cdc_tx_len = length; cdc_mem_type = 0x01; cdc_trf_state = 1; };
 }
-{PIE2bits.USBIE = 1;};
+;
 }
 
 # 686
@@ -11576,10 +11576,10 @@ uint8_t len;
 char *pData;
 
 # 714
-{PIE2bits.USBIE = 0;};
+;
 if(cdc_trf_state != 0)
 {
-{PIE2bits.USBIE = 1;};
+;
 return;
 }
 
@@ -11594,7 +11594,7 @@ if(len == 255) break;
 
 # 739
 { pCDCSrc.bRam = (uint8_t*)data; cdc_tx_len = len; cdc_mem_type = 0x01; cdc_trf_state = 1; };
-{PIE2bits.USBIE = 1;};
+;
 }
 
 # 783
@@ -11604,10 +11604,10 @@ uint8_t len;
 const const char *pData;
 
 # 811
-{PIE2bits.USBIE = 0;};
+;
 if(cdc_trf_state != 0)
 {
-{PIE2bits.USBIE = 1;};
+;
 return;
 }
 
@@ -11622,7 +11622,7 @@ if(len == 255) break;
 
 # 837
 { pCDCSrc.bRom = (const uint8_t*)data; cdc_tx_len = len; cdc_mem_type = 0x00; cdc_trf_state = 1; };
-{PIE2bits.USBIE = 1;};
+;
 
 }
 
@@ -11632,13 +11632,13 @@ void CDCTxService(void)
 uint8_t byte_to_send;
 uint8_t i;
 
-{PIE2bits.USBIE = 0;};
+;
 
 {};
 
 if((CDCDataInHandle==0?0:((volatile BDT_ENTRY*)CDCDataInHandle)->STAT.UOWN))
 {
-{PIE2bits.USBIE = 1;};
+;
 return;
 }
 
@@ -11649,7 +11649,7 @@ cdc_trf_state = 0;
 # 919
 if(cdc_trf_state == 0)
 {
-{PIE2bits.USBIE = 1;};
+;
 return;
 }
 
@@ -11708,6 +11708,6 @@ CDCDataInHandle = USBTransferOnePacket(2,1,(uint8_t*)&cdc_data_tx,byte_to_send);
 
 }
 
-{PIE2bits.USBIE = 1;};
+;
 }
 

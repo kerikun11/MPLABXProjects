@@ -10509,42 +10509,7 @@ void I2C_LCD_Puts(const uint8_t * s);
 void I2C_LCD_CreateChar(int p, char *dt);
 void I2C_LCD_init(void);
 
-# 20 "../My_library\My_PIC.h"
-void OSC_init(void);
-
-# 36
-void timer0_init(uint8_t prescaler);
-
-# 51
-void timer1_init(uint8_t prescaler, uint8_t clock_select);
-
-# 62
-void timer3_init(uint8_t prescaler);
-
-# 68
-void timer5_init(uint8_t prescaler);
-
-# 78
-void ADC_init(uint8_t p_ref);
-
-# 87
-uint16_t ADC(uint8_t ch);
-
-# 95
-void CTMU_init(void);
-uint16_t CTMU_read(uint8_t ch);
-
-
-
-
-void Delay_ms(uint16_t ms);
-
-
-
-void millis_timer(void);
-uint32_t millis(void);
-
-# 14 "../My_library/My_ST7032.c"
+# 13 "../My_library/My_ST7032.c"
 st7032_state_t st7032_state;
 ringbuf_t lcd_tx;
 
@@ -10669,9 +10634,42 @@ break;
 }
 }
 
+# 20 "../My_library\My_PIC.h"
+void OSC_init(void);
+
+# 36
+void timer0_init(uint8_t prescaler);
+
+# 51
+void timer1_init(uint8_t prescaler, uint8_t clock_select);
+
+# 62
+void timer3_init(uint8_t prescaler);
+
+# 68
+void timer5_init(uint8_t prescaler);
+
+# 78
+void ADC_init(uint8_t p_ref);
+
+# 87
+uint16_t ADC(uint8_t ch);
+
+# 95
+void CTMU_init(void);
+uint16_t CTMU_read(uint8_t ch);
 
 
 
+
+void Delay_ms(uint16_t ms);
+
+
+
+void millis_timer(void);
+uint32_t millis(void);
+
+# 141 "../My_library/My_ST7032.c"
 void I2C_LCD_Command(uint8_t c) {
 uint8_t ans;
 

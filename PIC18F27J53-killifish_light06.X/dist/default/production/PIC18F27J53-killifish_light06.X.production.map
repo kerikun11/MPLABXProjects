@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\PIC18F27J53-killifish_light06.X.production.sym \
   --cmf=dist/default/production\PIC18F27J53-killifish_light06.X.production.cmf \
-  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s55k.2 \
+  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s95k.2 \
   -Mdist/default/production/PIC18F27J53-killifish_light06.X.production.map \
   -E1 -ver=XC8 -ASTACK=08E2h-0cffh -pstack=STACK \
   -ACODE=01000h-01005h,01008h-01015h,01018h-01FFF7h \
@@ -28,7 +28,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\KERIKU~1\AppData\Local\Temp\s55k.obj \
+  C:\Users\KERIKU~1\AppData\Local\Temp\s95k.obj \
   dist/default/production\PIC18F27J53-killifish_light06.X.production.obj 
 
 Object code version is 3.11
@@ -41,7 +41,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\KERIKU~1\AppData\Local\Temp\s55k.obj
+C:\Users\KERIKU~1\AppData\Local\Temp\s95k.obj
                 end_init                           10FE     10FE        4      804       0
                 reset_vec                          1000     1000        4      800       0
                 config                            1FFF8    1FFF8        8    1FFF8       0
@@ -410,7 +410,7 @@ RTCC_from_epoch@tm                        cstackBANK0   0008F
 RTCC_task@prev_halfsec                    bssBANK0      000E5
 RTCC_to_caltime@dumy                      cstackBANK0   00064
 RTCC_to_caltime@tm                        cstackBANK0   00062
-ST7032_cursor@F8665                       dataBANK1     001F8
+ST7032_cursor@F8640                       dataBANK1     001F8
 ST7032_init@buf                           bssBANK3      00300
 ST7032_task@st7032_state                  bssCOMRAM     0001D
 ST7032_task@wait                          bssBANK0      000DB
@@ -1335,9 +1335,9 @@ _getsUSBUSART                             text49        127CC
 _getsUSBUSART$1957                        cstackBANK0   0006B
 _inPipes                                  bssCOMRAM     0000A
 _is_usb_available                         text48        1466C
-_is_usb_available$5114                    cstackBANK0   00060
+_is_usb_available$5196                    cstackBANK0   00060
 _isdigit                                  text11        14550
-_isdigit$6282                             cstackBANK0   00061
+_isdigit$6364                             cstackBANK0   00061
 _lcd_tx                                   bssBANK0      000F3
 _light_mode                               bssBANK0      000EE
 _light_task                               text35        117B6
@@ -1379,12 +1379,12 @@ _sw_G                                     bssBANK1      00181
 _sw_R                                     bssBANK1      00185
 _terminal_at_hand                         text4         13FFC
 _terminal_operation                       text2         10000
-_terminal_operation$6879                  cstackBANK0   000CF
-_terminal_operation$6880                  cstackBANK0   000D1
+_terminal_operation$6979                  cstackBANK0   000CF
+_terminal_operation$6980                  cstackBANK0   000D1
 _terminal_task                            text1         10CB4
-_terminal_task$6877                       cstackBANK1   001F1
+_terminal_task$6977                       cstackBANK1   001F1
 _terminal_time                            text3         10908
-_terminal_time$6878                       cstackBANK0   000C4
+_terminal_time$6978                       cstackBANK0   000C4
 _time_change_flag                         bssBANK0      000F0
 _timer0_init                              text19        14364
 _timer1_init                              text18        141CC
@@ -1404,7 +1404,7 @@ button_timer_interrupt@sw_value           cstackCOMRAM  00030
 caltime_to_RTCC@tm                        cstackBANK0   00076
 caltime_to_epoch@epoch                    cstackBANK0   00081
 caltime_to_epoch@month                    cstackBANK0   00085
-caltime_to_epoch@month_3637               cstackBANK0   00080
+caltime_to_epoch@month_3722               cstackBANK0   00080
 caltime_to_epoch@tm                       cstackBANK0   00079
 caltime_to_epoch@year                     cstackBANK0   0007F
 d_to_x@dec                                cstackBANK0   00075
@@ -1445,12 +1445,12 @@ intlevel1                                 text          00000
 intlevel2                                 text          00000
 intlevel3                                 text          00000
 isdigit@c                                 cstackBANK0   00062
-light_task@_5990                          bssBANK0      000FD
+light_task@_6072                          bssBANK0      000FD
 light_task@i                              cstackBANK0   00092
 light_task@n                              bssBANK0      000FE
 light_task@temp                           cstackBANK0   0008E
 light_task@value                          cstackBANK0   0008C
-light_task@value_5991                     cstackBANK0   0008D
+light_task@value_6073                     cstackBANK0   0008D
 main_init@rxbuf                           bssBANK4      00400
 main_init@txbuf                           bssBIGRAMl    004FA
 memset@c                                  cstackBANK0   00062
@@ -1515,7 +1515,7 @@ terminal_task@buf                         cstackBANK1   0018D
 terminal_task@command                     bssBANK1      0016E
 terminal_task@command_init                bssBANK0      000F2
 terminal_task@i                           cstackBANK1   001F5
-terminal_task@i_4539                      cstackBANK1   001F3
+terminal_task@i_4621                      cstackBANK1   001F3
 terminal_task@op0                         bssBANK1      0011F
 terminal_task@op1                         bssBANK2      00280
 terminal_task@op2                         bssBANK2      00299
@@ -1543,7 +1543,7 @@ FUNCTION INFORMATION:
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  2  1582[None  ] int 
+                  2  1659[None  ] int 
  Registers used:
 		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
  Tracked objects:

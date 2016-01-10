@@ -88,8 +88,8 @@ void SPI_Initialize ( )
  *   None
  *
  * Output:
- *   This function returns ‘0’  on proper initialization of transmission and
- *   ‘SPIM_STS_WRITE_COLLISION’ on occurrence of the Write Collision error.
+ *   This function returns  on proper initialization of transmission and
+ *   å…¨PIM_STS_WRITE_COLLISIONon occurrence of the Write Collision error.
  *
  ******************************************************************************/
 unsigned int SPI_PutData ( unsigned int Data )
@@ -126,13 +126,13 @@ unsigned int SPI_PutData ( unsigned int Data )
  *   the transmission of the byte is completed.
  *
  * Preconditions:
- *   ‘SPI_PutData’ should have been called.
+ *   å…¨PI_PutDatashould have been called.
  *
  * Input:
  *    None
  *
  * Output:
- *    This function returns nothing in the blocking option and returns ‘0’ in the
+ *    This function returns nothing in the blocking option and returns in the
  *    non-blocking option. It returns SPIM_STS_TRANSMIT_NOT_OVER if the
  *    transmission is not yet over.
  *

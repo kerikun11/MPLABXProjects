@@ -75,7 +75,7 @@ int main(void) {
     TRISB = 0x00; //x001,0010
     ANSELA = 0x00; //Use AN0,1,2
     ANSELB = 0x00; //all digital
-    WPUA = 0xFF; // RB1/4‚Í“à•”ƒvƒ‹ƒAƒbƒv’ïR‚ðŽw’è‚·‚é
+    WPUA = 0xFF; // RB1/4ã¯å†…éƒ¨ãƒ—ãƒ«ã‚¢ãƒƒãƒ—æŠµæŠ—ã‚’æŒ‡å®šã™ã‚‹
     OPTION_REGbits.nWPUEN = 0;
     //timer1_init(0);
     //INTCONbits.PEIE = 1;

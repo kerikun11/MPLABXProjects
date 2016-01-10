@@ -8309,6 +8309,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_I2C.h: 28: uint8_t I2C_ack(void);
 [; ;My_library\My_I2C.h: 29: void I2C_init_new(void);
 [; ;My_library\My_I2C.h: 30: void I2C_ISR(void);
+[; ;My_library\My_I2C.h: 36: void I2C_IdleCheck(char mask);
+[; ;My_library\My_I2C.h: 37: void I2C_init_old(void);
+[; ;My_library\My_I2C.h: 38: uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
+[; ;My_library\My_I2C.h: 39: uint8_t I2C_rStart(int adrs, int rw);
+[; ;My_library\My_I2C.h: 40: void I2C_Stop(void);
+[; ;My_library\My_I2C.h: 41: uint8_t I2C_Send(uint8_t data);
+[; ;My_library\My_I2C.h: 42: uint8_t I2C_Receive(uint8_t ack);
 [; ;My_library\My_ST7032.h: 19: typedef enum ST7032_STATE {
 [; ;My_library\My_ST7032.h: 20: ST7032_IDOLE,
 [; ;My_library\My_ST7032.h: 21: ST7032_START,
@@ -8325,12 +8332,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_ST7032.h: 39: void ST7032_create_char(int p, char *dt);
 [; ;My_library\My_ST7032.h: 41: void ST7032_init(void);
 [; ;My_library\My_ST7032.h: 43: void ST7032_task(void);
+[; ;My_library\My_ST7032.h: 50: void I2C_LCD_Command(uint8_t c);
+[; ;My_library\My_ST7032.h: 51: void I2C_LCD_Clear(void);
+[; ;My_library\My_ST7032.h: 52: void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
+[; ;My_library\My_ST7032.h: 53: void I2C_LCD_Putc(uint8_t c);
+[; ;My_library\My_ST7032.h: 54: void I2C_LCD_Puts(const uint8_t * s);
+[; ;My_library\My_ST7032.h: 55: void I2C_LCD_CreateChar(int p, char *dt);
+[; ;My_library\My_ST7032.h: 56: void I2C_LCD_init(void);
 "31 main.c
 [v _one_second_flag `uc ~T0 @X0 1 e ]
 [; ;main.c: 31: uint8_t one_second_flag;
-[v F8629 `(v ~T0 @X0 1 tf ]
+[v F8661 `(v ~T0 @X0 1 tf ]
 "33
-[v _ISR `IF8629 ~T0 @X0 1 e ]
+[v _ISR `IF8661 ~T0 @X0 1 e ]
 {
 [; ;main.c: 33: void interrupt ISR(void) {
 [e :U _ISR ]

@@ -1,13 +1,13 @@
 // PIC16F1827 Configuration Bit Settings
 // 2015.5.25
 // adc:RA 0,1,2, OUTPUT:RB 2,5,7, SW(shield):RB 0,3,6, SW(button):RA4,5, LED:RA 3,6,7, SCL:RB4, SDA:RB1
-// ChargeStation Ver.5@o—Í3‚Â—p
-// ƒXƒCƒbƒ`ƒtƒŠ[USB·‚µ‚Ş‚Æ©“®ƒXƒ^[ƒg
-// pinƒAƒTƒCƒ“ˆê‘|
-// ‰Ÿ‚µƒ{ƒ^ƒ“ƒXƒCƒbƒ`‚Í‚QŒÂ‚¾‚¯
-// I2C¬Œ^‰t»‚Öo—Í
-// ÏZ‹@”\’Ç‰Á
-// define‚ÅI/Oƒsƒ“‚ğˆê”Ê‰»
+// ChargeStation Ver.5ã€€å‡ºåŠ›3ã¤ç”¨
+// ã‚¹ã‚¤ãƒƒãƒãƒ•ãƒªãƒ¼USBå·®ã—è¾¼ã‚€ã¨è‡ªå‹•ã‚¹ã‚¿ãƒ¼ãƒˆ
+// pinã‚¢ã‚µã‚¤ãƒ³ä¸€æƒ
+// æŠ¼ã—ãƒœã‚¿ãƒ³ã‚¹ã‚¤ãƒƒãƒã¯ï¼’å€‹ã ã‘
+// I2Cå°å‹æ¶²æ™¶ã¸å‡ºåŠ›
+// ç©ç®—æ©Ÿèƒ½è¿½åŠ 
+// defineã§I/Oãƒ”ãƒ³ã‚’ä¸€èˆ¬åŒ–
 
 #include <xc.h>
 #include <stdint.h>
@@ -38,8 +38,8 @@
 #include <My_I2C.h>
 #include <My_button.h>
 
-#define CUT_current 100    // ’PˆÊ‚Í[mA]
-#define CUT_time 6       // ’PˆÊ‚Í[s]
+#define CUT_current 100    // å˜ä½ã¯[mA]
+#define CUT_time 6       // å˜ä½ã¯[s]
 
 #define LED0 LATA3
 #define LED1 LATA6
@@ -105,12 +105,12 @@ void interrupt isr(void) {
             if (auto_cut_ON[i]) {
                 v[i] = 2 * ADC(i)*4 / 5; // *3/4 tyousetsu
 
-                if (v[i] < CUT_current) { //‚à‚µˆê’è“d—¬‚ğ‰º‰ñ‚Á‚½‚çƒJƒEƒ“ƒgƒAƒbƒvƒXƒ^[ƒg
+                if (v[i] < CUT_current) { //ã‚‚ã—ä¸€å®šé›»æµã‚’ä¸‹å›ã£ãŸã‚‰ã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—ã‚¹ã‚¿ãƒ¼ãƒˆ
                     cut[i]++;
-                    if (cut[i] >= 30 * CUT_time) { //ˆê’èŠÔ‚½‚Á‚½‚çAo—ÍƒVƒƒƒbƒgƒAƒEƒg
+                    if (cut[i] >= 30 * CUT_time) { //ä¸€å®šæ™‚é–“ãŸã£ãŸã‚‰ã€å‡ºåŠ›ã‚·ãƒ£ãƒƒãƒˆã‚¢ã‚¦ãƒˆ
                         cut_flag[i] = 1;
                     }
-                } else { //Œo‰ßŠÔƒJƒEƒ“ƒgƒŠƒZƒbƒg
+                } else { //çµŒéæ™‚é–“ã‚«ã‚¦ãƒ³ãƒˆãƒªã‚»ãƒƒãƒˆ
                     cut[i] = 0;
                 }
             }
@@ -143,17 +143,17 @@ void lchika(void) {
     uint8_t i;
     for (i = 0; i < 3; i++) {
         cnt[i]++;
-        //Šï”‚È‚çLED‚ÍÁ“”
+        //å¥‡æ•°ãªã‚‰LEDã¯æ¶ˆç¯
         if (cnt[i] % 2 == 1) {
             LED(i, 0);
-        } else {//‹ô”‚Ì‚Æ‚«
-            if (cnt[i] / 2 <= v[i] / 100) {//LED“_–Å‰ñ”‚Ì‚Ù‚¤‚ª“d—¬‚æ‚è­‚È‚¢ŠÔLED“_“”
+        } else {//å¶æ•°ã®ã¨ã
+            if (cnt[i] / 2 <= v[i] / 100) {//LEDç‚¹æ»…å›æ•°ã®ã»ã†ãŒé›»æµã‚ˆã‚Šå°‘ãªã„é–“LEDç‚¹ç¯
                 LED(i, 1);
-                cntf[i] = 0; //ƒtƒ‰ƒOƒŠƒZƒbƒg
-            } else {//LED‚Ì“_–Å‰ñ”‚Ì‚Ù‚¤‚ª“d—¬‚æ‚è‘½‚­‚È‚Á‚½‚Æ‚«ƒtƒ‰ƒO‰ÁZ
+                cntf[i] = 0; //ãƒ•ãƒ©ã‚°ãƒªã‚»ãƒƒãƒˆ
+            } else {//LEDã®ç‚¹æ»…å›æ•°ã®ã»ã†ãŒé›»æµã‚ˆã‚Šå¤šããªã£ãŸã¨ããƒ•ãƒ©ã‚°åŠ ç®—
                 cntf[i]++;
                 LED(i, 0);
-                if (cntf[i] >= 2) {//ƒtƒ‰ƒO‚ª2‚É‚È‚Á‚½‚çAŒ³‚É–ß‚é
+                if (cntf[i] >= 2) {//ãƒ•ãƒ©ã‚°ãŒ2ã«ãªã£ãŸã‚‰ã€å…ƒã«æˆ»ã‚‹
                     cnt[i] = 0;
                 }
             }

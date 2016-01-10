@@ -1,4 +1,4 @@
-﻿namespace DriverManagementTool
+namespace DriverManagementTool
 {
     partial class MainForm64Bit
     {

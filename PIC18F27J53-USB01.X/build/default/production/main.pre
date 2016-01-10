@@ -11299,7 +11299,7 @@ uint8_t Val;
 uint16_t_VAL  wCount;
 }IN_PIPE;
 
-extern volatile IN_PIPE inPipes[];
+extern  IN_PIPE inPipes[];
 
 typedef struct 
 {
@@ -11325,10 +11325,10 @@ void (*pFunc)(void);
 }OUT_PIPE;
 
 # 1904
-extern volatile bool RemoteWakeup;
-extern volatile bool USBBusIsSuspended;
-extern volatile USB_DEVICE_STATE USBDeviceState;
-extern volatile uint8_t USBActiveConfiguration;
+extern  bool RemoteWakeup;
+extern  bool USBBusIsSuspended;
+extern  USB_DEVICE_STATE USBDeviceState;
+extern  uint8_t USBActiveConfiguration;
 
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\__size_t.h"
 typedef unsigned size_t;
@@ -11457,9 +11457,9 @@ const uint16_t* wRom;
 } POINTER;
 
 # 601
-extern volatile uint8_t USBActiveConfiguration;
-extern volatile IN_PIPE inPipes[1];
-extern volatile OUT_PIPE outPipes[1];
+extern  uint8_t USBActiveConfiguration;
+extern  IN_PIPE inPipes[1];
+extern  OUT_PIPE outPipes[1];
 
 
 extern volatile BDT_ENTRY* pBDTEntryOut[2+1];
@@ -11649,16 +11649,23 @@ extern LINE_CODING line_coding;
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 
-# 17 "../My_library\My_usb_cdc.h"
+# 39 "../My_library\My_usb_cdc.h"
 extern ringbuf_t usb_tx;
 extern ringbuf_t usb_rx;
 
+# 46
 void USB_ISR(void);
+
 void USB_init(void);
-int put_string_usb(char *s, int len);
-int get_string_usb(char *s, int len);
-void USBCBSendResume(void);
+
 void USB_task(void);
+
+
+
+
+void usb_char_send(char c);
+uint8_t usb_char_get(char *c);
+void USBCBSendResume(void);
 
 # 68 "../My_library\My_UART.h"
 extern ringbuf_t uart_tx;
@@ -11731,8 +11738,6 @@ I2C_LCD_Puts("USB UART");
 INTCONbits.GIE = 1;
 
 while (1) {
-INTCONbits.GIE = 0;
-
 USB_task();
 UART_task();
 RTCC_task();
@@ -11745,10 +11750,6 @@ if (ringbuf_num(&uart_rx)) {
 ringbuf_put(&uart_tx, ringbuf_pop(&uart_rx));
 LATBbits.LATB6 = !LATBbits.LATB6;
 }
-INTCONbits.GIE = 1;
-LATAbits.LATA2 = !LATAbits.LATA2;
-
-INTCONbits.GIE = 0;
 if (time_change_flag) {
 time_change_flag = 0;
 char s[2][20];
@@ -11759,7 +11760,6 @@ I2C_LCD_Puts(s[0]);
 I2C_LCD_SetCursor(0, 1);
 I2C_LCD_Puts(s[1]);
 }
-INTCONbits.GIE = 1;
 }
 return 0;
 }

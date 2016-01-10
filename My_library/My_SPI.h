@@ -26,7 +26,7 @@ int16_t SPI_TM_Read(void);
 
 //*************************** SPI_LCD ***************************//
 #ifdef AQM1248A
-// C_SEL, RS Ç#defineÇ∑ÇÈÇ±Ç∆ÅB
+// C_SEL, RS „Çí#define„Åô„Çã„Åì„Å®„ÄÇ
 // #define C_SEL LATAbits.LA0
 // #define RS LATAbits.LA1
 void SPI_LCD_init(void);

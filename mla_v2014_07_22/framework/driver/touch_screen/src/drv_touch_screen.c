@@ -71,7 +71,7 @@ void            TouchCheckForCalibration(void);
 
 
 // Default Calibration Inset Value (percentage of vertical or horizontal resolution)
-// Calibration Inset = ( CALIBRATIONINSET / 2 ) % , Range of 0�20% with 0.5% resolution
+// Calibration Inset = ( CALIBRATIONINSET / 2 ) % , Range of 0・ス20% with 0.5% resolution
 // Example with CALIBRATIONINSET == 20, the calibration points are measured
 // 10% from the corners.
 #define CALIBRATIONINSET   20                               // range 0 <= CALIBRATIONINSET <= 40 

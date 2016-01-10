@@ -72,15 +72,15 @@ uint16_t CTMU_read(uint8_t ch) {
         CTMUCONLbits.EDG1STAT = 0;
         CTMUCONLbits.EDG2STAT = 0;
 
-        // �[���d�ʂ���J�n������ׂɓd�ׂ���d������
+        // ゼロ電位から開始させる為に電荷を放電させる
         CTMUCONHbits.IDISSEN = 1;
         __delay_us(CTMU_DISCHARGE_TIME);
         CTMUCONHbits.IDISSEN = 0;
-        // �d�ɂɏ[�d���s��
+        // 電極に充電を行う
         CTMUCONLbits.EDG1STAT = 1;
         __delay_us(CTMU_CHARGE_TIME);
         CTMUCONLbits.EDG1STAT = 0;
-        // �d�ɂ̓d��(AN0)��ǂݎ��
+        // 電極の電圧(AN0)を読み取る
         PIR1bits.ADIF = 0;
         ADCON0bits.GO = 1;
         while (!PIR1bits.ADIF);

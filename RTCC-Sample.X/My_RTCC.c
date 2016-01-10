@@ -33,7 +33,7 @@ void RTCC_init(void) {
     RTCCAL = 0x00;
     T1CONbits.T1OSCEN = 1;
 
-    // ‘¶Ý‚µ‚È‚¢”NŒŽ“ú‚È‚ç‚ÎA‰Šú‰»‚·‚é
+    // å­˜åœ¨ã—ãªã„å¹´æœˆæ—¥ãªã‚‰ã°ã€åˆæœŸåŒ–ã™ã‚‹
     RTCC_from_RTCC(&now);
     if (now.DD == 0) {
         now.epoch = 0;
@@ -82,7 +82,7 @@ epoch_t get_quot_rem(epoch_t *quot, uint8_t div) {
     // num /= div;
     // return rem;
     epoch_t num = *quot;
-    return num - (*quot = num / div) * div; // returns rem(—]‚è)
+    return num - (*quot = num / div) * div; // returns rem(ä½™ã‚Š)
 }
 
 /********************************** Transform time **********************************/
@@ -124,7 +124,7 @@ void caltime_to_RTCC(time_t *tm) {
 }
 
 void epoch_to_caltime(time_t *tm) {
-    // terminal‚ÅepochŽžŠÔ‚ð‹‚ß‚éƒRƒ}ƒ“ƒh
+    // terminalã§epochæ™‚é–“ã‚’æ±‚ã‚ã‚‹ã‚³ãƒžãƒ³ãƒ‰
     // echo $(( (`date -d '2015/03/01' '+%s'` - `date -d '2000/01/01' '+%s'`) / 86400 ))
     static uint16_t day_cache = 0; //2015.03.01
     static uint8_t month_cache = 1;
@@ -158,7 +158,7 @@ void epoch_to_caltime(time_t *tm) {
         if (month == 12) {
             month = 1; // month is one-based.
             year++;
-            //3155760000 is 2000~2100‚Ì100”NŠÔ‚Ì•b”
+            //3155760000 is 2000~2100ã®100å¹´é–“ã®ç§’æ•°
             if (year >= 100) {
                 tm->epoch -= 3155760000;
                 year = 0;

@@ -29,7 +29,7 @@
   You should refer to the license agreement accompanying this Software
   for additional information regarding your rights and obligations.
  
-  SOFTWARE AND DOCUMENTATION ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY
+  SOFTWARE AND DOCUMENTATION ARE PROVIDED ÂçÖS IS„É¢ WITHOUT WARRANTY OF ANY
   KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY WARRANTY
   OF MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR
   PURPOSE. IN NO EVENT SHALL MICROCHIP OR ITS LICENSORS BE LIABLE OR
@@ -471,14 +471,14 @@ extern const GFX_RESOURCE_HDR JapaneseFont;
 /*********************************
  * TTF Font File Structure
  * Label: HindiFont
- * Description:  Height: 31 pixels, 2 bits per pixel, Range: ' ' to '≈'
+ * Description:  Height: 31 pixels, 2 bits per pixel, Range: ' ' to '„Éä'
  ***********************************/
 extern const GFX_RESOURCE_HDR HindiFont;
 #define HindiFont_SIZE    (841)
 /*********************************
  * TTF Font File Structure
  * Label: ThaiFont
- * Description:  Height: 29 pixels, 2 bits per pixel, Range: '!' to 'â'
+ * Description:  Height: 29 pixels, 2 bits per pixel, Range: '!' to '
  ***********************************/
 extern const GFX_RESOURCE_HDR ThaiFont;
 #define ThaiFont_SIZE    (1306)

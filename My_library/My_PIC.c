@@ -209,9 +209,12 @@ uint16_t CTMU_read(uint8_t ch) {
 
 //*************************** Delay_ms ***************************//
 
+#ifdef _XTAL_FREQ
+
 void Delay_ms(uint16_t ms) {
     while (ms--)__delay_ms(1);
 }
+#endif
 
 //*************************** millis ***************************//
 uint32_t ms;

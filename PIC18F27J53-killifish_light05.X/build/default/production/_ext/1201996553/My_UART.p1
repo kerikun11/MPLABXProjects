@@ -8305,11 +8305,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
 [; ;My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
 [; ;My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
-[; ;My_UART.h: 29: extern ringbuf_t uart_tx;
-[; ;My_UART.h: 30: extern ringbuf_t uart_rx;
-[; ;My_UART.h: 32: void UART_init(void);
-[; ;My_UART.h: 33: void UART_ISR(void);
-[; ;My_UART.h: 34: void UART_task();
+[; ;My_UART.h: 68: extern ringbuf_t uart_tx;
+[; ;My_UART.h: 69: extern ringbuf_t uart_rx;
+[; ;My_UART.h: 71: void UART_init(void);
+[; ;My_UART.h: 72: void UART_ISR(void);
+[; ;My_UART.h: 73: void UART_task(void);
 "7 ../My_library/My_UART.c
 [v _uart_tx `S1218 ~T0 @X0 1 e ]
 [; ;My_UART.c: 7: ringbuf_t uart_tx;
@@ -8352,90 +8352,93 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_UART.c: 20: SPBRGH1 = (48000000 / 16 / 115200 - 1) >> 8;
 "20
 [e = _SPBRGH1 -> >> - / / -> 48000000 `l -> -> 16 `i `l -> 115200 `l -> -> 1 `i `l -> 8 `i `uc ]
-[; ;My_UART.c: 21: IPR1bits.RC1IP = 0;
-"21
-[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
-[; ;My_UART.c: 22: PIE1bits.RCIE = 1;
+[; ;My_UART.c: 22: IPR1bits.RC1IP = 0;
 "22
-[e = . . _PIE1bits 1 3 -> -> 1 `i `uc ]
-[; ;My_UART.c: 23: INTCONbits.PEIE = 1;
+[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
+[; ;My_UART.c: 23: IPR1bits.TX1IP = 0;
 "23
+[e = . . _IPR1bits 0 4 -> -> 0 `i `uc ]
+[; ;My_UART.c: 25: PIE1bits.RCIE = 1;
+"25
+[e = . . _PIE1bits 1 3 -> -> 1 `i `uc ]
+[; ;My_UART.c: 26: INTCONbits.PEIE = 1;
+"26
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;My_UART.c: 24: }
-"24
+[; ;My_UART.c: 27: }
+"27
 [e :UE 1219 ]
 }
-"26
+"29
 [v _UART_ISR `(v ~T0 @X0 1 ef ]
 {
-[; ;My_UART.c: 26: void UART_ISR(void) {
+[; ;My_UART.c: 29: void UART_ISR(void) {
 [e :U _UART_ISR ]
 [f ]
-[; ;My_UART.c: 27: if (PIE1bits.TXIE && PIR1bits.TXIF) {
-"27
+[; ;My_UART.c: 30: if (PIE1bits.TXIE && PIR1bits.TXIF) {
+"30
 [e $ ! && != -> . . _PIE1bits 1 2 `i -> -> -> 0 `i `Vuc `i != -> . . _PIR1bits 1 2 `i -> -> -> 0 `i `Vuc `i 1221  ]
 {
-[; ;My_UART.c: 28: if (ringbuf_num(&uart_tx)) {
-"28
+[; ;My_UART.c: 31: if (ringbuf_num(&uart_tx)) {
+"31
 [e $ ! != ( _ringbuf_num (1 &U _uart_tx -> -> 0 `i `ui 1222  ]
 {
-[; ;My_UART.c: 29: TXREG1 = ringbuf_pop(&uart_tx);
-"29
+[; ;My_UART.c: 32: TXREG1 = ringbuf_pop(&uart_tx);
+"32
 [e = _TXREG1 ( _ringbuf_pop (1 &U _uart_tx ]
-"30
+"33
 }
-[; ;My_UART.c: 30: } else {
+[; ;My_UART.c: 33: } else {
 [e $U 1223  ]
 [e :U 1222 ]
 {
-[; ;My_UART.c: 31: PIE1bits.TXIE = 0;
-"31
+[; ;My_UART.c: 34: PIE1bits.TXIE = 0;
+"34
 [e = . . _PIE1bits 1 2 -> -> 0 `i `uc ]
-"32
+"35
 }
 [e :U 1223 ]
-"33
+"36
 }
 [e :U 1221 ]
-[; ;My_UART.c: 32: }
-[; ;My_UART.c: 33: }
-[; ;My_UART.c: 34: if (PIE1bits.RCIE && PIR1bits.RCIF) {
-"34
+[; ;My_UART.c: 35: }
+[; ;My_UART.c: 36: }
+[; ;My_UART.c: 37: if (PIE1bits.RCIE && PIR1bits.RCIF) {
+"37
 [e $ ! && != -> . . _PIE1bits 1 3 `i -> -> -> 0 `i `Vuc `i != -> . . _PIR1bits 1 3 `i -> -> -> 0 `i `Vuc `i 1224  ]
 {
-"35
+"38
 [v _ascii `uc ~T0 @X0 1 a ]
-[; ;My_UART.c: 35: char ascii = RCREG1;
+[; ;My_UART.c: 38: char ascii = RCREG1;
 [e = _ascii _RCREG1 ]
-[; ;My_UART.c: 36: ringbuf_put(&uart_rx, ascii);
-"36
+[; ;My_UART.c: 39: ringbuf_put(&uart_rx, ascii);
+"39
 [e ( _ringbuf_put (2 , &U _uart_rx _ascii ]
-"37
+"40
 }
 [e :U 1224 ]
-[; ;My_UART.c: 37: }
-[; ;My_UART.c: 38: }
-"38
+[; ;My_UART.c: 40: }
+[; ;My_UART.c: 41: }
+"41
 [e :UE 1220 ]
 }
-"40
+"43
 [v _UART_task `(v ~T0 @X0 1 ef ]
 {
-[; ;My_UART.c: 40: void UART_task(void) {
+[; ;My_UART.c: 43: void UART_task(void) {
 [e :U _UART_task ]
 [f ]
-[; ;My_UART.c: 41: if (ringbuf_num(&uart_tx)) {
-"41
+[; ;My_UART.c: 44: if (ringbuf_num(&uart_tx)) {
+"44
 [e $ ! != ( _ringbuf_num (1 &U _uart_tx -> -> 0 `i `ui 1226  ]
 {
-[; ;My_UART.c: 42: PIE1bits.TXIE = 1;
-"42
+[; ;My_UART.c: 45: PIE1bits.TXIE = 1;
+"45
 [e = . . _PIE1bits 1 2 -> -> 1 `i `uc ]
-"43
+"46
 }
 [e :U 1226 ]
-[; ;My_UART.c: 43: }
-[; ;My_UART.c: 44: }
-"44
+[; ;My_UART.c: 46: }
+[; ;My_UART.c: 47: }
+"47
 [e :UE 1225 ]
 }

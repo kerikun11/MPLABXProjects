@@ -1,5 +1,5 @@
 // PIC16F1827 Configuration Bit Settings
-//óM‹@
+//å—ä¿¡æ©Ÿ
 // 'C' source line config statements
 
 #include <xc.h>

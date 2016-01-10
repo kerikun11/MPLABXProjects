@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"19 ../My_library\My_ringbuf.h
+"19 ../My_library/My_ringbuf.h
 [s S1284 `*uc 1 `ui 1 `ui 1 `ui 1 ]
 [n S1284 ringbuf buf size head tail ]
 "304 ../My_library\usb/usb_device.h
@@ -8,7 +8,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _USBDeviceInit `(v ~T0 @X0 0 ef ]
 "640
 [v _USBDeviceAttach `(v ~T0 @X0 0 ef ]
-"848 ../My_library\usb/usb_device_cdc.h
+"848 ../My_library/usb/usb_device_cdc.h
 [s S1272 `uc -> 7 `i ]
 [n S1272 . _byte ]
 "852
@@ -32,7 +32,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S407 . . ]
 "6470
 [v _UCONbits `VS407 ~T0 @X0 0 e@3941 ]
-"837 ../My_library\usb/usb_device_cdc.h
+"837 ../My_library/usb/usb_device_cdc.h
 [v _CDCTxService `(v ~T0 @X0 0 ef ]
 "952
 [v _cdc_trf_state `uc ~T0 @X0 0 e ]
@@ -40,22 +40,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _putUSBUSART `(v ~T0 @X0 0 ef2`*uc`uc ]
 "659
 [v _getsUSBUSART `(uc ~T0 @X0 0 ef2`*uc`uc ]
-"44 ../My_library/My_usb_cdc.c
+"43 ../My_library/My_usb_cdc.c
 [c E8545 0 1 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 400 500 600 700 800 900 1000 10000 32767 .. ]
 [n E8545 . EVENT_NONE EVENT_DEVICE_STACK_BASE EVENT_HOST_STACK_BASE EVENT_HUB_ATTACH EVENT_STALL EVENT_VBUS_SES_REQUEST EVENT_VBUS_OVERCURRENT EVENT_VBUS_REQUEST_POWER EVENT_VBUS_RELEASE_POWER EVENT_VBUS_POWER_AVAILABLE EVENT_UNSUPPORTED_DEVICE EVENT_CANNOT_ENUMERATE EVENT_CLIENT_INIT_ERROR EVENT_OUT_OF_MEMORY EVENT_UNSPECIFIED_ERROR EVENT_DETACH EVENT_TRANSFER EVENT_SOF EVENT_RESUME EVENT_SUSPEND EVENT_RESET EVENT_DATA_ISOC_READ EVENT_DATA_ISOC_WRITE EVENT_OVERRIDE_CLIENT_DRIVER_SELECTION EVENT_1MS EVENT_GENERIC_BASE EVENT_MSD_BASE EVENT_HID_BASE EVENT_PRINTER_BASE EVENT_CDC_BASE EVENT_CHARGER_BASE EVENT_AUDIO_BASE EVENT_USER_BASE EVENT_BUS_ERROR  ]
-"542 ../My_library\usb/usb_device_cdc.h
+"542 ../My_library/usb/usb_device_cdc.h
 [v _CDCInitEP `(v ~T0 @X0 0 ef ]
 "568
 [v _USBCheckCDCRequest `(v ~T0 @X0 0 ef ]
-"45 ../My_library/My_usb_cdc.c
+"44 ../My_library/My_usb_cdc.c
 [c E8803 1 2 3 4 5 .. ]
 [n E8803 . EVENT_CONFIGURED EVENT_SET_DESCRIPTOR EVENT_EP0_REQUEST EVENT_ATTACH EVENT_TRANSFER_TERMINATED  ]
-"30 ../My_library\My_ringbuf.h
+"30 ../My_library/My_ringbuf.h
 [v _ringbuf_put `(v ~T0 @X0 0 ef2`*S1284`uc ]
-"28
-[v _ringbuf_num `(ui ~T0 @X0 0 ef1`*S1284 ]
 "36
 [v _ringbuf_pop `(uc ~T0 @X0 0 ef1`*S1284 ]
+"28
+[v _ringbuf_num `(ui ~T0 @X0 0 ef1`*S1284 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -8806,28 +8806,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device_cdc.h: 958: extern LINE_CODING line_coding;
 [; ;usb_device_cdc.h: 960: extern volatile CTRL_TRF_SETUP SetupPkt;
 [; ;usb_device_cdc.h: 961: extern const uint8_t configDescriptor1[];
-[; ;My_library\My_ringbuf.h: 19: typedef struct ringbuf {
-[; ;My_library\My_ringbuf.h: 20: char *buf;
-[; ;My_library\My_ringbuf.h: 21: uint16_t size;
-[; ;My_library\My_ringbuf.h: 22: uint16_t head;
-[; ;My_library\My_ringbuf.h: 23: uint16_t tail;
-[; ;My_library\My_ringbuf.h: 24: } ringbuf_t;
-[; ;My_library\My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
-[; ;My_library\My_ringbuf.h: 28: uint16_t ringbuf_num(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, char asciicode);
-[; ;My_library\My_ringbuf.h: 32: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
-[; ;My_library\My_ringbuf.h: 34: void ringbuf_put_str(ringbuf_t *rb, const char *str);
-[; ;My_library\My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
-[; ;My_usb_cdc.h: 17: extern ringbuf_t usb_tx;
-[; ;My_usb_cdc.h: 18: extern ringbuf_t usb_rx;
-[; ;My_usb_cdc.h: 20: void USB_ISR(void);
-[; ;My_usb_cdc.h: 21: void USB_init(void);
-[; ;My_usb_cdc.h: 22: int put_string_usb(char *s, int len);
-[; ;My_usb_cdc.h: 23: int get_string_usb(char *s, int len);
-[; ;My_usb_cdc.h: 24: void USBCBSendResume(void);
-[; ;My_usb_cdc.h: 25: void USB_task(void);
+[; ;My_ringbuf.h: 19: typedef struct ringbuf {
+[; ;My_ringbuf.h: 20: char *buf;
+[; ;My_ringbuf.h: 21: uint16_t size;
+[; ;My_ringbuf.h: 22: uint16_t head;
+[; ;My_ringbuf.h: 23: uint16_t tail;
+[; ;My_ringbuf.h: 24: } ringbuf_t;
+[; ;My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
+[; ;My_ringbuf.h: 28: uint16_t ringbuf_num(ringbuf_t *rb);
+[; ;My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, char asciicode);
+[; ;My_ringbuf.h: 32: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
+[; ;My_ringbuf.h: 34: void ringbuf_put_str(ringbuf_t *rb, const char *str);
+[; ;My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
+[; ;My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
+[; ;My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
+[; ;My_usb_cdc.h: 39: extern ringbuf_t usb_tx;
+[; ;My_usb_cdc.h: 40: extern ringbuf_t usb_rx;
+[; ;My_usb_cdc.h: 46: void USB_ISR(void);
+[; ;My_usb_cdc.h: 48: void USB_init(void);
+[; ;My_usb_cdc.h: 50: void USB_task(void);
+[; ;My_usb_cdc.h: 55: void usb_char_send(char c);
+[; ;My_usb_cdc.h: 56: uint8_t usb_char_get(char *c);
+[; ;My_usb_cdc.h: 57: void USBCBSendResume(void);
 "4 ../My_library/My_usb_cdc.c
 [v _usb_tx `S1284 ~T0 @X0 1 e ]
 [; ;My_usb_cdc.c: 4: ringbuf_t usb_tx;
@@ -8883,20 +8883,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 1287 ]
 }
 "21
-[v _put_string_usb `(i ~T0 @X0 1 ef2`*uc`i ]
+[v _usb_char_send `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_usb_cdc.c: 21: int put_string_usb(char *s, int len) {
-[e :U _put_string_usb ]
-[v _s `*uc ~T0 @X0 1 r1 ]
-[v _len `i ~T0 @X0 1 r2 ]
+[; ;My_usb_cdc.c: 21: void usb_char_send(char c) {
+[e :U _usb_char_send ]
+[v _c `uc ~T0 @X0 1 r1 ]
 [f ]
 [; ;My_usb_cdc.c: 22: if (!is_usb_available()) {
 "22
 [e $ ! ! != -> ( _is_usb_available ..  `i -> -> -> 0 `i `uc `i 1289  ]
 {
-[; ;My_usb_cdc.c: 24: return 1;
+[; ;My_usb_cdc.c: 24: return;
 "24
-[e ) -> 1 `i ]
 [e $UE 1288  ]
 "25
 }
@@ -8910,190 +8908,187 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1290 ]
 [e $ ! == -> _cdc_trf_state `i -> 0 `i 1291  ]
 [e :U 1292 ]
-[; ;My_usb_cdc.c: 27: putUSBUSART(s, len);
+[; ;My_usb_cdc.c: 27: putUSBUSART(&c, 1);
 "27
-[e ( _putUSBUSART (2 , _s -> _len `uc ]
+[e ( _putUSBUSART (2 , &U _c -> -> 1 `i `uc ]
 [; ;My_usb_cdc.c: 28: CDCTxService();
 "28
 [e ( _CDCTxService ..  ]
-[; ;My_usb_cdc.c: 29: return 0;
+[; ;My_usb_cdc.c: 29: }
 "29
-[e ) -> 0 `i ]
-[e $UE 1288  ]
-[; ;My_usb_cdc.c: 30: }
-"30
 [e :UE 1288 ]
 }
-"32
-[v _get_string_usb `(i ~T0 @X0 1 ef2`*uc`i ]
+"31
+[v _usb_char_get `(uc ~T0 @X0 1 ef1`*uc ]
 {
-[; ;My_usb_cdc.c: 32: int get_string_usb(char *s, int len) {
-[e :U _get_string_usb ]
-[v _s `*uc ~T0 @X0 1 r1 ]
-[v _len `i ~T0 @X0 1 r2 ]
+[; ;My_usb_cdc.c: 31: uint8_t usb_char_get(char *c) {
+[e :U _usb_char_get ]
+[v _c `*uc ~T0 @X0 1 r1 ]
 [f ]
-"33
-[v _rx_len `i ~T0 @X0 1 a ]
-[; ;My_usb_cdc.c: 33: int rx_len;
-[; ;My_usb_cdc.c: 34: if (!is_usb_available()) {
-"34
+[; ;My_usb_cdc.c: 32: if (!is_usb_available()) {
+"32
 [e $ ! ! != -> ( _is_usb_available ..  `i -> -> -> 0 `i `uc `i 1294  ]
 {
-[; ;My_usb_cdc.c: 36: return 0;
-"36
-[e ) -> 0 `i ]
+[; ;My_usb_cdc.c: 34: return 0;
+"34
+[e ) -> -> 0 `i `uc ]
 [e $UE 1293  ]
-"37
+"35
 }
 [e :U 1294 ]
-[; ;My_usb_cdc.c: 37: }
-[; ;My_usb_cdc.c: 38: while (!(cdc_trf_state == 0)) CDCTxService();
-"38
+[; ;My_usb_cdc.c: 35: }
+[; ;My_usb_cdc.c: 36: while (!(cdc_trf_state == 0)) CDCTxService();
+"36
 [e $U 1295  ]
 [e :U 1296 ]
 [e ( _CDCTxService ..  ]
 [e :U 1295 ]
 [e $ ! == -> _cdc_trf_state `i -> 0 `i 1296  ]
 [e :U 1297 ]
-[; ;My_usb_cdc.c: 39: rx_len = getsUSBUSART(s, len);
+"37
+[v _ans `uc ~T0 @X0 1 a ]
+[; ;My_usb_cdc.c: 37: uint8_t ans;
+[; ;My_usb_cdc.c: 38: ans = getsUSBUSART(c, 1);
+"38
+[e = _ans ( _getsUSBUSART (2 , _c -> -> 1 `i `uc ]
+[; ;My_usb_cdc.c: 39: CDCTxService();
 "39
-[e = _rx_len -> ( _getsUSBUSART (2 , _s -> _len `uc `i ]
-[; ;My_usb_cdc.c: 40: CDCTxService();
-"40
 [e ( _CDCTxService ..  ]
-[; ;My_usb_cdc.c: 41: return rx_len;
-"41
-[e ) _rx_len ]
+[; ;My_usb_cdc.c: 40: return ans;
+"40
+[e ) _ans ]
 [e $UE 1293  ]
-[; ;My_usb_cdc.c: 42: }
-"42
+[; ;My_usb_cdc.c: 41: }
+"41
 [e :UE 1293 ]
 }
-"44
+"43
 [v _USER_USB_CALLBACK_EVENT_HANDLER `(uc ~T0 @X0 1 ef3`E8545`*v`ui ]
 {
-[; ;My_usb_cdc.c: 44: bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t size) {
+[; ;My_usb_cdc.c: 43: bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t size) {
 [e :U _USER_USB_CALLBACK_EVENT_HANDLER ]
 [v _event `E8545 ~T0 @X0 1 r1 ]
 [v _pdata `*v ~T0 @X0 1 r2 ]
 [v _size `ui ~T0 @X0 1 r3 ]
 [f ]
-[; ;My_usb_cdc.c: 45: switch ((int) event) {
-"45
+[; ;My_usb_cdc.c: 44: switch ((int) event) {
+"44
 [e $U 1300  ]
 {
-[; ;My_usb_cdc.c: 46: case EVENT_CONFIGURED:
-"46
-[e :U 1301 ]
-[; ;My_usb_cdc.c: 47: CDCInitEP();
-"47
-[e ( _CDCInitEP ..  ]
-[; ;My_usb_cdc.c: 48: break;
-"48
-[e $U 1299  ]
-[; ;My_usb_cdc.c: 49: case EVENT_EP0_REQUEST:
-"49
-[e :U 1302 ]
-[; ;My_usb_cdc.c: 50: USBCheckCDCRequest();
-"50
-[e ( _USBCheckCDCRequest ..  ]
-[; ;My_usb_cdc.c: 51: break;
-"51
-[e $U 1299  ]
-"52
-}
-[; ;My_usb_cdc.c: 52: }
-[e $U 1299  ]
+[; ;My_usb_cdc.c: 45: case EVENT_CONFIGURED:
 "45
+[e :U 1301 ]
+[; ;My_usb_cdc.c: 46: CDCInitEP();
+"46
+[e ( _CDCInitEP ..  ]
+[; ;My_usb_cdc.c: 47: break;
+"47
+[e $U 1299  ]
+[; ;My_usb_cdc.c: 48: case EVENT_EP0_REQUEST:
+"48
+[e :U 1302 ]
+[; ;My_usb_cdc.c: 49: USBCheckCDCRequest();
+"49
+[e ( _USBCheckCDCRequest ..  ]
+[; ;My_usb_cdc.c: 50: break;
+"50
+[e $U 1299  ]
+"51
+}
+[; ;My_usb_cdc.c: 51: }
+[e $U 1299  ]
+"44
 [e :U 1300 ]
 [e [\ -> _event `i , $ -> . `E8803 0 `i 1301
  , $ -> . `E8803 2 `i 1302
  1299 ]
-"52
+"51
 [e :U 1299 ]
-[; ;My_usb_cdc.c: 53: return 1;
-"53
+[; ;My_usb_cdc.c: 52: return 1;
+"52
 [e ) -> -> 1 `i `uc ]
 [e $UE 1298  ]
-[; ;My_usb_cdc.c: 54: }
-"54
+[; ;My_usb_cdc.c: 53: }
+"53
 [e :UE 1298 ]
 }
-"56
+"55
 [v _USBCBSendResume `(v ~T0 @X0 1 ef ]
 {
-[; ;My_usb_cdc.c: 56: void USBCBSendResume(void) {
+[; ;My_usb_cdc.c: 55: void USBCBSendResume(void) {
 [e :U _USBCBSendResume ]
 [f ]
+"56
+[v F9282 `i ~T0 @X0 1 s delay_count ]
+[; ;My_usb_cdc.c: 56: static int delay_count;
+[; ;My_usb_cdc.c: 57: UCONbits.RESUME = 1;
 "57
-[v F9286 `i ~T0 @X0 1 s delay_count ]
-[; ;My_usb_cdc.c: 57: static int delay_count;
-[; ;My_usb_cdc.c: 58: UCONbits.RESUME = 1;
-"58
 [e = . . _UCONbits 0 2 -> -> 1 `i `uc ]
-[; ;My_usb_cdc.c: 59: delay_count = 1800U;
+[; ;My_usb_cdc.c: 58: delay_count = 1800U;
+"58
+[e = F9282 -> -> 1800 `ui `i ]
+[; ;My_usb_cdc.c: 59: do {
 "59
-[e = F9286 -> -> 1800 `ui `i ]
-[; ;My_usb_cdc.c: 60: do {
-"60
 [e :U 1306 ]
 {
-[; ;My_usb_cdc.c: 61: delay_count--;
+[; ;My_usb_cdc.c: 60: delay_count--;
+"60
+[e -- F9282 -> 1 `i ]
 "61
-[e -- F9286 -> 1 `i ]
-"62
 }
-[; ;My_usb_cdc.c: 62: } while (delay_count);
-[e $ != F9286 -> 0 `i 1306  ]
+[; ;My_usb_cdc.c: 61: } while (delay_count);
+[e $ != F9282 -> 0 `i 1306  ]
 [e :U 1305 ]
-[; ;My_usb_cdc.c: 63: UCONbits.RESUME = 0;
-"63
+[; ;My_usb_cdc.c: 62: UCONbits.RESUME = 0;
+"62
 [e = . . _UCONbits 0 2 -> -> 0 `i `uc ]
-[; ;My_usb_cdc.c: 64: }
-"64
+[; ;My_usb_cdc.c: 63: }
+"63
 [e :UE 1303 ]
 }
-"66
+"65
 [v _USB_task `(v ~T0 @X0 1 ef ]
 {
-[; ;My_usb_cdc.c: 66: void USB_task(void) {
+[; ;My_usb_cdc.c: 65: void USB_task(void) {
 [e :U _USB_task ]
 [f ]
-"67
+"66
 [v _data `uc ~T0 @X0 1 a ]
+[; ;My_usb_cdc.c: 66: char data;
+[; ;My_usb_cdc.c: 68: while (usb_char_get(&data)) {
 "68
-[v _rx_len `i ~T0 @X0 1 a ]
-[; ;My_usb_cdc.c: 67: char data;
-[; ;My_usb_cdc.c: 68: int rx_len;
-[; ;My_usb_cdc.c: 69: rx_len = get_string_usb(&data, 1);
-"69
-[e = _rx_len ( _get_string_usb (2 , &U _data -> 1 `i ]
-[; ;My_usb_cdc.c: 70: if (rx_len) {
-"70
-[e $ ! != _rx_len -> 0 `i 1308  ]
+[e $U 1308  ]
+[e :U 1309 ]
 {
-[; ;My_usb_cdc.c: 71: ringbuf_put(&usb_rx, data);
-"71
+[; ;My_usb_cdc.c: 69: ringbuf_put(&usb_rx, data);
+"69
 [e ( _ringbuf_put (2 , &U _usb_rx _data ]
-"72
+"70
 }
 [e :U 1308 ]
-[; ;My_usb_cdc.c: 72: }
-[; ;My_usb_cdc.c: 73: if (ringbuf_num(&usb_tx)) {
-"73
-[e $ ! != ( _ringbuf_num (1 &U _usb_tx -> -> 0 `i `ui 1309  ]
+"68
+[e $ != -> ( _usb_char_get (1 &U _data `i -> -> -> 0 `i `uc `i 1309  ]
+[e :U 1310 ]
+[; ;My_usb_cdc.c: 70: }
+[; ;My_usb_cdc.c: 72: while (ringbuf_num(&usb_tx)) {
+"72
+[e $U 1311  ]
+[e :U 1312 ]
 {
-[; ;My_usb_cdc.c: 74: data = ringbuf_pop(&usb_tx);
-"74
+[; ;My_usb_cdc.c: 73: data = ringbuf_pop(&usb_tx);
+"73
 [e = _data ( _ringbuf_pop (1 &U _usb_tx ]
-[; ;My_usb_cdc.c: 75: put_string_usb(&data, 1);
+[; ;My_usb_cdc.c: 74: usb_char_send(data);
+"74
+[e ( _usb_char_send (1 _data ]
 "75
-[e ( _put_string_usb (2 , &U _data -> 1 `i ]
-"76
 }
-[e :U 1309 ]
+[e :U 1311 ]
+"72
+[e $ != ( _ringbuf_num (1 &U _usb_tx -> -> 0 `i `ui 1312  ]
+[e :U 1313 ]
+[; ;My_usb_cdc.c: 75: }
 [; ;My_usb_cdc.c: 76: }
-[; ;My_usb_cdc.c: 77: }
-"77
+"76
 [e :UE 1307 ]
 }

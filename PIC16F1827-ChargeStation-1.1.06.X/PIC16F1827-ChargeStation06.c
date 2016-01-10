@@ -1,8 +1,8 @@
 // PIC16F1827 Configuration Bit Settings
 //2014.10.29
 //RA0~3:adc, RB0~3:output, RA4~7:sw
-//LEDƒCƒ“ƒWƒP[ƒ^‚È‚µAo—Í‚ÆƒŠƒ“ƒNiƒeƒXƒg—pj
-//ˆê”Ê—p
+//LEDã‚¤ãƒ³ã‚¸ã‚±ãƒ¼ã‚¿ãªã—ã€å‡ºåŠ›ã¨ãƒªãƒ³ã‚¯ï¼ˆãƒ†ã‚¹ãƒˆç”¨ï¼‰
+//ä¸€èˆ¬ç”¨
 #include <xc.h>
 #include <stdint.h>
 // CONFIG1

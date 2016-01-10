@@ -759,7 +759,7 @@ Fixes:
     reset even after new network was selected.
 11. Fixed MRF24WB0 bug that caused assert if invalid WPA/WPA2 key was entered.
 12. Fixed Wi-Fi power management bit behavior in PS-Poll frame that was causing
-    some APís to never send data or disconnect when in power save mode.
+    some APÁó¥ to never send data or disconnect when in power save mode.
 13. Fixed a TCP bug in which attempting to open a client TCP socket to a remote
     server, specified by IP address (not DNS address), that was offline, but
     who's MAC address was already cached by the ARP client, would result in
@@ -1262,14 +1262,14 @@ Fixes:
     WiFi interface.  In the 5.00 stack release, attempting to enable the
     STACK_USE_SSL_CLIENT or STACK_USE_SSL_SERVER TCPIPConfig.h options with
     this network controller would have resulted in an error trap.  If an LCD
-    was present, the LCD would display ìencRdPtrRAWId = encWrPtrRAWIdî when the
+    was present, the LCD would display ÂÖéncRdPtrRAWId = encWrPtrRAWIdwhen the
     error occurred.
 10. The WiFi Iperf App demo locked up when an invalid command was entered at
     the serial port console.  This is now fixed.
 11. The WiFi Iperf App demo locked up when running with a PIC32 if iwconfig was
     typed at the serial port console.  This is now fixed.
 12. The Wifi Iperf App demo, when running on the PIC24 and PIC32, and compiled
-    with the ñOs option (min code size optimization), did not work.  This is
+    with the È£Ωs option (min code size optimization), did not work.  This is
     now fixed.
 13. Change a lot of BerkeleyAPI.c internals.  This may fix a number of BSD
     API problems.
@@ -1823,7 +1823,7 @@ Fixes:
 18.Fixed UDPSetRxBuffer() function from not working if it was called before having
    called UDPGet() or UDPGetArray() at least once.
 19.Fixed an offset error of +2 milliseconds being returned from
-   TickConvertToMilliseconds().  Thanks go to AndrÈs ("saturn") on the Microchip
+   TickConvertToMilliseconds().  Thanks go to AndrÈß∏ ("saturn") on the Microchip
    Ethernet forum for finding this error.  Note that due to integer truncation
    during division, this function can be off by 0.2% or so, depending on the value
    returned by GetPeripheralClock().
@@ -2246,11 +2246,11 @@ Fixes:
    causing incoming packets to occasionally be corrupted or the incoming data on the
    last socket to get corrupted.
 3. Fixed the QWORD_VAL's dword struct element types.  dword.LD and dword.HD were
-   incorrectly defined as WORDs instead of DWORDs.  Thanks go to IÒaki Esparza on the
+   incorrectly defined as WORDs instead of DWORDs.  Thanks go to IÓÉùki Esparza on the
    Microchip Ethernet forum for identifying this issue.
 4. Fixed the incorrect processing of received IP fragments with a non-zero offset.
    This stack does not support IP packet reconstruction due to the limited amount of
-   available RAM.  Thanks go to IÒaki Esparza on the Microchip Ethernet forum for
+   available RAM.  Thanks go to IÓÉùki Esparza on the Microchip Ethernet forum for
    noticing this behavior.
 5. Board now only responds to ping requests to our IP address, the directed subnet
    broadcast address, or the broadcast address of 255.255.255.255.  Previously, it
@@ -2258,7 +2258,7 @@ Fixes:
    correct.
 6. Fixed a memory corruption/UDP packet loss problem when handling incoming UDP
    packets.  Previously, StackTask() would incorrectly continue processing more
-   packets if it came upon a UDP packet.  Thanks go to IÒaki Esparza on the Microchip
+   packets if it came upon a UDP packet.  Thanks go to IÓÉùki Esparza on the Microchip
    Ethernet forum for identifying this issue.
 7. Fixed the SMTPClient.ROMPointers.Server flag having an inverted meaning.
    Previously, the SMTP client module would treat the SMTPClient.Server pointer as a
@@ -2268,18 +2268,18 @@ Fixes:
 8. Fixed the DHCP Server module from incorrectly parsing received packets which had a
    DHCP_PARAM_REQUEST_IP_ADDRESS option followed by more options.  Previously due to
    the length miscalculation, the parser would enter a random state, depending on the
-   packet's contents.  Thanks go to IÒaki Esparza on the Microchip Ethernet forum for
+   packet's contents.  Thanks go to IÓÉùki Esparza on the Microchip Ethernet forum for
    identifying this issue.
 9. Fixed potential incorrect results when UDPIsGetReady() was called and a previous
    application did not call UDPDiscard() on an RX packet.  Now, StackTsk() calls
    UDPDiscard() as appropriate to let it know when it's old RX data is being thrown
    away.  This fixes a potential bug in the DHCP Server module and makes the UDP API
-   more robust.  Thanks go to IÒaki Esparza on the Microchip Ethernet forum for
+   more robust.  Thanks go to IÓÉùki Esparza on the Microchip Ethernet forum for
    identifying the potential DHCP server issue.
 10.Fixed a potential ARP bug where the Gateway's MAC address would be returned for an
    IP address on the local subnet.  This unusual case would occur when two application
    tasks were using the ARP module at the same time and the second application was
-   trying to resolve an IP address off of our subnet.  Thanks go to IÒaki Esparza on
+   trying to resolve an IP address off of our subnet.  Thanks go to IÓÉùki Esparza on
    the Microchip Ethernet forum for pointing this issue out.
 11.Fixed an PIC18F97J60 family MAC layer bug where MACGetArray() might not correctly
    increment the Ethernet read pointer if a NULL pointer was given for the
@@ -2291,7 +2291,7 @@ Fixes:
    probe would have been required to restore the communications.
 13.Fixed a TCP RX FIFO corruption issue that would occur in (uncommon) circumstances
    when too many out-of-order segments arrived such that a second "hole" would have
-   been required to accommodate the data.  Thanks go to IÒaki Esparza and his eagle
+   been required to accommodate the data.  Thanks go to IÓÉùki Esparza and his eagle
    eyes on the Microchip Ethernet forum for finding this corner case bug.
 14.Inline assembly in the ETH97J60.c file has been modified to accommodate the C18
    Extended mode and C18 Auto default storage class.  Previously, the Ethernet module

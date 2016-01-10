@@ -8530,7 +8530,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device.h: 1867: }info;
 [; ;usb_device.h: 1868: uint16_t_VAL  wCount;
 [; ;usb_device.h: 1869: }IN_PIPE;
-[; ;usb_device.h: 1871: extern volatile IN_PIPE inPipes[];
+[; ;usb_device.h: 1871: extern  IN_PIPE inPipes[];
 [; ;usb_device.h: 1873: typedef struct 
 [; ;usb_device.h: 1874: {
 [; ;usb_device.h: 1875: union 
@@ -8550,10 +8550,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device.h: 1892: uint16_t_VAL wCount;
 [; ;usb_device.h: 1893: void (*pFunc)(void);
 [; ;usb_device.h: 1894: }OUT_PIPE;
-[; ;usb_device.h: 1904: extern volatile bool RemoteWakeup;
-[; ;usb_device.h: 1905: extern volatile bool USBBusIsSuspended;
-[; ;usb_device.h: 1906: extern volatile USB_DEVICE_STATE USBDeviceState;
-[; ;usb_device.h: 1907: extern volatile uint8_t USBActiveConfiguration;
+[; ;usb_device.h: 1904: extern  bool RemoteWakeup;
+[; ;usb_device.h: 1905: extern  bool USBBusIsSuspended;
+[; ;usb_device.h: 1906: extern  USB_DEVICE_STATE USBDeviceState;
+[; ;usb_device.h: 1907: extern  uint8_t USBActiveConfiguration;
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
@@ -8650,9 +8650,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_hal_pic18.h: 348: const uint8_t* bRom;
 [; ;usb_hal_pic18.h: 349: const uint16_t* wRom;
 [; ;usb_hal_pic18.h: 354: } POINTER;
-[; ;usb_hal_pic18.h: 601: extern volatile uint8_t USBActiveConfiguration;
-[; ;usb_hal_pic18.h: 602: extern volatile IN_PIPE inPipes[1];
-[; ;usb_hal_pic18.h: 603: extern volatile OUT_PIPE outPipes[1];
+[; ;usb_hal_pic18.h: 601: extern  uint8_t USBActiveConfiguration;
+[; ;usb_hal_pic18.h: 602: extern  IN_PIPE inPipes[1];
+[; ;usb_hal_pic18.h: 603: extern  OUT_PIPE outPipes[1];
 [; ;usb_hal_pic18.h: 606: extern volatile BDT_ENTRY* pBDTEntryOut[2+1];
 [; ;usb_hal_pic18.h: 607: extern volatile BDT_ENTRY* pBDTEntryIn[2+1];
 [; ;usb_hal.h: 167: void OTGCORE_SetDeviceAddr( uint8_t addr );

@@ -1,7 +1,7 @@
 // PIC16F1827 Configuration Bit Settings
 //2014.10.29
 //RA0~3:adc, RB0~3:output, RA4~7:sw
-//ChargeStation Ver.1 金属ケース用
+//ChargeStation Ver.1 驥大ｱ槭こ繝ｼ繧ｹ逕ｨ
 #include <xc.h>
 #include <stdint.h>
 // CONFIG1

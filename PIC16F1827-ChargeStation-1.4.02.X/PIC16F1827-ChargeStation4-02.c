@@ -1,10 +1,10 @@
 // PIC16F1827 Configuration Bit Settings
 // 2015.2.22
 // RA 0,1,2:adc, RB 0,3,6:output, RA 3,4,5:sw, RB5,RA6,7:LED
-// ChargeStation Ver.3@o—Í3‚Â—p
-// “_–ÅLEDŠ®¬”Å
-// I2C¬Œ^‰t»‚Öo—Í
-// ÏZ‹@”\’Ç‰Á
+// ChargeStation Ver.3ã€€å‡ºåŠ›3ã¤ç”¨
+// ç‚¹æ»…LEDå®Œæˆç‰ˆ
+// I2Cå°å‹æ¶²æ™¶ã¸å‡ºåŠ›
+// ç©ç®—æ©Ÿèƒ½è¿½åŠ 
 // I2C_EEPROM
 
 #include <xc.h>
@@ -32,8 +32,8 @@
 #define _XTAL_FREQ 32000000
 #include "My_header_16F.h"
 
-#define CUT_current 50    // ’PˆÊ‚Í[mA]
-#define CUT_time 6       // ’PˆÊ‚Í[s]
+#define CUT_current 50    // å˜ä½ã¯[mA]
+#define CUT_time 6       // å˜ä½ã¯[s]
 
 uint16_t v[3];
 uint16_t s[3];
@@ -83,12 +83,12 @@ void interrupt isr(void) {
         for (i = 0; i < 3; i++) {
             v[i] = 2 * adc(2 - i) * 3 / 4;
 
-            if (v[i] < CUT_current) { //‚à‚µˆê’è“d—¬‚ğ‰º‰ñ‚Á‚½‚çƒJƒEƒ“ƒgƒAƒbƒvƒXƒ^[ƒg
+            if (v[i] < CUT_current) { //ã‚‚ã—ä¸€å®šé›»æµã‚’ä¸‹å›ã£ãŸã‚‰ã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—ã‚¹ã‚¿ãƒ¼ãƒˆ
                 cut[i]++;
-                if (cut[i] >= 30 * CUT_time) { //ˆê’èŠÔ‚½‚Á‚½‚çAo—ÍƒVƒƒƒbƒgƒAƒEƒg
+                if (cut[i] >= 30 * CUT_time) { //ä¸€å®šæ™‚é–“ãŸã£ãŸã‚‰ã€å‡ºåŠ›ã‚·ãƒ£ãƒƒãƒˆã‚¢ã‚¦ãƒˆ
                     OUT(i, 0);
                 }
-            } else { //Œo‰ßŠÔƒJƒEƒ“ƒgƒŠƒZƒbƒg
+            } else { //çµŒéæ™‚é–“ã‚«ã‚¦ãƒ³ãƒˆãƒªã‚»ãƒƒãƒˆ
                 cut[i] = 0;
             }
         }
@@ -102,7 +102,7 @@ void interrupt isr(void) {
             display(print_port, print_content);
         }
         cnt1s++;
-        // 1•b”‚¦‚é(1953)
+        // 1ç§’æ•°ãˆã‚‹(1953)
         if (cnt1s == 1953) {
             cnt1s = 0;
             for (i = 0; i < 3; i++) {
@@ -121,17 +121,17 @@ void lchika(void) {
     uint8_t i;
     for (i = 0; i < 3; i++) {
         cnt[i]++;
-        //Šï”‚È‚çLED‚ÍÁ“”
+        //å¥‡æ•°ãªã‚‰LEDã¯æ¶ˆç¯
         if (cnt[i] % 2 == 1) {
             LED(i, 0);
-        } else {//‹ô”‚Ì‚Æ‚«
-            if (cnt[i] / 2 <= v[i] / 100) {//LED“_–Å‰ñ”‚Ì‚Ù‚¤‚ª“d—¬‚æ‚è­‚È‚¢ŠÔLED“_“”
+        } else {//å¶æ•°ã®ã¨ã
+            if (cnt[i] / 2 <= v[i] / 100) {//LEDç‚¹æ»…å›æ•°ã®ã»ã†ãŒé›»æµã‚ˆã‚Šå°‘ãªã„é–“LEDç‚¹ç¯
                 LED(i, 1);
-                cntf[i] = 0; //ƒtƒ‰ƒOƒŠƒZƒbƒg
-            } else {//LED‚Ì“_–Å‰ñ”‚Ì‚Ù‚¤‚ª“d—¬‚æ‚è‘½‚­‚È‚Á‚½‚Æ‚«ƒtƒ‰ƒO‰ÁZ
+                cntf[i] = 0; //ãƒ•ãƒ©ã‚°ãƒªã‚»ãƒƒãƒˆ
+            } else {//LEDã®ç‚¹æ»…å›æ•°ã®ã»ã†ãŒé›»æµã‚ˆã‚Šå¤šããªã£ãŸã¨ããƒ•ãƒ©ã‚°åŠ ç®—
                 cntf[i]++;
                 LED(i, 0);
-                if (cntf[i] >= 2) {//ƒtƒ‰ƒO‚ª2‚É‚È‚Á‚½‚çAŒ³‚É–ß‚é
+                if (cntf[i] >= 2) {//ãƒ•ãƒ©ã‚°ãŒ2ã«ãªã£ãŸã‚‰ã€å…ƒã«æˆ»ã‚‹
                     cnt[i] = 0;
                 }
             }
@@ -287,7 +287,7 @@ void main_init(void) {
     TRISB = 0x12; //x001,0010
     ANSELA = 0x07; //Use AN0,1,2
     ANSELB = 0x00; //all digital
-    WPUB = 0b00010010; // RB1/4‚Í“à•”ƒvƒ‹ƒAƒbƒv’ïR‚ğw’è‚·‚é
+    WPUB = 0b00010010; // RB1/4ã¯å†…éƒ¨ãƒ—ãƒ«ã‚¢ãƒƒãƒ—æŠµæŠ—ã‚’æŒ‡å®šã™ã‚‹
     OPTION_REGbits.nWPUEN = 0;
 
     adc_init(FVR);

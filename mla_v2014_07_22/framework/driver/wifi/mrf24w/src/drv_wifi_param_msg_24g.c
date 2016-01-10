@@ -297,7 +297,7 @@ void WF_GetDeviceInfo(tWFDeviceInfo *p_deviceInfo)
   Description:
     Directs the MRF24W to use the input MAC address instead of its
     factory-default MAC address.  This function does not overwrite the factory
-    default, which is in FLASH memory – it simply tells the MRF24W to use a
+    default, which is in FLASH memory it simply tells the MRF24W to use a
     different MAC.
 
   Precondition:
@@ -364,7 +364,7 @@ void WF_GetMacAddress(uint8_t *p_mac)
   Description:
     This function allows the application to configure up to two Multicast
     Address Filters on the MRF24W.  If two active multicast filters are set
-    up they are OR’d together – the MRF24W will receive and pass to the Host
+    up they are ORå£‡ together the MRF24W will receive and pass to the Host
     CPU received packets from either multicast address.
     The allowable values in p_config (tWFMultiCastConfig / WFMulticastConfigStruct)
     are:
@@ -373,7 +373,7 @@ void WF_GetMacAddress(uint8_t *p_mac)
 
     * action   -- WF_MULTICAST_DISABLE_ALL (default)
                    The Multicast Filter discards all received
-                   multicast messages – they will not be forwarded
+                   multicast messages they will not be forwarded
                    to the Host PIC.  The remaining fields in this
                    structure are ignored.
 
@@ -389,13 +389,13 @@ void WF_GetMacAddress(uint8_t *p_mac)
 
     * macBytes -- Array containing the MAC address to filter on (using the destination
                 address of each incoming 802.11 frame).  Specific bytes with the
-                MAC address can be designated as ‘don’t care’ bytes.  See macBitMask.
+                MAC address can be designated as ç§Ÿonç¨š carebytes.  See macBitMask.
                 This field in only used if action = WF_MULTICAST_USE_FILTERS.
 
     * macBitMask -- A byte where bits 5:0 correspond to macBytes[5:0].  If the bit is
                   zero then the corresponding MAC byte must be an exact match for the
                   frame to be forwarded to the Host PIC.  If the bit is one then the
-                  corresponding MAC byte is a ‘don’t care’ and not used in the
+                  corresponding MAC byte is a ç§Ÿonç¨š careand not used in the
                   Multicast filtering process.  This field in only used if
                   action = WF_MULTICAST_USE_FILTERS.
 
@@ -744,7 +744,7 @@ void WF_SetPromiscuousMode(bool action, uint8_t channel)
 
   Description:
     Sets the RTS/CTS packet size threshold for when RTS/CTS frame will be sent.
-    The default is 2347 bytes – the maximum for 802.11.  It is recommended that
+    The default is 2347 bytes the maximum for 802.11.  It is recommended that
     the user leave the default at 2347 until they understand the performance and
     power ramifications of setting it smaller.  Valid values are from 0 to
     WF_RTS_THRESHOLD_MAX (2347).
@@ -881,7 +881,7 @@ void WF_GetRtsThreshold(uint16_t *p_rtsThreshold)
   Description:
     This function allows the application to configure up to two Multicast
     Address Filters on the MRF24WB0M.  If two active multicast filters are set
-    up they are OR’d together – the MRF24WB0M will receive and pass to the Host
+    up they are ORå£‡ together the MRF24WB0M will receive and pass to the Host
     CPU received packets from either multicast address.
     The allowable values for the multicast filter are:
     * WF_MULTICAST_FILTER_1

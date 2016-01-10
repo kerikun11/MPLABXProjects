@@ -1,6 +1,6 @@
 // PIC16F1827 Configuration Bit Settings
 //2015.1.2
-//aitendoƒRƒƒ“•tŒv—p7ƒZƒO‚ÉÅ“K‰»
+//aitendoã‚³ãƒ­ãƒ³ä»˜æ™‚è¨ˆç”¨7ã‚»ã‚°ã«æœ€é©åŒ–
 #include <xc.h>
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
@@ -66,7 +66,7 @@ void interrupt isr(void) {
         }
         if (RA5 == 0) {
             if (cnt_sw < LONG_HOLD_LEVEL + 1) cnt_sw++;
-            //sw‚ğ’·‰Ÿ‚µ‚µ‚½‚çlong_hold_flag‚ª—§‚¿A‰ñû‚µ‚Ä‚àƒ{ƒ^ƒ“‚ğ—£‚µ‚ÄÄ‚Ñ‰Ÿ‚³‚ê‚é‚Ü‚Å‚Í—§‚½‚È‚¢B
+            //swã‚’é•·æŠ¼ã—ã—ãŸã‚‰long_hold_flagãŒç«‹ã¡ã€å›åã—ã¦ã‚‚ãƒœã‚¿ãƒ³ã‚’é›¢ã—ã¦å†ã³æŠ¼ã•ã‚Œã‚‹ã¾ã§ã¯ç«‹ãŸãªã„ã€‚
             if (cnt_sw == LONG_HOLD_LEVEL)long_hold_flag = 1;
         } else cnt_sw = 0;
     }

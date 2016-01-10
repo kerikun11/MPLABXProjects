@@ -9,7 +9,7 @@
 #define	MY_SPI_18F_H
 
 //*************************** SPI ***************************//
-// C_SEL,RS‚ğ#define‚µ‚Ä‚¨‚­‚±‚ÆB
+// C_SEL,RSã‚’#defineã—ã¦ãŠãã“ã¨ã€‚
 
 #define Master 0
 #define Slave 1

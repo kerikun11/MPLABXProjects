@@ -1,4 +1,4 @@
-﻿/********************************************************************
+/********************************************************************
  Software License Agreement:
 
  The software supplied herewith by Microchip Technology Incorporated

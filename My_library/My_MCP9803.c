@@ -12,7 +12,6 @@ void TM_init(uint8_t config) {
         I2C_Send(config);
     }
     I2C_Stop(); // ストップコンディションを発行する
-    __delay_us(26);
 }
 
 uint16_t TM_Read() {
@@ -29,10 +28,5 @@ uint16_t TM_Read() {
         dataL = I2C_Receive(1); // control byte の送信(コマンドを指定)
     }
     I2C_Stop(); // ストップコンディションを発行する
-    __delay_us(26);
-    /*
-    if (ans)tx_sends("Failed\n");
-    else tx_sends("Successful\n");
-     */
     return ((0xFF00 & (dataH << 8)) + (0xFF & dataL));
 }

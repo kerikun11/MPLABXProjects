@@ -8,9 +8,9 @@
 
 #ifndef MY_RTCC_H
 #define	MY_RTCC_H
-// PIC18F27J53—pƒŠƒAƒ‹ƒ^ƒCƒ€ƒNƒƒbƒNƒvƒƒOƒ‰ƒ€
-// main_init ‚É RTCC_init(); ‚ğ‘‚­‚±‚ÆB
-// mainƒ‹[ƒv‚É RTCC_loop(); ‚ğ‘‚­‚±‚ÆB
+// PIC18F27J53ç”¨ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ ã‚¯ãƒ­ãƒƒã‚¯ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+// main_init ã« RTCC_init(); ã‚’æ›¸ãã“ã¨ã€‚
+// mainãƒ«ãƒ¼ãƒ—ã« RTCC_loop(); ã‚’æ›¸ãã“ã¨ã€‚
 
 typedef struct {
 
@@ -113,7 +113,7 @@ epoch_t get_quot_rem(epoch_t *quot, uint8_t div) {
     // num /= div;
     // return rem;
     epoch_t num = *quot;
-    return num - (*quot = num / div) * div; // returns rem(—]‚è)
+    return num - (*quot = num / div) * div; // returns rem(ä½™ã‚Š)
 }
 
 /********************************** Transform time **********************************/
@@ -155,7 +155,7 @@ void caltime_to_RTCC(caltime_t *ct) {
 }
 
 void epoch_to_caltime(caltime_t *ct, epoch_t *ep) {
-    // terminal‚ÅepochŠÔ‚ğ‹‚ß‚éƒRƒ}ƒ“ƒh
+    // terminalã§epochæ™‚é–“ã‚’æ±‚ã‚ã‚‹ã‚³ãƒãƒ³ãƒ‰
     // echo $(( (`date -d '2015/03/01' '+%s'` - `date -d '2000/01/01' '+%s'`) / 86400 ))
     static uint16_t day_cache = 0; //2015.03.01
     static uint8_t month_cache = 1;
@@ -189,7 +189,7 @@ void epoch_to_caltime(caltime_t *ct, epoch_t *ep) {
         if (month == 12) {
             month = 1; // month is one-based.
             year++;
-            //3155760000 is 2000~2100‚Ì100”NŠÔ‚Ì•b”
+            //3155760000 is 2000~2100ã®100å¹´é–“ã®ç§’æ•°
             if (year >= 100) {
                 *ep -= 3155760000;
                 year = 0;

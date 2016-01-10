@@ -1,8 +1,8 @@
 // PIC16F1827 Configuration Bit Settings
 //2014.10.29
 //RA0~3:adc, RB0~3:output, RA4~7:sw
-//‚·‚×‚Ä‚ğfor•¶‚É‚µ‚ÄAŠÖ”•ª‚¯‚Ä‚í‚©‚è‚â‚·‚­®—B
-//ˆê”Ê—p
+//ã™ã¹ã¦ã‚’foræ–‡ã«ã—ã¦ã€é–¢æ•°åˆ†ã‘ã¦ã‚ã‹ã‚Šã‚„ã™ãæ•´ç†ã€‚
+//ä¸€èˆ¬ç”¨
 #include <xc.h>
 #include <stdint.h>
 // CONFIG1
@@ -49,11 +49,11 @@ void interrupt isr(void) {
             temp[i] = adc(i);
             v[i] = temp[i] * 2;
         }
-        //o—ÍƒJƒbƒgƒIƒt§Œä
+        //å‡ºåŠ›ã‚«ãƒƒãƒˆã‚ªãƒ•åˆ¶å¾¡
         for (i = 0; i < 4; i++) {
-            if (v[i] < 75) {//‚±‚±‚Ì”mA–¢–‚ÅƒVƒƒƒbƒgƒAƒEƒg
+            if (v[i] < 75) {//ã“ã“ã®æ•°mAæœªæº€ã§ã‚·ãƒ£ãƒƒãƒˆã‚¢ã‚¦ãƒˆ
                 cut[i]++;
-                if (cut[i] >= 10) {//‚±‚±‚Ì”•b‘±‚ÅƒVƒƒƒbƒgƒAƒEƒg
+                if (cut[i] >= 10) {//ã“ã“ã®æ•°ç§’æŒç¶šã§ã‚·ãƒ£ãƒƒãƒˆã‚¢ã‚¦ãƒˆ
                     OUT(i, 0);
                 }
             } else {
@@ -66,7 +66,7 @@ void interrupt isr(void) {
         cnt0++;
         if (cnt0 == 400) {
             cnt0 = 0;
-            //LED“_–Å§Œä
+            //LEDç‚¹æ»…åˆ¶å¾¡
             cnt++;
             if (cnt == 40) cnt = 0;
             for (i = 0; i < 4; i++) {

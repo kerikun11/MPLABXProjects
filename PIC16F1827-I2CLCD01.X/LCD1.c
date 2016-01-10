@@ -1,12 +1,12 @@
 /*******************************************************************************
-*  LCD1 - �h�Q�b�ڑ����^�k�b�c���W���[���̃T���v���\�[�X�v���O����             *
+*  LCD1 - Ｉ２Ｃ接続小型ＬＣＤモジュールのサンプルソースプログラム             *
 *                                                                              *
-*  ����:�@�h�Q�b�M�����̃v���A�b�v��R�͂o�h�b�������g���Ă��܂��B             *
+*  メモ:　Ｉ２Ｃ信号線のプルアップ抵抗はＰＩＣ内蔵を使っています。             *
 *                                                                              *
 * ============================================================================ *
 *  VERSION DATE        BY                    CHANGE/COMMENT                    *
 * ---------------------------------------------------------------------------- *
-*  1.00    2013-07-25  ���ޒ��H�[(���ނ���)  Create                            *
+*  1.00    2013-07-25  きむ茶工房(きむしげ)  Create                            *
 * ============================================================================ *
 *  PIC 12F1822                                                                 *
 *  MPLAB IDE(V8.84)                                                            *
@@ -16,7 +16,7 @@
 #include "skI2Clib.h"
 #include "skI2CLCDlib.h"
 
-// 5x7�h�b�g�̃L�����N�^�ł��A1�ŕ\���@0�ŏ���
+// 5x7ドットのキャラクタです、1で表示　0で消去
 char heart[7] = {
   0b01010,
   0b11011,
@@ -27,51 +27,51 @@ char heart[7] = {
   0b00000,
 } ;
 
-// �R���t�B�M�����[�V�����P�̐ݒ�
-// CLKOUT��݂�RA4��݂Ŏg�p����(CLKOUTEN_OFF)�F�����ۯ��g�p����(FOSC_INTOSC)
-// �O���ۯ��Ď����Ȃ�(FCMEN_OFF)�F�O���E�����ۯ��̐ؑւ��ł̋N���͂Ȃ�(IESO_OFF)
-// �d���d���~���펞�Ď��@�\ON(BOREN_ON)�F�d��ON����64ms�����۸��т��J�n����(PWRTEN_ON)
-// �����ޯ����ϰ����(WDTE_OFF)�F
-// �O��ؾ�ĐM���͎g�p�������޼��ٓ���(RA3)��݂Ƃ���(MCLRE_OFF)
-// ��۸�����ذ��ی삵�Ȃ�(CP_OFF)�F�ް���ذ��ی삵�Ȃ�(CPD_OFF)
+// コンフィギュレーション１の設定
+// CLKOUTピンをRA4ピンで使用する(CLKOUTEN_OFF)：内部クロック使用する(FOSC_INTOSC)
+// 外部クロック監視しない(FCMEN_OFF)：外部・内部クロックの切替えでの起動はなし(IESO_OFF)
+// 電源電圧降下常時監視機能ON(BOREN_ON)：電源ONから64ms後にプログラムを開始する(PWRTEN_ON)
+// ウオッチドッグタイマー無し(WDTE_OFF)：
+// 外部リセット信号は使用せずにデジタル入力(RA3)ピンとする(MCLRE_OFF)
+// プログラムメモリーを保護しない(CP_OFF)：データメモリーを保護しない(CPD_OFF)
 __CONFIG(CLKOUTEN_OFF & FOSC_INTOSC & FCMEN_OFF & IESO_OFF & BOREN_ON &
          PWRTE_ON & WDTE_OFF & MCLRE_OFF & CP_OFF & CPD_OFF) ;
-// �R���t�B�M�����[�V�����Q�̐ݒ�
-// ����N���b�N��32MHz�ł͓��삳���Ȃ�(PLLEN_OFF)
-// �X�^�b�N���I�[�o�t���[��A���_�[�t���[�����烊�Z�b�g������(STVREN_ON)
-// ��d���v���O���~���O�@�\�g�p���Ȃ�(LVP_OFF)
-// Flash��ذ��ی삵�Ȃ�(WRT_OFF)�F�d���d���~���펞�Ď��d��(2.5V)�ݒ�(BORV_25)
+// コンフィギュレーション２の設定
+// 動作クロックを32MHzでは動作させない(PLLEN_OFF)
+// スタックがオーバフローやアンダーフローしたらリセットをする(STVREN_ON)
+// 低電圧プログラミング機能使用しない(LVP_OFF)
+// Flashメモリーを保護しない(WRT_OFF)：電源電圧降下常時監視電圧(2.5V)設定(BORV_25)
 __CONFIG(PLLEN_OFF & STVREN_ON & WRT_OFF & BORV_HI & LVP_OFF);
 
 /*******************************************************************************
-*  InterFunction()   ���荞�݂̏���                                            *
+*  InterFunction()   割り込みの処理                                            *
 *******************************************************************************/
 void interrupt InterFunction( void )
 {
-     // �h�Q�b�֘A�̊��荞�ݏ���
+     // Ｉ２Ｃ関連の割り込み処理
      InterI2C() ;
 }
 /*******************************************************************************
-*  ���C���̏���                                                                *
+*  メインの処理                                                                *
 *******************************************************************************/
 void main()
 {
-     OSCCON     = 0b01110010 ;   // �����N���b�N��8�l�g���Ƃ���
-     OPTION_REG = 0b00000000 ;   // �f�W�^��I/O�ɓ����v���A�b�v��R���g�p����
-     ANSELA     = 0b00000000 ;   // �A�i���O�͎g�p���Ȃ��i���ׂăf�W�^��I/O�Ɋ����Ă�j
-     TRISA      = 0b00000110 ;   // �s����RA1(SCL)/RA2(SDA)�̂ݓ���(RA3�͓��͐�p)
-     WPUA       = 0b00000110 ;   // RA1/RA2�͓����v���A�b�v��R���w�肷��
-     PORTA      = 0b00000000 ;   // �o�̓s���̏�����(�S��LOW�ɂ���)
+     OSCCON     = 0b01110010 ;   // 内部クロックは8ＭＨｚとする
+     OPTION_REG = 0b00000000 ;   // デジタルI/Oに内部プルアップ抵抗を使用する
+     ANSELA     = 0b00000000 ;   // アナログは使用しない（すべてデジタルI/Oに割当てる）
+     TRISA      = 0b00000110 ;   // ピンはRA1(SCL)/RA2(SDA)のみ入力(RA3は入力専用)
+     WPUA       = 0b00000110 ;   // RA1/RA2は内部プルアップ抵抗を指定する
+     PORTA      = 0b00000000 ;   // 出力ピンの初期化(全てLOWにする)
 
-     // �k�b�c���W���[���̏���������
+     // ＬＣＤモジュールの初期化処理
      LCD_Init() ;
 
-     LCD_CreateChar(1,heart) ;   // 1�ԂɃI���W�i���L�����N�^��o�^����
+     LCD_CreateChar(1,heart) ;   // 1番にオリジナルキャラクタを登録する
 
-     LCD_SetCursor(0,0) ;        // �\���ʒu��ݒ肷��
+     LCD_SetCursor(0,0) ;        // 表示位置を設定する
      LCD_Puts("Hello") ;
-     LCD_Putc(0x01) ;            // 1�Ԃɓo�^�����L������\������
-     LCD_SetCursor(2,1) ;        // �\���ʒu��ݒ肷��
+     LCD_Putc(0x01) ;            // 1番に登録したキャラを表示する
+     LCD_SetCursor(2,1) ;        // 表示位置を設定する
      LCD_Puts("PIC's") ;
 
      while(1) {

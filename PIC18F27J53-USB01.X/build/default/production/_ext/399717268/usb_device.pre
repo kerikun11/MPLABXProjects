@@ -11047,7 +11047,7 @@ uint8_t Val;
 uint16_t_VAL  wCount;
 }IN_PIPE;
 
-extern volatile IN_PIPE inPipes[];
+extern  IN_PIPE inPipes[];
 
 typedef struct 
 {
@@ -11073,10 +11073,10 @@ void (*pFunc)(void);
 }OUT_PIPE;
 
 # 1904
-extern volatile bool RemoteWakeup;
-extern volatile bool USBBusIsSuspended;
-extern volatile USB_DEVICE_STATE USBDeviceState;
-extern volatile uint8_t USBActiveConfiguration;
+extern  bool RemoteWakeup;
+extern  bool USBBusIsSuspended;
+extern  USB_DEVICE_STATE USBDeviceState;
+extern  uint8_t USBActiveConfiguration;
 
 # 14 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\string.h"
 extern void * memcpy(void *, const void *, size_t);
@@ -11202,9 +11202,9 @@ const uint16_t* wRom;
 } POINTER;
 
 # 601
-extern volatile uint8_t USBActiveConfiguration;
-extern volatile IN_PIPE inPipes[1];
-extern volatile OUT_PIPE outPipes[1];
+extern  uint8_t USBActiveConfiguration;
+extern  IN_PIPE inPipes[1];
+extern  OUT_PIPE outPipes[1];
 
 
 extern volatile BDT_ENTRY* pBDTEntryOut[2+1];
@@ -11286,26 +11286,26 @@ unsigned b7:1;
 } uint8_t_VAL, uint8_t_BITS;
 
 # 136
-volatile USB_DEVICE_STATE USBDeviceState;
-volatile uint8_t USBActiveConfiguration;
-volatile uint8_t USBAlternateInterface[2];
+ USB_DEVICE_STATE USBDeviceState;
+ uint8_t USBActiveConfiguration;
+ uint8_t USBAlternateInterface[2];
 volatile BDT_ENTRY *pBDTEntryEP0OutCurrent;
 volatile BDT_ENTRY *pBDTEntryEP0OutNext;
 volatile BDT_ENTRY *pBDTEntryOut[2+1];
 volatile BDT_ENTRY *pBDTEntryIn[2+1];
-volatile uint8_t shortPacketStatus;
-volatile uint8_t controlTransferState;
-volatile IN_PIPE inPipes[1];
-volatile OUT_PIPE outPipes[1];
-volatile uint8_t *pDst;
-volatile bool RemoteWakeup;
-volatile bool USBBusIsSuspended;
-volatile USTAT_FIELDS USTATcopy;
-volatile uint8_t endpoint_number;
-volatile bool BothEP0OutUOWNsSet;
-volatile EP_STATUS ep_data_in[2+1];
-volatile EP_STATUS ep_data_out[2+1];
-volatile uint8_t USBStatusStageTimeoutCounter;
+ uint8_t shortPacketStatus;
+ uint8_t controlTransferState;
+ IN_PIPE inPipes[1];
+ OUT_PIPE outPipes[1];
+ uint8_t *pDst;
+ bool RemoteWakeup;
+ bool USBBusIsSuspended;
+ USTAT_FIELDS USTATcopy;
+ uint8_t endpoint_number;
+ bool BothEP0OutUOWNsSet;
+ EP_STATUS ep_data_in[2+1];
+ EP_STATUS ep_data_out[2+1];
+ uint8_t USBStatusStageTimeoutCounter;
 volatile bool USBDeferStatusStagePacket;
 volatile bool USBStatusStageEnabledFlag1;
 volatile bool USBStatusStageEnabledFlag2;
@@ -11443,7 +11443,46 @@ void USBDeviceTasks(void)
 {
 uint8_t i;
 
-# 602
+# 517
+if (1 != 1)
+{
+
+UCON = 0;
+
+
+UIE = 0;
+
+
+USBDeviceState = DETACHED_STATE;
+
+# 554
+{PIR2bits.USBIF = 0;};
+return;
+}
+
+# 578
+if(USBDeviceState == DETACHED_STATE)
+{
+
+UCON = 0;
+
+
+UIE = 0;
+
+
+
+{ UCFG = 0x10 | 0x00 | 0x04 | 0x02; UEIE = 0x9F; UIE = 0x39 | 0x40 | 0x02; };
+
+
+while(!UCONbits.USBEN){UCONbits.USBEN = 1;}
+
+
+USBDeviceState = ATTACHED_STATE;
+
+# 599
+}
+
+
 if(USBDeviceState == ATTACHED_STATE)
 {
 
@@ -11452,7 +11491,8 @@ if(!UCONbits.SE0)
 {
 {UIR = 0;};
 
-# 619
+UIE=0;
+
 UIEbits.URSTIE = 1;
 UIEbits.IDLEIE = 1;
 USBDeviceState = POWERED_STATE;
@@ -11484,7 +11524,7 @@ USBDeviceInit();
 
 
 
-{PIE2bits.USBIE = 1;};
+;
 
 USBDeviceState = DEFAULT_STATE;
 
@@ -11714,59 +11754,6 @@ pBDTEntryIn[endpoint]->STAT.Val ^= 0x40;
 }
 }
 
-# 1247
-void USBDeviceDetach(void)
-{
-
-# 1255
-{
-
-UCON = 0;
-
-
-UIE = 0;
-
-
-USBDeviceState = DETACHED_STATE;
-
-# 1291
-return;
-}
-
-# 1312
-}
-
-# 1352
-void USBDeviceAttach(void)
-{
-
-if(USBDeviceState == DETACHED_STATE)
-{
-if(1 == 1)
-{
-
-UCON = 0;
-
-
-UIE = 0;
-
-
-
-{ UCFG = 0x10 | 0x00 | 0x04 | 0x02; UEIE = 0x9F; UIE = 0x39 | 0x40 | 0x02; };
-
-{RCONbits.IPEN = 1;IPR2bits.USBIP = 1;PIE2bits.USBIE = 1;INTCONbits.GIEH = 1;};
-
-
-while(!UCONbits.USBEN){UCONbits.USBEN = 1;}
-
-
-USBDeviceState = ATTACHED_STATE;
-
-# 1380
-}
-}
-}
-
 # 1416
 void USBCtrlEPAllowStatusStage(void)
 {
@@ -11990,7 +11977,7 @@ pBDTEntryIn[0]->CNT = byteToSend;
 
 
 
-pDst = (volatile uint8_t*)CtrlTrfData;
+pDst = ( uint8_t*)CtrlTrfData;
 if(inPipes[0].info.bits.ctrl_trf_mem == 0x00)
 {
 while(byteToSend)

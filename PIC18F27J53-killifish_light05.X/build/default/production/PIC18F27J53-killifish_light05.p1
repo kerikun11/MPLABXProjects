@@ -9,9 +9,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [s S1224 `ui 1 `S1225 1 ]
 [n S1224 button cnt_sw . ]
 "59 PIC18F27J53-killifish_light05.c
-[c E8993 0 1 2 .. ]
-[n E8993 . TIME_SYNC_mode ADC_mode COMMAND_mode  ]
-"33 ../My_library\My_UART.h
+[c E8994 0 1 2 .. ]
+[n E8994 . TIME_SYNC_mode ADC_mode COMMAND_mode  ]
+"72 ../My_library\My_UART.h
 [v _UART_ISR `(v ~T0 @X0 0 ef ]
 "18300 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [s S1192 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -315,7 +315,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RTCC_from_RTCC `(v ~T0 @X0 0 ef1`*S1230 ]
 "79
 [v _now `S1230 ~T0 @X0 0 e ]
-"22 ../My_library\My_PIC.h
+"20 ../My_library\My_PIC.h
 [v _OSC_init `(v ~T0 @X0 0 ef ]
 "10269 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
@@ -341,23 +341,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1187 . . . . ]
 "18230
 [v _INTCON2bits `VS1187 ~T0 @X0 0 e@4081 ]
-"34 ../My_library\My_PIC.h
+"36 ../My_library\My_PIC.h
 [v _timer0_init `(v ~T0 @X0 0 ef1`uc ]
-"49
+"51
 [v _timer1_init `(v ~T0 @X0 0 ef2`uc`uc ]
-"60
+"62
 [v _timer3_init `(v ~T0 @X0 0 ef1`uc ]
-"76
+"78
 [v _ADC_init `(v ~T0 @X0 0 ef1`uc ]
 "83 ../My_library\My_RTCC.h
 [v _RTCC_init `(v ~T0 @X0 0 ef ]
-"32 ../My_library\My_UART.h
+"71 ../My_library\My_UART.h
 [v _UART_init `(v ~T0 @X0 0 ef ]
 "26 ../My_library\My_ringbuf.h
 [v _ringbuf_init `(v ~T0 @X0 0 ef3`*S1223`*uc`ui ]
-"29 ../My_library\My_UART.h
+"68 ../My_library\My_UART.h
 [v _uart_tx `S1223 ~T0 @X0 0 e ]
-"30
+"69
 [v _uart_rx `S1223 ~T0 @X0 0 e ]
 [p mainexit ]
 "108 ../My_library\My_RTCC.h
@@ -366,7 +366,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RTCC_task `(v ~T0 @X0 0 ef ]
 "20 ../My_library\My_terminal.h
 [v _terminal_task `(v ~T0 @X0 0 ef2`*S1223`*S1223 ]
-"34 ../My_library\My_UART.h
+"73 ../My_library\My_UART.h
 [v _UART_task `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -8608,18 +8608,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
 [; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
 [; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
-[; ;My_library\My_PIC.h: 22: void OSC_init(void);
-[; ;My_library\My_PIC.h: 34: void timer0_init(uint8_t prescaler);
-[; ;My_library\My_PIC.h: 49: void timer1_init(uint8_t prescaler, uint8_t clock_select);
-[; ;My_library\My_PIC.h: 60: void timer3_init(uint8_t prescaler);
-[; ;My_library\My_PIC.h: 66: void timer5_init(uint8_t prescaler);
-[; ;My_library\My_PIC.h: 76: void ADC_init(uint8_t p_ref);
-[; ;My_library\My_PIC.h: 85: uint16_t ADC(uint8_t ch);
-[; ;My_library\My_PIC.h: 93: void CTMU_init(void);
-[; ;My_library\My_PIC.h: 94: uint16_t CTMU_read(uint8_t ch);
-[; ;My_library\My_PIC.h: 99: void Delay_ms(uint16_t ms);
-[; ;My_library\My_PIC.h: 103: void millis_timer(void);
-[; ;My_library\My_PIC.h: 104: uint32_t millis(void);
+[; ;My_library\My_PIC.h: 20: void OSC_init(void);
+[; ;My_library\My_PIC.h: 36: void timer0_init(uint8_t prescaler);
+[; ;My_library\My_PIC.h: 51: void timer1_init(uint8_t prescaler, uint8_t clock_select);
+[; ;My_library\My_PIC.h: 62: void timer3_init(uint8_t prescaler);
+[; ;My_library\My_PIC.h: 68: void timer5_init(uint8_t prescaler);
+[; ;My_library\My_PIC.h: 78: void ADC_init(uint8_t p_ref);
+[; ;My_library\My_PIC.h: 87: uint16_t ADC(uint8_t ch);
+[; ;My_library\My_PIC.h: 95: void CTMU_init(void);
+[; ;My_library\My_PIC.h: 96: uint16_t CTMU_read(uint8_t ch);
+[; ;My_library\My_PIC.h: 101: void Delay_ms(uint16_t ms);
+[; ;My_library\My_PIC.h: 105: void millis_timer(void);
+[; ;My_library\My_PIC.h: 106: uint32_t millis(void);
 [; ;My_library\My_terminal.h: 18: void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
 [; ;My_library\My_terminal.h: 20: void terminal_task(ringbuf_t *tx, ringbuf_t *rx);
 [; ;My_library\My_terminal.h: 22: void print_time_dec(ringbuf_t *tx, uint8_t dec, uint8_t edit);
@@ -8702,11 +8702,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_RTCC.h: 124: void RTCC_adjust_time_dec(time_t *tm);
 [; ;My_library\My_RTCC.h: 126: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
 [; ;My_library\My_RTCC.h: 128: void RTCC_task(void);
-[; ;My_library\My_UART.h: 29: extern ringbuf_t uart_tx;
-[; ;My_library\My_UART.h: 30: extern ringbuf_t uart_rx;
-[; ;My_library\My_UART.h: 32: void UART_init(void);
-[; ;My_library\My_UART.h: 33: void UART_ISR(void);
-[; ;My_library\My_UART.h: 34: void UART_task();
+[; ;My_library\My_UART.h: 68: extern ringbuf_t uart_tx;
+[; ;My_library\My_UART.h: 69: extern ringbuf_t uart_rx;
+[; ;My_library\My_UART.h: 71: void UART_init(void);
+[; ;My_library\My_UART.h: 72: void UART_ISR(void);
+[; ;My_library\My_UART.h: 73: void UART_task(void);
 "21 PIC18F27J53-killifish_light05.c
 [p x WDTEN=OFF ]
 [p x PLLDIV=2 ]
@@ -8754,15 +8754,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ADC_flag `uc ~T0 @X0 1 e ]
 [; ;PIC18F27J53-killifish_light05.c: 53: uint8_t ADC_flag;
 "59
-[v _light_mode `E8993 ~T0 @X0 1 e ]
+[v _light_mode `E8994 ~T0 @X0 1 e ]
 [; ;PIC18F27J53-killifish_light05.c: 55: enum {
 [; ;PIC18F27J53-killifish_light05.c: 56: TIME_SYNC_mode,
 [; ;PIC18F27J53-killifish_light05.c: 57: ADC_mode,
 [; ;PIC18F27J53-killifish_light05.c: 58: COMMAND_mode
 [; ;PIC18F27J53-killifish_light05.c: 59: } light_mode;
-[v F9000 `(v ~T0 @X0 1 tf ]
+[v F9001 `(v ~T0 @X0 1 tf ]
 "61
-[v _ISR `IF9000 ~T0 @X0 1 e ]
+[v _ISR `IF9001 ~T0 @X0 1 e ]
 {
 [; ;PIC18F27J53-killifish_light05.c: 61: void interrupt ISR(void) {
 [e :U _ISR ]
@@ -9197,7 +9197,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;PIC18F27J53-killifish_light05.c: 198: light_mode = TIME_SYNC_mode;
 "198
-[e = _light_mode . `E8993 0 ]
+[e = _light_mode . `E8994 0 ]
 "199
 }
 [e :U 1261 ]
@@ -9208,7 +9208,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;PIC18F27J53-killifish_light05.c: 201: light_mode = ADC_mode;
 "201
-[e = _light_mode . `E8993 1 ]
+[e = _light_mode . `E8994 1 ]
 "202
 }
 [e :U 1262 ]
@@ -9227,7 +9227,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;PIC18F27J53-killifish_light05.c: 206: light_mode = COMMAND_mode;
 "206
-[e = _light_mode . `E8993 2 ]
+[e = _light_mode . `E8994 2 ]
 [; ;PIC18F27J53-killifish_light05.c: 207: PWM_set(0, atoi(op2) * 250 / 100);
 "207
 [e ( _PWM_set (2 , -> -> 0 `i `uc -> / * ( _atoi (1 -> _op2 `*Cuc -> 250 `i -> 100 `i `ui ]
@@ -9241,7 +9241,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;PIC18F27J53-killifish_light05.c: 210: light_mode = COMMAND_mode;
 "210
-[e = _light_mode . `E8993 2 ]
+[e = _light_mode . `E8994 2 ]
 [; ;PIC18F27J53-killifish_light05.c: 211: PWM_set(1, atoi(op2) * 250 / 100);
 "211
 [e ( _PWM_set (2 , -> -> 1 `i `uc -> / * ( _atoi (1 -> _op2 `*Cuc -> 250 `i -> 100 `i `ui ]
@@ -9255,7 +9255,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;PIC18F27J53-killifish_light05.c: 214: light_mode = COMMAND_mode;
 "214
-[e = _light_mode . `E8993 2 ]
+[e = _light_mode . `E8994 2 ]
 [; ;PIC18F27J53-killifish_light05.c: 215: PWM_set(2, atoi(op2) * 250 / 100);
 "215
 [e ( _PWM_set (2 , -> -> 2 `i `uc -> / * ( _atoi (1 -> _op2 `*Cuc -> 250 `i -> 100 `i `ui ]
@@ -9269,7 +9269,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;PIC18F27J53-killifish_light05.c: 218: light_mode = COMMAND_mode;
 "218
-[e = _light_mode . `E8993 2 ]
+[e = _light_mode . `E8994 2 ]
 [; ;PIC18F27J53-killifish_light05.c: 219: PWM_set(3, atoi(op2) * 250 / 100);
 "219
 [e ( _PWM_set (2 , -> -> 3 `i `uc -> / * ( _atoi (1 -> _op2 `*Cuc -> 250 `i -> 100 `i `ui ]
@@ -9283,7 +9283,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;PIC18F27J53-killifish_light05.c: 222: light_mode = COMMAND_mode;
 "222
-[e = _light_mode . `E8993 2 ]
+[e = _light_mode . `E8994 2 ]
 [; ;PIC18F27J53-killifish_light05.c: 223: PWM_set(0, 0);
 "223
 [e ( _PWM_set (2 , -> -> 0 `i `uc -> -> 0 `i `ui ]
@@ -9329,7 +9329,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _RTCC_from_RTCC (1 &U _now ]
 [; ;PIC18F27J53-killifish_light05.c: 236: if (light_mode == TIME_SYNC_mode) {
 "236
-[e $ ! == -> _light_mode `i -> . `E8993 0 `i 1271  ]
+[e $ ! == -> _light_mode `i -> . `E8994 0 `i 1271  ]
 {
 "237
 [v _temp `ul ~T0 @X0 1 a ]
@@ -9383,27 +9383,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _sw_G 1 0 -> -> 0 `i `ui ]
 [; ;PIC18F27J53-killifish_light05.c: 248: light_mode = COMMAND_mode;
 "248
-[e = _light_mode . `E8993 2 ]
+[e = _light_mode . `E8994 2 ]
 "249
-[v F9021 `uc ~T0 @X0 1 s n ]
-[i F9021
+[v F9022 `uc ~T0 @X0 1 s n ]
+[i F9022
 -> -> 0 `i `uc
 ]
 [; ;PIC18F27J53-killifish_light05.c: 249: static uint8_t n = 0;
 [; ;PIC18F27J53-killifish_light05.c: 250: if (n >= 3) n = 0;
 "250
-[e $ ! >= -> F9021 `i -> 3 `i 1277  ]
-[e = F9021 -> -> 0 `i `uc ]
+[e $ ! >= -> F9022 `i -> 3 `i 1277  ]
+[e = F9022 -> -> 0 `i `uc ]
 [e $U 1278  ]
 "251
 [e :U 1277 ]
 [; ;PIC18F27J53-killifish_light05.c: 251: else n++;
-[e ++ F9021 -> -> 1 `i `uc ]
+[e ++ F9022 -> -> 1 `i `uc ]
 [e :U 1278 ]
 "252
 [v _value `uc ~T0 @X0 1 a ]
 [; ;PIC18F27J53-killifish_light05.c: 252: uint8_t value = 250 / 3 * n;
-[e = _value -> * / -> 250 `i -> 3 `i -> F9021 `i `uc ]
+[e = _value -> * / -> 250 `i -> 3 `i -> F9022 `i `uc ]
 [; ;PIC18F27J53-killifish_light05.c: 253: for (i = 0; i < 3; i++) {
 "253
 {
@@ -9437,27 +9437,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _sw_B 1 0 -> -> 0 `i `ui ]
 [; ;PIC18F27J53-killifish_light05.c: 259: light_mode = COMMAND_mode;
 "259
-[e = _light_mode . `E8993 2 ]
+[e = _light_mode . `E8994 2 ]
 "260
-[v F9023 `uc ~T0 @X0 1 s n ]
-[i F9023
+[v F9024 `uc ~T0 @X0 1 s n ]
+[i F9024
 -> -> 0 `i `uc
 ]
 [; ;PIC18F27J53-killifish_light05.c: 260: static uint8_t n = 0;
 [; ;PIC18F27J53-killifish_light05.c: 261: if (n >= 3) n = 0;
 "261
-[e $ ! >= -> F9023 `i -> 3 `i 1283  ]
-[e = F9023 -> -> 0 `i `uc ]
+[e $ ! >= -> F9024 `i -> 3 `i 1283  ]
+[e = F9024 -> -> 0 `i `uc ]
 [e $U 1284  ]
 "262
 [e :U 1283 ]
 [; ;PIC18F27J53-killifish_light05.c: 262: else n++;
-[e ++ F9023 -> -> 1 `i `uc ]
+[e ++ F9024 -> -> 1 `i `uc ]
 [e :U 1284 ]
 "263
 [v _value `uc ~T0 @X0 1 a ]
 [; ;PIC18F27J53-killifish_light05.c: 263: uint8_t value = 250 / 3 * n;
-[e = _value -> * / -> 250 `i -> 3 `i -> F9023 `i `uc ]
+[e = _value -> * / -> 250 `i -> 3 `i -> F9024 `i `uc ]
 [; ;PIC18F27J53-killifish_light05.c: 264: PWM_set(3, value);
 "264
 [e ( _PWM_set (2 , -> -> 3 `i `uc -> _value `ui ]
@@ -9474,7 +9474,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _sw_R 1 0 -> -> 0 `i `ui ]
 [; ;PIC18F27J53-killifish_light05.c: 268: light_mode = TIME_SYNC_mode;
 "268
-[e = _light_mode . `E8993 0 ]
+[e = _light_mode . `E8994 0 ]
 "269
 }
 [e :U 1285 ]
@@ -9532,17 +9532,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 "303
 [e ( _UART_init ..  ]
 "304
-[v F9027 `uc ~T0 @X0 -> 1000 `i s txbuf ]
+[v F9028 `uc ~T0 @X0 -> 1000 `i s txbuf ]
 [; ;PIC18F27J53-killifish_light05.c: 304: static uint8_t txbuf[1000];
 [; ;PIC18F27J53-killifish_light05.c: 305: ringbuf_init(&uart_tx, txbuf, sizeof (txbuf));
 "305
-[e ( _ringbuf_init (3 , , &U _uart_tx &U F9027 -> # F9027 `ui ]
+[e ( _ringbuf_init (3 , , &U _uart_tx &U F9028 -> # F9028 `ui ]
 "306
-[v F9028 `uc ~T0 @X0 -> 250 `i s rxbuf ]
+[v F9029 `uc ~T0 @X0 -> 250 `i s rxbuf ]
 [; ;PIC18F27J53-killifish_light05.c: 306: static uint8_t rxbuf[250];
 [; ;PIC18F27J53-killifish_light05.c: 307: ringbuf_init(&uart_rx, rxbuf, sizeof (rxbuf));
 "307
-[e ( _ringbuf_init (3 , , &U _uart_rx &U F9028 -> # F9028 `ui ]
+[e ( _ringbuf_init (3 , , &U _uart_rx &U F9029 -> # F9029 `ui ]
 [; ;PIC18F27J53-killifish_light05.c: 308: }
 "308
 [e :UE 1286 ]

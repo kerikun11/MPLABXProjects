@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../src/app_device_cdc_basic.c ../src/app_led_usb_status.c ../src/main.c ../src/usb_descriptors.c ../../../../../../framework/usb/src/usb_device.c ../../../../../../framework/usb/src/usb_device_cdc.c ../src/system_config/pic18f27j53_pim/system.c ../../../../../../bsp/pic18f27j53_pim/adc.c ../../../../../../bsp/pic18f27j53_pim/buttons.c ../../../../../../bsp/pic18f27j53_pim/leds.c
+SOURCEFILES_QUOTED_IF_SPACED=../src/system_config/pic18f27j53_pim/system.c ../src/app_device_cdc_basic.c ../src/app_led_usb_status.c ../src/main.c ../src/usb_descriptors.c ../../../../../../bsp/pic18f27j53_pim/adc.c ../../../../../../bsp/pic18f27j53_pim/buttons.c ../../../../../../bsp/pic18f27j53_pim/leds.c ../../../../../../framework/usb/src/usb_device.c ../../../../../../framework/usb/src/usb_device_cdc.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1360937237/app_device_cdc_basic.p1 ${OBJECTDIR}/_ext/1360937237/app_led_usb_status.p1 ${OBJECTDIR}/_ext/1360937237/main.p1 ${OBJECTDIR}/_ext/1360937237/usb_descriptors.p1 ${OBJECTDIR}/_ext/838585624/usb_device.p1 ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1 ${OBJECTDIR}/_ext/2110725516/system.p1 ${OBJECTDIR}/_ext/1111375597/adc.p1 ${OBJECTDIR}/_ext/1111375597/buttons.p1 ${OBJECTDIR}/_ext/1111375597/leds.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1360937237/app_device_cdc_basic.p1.d ${OBJECTDIR}/_ext/1360937237/app_led_usb_status.p1.d ${OBJECTDIR}/_ext/1360937237/main.p1.d ${OBJECTDIR}/_ext/1360937237/usb_descriptors.p1.d ${OBJECTDIR}/_ext/838585624/usb_device.p1.d ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1.d ${OBJECTDIR}/_ext/2110725516/system.p1.d ${OBJECTDIR}/_ext/1111375597/adc.p1.d ${OBJECTDIR}/_ext/1111375597/buttons.p1.d ${OBJECTDIR}/_ext/1111375597/leds.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/2110725516/system.p1 ${OBJECTDIR}/_ext/1360937237/app_device_cdc_basic.p1 ${OBJECTDIR}/_ext/1360937237/app_led_usb_status.p1 ${OBJECTDIR}/_ext/1360937237/main.p1 ${OBJECTDIR}/_ext/1360937237/usb_descriptors.p1 ${OBJECTDIR}/_ext/1111375597/adc.p1 ${OBJECTDIR}/_ext/1111375597/buttons.p1 ${OBJECTDIR}/_ext/1111375597/leds.p1 ${OBJECTDIR}/_ext/838585624/usb_device.p1 ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/2110725516/system.p1.d ${OBJECTDIR}/_ext/1360937237/app_device_cdc_basic.p1.d ${OBJECTDIR}/_ext/1360937237/app_led_usb_status.p1.d ${OBJECTDIR}/_ext/1360937237/main.p1.d ${OBJECTDIR}/_ext/1360937237/usb_descriptors.p1.d ${OBJECTDIR}/_ext/1111375597/adc.p1.d ${OBJECTDIR}/_ext/1111375597/buttons.p1.d ${OBJECTDIR}/_ext/1111375597/leds.p1.d ${OBJECTDIR}/_ext/838585624/usb_device.p1.d ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1360937237/app_device_cdc_basic.p1 ${OBJECTDIR}/_ext/1360937237/app_led_usb_status.p1 ${OBJECTDIR}/_ext/1360937237/main.p1 ${OBJECTDIR}/_ext/1360937237/usb_descriptors.p1 ${OBJECTDIR}/_ext/838585624/usb_device.p1 ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1 ${OBJECTDIR}/_ext/2110725516/system.p1 ${OBJECTDIR}/_ext/1111375597/adc.p1 ${OBJECTDIR}/_ext/1111375597/buttons.p1 ${OBJECTDIR}/_ext/1111375597/leds.p1
+OBJECTFILES=${OBJECTDIR}/_ext/2110725516/system.p1 ${OBJECTDIR}/_ext/1360937237/app_device_cdc_basic.p1 ${OBJECTDIR}/_ext/1360937237/app_led_usb_status.p1 ${OBJECTDIR}/_ext/1360937237/main.p1 ${OBJECTDIR}/_ext/1360937237/usb_descriptors.p1 ${OBJECTDIR}/_ext/1111375597/adc.p1 ${OBJECTDIR}/_ext/1111375597/buttons.p1 ${OBJECTDIR}/_ext/1111375597/leds.p1 ${OBJECTDIR}/_ext/838585624/usb_device.p1 ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1
 
 # Source Files
-SOURCEFILES=../src/app_device_cdc_basic.c ../src/app_led_usb_status.c ../src/main.c ../src/usb_descriptors.c ../../../../../../framework/usb/src/usb_device.c ../../../../../../framework/usb/src/usb_device_cdc.c ../src/system_config/pic18f27j53_pim/system.c ../../../../../../bsp/pic18f27j53_pim/adc.c ../../../../../../bsp/pic18f27j53_pim/buttons.c ../../../../../../bsp/pic18f27j53_pim/leds.c
+SOURCEFILES=../src/system_config/pic18f27j53_pim/system.c ../src/app_device_cdc_basic.c ../src/app_led_usb_status.c ../src/main.c ../src/usb_descriptors.c ../../../../../../bsp/pic18f27j53_pim/adc.c ../../../../../../bsp/pic18f27j53_pim/buttons.c ../../../../../../bsp/pic18f27j53_pim/leds.c ../../../../../../framework/usb/src/usb_device.c ../../../../../../framework/usb/src/usb_device_cdc.c
 
 
 CFLAGS=
@@ -81,6 +81,14 @@ MP_PROCESSOR_OPTION=18F47J53
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+${OBJECTDIR}/_ext/2110725516/system.p1: ../src/system_config/pic18f27j53_pim/system.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/2110725516" 
+	@${RM} ${OBJECTDIR}/_ext/2110725516/system.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/2110725516/system.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=icd3  --double=24 --float=24 --emi=wordwrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N255 -I"../src" -I"../../../../../../framework" -I"../../../../../../bsp/pic18f27j53_pim" -I"../src/system_config/pic18f27j53_pim" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1000 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/2110725516/system.p1  ../src/system_config/pic18f27j53_pim/system.c 
+	@-${MV} ${OBJECTDIR}/_ext/2110725516/system.d ${OBJECTDIR}/_ext/2110725516/system.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/2110725516/system.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 ${OBJECTDIR}/_ext/1360937237/app_device_cdc_basic.p1: ../src/app_device_cdc_basic.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
 	@${RM} ${OBJECTDIR}/_ext/1360937237/app_device_cdc_basic.p1.d 
@@ -113,30 +121,6 @@ ${OBJECTDIR}/_ext/1360937237/usb_descriptors.p1: ../src/usb_descriptors.c  nbpro
 	@-${MV} ${OBJECTDIR}/_ext/1360937237/usb_descriptors.d ${OBJECTDIR}/_ext/1360937237/usb_descriptors.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1360937237/usb_descriptors.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/838585624/usb_device.p1: ../../../../../../framework/usb/src/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/838585624" 
-	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=icd3  --double=24 --float=24 --emi=wordwrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N255 -I"../src" -I"../../../../../../framework" -I"../../../../../../bsp/pic18f27j53_pim" -I"../src/system_config/pic18f27j53_pim" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1000 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/838585624/usb_device.p1  ../../../../../../framework/usb/src/usb_device.c 
-	@-${MV} ${OBJECTDIR}/_ext/838585624/usb_device.d ${OBJECTDIR}/_ext/838585624/usb_device.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/838585624/usb_device.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1: ../../../../../../framework/usb/src/usb_device_cdc.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/838585624" 
-	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=icd3  --double=24 --float=24 --emi=wordwrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N255 -I"../src" -I"../../../../../../framework" -I"../../../../../../bsp/pic18f27j53_pim" -I"../src/system_config/pic18f27j53_pim" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1000 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1  ../../../../../../framework/usb/src/usb_device_cdc.c 
-	@-${MV} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.d ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/2110725516/system.p1: ../src/system_config/pic18f27j53_pim/system.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/2110725516" 
-	@${RM} ${OBJECTDIR}/_ext/2110725516/system.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/2110725516/system.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=icd3  --double=24 --float=24 --emi=wordwrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N255 -I"../src" -I"../../../../../../framework" -I"../../../../../../bsp/pic18f27j53_pim" -I"../src/system_config/pic18f27j53_pim" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1000 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/2110725516/system.p1  ../src/system_config/pic18f27j53_pim/system.c 
-	@-${MV} ${OBJECTDIR}/_ext/2110725516/system.d ${OBJECTDIR}/_ext/2110725516/system.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/2110725516/system.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/_ext/1111375597/adc.p1: ../../../../../../bsp/pic18f27j53_pim/adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1111375597" 
 	@${RM} ${OBJECTDIR}/_ext/1111375597/adc.p1.d 
@@ -161,7 +145,31 @@ ${OBJECTDIR}/_ext/1111375597/leds.p1: ../../../../../../bsp/pic18f27j53_pim/leds
 	@-${MV} ${OBJECTDIR}/_ext/1111375597/leds.d ${OBJECTDIR}/_ext/1111375597/leds.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1111375597/leds.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/_ext/838585624/usb_device.p1: ../../../../../../framework/usb/src/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/838585624" 
+	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=icd3  --double=24 --float=24 --emi=wordwrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N255 -I"../src" -I"../../../../../../framework" -I"../../../../../../bsp/pic18f27j53_pim" -I"../src/system_config/pic18f27j53_pim" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1000 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/838585624/usb_device.p1  ../../../../../../framework/usb/src/usb_device.c 
+	@-${MV} ${OBJECTDIR}/_ext/838585624/usb_device.d ${OBJECTDIR}/_ext/838585624/usb_device.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/838585624/usb_device.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1: ../../../../../../framework/usb/src/usb_device_cdc.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/838585624" 
+	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=icd3  --double=24 --float=24 --emi=wordwrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N255 -I"../src" -I"../../../../../../framework" -I"../../../../../../bsp/pic18f27j53_pim" -I"../src/system_config/pic18f27j53_pim" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1000 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1  ../../../../../../framework/usb/src/usb_device_cdc.c 
+	@-${MV} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.d ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
+${OBJECTDIR}/_ext/2110725516/system.p1: ../src/system_config/pic18f27j53_pim/system.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/2110725516" 
+	@${RM} ${OBJECTDIR}/_ext/2110725516/system.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/2110725516/system.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N255 -I"../src" -I"../../../../../../framework" -I"../../../../../../bsp/pic18f27j53_pim" -I"../src/system_config/pic18f27j53_pim" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1000 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/2110725516/system.p1  ../src/system_config/pic18f27j53_pim/system.c 
+	@-${MV} ${OBJECTDIR}/_ext/2110725516/system.d ${OBJECTDIR}/_ext/2110725516/system.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/2110725516/system.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 ${OBJECTDIR}/_ext/1360937237/app_device_cdc_basic.p1: ../src/app_device_cdc_basic.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
 	@${RM} ${OBJECTDIR}/_ext/1360937237/app_device_cdc_basic.p1.d 
@@ -194,30 +202,6 @@ ${OBJECTDIR}/_ext/1360937237/usb_descriptors.p1: ../src/usb_descriptors.c  nbpro
 	@-${MV} ${OBJECTDIR}/_ext/1360937237/usb_descriptors.d ${OBJECTDIR}/_ext/1360937237/usb_descriptors.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1360937237/usb_descriptors.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/838585624/usb_device.p1: ../../../../../../framework/usb/src/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/838585624" 
-	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N255 -I"../src" -I"../../../../../../framework" -I"../../../../../../bsp/pic18f27j53_pim" -I"../src/system_config/pic18f27j53_pim" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1000 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/838585624/usb_device.p1  ../../../../../../framework/usb/src/usb_device.c 
-	@-${MV} ${OBJECTDIR}/_ext/838585624/usb_device.d ${OBJECTDIR}/_ext/838585624/usb_device.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/838585624/usb_device.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1: ../../../../../../framework/usb/src/usb_device_cdc.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/838585624" 
-	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N255 -I"../src" -I"../../../../../../framework" -I"../../../../../../bsp/pic18f27j53_pim" -I"../src/system_config/pic18f27j53_pim" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1000 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1  ../../../../../../framework/usb/src/usb_device_cdc.c 
-	@-${MV} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.d ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/2110725516/system.p1: ../src/system_config/pic18f27j53_pim/system.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/2110725516" 
-	@${RM} ${OBJECTDIR}/_ext/2110725516/system.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/2110725516/system.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N255 -I"../src" -I"../../../../../../framework" -I"../../../../../../bsp/pic18f27j53_pim" -I"../src/system_config/pic18f27j53_pim" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1000 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/2110725516/system.p1  ../src/system_config/pic18f27j53_pim/system.c 
-	@-${MV} ${OBJECTDIR}/_ext/2110725516/system.d ${OBJECTDIR}/_ext/2110725516/system.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/2110725516/system.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/_ext/1111375597/adc.p1: ../../../../../../bsp/pic18f27j53_pim/adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1111375597" 
 	@${RM} ${OBJECTDIR}/_ext/1111375597/adc.p1.d 
@@ -241,6 +225,22 @@ ${OBJECTDIR}/_ext/1111375597/leds.p1: ../../../../../../bsp/pic18f27j53_pim/leds
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N255 -I"../src" -I"../../../../../../framework" -I"../../../../../../bsp/pic18f27j53_pim" -I"../src/system_config/pic18f27j53_pim" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1000 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1111375597/leds.p1  ../../../../../../bsp/pic18f27j53_pim/leds.c 
 	@-${MV} ${OBJECTDIR}/_ext/1111375597/leds.d ${OBJECTDIR}/_ext/1111375597/leds.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1111375597/leds.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/838585624/usb_device.p1: ../../../../../../framework/usb/src/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/838585624" 
+	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N255 -I"../src" -I"../../../../../../framework" -I"../../../../../../bsp/pic18f27j53_pim" -I"../src/system_config/pic18f27j53_pim" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1000 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/838585624/usb_device.p1  ../../../../../../framework/usb/src/usb_device.c 
+	@-${MV} ${OBJECTDIR}/_ext/838585624/usb_device.d ${OBJECTDIR}/_ext/838585624/usb_device.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/838585624/usb_device.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1: ../../../../../../framework/usb/src/usb_device_cdc.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/838585624" 
+	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N255 -I"../src" -I"../../../../../../framework" -I"../../../../../../bsp/pic18f27j53_pim" -I"../src/system_config/pic18f27j53_pim" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1000 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1  ../../../../../../framework/usb/src/usb_device_cdc.c 
+	@-${MV} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.d ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/838585624/usb_device_cdc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

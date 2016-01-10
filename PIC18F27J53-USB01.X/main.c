@@ -44,7 +44,6 @@
 #define SW3 PORTBbits.RB3
 
 void interrupt ISR(void) {
-    USB_ISR();
     UART_ISR();
     if (INTCONbits.T0IF && INTCONbits.T0IE) {
         INTCONbits.T0IF = 0;
@@ -105,8 +104,6 @@ int main(void) {
     INTCONbits.GIE = 1;
 
     while (1) {
-        INTCONbits.GIE = 0;
-
         USB_task();
         UART_task();
         RTCC_task();
@@ -119,10 +116,6 @@ int main(void) {
             ringbuf_put(&uart_tx, ringbuf_pop(&uart_rx));
             LED1 = !LED1;
         }
-        INTCONbits.GIE = 1;
-        LED4 = !LED4;
-
-        INTCONbits.GIE = 0;
         if (time_change_flag) {
             time_change_flag = 0;
             char s[2][20];
@@ -133,7 +126,6 @@ int main(void) {
             I2C_LCD_SetCursor(0, 1);
             I2C_LCD_Puts(s[1]);
         }
-        INTCONbits.GIE = 1;
     }
     return 0;
 }

@@ -14,7 +14,7 @@
 #define COMMAND_SIZE 100
 #define OPCODE_SIZE 25
 
-// À‘Ì‚ğ‚Ç‚±‚©‚É‹Lq‚·‚é‚±‚ÆB
+// å®Ÿä½“ã‚’ã©ã“ã‹ã«è¨˜è¿°ã™ã‚‹ã“ã¨ã€‚
 void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
 
 void terminal_task(ringbuf_t *tx, ringbuf_t *rx);

@@ -8,9 +8,7 @@
 ../../../../../../framework/usb/usb_device.h  \
 ../../../../../../framework/usb/usb_hal_pic18.h  \
 ../../../../../../framework/usb/usb_hal.h  \
-../../../../../../bsp/pic18f27j53_pim/adc.h  \
 ../../../../../../bsp/pic18f27j53_pim/power.h  \
 ../../../../../../framework/usb/usb_common.h  \
 ../../../../../../bsp/pic18f27j53_pim/leds.h  \
-../src/system_config.h  \
-../../../../../../bsp/pic18f27j53_pim/usart.h 
+../src/system_config.h 

@@ -11,11 +11,11 @@ _CONFIG3(WPFP_WPFP0 & SOSCSEL_IO & WUTSEL_LEG & WPDIS_WPDIS & WPCFG_WPCFGDIS & W
 _CONFIG4(DSWDTPS_DSWDTPS3 & DSWDTOSC_LPRC & RTCOSC_SOSC & DSBOREN_OFF & DSWDTEN_OFF)
 
 #define _XTAL_FREQ 32000000
-#define CPU_CLOCK 4000000                        // ƒNƒƒbƒN [Hz]
+#define CPU_CLOCK 4000000                        // ã‚¯ãƒ­ãƒƒã‚¯ [Hz]
 #define CPU_PLL   8                                // PLL
-#define FCY       ( ( CPU_CLOCK * CPU_PLL ) / 2 )  // –½—ßƒTƒCƒNƒ‹ƒNƒƒbƒN [Hz]
+#define FCY       ( ( CPU_CLOCK * CPU_PLL ) / 2 )  // å‘½ä»¤ã‚µã‚¤ã‚¯ãƒ«ã‚¯ãƒ­ãƒƒã‚¯ [Hz]
 
-#define BAUDRATE  9600                          // ƒ{[ƒŒ[ƒg [bps]
+#define BAUDRATE  9600                          // ãƒœãƒ¼ãƒ¬ãƒ¼ãƒˆ [bps]
 
 #include <uart.h>
 
@@ -55,25 +55,25 @@ int main(void) {
     TRISB = 0x0200;
 
     const unsigned int Mode
-            = UART_EN // UARTƒ‚ƒWƒ…[ƒ‹ - —LŒø
-            & UART_IDLE_STOP // ƒAƒCƒhƒ‹ƒ‚[ƒh - “®ì’âŽ~
-            & UART_DIS_WAKE // ƒEƒFƒCƒNƒAƒbƒv - –³Œø
-            & UART_DIS_LOOPBACK // ƒ‹[ƒvƒoƒbƒN - –³Œø
-            & UART_DIS_ABAUD // Ž©“®ƒ{[ƒŒ[ƒg - –³Œø
-            & UART_NO_PAR_8BIT // ƒpƒŠƒeƒB‚È‚µ/ƒf[ƒ^ 8ƒrƒbƒg
-            & UART_1STOPBIT; // ƒXƒgƒbƒvƒrƒbƒg - 1ƒrƒbƒg
+            = UART_EN // UARTãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ« - æœ‰åŠ¹
+            & UART_IDLE_STOP // ã‚¢ã‚¤ãƒ‰ãƒ«ãƒ¢ãƒ¼ãƒ‰ - å‹•ä½œåœæ­¢
+            & UART_DIS_WAKE // ã‚¦ã‚§ã‚¤ã‚¯ã‚¢ãƒƒãƒ— - ç„¡åŠ¹
+            & UART_DIS_LOOPBACK // ãƒ«ãƒ¼ãƒ—ãƒãƒƒã‚¯ - ç„¡åŠ¹
+            & UART_DIS_ABAUD // è‡ªå‹•ãƒœãƒ¼ãƒ¬ãƒ¼ãƒˆ - ç„¡åŠ¹
+            & UART_NO_PAR_8BIT // ãƒ‘ãƒªãƒ†ã‚£ãªã—/ãƒ‡ãƒ¼ã‚¿ 8ãƒ“ãƒƒãƒˆ
+            & UART_1STOPBIT; // ã‚¹ãƒˆãƒƒãƒ—ãƒ“ãƒƒãƒˆ - 1ãƒ“ãƒƒãƒˆ
 
     const unsigned int Status
-            = UART_TX_ENABLE // ‘—M - —LŒø
-            & UART_INT_TX_BUF_EMPTY // ‘—M‚ÌŠ„‚èž‚ÝðŒ - ‘—Mƒoƒbƒtƒ@‚ª‹ó
-            & UART_INT_RX_CHAR // ŽóM‚ÌŠ„‚èž‚ÝðŒ - ŽóM‚·‚é‚½‚Ñ
-            & UART_TX_PIN_NORMAL // ‘—MƒuƒŒ[ƒN - ’Êí
-            & UART_ADR_DETECT_DIS // ƒAƒhƒŒƒXŒŸo - –³Œø
-            & UART_RX_OVERRUN_CLEAR; // ŽóMƒoƒbƒtƒ@ƒI[ƒo[ƒ‰ƒ“ƒGƒ‰[ - ƒNƒŠƒA
+            = UART_TX_ENABLE // é€ä¿¡ - æœ‰åŠ¹
+            & UART_INT_TX_BUF_EMPTY // é€ä¿¡ã®å‰²ã‚Šè¾¼ã¿æ¡ä»¶ - é€ä¿¡ãƒãƒƒãƒ•ã‚¡ãŒç©º
+            & UART_INT_RX_CHAR // å—ä¿¡ã®å‰²ã‚Šè¾¼ã¿æ¡ä»¶ - å—ä¿¡ã™ã‚‹ãŸã³
+            & UART_TX_PIN_NORMAL // é€ä¿¡ãƒ–ãƒ¬ãƒ¼ã‚¯ - é€šå¸¸
+            & UART_ADR_DETECT_DIS // ã‚¢ãƒ‰ãƒ¬ã‚¹æ¤œå‡º - ç„¡åŠ¹
+            & UART_RX_OVERRUN_CLEAR; // å—ä¿¡ãƒãƒƒãƒ•ã‚¡ã‚ªãƒ¼ãƒãƒ¼ãƒ©ãƒ³ã‚¨ãƒ©ãƒ¼ - ã‚¯ãƒªã‚¢
 
     const double Baudrate = (double) FCY / (16 * BAUDRATE) - 1;
 
-    // ƒ{[ƒŒ[ƒg‚Ì¬”“_ˆÈ‰º‚ðŽlŽÌŒÜ“ü‚·‚é
+    // ãƒœãƒ¼ãƒ¬ãƒ¼ãƒˆã®å°æ•°ç‚¹ä»¥ä¸‹ã‚’å››æ¨äº”å…¥ã™ã‚‹
     unsigned int baudrate = (unsigned int) (Baudrate + 0.5);
 
     OpenUART1(Mode, Status, baudrate);

@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\PIC18F27J53-ChargeStation-2.2.09.X.production.sym \
   --cmf=dist/default/production\PIC18F27J53-ChargeStation-2.2.09.X.production.cmf \
-  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s13o.2 \
+  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s34k.2 \
   -Mdist/default/production/PIC18F27J53-ChargeStation-2.2.09.X.production.map \
   -E1 -ver=XC8 -ASTACK=0D40h-0eafh -pstack=STACK \
   -ACODE=01000h-01005h,01008h-01015h,01018h-01FFF7h \
@@ -28,7 +28,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\KERIKU~1\AppData\Local\Temp\s13o.obj \
+  C:\Users\KERIKU~1\AppData\Local\Temp\s34k.obj \
   dist/default/production\PIC18F27J53-ChargeStation-2.2.09.X.production.obj 
 
 Object code version is 3.11
@@ -41,7 +41,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\KERIKU~1\AppData\Local\Temp\s13o.obj
+C:\Users\KERIKU~1\AppData\Local\Temp\s34k.obj
                 end_init                           10F6     10F6        4      804       0
                 reset_vec                          1000     1000        4      800       0
                 config                            1FFF8    1FFF8        8    1FFF8       0
@@ -533,7 +533,7 @@ RTCC_from_epoch@tm                        cstackBANK0   0008F
 RTCC_task@prev_halfsec                    bssBANK1      0011F
 RTCC_to_caltime@dumy                      cstackBANK0   00064
 RTCC_to_caltime@tm                        cstackBANK0   00062
-ST7032_cursor@F8665                       dataBANK1     001E4
+ST7032_cursor@F8640                       dataBANK1     001E4
 ST7032_init@buf                           bssBANK4      00400
 ST7032_task@st7032_state                  bssBANK1      00120
 ST7032_task@wait                          bssBANK1      0010F

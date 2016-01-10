@@ -11,6 +11,8 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
+    
+#include <stdint.h>
 
 //*************************** I2C_ThermoMeter MCP9803 ***************************//
 #define MCP9803_ADRES 0x48

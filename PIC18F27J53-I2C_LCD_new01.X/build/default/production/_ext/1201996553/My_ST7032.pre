@@ -10464,6 +10464,15 @@ uint8_t I2C_ack(void);
 void I2C_init_new(void);
 void I2C_ISR(void);
 
+# 36
+void I2C_IdleCheck(char mask);
+void I2C_init_old(void);
+uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
+uint8_t I2C_rStart(int adrs, int rw);
+void I2C_Stop(void);
+uint8_t I2C_Send(uint8_t data);
+uint8_t I2C_Receive(uint8_t ack);
+
 # 19 "../My_library/My_ST7032.h"
 typedef enum ST7032_STATE {
 ST7032_IDOLE,
@@ -10491,42 +10500,16 @@ void ST7032_init(void);
 
 void ST7032_task(void);
 
-# 20 "../My_library\My_PIC.h"
-void OSC_init(void);
+# 50
+void I2C_LCD_Command(uint8_t c);
+void I2C_LCD_Clear(void);
+void I2C_LCD_SetCursor(uint8_t col, uint8_t row);
+void I2C_LCD_Putc(uint8_t c);
+void I2C_LCD_Puts(const uint8_t * s);
+void I2C_LCD_CreateChar(int p, char *dt);
+void I2C_LCD_init(void);
 
-# 36
-void timer0_init(uint8_t prescaler);
-
-# 51
-void timer1_init(uint8_t prescaler, uint8_t clock_select);
-
-# 62
-void timer3_init(uint8_t prescaler);
-
-# 68
-void timer5_init(uint8_t prescaler);
-
-# 78
-void ADC_init(uint8_t p_ref);
-
-# 87
-uint16_t ADC(uint8_t ch);
-
-# 95
-void CTMU_init(void);
-uint16_t CTMU_read(uint8_t ch);
-
-
-
-
-void Delay_ms(uint16_t ms);
-
-
-
-void millis_timer(void);
-uint32_t millis(void);
-
-# 14 "../My_library/My_ST7032.c"
+# 13 "../My_library/My_ST7032.c"
 st7032_state_t st7032_state;
 ringbuf_t lcd_tx;
 
@@ -10649,5 +10632,128 @@ if (wait == 0) st7032_state = ST7032_IDOLE;
 else wait--;
 break;
 }
+}
+
+# 20 "../My_library\My_PIC.h"
+void OSC_init(void);
+
+# 36
+void timer0_init(uint8_t prescaler);
+
+# 51
+void timer1_init(uint8_t prescaler, uint8_t clock_select);
+
+# 62
+void timer3_init(uint8_t prescaler);
+
+# 68
+void timer5_init(uint8_t prescaler);
+
+# 78
+void ADC_init(uint8_t p_ref);
+
+# 87
+uint16_t ADC(uint8_t ch);
+
+# 95
+void CTMU_init(void);
+uint16_t CTMU_read(uint8_t ch);
+
+
+
+
+void Delay_ms(uint16_t ms);
+
+
+
+void millis_timer(void);
+uint32_t millis(void);
+
+# 141 "../My_library/My_ST7032.c"
+void I2C_LCD_Command(uint8_t c) {
+uint8_t ans;
+
+ans = I2C_Start(0x3E, 0);
+if (ans == 0) {
+
+I2C_Send(0b10000000);
+I2C_Send(c);
+}
+I2C_Stop();
+_delay((unsigned long)((26)*(48000000/4000000.0)));
+}
+
+void I2C_LCD_Clear(void) {
+I2C_LCD_Command(0x01);
+_delay((unsigned long)((1100)*(48000000/4000000.0)));
+}
+
+void I2C_LCD_SetCursor(uint8_t col, uint8_t row) {
+uint8_t row_offsets[] = {0x00, 0x40};
+
+I2C_LCD_Command(0x80 | (col + row_offsets[row]));
+}
+
+void I2C_LCD_Putc(uint8_t c) {
+uint8_t ans;
+
+ans = I2C_Start(0x3E, 0);
+if (ans == 0) {
+
+I2C_Send(0b11000000);
+I2C_Send(c);
+}
+I2C_Stop();
+_delay((unsigned long)((26)*(48000000/4000000.0)));
+}
+
+void I2C_LCD_Puts(const uint8_t * s) {
+int ans;
+
+ans = I2C_Start(0x3E, 0);
+if (ans == 0) {
+I2C_Send(0b01000000);
+while (*s) {
+I2C_Send(*s++);
+_delay((unsigned long)((26)*(48000000/4000000.0)));
+}
+}
+I2C_Stop();
+}
+
+void I2C_LCD_CreateChar(int p, char *dt) {
+uint8_t ans;
+
+ans = I2C_Start(0x3E, 0);
+if (ans == 0) {
+
+I2C_Send(0b10000000);
+I2C_Send(0x40 | (p << 3));
+_delay((unsigned long)((26)*(48000000/4000000.0)));
+
+I2C_Send(0b01000000);
+for (uint8_t i = 0; i < 7; i++) {
+I2C_Send(*dt++);
+_delay((unsigned long)((26)*(48000000/4000000.0)));
+}
+}
+I2C_Stop();
+}
+
+void I2C_LCD_init(void) {
+I2C_init_old();
+
+for (uint8_t i = 0; i < 40; i++) _delay((unsigned long)((1)*(48000000/4000.0)));
+I2C_LCD_Command(0x38);
+I2C_LCD_Command(0x39);
+I2C_LCD_Command(0x14);
+I2C_LCD_Command(0x70);
+I2C_LCD_Command(0x56);
+I2C_LCD_Command(0x6C);
+for (uint8_t i = 0; i < 40; i++) _delay((unsigned long)((1)*(48000000/4000.0)));
+I2C_LCD_Command(0x38);
+I2C_LCD_Command(0x0C);
+I2C_LCD_Command(0x06);
+I2C_LCD_Clear();
 }
 

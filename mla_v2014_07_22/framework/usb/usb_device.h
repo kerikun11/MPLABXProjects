@@ -561,7 +561,7 @@ void USBCancelIO(uint8_t endpoint);
         USBDeviceDetach() and USBDeviceAttach() functions are not available.  
         In this mode, the USB stack relies on the "#define USE_USB_BUS_SENSE_IO" 
         and "#define USB_BUS_SENSE" options in the 
-        HardwareProfile � [platform name].h file. 
+        HardwareProfile ・ス [platform name].h file. 
 
         When using the USB_POLLING mode option, and the 
         "#define USE_USB_BUS_SENSE_IO" definition has been commented out, then 
@@ -578,10 +578,10 @@ void USBCancelIO(uint8_t endpoint);
 
         In a self powered application, the USB stack is designed with the 
         intention that the user will enable the "#define USE_USB_BUS_SENSE_IO" 
-        option in the HardwareProfile � [platform name].h file.  When this 
+        option in the HardwareProfile ・ス [platform name].h file.  When this 
         option is defined, then the USBDeviceTasks() function will automatically 
         check the I/O pin port value of the designated pin (based on the 
-        #define USB_BUS_SENSE option in the HardwareProfile � [platform name].h 
+        #define USB_BUS_SENSE option in the HardwareProfile ・ス [platform name].h 
         file), every time the application calls USBDeviceTasks().  If the 
         USBDeviceTasks() function is executed and finds that the pin defined by 
         the #define USB_BUS_SENSE is in a logic low state, then it will 

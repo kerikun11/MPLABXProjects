@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microchip Technology Inc.")]
 [assembly: AssemblyProduct("HID PnP Demo")]
-[assembly: AssemblyCopyright("Copyright © Microchip Technology Inc. 2009")]
+[assembly: AssemblyCopyright("Copyright c Microchip Technology Inc. 2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
