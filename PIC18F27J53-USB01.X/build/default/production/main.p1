@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"46 ../My_library\My_usb_cdc.h
-[v _USB_ISR `(v ~T0 @X0 0 ef ]
+"30 ../My_library/USB_CDC\My_USB_CDC.h
+[v _USB_CDC_ISR `(v ~T0 @X0 0 ef ]
 "72 ../My_library\My_UART.h
 [v _UART_ISR `(v ~T0 @X0 0 ef ]
 "18300 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
@@ -143,24 +143,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _I2C_LCD_init `(v ~T0 @X0 0 ef ]
 "83 ../My_library\My_RTCC.h
 [v _RTCC_init `(v ~T0 @X0 0 ef ]
-"48 ../My_library\My_usb_cdc.h
-[v _USB_init `(v ~T0 @X0 0 ef ]
-"19 ../My_library\My_ringbuf.h
-[s S1218 `*uc 1 `ui 1 `ui 1 `ui 1 ]
-[n S1218 ringbuf buf size head tail ]
-"26
-[v _ringbuf_init `(v ~T0 @X0 0 ef3`*S1218`*uc`ui ]
-"39 ../My_library\My_usb_cdc.h
-[v _usb_tx `S1218 ~T0 @X0 0 e ]
-"40
-[v _usb_rx `S1218 ~T0 @X0 0 e ]
+"29 ../My_library/USB_CDC\My_USB_CDC.h
+[v _USB_CDC_init `(v ~T0 @X0 0 ef ]
 "71 ../My_library\My_UART.h
 [v _UART_init `(v ~T0 @X0 0 ef ]
-"68
-[v _uart_tx `S1218 ~T0 @X0 0 e ]
+"19 ../My_library\My_ringbuf.h
+[s S1221 `*uc 1 `ui 1 `ui 1 `ui 1 ]
+[n S1221 ringbuf buf size head tail ]
+"26
+[v _ringbuf_init `(v ~T0 @X0 0 ef3`*S1221`*uc`ui ]
+"68 ../My_library\My_UART.h
+[v _uart_tx `S1221 ~T0 @X0 0 e ]
 "69
-[v _uart_rx `S1218 ~T0 @X0 0 e ]
-[p mainexit ]
+[v _uart_rx `S1221 ~T0 @X0 0 e ]
 "48 ../My_library\My_RTCC.h
 [s S1224 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1224 . ss mm hh DD MM YY ]
@@ -185,18 +180,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _I2C_LCD_SetCursor `(v ~T0 @X0 0 ef2`uc`uc ]
 "54
 [v _I2C_LCD_Puts `(v ~T0 @X0 0 ef1`*Cuc ]
-"50 ../My_library\My_usb_cdc.h
-[v _USB_task `(v ~T0 @X0 0 ef ]
-"73 ../My_library\My_UART.h
-[v _UART_task `(v ~T0 @X0 0 ef ]
 "128 ../My_library\My_RTCC.h
 [v _RTCC_task `(v ~T0 @X0 0 ef ]
+"81
+[v _time_change_flag `uc ~T0 @X0 0 e ]
+"113
+[v _display_time_0802 `(v ~T0 @X0 0 ef3`*S1225`*uc`*uc ]
+"31 ../My_library/USB_CDC\My_USB_CDC.h
+[v _USB_CDC_task `(v ~T0 @X0 0 ef ]
+"73 ../My_library\My_UART.h
+[v _UART_task `(v ~T0 @X0 0 ef ]
 "28 ../My_library\My_ringbuf.h
-[v _ringbuf_num `(ui ~T0 @X0 0 ef1`*S1218 ]
-"30
-[v _ringbuf_put `(v ~T0 @X0 0 ef2`*S1218`uc ]
-"36
-[v _ringbuf_pop `(uc ~T0 @X0 0 ef1`*S1218 ]
+[v _ringbuf_num `(ui ~T0 @X0 0 ef1`*S1221 ]
+"25 ../My_library/USB_CDC\My_USB_CDC.h
+[v _usb_rx `S1221 ~T0 @X0 0 e ]
+"30 ../My_library\My_ringbuf.h
+[v _ringbuf_put `(v ~T0 @X0 0 ef2`*S1221`uc ]
+"26 ../My_library/USB_CDC\My_USB_CDC.h
+[v _usb_tx `S1221 ~T0 @X0 0 e ]
+"36 ../My_library\My_ringbuf.h
+[v _ringbuf_pop `(uc ~T0 @X0 0 ef1`*S1221 ]
 "9788 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [s S641 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S641 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
@@ -229,10 +232,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S640 . . . . . . . . . . ]
 "9830
 [v _LATBbits `VS640 ~T0 @X0 0 e@3978 ]
-"81 ../My_library\My_RTCC.h
-[v _time_change_flag `uc ~T0 @X0 0 e ]
-"113
-[v _display_time_0802 `(v ~T0 @X0 0 ef3`*S1225`*uc`*uc ]
+[p mainexit ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -8387,20 +8387,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x WPDIS=OFF ]
 [p x WPEND=PAGE_WPFP ]
 [p x LS48MHZ=SYS48X8 ]
-[; ;My_library\My_ringbuf.h: 19: typedef struct ringbuf {
-[; ;My_library\My_ringbuf.h: 20: char *buf;
-[; ;My_library\My_ringbuf.h: 21: uint16_t size;
-[; ;My_library\My_ringbuf.h: 22: uint16_t head;
-[; ;My_library\My_ringbuf.h: 23: uint16_t tail;
-[; ;My_library\My_ringbuf.h: 24: } ringbuf_t;
-[; ;My_library\My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
-[; ;My_library\My_ringbuf.h: 28: uint16_t ringbuf_num(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, char asciicode);
-[; ;My_library\My_ringbuf.h: 32: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
-[; ;My_library\My_ringbuf.h: 34: void ringbuf_put_str(ringbuf_t *rb, const char *str);
-[; ;My_library\My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
 [; ;My_library\My_PIC.h: 20: void OSC_init(void);
 [; ;My_library\My_PIC.h: 36: void timer0_init(uint8_t prescaler);
 [; ;My_library\My_PIC.h: 51: void timer1_init(uint8_t prescaler, uint8_t clock_select);
@@ -8411,8 +8397,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_PIC.h: 95: void CTMU_init(void);
 [; ;My_library\My_PIC.h: 96: uint16_t CTMU_read(uint8_t ch);
 [; ;My_library\My_PIC.h: 101: void Delay_ms(uint16_t ms);
-[; ;My_library\My_PIC.h: 105: void millis_timer(void);
-[; ;My_library\My_PIC.h: 106: uint32_t millis(void);
+[; ;My_library\My_PIC.h: 106: void millis_timer(void);
+[; ;My_library\My_PIC.h: 107: uint32_t millis(void);
 [; ;My_library\My_button.h: 26: typedef struct button {
 [; ;My_library\My_button.h: 27: uint16_t cnt_sw;
 [; ;My_library\My_button.h: 29: union {
@@ -8456,6 +8442,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_I2C.h: 40: void I2C_Stop(void);
 [; ;My_library\My_I2C.h: 41: uint8_t I2C_Send(uint8_t data);
 [; ;My_library\My_I2C.h: 42: uint8_t I2C_Receive(uint8_t ack);
+[; ;My_library\My_ringbuf.h: 19: typedef struct ringbuf {
+[; ;My_library\My_ringbuf.h: 20: uint8_t *buf;
+[; ;My_library\My_ringbuf.h: 21: uint16_t size;
+[; ;My_library\My_ringbuf.h: 22: uint16_t head;
+[; ;My_library\My_ringbuf.h: 23: uint16_t tail;
+[; ;My_library\My_ringbuf.h: 24: } ringbuf_t;
+[; ;My_library\My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, uint8_t *internal_buf, uint16_t bufsize);
+[; ;My_library\My_ringbuf.h: 28: uint16_t ringbuf_num(ringbuf_t *rb);
+[; ;My_library\My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, uint8_t data);
+[; ;My_library\My_ringbuf.h: 32: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
+[; ;My_library\My_ringbuf.h: 34: void ringbuf_put_str(ringbuf_t *rb, const char *str);
+[; ;My_library\My_ringbuf.h: 36: uint8_t ringbuf_pop(ringbuf_t *rb);
+[; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
+[; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
 [; ;My_library\My_ST7032.h: 19: typedef enum ST7032_STATE {
 [; ;My_library\My_ST7032.h: 20: ST7032_IDOLE,
 [; ;My_library\My_ST7032.h: 21: ST7032_START,
@@ -8531,82 +8531,77 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_RTCC.h: 126: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
 [; ;My_library\My_RTCC.h: 128: void RTCC_task(void);
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;system.h: 32: typedef enum
-[; ;system.h: 33: {
-[; ;system.h: 34: SYSTEM_STATE_USB_START,
-[; ;system.h: 35: SYSTEM_STATE_USB_SUSPEND,
-[; ;system.h: 36: SYSTEM_STATE_USB_RESUME
-[; ;system.h: 37: } SYSTEM_STATE;
-[; ;system.h: 51: void SYSTEM_Initialize( SYSTEM_STATE state );
-[; ;usb_common.h: 138: typedef union
-[; ;usb_common.h: 139: {
-[; ;usb_common.h: 140: uint8_t bitmap;
-[; ;usb_common.h: 141: struct
-[; ;usb_common.h: 142: {
-[; ;usb_common.h: 143: uint8_t ep_num: 4;
-[; ;usb_common.h: 144: uint8_t zero_pkt: 1;
-[; ;usb_common.h: 145: uint8_t dts: 1;
-[; ;usb_common.h: 146: uint8_t force_dts: 1;
-[; ;usb_common.h: 147: uint8_t direction: 1;
-[; ;usb_common.h: 148: }field;
-[; ;usb_common.h: 150: } TRANSFER_FLAGS;
-[; ;usb_common.h: 212: typedef enum
-[; ;usb_common.h: 213: {
-[; ;usb_common.h: 215: EVENT_NONE = 0,
-[; ;usb_common.h: 217: EVENT_DEVICE_STACK_BASE = 1,
-[; ;usb_common.h: 219: EVENT_HOST_STACK_BASE = 100,
-[; ;usb_common.h: 222: EVENT_HUB_ATTACH,
-[; ;usb_common.h: 225: EVENT_STALL,
-[; ;usb_common.h: 228: EVENT_VBUS_SES_REQUEST,
-[; ;usb_common.h: 233: EVENT_VBUS_OVERCURRENT,
-[; ;usb_common.h: 239: EVENT_VBUS_REQUEST_POWER,
-[; ;usb_common.h: 244: EVENT_VBUS_RELEASE_POWER,
-[; ;usb_common.h: 253: EVENT_VBUS_POWER_AVAILABLE,
-[; ;usb_common.h: 257: EVENT_UNSUPPORTED_DEVICE,
-[; ;usb_common.h: 261: EVENT_CANNOT_ENUMERATE,
-[; ;usb_common.h: 265: EVENT_CLIENT_INIT_ERROR,
-[; ;usb_common.h: 271: EVENT_OUT_OF_MEMORY,
-[; ;usb_common.h: 274: EVENT_UNSPECIFIED_ERROR,
-[; ;usb_common.h: 278: EVENT_DETACH,
-[; ;usb_common.h: 283: EVENT_TRANSFER,
-[; ;usb_common.h: 287: EVENT_SOF,
-[; ;usb_common.h: 290: EVENT_RESUME,
-[; ;usb_common.h: 294: EVENT_SUSPEND,
-[; ;usb_common.h: 298: EVENT_RESET,
-[; ;usb_common.h: 304: EVENT_DATA_ISOC_READ,
-[; ;usb_common.h: 310: EVENT_DATA_ISOC_WRITE,
-[; ;usb_common.h: 320: EVENT_OVERRIDE_CLIENT_DRIVER_SELECTION,
-[; ;usb_common.h: 328: EVENT_1MS,
-[; ;usb_common.h: 331: EVENT_GENERIC_BASE = 400,
-[; ;usb_common.h: 333: EVENT_MSD_BASE = 500,
-[; ;usb_common.h: 335: EVENT_HID_BASE = 600,
-[; ;usb_common.h: 337: EVENT_PRINTER_BASE = 700,
-[; ;usb_common.h: 339: EVENT_CDC_BASE = 800,
-[; ;usb_common.h: 341: EVENT_CHARGER_BASE = 900,
-[; ;usb_common.h: 343: EVENT_AUDIO_BASE = 1000,
-[; ;usb_common.h: 345: EVENT_USER_BASE = 10000,
-[; ;usb_common.h: 350: EVENT_BUS_ERROR = 32767
-[; ;usb_common.h: 352: } USB_EVENT;
-[; ;usb_common.h: 364: typedef struct _transfer_event_data
-[; ;usb_common.h: 365: {
-[; ;usb_common.h: 366: TRANSFER_FLAGS flags;
-[; ;usb_common.h: 367: uint32_t size;
-[; ;usb_common.h: 368: uint8_t pid;
-[; ;usb_common.h: 370: } USB_TRANSFER_EVENT_DATA;
-[; ;usb_common.h: 381: typedef struct _vbus_power_data
-[; ;usb_common.h: 382: {
-[; ;usb_common.h: 383: uint8_t port;
-[; ;usb_common.h: 384: uint8_t current;
-[; ;usb_common.h: 385: } USB_VBUS_POWER_EVENT_DATA;
-[; ;usb_common.h: 394: typedef struct _override_client_driver_data
-[; ;usb_common.h: 395: {
-[; ;usb_common.h: 396: uint16_t idVendor;
-[; ;usb_common.h: 397: uint16_t idProduct;
-[; ;usb_common.h: 398: uint8_t bDeviceClass;
-[; ;usb_common.h: 399: uint8_t bDeviceSubClass;
-[; ;usb_common.h: 400: uint8_t bDeviceProtocol;
-[; ;usb_common.h: 401: } USB_OVERRIDE_CLIENT_DRIVER_EVENT_DATA;
-[; ;usb_common.h: 456: typedef bool (*USB_EVENT_HANDLER) ( USB_EVENT event, void *data, unsigned int size );
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stddef.h: 6: typedef int ptrdiff_t;
+[; ;usb_common.h: 139: typedef union
+[; ;usb_common.h: 140: {
+[; ;usb_common.h: 141: uint8_t bitmap;
+[; ;usb_common.h: 142: struct
+[; ;usb_common.h: 143: {
+[; ;usb_common.h: 144: uint8_t ep_num: 4;
+[; ;usb_common.h: 145: uint8_t zero_pkt: 1;
+[; ;usb_common.h: 146: uint8_t dts: 1;
+[; ;usb_common.h: 147: uint8_t force_dts: 1;
+[; ;usb_common.h: 148: uint8_t direction: 1;
+[; ;usb_common.h: 149: }field;
+[; ;usb_common.h: 151: } TRANSFER_FLAGS;
+[; ;usb_common.h: 213: typedef enum
+[; ;usb_common.h: 214: {
+[; ;usb_common.h: 216: EVENT_NONE = 0,
+[; ;usb_common.h: 218: EVENT_DEVICE_STACK_BASE = 1,
+[; ;usb_common.h: 220: EVENT_HOST_STACK_BASE = 100,
+[; ;usb_common.h: 223: EVENT_HUB_ATTACH,
+[; ;usb_common.h: 226: EVENT_STALL,
+[; ;usb_common.h: 229: EVENT_VBUS_SES_REQUEST,
+[; ;usb_common.h: 234: EVENT_VBUS_OVERCURRENT,
+[; ;usb_common.h: 240: EVENT_VBUS_REQUEST_POWER,
+[; ;usb_common.h: 245: EVENT_VBUS_RELEASE_POWER,
+[; ;usb_common.h: 254: EVENT_VBUS_POWER_AVAILABLE,
+[; ;usb_common.h: 258: EVENT_UNSUPPORTED_DEVICE,
+[; ;usb_common.h: 262: EVENT_CANNOT_ENUMERATE,
+[; ;usb_common.h: 266: EVENT_CLIENT_INIT_ERROR,
+[; ;usb_common.h: 272: EVENT_OUT_OF_MEMORY,
+[; ;usb_common.h: 275: EVENT_UNSPECIFIED_ERROR,
+[; ;usb_common.h: 279: EVENT_DETACH,
+[; ;usb_common.h: 284: EVENT_TRANSFER,
+[; ;usb_common.h: 288: EVENT_SOF,
+[; ;usb_common.h: 291: EVENT_RESUME,
+[; ;usb_common.h: 295: EVENT_SUSPEND,
+[; ;usb_common.h: 299: EVENT_RESET,
+[; ;usb_common.h: 305: EVENT_DATA_ISOC_READ,
+[; ;usb_common.h: 311: EVENT_DATA_ISOC_WRITE,
+[; ;usb_common.h: 321: EVENT_OVERRIDE_CLIENT_DRIVER_SELECTION,
+[; ;usb_common.h: 329: EVENT_1MS,
+[; ;usb_common.h: 332: EVENT_GENERIC_BASE = 400,
+[; ;usb_common.h: 334: EVENT_MSD_BASE = 500,
+[; ;usb_common.h: 336: EVENT_HID_BASE = 600,
+[; ;usb_common.h: 338: EVENT_PRINTER_BASE = 700,
+[; ;usb_common.h: 340: EVENT_CDC_BASE = 800,
+[; ;usb_common.h: 342: EVENT_CHARGER_BASE = 900,
+[; ;usb_common.h: 344: EVENT_AUDIO_BASE = 1000,
+[; ;usb_common.h: 346: EVENT_USER_BASE = 10000,
+[; ;usb_common.h: 351: EVENT_BUS_ERROR = 32767
+[; ;usb_common.h: 353: } USB_EVENT;
+[; ;usb_common.h: 365: typedef struct _transfer_event_data
+[; ;usb_common.h: 366: {
+[; ;usb_common.h: 367: TRANSFER_FLAGS flags;
+[; ;usb_common.h: 368: uint32_t size;
+[; ;usb_common.h: 369: uint8_t pid;
+[; ;usb_common.h: 371: } USB_TRANSFER_EVENT_DATA;
+[; ;usb_common.h: 382: typedef struct _vbus_power_data
+[; ;usb_common.h: 383: {
+[; ;usb_common.h: 384: uint8_t port;
+[; ;usb_common.h: 385: uint8_t current;
+[; ;usb_common.h: 386: } USB_VBUS_POWER_EVENT_DATA;
+[; ;usb_common.h: 395: typedef struct _override_client_driver_data
+[; ;usb_common.h: 396: {
+[; ;usb_common.h: 397: uint16_t idVendor;
+[; ;usb_common.h: 398: uint16_t idProduct;
+[; ;usb_common.h: 399: uint8_t bDeviceClass;
+[; ;usb_common.h: 400: uint8_t bDeviceSubClass;
+[; ;usb_common.h: 401: uint8_t bDeviceProtocol;
+[; ;usb_common.h: 402: } USB_OVERRIDE_CLIENT_DRIVER_EVENT_DATA;
+[; ;usb_common.h: 457: typedef bool (*USB_EVENT_HANDLER) ( USB_EVENT event, void *data, unsigned int size );
 [; ;usb_ch9.h: 76: typedef struct  _USB_DEVICE_DESCRIPTOR
 [; ;usb_ch9.h: 77: {
 [; ;usb_ch9.h: 78: uint8_t bLength;
@@ -8917,7 +8912,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device.h: 1867: }info;
 [; ;usb_device.h: 1868: uint16_t_VAL  wCount;
 [; ;usb_device.h: 1869: }IN_PIPE;
-[; ;usb_device.h: 1871: extern  IN_PIPE inPipes[];
+[; ;usb_device.h: 1871: extern volatile IN_PIPE inPipes[];
 [; ;usb_device.h: 1873: typedef struct 
 [; ;usb_device.h: 1874: {
 [; ;usb_device.h: 1875: union 
@@ -8937,11 +8932,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device.h: 1892: uint16_t_VAL wCount;
 [; ;usb_device.h: 1893: void (*pFunc)(void);
 [; ;usb_device.h: 1894: }OUT_PIPE;
-[; ;usb_device.h: 1904: extern  bool RemoteWakeup;
-[; ;usb_device.h: 1905: extern  bool USBBusIsSuspended;
-[; ;usb_device.h: 1906: extern  USB_DEVICE_STATE USBDeviceState;
-[; ;usb_device.h: 1907: extern  uint8_t USBActiveConfiguration;
-[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;usb_device.h: 1904: extern volatile bool RemoteWakeup;
+[; ;usb_device.h: 1905: extern volatile bool USBBusIsSuspended;
+[; ;usb_device.h: 1906: extern volatile USB_DEVICE_STATE USBDeviceState;
+[; ;usb_device.h: 1907: extern volatile uint8_t USBActiveConfiguration;
 [; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
 [; ;string.h: 16: extern void * memset(void *, int, size_t);
@@ -8968,80 +8962,80 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 56: extern char * strichr(const char *, int);
 [; ;string.h: 57: extern char * strrchr(const char *, int);
 [; ;string.h: 58: extern char * strrichr(const char *, int);
-[; ;usb_hal_pic18.h: 261: typedef union _BD_STAT
-[; ;usb_hal_pic18.h: 262: {
-[; ;usb_hal_pic18.h: 263: uint8_t Val;
-[; ;usb_hal_pic18.h: 264: struct{
-[; ;usb_hal_pic18.h: 266: unsigned BC8:1;
-[; ;usb_hal_pic18.h: 267: unsigned BC9:1;
-[; ;usb_hal_pic18.h: 268: unsigned BSTALL:1;
-[; ;usb_hal_pic18.h: 269: unsigned DTSEN:1;
-[; ;usb_hal_pic18.h: 270: unsigned INCDIS:1;
-[; ;usb_hal_pic18.h: 271: unsigned KEN:1;
-[; ;usb_hal_pic18.h: 272: unsigned DTS:1;
-[; ;usb_hal_pic18.h: 273: unsigned UOWN:1;
-[; ;usb_hal_pic18.h: 274: };
-[; ;usb_hal_pic18.h: 275: struct{
-[; ;usb_hal_pic18.h: 278: unsigned :2;
-[; ;usb_hal_pic18.h: 279: unsigned PID0:1;
-[; ;usb_hal_pic18.h: 280: unsigned PID1:1;
-[; ;usb_hal_pic18.h: 281: unsigned PID2:1;
-[; ;usb_hal_pic18.h: 282: unsigned PID3:1;
-[; ;usb_hal_pic18.h: 283: unsigned :1;
-[; ;usb_hal_pic18.h: 284: };
-[; ;usb_hal_pic18.h: 285: struct{
-[; ;usb_hal_pic18.h: 286: unsigned :2;
-[; ;usb_hal_pic18.h: 287: unsigned PID:4;
-[; ;usb_hal_pic18.h: 288: unsigned :2;
-[; ;usb_hal_pic18.h: 289: };
-[; ;usb_hal_pic18.h: 290: } BD_STAT;
-[; ;usb_hal_pic18.h: 293: typedef union __BDT
-[; ;usb_hal_pic18.h: 294: {
-[; ;usb_hal_pic18.h: 295: struct
-[; ;usb_hal_pic18.h: 296: {
-[; ;usb_hal_pic18.h: 297: BD_STAT STAT;
-[; ;usb_hal_pic18.h: 298: uint8_t CNT;
-[; ;usb_hal_pic18.h: 299: uint8_t ADRL;
-[; ;usb_hal_pic18.h: 300: uint8_t ADRH;
-[; ;usb_hal_pic18.h: 301: };
-[; ;usb_hal_pic18.h: 302: struct
-[; ;usb_hal_pic18.h: 303: {
-[; ;usb_hal_pic18.h: 304: unsigned :8;
+[; ;usb_hal_pic18.h: 262: typedef union _BD_STAT
+[; ;usb_hal_pic18.h: 263: {
+[; ;usb_hal_pic18.h: 264: uint8_t Val;
+[; ;usb_hal_pic18.h: 265: struct{
+[; ;usb_hal_pic18.h: 267: unsigned BC8:1;
+[; ;usb_hal_pic18.h: 268: unsigned BC9:1;
+[; ;usb_hal_pic18.h: 269: unsigned BSTALL:1;
+[; ;usb_hal_pic18.h: 270: unsigned DTSEN:1;
+[; ;usb_hal_pic18.h: 271: unsigned INCDIS:1;
+[; ;usb_hal_pic18.h: 272: unsigned KEN:1;
+[; ;usb_hal_pic18.h: 273: unsigned DTS:1;
+[; ;usb_hal_pic18.h: 274: unsigned UOWN:1;
+[; ;usb_hal_pic18.h: 275: };
+[; ;usb_hal_pic18.h: 276: struct{
+[; ;usb_hal_pic18.h: 279: unsigned :2;
+[; ;usb_hal_pic18.h: 280: unsigned PID0:1;
+[; ;usb_hal_pic18.h: 281: unsigned PID1:1;
+[; ;usb_hal_pic18.h: 282: unsigned PID2:1;
+[; ;usb_hal_pic18.h: 283: unsigned PID3:1;
+[; ;usb_hal_pic18.h: 284: unsigned :1;
+[; ;usb_hal_pic18.h: 285: };
+[; ;usb_hal_pic18.h: 286: struct{
+[; ;usb_hal_pic18.h: 287: unsigned :2;
+[; ;usb_hal_pic18.h: 288: unsigned PID:4;
+[; ;usb_hal_pic18.h: 289: unsigned :2;
+[; ;usb_hal_pic18.h: 290: };
+[; ;usb_hal_pic18.h: 291: } BD_STAT;
+[; ;usb_hal_pic18.h: 294: typedef union __BDT
+[; ;usb_hal_pic18.h: 295: {
+[; ;usb_hal_pic18.h: 296: struct
+[; ;usb_hal_pic18.h: 297: {
+[; ;usb_hal_pic18.h: 298: BD_STAT STAT;
+[; ;usb_hal_pic18.h: 299: uint8_t CNT;
+[; ;usb_hal_pic18.h: 300: uint8_t ADRL;
+[; ;usb_hal_pic18.h: 301: uint8_t ADRH;
+[; ;usb_hal_pic18.h: 302: };
+[; ;usb_hal_pic18.h: 303: struct
+[; ;usb_hal_pic18.h: 304: {
 [; ;usb_hal_pic18.h: 305: unsigned :8;
-[; ;usb_hal_pic18.h: 306: uint16_t ADR;
-[; ;usb_hal_pic18.h: 307: };
-[; ;usb_hal_pic18.h: 308: uint32_t Val;
-[; ;usb_hal_pic18.h: 309: uint8_t v[4];
-[; ;usb_hal_pic18.h: 310: } BDT_ENTRY;
-[; ;usb_hal_pic18.h: 313: typedef union __USTAT
-[; ;usb_hal_pic18.h: 314: {
-[; ;usb_hal_pic18.h: 315: struct
-[; ;usb_hal_pic18.h: 316: {
-[; ;usb_hal_pic18.h: 317: unsigned char filler1:1;
-[; ;usb_hal_pic18.h: 318: unsigned char ping_pong:1;
-[; ;usb_hal_pic18.h: 319: unsigned char direction:1;
-[; ;usb_hal_pic18.h: 320: unsigned char endpoint_number:4;
-[; ;usb_hal_pic18.h: 321: };
-[; ;usb_hal_pic18.h: 322: uint8_t Val;
-[; ;usb_hal_pic18.h: 323: } USTAT_FIELDS;
-[; ;usb_hal_pic18.h: 331: typedef union _POINTER
-[; ;usb_hal_pic18.h: 332: {
-[; ;usb_hal_pic18.h: 333: struct
-[; ;usb_hal_pic18.h: 334: {
-[; ;usb_hal_pic18.h: 335: uint8_t bLow;
-[; ;usb_hal_pic18.h: 336: uint8_t bHigh;
-[; ;usb_hal_pic18.h: 338: };
-[; ;usb_hal_pic18.h: 339: uint16_t _word;
-[; ;usb_hal_pic18.h: 343: uint8_t* bRam;
-[; ;usb_hal_pic18.h: 345: uint16_t* wRam;
-[; ;usb_hal_pic18.h: 348: const uint8_t* bRom;
-[; ;usb_hal_pic18.h: 349: const uint16_t* wRom;
-[; ;usb_hal_pic18.h: 354: } POINTER;
-[; ;usb_hal_pic18.h: 601: extern  uint8_t USBActiveConfiguration;
-[; ;usb_hal_pic18.h: 602: extern  IN_PIPE inPipes[1];
-[; ;usb_hal_pic18.h: 603: extern  OUT_PIPE outPipes[1];
-[; ;usb_hal_pic18.h: 606: extern volatile BDT_ENTRY* pBDTEntryOut[2+1];
-[; ;usb_hal_pic18.h: 607: extern volatile BDT_ENTRY* pBDTEntryIn[2+1];
+[; ;usb_hal_pic18.h: 306: unsigned :8;
+[; ;usb_hal_pic18.h: 307: uint16_t ADR;
+[; ;usb_hal_pic18.h: 308: };
+[; ;usb_hal_pic18.h: 309: uint32_t Val;
+[; ;usb_hal_pic18.h: 310: uint8_t v[4];
+[; ;usb_hal_pic18.h: 311: } BDT_ENTRY;
+[; ;usb_hal_pic18.h: 314: typedef union __USTAT
+[; ;usb_hal_pic18.h: 315: {
+[; ;usb_hal_pic18.h: 316: struct
+[; ;usb_hal_pic18.h: 317: {
+[; ;usb_hal_pic18.h: 318: unsigned char filler1:1;
+[; ;usb_hal_pic18.h: 319: unsigned char ping_pong:1;
+[; ;usb_hal_pic18.h: 320: unsigned char direction:1;
+[; ;usb_hal_pic18.h: 321: unsigned char endpoint_number:4;
+[; ;usb_hal_pic18.h: 322: };
+[; ;usb_hal_pic18.h: 323: uint8_t Val;
+[; ;usb_hal_pic18.h: 324: } USTAT_FIELDS;
+[; ;usb_hal_pic18.h: 332: typedef union _POINTER
+[; ;usb_hal_pic18.h: 333: {
+[; ;usb_hal_pic18.h: 334: struct
+[; ;usb_hal_pic18.h: 335: {
+[; ;usb_hal_pic18.h: 336: uint8_t bLow;
+[; ;usb_hal_pic18.h: 337: uint8_t bHigh;
+[; ;usb_hal_pic18.h: 339: };
+[; ;usb_hal_pic18.h: 340: uint16_t _word;
+[; ;usb_hal_pic18.h: 344: uint8_t* bRam;
+[; ;usb_hal_pic18.h: 346: uint16_t* wRam;
+[; ;usb_hal_pic18.h: 349: const uint8_t* bRom;
+[; ;usb_hal_pic18.h: 350: const uint16_t* wRom;
+[; ;usb_hal_pic18.h: 355: } POINTER;
+[; ;usb_hal_pic18.h: 602: extern volatile uint8_t USBActiveConfiguration;
+[; ;usb_hal_pic18.h: 603: extern volatile IN_PIPE inPipes[1];
+[; ;usb_hal_pic18.h: 604: extern volatile OUT_PIPE outPipes[1];
+[; ;usb_hal_pic18.h: 607: extern volatile BDT_ENTRY* pBDTEntryOut[2+1];
+[; ;usb_hal_pic18.h: 608: extern volatile BDT_ENTRY* pBDTEntryIn[2+1];
 [; ;usb_hal.h: 167: void OTGCORE_SetDeviceAddr( uint8_t addr );
 [; ;usb_hal.h: 203: void USBHALControlUsbResistors( uint8_t flags );
 [; ;usb_hal.h: 237: bool USBHALSessionIsValid( void );
@@ -9160,283 +9154,296 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device_cdc.h: 958: extern LINE_CODING line_coding;
 [; ;usb_device_cdc.h: 960: extern volatile CTRL_TRF_SETUP SetupPkt;
 [; ;usb_device_cdc.h: 961: extern const uint8_t configDescriptor1[];
-[; ;My_library\My_usb_cdc.h: 39: extern ringbuf_t usb_tx;
-[; ;My_library\My_usb_cdc.h: 40: extern ringbuf_t usb_rx;
-[; ;My_library\My_usb_cdc.h: 46: void USB_ISR(void);
-[; ;My_library\My_usb_cdc.h: 48: void USB_init(void);
-[; ;My_library\My_usb_cdc.h: 50: void USB_task(void);
-[; ;My_library\My_usb_cdc.h: 55: void usb_char_send(char c);
-[; ;My_library\My_usb_cdc.h: 56: uint8_t usb_char_get(char *c);
-[; ;My_library\My_usb_cdc.h: 57: void USBCBSendResume(void);
+[; ;USB_CDC\My_USB_CDC.h: 25: extern ringbuf_t usb_rx;
+[; ;USB_CDC\My_USB_CDC.h: 26: extern ringbuf_t usb_tx;
+[; ;USB_CDC\My_USB_CDC.h: 29: void USB_CDC_init(void);
+[; ;USB_CDC\My_USB_CDC.h: 30: void USB_CDC_ISR(void);
+[; ;USB_CDC\My_USB_CDC.h: 31: void USB_CDC_task(void);
+[; ;USB_CDC\My_USB_CDC.h: 34: static void USB_CDC_buffer_init(void);
+[; ;USB_CDC\My_USB_CDC.h: 35: static void USB_CDC_send(uint16_t length);
+[; ;USB_CDC\My_USB_CDC.h: 36: static uint8_t USB_CDC_get(void);
+[; ;USB_CDC\My_USB_CDC.h: 38: static void APP_DeviceCDCBasicDemoInitialize();
+[; ;USB_CDC\My_USB_CDC.h: 39: bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t size);
 [; ;My_library\My_UART.h: 68: extern ringbuf_t uart_tx;
 [; ;My_library\My_UART.h: 69: extern ringbuf_t uart_rx;
 [; ;My_library\My_UART.h: 71: void UART_init(void);
 [; ;My_library\My_UART.h: 72: void UART_ISR(void);
 [; ;My_library\My_UART.h: 73: void UART_task(void);
-[v F9493 `(v ~T0 @X0 1 tf ]
-"46
-[v _ISR `IF9493 ~T0 @X0 1 e ]
+[v F9492 `(v ~T0 @X0 1 tf ]
+"44
+[v _ISR `IF9492 ~T0 @X0 1 e ]
 {
-[; ;main.c: 46: void interrupt ISR(void) {
+[; ;main.c: 44: void interrupt ISR(void) {
 [e :U _ISR ]
 [f ]
-[; ;main.c: 47: USB_ISR();
-"47
-[e ( _USB_ISR ..  ]
-[; ;main.c: 48: UART_ISR();
-"48
+[; ;main.c: 45: USB_CDC_ISR();
+"45
+[e ( _USB_CDC_ISR ..  ]
+[; ;main.c: 46: UART_ISR();
+"46
 [e ( _UART_ISR ..  ]
-[; ;main.c: 49: if (INTCONbits.T0IF && INTCONbits.T0IE) {
-"49
+[; ;main.c: 47: if (INTCONbits.T0IF && INTCONbits.T0IE) {
+"47
 [e $ ! && != -> . . _INTCONbits 1 2 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCONbits 1 5 `i -> -> -> 0 `i `Vuc `i 1293  ]
 {
-[; ;main.c: 50: INTCONbits.T0IF = 0;
-"50
+[; ;main.c: 48: INTCONbits.T0IF = 0;
+"48
 [e = . . _INTCONbits 1 2 -> -> 0 `i `uc ]
-"51
+"49
 }
 [e :U 1293 ]
-[; ;main.c: 51: }
-[; ;main.c: 52: if (PIR1bits.TMR1IF && PIE1bits.TMR1IE) {
-"52
+[; ;main.c: 49: }
+[; ;main.c: 50: if (PIR1bits.TMR1IF && PIE1bits.TMR1IE) {
+"50
 [e $ ! && != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i != -> . . _PIE1bits 0 0 `i -> -> -> 0 `i `Vuc `i 1294  ]
 {
-[; ;main.c: 53: PIR1bits.TMR1IF = 0;
-"53
+[; ;main.c: 51: PIR1bits.TMR1IF = 0;
+"51
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 54: TMR1H = 0xC0;
-"54
+[; ;main.c: 52: TMR1H = 0xC0;
+"52
 [e = _TMR1H -> -> 192 `i `uc ]
-[; ;main.c: 55: LATAbits.LATA0 = !LATAbits.LATA0;
-"55
+[; ;main.c: 53: LATAbits.LATA0 = !LATAbits.LATA0;
+"53
 [e = . . _LATAbits 0 0 -> -> ! != -> . . _LATAbits 0 0 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-"56
+"54
 }
 [e :U 1294 ]
-[; ;main.c: 56: }
-[; ;main.c: 57: if (PIR2bits.TMR3IF && PIE2bits.TMR3IE) {
-"57
+[; ;main.c: 54: }
+[; ;main.c: 55: if (PIR2bits.TMR3IF && PIE2bits.TMR3IE) {
+"55
 [e $ ! && != -> . . _PIR2bits 0 1 `i -> -> -> 0 `i `Vuc `i != -> . . _PIE2bits 0 1 `i -> -> -> 0 `i `Vuc `i 1295  ]
 {
-[; ;main.c: 58: PIR2bits.TMR3IF = 0;
-"58
+[; ;main.c: 56: PIR2bits.TMR3IF = 0;
+"56
 [e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
-"59
+"57
 }
 [e :U 1295 ]
-[; ;main.c: 59: }
-[; ;main.c: 60: }
-"60
+[; ;main.c: 57: }
+[; ;main.c: 58: }
+"58
 [e :UE 1292 ]
 }
-"62
-[v _main_init `(v ~T0 @X0 1 ef ]
+"60
+[v _setup `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 62: void main_init(void) {
-[e :U _main_init ]
+[; ;main.c: 60: void setup(void) {
+[e :U _setup ]
 [f ]
-[; ;main.c: 63: OSC_init();
-"63
+[; ;main.c: 61: OSC_init();
+"61
 [e ( _OSC_init ..  ]
-[; ;main.c: 64: TRISA = 0b00010000;
-"64
+[; ;main.c: 62: TRISA = 0b00010000;
+"62
 [e = _TRISA -> -> 16 `i `uc ]
-[; ;main.c: 65: TRISB = 0b00111111;
-"65
+[; ;main.c: 63: TRISB = 0b00111111;
+"63
 [e = _TRISB -> -> 63 `i `uc ]
-[; ;main.c: 66: TRISC = 0b10111010;
-"66
+[; ;main.c: 64: TRISC = 0b10111010;
+"64
 [e = _TRISC -> -> 186 `i `uc ]
-[; ;main.c: 67: ANCON0 = 0b11111111;
-"67
+[; ;main.c: 65: ANCON0 = 0b11111111;
+"65
 [e = _ANCON0 -> -> 255 `i `uc ]
-[; ;main.c: 68: ANCON1 = 0b00011111;
-"68
+[; ;main.c: 66: ANCON1 = 0b00011111;
+"66
 [e = _ANCON1 -> -> 31 `i `uc ]
-[; ;main.c: 69: INTCON2bits.RBPU = 0;
-"69
+[; ;main.c: 67: INTCON2bits.RBPU = 0;
+"67
 [e = . . _INTCON2bits 2 4 -> -> 0 `i `uc ]
-[; ;main.c: 71: timer0_init(6);
-"71
+[; ;main.c: 69: timer0_init(6);
+"69
 [e ( _timer0_init (1 -> -> 6 `i `uc ]
-[; ;main.c: 72: timer1_init(0, 2);
-"72
+[; ;main.c: 70: timer1_init(0, 2);
+"70
 [e ( _timer1_init (2 , -> -> 0 `i `uc -> -> 2 `i `uc ]
-[; ;main.c: 73: timer3_init(2);
-"73
+[; ;main.c: 71: timer3_init(2);
+"71
 [e ( _timer3_init (1 -> -> 2 `i `uc ]
-[; ;main.c: 74: I2C_LCD_init();
-"74
+[; ;main.c: 72: I2C_LCD_init();
+"72
 [e ( _I2C_LCD_init ..  ]
-[; ;main.c: 75: RTCC_init();
-"75
+[; ;main.c: 73: RTCC_init();
+"73
 [e ( _RTCC_init ..  ]
-[; ;main.c: 77: USB_init();
-"77
-[e ( _USB_init ..  ]
-"78
-[v F9496 `uc ~T0 @X0 -> 1000 `i s usbtx ]
-[; ;main.c: 78: static uint8_t usbtx[1000];
-[; ;main.c: 79: ringbuf_init(&usb_tx, usbtx, sizeof (usbtx));
-"79
-[e ( _ringbuf_init (3 , , &U _usb_tx &U F9496 -> # F9496 `ui ]
-"80
-[v F9497 `uc ~T0 @X0 -> 100 `i s usbrx ]
-[; ;main.c: 80: static uint8_t usbrx[100];
-[; ;main.c: 81: ringbuf_init(&usb_rx, usbrx, sizeof (usbrx));
-"81
-[e ( _ringbuf_init (3 , , &U _usb_rx &U F9497 -> # F9497 `ui ]
-[; ;main.c: 83: UART_init();
-"83
+[; ;main.c: 74: USB_CDC_init();
+"74
+[e ( _USB_CDC_init ..  ]
+[; ;main.c: 76: UART_init();
+"76
 [e ( _UART_init ..  ]
+"77
+[v F9495 `uc ~T0 @X0 -> 1000 `i s uarttx ]
+[; ;main.c: 77: static uint8_t uarttx[1000];
+[; ;main.c: 78: ringbuf_init(&uart_tx, uarttx, sizeof (uarttx));
+"78
+[e ( _ringbuf_init (3 , , &U _uart_tx &U F9495 -> # F9495 `ui ]
+"79
+[v F9496 `uc ~T0 @X0 -> 100 `i s uartrx ]
+[; ;main.c: 79: static uint8_t uartrx[100];
+[; ;main.c: 80: ringbuf_init(&uart_rx, uartrx, sizeof (uartrx));
+"80
+[e ( _ringbuf_init (3 , , &U _uart_rx &U F9496 -> # F9496 `ui ]
+[; ;main.c: 82: RTCC_from_RTCC(&now);
+"82
+[e ( _RTCC_from_RTCC (1 &U _now ]
+[; ;main.c: 83: if (now.DD == 0) {
+"83
+[e $ ! == -> . _now 5 `i -> 0 `i 1297  ]
+{
+[; ;main.c: 84: now.epoch = 0;
 "84
-[v F9498 `uc ~T0 @X0 -> 1000 `i s uarttx ]
-[; ;main.c: 84: static uint8_t uarttx[1000];
-[; ;main.c: 85: ringbuf_init(&uart_tx, uarttx, sizeof (uarttx));
+[e = . _now 0 -> -> -> 0 `i `l `ul ]
+[; ;main.c: 85: RTCC_from_epoch(&now);
 "85
-[e ( _ringbuf_init (3 , , &U _uart_tx &U F9498 -> # F9498 `ui ]
+[e ( _RTCC_from_epoch (1 &U _now ]
 "86
-[v F9499 `uc ~T0 @X0 -> 100 `i s uartrx ]
-[; ;main.c: 86: static uint8_t uartrx[100];
-[; ;main.c: 87: ringbuf_init(&uart_rx, uartrx, sizeof (uartrx));
-"87
-[e ( _ringbuf_init (3 , , &U _uart_rx &U F9499 -> # F9499 `ui ]
-[; ;main.c: 88: }
+}
+[e :U 1297 ]
+[; ;main.c: 86: }
+[; ;main.c: 88: I2C_LCD_Clear();
 "88
+[e ( _I2C_LCD_Clear ..  ]
+[; ;main.c: 89: I2C_LCD_SetCursor(0, 0);
+"89
+[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 90: I2C_LCD_Puts("18F27J53");
+"90
+[e ( _I2C_LCD_Puts (1 :s 1C ]
+[; ;main.c: 91: I2C_LCD_SetCursor(0, 1);
+"91
+[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 92: I2C_LCD_Puts("USB UART");
+"92
+[e ( _I2C_LCD_Puts (1 :s 2C ]
+[; ;main.c: 93: }
+"93
 [e :UE 1296 ]
 }
-"90
-[v _main `(i ~T0 @X0 1 ef ]
-{
-[; ;main.c: 90: int main(void) {
-[e :U _main ]
-[f ]
-[; ;main.c: 91: main_init();
-"91
-[e ( _main_init ..  ]
-[; ;main.c: 93: RTCC_from_RTCC(&now);
-"93
-[e ( _RTCC_from_RTCC (1 &U _now ]
-[; ;main.c: 94: if (now.DD == 0) {
-"94
-[e $ ! == -> . _now 5 `i -> 0 `i 1298  ]
-{
-[; ;main.c: 95: now.epoch = 0;
 "95
-[e = . _now 0 -> -> -> 0 `i `l `ul ]
-[; ;main.c: 96: RTCC_from_epoch(&now);
+[v _loop `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 95: void loop(void) {
+[e :U _loop ]
+[f ]
+[; ;main.c: 96: RTCC_task();
 "96
-[e ( _RTCC_from_epoch (1 &U _now ]
-"97
-}
-[e :U 1298 ]
-[; ;main.c: 97: }
-[; ;main.c: 99: I2C_LCD_Clear();
-"99
-[e ( _I2C_LCD_Clear ..  ]
-[; ;main.c: 100: I2C_LCD_SetCursor(0, 0);
-"100
-[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 101: I2C_LCD_Puts("18F27J53");
-"101
-[e ( _I2C_LCD_Puts (1 :s 1C ]
-[; ;main.c: 102: I2C_LCD_SetCursor(0, 1);
-"102
-[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 103: I2C_LCD_Puts("USB UART");
-"103
-[e ( _I2C_LCD_Puts (1 :s 2C ]
-[; ;main.c: 105: INTCONbits.GIE = 1;
-"105
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 107: while (1) {
-"107
-[e :U 1300 ]
-{
-[; ;main.c: 108: USB_task();
-"108
-[e ( _USB_task ..  ]
-[; ;main.c: 109: UART_task();
-"109
-[e ( _UART_task ..  ]
-[; ;main.c: 110: RTCC_task();
-"110
 [e ( _RTCC_task ..  ]
-[; ;main.c: 112: if (ringbuf_num(&usb_rx)) {
-"112
-[e $ ! != ( _ringbuf_num (1 &U _usb_rx -> -> 0 `i `ui 1302  ]
+[; ;main.c: 97: if (time_change_flag) {
+"97
+[e $ ! != -> _time_change_flag `i -> -> -> 0 `i `uc `i 1299  ]
 {
-[; ;main.c: 113: ringbuf_put(&usb_tx, ringbuf_pop(&usb_rx));
-"113
-[e ( _ringbuf_put (2 , &U _usb_tx ( _ringbuf_pop (1 &U _usb_rx ]
-[; ;main.c: 114: LATBbits.LATB7 = !LATBbits.LATB7;
-"114
-[e = . . _LATBbits 0 7 -> -> ! != -> . . _LATBbits 0 7 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-"115
-}
-[e :U 1302 ]
-[; ;main.c: 115: }
-[; ;main.c: 116: if (ringbuf_num(&uart_rx)) {
-"116
-[e $ ! != ( _ringbuf_num (1 &U _uart_rx -> -> 0 `i `ui 1303  ]
-{
-[; ;main.c: 117: ringbuf_put(&uart_tx, ringbuf_pop(&uart_rx));
-"117
-[e ( _ringbuf_put (2 , &U _uart_tx ( _ringbuf_pop (1 &U _uart_rx ]
-[; ;main.c: 118: LATBbits.LATB6 = !LATBbits.LATB6;
-"118
-[e = . . _LATBbits 0 6 -> -> ! != -> . . _LATBbits 0 6 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-"119
-}
-[e :U 1303 ]
-[; ;main.c: 119: }
-[; ;main.c: 120: if (time_change_flag) {
-"120
-[e $ ! != -> _time_change_flag `i -> -> -> 0 `i `uc `i 1304  ]
-{
-[; ;main.c: 121: time_change_flag = 0;
-"121
+[; ;main.c: 98: time_change_flag = 0;
+"98
 [e = _time_change_flag -> -> 0 `i `uc ]
-[v F9503 `uc ~T0 @X0 -> 20 `i t ]
-"122
-[v _s `F9503 ~T0 @X0 -> 2 `i a ]
-[; ;main.c: 122: char s[2][20];
-[; ;main.c: 123: display_time_0802(&now, s[0], s[1]);
-"123
+[v F9500 `uc ~T0 @X0 -> 20 `i t ]
+"99
+[v _s `F9500 ~T0 @X0 -> 2 `i a ]
+[; ;main.c: 99: char s[2][20];
+[; ;main.c: 100: display_time_0802(&now, s[0], s[1]);
+"100
 [e ( _display_time_0802 (3 , , &U _now &U *U + &U _s * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux &U *U + &U _s * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux ]
-[; ;main.c: 124: I2C_LCD_Clear();
-"124
+[; ;main.c: 101: I2C_LCD_Clear();
+"101
 [e ( _I2C_LCD_Clear ..  ]
-[; ;main.c: 125: I2C_LCD_SetCursor(0, 0);
-"125
+[; ;main.c: 102: I2C_LCD_SetCursor(0, 0);
+"102
 [e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 126: I2C_LCD_Puts(s[0]);
-"126
+[; ;main.c: 103: I2C_LCD_Puts(s[0]);
+"103
 [e ( _I2C_LCD_Puts (1 -> &U *U + &U _s * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux `*Cuc ]
-[; ;main.c: 127: I2C_LCD_SetCursor(0, 1);
-"127
+[; ;main.c: 104: I2C_LCD_SetCursor(0, 1);
+"104
 [e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 128: I2C_LCD_Puts(s[1]);
-"128
+[; ;main.c: 105: I2C_LCD_Puts(s[1]);
+"105
 [e ( _I2C_LCD_Puts (1 -> &U *U + &U _s * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux `*Cuc ]
-"129
-}
-[e :U 1304 ]
-"130
+"106
 }
 [e :U 1299 ]
+[; ;main.c: 106: }
+[; ;main.c: 107: USB_CDC_task();
 "107
-[e $U 1300  ]
+[e ( _USB_CDC_task ..  ]
+[; ;main.c: 108: UART_task();
+"108
+[e ( _UART_task ..  ]
+[; ;main.c: 109: if (ringbuf_num(&usb_rx)) {
+"109
+[e $ ! != ( _ringbuf_num (1 &U _usb_rx -> -> 0 `i `ui 1300  ]
+{
+[; ;main.c: 110: ringbuf_put(&usb_tx, ringbuf_pop(&usb_rx));
+"110
+[e ( _ringbuf_put (2 , &U _usb_tx ( _ringbuf_pop (1 &U _usb_rx ]
+[; ;main.c: 111: LATBbits.LATB7 = !LATBbits.LATB7;
+"111
+[e = . . _LATBbits 0 7 -> -> ! != -> . . _LATBbits 0 7 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+"112
+}
+[e :U 1300 ]
+[; ;main.c: 112: }
+[; ;main.c: 113: if (ringbuf_num(&uart_rx)) {
+"113
+[e $ ! != ( _ringbuf_num (1 &U _uart_rx -> -> 0 `i `ui 1301  ]
+{
+[; ;main.c: 114: ringbuf_put(&uart_tx, ringbuf_pop(&uart_rx));
+"114
+[e ( _ringbuf_put (2 , &U _uart_tx ( _ringbuf_pop (1 &U _uart_rx ]
+[; ;main.c: 115: LATBbits.LATB6 = !LATBbits.LATB6;
+"115
+[e = . . _LATBbits 0 6 -> -> ! != -> . . _LATBbits 0 6 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+"116
+}
 [e :U 1301 ]
-[; ;main.c: 129: }
-[; ;main.c: 130: }
-[; ;main.c: 131: return 0;
-"131
+[; ;main.c: 116: }
+[; ;main.c: 117: }
+"117
+[e :UE 1298 ]
+}
+"119
+[v _main `(i ~T0 @X0 1 ef ]
+{
+[; ;main.c: 119: int main(void) {
+[e :U _main ]
+[f ]
+[; ;main.c: 120: setup();
+"120
+[e ( _setup ..  ]
+[; ;main.c: 121: INTCONbits.GIE = 1;
+"121
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 122: while (1) {
+"122
+[e :U 1304 ]
+{
+"123
+[v _GIE_cache `uc ~T0 @X0 1 a ]
+[; ;main.c: 123: uint8_t GIE_cache = INTCONbits.GIE;
+[e = _GIE_cache . . _INTCONbits 1 7 ]
+[; ;main.c: 124: INTCONbits.GIE = 0;
+"124
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 125: loop();
+"125
+[e ( _loop ..  ]
+[; ;main.c: 126: INTCONbits.GIE = GIE_cache;
+"126
+[e = . . _INTCONbits 1 7 _GIE_cache ]
+"127
+}
+[e :U 1303 ]
+"122
+[e $U 1304  ]
+[e :U 1305 ]
+[; ;main.c: 127: }
+[; ;main.c: 128: return 0;
+"128
 [e ) -> 0 `i ]
-[e $UE 1297  ]
-[; ;main.c: 132: }
-"132
-[e :UE 1297 ]
+[e $UE 1302  ]
+[; ;main.c: 129: }
+"129
+[e :UE 1302 ]
 }
 [a 2C 85 83 66 32 85 65 82 84 0 ]
 [a 1C 49 56 70 50 55 74 53 51 0 ]

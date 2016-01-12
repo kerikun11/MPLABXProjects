@@ -50,6 +50,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTCON2bits `VS1187 ~T0 @X0 0 e@4081 ]
 "29 USB_CDC\My_USB_CDC.h
 [v _USB_CDC_init `(v ~T0 @X0 0 ef ]
+"18300 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
+[s S1192 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1192 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"18310
+[s S1193 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1193 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"18320
+[s S1194 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1194 . . GIEL GIEH ]
+"18325
+[s S1195 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1195 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"18335
+[s S1196 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1196 . . GIEL GIEH ]
+"18299
+[u S1191 `S1192 1 `S1193 1 `S1194 1 `S1195 1 `S1196 1 ]
+[n S1191 . . . . . . ]
+"18341
+[v _INTCONbits `VS1191 ~T0 @X0 0 e@4082 ]
 "19 USB_CDC\My_ringbuf.h
 [s S1218 `*uc 1 `ui 1 `ui 1 `ui 1 ]
 [n S1218 ringbuf buf size head tail ]
@@ -8921,32 +8941,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 "44
 [e :U 1288 ]
 {
-[; ;main.c: 46: if (ringbuf_num(&usb_rx)) {
-"46
+[; ;main.c: 45: INTCONbits.GIE = 0;
+"45
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 47: if (ringbuf_num(&usb_rx)) {
+"47
 [e $ ! != ( _ringbuf_num (1 &U _usb_rx -> -> 0 `i `ui 1290  ]
 {
-"47
-[v _data `uc ~T0 @X0 1 a ]
-[; ;main.c: 47: uint8_t data = ringbuf_pop(&usb_rx);
-[e = _data ( _ringbuf_pop (1 &U _usb_rx ]
-[; ;main.c: 48: ringbuf_put(&usb_tx, data);
 "48
-[e ( _ringbuf_put (2 , &U _usb_tx _data ]
+[v _data `uc ~T0 @X0 1 a ]
+[; ;main.c: 48: uint8_t data = ringbuf_pop(&usb_rx);
+[e = _data ( _ringbuf_pop (1 &U _usb_rx ]
+[; ;main.c: 49: ringbuf_put(&usb_tx, data);
 "49
+[e ( _ringbuf_put (2 , &U _usb_tx _data ]
+"50
 }
 [e :U 1290 ]
-[; ;main.c: 49: }
-[; ;main.c: 50: USB_CDC_task();
-"50
-[e ( _USB_CDC_task ..  ]
+[; ;main.c: 50: }
+[; ;main.c: 51: USB_CDC_task();
 "51
+[e ( _USB_CDC_task ..  ]
+[; ;main.c: 52: INTCONbits.GIE = 1;
+"52
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"53
 }
 [e :U 1287 ]
 "44
 [e $U 1288  ]
 [e :U 1289 ]
-[; ;main.c: 51: }
-[; ;main.c: 52: }
-"52
+[; ;main.c: 53: }
+[; ;main.c: 54: }
+"54
 [e :UE 1286 ]
 }

@@ -162,6 +162,8 @@ int main(void) {
     INTCONbits.GIE = 1;
 
     while (1) {
+        uint8_t GIE_cache = INTCONbits.GIE;
+        INTCONbits.GIE = 0;
         // UART送信
         tx_send('H');
         tx_send('e');
@@ -169,6 +171,7 @@ int main(void) {
         tx_send('l');
         tx_send('o');
         tx_send('\n');
+        INTCONbits.GIE = GIE_cache;
         delay_ms(1000);
     }
     return 0;

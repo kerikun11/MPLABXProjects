@@ -1,28 +1,52 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"76 ../My_library\usb/usb_ch9.h
-[s S1223 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S1223 _USB_DEVICE_DESCRIPTOR bLength bDescriptorType bcdUSB bDeviceClass bDeviceSubClass bDeviceProtocol bMaxPacketSize0 idVendor idProduct bcdDevice iManufacturer iProduct iSerialNumber bNumConfigurations ]
-"874 ../My_library\usb/usb_device_cdc.h
-[s S1276 `uc 1 `uc 1 `uc 1 `ui 1 ]
-[n S1276 _USB_CDC_HEADER_FN_DSC bFNLength bDscType bDscSubType bcdCDC ]
-"883
-[s S1277 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S1277 _USB_CDC_ACM_FN_DSC bFNLength bDscType bDscSubType bmCapabilities ]
-"892
-[s S1278 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S1278 _USB_CDC_UNION_FN_DSC bFNLength bDscType bDscSubType bMasterIntf bSaveIntf0 ]
-"902
-[s S1279 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S1279 _USB_CDC_CALL_MGT_FN_DSC bFNLength bDscType bDscSubType bmCapabilities bDataInterface ]
-"271 ../My_library/usb/usb_descriptors.c
-[s S1284 `uc 1 `uc 1 `ui -> -> 1 `i `ux ]
-[n S1284 . bLength bDscType string ]
-"275
-[s S1285 `uc 1 `uc 1 `ui -> 25 `i ]
-[n S1285 . bLength bDscType string ]
-"282
-[s S1286 `uc 1 `uc 1 `ui -> 25 `i ]
-[n S1286 . bLength bDscType string ]
+"38 ../My_library\My_I2C.h
+[v _I2C_Start `(uc ~T0 @X0 0 ef2`uc`uc ]
+"41
+[v _I2C_Send `(uc ~T0 @X0 0 ef1`uc ]
+"40
+[v _I2C_Stop `(v ~T0 @X0 0 ef ]
+[v F8541 `(v ~T0 @X0 1 tf1`ul ]
+"152 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18.h
+[v __delay `JF8541 ~T0 @X0 0 e ]
+[p i __delay ]
+"39 ../My_library\My_I2C.h
+[v _I2C_rStart `(uc ~T0 @X0 0 ef2`i`i ]
+"42
+[v _I2C_Receive `(uc ~T0 @X0 0 ef1`uc ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;My_EEPROM.h: 19: void EEP_write(uint8_t Reg_h, uint8_t Reg_l, uint8_t data);
+[; ;My_EEPROM.h: 20: uint8_t EEP_read(uint8_t Reg_h, uint8_t Reg_l);
+[; ;My_EEPROM.h: 21: uint16_t EEP_read16(uint8_t Reg_h, uint8_t Reg_l);
+[; ;My_EEPROM.h: 22: uint32_t EEP_read32(uint8_t Reg_h, uint8_t Reg_l);
+[; ;My_EEPROM.h: 23: void EEP_write16(uint8_t Reg_h, uint8_t Reg_l, uint16_t data);
+[; ;My_EEPROM.h: 24: void EEP_write32(uint8_t Reg_h, uint8_t Reg_l, uint32_t data);
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -8115,1056 +8139,375 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 152: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 154: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 156: extern __nonreentrant void _delay3(unsigned char);
-[; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;system.h: 32: typedef enum
-[; ;system.h: 33: {
-[; ;system.h: 34: SYSTEM_STATE_USB_START,
-[; ;system.h: 35: SYSTEM_STATE_USB_SUSPEND,
-[; ;system.h: 36: SYSTEM_STATE_USB_RESUME
-[; ;system.h: 37: } SYSTEM_STATE;
-[; ;system.h: 51: void SYSTEM_Initialize( SYSTEM_STATE state );
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;usb_common.h: 138: typedef union
-[; ;usb_common.h: 139: {
-[; ;usb_common.h: 140: uint8_t bitmap;
-[; ;usb_common.h: 141: struct
-[; ;usb_common.h: 142: {
-[; ;usb_common.h: 143: uint8_t ep_num: 4;
-[; ;usb_common.h: 144: uint8_t zero_pkt: 1;
-[; ;usb_common.h: 145: uint8_t dts: 1;
-[; ;usb_common.h: 146: uint8_t force_dts: 1;
-[; ;usb_common.h: 147: uint8_t direction: 1;
-[; ;usb_common.h: 148: }field;
-[; ;usb_common.h: 150: } TRANSFER_FLAGS;
-[; ;usb_common.h: 212: typedef enum
-[; ;usb_common.h: 213: {
-[; ;usb_common.h: 215: EVENT_NONE = 0,
-[; ;usb_common.h: 217: EVENT_DEVICE_STACK_BASE = 1,
-[; ;usb_common.h: 219: EVENT_HOST_STACK_BASE = 100,
-[; ;usb_common.h: 222: EVENT_HUB_ATTACH,
-[; ;usb_common.h: 225: EVENT_STALL,
-[; ;usb_common.h: 228: EVENT_VBUS_SES_REQUEST,
-[; ;usb_common.h: 233: EVENT_VBUS_OVERCURRENT,
-[; ;usb_common.h: 239: EVENT_VBUS_REQUEST_POWER,
-[; ;usb_common.h: 244: EVENT_VBUS_RELEASE_POWER,
-[; ;usb_common.h: 253: EVENT_VBUS_POWER_AVAILABLE,
-[; ;usb_common.h: 257: EVENT_UNSUPPORTED_DEVICE,
-[; ;usb_common.h: 261: EVENT_CANNOT_ENUMERATE,
-[; ;usb_common.h: 265: EVENT_CLIENT_INIT_ERROR,
-[; ;usb_common.h: 271: EVENT_OUT_OF_MEMORY,
-[; ;usb_common.h: 274: EVENT_UNSPECIFIED_ERROR,
-[; ;usb_common.h: 278: EVENT_DETACH,
-[; ;usb_common.h: 283: EVENT_TRANSFER,
-[; ;usb_common.h: 287: EVENT_SOF,
-[; ;usb_common.h: 290: EVENT_RESUME,
-[; ;usb_common.h: 294: EVENT_SUSPEND,
-[; ;usb_common.h: 298: EVENT_RESET,
-[; ;usb_common.h: 304: EVENT_DATA_ISOC_READ,
-[; ;usb_common.h: 310: EVENT_DATA_ISOC_WRITE,
-[; ;usb_common.h: 320: EVENT_OVERRIDE_CLIENT_DRIVER_SELECTION,
-[; ;usb_common.h: 328: EVENT_1MS,
-[; ;usb_common.h: 331: EVENT_GENERIC_BASE = 400,
-[; ;usb_common.h: 333: EVENT_MSD_BASE = 500,
-[; ;usb_common.h: 335: EVENT_HID_BASE = 600,
-[; ;usb_common.h: 337: EVENT_PRINTER_BASE = 700,
-[; ;usb_common.h: 339: EVENT_CDC_BASE = 800,
-[; ;usb_common.h: 341: EVENT_CHARGER_BASE = 900,
-[; ;usb_common.h: 343: EVENT_AUDIO_BASE = 1000,
-[; ;usb_common.h: 345: EVENT_USER_BASE = 10000,
-[; ;usb_common.h: 350: EVENT_BUS_ERROR = 32767
-[; ;usb_common.h: 352: } USB_EVENT;
-[; ;usb_common.h: 364: typedef struct _transfer_event_data
-[; ;usb_common.h: 365: {
-[; ;usb_common.h: 366: TRANSFER_FLAGS flags;
-[; ;usb_common.h: 367: uint32_t size;
-[; ;usb_common.h: 368: uint8_t pid;
-[; ;usb_common.h: 370: } USB_TRANSFER_EVENT_DATA;
-[; ;usb_common.h: 381: typedef struct _vbus_power_data
-[; ;usb_common.h: 382: {
-[; ;usb_common.h: 383: uint8_t port;
-[; ;usb_common.h: 384: uint8_t current;
-[; ;usb_common.h: 385: } USB_VBUS_POWER_EVENT_DATA;
-[; ;usb_common.h: 394: typedef struct _override_client_driver_data
-[; ;usb_common.h: 395: {
-[; ;usb_common.h: 396: uint16_t idVendor;
-[; ;usb_common.h: 397: uint16_t idProduct;
-[; ;usb_common.h: 398: uint8_t bDeviceClass;
-[; ;usb_common.h: 399: uint8_t bDeviceSubClass;
-[; ;usb_common.h: 400: uint8_t bDeviceProtocol;
-[; ;usb_common.h: 401: } USB_OVERRIDE_CLIENT_DRIVER_EVENT_DATA;
-[; ;usb_common.h: 456: typedef bool (*USB_EVENT_HANDLER) ( USB_EVENT event, void *data, unsigned int size );
-[; ;usb_ch9.h: 76: typedef struct  _USB_DEVICE_DESCRIPTOR
-[; ;usb_ch9.h: 77: {
-[; ;usb_ch9.h: 78: uint8_t bLength;
-[; ;usb_ch9.h: 79: uint8_t bDescriptorType;
-[; ;usb_ch9.h: 80: uint16_t bcdUSB;
-[; ;usb_ch9.h: 81: uint8_t bDeviceClass;
-[; ;usb_ch9.h: 82: uint8_t bDeviceSubClass;
-[; ;usb_ch9.h: 83: uint8_t bDeviceProtocol;
-[; ;usb_ch9.h: 84: uint8_t bMaxPacketSize0;
-[; ;usb_ch9.h: 85: uint16_t idVendor;
-[; ;usb_ch9.h: 86: uint16_t idProduct;
-[; ;usb_ch9.h: 87: uint16_t bcdDevice;
-[; ;usb_ch9.h: 88: uint8_t iManufacturer;
-[; ;usb_ch9.h: 89: uint8_t iProduct;
-[; ;usb_ch9.h: 90: uint8_t iSerialNumber;
-[; ;usb_ch9.h: 91: uint8_t bNumConfigurations;
-[; ;usb_ch9.h: 92: } USB_DEVICE_DESCRIPTOR;
-[; ;usb_ch9.h: 102: typedef struct  _USB_CONFIGURATION_DESCRIPTOR
-[; ;usb_ch9.h: 103: {
-[; ;usb_ch9.h: 104: uint8_t bLength;
-[; ;usb_ch9.h: 105: uint8_t bDescriptorType;
-[; ;usb_ch9.h: 106: uint16_t wTotalLength;
-[; ;usb_ch9.h: 107: uint8_t bNumInterfaces;
-[; ;usb_ch9.h: 108: uint8_t bConfigurationValue;
-[; ;usb_ch9.h: 109: uint8_t iConfiguration;
-[; ;usb_ch9.h: 110: uint8_t bmAttributes;
-[; ;usb_ch9.h: 111: uint8_t bMaxPower;
-[; ;usb_ch9.h: 112: } USB_CONFIGURATION_DESCRIPTOR;
-[; ;usb_ch9.h: 127: typedef struct  _USB_INTERFACE_DESCRIPTOR
-[; ;usb_ch9.h: 128: {
-[; ;usb_ch9.h: 129: uint8_t bLength;
-[; ;usb_ch9.h: 130: uint8_t bDescriptorType;
-[; ;usb_ch9.h: 131: uint8_t bInterfaceNumber;
-[; ;usb_ch9.h: 132: uint8_t bAlternateSetting;
-[; ;usb_ch9.h: 133: uint8_t bNumEndpoints;
-[; ;usb_ch9.h: 134: uint8_t bInterfaceClass;
-[; ;usb_ch9.h: 135: uint8_t bInterfaceSubClass;
-[; ;usb_ch9.h: 136: uint8_t bInterfaceProtocol;
-[; ;usb_ch9.h: 137: uint8_t iInterface;
-[; ;usb_ch9.h: 138: } USB_INTERFACE_DESCRIPTOR;
-[; ;usb_ch9.h: 148: typedef struct  _USB_ENDPOINT_DESCRIPTOR
-[; ;usb_ch9.h: 149: {
-[; ;usb_ch9.h: 150: uint8_t bLength;
-[; ;usb_ch9.h: 151: uint8_t bDescriptorType;
-[; ;usb_ch9.h: 152: uint8_t bEndpointAddress;
-[; ;usb_ch9.h: 153: uint8_t bmAttributes;
-[; ;usb_ch9.h: 154: uint16_t wMaxPacketSize;
-[; ;usb_ch9.h: 155: uint8_t bInterval;
-[; ;usb_ch9.h: 156: } USB_ENDPOINT_DESCRIPTOR;
-[; ;usb_ch9.h: 198: typedef struct
-[; ;usb_ch9.h: 199: {
-[; ;usb_ch9.h: 200: uint8_t index;
-[; ;usb_ch9.h: 201: uint8_t type;
-[; ;usb_ch9.h: 202: uint16_t language_id;
-[; ;usb_ch9.h: 204: } DESCRIPTOR_ID;
-[; ;usb_ch9.h: 213: typedef struct  _USB_OTG_DESCRIPTOR
-[; ;usb_ch9.h: 214: {
-[; ;usb_ch9.h: 215: uint8_t bLength;
-[; ;usb_ch9.h: 216: uint8_t bDescriptorType;
-[; ;usb_ch9.h: 217: uint8_t bmAttributes;
-[; ;usb_ch9.h: 218: } USB_OTG_DESCRIPTOR;
-[; ;usb_ch9.h: 237: typedef struct  _USB_STRING_DSC
-[; ;usb_ch9.h: 238: {
-[; ;usb_ch9.h: 239: uint8_t bLength;
-[; ;usb_ch9.h: 240: uint8_t bDescriptorType;
-[; ;usb_ch9.h: 242: } USB_STRING_DESCRIPTOR;
-[; ;usb_ch9.h: 256: typedef struct  _USB_DEVICE_QUALIFIER_DESCRIPTOR
-[; ;usb_ch9.h: 257: {
-[; ;usb_ch9.h: 258: uint8_t bLength;
-[; ;usb_ch9.h: 259: uint8_t bType;
-[; ;usb_ch9.h: 260: uint16_t bcdUSB;
-[; ;usb_ch9.h: 261: uint8_t bDeviceClass;
-[; ;usb_ch9.h: 262: uint8_t bDeviceSubClass;
-[; ;usb_ch9.h: 263: uint8_t bDeviceProtocol;
-[; ;usb_ch9.h: 264: uint8_t bMaxPacketSize0;
-[; ;usb_ch9.h: 265: uint8_t bNumConfigurations;
-[; ;usb_ch9.h: 266: uint8_t bReserved;
-[; ;usb_ch9.h: 268: } USB_DEVICE_QUALIFIER_DESCRIPTOR;
-[; ;usb_ch9.h: 279: typedef union 
-[; ;usb_ch9.h: 280: {
-[; ;usb_ch9.h: 282: struct 
-[; ;usb_ch9.h: 283: {
-[; ;usb_ch9.h: 284: uint8_t bmRequestType;
-[; ;usb_ch9.h: 285: uint8_t bRequest;
-[; ;usb_ch9.h: 286: uint16_t wValue;
-[; ;usb_ch9.h: 287: uint16_t wIndex;
-[; ;usb_ch9.h: 288: uint16_t wLength;
-[; ;usb_ch9.h: 289: };
-[; ;usb_ch9.h: 290: struct 
-[; ;usb_ch9.h: 291: {
-[; ;usb_ch9.h: 292: unsigned :8;
-[; ;usb_ch9.h: 293: unsigned :8;
-[; ;usb_ch9.h: 294: union
-[; ;usb_ch9.h: 295: {
-[; ;usb_ch9.h: 296: uint16_t Val;
-[; ;usb_ch9.h: 297: uint8_t v[2];
-[; ;usb_ch9.h: 298: struct
-[; ;usb_ch9.h: 299: {
-[; ;usb_ch9.h: 300: uint8_t LB;
-[; ;usb_ch9.h: 301: uint8_t HB;
-[; ;usb_ch9.h: 302: } byte;
-[; ;usb_ch9.h: 303: } W_Value;
-[; ;usb_ch9.h: 305: union
-[; ;usb_ch9.h: 306: {
-[; ;usb_ch9.h: 307: uint16_t Val;
-[; ;usb_ch9.h: 308: uint8_t v[2];
-[; ;usb_ch9.h: 309: struct
-[; ;usb_ch9.h: 310: {
-[; ;usb_ch9.h: 311: uint8_t LB;
-[; ;usb_ch9.h: 312: uint8_t HB;
-[; ;usb_ch9.h: 313: } byte;
-[; ;usb_ch9.h: 314: } W_Index;
-[; ;usb_ch9.h: 316: union
-[; ;usb_ch9.h: 317: {
-[; ;usb_ch9.h: 318: uint16_t Val;
-[; ;usb_ch9.h: 319: uint8_t v[2];
-[; ;usb_ch9.h: 320: struct
-[; ;usb_ch9.h: 321: {
-[; ;usb_ch9.h: 322: uint8_t LB;
-[; ;usb_ch9.h: 323: uint8_t HB;
-[; ;usb_ch9.h: 324: } byte;
-[; ;usb_ch9.h: 325: } W_Length;
-[; ;usb_ch9.h: 326: };
-[; ;usb_ch9.h: 327: struct 
-[; ;usb_ch9.h: 328: {
-[; ;usb_ch9.h: 329: unsigned Recipient:5;
-[; ;usb_ch9.h: 330: unsigned RequestType:2;
-[; ;usb_ch9.h: 331: unsigned DataDir:1;
-[; ;usb_ch9.h: 332: unsigned :8;
-[; ;usb_ch9.h: 333: uint8_t bFeature;
-[; ;usb_ch9.h: 334: unsigned :8;
-[; ;usb_ch9.h: 335: unsigned :8;
-[; ;usb_ch9.h: 336: unsigned :8;
-[; ;usb_ch9.h: 337: unsigned :8;
-[; ;usb_ch9.h: 338: unsigned :8;
-[; ;usb_ch9.h: 339: };
-[; ;usb_ch9.h: 340: struct 
-[; ;usb_ch9.h: 341: {
-[; ;usb_ch9.h: 342: union
-[; ;usb_ch9.h: 343: {
-[; ;usb_ch9.h: 344: uint8_t bmRequestType;
-[; ;usb_ch9.h: 345: struct
-[; ;usb_ch9.h: 346: {
-[; ;usb_ch9.h: 347: uint8_t recipient: 5;
-[; ;usb_ch9.h: 348: uint8_t type: 2;
-[; ;usb_ch9.h: 349: uint8_t direction: 1;
-[; ;usb_ch9.h: 350: };
-[; ;usb_ch9.h: 351: }requestInfo;
-[; ;usb_ch9.h: 352: };
-[; ;usb_ch9.h: 353: struct 
-[; ;usb_ch9.h: 354: {
-[; ;usb_ch9.h: 355: unsigned :8;
-[; ;usb_ch9.h: 356: unsigned :8;
-[; ;usb_ch9.h: 357: uint8_t bDscIndex;
-[; ;usb_ch9.h: 358: uint8_t bDescriptorType;
-[; ;usb_ch9.h: 359: uint16_t wLangID;
-[; ;usb_ch9.h: 360: unsigned :8;
-[; ;usb_ch9.h: 361: unsigned :8;
-[; ;usb_ch9.h: 362: };
-[; ;usb_ch9.h: 363: struct 
-[; ;usb_ch9.h: 364: {
-[; ;usb_ch9.h: 365: unsigned :8;
-[; ;usb_ch9.h: 366: unsigned :8;
-[; ;usb_ch9.h: 367: uint8_t bDevADR;
-[; ;usb_ch9.h: 368: uint8_t bDevADRH;
-[; ;usb_ch9.h: 369: unsigned :8;
-[; ;usb_ch9.h: 370: unsigned :8;
-[; ;usb_ch9.h: 371: unsigned :8;
-[; ;usb_ch9.h: 372: unsigned :8;
-[; ;usb_ch9.h: 373: };
-[; ;usb_ch9.h: 374: struct 
-[; ;usb_ch9.h: 375: {
-[; ;usb_ch9.h: 376: unsigned :8;
-[; ;usb_ch9.h: 377: unsigned :8;
-[; ;usb_ch9.h: 378: uint8_t bConfigurationValue;
-[; ;usb_ch9.h: 379: uint8_t bCfgRSD;
-[; ;usb_ch9.h: 380: unsigned :8;
-[; ;usb_ch9.h: 381: unsigned :8;
-[; ;usb_ch9.h: 382: unsigned :8;
-[; ;usb_ch9.h: 383: unsigned :8;
-[; ;usb_ch9.h: 384: };
-[; ;usb_ch9.h: 385: struct 
-[; ;usb_ch9.h: 386: {
-[; ;usb_ch9.h: 387: unsigned :8;
-[; ;usb_ch9.h: 388: unsigned :8;
-[; ;usb_ch9.h: 389: uint8_t bAltID;
-[; ;usb_ch9.h: 390: uint8_t bAltID_H;
-[; ;usb_ch9.h: 391: uint8_t bIntfID;
-[; ;usb_ch9.h: 392: uint8_t bIntfID_H;
-[; ;usb_ch9.h: 393: unsigned :8;
-[; ;usb_ch9.h: 394: unsigned :8;
-[; ;usb_ch9.h: 395: };
-[; ;usb_ch9.h: 396: struct 
-[; ;usb_ch9.h: 397: {
-[; ;usb_ch9.h: 398: unsigned :8;
-[; ;usb_ch9.h: 399: unsigned :8;
-[; ;usb_ch9.h: 400: unsigned :8;
-[; ;usb_ch9.h: 401: unsigned :8;
-[; ;usb_ch9.h: 402: uint8_t bEPID;
-[; ;usb_ch9.h: 403: uint8_t bEPID_H;
-[; ;usb_ch9.h: 404: unsigned :8;
-[; ;usb_ch9.h: 405: unsigned :8;
-[; ;usb_ch9.h: 406: };
-[; ;usb_ch9.h: 407: struct 
-[; ;usb_ch9.h: 408: {
-[; ;usb_ch9.h: 409: unsigned :8;
-[; ;usb_ch9.h: 410: unsigned :8;
-[; ;usb_ch9.h: 411: unsigned :8;
-[; ;usb_ch9.h: 412: unsigned :8;
-[; ;usb_ch9.h: 413: unsigned EPNum:4;
-[; ;usb_ch9.h: 414: unsigned :3;
-[; ;usb_ch9.h: 415: unsigned EPDir:1;
-[; ;usb_ch9.h: 416: unsigned :8;
-[; ;usb_ch9.h: 417: unsigned :8;
-[; ;usb_ch9.h: 418: unsigned :8;
-[; ;usb_ch9.h: 419: };
-[; ;usb_ch9.h: 423: } CTRL_TRF_SETUP, SETUP_PKT, *PSETUP_PKT;
-[; ;usb_device.h: 78: typedef enum
-[; ;usb_device.h: 79: {
-[; ;usb_device.h: 83: DETACHED_STATE
-[; ;usb_device.h: 84: = 0x00 ,
-[; ;usb_device.h: 87: ATTACHED_STATE
-[; ;usb_device.h: 88: = 0x01 ,
-[; ;usb_device.h: 91: POWERED_STATE
-[; ;usb_device.h: 92: = 0x02 ,
-[; ;usb_device.h: 95: DEFAULT_STATE
-[; ;usb_device.h: 96: = 0x04 ,
-[; ;usb_device.h: 102: ADR_PENDING_STATE
-[; ;usb_device.h: 103: = 0x08 ,
-[; ;usb_device.h: 106: ADDRESS_STATE
-[; ;usb_device.h: 107: = 0x10 ,
-[; ;usb_device.h: 113: CONFIGURED_STATE
-[; ;usb_device.h: 114: = 0x20
-[; ;usb_device.h: 115: } USB_DEVICE_STATE;
-[; ;usb_device.h: 119: typedef enum
-[; ;usb_device.h: 120: {
-[; ;usb_device.h: 122: EVENT_CONFIGURED
-[; ;usb_device.h: 123: = EVENT_DEVICE_STACK_BASE ,
-[; ;usb_device.h: 126: EVENT_SET_DESCRIPTOR,
-[; ;usb_device.h: 132: EVENT_EP0_REQUEST,
-[; ;usb_device.h: 161: EVENT_ATTACH,
-[; ;usb_device.h: 166: EVENT_TRANSFER_TERMINATED
-[; ;usb_device.h: 168: } USB_DEVICE_STACK_EVENTS;
-[; ;usb_device.h: 200: void USBDeviceInit(void);
-[; ;usb_device.h: 304: void USBDeviceTasks(void);
-[; ;usb_device.h: 356: void USBEnableEndpoint(uint8_t ep, uint8_t options);
-[; ;usb_device.h: 449: void* USBTransferOnePacket(uint8_t ep,uint8_t dir,uint8_t* data,uint8_t len);
-[; ;usb_device.h: 474: void USBStallEndpoint(uint8_t ep, uint8_t dir);
-[; ;usb_device.h: 498: void USBCancelIO(uint8_t endpoint);
-[; ;usb_device.h: 595: void USBDeviceDetach(void);
-[; ;usb_device.h: 640: void USBDeviceAttach(void);
-[; ;usb_device.h: 679: void USBCtrlEPAllowStatusStage(void);
-[; ;usb_device.h: 709: void USBCtrlEPAllowDataStage(void);
-[; ;usb_device.h: 785: void USBDeferOUTDataStage(void);
-[; ;usb_device.h: 786: extern volatile bool USBDeferOUTDataStagePackets;
-[; ;usb_device.h: 855: void USBDeferStatusStage(void);
-[; ;usb_device.h: 856: extern volatile bool USBDeferStatusStagePacket;
-[; ;usb_device.h: 907: bool USBOUTDataStageDeferred(void);
-[; ;usb_device.h: 990: void USBDeferINDataStage(void);
-[; ;usb_device.h: 991: extern volatile bool USBDeferINDataStagePackets;
-[; ;usb_device.h: 1044: bool USBINDataStageDeferred(void);
-[; ;usb_device.h: 1114: bool USBGetRemoteWakeupStatus(void);
-[; ;usb_device.h: 1171: USB_DEVICE_STATE USBGetDeviceState(void);
-[; ;usb_device.h: 1227: bool USBGetSuspendState(void);
-[; ;usb_device.h: 1262: bool USBIsDeviceSuspended(void);
-[; ;usb_device.h: 1305: bool USBIsBusSuspended(void);
-[; ;usb_device.h: 1331: void USBSoftDetach(void);
-[; ;usb_device.h: 1369: bool USBHandleBusy(void* handle);
-[; ;usb_device.h: 1403: uint16_t USBHandleGetLength(void* handle);
-[; ;usb_device.h: 1435: uint16_t USBHandleGetAddr(void*);
-[; ;usb_device.h: 1535: void* USBGetNextHandle(uint8_t ep_num, uint8_t ep_dir);
-[; ;usb_device.h: 1568: void USBEP0Transmit(uint8_t options);
-[; ;usb_device.h: 1596: void USBEP0SendRAMPtr(uint8_t* src, uint16_t size, uint8_t Options);
-[; ;usb_device.h: 1628: void USBEP0SendROMPtr(uint8_t* src, uint16_t size, uint8_t Options);
-[; ;usb_device.h: 1656: void USBEP0Receive(uint8_t* dest, uint16_t size, void (*function));
-[; ;usb_device.h: 1691: void* USBTxOnePacket(uint8_t ep, uint8_t* data, uint16_t len);
-[; ;usb_device.h: 1728: void* USBRxOnePacket(uint8_t ep, uint8_t* data, uint16_t len);
-[; ;usb_device.h: 1760: bool USB_APPLICATION_EVENT_HANDLER(uint8_t address, USB_EVENT event, void *pdata, uint16_t size);
-[; ;usb_device.h: 1828: typedef union
-[; ;usb_device.h: 1829: {
-[; ;usb_device.h: 1830: uint16_t Val;
-[; ;usb_device.h: 1831: uint8_t v[2];
-[; ;usb_device.h: 1832: struct
-[; ;usb_device.h: 1833: {
-[; ;usb_device.h: 1834: uint8_t LB;
-[; ;usb_device.h: 1835: uint8_t HB;
-[; ;usb_device.h: 1836: } byte;
-[; ;usb_device.h: 1837: } uint16_t_VAL;
-[; ;usb_device.h: 1842: typedef struct 
-[; ;usb_device.h: 1843: {
-[; ;usb_device.h: 1844: union 
-[; ;usb_device.h: 1845: {
-[; ;usb_device.h: 1848: uint8_t *bRam;
-[; ;usb_device.h: 1849: const uint8_t *bRom;
-[; ;usb_device.h: 1850: uint16_t *wRam;
-[; ;usb_device.h: 1851: const uint16_t *wRom;
-[; ;usb_device.h: 1852: }pSrc;
-[; ;usb_device.h: 1853: union 
-[; ;usb_device.h: 1854: {
-[; ;usb_device.h: 1855: struct 
-[; ;usb_device.h: 1856: {
-[; ;usb_device.h: 1858: uint8_t ctrl_trf_mem :1;
-[; ;usb_device.h: 1859: uint8_t reserved :5;
-[; ;usb_device.h: 1862: uint8_t includeZero :1;
-[; ;usb_device.h: 1864: uint8_t busy :1;
-[; ;usb_device.h: 1865: }bits;
-[; ;usb_device.h: 1866: uint8_t Val;
-[; ;usb_device.h: 1867: }info;
-[; ;usb_device.h: 1868: uint16_t_VAL  wCount;
-[; ;usb_device.h: 1869: }IN_PIPE;
-[; ;usb_device.h: 1871: extern  IN_PIPE inPipes[];
-[; ;usb_device.h: 1873: typedef struct 
-[; ;usb_device.h: 1874: {
-[; ;usb_device.h: 1875: union 
-[; ;usb_device.h: 1876: {
-[; ;usb_device.h: 1879: uint8_t *bRam;
-[; ;usb_device.h: 1880: uint16_t *wRam;
-[; ;usb_device.h: 1881: }pDst;
-[; ;usb_device.h: 1882: union 
-[; ;usb_device.h: 1883: {
-[; ;usb_device.h: 1884: struct 
-[; ;usb_device.h: 1885: {
-[; ;usb_device.h: 1886: uint8_t reserved :7;
-[; ;usb_device.h: 1888: uint8_t busy :1;
-[; ;usb_device.h: 1889: }bits;
-[; ;usb_device.h: 1890: uint8_t Val;
-[; ;usb_device.h: 1891: }info;
-[; ;usb_device.h: 1892: uint16_t_VAL wCount;
-[; ;usb_device.h: 1893: void (*pFunc)(void);
-[; ;usb_device.h: 1894: }OUT_PIPE;
-[; ;usb_device.h: 1904: extern  bool RemoteWakeup;
-[; ;usb_device.h: 1905: extern  bool USBBusIsSuspended;
-[; ;usb_device.h: 1906: extern  USB_DEVICE_STATE USBDeviceState;
-[; ;usb_device.h: 1907: extern  uint8_t USBActiveConfiguration;
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
-[; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
-[; ;string.h: 16: extern void * memset(void *, int, size_t);
-[; ;string.h: 34: extern char * strcat(char *, const char *);
-[; ;string.h: 35: extern char * strcpy(char *, const char *);
-[; ;string.h: 36: extern char * strncat(char *, const char *, size_t);
-[; ;string.h: 37: extern char * strncpy(char *, const char *, size_t);
-[; ;string.h: 38: extern char * strdup(const char *);
-[; ;string.h: 39: extern char * strtok(char *, const char *);
-[; ;string.h: 42: extern int memcmp(const void *, const void *, size_t);
-[; ;string.h: 43: extern int strcmp(const char *, const char *);
-[; ;string.h: 44: extern int stricmp(const char *, const char *);
-[; ;string.h: 45: extern int strncmp(const char *, const char *, size_t);
-[; ;string.h: 46: extern int strnicmp(const char *, const char *, size_t);
-[; ;string.h: 47: extern void * memchr(const void *, int, size_t);
-[; ;string.h: 48: extern size_t strcspn(const char *, const char *);
-[; ;string.h: 49: extern char * strpbrk(const char *, const char *);
-[; ;string.h: 50: extern size_t strspn(const char *, const char *);
-[; ;string.h: 51: extern char * strstr(const char *, const char *);
-[; ;string.h: 52: extern char * stristr(const char *, const char *);
-[; ;string.h: 53: extern char * strerror(int);
-[; ;string.h: 54: extern size_t strlen(const char *);
-[; ;string.h: 55: extern char * strchr(const char *, int);
-[; ;string.h: 56: extern char * strichr(const char *, int);
-[; ;string.h: 57: extern char * strrchr(const char *, int);
-[; ;string.h: 58: extern char * strrichr(const char *, int);
-[; ;usb_hal_pic18.h: 261: typedef union _BD_STAT
-[; ;usb_hal_pic18.h: 262: {
-[; ;usb_hal_pic18.h: 263: uint8_t Val;
-[; ;usb_hal_pic18.h: 264: struct{
-[; ;usb_hal_pic18.h: 266: unsigned BC8:1;
-[; ;usb_hal_pic18.h: 267: unsigned BC9:1;
-[; ;usb_hal_pic18.h: 268: unsigned BSTALL:1;
-[; ;usb_hal_pic18.h: 269: unsigned DTSEN:1;
-[; ;usb_hal_pic18.h: 270: unsigned INCDIS:1;
-[; ;usb_hal_pic18.h: 271: unsigned KEN:1;
-[; ;usb_hal_pic18.h: 272: unsigned DTS:1;
-[; ;usb_hal_pic18.h: 273: unsigned UOWN:1;
-[; ;usb_hal_pic18.h: 274: };
-[; ;usb_hal_pic18.h: 275: struct{
-[; ;usb_hal_pic18.h: 278: unsigned :2;
-[; ;usb_hal_pic18.h: 279: unsigned PID0:1;
-[; ;usb_hal_pic18.h: 280: unsigned PID1:1;
-[; ;usb_hal_pic18.h: 281: unsigned PID2:1;
-[; ;usb_hal_pic18.h: 282: unsigned PID3:1;
-[; ;usb_hal_pic18.h: 283: unsigned :1;
-[; ;usb_hal_pic18.h: 284: };
-[; ;usb_hal_pic18.h: 285: struct{
-[; ;usb_hal_pic18.h: 286: unsigned :2;
-[; ;usb_hal_pic18.h: 287: unsigned PID:4;
-[; ;usb_hal_pic18.h: 288: unsigned :2;
-[; ;usb_hal_pic18.h: 289: };
-[; ;usb_hal_pic18.h: 290: } BD_STAT;
-[; ;usb_hal_pic18.h: 293: typedef union __BDT
-[; ;usb_hal_pic18.h: 294: {
-[; ;usb_hal_pic18.h: 295: struct
-[; ;usb_hal_pic18.h: 296: {
-[; ;usb_hal_pic18.h: 297: BD_STAT STAT;
-[; ;usb_hal_pic18.h: 298: uint8_t CNT;
-[; ;usb_hal_pic18.h: 299: uint8_t ADRL;
-[; ;usb_hal_pic18.h: 300: uint8_t ADRH;
-[; ;usb_hal_pic18.h: 301: };
-[; ;usb_hal_pic18.h: 302: struct
-[; ;usb_hal_pic18.h: 303: {
-[; ;usb_hal_pic18.h: 304: unsigned :8;
-[; ;usb_hal_pic18.h: 305: unsigned :8;
-[; ;usb_hal_pic18.h: 306: uint16_t ADR;
-[; ;usb_hal_pic18.h: 307: };
-[; ;usb_hal_pic18.h: 308: uint32_t Val;
-[; ;usb_hal_pic18.h: 309: uint8_t v[4];
-[; ;usb_hal_pic18.h: 310: } BDT_ENTRY;
-[; ;usb_hal_pic18.h: 313: typedef union __USTAT
-[; ;usb_hal_pic18.h: 314: {
-[; ;usb_hal_pic18.h: 315: struct
-[; ;usb_hal_pic18.h: 316: {
-[; ;usb_hal_pic18.h: 317: unsigned char filler1:1;
-[; ;usb_hal_pic18.h: 318: unsigned char ping_pong:1;
-[; ;usb_hal_pic18.h: 319: unsigned char direction:1;
-[; ;usb_hal_pic18.h: 320: unsigned char endpoint_number:4;
-[; ;usb_hal_pic18.h: 321: };
-[; ;usb_hal_pic18.h: 322: uint8_t Val;
-[; ;usb_hal_pic18.h: 323: } USTAT_FIELDS;
-[; ;usb_hal_pic18.h: 331: typedef union _POINTER
-[; ;usb_hal_pic18.h: 332: {
-[; ;usb_hal_pic18.h: 333: struct
-[; ;usb_hal_pic18.h: 334: {
-[; ;usb_hal_pic18.h: 335: uint8_t bLow;
-[; ;usb_hal_pic18.h: 336: uint8_t bHigh;
-[; ;usb_hal_pic18.h: 338: };
-[; ;usb_hal_pic18.h: 339: uint16_t _word;
-[; ;usb_hal_pic18.h: 343: uint8_t* bRam;
-[; ;usb_hal_pic18.h: 345: uint16_t* wRam;
-[; ;usb_hal_pic18.h: 348: const uint8_t* bRom;
-[; ;usb_hal_pic18.h: 349: const uint16_t* wRom;
-[; ;usb_hal_pic18.h: 354: } POINTER;
-[; ;usb_hal_pic18.h: 601: extern  uint8_t USBActiveConfiguration;
-[; ;usb_hal_pic18.h: 602: extern  IN_PIPE inPipes[1];
-[; ;usb_hal_pic18.h: 603: extern  OUT_PIPE outPipes[1];
-[; ;usb_hal_pic18.h: 606: extern volatile BDT_ENTRY* pBDTEntryOut[2+1];
-[; ;usb_hal_pic18.h: 607: extern volatile BDT_ENTRY* pBDTEntryIn[2+1];
-[; ;usb_hal.h: 167: void OTGCORE_SetDeviceAddr( uint8_t addr );
-[; ;usb_hal.h: 203: void USBHALControlUsbResistors( uint8_t flags );
-[; ;usb_hal.h: 237: bool USBHALSessionIsValid( void );
-[; ;usb_hal.h: 263: bool USBHALControlBusPower( uint8_t cmd );
-[; ;usb_hal.h: 293: unsigned long USBHALGetLastError( void );
-[; ;usb_hal.h: 326: void USBHALHandleBusEvent ( void );
-[; ;usb_hal.h: 367: bool OTGCORE_StallPipe( TRANSFER_FLAGS pipe );
-[; ;usb_hal.h: 404: bool OTGCORE_UnstallPipe( TRANSFER_FLAGS pipe );
-[; ;usb_hal.h: 438: uint16_t OTGCORE_GetStalledEndpoints ( void );
-[; ;usb_hal.h: 475: bool USBHALFlushPipe( TRANSFER_FLAGS pipe );
-[; ;usb_hal.h: 535: bool USBHALTransferData ( TRANSFER_FLAGS flags,
-[; ;usb_hal.h: 536: void *buffer,
-[; ;usb_hal.h: 537: unsigned int size );
-[; ;usb_hal.h: 575: bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t flags );
-[; ;usb_hal.h: 603: bool USBHALInitialize ( unsigned long flags );
-[; ;usb_device_cdc.h: 542: void CDCInitEP(void);
-[; ;usb_device_cdc.h: 568: void USBCheckCDCRequest(void);
-[; ;usb_device_cdc.h: 586: void CDCNotificationHandler(void);
-[; ;usb_device_cdc.h: 612: bool USBCDCEventHandler(USB_EVENT event, void *pdata, uint16_t size);
-[; ;usb_device_cdc.h: 659: uint8_t getsUSBUSART(uint8_t *buffer, uint8_t len);
-[; ;usb_device_cdc.h: 701: void putUSBUSART(uint8_t *data, uint8_t Length);
-[; ;usb_device_cdc.h: 742: void putsUSBUSART(char *data);
-[; ;usb_device_cdc.h: 785: void putrsUSBUSART(const const char *data);
-[; ;usb_device_cdc.h: 837: void CDCTxService(void);
-[; ;usb_device_cdc.h: 845: typedef union _LINE_CODING
-[; ;usb_device_cdc.h: 846: {
-[; ;usb_device_cdc.h: 847: struct
-[; ;usb_device_cdc.h: 848: {
-[; ;usb_device_cdc.h: 849: uint8_t _byte[0x07];
-[; ;usb_device_cdc.h: 850: };
-[; ;usb_device_cdc.h: 851: struct
-[; ;usb_device_cdc.h: 852: {
-[; ;usb_device_cdc.h: 853: uint32_t dwDTERate;
-[; ;usb_device_cdc.h: 854: uint8_t bCharFormat;
-[; ;usb_device_cdc.h: 855: uint8_t bParityType;
-[; ;usb_device_cdc.h: 856: uint8_t bDataBits;
-[; ;usb_device_cdc.h: 857: };
-[; ;usb_device_cdc.h: 858: } LINE_CODING;
-[; ;usb_device_cdc.h: 860: typedef union _CONTROL_SIGNAL_BITMAP
-[; ;usb_device_cdc.h: 861: {
-[; ;usb_device_cdc.h: 862: uint8_t _byte;
-[; ;usb_device_cdc.h: 863: struct
-[; ;usb_device_cdc.h: 864: {
-[; ;usb_device_cdc.h: 865: unsigned DTE_PRESENT:1;
-[; ;usb_device_cdc.h: 866: unsigned CARRIER_CONTROL:1;
-[; ;usb_device_cdc.h: 867: };
-[; ;usb_device_cdc.h: 868: } CONTROL_SIGNAL_BITMAP;
-[; ;usb_device_cdc.h: 874: typedef struct  _USB_CDC_HEADER_FN_DSC
-[; ;usb_device_cdc.h: 875: {
-[; ;usb_device_cdc.h: 876: uint8_t bFNLength;
-[; ;usb_device_cdc.h: 877: uint8_t bDscType;
-[; ;usb_device_cdc.h: 878: uint8_t bDscSubType;
-[; ;usb_device_cdc.h: 879: uint16_t bcdCDC;
-[; ;usb_device_cdc.h: 880: } USB_CDC_HEADER_FN_DSC;
-[; ;usb_device_cdc.h: 883: typedef struct  _USB_CDC_ACM_FN_DSC
-[; ;usb_device_cdc.h: 884: {
-[; ;usb_device_cdc.h: 885: uint8_t bFNLength;
-[; ;usb_device_cdc.h: 886: uint8_t bDscType;
-[; ;usb_device_cdc.h: 887: uint8_t bDscSubType;
-[; ;usb_device_cdc.h: 888: uint8_t bmCapabilities;
-[; ;usb_device_cdc.h: 889: } USB_CDC_ACM_FN_DSC;
-[; ;usb_device_cdc.h: 892: typedef struct  _USB_CDC_UNION_FN_DSC
-[; ;usb_device_cdc.h: 893: {
-[; ;usb_device_cdc.h: 894: uint8_t bFNLength;
-[; ;usb_device_cdc.h: 895: uint8_t bDscType;
-[; ;usb_device_cdc.h: 896: uint8_t bDscSubType;
-[; ;usb_device_cdc.h: 897: uint8_t bMasterIntf;
-[; ;usb_device_cdc.h: 898: uint8_t bSaveIntf0;
-[; ;usb_device_cdc.h: 899: } USB_CDC_UNION_FN_DSC;
-[; ;usb_device_cdc.h: 902: typedef struct  _USB_CDC_CALL_MGT_FN_DSC
-[; ;usb_device_cdc.h: 903: {
-[; ;usb_device_cdc.h: 904: uint8_t bFNLength;
-[; ;usb_device_cdc.h: 905: uint8_t bDscType;
-[; ;usb_device_cdc.h: 906: uint8_t bDscSubType;
-[; ;usb_device_cdc.h: 907: uint8_t bmCapabilities;
-[; ;usb_device_cdc.h: 908: uint8_t bDataInterface;
-[; ;usb_device_cdc.h: 909: } USB_CDC_CALL_MGT_FN_DSC;
-[; ;usb_device_cdc.h: 911: typedef union  _CDC_NOTICE
-[; ;usb_device_cdc.h: 912: {
-[; ;usb_device_cdc.h: 913: LINE_CODING GetLineCoding;
-[; ;usb_device_cdc.h: 914: LINE_CODING SetLineCoding;
-[; ;usb_device_cdc.h: 915: unsigned char packet[10];
-[; ;usb_device_cdc.h: 916: } CDC_NOTICE, *PCDC_NOTICE;
-[; ;usb_device_cdc.h: 919: typedef union
-[; ;usb_device_cdc.h: 920: {
-[; ;usb_device_cdc.h: 921: uint8_t byte;
-[; ;usb_device_cdc.h: 922: struct
-[; ;usb_device_cdc.h: 923: {
-[; ;usb_device_cdc.h: 924: uint8_t DCD :1;
-[; ;usb_device_cdc.h: 925: uint8_t DSR :1;
-[; ;usb_device_cdc.h: 926: uint8_t BreakState :1;
-[; ;usb_device_cdc.h: 927: uint8_t RingDetect :1;
-[; ;usb_device_cdc.h: 928: uint8_t FramingError :1;
-[; ;usb_device_cdc.h: 929: uint8_t ParityError :1;
-[; ;usb_device_cdc.h: 930: uint8_t Overrun :1;
-[; ;usb_device_cdc.h: 931: uint8_t Reserved :1;
-[; ;usb_device_cdc.h: 932: }bits;
-[; ;usb_device_cdc.h: 933: }BM_SERIAL_STATE;
-[; ;usb_device_cdc.h: 936: typedef struct
-[; ;usb_device_cdc.h: 937: {
-[; ;usb_device_cdc.h: 938: uint8_t bmRequestType;
-[; ;usb_device_cdc.h: 939: uint8_t bNotification;
-[; ;usb_device_cdc.h: 940: uint16_t wValue;
-[; ;usb_device_cdc.h: 941: uint16_t wIndex;
-[; ;usb_device_cdc.h: 942: uint16_t wLength;
-[; ;usb_device_cdc.h: 943: BM_SERIAL_STATE SerialState;
-[; ;usb_device_cdc.h: 944: uint8_t Reserved;
-[; ;usb_device_cdc.h: 945: }SERIAL_STATE_NOTIFICATION;
-[; ;usb_device_cdc.h: 949: extern uint8_t cdc_rx_len;
-[; ;usb_device_cdc.h: 950: extern void* lastTransmission;
-[; ;usb_device_cdc.h: 952: extern uint8_t cdc_trf_state;
-[; ;usb_device_cdc.h: 953: extern POINTER pCDCSrc;
-[; ;usb_device_cdc.h: 954: extern uint8_t cdc_tx_len;
-[; ;usb_device_cdc.h: 955: extern uint8_t cdc_mem_type;
-[; ;usb_device_cdc.h: 957: extern CDC_NOTICE cdc_notice;
-[; ;usb_device_cdc.h: 958: extern LINE_CODING line_coding;
-[; ;usb_device_cdc.h: 960: extern volatile CTRL_TRF_SETUP SetupPkt;
-[; ;usb_device_cdc.h: 961: extern const uint8_t configDescriptor1[];
-"166 ../My_library/usb/usb_descriptors.c
-[v _device_dsc `CS1223 ~T0 @X0 1 e ]
-[i _device_dsc
-:U ..
-:U ..
-"168
--> -> 18 `i `uc
-"169
--> -> 1 `i `uc
-"170
--> -> 512 `i `ui
-"171
--> -> 2 `i `uc
-"172
--> -> 0 `i `uc
-"173
--> -> 0 `i `uc
-"174
--> -> 8 `i `uc
-"175
--> -> 1240 `i `ui
-"176
--> -> 10 `i `ui
-"177
--> -> 256 `i `ui
-"178
--> -> 1 `i `uc
-"179
--> -> 2 `i `uc
-"180
--> -> 0 `i `uc
-"182
--> -> 1 `i `uc
-..
-..
-]
-[; ;usb_descriptors.c: 166: const USB_DEVICE_DESCRIPTOR device_dsc=
-[; ;usb_descriptors.c: 167: {
-[; ;usb_descriptors.c: 168: 0x12,
-[; ;usb_descriptors.c: 169: 0x01,
-[; ;usb_descriptors.c: 170: 0x0200,
-[; ;usb_descriptors.c: 171: 0x02,
-[; ;usb_descriptors.c: 172: 0x00,
-[; ;usb_descriptors.c: 173: 0x00,
-[; ;usb_descriptors.c: 174: 8,
-[; ;usb_descriptors.c: 175: 0x04D8,
-[; ;usb_descriptors.c: 176: 0x000A,
-[; ;usb_descriptors.c: 177: 0x0100,
-[; ;usb_descriptors.c: 178: 0x01,
-[; ;usb_descriptors.c: 179: 0x02,
-[; ;usb_descriptors.c: 180: 0x00,
-[; ;usb_descriptors.c: 181: 0x01
-[; ;usb_descriptors.c: 182: };
-"185
-[v _configDescriptor1 `Cuc ~T0 @X0 -> 0 `x e ]
-[i _configDescriptor1
-:U ..
-"187
--> -> 9 `i `uc
-"188
--> -> 2 `i `uc
-"189
--> -> 67 `i `uc
--> -> 0 `i `uc
-"190
--> -> 2 `i `uc
-"191
--> -> 1 `i `uc
-"192
--> -> 0 `i `uc
-"193
--> | << -> 1 `i -> 7 `i << -> 1 `i -> 6 `i `uc
-"194
--> -> 50 `i `uc
-"197
--> -> 9 `i `uc
-"198
--> -> 4 `i `uc
-"199
--> -> 0 `i `uc
-"200
--> -> 0 `i `uc
-"201
--> -> 1 `i `uc
-"202
--> -> 2 `i `uc
-"203
--> -> 2 `i `uc
-"204
--> -> 1 `i `uc
-"205
--> -> 0 `i `uc
-"208
--> -> # `S1276 `ui `uc
-"209
--> -> 36 `i `uc
-"210
--> -> 0 `i `uc
-"211
--> -> 16 `i `uc
--> -> 1 `i `uc
-"213
--> -> # `S1277 `ui `uc
-"214
--> -> 36 `i `uc
-"215
--> -> 2 `i `uc
-"216
--> | | | -> 0 `i -> 0 `i -> 2 `i -> 0 `i `uc
-"218
--> -> # `S1278 `ui `uc
-"219
--> -> 36 `i `uc
-"220
--> -> 6 `i `uc
-"221
--> -> 0 `i `uc
-"222
--> -> 1 `i `uc
-"224
--> -> # `S1279 `ui `uc
-"225
--> -> 36 `i `uc
-"226
--> -> 1 `i `uc
-"227
--> -> 0 `i `uc
-"228
--> -> 1 `i `uc
-"232
--> -> 7 `i `uc
-"233
--> -> 5 `i `uc
-"234
--> -> 129 `i `uc
-"235
--> -> 3 `i `uc
-"236
--> -> 8 `i `uc
--> -> 0 `i `uc
-"237
--> -> 2 `i `uc
-"240
--> -> 9 `i `uc
-"241
--> -> 4 `i `uc
-"242
--> -> 1 `i `uc
-"243
--> -> 0 `i `uc
-"244
--> -> 2 `i `uc
-"245
--> -> 10 `i `uc
-"246
--> -> 0 `i `uc
-"247
--> -> 0 `i `uc
-"248
--> -> 0 `i `uc
-"252
--> -> 7 `i `uc
-"253
--> -> 5 `i `uc
-"254
--> -> 2 `i `uc
-"255
--> -> 2 `i `uc
-"256
--> -> 64 `i `uc
--> -> 0 `i `uc
-"257
--> -> 0 `i `uc
-"261
--> -> 7 `i `uc
-"262
--> -> 5 `i `uc
-"263
--> -> 130 `i `uc
-"264
--> -> 2 `i `uc
-"265
--> -> 64 `i `uc
--> -> 0 `i `uc
-"266
--> -> 0 `i `uc
-..
-]
-[; ;usb_descriptors.c: 185: const uint8_t configDescriptor1[]={
-[; ;usb_descriptors.c: 187: 0x09,
-[; ;usb_descriptors.c: 188: 0x02,
-[; ;usb_descriptors.c: 189: 67,0,
-[; ;usb_descriptors.c: 190: 2,
-[; ;usb_descriptors.c: 191: 1,
-[; ;usb_descriptors.c: 192: 0,
-[; ;usb_descriptors.c: 193: (0x01<<7) | (0x01<<6),
-[; ;usb_descriptors.c: 194: 50,
-[; ;usb_descriptors.c: 197: 9,
-[; ;usb_descriptors.c: 198: 0x04,
-[; ;usb_descriptors.c: 199: 0,
-[; ;usb_descriptors.c: 200: 0,
-[; ;usb_descriptors.c: 201: 1,
-[; ;usb_descriptors.c: 202: 0x02,
-[; ;usb_descriptors.c: 203: 0x02,
-[; ;usb_descriptors.c: 204: 0x01,
-[; ;usb_descriptors.c: 205: 0,
-[; ;usb_descriptors.c: 208: sizeof(USB_CDC_HEADER_FN_DSC),
-[; ;usb_descriptors.c: 209: 0x24,
-[; ;usb_descriptors.c: 210: 0x00,
-[; ;usb_descriptors.c: 211: 0x10,0x01,
-[; ;usb_descriptors.c: 213: sizeof(USB_CDC_ACM_FN_DSC),
-[; ;usb_descriptors.c: 214: 0x24,
-[; ;usb_descriptors.c: 215: 0x02,
-[; ;usb_descriptors.c: 216: 0x00 | 0x00 | 0x02 | 0x00,
-[; ;usb_descriptors.c: 218: sizeof(USB_CDC_UNION_FN_DSC),
-[; ;usb_descriptors.c: 219: 0x24,
-[; ;usb_descriptors.c: 220: 0x06,
-[; ;usb_descriptors.c: 221: 0x0,
-[; ;usb_descriptors.c: 222: 0x01,
-[; ;usb_descriptors.c: 224: sizeof(USB_CDC_CALL_MGT_FN_DSC),
-[; ;usb_descriptors.c: 225: 0x24,
-[; ;usb_descriptors.c: 226: 0x01,
-[; ;usb_descriptors.c: 227: 0x00,
-[; ;usb_descriptors.c: 228: 0x01,
-[; ;usb_descriptors.c: 232: 0x07,
-[; ;usb_descriptors.c: 233: 0x05,
-[; ;usb_descriptors.c: 234: 0x81,
-[; ;usb_descriptors.c: 235: 0x03,
-[; ;usb_descriptors.c: 236: 0x08,0x00,
-[; ;usb_descriptors.c: 237: 0x02,
-[; ;usb_descriptors.c: 240: 9,
-[; ;usb_descriptors.c: 241: 0x04,
-[; ;usb_descriptors.c: 242: 1,
-[; ;usb_descriptors.c: 243: 0,
-[; ;usb_descriptors.c: 244: 2,
-[; ;usb_descriptors.c: 245: 0x0A,
-[; ;usb_descriptors.c: 246: 0,
-[; ;usb_descriptors.c: 247: 0x00,
-[; ;usb_descriptors.c: 248: 0,
-[; ;usb_descriptors.c: 252: 0x07,
-[; ;usb_descriptors.c: 253: 0x05,
-[; ;usb_descriptors.c: 254: 0x02,
-[; ;usb_descriptors.c: 255: 0x02,
-[; ;usb_descriptors.c: 256: 0x40,0x00,
-[; ;usb_descriptors.c: 257: 0x00,
-[; ;usb_descriptors.c: 261: 0x07,
-[; ;usb_descriptors.c: 262: 0x05,
-[; ;usb_descriptors.c: 263: 0x82,
-[; ;usb_descriptors.c: 264: 0x02,
-[; ;usb_descriptors.c: 265: 0x40,0x00,
-[; ;usb_descriptors.c: 266: 0x00,
-[; ;usb_descriptors.c: 267: };
-"271
-[v _sd000 `CS1284 ~T0 @X0 1 e ]
-[i _sd000
-:U ..
-:U ..
-"272
--> -> # _sd000 `ui `uc
--> -> 3 `i `uc
-:U ..
--> -> 1033 `i `ui
-..
-..
-..
-]
-[; ;usb_descriptors.c: 271: const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[1];}sd000={
-[; ;usb_descriptors.c: 272: sizeof(sd000),0x03,{0x0409}};
-"275
-[v _sd001 `CS1285 ~T0 @X0 1 e ]
-[i _sd001
-:U ..
-:U ..
-"276
--> -> # _sd001 `ui `uc
--> -> 3 `i `uc
-:U ..
-"277
--> 77 `ui
--> 105 `ui
--> 99 `ui
--> 114 `ui
--> 111 `ui
--> 99 `ui
--> 104 `ui
--> 105 `ui
--> 112 `ui
--> 32 `ui
-"278
--> 84 `ui
--> 101 `ui
--> 99 `ui
--> 104 `ui
--> 110 `ui
--> 111 `ui
--> 108 `ui
--> 111 `ui
--> 103 `ui
--> 121 `ui
--> 32 `ui
--> 73 `ui
--> 110 `ui
--> 99 `ui
-"279
--> 46 `ui
-..
-..
-..
-]
-[; ;usb_descriptors.c: 275: const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[25];}sd001={
-[; ;usb_descriptors.c: 276: sizeof(sd001),0x03,
-[; ;usb_descriptors.c: 277: {'M','i','c','r','o','c','h','i','p',' ',
-[; ;usb_descriptors.c: 278: 'T','e','c','h','n','o','l','o','g','y',' ','I','n','c','.'
-[; ;usb_descriptors.c: 279: }};
-"282
-[v _sd002 `CS1286 ~T0 @X0 1 e ]
-[i _sd002
-:U ..
-:U ..
-"283
--> -> # _sd002 `ui `uc
--> -> 3 `i `uc
-:U ..
-"284
--> 67 `ui
--> 68 `ui
--> 67 `ui
--> 32 `ui
--> 82 `ui
--> 83 `ui
--> 45 `ui
--> 50 `ui
--> 51 `ui
--> 50 `ui
--> 32 `ui
-"285
--> 69 `ui
--> 109 `ui
--> 117 `ui
--> 108 `ui
--> 97 `ui
--> 116 `ui
--> 105 `ui
--> 111 `ui
--> 110 `ui
--> 32 `ui
--> 68 `ui
--> 101 `ui
--> 109 `ui
--> 111 `ui
-..
-..
-..
-]
-[; ;usb_descriptors.c: 282: const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[25];}sd002={
-[; ;usb_descriptors.c: 283: sizeof(sd002),0x03,
-[; ;usb_descriptors.c: 284: {'C','D','C',' ','R','S','-','2','3','2',' ',
-[; ;usb_descriptors.c: 285: 'E','m','u','l','a','t','i','o','n',' ','D','e','m','o'}
-[; ;usb_descriptors.c: 286: };
-[v F9249 `*Cuc ~T0 @X0 1 t ]
-"289
-[v _USB_CD_Ptr `C*Cuc ~T0 @X0 -> 0 `x e ]
-[i _USB_CD_Ptr
-:U ..
-"292
-[v F9250 `*Cuc ~T0 @X0 1 t ]
--> -> &U _configDescriptor1 `C*Cuc `*Cuc
-..
-]
-[; ;usb_descriptors.c: 289: const uint8_t *const USB_CD_Ptr[]=
-[; ;usb_descriptors.c: 290: {
-[; ;usb_descriptors.c: 291: (const uint8_t *const)&configDescriptor1
-[; ;usb_descriptors.c: 292: };
-[v F9254 `*Cuc ~T0 @X0 1 t ]
-"294
-[v _USB_SD_Ptr `C*Cuc ~T0 @X0 -> 3 `i e ]
-[i _USB_SD_Ptr
-:U ..
-"296
-[v F9255 `*Cuc ~T0 @X0 1 t ]
--> -> &U _sd000 `C*Cuc `*Cuc
-"297
-[v F9257 `*Cuc ~T0 @X0 1 t ]
--> -> &U _sd001 `C*Cuc `*Cuc
-"299
-[v F9259 `*Cuc ~T0 @X0 1 t ]
--> -> &U _sd002 `C*Cuc `*Cuc
-..
-]
-[; ;usb_descriptors.c: 294: const uint8_t *const USB_SD_Ptr[3]=
-[; ;usb_descriptors.c: 295: {
-[; ;usb_descriptors.c: 296: (const uint8_t *const)&sd000,
-[; ;usb_descriptors.c: 297: (const uint8_t *const)&sd001,
-[; ;usb_descriptors.c: 298: (const uint8_t *const)&sd002
-[; ;usb_descriptors.c: 299: };
+[; ;My_library\My_PIC.h: 20: void OSC_init(void);
+[; ;My_library\My_PIC.h: 36: void timer0_init(uint8_t prescaler);
+[; ;My_library\My_PIC.h: 51: void timer1_init(uint8_t prescaler, uint8_t clock_select);
+[; ;My_library\My_PIC.h: 62: void timer3_init(uint8_t prescaler);
+[; ;My_library\My_PIC.h: 68: void timer5_init(uint8_t prescaler);
+[; ;My_library\My_PIC.h: 78: void ADC_init(uint8_t p_ref);
+[; ;My_library\My_PIC.h: 87: uint16_t ADC(uint8_t ch);
+[; ;My_library\My_PIC.h: 95: void CTMU_init(void);
+[; ;My_library\My_PIC.h: 96: uint16_t CTMU_read(uint8_t ch);
+[; ;My_library\My_PIC.h: 101: void Delay_ms(uint16_t ms);
+[; ;My_library\My_PIC.h: 106: void millis_timer(void);
+[; ;My_library\My_PIC.h: 107: uint32_t millis(void);
+[; ;My_library\My_I2C.h: 19: extern uint8_t I2C_sent_flag;
+[; ;My_library\My_I2C.h: 20: extern uint8_t I2C_cfct_flag;
+[; ;My_library\My_I2C.h: 21: extern uint8_t I2C_busy;
+[; ;My_library\My_I2C.h: 23: uint8_t I2C_idole_check(uint8_t mask);
+[; ;My_library\My_I2C.h: 24: void I2C_start(void);
+[; ;My_library\My_I2C.h: 25: void I2C_restart(void);
+[; ;My_library\My_I2C.h: 26: void I2C_stop(void);
+[; ;My_library\My_I2C.h: 27: void I2C_send(uint8_t data);
+[; ;My_library\My_I2C.h: 28: uint8_t I2C_ack(void);
+[; ;My_library\My_I2C.h: 29: void I2C_init_new(void);
+[; ;My_library\My_I2C.h: 30: void I2C_ISR(void);
+[; ;My_library\My_I2C.h: 36: void I2C_IdleCheck(char mask);
+[; ;My_library\My_I2C.h: 37: void I2C_init_old(void);
+[; ;My_library\My_I2C.h: 38: uint8_t I2C_Start(uint8_t adrs, uint8_t rw);
+[; ;My_library\My_I2C.h: 39: uint8_t I2C_rStart(int adrs, int rw);
+[; ;My_library\My_I2C.h: 40: void I2C_Stop(void);
+[; ;My_library\My_I2C.h: 41: uint8_t I2C_Send(uint8_t data);
+[; ;My_library\My_I2C.h: 42: uint8_t I2C_Receive(uint8_t ack);
+"7 ../My_library/My_EEPROM.c
+[v _EEP_write `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+{
+[; ;My_EEPROM.c: 7: void EEP_write(uint8_t Reg_h, uint8_t Reg_l, uint8_t data) {
+[e :U _EEP_write ]
+[v _Reg_h `uc ~T0 @X0 1 r1 ]
+[v _Reg_l `uc ~T0 @X0 1 r2 ]
+[v _data `uc ~T0 @X0 1 r3 ]
+[f ]
+"8
+[v _ans `uc ~T0 @X0 1 a ]
+[; ;My_EEPROM.c: 8: uint8_t ans;
+[; ;My_EEPROM.c: 9: ans = I2C_Start(0x50, 0);
+"9
+[e = _ans ( _I2C_Start (2 , -> -> 80 `i `uc -> -> 0 `i `uc ]
+[; ;My_EEPROM.c: 10: if (ans == 0) {
+"10
+[e $ ! == -> _ans `i -> 0 `i 1219  ]
+{
+[; ;My_EEPROM.c: 12: I2C_Send(Reg_h);
+"12
+[e ( _I2C_Send (1 _Reg_h ]
+[; ;My_EEPROM.c: 13: I2C_Send(Reg_l);
+"13
+[e ( _I2C_Send (1 _Reg_l ]
+[; ;My_EEPROM.c: 14: I2C_Send(data);
+"14
+[e ( _I2C_Send (1 _data ]
+"15
+}
+[e :U 1219 ]
+[; ;My_EEPROM.c: 15: }
+[; ;My_EEPROM.c: 16: I2C_Stop();
+"16
+[e ( _I2C_Stop ..  ]
+[; ;My_EEPROM.c: 17: _delay((unsigned long)((26)*(48000000/4000000.0)));
+"17
+[e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
+[; ;My_EEPROM.c: 18: }
+"18
+[e :UE 1218 ]
+}
+"20
+[v _EEP_read `(uc ~T0 @X0 1 ef2`uc`uc ]
+{
+[; ;My_EEPROM.c: 20: uint8_t EEP_read(uint8_t Reg_h, uint8_t Reg_l) {
+[e :U _EEP_read ]
+[v _Reg_h `uc ~T0 @X0 1 r1 ]
+[v _Reg_l `uc ~T0 @X0 1 r2 ]
+[f ]
+"21
+[v _ans `uc ~T0 @X0 1 a ]
+"22
+[v _data `uc ~T0 @X0 1 a ]
+[; ;My_EEPROM.c: 21: uint8_t ans;
+[; ;My_EEPROM.c: 22: uint8_t data;
+[; ;My_EEPROM.c: 24: ans = I2C_Start(0x50, 0);
+"24
+[e = _ans ( _I2C_Start (2 , -> -> 80 `i `uc -> -> 0 `i `uc ]
+[; ;My_EEPROM.c: 25: if (ans == 0) {
+"25
+[e $ ! == -> _ans `i -> 0 `i 1221  ]
+{
+[; ;My_EEPROM.c: 26: I2C_Send(Reg_h);
+"26
+[e ( _I2C_Send (1 _Reg_h ]
+[; ;My_EEPROM.c: 27: I2C_Send(Reg_l);
+"27
+[e ( _I2C_Send (1 _Reg_l ]
+"28
+}
+[e :U 1221 ]
+[; ;My_EEPROM.c: 28: }
+[; ;My_EEPROM.c: 29: ans = I2C_rStart(0x50, 1);
+"29
+[e = _ans ( _I2C_rStart (2 , -> 80 `i -> 1 `i ]
+[; ;My_EEPROM.c: 30: if (ans == 0) {
+"30
+[e $ ! == -> _ans `i -> 0 `i 1222  ]
+{
+[; ;My_EEPROM.c: 31: data = I2C_Receive(1);
+"31
+[e = _data ( _I2C_Receive (1 -> -> 1 `i `uc ]
+"32
+}
+[e :U 1222 ]
+[; ;My_EEPROM.c: 32: }
+[; ;My_EEPROM.c: 33: I2C_Stop();
+"33
+[e ( _I2C_Stop ..  ]
+[; ;My_EEPROM.c: 34: _delay((unsigned long)((26)*(48000000/4000000.0)));
+"34
+[e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
+[; ;My_EEPROM.c: 35: return data;
+"35
+[e ) _data ]
+[e $UE 1220  ]
+[; ;My_EEPROM.c: 36: }
+"36
+[e :UE 1220 ]
+}
+"38
+[v _EEP_read16 `(ui ~T0 @X0 1 ef2`uc`uc ]
+{
+[; ;My_EEPROM.c: 38: uint16_t EEP_read16(uint8_t Reg_h, uint8_t Reg_l) {
+[e :U _EEP_read16 ]
+[v _Reg_h `uc ~T0 @X0 1 r1 ]
+[v _Reg_l `uc ~T0 @X0 1 r2 ]
+[f ]
+"39
+[v _ans `uc ~T0 @X0 1 a ]
+"40
+[v _d `uc ~T0 @X0 -> 4 `i a ]
+"41
+[v _data `ui ~T0 @X0 1 a ]
+[; ;My_EEPROM.c: 39: uint8_t ans;
+[; ;My_EEPROM.c: 40: uint8_t d[4];
+[; ;My_EEPROM.c: 41: uint16_t data;
+[; ;My_EEPROM.c: 43: ans = I2C_Start(0x50, 0);
+"43
+[e = _ans ( _I2C_Start (2 , -> -> 80 `i `uc -> -> 0 `i `uc ]
+[; ;My_EEPROM.c: 44: if (ans == 0) {
+"44
+[e $ ! == -> _ans `i -> 0 `i 1224  ]
+{
+[; ;My_EEPROM.c: 45: I2C_Send(Reg_h);
+"45
+[e ( _I2C_Send (1 _Reg_h ]
+[; ;My_EEPROM.c: 46: I2C_Send(Reg_l);
+"46
+[e ( _I2C_Send (1 _Reg_l ]
+"47
+}
+[e :U 1224 ]
+[; ;My_EEPROM.c: 47: }
+[; ;My_EEPROM.c: 48: ans = I2C_rStart(0x50, 1);
+"48
+[e = _ans ( _I2C_rStart (2 , -> 80 `i -> 1 `i ]
+[; ;My_EEPROM.c: 49: if (ans == 0) {
+"49
+[e $ ! == -> _ans `i -> 0 `i 1225  ]
+{
+[; ;My_EEPROM.c: 50: d[3] = I2C_Receive(0);
+"50
+[e = *U + &U _d * -> -> -> 3 `i `ui `ux -> -> # *U &U _d `ui `ux ( _I2C_Receive (1 -> -> 0 `i `uc ]
+[; ;My_EEPROM.c: 51: d[2] = I2C_Receive(0);
+"51
+[e = *U + &U _d * -> -> -> 2 `i `ui `ux -> -> # *U &U _d `ui `ux ( _I2C_Receive (1 -> -> 0 `i `uc ]
+[; ;My_EEPROM.c: 52: d[1] = I2C_Receive(0);
+"52
+[e = *U + &U _d * -> -> -> 1 `i `ui `ux -> -> # *U &U _d `ui `ux ( _I2C_Receive (1 -> -> 0 `i `uc ]
+[; ;My_EEPROM.c: 53: d[0] = I2C_Receive(1);
+"53
+[e = *U + &U _d * -> -> -> 0 `i `ui `ux -> -> # *U &U _d `ui `ux ( _I2C_Receive (1 -> -> 1 `i `uc ]
+"54
+}
+[e :U 1225 ]
+[; ;My_EEPROM.c: 54: }
+[; ;My_EEPROM.c: 55: I2C_Stop();
+"55
+[e ( _I2C_Stop ..  ]
+[; ;My_EEPROM.c: 56: _delay((unsigned long)((26)*(48000000/4000000.0)));
+"56
+[e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
+[; ;My_EEPROM.c: 57: data = (uint16_t) ((d[1] << 8) + d[0]);
+"57
+[e = _data -> + << -> *U + &U _d * -> -> -> 1 `i `ui `ux -> -> # *U &U _d `ui `ux `i -> 8 `i -> *U + &U _d * -> -> -> 0 `i `ui `ux -> -> # *U &U _d `ui `ux `i `ui ]
+[; ;My_EEPROM.c: 58: return data;
+"58
+[e ) _data ]
+[e $UE 1223  ]
+[; ;My_EEPROM.c: 59: }
+"59
+[e :UE 1223 ]
+}
+"61
+[v _EEP_read32 `(ul ~T0 @X0 1 ef2`uc`uc ]
+{
+[; ;My_EEPROM.c: 61: uint32_t EEP_read32(uint8_t Reg_h, uint8_t Reg_l) {
+[e :U _EEP_read32 ]
+[v _Reg_h `uc ~T0 @X0 1 r1 ]
+[v _Reg_l `uc ~T0 @X0 1 r2 ]
+[f ]
+"62
+[v _ans `uc ~T0 @X0 1 a ]
+"63
+[v _d `uc ~T0 @X0 -> 4 `i a ]
+"64
+[v _data `ul ~T0 @X0 1 a ]
+[; ;My_EEPROM.c: 62: uint8_t ans;
+[; ;My_EEPROM.c: 63: uint8_t d[4];
+[; ;My_EEPROM.c: 64: uint32_t data;
+[; ;My_EEPROM.c: 66: ans = I2C_Start(0x50, 0);
+"66
+[e = _ans ( _I2C_Start (2 , -> -> 80 `i `uc -> -> 0 `i `uc ]
+[; ;My_EEPROM.c: 67: if (ans == 0) {
+"67
+[e $ ! == -> _ans `i -> 0 `i 1227  ]
+{
+[; ;My_EEPROM.c: 68: I2C_Send(Reg_h);
+"68
+[e ( _I2C_Send (1 _Reg_h ]
+[; ;My_EEPROM.c: 69: I2C_Send(Reg_l);
+"69
+[e ( _I2C_Send (1 _Reg_l ]
+"70
+}
+[e :U 1227 ]
+[; ;My_EEPROM.c: 70: }
+[; ;My_EEPROM.c: 71: ans = I2C_rStart(0x50, 1);
+"71
+[e = _ans ( _I2C_rStart (2 , -> 80 `i -> 1 `i ]
+[; ;My_EEPROM.c: 72: if (ans == 0) {
+"72
+[e $ ! == -> _ans `i -> 0 `i 1228  ]
+{
+[; ;My_EEPROM.c: 73: d[3] = I2C_Receive(0);
+"73
+[e = *U + &U _d * -> -> -> 3 `i `ui `ux -> -> # *U &U _d `ui `ux ( _I2C_Receive (1 -> -> 0 `i `uc ]
+[; ;My_EEPROM.c: 74: d[2] = I2C_Receive(0);
+"74
+[e = *U + &U _d * -> -> -> 2 `i `ui `ux -> -> # *U &U _d `ui `ux ( _I2C_Receive (1 -> -> 0 `i `uc ]
+[; ;My_EEPROM.c: 75: d[1] = I2C_Receive(0);
+"75
+[e = *U + &U _d * -> -> -> 1 `i `ui `ux -> -> # *U &U _d `ui `ux ( _I2C_Receive (1 -> -> 0 `i `uc ]
+[; ;My_EEPROM.c: 76: d[0] = I2C_Receive(1);
+"76
+[e = *U + &U _d * -> -> -> 0 `i `ui `ux -> -> # *U &U _d `ui `ux ( _I2C_Receive (1 -> -> 1 `i `uc ]
+"77
+}
+[e :U 1228 ]
+[; ;My_EEPROM.c: 77: }
+[; ;My_EEPROM.c: 78: I2C_Stop();
+"78
+[e ( _I2C_Stop ..  ]
+[; ;My_EEPROM.c: 79: _delay((unsigned long)((26)*(48000000/4000000.0)));
+"79
+[e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
+[; ;My_EEPROM.c: 80: return (uint32_t) ((uint32_t) d[3] << 24)+((uint32_t) d[2] << 16)+(d[1] << 8) + d[0];
+"80
+[e ) + + + << -> *U + &U _d * -> -> -> 3 `i `ui `ux -> -> # *U &U _d `ui `ux `ul -> 24 `i << -> *U + &U _d * -> -> -> 2 `i `ui `ux -> -> # *U &U _d `ui `ux `ul -> 16 `i -> -> << -> *U + &U _d * -> -> -> 1 `i `ui `ux -> -> # *U &U _d `ui `ux `i -> 8 `i `l `ul -> *U + &U _d * -> -> -> 0 `i `ui `ux -> -> # *U &U _d `ui `ux `ul ]
+[e $UE 1226  ]
+[; ;My_EEPROM.c: 81: }
+"81
+[e :UE 1226 ]
+}
+"83
+[v _EEP_write16 `(v ~T0 @X0 1 ef3`uc`uc`ui ]
+{
+[; ;My_EEPROM.c: 83: void EEP_write16(uint8_t Reg_h, uint8_t Reg_l, uint16_t data) {
+[e :U _EEP_write16 ]
+[v _Reg_h `uc ~T0 @X0 1 r1 ]
+[v _Reg_l `uc ~T0 @X0 1 r2 ]
+[v _data `ui ~T0 @X0 1 r3 ]
+[f ]
+"84
+[v _ans `uc ~T0 @X0 1 a ]
+[; ;My_EEPROM.c: 84: uint8_t ans;
+[; ;My_EEPROM.c: 85: ans = I2C_Start(0x50, 0);
+"85
+[e = _ans ( _I2C_Start (2 , -> -> 80 `i `uc -> -> 0 `i `uc ]
+[; ;My_EEPROM.c: 86: if (ans == 0) {
+"86
+[e $ ! == -> _ans `i -> 0 `i 1230  ]
+{
+[; ;My_EEPROM.c: 88: I2C_Send(Reg_h);
+"88
+[e ( _I2C_Send (1 _Reg_h ]
+[; ;My_EEPROM.c: 89: I2C_Send(Reg_l);
+"89
+[e ( _I2C_Send (1 _Reg_l ]
+[; ;My_EEPROM.c: 90: I2C_Send(data >> 8);
+"90
+[e ( _I2C_Send (1 -> >> _data -> 8 `i `uc ]
+[; ;My_EEPROM.c: 91: I2C_Send(data >> 0);
+"91
+[e ( _I2C_Send (1 -> >> _data -> 0 `i `uc ]
+"92
+}
+[e :U 1230 ]
+[; ;My_EEPROM.c: 92: }
+[; ;My_EEPROM.c: 93: I2C_Stop();
+"93
+[e ( _I2C_Stop ..  ]
+[; ;My_EEPROM.c: 94: _delay((unsigned long)((26)*(48000000/4000000.0)));
+"94
+[e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
+[; ;My_EEPROM.c: 95: }
+"95
+[e :UE 1229 ]
+}
+"97
+[v _EEP_write32 `(v ~T0 @X0 1 ef3`uc`uc`ul ]
+{
+[; ;My_EEPROM.c: 97: void EEP_write32(uint8_t Reg_h, uint8_t Reg_l, uint32_t data) {
+[e :U _EEP_write32 ]
+[v _Reg_h `uc ~T0 @X0 1 r1 ]
+[v _Reg_l `uc ~T0 @X0 1 r2 ]
+[v _data `ul ~T0 @X0 1 r3 ]
+[f ]
+"98
+[v _ans `uc ~T0 @X0 1 a ]
+[; ;My_EEPROM.c: 98: uint8_t ans;
+[; ;My_EEPROM.c: 99: ans = I2C_Start(0x50, 0);
+"99
+[e = _ans ( _I2C_Start (2 , -> -> 80 `i `uc -> -> 0 `i `uc ]
+[; ;My_EEPROM.c: 100: if (ans == 0) {
+"100
+[e $ ! == -> _ans `i -> 0 `i 1232  ]
+{
+[; ;My_EEPROM.c: 102: I2C_Send(Reg_h);
+"102
+[e ( _I2C_Send (1 _Reg_h ]
+[; ;My_EEPROM.c: 103: I2C_Send(Reg_l);
+"103
+[e ( _I2C_Send (1 _Reg_l ]
+[; ;My_EEPROM.c: 104: I2C_Send(data >> 24);
+"104
+[e ( _I2C_Send (1 -> >> _data -> 24 `i `uc ]
+[; ;My_EEPROM.c: 105: I2C_Send(data >> 16);
+"105
+[e ( _I2C_Send (1 -> >> _data -> 16 `i `uc ]
+[; ;My_EEPROM.c: 106: I2C_Send(data >> 8);
+"106
+[e ( _I2C_Send (1 -> >> _data -> 8 `i `uc ]
+[; ;My_EEPROM.c: 107: I2C_Send(data >> 0);
+"107
+[e ( _I2C_Send (1 -> >> _data -> 0 `i `uc ]
+"108
+}
+[e :U 1232 ]
+[; ;My_EEPROM.c: 108: }
+[; ;My_EEPROM.c: 109: I2C_Stop();
+"109
+[e ( _I2C_Stop ..  ]
+[; ;My_EEPROM.c: 110: _delay((unsigned long)((26)*(48000000/4000000.0)));
+"110
+[e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
+[; ;My_EEPROM.c: 111: }
+"111
+[e :UE 1231 ]
+}
