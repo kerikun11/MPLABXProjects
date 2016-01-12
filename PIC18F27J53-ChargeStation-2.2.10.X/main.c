@@ -39,7 +39,7 @@
 #include <My_PIC.h>
 #include <My_ST7032.h>
 #include <My_RTCC.h>
-#include <My_usb_cdc.h>
+#include <My_USB_CDC.h>
 #include <My_terminal.h>
 #include "ChargeStation_task.h"
 #include "ctmu.h"
@@ -48,7 +48,7 @@
 #include "settings.h"
 
 void interrupt ISR(void) {
-    USB_ISR();
+    USB_CDC_ISR();
     I2C_ISR();
     if (INTCONbits.T0IF && INTCONbits.T0IE) {
         INTCONbits.T0IF = 0;
@@ -99,12 +99,7 @@ void hardware_init(void) {
     RTCC_init();
     ADC_init(VDD);
     CTMU_init();
-
-    USB_init();
-    static uint8_t usbtx[1800];
-    ringbuf_init(&usb_tx, usbtx, sizeof (usbtx));
-    static uint8_t usbrx[100];
-    ringbuf_init(&usb_rx, usbrx, sizeof (usbrx));
+    USB_CDC_init();
 }
 
 void software_init(void) {
@@ -145,7 +140,7 @@ int main(void) {
         ST7032_task();
         INTCONbits.GIE = 1;
         INTCONbits.GIE = 0;
-        USB_task();
+        USB_CDC_task();
         INTCONbits.GIE = 1;
         INTCONbits.GIE = 0;
         terminal_task(&usb_tx, &usb_rx);

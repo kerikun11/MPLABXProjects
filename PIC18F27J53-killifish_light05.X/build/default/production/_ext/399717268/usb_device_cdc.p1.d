@@ -7,6 +7,5 @@
 ../My_library/usb/usb_hal.h  \
 ../My_library/usb/usb_device_cdc.h  \
 ../My_library/usb/usb_device.h  \
-../My_library/usb/system.h  \
 ../My_library/usb/usb_config.h  \
 ../My_library/usb/usb_ch9.h 

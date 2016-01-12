@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.35 build -356382666 
-                                                                                               Wed Nov 11 14:23:52 2015
+                                                                                               Tue Jan 12 20:32:21 2016
 
 Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080246
      1                           	processor	18F27J53
@@ -3510,7 +3510,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3504 ;;
   3505 ;; *************** function _main *****************
   3506 ;; Defined at:
-  3507 ;;		line 139 in file "main.c"
+  3507 ;;		line 138 in file "main.c"
   3508 ;; Parameters:    Size  Location     Type
   3509 ;;		None
   3510 ;; Auto vars:     Size  Location     Type
@@ -3556,38 +3556,38 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3545  0167AC                     _main:
   3546                           	opt stack 11
   3547                           
-  3548                           ;main.c: 141: hardware_init();
+  3548                           ;main.c: 140: hardware_init();
   3549                           
   3550                           ;incstack = 0
   3551  0167AC  EC11  F0AE         	call	_hardware_init	;wreg free
   3552                           
-  3553                           ;main.c: 143: software_init();
+  3553                           ;main.c: 142: software_init();
   3554  0167B0  EC01  F0A1         	call	_software_init	;wreg free
   3555  0167B4  D030               	goto	l12572
   3556  0167B6                     l12530:
   3557                           
-  3558                           ;main.c: 148: INTCONbits.GIE = 0;
+  3558                           ;main.c: 147: INTCONbits.GIE = 0;
   3559  0167B6  9EF2               	bcf	intcon,7,c	;volatile
   3560                           
-  3561                           ;main.c: 149: RTCC_loop();
+  3561                           ;main.c: 148: RTCC_loop();
   3562  0167B8  ECB3  F0B6         	call	_RTCC_loop	;wreg free
   3563                           
-  3564                           ;main.c: 150: INTCONbits.GIE = 1;
+  3564                           ;main.c: 149: INTCONbits.GIE = 1;
   3565  0167BC  8EF2               	bsf	intcon,7,c	;volatile
   3566                           
-  3567                           ;main.c: 151: INTCONbits.GIE = 0;
+  3567                           ;main.c: 150: INTCONbits.GIE = 0;
   3568  0167BE  9EF2               	bcf	intcon,7,c	;volatile
   3569                           
-  3570                           ;main.c: 152: USB_loop();
+  3570                           ;main.c: 151: USB_loop();
   3571  0167C0  ECF3  F0AF         	call	_USB_loop	;wreg free
   3572                           
-  3573                           ;main.c: 153: INTCONbits.GIE = 1;
+  3573                           ;main.c: 152: INTCONbits.GIE = 1;
   3574  0167C4  8EF2               	bsf	intcon,7,c	;volatile
   3575                           
-  3576                           ;main.c: 154: INTCONbits.GIE = 0;
+  3576                           ;main.c: 153: INTCONbits.GIE = 0;
   3577  0167C6  9EF2               	bcf	intcon,7,c	;volatile
   3578                           
-  3579                           ;main.c: 155: my_terminal_loop(&usb_tx, &usb_rx);
+  3579                           ;main.c: 154: my_terminal_loop(&usb_tx, &usb_rx);
   3580  0167C8  0E6E               	movlw	low _usb_tx
   3581  0167CA  0101               	movlb	1	; () banked
   3582  0167CC  6F92               	movwf	my_terminal_loop@tx& (0+255),b
@@ -3602,25 +3602,25 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3591  0167DE  6F95               	movwf	(my_terminal_loop@rx+1)& (0+255),b
   3592  0167E0  EC7C  F08F         	call	_my_terminal_loop	;wreg free
   3593                           
-  3594                           ;main.c: 156: INTCONbits.GIE = 1;
+  3594                           ;main.c: 155: INTCONbits.GIE = 1;
   3595  0167E4  8EF2               	bsf	intcon,7,c	;volatile
   3596                           
-  3597                           ;main.c: 157: INTCONbits.GIE = 0;
+  3597                           ;main.c: 156: INTCONbits.GIE = 0;
   3598  0167E6  9EF2               	bcf	intcon,7,c	;volatile
   3599                           
-  3600                           ;main.c: 158: normal_loop();
+  3600                           ;main.c: 157: normal_loop();
   3601  0167E8  EC23  F099         	call	_normal_loop	;wreg free
   3602                           
-  3603                           ;main.c: 159: INTCONbits.GIE = 1;
+  3603                           ;main.c: 158: INTCONbits.GIE = 1;
   3604  0167EC  8EF2               	bsf	intcon,7,c	;volatile
   3605                           
-  3606                           ;main.c: 160: INTCONbits.GIE = 0;
+  3606                           ;main.c: 159: INTCONbits.GIE = 0;
   3607  0167EE  9EF2               	bcf	intcon,7,c	;volatile
   3608                           
-  3609                           ;main.c: 161: ctmu_loop();
+  3609                           ;main.c: 160: ctmu_loop();
   3610  0167F0  EC13  F0BA         	call	_ctmu_loop	;wreg free
   3611                           
-  3612                           ;main.c: 162: if (ctmu_m.flag.pressing && port[0].ctmu.flag.pressing && port[1].ctmu.fla
+  3612                           ;main.c: 161: if (ctmu_m.flag.pressing && port[0].ctmu.flag.pressing && port[1].ctmu.fla
       +                          g.pressing && port[2].ctmu.flag.pressing) {
   3613  0167F4  0101               	movlb	1	; () banked
   3614  0167F6  A18F               	btfss	(_ctmu_m+3)& (0+255),0,b
@@ -3641,22 +3641,22 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3629  016808  B15A               	btfsc	(_port+49)& (0+255),0,b
   3630                           
   3631                           ; BSR set to: 1
-  3632                           ;main.c: 163: bootload();
+  3632                           ;main.c: 162: bootload();
   3633  01680A  ECD5  F0B6         	call	_bootload	;wreg free
   3634  01680E                     l12568:
   3635                           
-  3636                           ;main.c: 164: }
-  3637                           ;main.c: 165: INTCONbits.GIE = 1;
+  3636                           ;main.c: 163: }
+  3637                           ;main.c: 164: INTCONbits.GIE = 1;
   3638  01680E  8EF2               	bsf	intcon,7,c	;volatile
   3639                           
-  3640                           ;main.c: 166: INTCONbits.GIE = 0;
+  3640                           ;main.c: 165: INTCONbits.GIE = 0;
   3641  016810  9EF2               	bcf	intcon,7,c	;volatile
   3642                           
-  3643                           ;main.c: 167: sleep_loop();
+  3643                           ;main.c: 166: sleep_loop();
   3644  016812  ECC0  F0A8         	call	_sleep_loop	;wreg free
   3645  016816                     l12572:
   3646                           
-  3647                           ;main.c: 168: INTCONbits.GIE = 1;
+  3647                           ;main.c: 167: INTCONbits.GIE = 1;
   3648  016816  8EF2               	bsf	intcon,7,c	;volatile
   3649  016818  D7CE               	goto	l12530
   3650  01681A                     __end_of_main:
@@ -3674,7 +3674,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3662                           
   3663 ;; *************** function _software_init *****************
   3664 ;; Defined at:
-  3665 ;;		line 112 in file "main.c"
+  3665 ;;		line 111 in file "main.c"
   3666 ;; Parameters:    Size  Location     Type
   3667 ;;		None
   3668 ;; Auto vars:     Size  Location     Type
@@ -3719,7 +3719,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3702  014202                     _software_init:
   3703                           	opt stack 15
   3704                           
-  3705                           ;main.c: 114: ctmu_ratio = 90;
+  3705                           ;main.c: 113: ctmu_ratio = 90;
   3706                           
   3707                           ;incstack = 0
   3708  014202  0E5A               	movlw	90
@@ -3727,12 +3727,12 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3710  014206  6FF5               	movwf	_ctmu_ratio& (0+255),b
   3711                           
   3712                           ; BSR set to: 0
-  3713                           ;main.c: 115: ctmu_set_ratio(ctmu_ratio);
+  3713                           ;main.c: 114: ctmu_set_ratio(ctmu_ratio);
   3714  014208  0100               	movlb	0	; () banked
   3715  01420A  51F5               	movf	_ctmu_ratio& (0+255),w,b
   3716  01420C  ECE9  F0A4         	call	_ctmu_set_ratio
   3717                           
-  3718                           ;main.c: 118: RTCC_from_RTCC(&caltime_now, &epoch_now);
+  3718                           ;main.c: 117: RTCC_from_RTCC(&caltime_now, &epoch_now);
   3719  014210  0E7E               	movlw	low _caltime_now
   3720  014212  0100               	movlb	0	; () banked
   3721  014214  6F88               	movwf	RTCC_from_RTCC@ct& (0+255),b
@@ -3747,14 +3747,14 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3730  014226  6F8B               	movwf	(RTCC_from_RTCC@ep+1)& (0+255),b
   3731  014228  EC7F  F0B9         	call	_RTCC_from_RTCC	;wreg free
   3732                           
-  3733                           ;main.c: 119: if (caltime_now.DD == 0) {
+  3733                           ;main.c: 118: if (caltime_now.DD == 0) {
   3734  01422C  0101               	movlb	1	; () banked
   3735  01422E  5182               	movf	(_caltime_now+4)& (0+255),w,b
   3736  014230  A4D8               	btfss	status,2,c
   3737  014232  D017               	goto	l12326
   3738                           
   3739                           ; BSR set to: 1
-  3740                           ;main.c: 120: epoch_now = 0;
+  3740                           ;main.c: 119: epoch_now = 0;
   3741  014234  0E00               	movlw	0
   3742  014236  0100               	movlb	0	; () banked
   3743  014238  6FFC               	movwf	_epoch_now& (0+255),b
@@ -3766,7 +3766,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3749  014244  6FFF               	movwf	(_epoch_now+3)& (0+255),b
   3750                           
   3751                           ; BSR set to: 0
-  3752                           ;main.c: 121: RTCC_from_epoch(&caltime_now, &epoch_now);
+  3752                           ;main.c: 120: RTCC_from_epoch(&caltime_now, &epoch_now);
   3753  014246  0E7E               	movlw	low _caltime_now
   3754  014248  0100               	movlb	0	; () banked
   3755  01424A  6F91               	movwf	RTCC_from_epoch@ct& (0+255),b
@@ -3782,8 +3782,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3765  01425E  EC6E  F0B9         	call	_RTCC_from_epoch	;wreg free
   3766  014262                     l12326:
   3767                           
-  3768                           ;main.c: 122: }
-  3769                           ;main.c: 124: display_char_puts("Charge Station", "Made by KERI");
+  3768                           ;main.c: 121: }
+  3769                           ;main.c: 123: display_char_puts("Charge Station", "Made by KERI");
   3770  014262  0ED1               	movlw	low STR_138
   3771  014264  0100               	movlb	0	; () banked
   3772  014266  6F60               	movwf	display_char_puts@str0& (0+255),b
@@ -3798,11 +3798,11 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3781  014278  6F63               	movwf	(display_char_puts@str1+1)& (0+255),b
   3782  01427A  EC86  F0A3         	call	_display_char_puts	;wreg free
   3783                           
-  3784                           ;main.c: 125: display_now(LOGO);
+  3784                           ;main.c: 124: display_now(LOGO);
   3785  01427E  0E00               	movlw	0
   3786  014280  EC01  F0BA         	call	_display_now
   3787                           
-  3788                           ;main.c: 128: for (uint8_t i = 0; i < 3; i++) {
+  3788                           ;main.c: 127: for (uint8_t i = 0; i < 3; i++) {
   3789  014284  0E00               	movlw	0
   3790  014286  0100               	movlb	0	; () banked
   3791  014288  6F95               	movwf	software_init@i& (0+255),b
@@ -3817,7 +3817,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3800  014294                     l12336:
   3801                           
   3802                           ; BSR set to: 0
-  3803                           ;main.c: 129: OUT(i, 0);
+  3803                           ;main.c: 128: OUT(i, 0);
   3804  014294  0E00               	movlw	0
   3805  014296  0100               	movlb	0	; () banked
   3806  014298  6F60               	movwf	OUT@value& (0+255),b
@@ -3825,7 +3825,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3808  01429C  5195               	movf	software_init@i& (0+255),w,b
   3809  01429E  EC9D  F0B3         	call	_OUT
   3810                           
-  3811                           ;main.c: 130: LED_OUT(i, 0);
+  3811                           ;main.c: 129: LED_OUT(i, 0);
   3812  0142A2  0E00               	movlw	0
   3813  0142A4  0100               	movlb	0	; () banked
   3814  0142A6  6F60               	movwf	LED_OUT@value& (0+255),b
@@ -3833,7 +3833,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3816  0142AA  5195               	movf	software_init@i& (0+255),w,b
   3817  0142AC  EC64  F0B3         	call	_LED_OUT
   3818                           
-  3819                           ;main.c: 131: port[i].cut_cnt = 0;
+  3819                           ;main.c: 130: port[i].cut_cnt = 0;
   3820  0142B0  0100               	movlb	0	; () banked
   3821  0142B2  5195               	movf	software_init@i& (0+255),w,b
   3822  0142B4  0D17               	mullw	23
@@ -3853,7 +3853,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3836  0142D0  6EDD               	movwf	postdec2,c
   3837                           
   3838                           ; BSR set to: 0
-  3839                           ;main.c: 132: port[i].flag.auto_cut_ON = 1;
+  3839                           ;main.c: 131: port[i].flag.auto_cut_ON = 1;
   3840  0142D2  0100               	movlb	0	; () banked
   3841  0142D4  5195               	movf	software_init@i& (0+255),w,b
   3842  0142D6  0D17               	mullw	23
@@ -3871,7 +3871,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3854  0142EE  80DF               	bsf	indf2,0,c
   3855                           
   3856                           ; BSR set to: 1
-  3857                           ;main.c: 133: port[i].flag.led_indicator_ON = 1;
+  3857                           ;main.c: 132: port[i].flag.led_indicator_ON = 1;
   3858  0142F0  0100               	movlb	0	; () banked
   3859  0142F2  5195               	movf	software_init@i& (0+255),w,b
   3860  0142F4  0D17               	mullw	23
@@ -3895,8 +3895,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3878  014314                     l12348:
   3879                           
   3880                           ; BSR set to: 0
-  3881                           ;main.c: 134: }
-  3882                           ;main.c: 136: settings_flag = 0;
+  3881                           ;main.c: 133: }
+  3882                           ;main.c: 135: settings_flag = 0;
   3883  014314  0E00               	movlw	0
   3884  014316  6E25               	movwf	_settings_flag,c
   3885                           
@@ -17606,7 +17606,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17311                           
  17312 ;; *************** function _hardware_init *****************
  17313 ;; Defined at:
- 17314 ;;		line 85 in file "main.c"
+ 17314 ;;		line 84 in file "main.c"
  17315 ;; Parameters:    Size  Location     Type
  17316 ;;		None
  17317 ;; Auto vars:     Size  Location     Type
@@ -17654,83 +17654,83 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17354  015C22                     _hardware_init:
  17355                           	opt stack 14
  17356                           
- 17357                           ;main.c: 86: OSCCONbits.IRCF = 7;
+ 17357                           ;main.c: 85: OSCCONbits.IRCF = 7;
  17358                           
  17359                           ;incstack = 0
  17360  015C22  88D3               	bsf	4051,4,c	;volatile
  17361  015C24  8AD3               	bsf	4051,5,c	;volatile
  17362  015C26  8CD3               	bsf	4051,6,c	;volatile
  17363                           
- 17364                           ;main.c: 87: OSCTUNEbits.PLLEN = 1;
+ 17364                           ;main.c: 86: OSCTUNEbits.PLLEN = 1;
  17365  015C28  8C9B               	bsf	3995,6,c	;volatile
  17366                           
- 17367                           ;main.c: 88: OSCCONbits.SCS = 0;
+ 17367                           ;main.c: 87: OSCCONbits.SCS = 0;
  17368  015C2A  0EFC               	movlw	-4
  17369  015C2C  16D3               	andwf	4051,f,c	;volatile
  17370                           
- 17371                           ;main.c: 89: TRISA = 0b00011111;
+ 17371                           ;main.c: 88: TRISA = 0b00011111;
  17372  015C2E  0E1F               	movlw	31
  17373  015C30  6E92               	movwf	3986,c	;volatile
  17374                           
- 17375                           ;main.c: 90: TRISB = 0b00111111;
+ 17375                           ;main.c: 89: TRISB = 0b00111111;
  17376  015C32  0E3F               	movlw	63
  17377  015C34  6E93               	movwf	3987,c	;volatile
  17378                           
- 17379                           ;main.c: 91: TRISC = 0b10110010;
+ 17379                           ;main.c: 90: TRISC = 0b10110010;
  17380  015C36  0EB2               	movlw	178
  17381  015C38  6E94               	movwf	3988,c	;volatile
  17382                           
- 17383                           ;main.c: 92: ANCON0 = 0b11110000;
+ 17383                           ;main.c: 91: ANCON0 = 0b11110000;
  17384  015C3A  0EF0               	movlw	240
  17385  015C3C  010F               	movlb	15	; () banked
  17386  015C3E  6F48               	movwf	72,b	;volatile
  17387                           
- 17388                           ;main.c: 93: ANCON1 = 0b00001000;
+ 17388                           ;main.c: 92: ANCON1 = 0b00001000;
  17389  015C40  0E08               	movlw	8
  17390  015C42  010F               	movlb	15	; () banked
  17391  015C44  6F49               	movwf	73,b	;volatile
  17392                           
  17393                           ; BSR set to: 15
- 17394                           ;main.c: 94: INTCON2bits.RBPU = 0;
+ 17394                           ;main.c: 93: INTCON2bits.RBPU = 0;
  17395  015C46  9EF1               	bcf	intcon2,7,c	;volatile
  17396                           
  17397                           ; BSR set to: 15
- 17398                           ;main.c: 96: timer0_init(0);
+ 17398                           ;main.c: 95: timer0_init(0);
  17399  015C48  0E00               	movlw	0
  17400  015C4A  EC34  F0B7         	call	_timer0_init
  17401                           
- 17402                           ;main.c: 97: timer1_init(0, 2);
+ 17402                           ;main.c: 96: timer1_init(0, 2);
  17403  015C4E  0E02               	movlw	2
  17404  015C50  0100               	movlb	0	; () banked
  17405  015C52  6F60               	movwf	timer1_init@clock_select& (0+255),b
  17406  015C54  0E00               	movlw	0
  17407  015C56  EC42  F0B6         	call	_timer1_init
  17408                           
- 17409                           ;main.c: 98: timer3_init(2);
+ 17409                           ;main.c: 97: timer3_init(2);
  17410  015C5A  0E02               	movlw	2
  17411  015C5C  ECB3  F0B8         	call	_timer3_init
  17412                           
- 17413                           ;main.c: 99: I2C_init();
+ 17413                           ;main.c: 98: I2C_init();
  17414  015C60  EC0A  F0BA         	call	_I2C_init	;wreg free
  17415                           
- 17416                           ;main.c: 100: I2C_LCD_init();
+ 17416                           ;main.c: 99: I2C_LCD_init();
  17417  015C64  EC97  F0B5         	call	_I2C_LCD_init	;wreg free
  17418                           
- 17419                           ;main.c: 101: RTCC_init();
+ 17419                           ;main.c: 100: RTCC_init();
  17420  015C68  EC59  F0B8         	call	_RTCC_init	;wreg free
  17421                           
- 17422                           ;main.c: 102: ADC_init(0);
+ 17422                           ;main.c: 101: ADC_init(0);
  17423  015C6C  0E00               	movlw	0
  17424  015C6E  EC90  F0B9         	call	_ADC_init
  17425                           
- 17426                           ;main.c: 103: CTMU_init();
+ 17426                           ;main.c: 102: CTMU_init();
  17427  015C72  EC34  F0B9         	call	_CTMU_init	;wreg free
  17428                           
- 17429                           ;main.c: 105: USB_init();
+ 17429                           ;main.c: 104: USB_init();
  17430  015C76  EC20  F0BA         	call	_USB_init	;wreg free
  17431                           
- 17432                           ;main.c: 106: static uint8_t usbtx[2000];
- 17433                           ;main.c: 107: ringbuf_init(&usb_tx, usbtx, sizeof (usbtx));
+ 17432                           ;main.c: 105: static uint8_t usbtx[2000];
+ 17433                           ;main.c: 106: ringbuf_init(&usb_tx, usbtx, sizeof (usbtx));
  17434  015C7A  0E6E               	movlw	low _usb_tx
  17435  015C7C  0100               	movlb	0	; () banked
  17436  015C7E  6F60               	movwf	ringbuf_init@rb& (0+255),b
@@ -17750,8 +17750,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17450  015C9A  6F64               	movwf	ringbuf_init@bufsize& (0+255),b
  17451  015C9C  ECEF  F0B5         	call	_ringbuf_init	;wreg free
  17452                           
- 17453                           ;main.c: 108: static uint8_t usbrx[100];
- 17454                           ;main.c: 109: ringbuf_init(&usb_rx, usbrx, sizeof (usbrx));
+ 17453                           ;main.c: 107: static uint8_t usbrx[100];
+ 17454                           ;main.c: 108: ringbuf_init(&usb_rx, usbrx, sizeof (usbrx));
  17455  015CA0  0EE2               	movlw	low _usb_rx
  17456  015CA2  0100               	movlb	0	; () banked
  17457  015CA4  6F60               	movwf	ringbuf_init@rb& (0+255),b
@@ -24876,7 +24876,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24339                           
  24340 ;; *************** function _ISR *****************
  24341 ;; Defined at:
- 24342 ;;		line 51 in file "main.c"
+ 24342 ;;		line 50 in file "main.c"
  24343 ;; Parameters:    Size  Location     Type
  24344 ;;		None
  24345 ;; Auto vars:     Size  Location     Type
@@ -24937,73 +24937,73 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24395  00003A  CFF8 F057          	movff	tblptru,??_ISR+12
  24396  00003E  CFF5 F058          	movff	tablat,??_ISR+13
  24397                           
- 24398                           ;main.c: 52: USB_ISR();
+ 24398                           ;main.c: 51: USB_ISR();
  24399  000042  EC2A  F0BA         	call	_USB_ISR	;wreg free
  24400                           
- 24401                           ;main.c: 53: if (INTCONbits.T0IF && INTCONbits.T0IE) {
+ 24401                           ;main.c: 52: if (INTCONbits.T0IF && INTCONbits.T0IE) {
  24402  000046  B4F2               	btfsc	intcon,2,c	;volatile
  24403  000048  AAF2               	btfss	intcon,5,c	;volatile
  24404  00004A  D003               	goto	i2l9904
  24405                           
- 24406                           ;main.c: 54: INTCONbits.T0IF = 0;
+ 24406                           ;main.c: 53: INTCONbits.T0IF = 0;
  24407  00004C  94F2               	bcf	intcon,2,c	;volatile
  24408                           
- 24409                           ;main.c: 55: millis_timer();
+ 24409                           ;main.c: 54: millis_timer();
  24410  00004E  EC5B  F0B9         	call	_millis_timer	;wreg free
  24411  000052                     i2l9904:
  24412                           
- 24413                           ;main.c: 56: }
- 24414                           ;main.c: 57: if (PIR1bits.TMR1IF && PIE1bits.TMR1IE) {
+ 24413                           ;main.c: 55: }
+ 24414                           ;main.c: 56: if (PIR1bits.TMR1IF && PIE1bits.TMR1IE) {
  24415  000052  B09E               	btfsc	3998,0,c	;volatile
  24416  000054  A09D               	btfss	3997,0,c	;volatile
  24417  000056  D01D               	goto	i2l9924
  24418                           
- 24419                           ;main.c: 58: PIR1bits.TMR1IF = 0;
+ 24419                           ;main.c: 57: PIR1bits.TMR1IF = 0;
  24420  000058  909E               	bcf	3998,0,c	;volatile
  24421                           
- 24422                           ;main.c: 59: TMR1H = 0xC0;
+ 24422                           ;main.c: 58: TMR1H = 0xC0;
  24423  00005A  0EC0               	movlw	192
  24424  00005C  6ECF               	movwf	4047,c	;volatile
  24425                           
- 24426                           ;main.c: 60: cut_time_flag = 1;
+ 24426                           ;main.c: 59: cut_time_flag = 1;
  24427  00005E  0E01               	movlw	1
  24428  000060  6E22               	movwf	_cut_time_flag,c
  24429                           
- 24430                           ;main.c: 61: static uint8_t cnt_t1 = 0;
- 24431                           ;main.c: 62: if (cnt_t1) {
+ 24430                           ;main.c: 60: static uint8_t cnt_t1 = 0;
+ 24431                           ;main.c: 61: if (cnt_t1) {
  24432  000062  0101               	movlb	1	; () banked
  24433  000064  5122               	movf	ISR@cnt_t1& (0+255),w,b
  24434  000066  B4D8               	btfsc	status,2,c
  24435  000068  D004               	goto	i2l9914
  24436                           
  24437                           ; BSR set to: 1
- 24438                           ;main.c: 63: cnt_t1 = 0;
+ 24438                           ;main.c: 62: cnt_t1 = 0;
  24439  00006A  0E00               	movlw	0
  24440  00006C  0101               	movlb	1	; () banked
  24441  00006E  6F22               	movwf	ISR@cnt_t1& (0+255),b
  24442                           
- 24443                           ;main.c: 64: } else {
+ 24443                           ;main.c: 63: } else {
  24444  000070  D010               	goto	i2l9924
  24445  000072                     i2l9914:
  24446                           
  24447                           ; BSR set to: 1
- 24448                           ;main.c: 65: cnt_t1 = 1;
+ 24448                           ;main.c: 64: cnt_t1 = 1;
  24449  000072  0E01               	movlw	1
  24450  000074  0101               	movlb	1	; () banked
  24451  000076  6F22               	movwf	ISR@cnt_t1& (0+255),b
  24452                           
- 24453                           ;main.c: 66: terminal_data_out_flag = 1;
+ 24453                           ;main.c: 65: terminal_data_out_flag = 1;
  24454  000078  0E01               	movlw	1
  24455  00007A  6E29               	movwf	_terminal_data_out_flag,c
  24456                           
  24457                           ; BSR set to: 1
- 24458                           ;main.c: 67: integrating();
+ 24458                           ;main.c: 66: integrating();
  24459  00007C  EC18  F0A7         	call	_integrating	;wreg free
  24460                           
- 24461                           ;main.c: 68: charge_time_count();
+ 24461                           ;main.c: 67: charge_time_count();
  24462  000080  ECC3  F0B5         	call	_charge_time_count	;wreg free
  24463                           
- 24464                           ;main.c: 69: if (pres_print_item == PRINT_DATA)display_flag = 1;
+ 24464                           ;main.c: 68: if (pres_print_item == PRINT_DATA)display_flag = 1;
  24465  000084  0E02               	movlw	2
  24466  000086  0100               	movlb	0	; () banked
  24467  000088  19F8               	xorwf	_pres_print_item& (0+255),w,b
@@ -25015,44 +25015,44 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  24473  000090  6E23               	movwf	_display_flag,c
  24474  000092                     i2l9924:
  24475                           
- 24476                           ;main.c: 70: }
- 24477                           ;main.c: 71: }
- 24478                           ;main.c: 72: if (PIR2bits.TMR3IF && PIE2bits.TMR3IE) {
+ 24476                           ;main.c: 69: }
+ 24477                           ;main.c: 70: }
+ 24478                           ;main.c: 71: if (PIR2bits.TMR3IF && PIE2bits.TMR3IE) {
  24479  000092  B2A1               	btfsc	4001,1,c	;volatile
  24480  000094  A2A0               	btfss	4000,1,c	;volatile
  24481  000096  D00F               	goto	i2l1609
  24482                           
- 24483                           ;main.c: 73: PIR2bits.TMR3IF = 0;
+ 24483                           ;main.c: 72: PIR2bits.TMR3IF = 0;
  24484  000098  92A1               	bcf	4001,1,c	;volatile
  24485                           
- 24486                           ;main.c: 74: ctmu_sampling_flag = 1;
+ 24486                           ;main.c: 73: ctmu_sampling_flag = 1;
  24487  00009A  0E01               	movlw	1
  24488  00009C  6E21               	movwf	_ctmu_sampling_flag,c
  24489                           
- 24490                           ;main.c: 75: static uint8_t cnt;
- 24491                           ;main.c: 76: if (cnt) {
+ 24490                           ;main.c: 74: static uint8_t cnt;
+ 24491                           ;main.c: 75: if (cnt) {
  24492  00009E  0101               	movlb	1	; () banked
  24493  0000A0  5121               	movf	ISR@cnt& (0+255),w,b
  24494  0000A2  B4D8               	btfsc	status,2,c
  24495  0000A4  D003               	goto	i2l9934
  24496                           
  24497                           ; BSR set to: 1
- 24498                           ;main.c: 77: cnt--;
+ 24498                           ;main.c: 76: cnt--;
  24499  0000A6  0101               	movlb	1	; () banked
  24500  0000A8  0721               	decf	ISR@cnt& (0+255),f,b
  24501                           
- 24502                           ;main.c: 78: } else {
+ 24502                           ;main.c: 77: } else {
  24503  0000AA  D005               	goto	i2l1609
  24504  0000AC                     i2l9934:
  24505                           
  24506                           ; BSR set to: 1
- 24507                           ;main.c: 79: cnt = 8;
+ 24507                           ;main.c: 78: cnt = 8;
  24508  0000AC  0E08               	movlw	8
  24509  0000AE  0101               	movlb	1	; () banked
  24510  0000B0  6F21               	movwf	ISR@cnt& (0+255),b
  24511                           
  24512                           ; BSR set to: 1
- 24513                           ;main.c: 80: LED_indicator();
+ 24513                           ;main.c: 79: LED_indicator();
  24514  0000B2  EC6E  F0A0         	call	_LED_indicator	;wreg free
  24515  0000B6                     i2l1609:
  24516  0000B6  C058  FFF5         	movff	??_ISR+13,tablat
@@ -34398,7 +34398,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.35 build -356382666 
-Symbol Table                                                                                   Wed Nov 11 14:23:52 2015
+Symbol Table                                                                                   Tue Jan 12 20:32:21 2016
 
                          get_string_usb@s 006D                                _USB_SD_Ptr F987  
                             ?_display_LCD 002D                             ?_command_time 00D0  

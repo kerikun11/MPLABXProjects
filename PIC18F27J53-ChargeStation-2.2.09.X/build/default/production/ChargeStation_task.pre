@@ -10458,23 +10458,23 @@ void button_timer_interrupt(button_t *bt, uint8_t sw_value);
 
 # 19 "../My_library\My_ringbuf.h"
 typedef struct ringbuf {
-char *buf;
+uint8_t *buf;
 uint16_t size;
 uint16_t head;
 uint16_t tail;
 } ringbuf_t;
 
-void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
+void ringbuf_init(ringbuf_t *rb, uint8_t *internal_buf, uint16_t bufsize);
 
 uint16_t ringbuf_num(ringbuf_t *rb);
 
-void ringbuf_put(ringbuf_t *rb, char asciicode);
+void ringbuf_put(ringbuf_t *rb, uint8_t data);
 
 void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
 
 void ringbuf_put_str(ringbuf_t *rb, const char *str);
 
-char ringbuf_pop(ringbuf_t *rb);
+uint8_t ringbuf_pop(ringbuf_t *rb);
 
 void ringbuf_backspace(ringbuf_t *rb);
 
@@ -10692,6 +10692,7 @@ void Delay_ms(uint16_t ms);
 
 
 
+
 void millis_timer(void);
 uint32_t millis(void);
 
@@ -10849,18 +10850,10 @@ void RTCC_task(void);
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdbool.h"
 typedef unsigned char bool;
 
-# 32 "../My_library\usb/system.h"
-typedef enum
-{
-SYSTEM_STATE_USB_START,
-SYSTEM_STATE_USB_SUSPEND,
-SYSTEM_STATE_USB_RESUME
-} SYSTEM_STATE;
+# 6 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stddef.h"
+typedef int ptrdiff_t;
 
-# 51
-void SYSTEM_Initialize( SYSTEM_STATE state );
-
-# 138 "../My_library\usb/usb_common.h"
+# 139 "../My_library\usb/usb_common.h"
 typedef union
 {
 uint8_t bitmap;
@@ -10875,7 +10868,7 @@ uint8_t direction: 1;
 
 } TRANSFER_FLAGS;
 
-# 212
+# 213
 typedef enum
 {
 
@@ -10899,7 +10892,7 @@ EVENT_VBUS_SES_REQUEST,
 
 EVENT_VBUS_OVERCURRENT,
 
-# 239
+# 240
 EVENT_VBUS_REQUEST_POWER,
 
 
@@ -10907,7 +10900,7 @@ EVENT_VBUS_REQUEST_POWER,
 
 EVENT_VBUS_RELEASE_POWER,
 
-# 253
+# 254
 EVENT_VBUS_POWER_AVAILABLE,
 
 
@@ -10922,7 +10915,7 @@ EVENT_CANNOT_ENUMERATE,
 
 EVENT_CLIENT_INIT_ERROR,
 
-# 271
+# 272
 EVENT_OUT_OF_MEMORY,
 
 
@@ -10952,16 +10945,16 @@ EVENT_SUSPEND,
 
 EVENT_RESET,
 
-# 304
+# 305
 EVENT_DATA_ISOC_READ,
 
-# 310
+# 311
 EVENT_DATA_ISOC_WRITE,
 
-# 320
+# 321
 EVENT_OVERRIDE_CLIENT_DRIVER_SELECTION,
 
-# 328
+# 329
 EVENT_1MS,
 
 
@@ -10988,7 +10981,7 @@ EVENT_BUS_ERROR = 32767
 
 } USB_EVENT;
 
-# 364
+# 365
 typedef struct _transfer_event_data
 {
 TRANSFER_FLAGS flags;
@@ -10997,14 +10990,14 @@ uint8_t pid;
 
 } USB_TRANSFER_EVENT_DATA;
 
-# 381
+# 382
 typedef struct _vbus_power_data
 {
 uint8_t port;
 uint8_t current;
 } USB_VBUS_POWER_EVENT_DATA;
 
-# 394
+# 395
 typedef struct _override_client_driver_data
 {
 uint16_t idVendor;
@@ -11014,7 +11007,7 @@ uint8_t bDeviceSubClass;
 uint8_t bDeviceProtocol;
 } USB_OVERRIDE_CLIENT_DRIVER_EVENT_DATA;
 
-# 456
+# 457
 typedef bool (*USB_EVENT_HANDLER) ( USB_EVENT event, void *data, unsigned int size );
 
 # 76 "../My_library\usb/usb_ch9.h"
@@ -11524,7 +11517,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 261 "../My_library\usb/usb_hal_pic18.h"
+# 262 "../My_library\usb/usb_hal_pic18.h"
 typedef union _BD_STAT
 {
 uint8_t Val;
@@ -11589,7 +11582,7 @@ unsigned char endpoint_number:4;
 uint8_t Val;
 } USTAT_FIELDS;
 
-# 331
+# 332
 typedef union _POINTER
 {
 struct
@@ -11615,7 +11608,7 @@ const uint16_t* wRom;
 
 } POINTER;
 
-# 601
+# 602
 extern volatile uint8_t USBActiveConfiguration;
 extern volatile IN_PIPE inPipes[1];
 extern volatile OUT_PIPE outPipes[1];
@@ -11808,16 +11801,22 @@ extern LINE_CODING line_coding;
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 
-# 17 "../My_library\My_usb_cdc.h"
-extern ringbuf_t usb_tx;
+# 25 "../My_library\My_usb_cdc.h"
 extern ringbuf_t usb_rx;
+extern ringbuf_t usb_tx;
 
-void USB_ISR(void);
-void USB_init(void);
-int put_string_usb(char *s, int len);
-int get_string_usb(char *s, int len);
-void USBCBSendResume(void);
-void USB_task(void);
+
+void USB_CDC_init(void);
+void USB_CDC_ISR(void);
+void USB_CDC_task(void);
+
+
+static void USB_CDC_buffer_init(void);
+static void USB_CDC_send(uint16_t length);
+static uint8_t USB_CDC_get(void);
+
+static void APP_DeviceCDCBasicDemoInitialize();
+bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t size);
 
 # 18 "../My_library\My_terminal.h"
 void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);

@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"20 ../My_library\My_usb_cdc.h
-[v _USB_ISR `(v ~T0 @X0 0 ef ]
+"30 ../My_library\My_USB_CDC.h
+[v _USB_CDC_ISR `(v ~T0 @X0 0 ef ]
 "30 ../My_library\My_I2C.h
 [v _I2C_ISR `(v ~T0 @X0 0 ef ]
 "18300 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
@@ -23,7 +23,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1191 . . . . . . ]
 "18341
 [v _INTCONbits `VS1191 ~T0 @X0 0 e@4082 ]
-"105 ../My_library\My_PIC.h
+"106 ../My_library\My_PIC.h
 [v _millis_timer `(v ~T0 @X0 0 ef ]
 "11054 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [s S709 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -56,10 +56,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "31 LCD_print.h
 [v _integrate_flag `uc ~T0 @X0 0 e ]
 "68 main.c
-[c E9574 0 1 2 3 .. ]
-[n E9574 PRINT_ITEM LOGO PRINT_TIME PRINT_DATA SETTINGS  ]
+[c E9571 0 1 2 3 .. ]
+[n E9571 PRINT_ITEM LOGO PRINT_TIME PRINT_DATA SETTINGS  ]
 "27 LCD_print.h
-[v _print_item `E9574 ~T0 @X0 0 e ]
+[v _print_item `E9571 ~T0 @X0 0 e ]
 "30
 [v _display_flag `uc ~T0 @X0 0 e ]
 "11291 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
@@ -148,29 +148,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _timer3_init `(v ~T0 @X0 0 ef1`uc ]
 "41 ../My_library\My_ST7032.h
 [v _ST7032_init `(v ~T0 @X0 0 ef ]
-"83 ../My_library\My_RTCC.h
+"85 ../My_library\My_RTCC.h
 [v _RTCC_init `(v ~T0 @X0 0 ef ]
 "78 ../My_library\My_PIC.h
 [v _ADC_init `(v ~T0 @X0 0 ef1`uc ]
 "95
 [v _CTMU_init `(v ~T0 @X0 0 ef ]
-"21 ../My_library\My_usb_cdc.h
-[v _USB_init `(v ~T0 @X0 0 ef ]
-"19 ../My_library\My_ringbuf.h
-[s S1218 `*uc 1 `ui 1 `ui 1 `ui 1 ]
-[n S1218 ringbuf buf size head tail ]
-"26
-[v _ringbuf_init `(v ~T0 @X0 0 ef3`*S1218`*uc`ui ]
-"17 ../My_library\My_usb_cdc.h
-[v _usb_tx `S1218 ~T0 @X0 0 e ]
-"18
-[v _usb_rx `S1218 ~T0 @X0 0 e ]
+"29 ../My_library\My_USB_CDC.h
+[v _USB_CDC_init `(v ~T0 @X0 0 ef ]
 "17 ctmu.h
 [v _ctmu_ratio `uc ~T0 @X0 0 e ]
 "22
 [v _ctmu_set_ratio `(v ~T0 @X0 0 ef1`uc ]
 "34 LCD_print.h
-[v _display `(v ~T0 @X0 0 ef3`E9574`*Cuc`*Cuc ]
+[v _display `(v ~T0 @X0 0 ef3`E9571`*Cuc`*Cuc ]
 "45 io.h
 [v _OUT `(v ~T0 @X0 0 ef2`uc`uc ]
 "49
@@ -198,14 +189,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 "23 settings.h
 [v _settings_flag `uc ~T0 @X0 0 e ]
 [p mainexit ]
-"128 ../My_library\My_RTCC.h
+"87 ../My_library\My_RTCC.h
 [v _RTCC_task `(v ~T0 @X0 0 ef ]
 "43 ../My_library\My_ST7032.h
 [v _ST7032_task `(v ~T0 @X0 0 ef ]
-"25 ../My_library\My_usb_cdc.h
-[v _USB_task `(v ~T0 @X0 0 ef ]
+"31 ../My_library\My_USB_CDC.h
+[v _USB_CDC_task `(v ~T0 @X0 0 ef ]
+"19 ../My_library\My_ringbuf.h
+[s S1218 `*uc 1 `ui 1 `ui 1 `ui 1 ]
+[n S1218 ringbuf buf size head tail ]
 "20 ../My_library\My_terminal.h
 [v _terminal_task `(v ~T0 @X0 0 ef2`*S1218`*S1218 ]
+"26 ../My_library\My_USB_CDC.h
+[v _usb_tx `S1218 ~T0 @X0 0 e ]
+"25
+[v _usb_rx `S1218 ~T0 @X0 0 e ]
 "51 ChargeStation_task.h
 [v _normal_task `(v ~T0 @X0 0 ef ]
 "25 ctmu.h
@@ -8370,20 +8368,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;My_library\My_ringbuf.h: 19: typedef struct ringbuf {
-[; ;My_library\My_ringbuf.h: 20: char *buf;
-[; ;My_library\My_ringbuf.h: 21: uint16_t size;
-[; ;My_library\My_ringbuf.h: 22: uint16_t head;
-[; ;My_library\My_ringbuf.h: 23: uint16_t tail;
-[; ;My_library\My_ringbuf.h: 24: } ringbuf_t;
-[; ;My_library\My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
-[; ;My_library\My_ringbuf.h: 28: uint16_t ringbuf_num(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, char asciicode);
-[; ;My_library\My_ringbuf.h: 32: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
-[; ;My_library\My_ringbuf.h: 34: void ringbuf_put_str(ringbuf_t *rb, const char *str);
-[; ;My_library\My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
 [; ;My_library\My_PIC.h: 20: void OSC_init(void);
 [; ;My_library\My_PIC.h: 36: void timer0_init(uint8_t prescaler);
 [; ;My_library\My_PIC.h: 51: void timer1_init(uint8_t prescaler, uint8_t clock_select);
@@ -8394,8 +8378,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_PIC.h: 95: void CTMU_init(void);
 [; ;My_library\My_PIC.h: 96: uint16_t CTMU_read(uint8_t ch);
 [; ;My_library\My_PIC.h: 101: void Delay_ms(uint16_t ms);
-[; ;My_library\My_PIC.h: 105: void millis_timer(void);
-[; ;My_library\My_PIC.h: 106: uint32_t millis(void);
+[; ;My_library\My_PIC.h: 106: void millis_timer(void);
+[; ;My_library\My_PIC.h: 107: uint32_t millis(void);
+[; ;My_library\My_ringbuf.h: 19: typedef struct ringbuf {
+[; ;My_library\My_ringbuf.h: 20: uint8_t *buf;
+[; ;My_library\My_ringbuf.h: 21: uint16_t size;
+[; ;My_library\My_ringbuf.h: 22: uint16_t head;
+[; ;My_library\My_ringbuf.h: 23: uint16_t tail;
+[; ;My_library\My_ringbuf.h: 24: } ringbuf_t;
+[; ;My_library\My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, uint8_t *internal_buf, uint16_t bufsize);
+[; ;My_library\My_ringbuf.h: 28: uint16_t ringbuf_num(ringbuf_t *rb);
+[; ;My_library\My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, uint8_t data);
+[; ;My_library\My_ringbuf.h: 32: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
+[; ;My_library\My_ringbuf.h: 34: void ringbuf_put_str(ringbuf_t *rb, const char *str);
+[; ;My_library\My_ringbuf.h: 36: uint8_t ringbuf_pop(ringbuf_t *rb);
+[; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
+[; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
 [; ;My_library\My_I2C.h: 19: extern uint8_t I2C_sent_flag;
 [; ;My_library\My_I2C.h: 20: extern uint8_t I2C_cfct_flag;
 [; ;My_library\My_I2C.h: 21: extern uint8_t I2C_busy;
@@ -8462,134 +8460,129 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_button.h: 50: };
 [; ;My_library\My_button.h: 51: } button_t;
 [; ;My_library\My_button.h: 53: void button_timer_interrupt(button_t *bt, uint8_t sw_value);
-[; ;My_library\My_RTCC.h: 39: typedef uint32_t epoch_t;
-[; ;My_library\My_RTCC.h: 43: typedef struct {
-[; ;My_library\My_RTCC.h: 45: union {
-[; ;My_library\My_RTCC.h: 46: uint8_t flags;
-[; ;My_library\My_RTCC.h: 48: struct {
-[; ;My_library\My_RTCC.h: 49: uint8_t ss : 1;
-[; ;My_library\My_RTCC.h: 50: uint8_t mm : 1;
-[; ;My_library\My_RTCC.h: 51: uint8_t hh : 1;
-[; ;My_library\My_RTCC.h: 52: uint8_t DD : 1;
-[; ;My_library\My_RTCC.h: 53: uint8_t MM : 1;
-[; ;My_library\My_RTCC.h: 54: uint8_t YY : 1;
-[; ;My_library\My_RTCC.h: 55: } flag;
-[; ;My_library\My_RTCC.h: 56: };
-[; ;My_library\My_RTCC.h: 57: } edit_t;
-[; ;My_library\My_RTCC.h: 61: typedef struct {
-[; ;My_library\My_RTCC.h: 62: epoch_t epoch;
-[; ;My_library\My_RTCC.h: 63: uint8_t ss;
-[; ;My_library\My_RTCC.h: 64: uint8_t mm;
-[; ;My_library\My_RTCC.h: 65: uint8_t hh;
-[; ;My_library\My_RTCC.h: 66: uint8_t EE;
-[; ;My_library\My_RTCC.h: 67: uint8_t DD;
-[; ;My_library\My_RTCC.h: 68: uint8_t MM;
-[; ;My_library\My_RTCC.h: 69: uint8_t YY;
-[; ;My_library\My_RTCC.h: 70: uint8_t colon;
-[; ;My_library\My_RTCC.h: 71: uint8_t halfsec;
-[; ;My_library\My_RTCC.h: 72: edit_t edit;
-[; ;My_library\My_RTCC.h: 73: } time_t;
-[; ;My_library\My_RTCC.h: 76: extern const char weekday_3char[7][4];
-[; ;My_library\My_RTCC.h: 79: extern time_t now;
-[; ;My_library\My_RTCC.h: 81: extern uint8_t time_change_flag;
-[; ;My_library\My_RTCC.h: 83: void RTCC_init(void);
-[; ;My_library\My_RTCC.h: 86: uint8_t d_to_x(uint8_t dec);
-[; ;My_library\My_RTCC.h: 88: uint8_t x_to_d(uint8_t hex);
-[; ;My_library\My_RTCC.h: 90: uint8_t month_length(uint8_t year, uint8_t month);
-[; ;My_library\My_RTCC.h: 92: epoch_t get_quot_rem(epoch_t *quot, uint8_t div);
-[; ;My_library\My_RTCC.h: 95: void RTCC_to_caltime(time_t *tm);
-[; ;My_library\My_RTCC.h: 97: void caltime_to_RTCC(time_t *tm);
-[; ;My_library\My_RTCC.h: 99: void epoch_to_caltime(time_t *tm);
-[; ;My_library\My_RTCC.h: 101: void caltime_to_epoch(time_t *tm);
-[; ;My_library\My_RTCC.h: 104: void RTCC_from_RTCC(time_t *tm);
-[; ;My_library\My_RTCC.h: 106: void RTCC_from_caltime(time_t *tm);
-[; ;My_library\My_RTCC.h: 108: void RTCC_from_epoch(time_t *tm);
-[; ;My_library\My_RTCC.h: 111: void display_dec(char *str, uint8_t dec, uint8_t edit);
-[; ;My_library\My_RTCC.h: 113: void display_time_0802(time_t *tm, char *line0, char *line1);
-[; ;My_library\My_RTCC.h: 115: void display_time_1602(time_t *tm, char *line0, char *line1);
-[; ;My_library\My_RTCC.h: 118: void RTCC_adjust_time_toggle(time_t *tm);
-[; ;My_library\My_RTCC.h: 120: void RTCC_adjust_time_cursor(time_t *tm);
-[; ;My_library\My_RTCC.h: 122: void RTCC_adjust_time_inc(time_t *tm);
-[; ;My_library\My_RTCC.h: 124: void RTCC_adjust_time_dec(time_t *tm);
-[; ;My_library\My_RTCC.h: 126: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
-[; ;My_library\My_RTCC.h: 128: void RTCC_task(void);
+[; ;My_library\My_RTCC.h: 41: typedef uint32_t epoch_t;
+[; ;My_library\My_RTCC.h: 45: typedef struct {
+[; ;My_library\My_RTCC.h: 47: union {
+[; ;My_library\My_RTCC.h: 48: uint8_t flags;
+[; ;My_library\My_RTCC.h: 50: struct {
+[; ;My_library\My_RTCC.h: 51: uint8_t ss : 1;
+[; ;My_library\My_RTCC.h: 52: uint8_t mm : 1;
+[; ;My_library\My_RTCC.h: 53: uint8_t hh : 1;
+[; ;My_library\My_RTCC.h: 54: uint8_t DD : 1;
+[; ;My_library\My_RTCC.h: 55: uint8_t MM : 1;
+[; ;My_library\My_RTCC.h: 56: uint8_t YY : 1;
+[; ;My_library\My_RTCC.h: 57: } flag;
+[; ;My_library\My_RTCC.h: 58: };
+[; ;My_library\My_RTCC.h: 59: } edit_t;
+[; ;My_library\My_RTCC.h: 63: typedef struct {
+[; ;My_library\My_RTCC.h: 64: epoch_t epoch;
+[; ;My_library\My_RTCC.h: 65: uint8_t ss;
+[; ;My_library\My_RTCC.h: 66: uint8_t mm;
+[; ;My_library\My_RTCC.h: 67: uint8_t hh;
+[; ;My_library\My_RTCC.h: 68: uint8_t EE;
+[; ;My_library\My_RTCC.h: 69: uint8_t DD;
+[; ;My_library\My_RTCC.h: 70: uint8_t MM;
+[; ;My_library\My_RTCC.h: 71: uint8_t YY;
+[; ;My_library\My_RTCC.h: 72: uint8_t colon;
+[; ;My_library\My_RTCC.h: 73: uint8_t halfsec;
+[; ;My_library\My_RTCC.h: 74: edit_t edit;
+[; ;My_library\My_RTCC.h: 75: } time_t;
+[; ;My_library\My_RTCC.h: 79: extern const char weekday_3char[7][4];
+[; ;My_library\My_RTCC.h: 81: extern time_t now;
+[; ;My_library\My_RTCC.h: 83: extern uint8_t time_change_flag;
+[; ;My_library\My_RTCC.h: 85: void RTCC_init(void);
+[; ;My_library\My_RTCC.h: 87: void RTCC_task(void);
+[; ;My_library\My_RTCC.h: 92: void RTCC_from_RTCC(time_t *tm);
+[; ;My_library\My_RTCC.h: 94: void RTCC_from_caltime(time_t *tm);
+[; ;My_library\My_RTCC.h: 96: void RTCC_from_epoch(time_t *tm);
+[; ;My_library\My_RTCC.h: 98: uint8_t month_length(uint8_t year, uint8_t month);
+[; ;My_library\My_RTCC.h: 102: static void display_dec(char *str, uint8_t dec, uint8_t edit);
+[; ;My_library\My_RTCC.h: 104: void display_time_0802(time_t *tm, char *line0, char *line1);
+[; ;My_library\My_RTCC.h: 106: void display_time_1602(time_t *tm, char *line0, char *line1);
+[; ;My_library\My_RTCC.h: 110: void RTCC_adjust_time_toggle(time_t *tm);
+[; ;My_library\My_RTCC.h: 112: void RTCC_adjust_time_cursor(time_t *tm);
+[; ;My_library\My_RTCC.h: 114: void RTCC_adjust_time_inc(time_t *tm);
+[; ;My_library\My_RTCC.h: 116: void RTCC_adjust_time_dec(time_t *tm);
+[; ;My_library\My_RTCC.h: 118: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
+[; ;My_library\My_RTCC.h: 123: static uint8_t d_to_x(uint8_t dec);
+[; ;My_library\My_RTCC.h: 125: static uint8_t x_to_d(uint8_t hex);
+[; ;My_library\My_RTCC.h: 127: static epoch_t get_quot_rem(epoch_t *quot, uint8_t div);
+[; ;My_library\My_RTCC.h: 131: static void RTCC_to_caltime(time_t *tm);
+[; ;My_library\My_RTCC.h: 133: static void caltime_to_RTCC(time_t *tm);
+[; ;My_library\My_RTCC.h: 135: static void epoch_to_caltime(time_t *tm);
+[; ;My_library\My_RTCC.h: 137: static void caltime_to_epoch(time_t *tm);
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;system.h: 32: typedef enum
-[; ;system.h: 33: {
-[; ;system.h: 34: SYSTEM_STATE_USB_START,
-[; ;system.h: 35: SYSTEM_STATE_USB_SUSPEND,
-[; ;system.h: 36: SYSTEM_STATE_USB_RESUME
-[; ;system.h: 37: } SYSTEM_STATE;
-[; ;system.h: 51: void SYSTEM_Initialize( SYSTEM_STATE state );
-[; ;usb_common.h: 138: typedef union
-[; ;usb_common.h: 139: {
-[; ;usb_common.h: 140: uint8_t bitmap;
-[; ;usb_common.h: 141: struct
-[; ;usb_common.h: 142: {
-[; ;usb_common.h: 143: uint8_t ep_num: 4;
-[; ;usb_common.h: 144: uint8_t zero_pkt: 1;
-[; ;usb_common.h: 145: uint8_t dts: 1;
-[; ;usb_common.h: 146: uint8_t force_dts: 1;
-[; ;usb_common.h: 147: uint8_t direction: 1;
-[; ;usb_common.h: 148: }field;
-[; ;usb_common.h: 150: } TRANSFER_FLAGS;
-[; ;usb_common.h: 212: typedef enum
-[; ;usb_common.h: 213: {
-[; ;usb_common.h: 215: EVENT_NONE = 0,
-[; ;usb_common.h: 217: EVENT_DEVICE_STACK_BASE = 1,
-[; ;usb_common.h: 219: EVENT_HOST_STACK_BASE = 100,
-[; ;usb_common.h: 222: EVENT_HUB_ATTACH,
-[; ;usb_common.h: 225: EVENT_STALL,
-[; ;usb_common.h: 228: EVENT_VBUS_SES_REQUEST,
-[; ;usb_common.h: 233: EVENT_VBUS_OVERCURRENT,
-[; ;usb_common.h: 239: EVENT_VBUS_REQUEST_POWER,
-[; ;usb_common.h: 244: EVENT_VBUS_RELEASE_POWER,
-[; ;usb_common.h: 253: EVENT_VBUS_POWER_AVAILABLE,
-[; ;usb_common.h: 257: EVENT_UNSUPPORTED_DEVICE,
-[; ;usb_common.h: 261: EVENT_CANNOT_ENUMERATE,
-[; ;usb_common.h: 265: EVENT_CLIENT_INIT_ERROR,
-[; ;usb_common.h: 271: EVENT_OUT_OF_MEMORY,
-[; ;usb_common.h: 274: EVENT_UNSPECIFIED_ERROR,
-[; ;usb_common.h: 278: EVENT_DETACH,
-[; ;usb_common.h: 283: EVENT_TRANSFER,
-[; ;usb_common.h: 287: EVENT_SOF,
-[; ;usb_common.h: 290: EVENT_RESUME,
-[; ;usb_common.h: 294: EVENT_SUSPEND,
-[; ;usb_common.h: 298: EVENT_RESET,
-[; ;usb_common.h: 304: EVENT_DATA_ISOC_READ,
-[; ;usb_common.h: 310: EVENT_DATA_ISOC_WRITE,
-[; ;usb_common.h: 320: EVENT_OVERRIDE_CLIENT_DRIVER_SELECTION,
-[; ;usb_common.h: 328: EVENT_1MS,
-[; ;usb_common.h: 331: EVENT_GENERIC_BASE = 400,
-[; ;usb_common.h: 333: EVENT_MSD_BASE = 500,
-[; ;usb_common.h: 335: EVENT_HID_BASE = 600,
-[; ;usb_common.h: 337: EVENT_PRINTER_BASE = 700,
-[; ;usb_common.h: 339: EVENT_CDC_BASE = 800,
-[; ;usb_common.h: 341: EVENT_CHARGER_BASE = 900,
-[; ;usb_common.h: 343: EVENT_AUDIO_BASE = 1000,
-[; ;usb_common.h: 345: EVENT_USER_BASE = 10000,
-[; ;usb_common.h: 350: EVENT_BUS_ERROR = 32767
-[; ;usb_common.h: 352: } USB_EVENT;
-[; ;usb_common.h: 364: typedef struct _transfer_event_data
-[; ;usb_common.h: 365: {
-[; ;usb_common.h: 366: TRANSFER_FLAGS flags;
-[; ;usb_common.h: 367: uint32_t size;
-[; ;usb_common.h: 368: uint8_t pid;
-[; ;usb_common.h: 370: } USB_TRANSFER_EVENT_DATA;
-[; ;usb_common.h: 381: typedef struct _vbus_power_data
-[; ;usb_common.h: 382: {
-[; ;usb_common.h: 383: uint8_t port;
-[; ;usb_common.h: 384: uint8_t current;
-[; ;usb_common.h: 385: } USB_VBUS_POWER_EVENT_DATA;
-[; ;usb_common.h: 394: typedef struct _override_client_driver_data
-[; ;usb_common.h: 395: {
-[; ;usb_common.h: 396: uint16_t idVendor;
-[; ;usb_common.h: 397: uint16_t idProduct;
-[; ;usb_common.h: 398: uint8_t bDeviceClass;
-[; ;usb_common.h: 399: uint8_t bDeviceSubClass;
-[; ;usb_common.h: 400: uint8_t bDeviceProtocol;
-[; ;usb_common.h: 401: } USB_OVERRIDE_CLIENT_DRIVER_EVENT_DATA;
-[; ;usb_common.h: 456: typedef bool (*USB_EVENT_HANDLER) ( USB_EVENT event, void *data, unsigned int size );
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stddef.h: 6: typedef int ptrdiff_t;
+[; ;usb_common.h: 139: typedef union
+[; ;usb_common.h: 140: {
+[; ;usb_common.h: 141: uint8_t bitmap;
+[; ;usb_common.h: 142: struct
+[; ;usb_common.h: 143: {
+[; ;usb_common.h: 144: uint8_t ep_num: 4;
+[; ;usb_common.h: 145: uint8_t zero_pkt: 1;
+[; ;usb_common.h: 146: uint8_t dts: 1;
+[; ;usb_common.h: 147: uint8_t force_dts: 1;
+[; ;usb_common.h: 148: uint8_t direction: 1;
+[; ;usb_common.h: 149: }field;
+[; ;usb_common.h: 151: } TRANSFER_FLAGS;
+[; ;usb_common.h: 213: typedef enum
+[; ;usb_common.h: 214: {
+[; ;usb_common.h: 216: EVENT_NONE = 0,
+[; ;usb_common.h: 218: EVENT_DEVICE_STACK_BASE = 1,
+[; ;usb_common.h: 220: EVENT_HOST_STACK_BASE = 100,
+[; ;usb_common.h: 223: EVENT_HUB_ATTACH,
+[; ;usb_common.h: 226: EVENT_STALL,
+[; ;usb_common.h: 229: EVENT_VBUS_SES_REQUEST,
+[; ;usb_common.h: 234: EVENT_VBUS_OVERCURRENT,
+[; ;usb_common.h: 240: EVENT_VBUS_REQUEST_POWER,
+[; ;usb_common.h: 245: EVENT_VBUS_RELEASE_POWER,
+[; ;usb_common.h: 254: EVENT_VBUS_POWER_AVAILABLE,
+[; ;usb_common.h: 258: EVENT_UNSUPPORTED_DEVICE,
+[; ;usb_common.h: 262: EVENT_CANNOT_ENUMERATE,
+[; ;usb_common.h: 266: EVENT_CLIENT_INIT_ERROR,
+[; ;usb_common.h: 272: EVENT_OUT_OF_MEMORY,
+[; ;usb_common.h: 275: EVENT_UNSPECIFIED_ERROR,
+[; ;usb_common.h: 279: EVENT_DETACH,
+[; ;usb_common.h: 284: EVENT_TRANSFER,
+[; ;usb_common.h: 288: EVENT_SOF,
+[; ;usb_common.h: 291: EVENT_RESUME,
+[; ;usb_common.h: 295: EVENT_SUSPEND,
+[; ;usb_common.h: 299: EVENT_RESET,
+[; ;usb_common.h: 305: EVENT_DATA_ISOC_READ,
+[; ;usb_common.h: 311: EVENT_DATA_ISOC_WRITE,
+[; ;usb_common.h: 321: EVENT_OVERRIDE_CLIENT_DRIVER_SELECTION,
+[; ;usb_common.h: 329: EVENT_1MS,
+[; ;usb_common.h: 332: EVENT_GENERIC_BASE = 400,
+[; ;usb_common.h: 334: EVENT_MSD_BASE = 500,
+[; ;usb_common.h: 336: EVENT_HID_BASE = 600,
+[; ;usb_common.h: 338: EVENT_PRINTER_BASE = 700,
+[; ;usb_common.h: 340: EVENT_CDC_BASE = 800,
+[; ;usb_common.h: 342: EVENT_CHARGER_BASE = 900,
+[; ;usb_common.h: 344: EVENT_AUDIO_BASE = 1000,
+[; ;usb_common.h: 346: EVENT_USER_BASE = 10000,
+[; ;usb_common.h: 351: EVENT_BUS_ERROR = 32767
+[; ;usb_common.h: 353: } USB_EVENT;
+[; ;usb_common.h: 365: typedef struct _transfer_event_data
+[; ;usb_common.h: 366: {
+[; ;usb_common.h: 367: TRANSFER_FLAGS flags;
+[; ;usb_common.h: 368: uint32_t size;
+[; ;usb_common.h: 369: uint8_t pid;
+[; ;usb_common.h: 371: } USB_TRANSFER_EVENT_DATA;
+[; ;usb_common.h: 382: typedef struct _vbus_power_data
+[; ;usb_common.h: 383: {
+[; ;usb_common.h: 384: uint8_t port;
+[; ;usb_common.h: 385: uint8_t current;
+[; ;usb_common.h: 386: } USB_VBUS_POWER_EVENT_DATA;
+[; ;usb_common.h: 395: typedef struct _override_client_driver_data
+[; ;usb_common.h: 396: {
+[; ;usb_common.h: 397: uint16_t idVendor;
+[; ;usb_common.h: 398: uint16_t idProduct;
+[; ;usb_common.h: 399: uint8_t bDeviceClass;
+[; ;usb_common.h: 400: uint8_t bDeviceSubClass;
+[; ;usb_common.h: 401: uint8_t bDeviceProtocol;
+[; ;usb_common.h: 402: } USB_OVERRIDE_CLIENT_DRIVER_EVENT_DATA;
+[; ;usb_common.h: 457: typedef bool (*USB_EVENT_HANDLER) ( USB_EVENT event, void *data, unsigned int size );
 [; ;usb_ch9.h: 76: typedef struct  _USB_DEVICE_DESCRIPTOR
 [; ;usb_ch9.h: 77: {
 [; ;usb_ch9.h: 78: uint8_t bLength;
@@ -8924,7 +8917,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device.h: 1905: extern volatile bool USBBusIsSuspended;
 [; ;usb_device.h: 1906: extern volatile USB_DEVICE_STATE USBDeviceState;
 [; ;usb_device.h: 1907: extern volatile uint8_t USBActiveConfiguration;
-[; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
 [; ;string.h: 16: extern void * memset(void *, int, size_t);
@@ -8951,80 +8943,80 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 56: extern char * strichr(const char *, int);
 [; ;string.h: 57: extern char * strrchr(const char *, int);
 [; ;string.h: 58: extern char * strrichr(const char *, int);
-[; ;usb_hal_pic18.h: 261: typedef union _BD_STAT
-[; ;usb_hal_pic18.h: 262: {
-[; ;usb_hal_pic18.h: 263: uint8_t Val;
-[; ;usb_hal_pic18.h: 264: struct{
-[; ;usb_hal_pic18.h: 266: unsigned BC8:1;
-[; ;usb_hal_pic18.h: 267: unsigned BC9:1;
-[; ;usb_hal_pic18.h: 268: unsigned BSTALL:1;
-[; ;usb_hal_pic18.h: 269: unsigned DTSEN:1;
-[; ;usb_hal_pic18.h: 270: unsigned INCDIS:1;
-[; ;usb_hal_pic18.h: 271: unsigned KEN:1;
-[; ;usb_hal_pic18.h: 272: unsigned DTS:1;
-[; ;usb_hal_pic18.h: 273: unsigned UOWN:1;
-[; ;usb_hal_pic18.h: 274: };
-[; ;usb_hal_pic18.h: 275: struct{
-[; ;usb_hal_pic18.h: 278: unsigned :2;
-[; ;usb_hal_pic18.h: 279: unsigned PID0:1;
-[; ;usb_hal_pic18.h: 280: unsigned PID1:1;
-[; ;usb_hal_pic18.h: 281: unsigned PID2:1;
-[; ;usb_hal_pic18.h: 282: unsigned PID3:1;
-[; ;usb_hal_pic18.h: 283: unsigned :1;
-[; ;usb_hal_pic18.h: 284: };
-[; ;usb_hal_pic18.h: 285: struct{
-[; ;usb_hal_pic18.h: 286: unsigned :2;
-[; ;usb_hal_pic18.h: 287: unsigned PID:4;
-[; ;usb_hal_pic18.h: 288: unsigned :2;
-[; ;usb_hal_pic18.h: 289: };
-[; ;usb_hal_pic18.h: 290: } BD_STAT;
-[; ;usb_hal_pic18.h: 293: typedef union __BDT
-[; ;usb_hal_pic18.h: 294: {
-[; ;usb_hal_pic18.h: 295: struct
-[; ;usb_hal_pic18.h: 296: {
-[; ;usb_hal_pic18.h: 297: BD_STAT STAT;
-[; ;usb_hal_pic18.h: 298: uint8_t CNT;
-[; ;usb_hal_pic18.h: 299: uint8_t ADRL;
-[; ;usb_hal_pic18.h: 300: uint8_t ADRH;
-[; ;usb_hal_pic18.h: 301: };
-[; ;usb_hal_pic18.h: 302: struct
-[; ;usb_hal_pic18.h: 303: {
-[; ;usb_hal_pic18.h: 304: unsigned :8;
+[; ;usb_hal_pic18.h: 262: typedef union _BD_STAT
+[; ;usb_hal_pic18.h: 263: {
+[; ;usb_hal_pic18.h: 264: uint8_t Val;
+[; ;usb_hal_pic18.h: 265: struct{
+[; ;usb_hal_pic18.h: 267: unsigned BC8:1;
+[; ;usb_hal_pic18.h: 268: unsigned BC9:1;
+[; ;usb_hal_pic18.h: 269: unsigned BSTALL:1;
+[; ;usb_hal_pic18.h: 270: unsigned DTSEN:1;
+[; ;usb_hal_pic18.h: 271: unsigned INCDIS:1;
+[; ;usb_hal_pic18.h: 272: unsigned KEN:1;
+[; ;usb_hal_pic18.h: 273: unsigned DTS:1;
+[; ;usb_hal_pic18.h: 274: unsigned UOWN:1;
+[; ;usb_hal_pic18.h: 275: };
+[; ;usb_hal_pic18.h: 276: struct{
+[; ;usb_hal_pic18.h: 279: unsigned :2;
+[; ;usb_hal_pic18.h: 280: unsigned PID0:1;
+[; ;usb_hal_pic18.h: 281: unsigned PID1:1;
+[; ;usb_hal_pic18.h: 282: unsigned PID2:1;
+[; ;usb_hal_pic18.h: 283: unsigned PID3:1;
+[; ;usb_hal_pic18.h: 284: unsigned :1;
+[; ;usb_hal_pic18.h: 285: };
+[; ;usb_hal_pic18.h: 286: struct{
+[; ;usb_hal_pic18.h: 287: unsigned :2;
+[; ;usb_hal_pic18.h: 288: unsigned PID:4;
+[; ;usb_hal_pic18.h: 289: unsigned :2;
+[; ;usb_hal_pic18.h: 290: };
+[; ;usb_hal_pic18.h: 291: } BD_STAT;
+[; ;usb_hal_pic18.h: 294: typedef union __BDT
+[; ;usb_hal_pic18.h: 295: {
+[; ;usb_hal_pic18.h: 296: struct
+[; ;usb_hal_pic18.h: 297: {
+[; ;usb_hal_pic18.h: 298: BD_STAT STAT;
+[; ;usb_hal_pic18.h: 299: uint8_t CNT;
+[; ;usb_hal_pic18.h: 300: uint8_t ADRL;
+[; ;usb_hal_pic18.h: 301: uint8_t ADRH;
+[; ;usb_hal_pic18.h: 302: };
+[; ;usb_hal_pic18.h: 303: struct
+[; ;usb_hal_pic18.h: 304: {
 [; ;usb_hal_pic18.h: 305: unsigned :8;
-[; ;usb_hal_pic18.h: 306: uint16_t ADR;
-[; ;usb_hal_pic18.h: 307: };
-[; ;usb_hal_pic18.h: 308: uint32_t Val;
-[; ;usb_hal_pic18.h: 309: uint8_t v[4];
-[; ;usb_hal_pic18.h: 310: } BDT_ENTRY;
-[; ;usb_hal_pic18.h: 313: typedef union __USTAT
-[; ;usb_hal_pic18.h: 314: {
-[; ;usb_hal_pic18.h: 315: struct
-[; ;usb_hal_pic18.h: 316: {
-[; ;usb_hal_pic18.h: 317: unsigned char filler1:1;
-[; ;usb_hal_pic18.h: 318: unsigned char ping_pong:1;
-[; ;usb_hal_pic18.h: 319: unsigned char direction:1;
-[; ;usb_hal_pic18.h: 320: unsigned char endpoint_number:4;
-[; ;usb_hal_pic18.h: 321: };
-[; ;usb_hal_pic18.h: 322: uint8_t Val;
-[; ;usb_hal_pic18.h: 323: } USTAT_FIELDS;
-[; ;usb_hal_pic18.h: 331: typedef union _POINTER
-[; ;usb_hal_pic18.h: 332: {
-[; ;usb_hal_pic18.h: 333: struct
-[; ;usb_hal_pic18.h: 334: {
-[; ;usb_hal_pic18.h: 335: uint8_t bLow;
-[; ;usb_hal_pic18.h: 336: uint8_t bHigh;
-[; ;usb_hal_pic18.h: 338: };
-[; ;usb_hal_pic18.h: 339: uint16_t _word;
-[; ;usb_hal_pic18.h: 343: uint8_t* bRam;
-[; ;usb_hal_pic18.h: 345: uint16_t* wRam;
-[; ;usb_hal_pic18.h: 348: const uint8_t* bRom;
-[; ;usb_hal_pic18.h: 349: const uint16_t* wRom;
-[; ;usb_hal_pic18.h: 354: } POINTER;
-[; ;usb_hal_pic18.h: 601: extern volatile uint8_t USBActiveConfiguration;
-[; ;usb_hal_pic18.h: 602: extern volatile IN_PIPE inPipes[1];
-[; ;usb_hal_pic18.h: 603: extern volatile OUT_PIPE outPipes[1];
-[; ;usb_hal_pic18.h: 606: extern volatile BDT_ENTRY* pBDTEntryOut[2+1];
-[; ;usb_hal_pic18.h: 607: extern volatile BDT_ENTRY* pBDTEntryIn[2+1];
+[; ;usb_hal_pic18.h: 306: unsigned :8;
+[; ;usb_hal_pic18.h: 307: uint16_t ADR;
+[; ;usb_hal_pic18.h: 308: };
+[; ;usb_hal_pic18.h: 309: uint32_t Val;
+[; ;usb_hal_pic18.h: 310: uint8_t v[4];
+[; ;usb_hal_pic18.h: 311: } BDT_ENTRY;
+[; ;usb_hal_pic18.h: 314: typedef union __USTAT
+[; ;usb_hal_pic18.h: 315: {
+[; ;usb_hal_pic18.h: 316: struct
+[; ;usb_hal_pic18.h: 317: {
+[; ;usb_hal_pic18.h: 318: unsigned char filler1:1;
+[; ;usb_hal_pic18.h: 319: unsigned char ping_pong:1;
+[; ;usb_hal_pic18.h: 320: unsigned char direction:1;
+[; ;usb_hal_pic18.h: 321: unsigned char endpoint_number:4;
+[; ;usb_hal_pic18.h: 322: };
+[; ;usb_hal_pic18.h: 323: uint8_t Val;
+[; ;usb_hal_pic18.h: 324: } USTAT_FIELDS;
+[; ;usb_hal_pic18.h: 332: typedef union _POINTER
+[; ;usb_hal_pic18.h: 333: {
+[; ;usb_hal_pic18.h: 334: struct
+[; ;usb_hal_pic18.h: 335: {
+[; ;usb_hal_pic18.h: 336: uint8_t bLow;
+[; ;usb_hal_pic18.h: 337: uint8_t bHigh;
+[; ;usb_hal_pic18.h: 339: };
+[; ;usb_hal_pic18.h: 340: uint16_t _word;
+[; ;usb_hal_pic18.h: 344: uint8_t* bRam;
+[; ;usb_hal_pic18.h: 346: uint16_t* wRam;
+[; ;usb_hal_pic18.h: 349: const uint8_t* bRom;
+[; ;usb_hal_pic18.h: 350: const uint16_t* wRom;
+[; ;usb_hal_pic18.h: 355: } POINTER;
+[; ;usb_hal_pic18.h: 602: extern volatile uint8_t USBActiveConfiguration;
+[; ;usb_hal_pic18.h: 603: extern volatile IN_PIPE inPipes[1];
+[; ;usb_hal_pic18.h: 604: extern volatile OUT_PIPE outPipes[1];
+[; ;usb_hal_pic18.h: 607: extern volatile BDT_ENTRY* pBDTEntryOut[2+1];
+[; ;usb_hal_pic18.h: 608: extern volatile BDT_ENTRY* pBDTEntryIn[2+1];
 [; ;usb_hal.h: 167: void OTGCORE_SetDeviceAddr( uint8_t addr );
 [; ;usb_hal.h: 203: void USBHALControlUsbResistors( uint8_t flags );
 [; ;usb_hal.h: 237: bool USBHALSessionIsValid( void );
@@ -9143,14 +9135,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device_cdc.h: 958: extern LINE_CODING line_coding;
 [; ;usb_device_cdc.h: 960: extern volatile CTRL_TRF_SETUP SetupPkt;
 [; ;usb_device_cdc.h: 961: extern const uint8_t configDescriptor1[];
-[; ;My_library\My_usb_cdc.h: 17: extern ringbuf_t usb_tx;
-[; ;My_library\My_usb_cdc.h: 18: extern ringbuf_t usb_rx;
-[; ;My_library\My_usb_cdc.h: 20: void USB_ISR(void);
-[; ;My_library\My_usb_cdc.h: 21: void USB_init(void);
-[; ;My_library\My_usb_cdc.h: 22: int put_string_usb(char *s, int len);
-[; ;My_library\My_usb_cdc.h: 23: int get_string_usb(char *s, int len);
-[; ;My_library\My_usb_cdc.h: 24: void USBCBSendResume(void);
-[; ;My_library\My_usb_cdc.h: 25: void USB_task(void);
+[; ;My_library\My_USB_CDC.h: 25: extern ringbuf_t usb_rx;
+[; ;My_library\My_USB_CDC.h: 26: extern ringbuf_t usb_tx;
+[; ;My_library\My_USB_CDC.h: 29: void USB_CDC_init(void);
+[; ;My_library\My_USB_CDC.h: 30: void USB_CDC_ISR(void);
+[; ;My_library\My_USB_CDC.h: 31: void USB_CDC_task(void);
+[; ;My_library\My_USB_CDC.h: 34: static void USB_CDC_buffer_init(void);
+[; ;My_library\My_USB_CDC.h: 35: static void USB_CDC_send(uint16_t length);
+[; ;My_library\My_USB_CDC.h: 36: static uint8_t USB_CDC_get(void);
+[; ;My_library\My_USB_CDC.h: 38: static void APP_DeviceCDCBasicDemoInitialize();
+[; ;My_library\My_USB_CDC.h: 39: bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t size);
 [; ;My_library\My_terminal.h: 18: void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3);
 [; ;My_library\My_terminal.h: 20: void terminal_task(ringbuf_t *tx, ringbuf_t *rx);
 [; ;My_library\My_terminal.h: 22: void print_time_dec(ringbuf_t *tx, uint8_t dec, uint8_t edit);
@@ -9232,16 +9226,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;settings.h: 27: uint8_t settings_led_indicator(void);
 [; ;settings.h: 28: uint8_t settings_integrating_reset(void);
 [; ;settings.h: 29: void settings_task(void);
-[v F9619 `(v ~T0 @X0 1 tf ]
+[v F9616 `(v ~T0 @X0 1 tf ]
 "50 main.c
-[v _ISR `IF9619 ~T0 @X0 1 e ]
+[v _ISR `IF9616 ~T0 @X0 1 e ]
 {
 [; ;main.c: 50: void interrupt ISR(void) {
 [e :U _ISR ]
 [f ]
-[; ;main.c: 51: USB_ISR();
+[; ;main.c: 51: USB_CDC_ISR();
 "51
-[e ( _USB_ISR ..  ]
+[e ( _USB_CDC_ISR ..  ]
 [; ;main.c: 52: I2C_ISR();
 "52
 [e ( _I2C_ISR ..  ]
@@ -9273,18 +9267,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 "60
 [e = _cut_time_flag -> -> 1 `i `uc ]
 "61
-[v F9620 `uc ~T0 @X0 1 s cnt_t1 ]
-[i F9620
+[v F9617 `uc ~T0 @X0 1 s cnt_t1 ]
+[i F9617
 -> -> 0 `i `uc
 ]
 [; ;main.c: 61: static uint8_t cnt_t1 = 0;
 [; ;main.c: 62: if (cnt_t1) {
 "62
-[e $ ! != -> F9620 `i -> -> -> 0 `i `uc `i 1298  ]
+[e $ ! != -> F9617 `i -> -> -> 0 `i `uc `i 1298  ]
 {
 [; ;main.c: 63: cnt_t1 = 0;
 "63
-[e = F9620 -> -> 0 `i `uc ]
+[e = F9617 -> -> 0 `i `uc ]
 "64
 }
 [; ;main.c: 64: } else {
@@ -9293,7 +9287,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;main.c: 65: cnt_t1 = 1;
 "65
-[e = F9620 -> -> 1 `i `uc ]
+[e = F9617 -> -> 1 `i `uc ]
 [; ;main.c: 66: terminal_data_out_flag = 1;
 "66
 [e = _terminal_data_out_flag -> -> 1 `i `uc ]
@@ -9302,7 +9296,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _integrate_flag -> -> 1 `i `uc ]
 [; ;main.c: 68: if (print_item == PRINT_DATA)display_flag = 1;
 "68
-[e $ ! == -> _print_item `i -> . `E9574 2 `i 1300  ]
+[e $ ! == -> _print_item `i -> . `E9571 2 `i 1300  ]
 [e = _display_flag -> -> 1 `i `uc ]
 [e :U 1300 ]
 "69
@@ -9324,15 +9318,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "73
 [e = _ctmu_sampling_flag -> -> 1 `i `uc ]
 "74
-[v F9621 `uc ~T0 @X0 1 s cnt ]
+[v F9618 `uc ~T0 @X0 1 s cnt ]
 [; ;main.c: 74: static uint8_t cnt;
 [; ;main.c: 75: if (cnt) {
 "75
-[e $ ! != -> F9621 `i -> -> -> 0 `i `uc `i 1302  ]
+[e $ ! != -> F9618 `i -> -> -> 0 `i `uc `i 1302  ]
 {
 [; ;main.c: 76: cnt--;
 "76
-[e -- F9621 -> -> 1 `i `uc ]
+[e -- F9618 -> -> 1 `i `uc ]
 "77
 }
 [; ;main.c: 77: } else {
@@ -9341,7 +9335,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;main.c: 78: cnt = 8;
 "78
-[e = F9621 -> -> 8 `i `uc ]
+[e = F9618 -> -> 8 `i `uc ]
 [; ;main.c: 79: LED_indicator();
 "79
 [e ( _LED_indicator ..  ]
@@ -9411,42 +9405,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 101: CTMU_init();
 "101
 [e ( _CTMU_init ..  ]
-[; ;main.c: 103: USB_init();
+[; ;main.c: 102: USB_CDC_init();
+"102
+[e ( _USB_CDC_init ..  ]
+[; ;main.c: 103: }
 "103
-[e ( _USB_init ..  ]
-"104
-[v F9624 `uc ~T0 @X0 -> 1800 `i s usbtx ]
-[; ;main.c: 104: static uint8_t usbtx[1800];
-[; ;main.c: 105: ringbuf_init(&usb_tx, usbtx, sizeof (usbtx));
-"105
-[e ( _ringbuf_init (3 , , &U _usb_tx &U F9624 -> # F9624 `ui ]
-"106
-[v F9625 `uc ~T0 @X0 -> 100 `i s usbrx ]
-[; ;main.c: 106: static uint8_t usbrx[100];
-[; ;main.c: 107: ringbuf_init(&usb_rx, usbrx, sizeof (usbrx));
-"107
-[e ( _ringbuf_init (3 , , &U _usb_rx &U F9625 -> # F9625 `ui ]
-[; ;main.c: 108: }
-"108
 [e :UE 1304 ]
 }
-"110
+"105
 [v _software_init `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 110: void software_init(void) {
+[; ;main.c: 105: void software_init(void) {
 [e :U _software_init ]
 [f ]
-[; ;main.c: 112: ctmu_ratio = 90;
-"112
+[; ;main.c: 107: ctmu_ratio = 90;
+"107
 [e = _ctmu_ratio -> -> 90 `i `uc ]
-[; ;main.c: 113: ctmu_set_ratio(ctmu_ratio);
-"113
+[; ;main.c: 108: ctmu_set_ratio(ctmu_ratio);
+"108
 [e ( _ctmu_set_ratio (1 _ctmu_ratio ]
-[; ;main.c: 116: display(LOGO, "Charge Station", "Made by KERI");
-"116
-[e ( _display (3 , , . `E9574 0 :s 1C :s 2C ]
-[; ;main.c: 119: for (uint8_t i = 0; i < 3; i++) {
-"119
+[; ;main.c: 111: display(LOGO, "Charge Station", "Made by KERI");
+"111
+[e ( _display (3 , , . `E9571 0 :s 1C :s 2C ]
+[; ;main.c: 114: for (uint8_t i = 0; i < 3; i++) {
+"114
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -9454,146 +9436,146 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1307  ]
 [e :U 1306 ]
 {
-[; ;main.c: 120: OUT(i, 0);
-"120
+[; ;main.c: 115: OUT(i, 0);
+"115
 [e ( _OUT (2 , _i -> -> 0 `i `uc ]
-[; ;main.c: 121: LED_output(i, 0);
-"121
+[; ;main.c: 116: LED_output(i, 0);
+"116
 [e ( _LED_output (2 , _i -> -> 0 `i `uc ]
-[; ;main.c: 122: port[i].cut_cnt = 0;
-"122
+[; ;main.c: 117: port[i].cut_cnt = 0;
+"117
 [e = . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 6 -> -> 0 `i `ui ]
-[; ;main.c: 123: port[i].flag.auto_cut_ON = 1;
-"123
+[; ;main.c: 118: port[i].flag.auto_cut_ON = 1;
+"118
 [e = . . . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 7 1 0 -> -> 1 `i `uc ]
-[; ;main.c: 124: port[i].flag.led_indicator_ON = 1;
-"124
-[e = . . . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 7 1 1 -> -> 1 `i `uc ]
-"125
-}
+[; ;main.c: 119: port[i].flag.led_indicator_ON = 1;
 "119
+[e = . . . *U + &U _port * -> _i `ux -> -> # *U &U _port `ui `ux 7 1 1 -> -> 1 `i `uc ]
+"120
+}
+"114
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 3 `i 1306  ]
 [e :U 1307 ]
-"125
+"120
 }
-[; ;main.c: 125: }
-[; ;main.c: 128: settings_flag = 0;
-"128
+[; ;main.c: 120: }
+[; ;main.c: 123: settings_flag = 0;
+"123
 [e = _settings_flag -> -> 0 `i `uc ]
-[; ;main.c: 129: }
-"129
+[; ;main.c: 124: }
+"124
 [e :UE 1305 ]
 }
-"131
+"126
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 131: int main(void) {
+[; ;main.c: 126: int main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 133: hardware_init();
-"133
+[; ;main.c: 128: hardware_init();
+"128
 [e ( _hardware_init ..  ]
-[; ;main.c: 135: software_init();
-"135
+[; ;main.c: 130: software_init();
+"130
 [e ( _software_init ..  ]
-[; ;main.c: 137: INTCONbits.GIE = 1;
-"137
+[; ;main.c: 132: INTCONbits.GIE = 1;
+"132
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 139: while (1) {
-"139
+[; ;main.c: 134: while (1) {
+"134
 [e :U 1311 ]
 {
-[; ;main.c: 141: INTCONbits.GIE = 0;
-"141
+[; ;main.c: 136: INTCONbits.GIE = 0;
+"136
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 142: RTCC_task();
-"142
+[; ;main.c: 137: RTCC_task();
+"137
 [e ( _RTCC_task ..  ]
-[; ;main.c: 143: INTCONbits.GIE = 1;
-"143
+[; ;main.c: 138: INTCONbits.GIE = 1;
+"138
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 144: INTCONbits.GIE = 0;
-"144
+[; ;main.c: 139: INTCONbits.GIE = 0;
+"139
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 145: ST7032_task();
-"145
+[; ;main.c: 140: ST7032_task();
+"140
 [e ( _ST7032_task ..  ]
-[; ;main.c: 146: INTCONbits.GIE = 1;
+[; ;main.c: 141: INTCONbits.GIE = 1;
+"141
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 142: INTCONbits.GIE = 0;
+"142
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 143: USB_CDC_task();
+"143
+[e ( _USB_CDC_task ..  ]
+[; ;main.c: 144: INTCONbits.GIE = 1;
+"144
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 145: INTCONbits.GIE = 0;
+"145
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 146: terminal_task(&usb_tx, &usb_rx);
 "146
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 147: INTCONbits.GIE = 0;
-"147
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 148: USB_task();
-"148
-[e ( _USB_task ..  ]
-[; ;main.c: 149: INTCONbits.GIE = 1;
-"149
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 150: INTCONbits.GIE = 0;
-"150
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 151: terminal_task(&usb_tx, &usb_rx);
-"151
 [e ( _terminal_task (2 , &U _usb_tx &U _usb_rx ]
-[; ;main.c: 152: INTCONbits.GIE = 1;
-"152
+[; ;main.c: 147: INTCONbits.GIE = 1;
+"147
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 153: INTCONbits.GIE = 0;
-"153
+[; ;main.c: 148: INTCONbits.GIE = 0;
+"148
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 154: normal_task();
-"154
+[; ;main.c: 149: normal_task();
+"149
 [e ( _normal_task ..  ]
-[; ;main.c: 155: INTCONbits.GIE = 1;
-"155
+[; ;main.c: 150: INTCONbits.GIE = 1;
+"150
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 157: INTCONbits.GIE = 0;
-"157
+[; ;main.c: 152: INTCONbits.GIE = 0;
+"152
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 158: ctmu_task();
-"158
+[; ;main.c: 153: ctmu_task();
+"153
 [e ( _ctmu_task ..  ]
-[; ;main.c: 159: if (ctmu_m.flag.pressing &&
-[; ;main.c: 160: port[0].ctmu.flag.pressing &&
-[; ;main.c: 161: port[1].ctmu.flag.pressing &&
-[; ;main.c: 162: port[2].ctmu.flag.pressing) {
-"162
+[; ;main.c: 154: if (ctmu_m.flag.pressing &&
+[; ;main.c: 155: port[0].ctmu.flag.pressing &&
+[; ;main.c: 156: port[1].ctmu.flag.pressing &&
+[; ;main.c: 157: port[2].ctmu.flag.pressing) {
+"157
 [e $ ! && && && != -> . . . _ctmu_m 1 1 8 `i -> -> -> 0 `i `uc `i != -> . . . . *U + &U _port * -> -> -> 0 `i `ui `ux -> -> # *U &U _port `ui `ux 0 1 1 8 `i -> -> -> 0 `i `uc `i != -> . . . . *U + &U _port * -> -> -> 1 `i `ui `ux -> -> # *U &U _port `ui `ux 0 1 1 8 `i -> -> -> 0 `i `uc `i != -> . . . . *U + &U _port * -> -> -> 2 `i `ui `ux -> -> # *U &U _port `ui `ux 0 1 1 8 `i -> -> -> 0 `i `uc `i 1313  ]
 {
-[; ;main.c: 163: bootload();
-"163
+[; ;main.c: 158: bootload();
+"158
 [e ( _bootload ..  ]
-"164
+"159
 }
 [e :U 1313 ]
-[; ;main.c: 164: }
-[; ;main.c: 165: INTCONbits.GIE = 1;
-"165
+[; ;main.c: 159: }
+[; ;main.c: 160: INTCONbits.GIE = 1;
+"160
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 167: INTCONbits.GIE = 0;
-"167
+[; ;main.c: 162: INTCONbits.GIE = 0;
+"162
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 168: sleep_task();
-"168
+[; ;main.c: 163: sleep_task();
+"163
 [e ( _sleep_task ..  ]
-[; ;main.c: 169: INTCONbits.GIE = 1;
-"169
+[; ;main.c: 164: INTCONbits.GIE = 1;
+"164
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"170
+"165
 }
 [e :U 1310 ]
-"139
+"134
 [e $U 1311  ]
 [e :U 1312 ]
-[; ;main.c: 170: }
-[; ;main.c: 171: return 0;
-"171
+[; ;main.c: 165: }
+[; ;main.c: 166: return 0;
+"166
 [e ) -> 0 `i ]
 [e $UE 1309  ]
-[; ;main.c: 172: }
-"172
+[; ;main.c: 167: }
+"167
 [e :UE 1309 ]
 }
 [a 1C 67 104 97 114 103 101 32 83 116 97 116 105 111 110 0 ]

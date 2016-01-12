@@ -10477,7 +10477,7 @@ void ringbuf_backspace(ringbuf_t *rb);
 
 void ringbuf_delete(ringbuf_t *rb);
 
-# 139 "../My_library/USB_CDC\usb/usb_common.h"
+# 139 "../My_library\usb/usb_common.h"
 typedef union
 {
 uint8_t bitmap;
@@ -10634,7 +10634,7 @@ uint8_t bDeviceProtocol;
 # 457
 typedef bool (*USB_EVENT_HANDLER) ( USB_EVENT event, void *data, unsigned int size );
 
-# 76 "../My_library/USB_CDC\usb/usb_ch9.h"
+# 76 "../My_library\usb/usb_ch9.h"
 typedef struct  _USB_DEVICE_DESCRIPTOR
 {
 uint8_t bLength;
@@ -10878,7 +10878,7 @@ unsigned :8;
 
 } CTRL_TRF_SETUP, SETUP_PKT, *PSETUP_PKT;
 
-# 78 "../My_library/USB_CDC\usb/usb_device.h"
+# 78 "../My_library\usb/usb_device.h"
 typedef enum
 {
 
@@ -11141,7 +11141,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 262 "../My_library/USB_CDC\usb/usb_hal_pic18.h"
+# 262 "../My_library\usb/usb_hal_pic18.h"
 typedef union _BD_STAT
 {
 uint8_t Val;
@@ -11241,7 +11241,7 @@ extern volatile OUT_PIPE outPipes[1];
 extern volatile BDT_ENTRY* pBDTEntryOut[2+1];
 extern volatile BDT_ENTRY* pBDTEntryIn[2+1];
 
-# 167 "../My_library/USB_CDC\usb/usb_hal.h"
+# 167 "../My_library\usb/usb_hal.h"
 void OTGCORE_SetDeviceAddr( uint8_t addr );
 
 # 203
@@ -11282,7 +11282,7 @@ bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t 
 # 603
 bool USBHALInitialize ( unsigned long flags );
 
-# 542 "../My_library/USB_CDC\usb/usb_device_cdc.h"
+# 542 "../My_library\usb/usb_device_cdc.h"
 void CDCInitEP(void);
 
 # 568
@@ -11425,7 +11425,7 @@ extern LINE_CODING line_coding;
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 
-# 25 "../My_library/USB_CDC\My_USB_CDC.h"
+# 25 "../My_library\My_USB_CDC.h"
 extern ringbuf_t usb_rx;
 extern ringbuf_t usb_tx;
 
@@ -11461,11 +11461,13 @@ INTCON2bits.RBPU = 0;
 USB_CDC_init();
 
 while (1) {
+INTCONbits.GIE = 0;
 
 if (ringbuf_num(&usb_rx)) {
 uint8_t data = ringbuf_pop(&usb_rx);
 ringbuf_put(&usb_tx, data);
 }
 USB_CDC_task();
+INTCONbits.GIE = 1;
 }
 }

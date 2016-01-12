@@ -8176,20 +8176,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ctmu.h: 22: void ctmu_set_ratio(uint8_t percentage);
 [; ;ctmu.h: 24: void ctmu_sampling(void);
 [; ;ctmu.h: 25: void ctmu_task(void);
-[; ;My_library\My_ringbuf.h: 19: typedef struct ringbuf {
-[; ;My_library\My_ringbuf.h: 20: char *buf;
-[; ;My_library\My_ringbuf.h: 21: uint16_t size;
-[; ;My_library\My_ringbuf.h: 22: uint16_t head;
-[; ;My_library\My_ringbuf.h: 23: uint16_t tail;
-[; ;My_library\My_ringbuf.h: 24: } ringbuf_t;
-[; ;My_library\My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
-[; ;My_library\My_ringbuf.h: 28: uint16_t ringbuf_num(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, char asciicode);
-[; ;My_library\My_ringbuf.h: 32: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
-[; ;My_library\My_ringbuf.h: 34: void ringbuf_put_str(ringbuf_t *rb, const char *str);
-[; ;My_library\My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
 [; ;My_library\My_PIC.h: 20: void OSC_init(void);
 [; ;My_library\My_PIC.h: 36: void timer0_init(uint8_t prescaler);
 [; ;My_library\My_PIC.h: 51: void timer1_init(uint8_t prescaler, uint8_t clock_select);
@@ -8200,8 +8186,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_PIC.h: 95: void CTMU_init(void);
 [; ;My_library\My_PIC.h: 96: uint16_t CTMU_read(uint8_t ch);
 [; ;My_library\My_PIC.h: 101: void Delay_ms(uint16_t ms);
-[; ;My_library\My_PIC.h: 105: void millis_timer(void);
-[; ;My_library\My_PIC.h: 106: uint32_t millis(void);
+[; ;My_library\My_PIC.h: 106: void millis_timer(void);
+[; ;My_library\My_PIC.h: 107: uint32_t millis(void);
+[; ;My_library\My_ringbuf.h: 19: typedef struct ringbuf {
+[; ;My_library\My_ringbuf.h: 20: uint8_t *buf;
+[; ;My_library\My_ringbuf.h: 21: uint16_t size;
+[; ;My_library\My_ringbuf.h: 22: uint16_t head;
+[; ;My_library\My_ringbuf.h: 23: uint16_t tail;
+[; ;My_library\My_ringbuf.h: 24: } ringbuf_t;
+[; ;My_library\My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, uint8_t *internal_buf, uint16_t bufsize);
+[; ;My_library\My_ringbuf.h: 28: uint16_t ringbuf_num(ringbuf_t *rb);
+[; ;My_library\My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, uint8_t data);
+[; ;My_library\My_ringbuf.h: 32: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
+[; ;My_library\My_ringbuf.h: 34: void ringbuf_put_str(ringbuf_t *rb, const char *str);
+[; ;My_library\My_ringbuf.h: 36: uint8_t ringbuf_pop(ringbuf_t *rb);
+[; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
+[; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
 [; ;io.h: 45: void OUT(uint8_t b, uint8_t value);
 [; ;io.h: 47: uint8_t ANALOG_IN(uint8_t b);
 [; ;io.h: 49: void LED_output(uint8_t b, uint8_t value);

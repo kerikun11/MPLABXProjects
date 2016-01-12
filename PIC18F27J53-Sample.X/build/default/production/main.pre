@@ -10463,7 +10463,6 @@ INTCONbits.T0IF = 0;
 if (PIR1bits.TMR1IF && PIE1bits.TMR1IE) {
 PIR1bits.TMR1IF = 0;
 TMR1H = 0xC0;
-LATAbits.LATA1 = !LATAbits.LATA1;
 
 }
 
@@ -10487,8 +10486,8 @@ UART_init();
 INTCONbits.GIE = 1;
 
 while (1) {
-
-LATAbits.LATA0 = !LATAbits.LATA0;
+uint8_t GIE_cache = INTCONbits.GIE;
+INTCONbits.GIE = 0;
 
 tx_send('H');
 tx_send('e');
@@ -10496,6 +10495,7 @@ tx_send('l');
 tx_send('l');
 tx_send('o');
 tx_send('\n');
+INTCONbits.GIE = GIE_cache;
 delay_ms(1000);
 }
 return 0;

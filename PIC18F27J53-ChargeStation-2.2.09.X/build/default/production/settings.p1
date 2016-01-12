@@ -8293,17 +8293,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_RTCC.h: 126: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
 [; ;My_library\My_RTCC.h: 128: void RTCC_task(void);
 [; ;My_library\My_ringbuf.h: 19: typedef struct ringbuf {
-[; ;My_library\My_ringbuf.h: 20: char *buf;
+[; ;My_library\My_ringbuf.h: 20: uint8_t *buf;
 [; ;My_library\My_ringbuf.h: 21: uint16_t size;
 [; ;My_library\My_ringbuf.h: 22: uint16_t head;
 [; ;My_library\My_ringbuf.h: 23: uint16_t tail;
 [; ;My_library\My_ringbuf.h: 24: } ringbuf_t;
-[; ;My_library\My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
+[; ;My_library\My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, uint8_t *internal_buf, uint16_t bufsize);
 [; ;My_library\My_ringbuf.h: 28: uint16_t ringbuf_num(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, char asciicode);
+[; ;My_library\My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, uint8_t data);
 [; ;My_library\My_ringbuf.h: 32: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
 [; ;My_library\My_ringbuf.h: 34: void ringbuf_put_str(ringbuf_t *rb, const char *str);
-[; ;My_library\My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
+[; ;My_library\My_ringbuf.h: 36: uint8_t ringbuf_pop(ringbuf_t *rb);
 [; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
 [; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
 [; ;io.h: 45: void OUT(uint8_t b, uint8_t value);

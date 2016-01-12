@@ -1,9 +1,9 @@
 // killifish_light
 // PIC18F27J53
-// 01 2015.07.05 command operation ??
-// 02 2015.07.18 command operation ??
-// 03 2015.08.26 terminal.h ?????
-// 04 2015.09.03 teminal operation ??
+// 01 2015.07.05 command operation
+// 02 2015.07.18 command operation
+// 03 2015.08.26 terminal.h
+// 04 2015.09.03 teminal operation
 // 05 2015.10.07 using My_library .h & .c file
 // 06 2015.11.09 using USB CDC instead of UART
 
@@ -59,7 +59,7 @@ enum {
 } light_mode;
 
 void interrupt ISR(void) {
-    USB_ISR();
+    USB_CDC_ISR();
     if (INTCONbits.T0IF) {
         INTCONbits.T0IF = 0;
     }
@@ -298,11 +298,7 @@ void main_init(void) {
     RTCC_init();
     PWM_init(PR_VALUE); //250 is 3kHz
 
-    USB_init();
-    static uint8_t txbuf[1000];
-    ringbuf_init(&usb_tx, txbuf, sizeof (txbuf));
-    static uint8_t rxbuf[250];
-    ringbuf_init(&usb_rx, rxbuf, sizeof (rxbuf));
+    USB_CDC_init();
 }
 
 int main(void) {
@@ -310,7 +306,7 @@ int main(void) {
 
     while (1) {
         INTCONbits.GIE = 0;
-        USB_task();
+        USB_CDC_task();
         INTCONbits.GIE = 1;
 
         INTCONbits.GIE = 0;

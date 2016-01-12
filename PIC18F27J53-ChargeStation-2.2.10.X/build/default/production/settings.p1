@@ -7,21 +7,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n E8834 PRINT_ITEM LOGO PRINT_TIME PRINT_DATA SETTINGS  ]
 "34 LCD_print.h
 [v _display `(v ~T0 @X0 0 ef3`E8834`*Cuc`*Cuc ]
-"48 ../My_library\My_RTCC.h
+"50 ../My_library\My_RTCC.h
 [s S1223 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1223 . ss mm hh DD MM YY ]
-"45
+"47
 [u S1222 `uc 1 `S1223 1 ]
 [n S1222 . flags flag ]
-"43
+"45
 [s S1221 `S1222 1 ]
 [n S1221 . . ]
-"61
+"63
 [s S1224 `ul 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `S1221 1 ]
 [n S1224 . epoch ss mm hh EE DD MM YY colon halfsec edit ]
-"118
+"110
 [v _RTCC_adjust_time_toggle `(v ~T0 @X0 0 ef1`*S1224 ]
-"79
+"81
 [v _now `S1224 ~T0 @X0 0 e ]
 "32 ../My_library\My_button.h
 [s S1220 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -43,11 +43,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1226 . ctmu ctmu_value current integrated_current_sec integrated_current integrated_time cut_cnt . ]
 "38
 [v _port `S1226 ~T0 @X0 -> 0 `x e ]
-"120 ../My_library\My_RTCC.h
+"112 ../My_library\My_RTCC.h
 [v _RTCC_adjust_time_cursor `(v ~T0 @X0 0 ef1`*S1224 ]
-"122
+"114
 [v _RTCC_adjust_time_inc `(v ~T0 @X0 0 ef1`*S1224 ]
-"124
+"116
 [v _RTCC_adjust_time_dec `(v ~T0 @X0 0 ef1`*S1224 ]
 "15 ctmu.h
 [v _ctmu_m `S1218 ~T0 @X0 0 e ]
@@ -8241,69 +8241,69 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_button.h: 50: };
 [; ;My_library\My_button.h: 51: } button_t;
 [; ;My_library\My_button.h: 53: void button_timer_interrupt(button_t *bt, uint8_t sw_value);
-[; ;My_library\My_RTCC.h: 39: typedef uint32_t epoch_t;
-[; ;My_library\My_RTCC.h: 43: typedef struct {
-[; ;My_library\My_RTCC.h: 45: union {
-[; ;My_library\My_RTCC.h: 46: uint8_t flags;
-[; ;My_library\My_RTCC.h: 48: struct {
-[; ;My_library\My_RTCC.h: 49: uint8_t ss : 1;
-[; ;My_library\My_RTCC.h: 50: uint8_t mm : 1;
-[; ;My_library\My_RTCC.h: 51: uint8_t hh : 1;
-[; ;My_library\My_RTCC.h: 52: uint8_t DD : 1;
-[; ;My_library\My_RTCC.h: 53: uint8_t MM : 1;
-[; ;My_library\My_RTCC.h: 54: uint8_t YY : 1;
-[; ;My_library\My_RTCC.h: 55: } flag;
-[; ;My_library\My_RTCC.h: 56: };
-[; ;My_library\My_RTCC.h: 57: } edit_t;
-[; ;My_library\My_RTCC.h: 61: typedef struct {
-[; ;My_library\My_RTCC.h: 62: epoch_t epoch;
-[; ;My_library\My_RTCC.h: 63: uint8_t ss;
-[; ;My_library\My_RTCC.h: 64: uint8_t mm;
-[; ;My_library\My_RTCC.h: 65: uint8_t hh;
-[; ;My_library\My_RTCC.h: 66: uint8_t EE;
-[; ;My_library\My_RTCC.h: 67: uint8_t DD;
-[; ;My_library\My_RTCC.h: 68: uint8_t MM;
-[; ;My_library\My_RTCC.h: 69: uint8_t YY;
-[; ;My_library\My_RTCC.h: 70: uint8_t colon;
-[; ;My_library\My_RTCC.h: 71: uint8_t halfsec;
-[; ;My_library\My_RTCC.h: 72: edit_t edit;
-[; ;My_library\My_RTCC.h: 73: } time_t;
-[; ;My_library\My_RTCC.h: 76: extern const char weekday_3char[7][4];
-[; ;My_library\My_RTCC.h: 79: extern time_t now;
-[; ;My_library\My_RTCC.h: 81: extern uint8_t time_change_flag;
-[; ;My_library\My_RTCC.h: 83: void RTCC_init(void);
-[; ;My_library\My_RTCC.h: 86: uint8_t d_to_x(uint8_t dec);
-[; ;My_library\My_RTCC.h: 88: uint8_t x_to_d(uint8_t hex);
-[; ;My_library\My_RTCC.h: 90: uint8_t month_length(uint8_t year, uint8_t month);
-[; ;My_library\My_RTCC.h: 92: epoch_t get_quot_rem(epoch_t *quot, uint8_t div);
-[; ;My_library\My_RTCC.h: 95: void RTCC_to_caltime(time_t *tm);
-[; ;My_library\My_RTCC.h: 97: void caltime_to_RTCC(time_t *tm);
-[; ;My_library\My_RTCC.h: 99: void epoch_to_caltime(time_t *tm);
-[; ;My_library\My_RTCC.h: 101: void caltime_to_epoch(time_t *tm);
-[; ;My_library\My_RTCC.h: 104: void RTCC_from_RTCC(time_t *tm);
-[; ;My_library\My_RTCC.h: 106: void RTCC_from_caltime(time_t *tm);
-[; ;My_library\My_RTCC.h: 108: void RTCC_from_epoch(time_t *tm);
-[; ;My_library\My_RTCC.h: 111: void display_dec(char *str, uint8_t dec, uint8_t edit);
-[; ;My_library\My_RTCC.h: 113: void display_time_0802(time_t *tm, char *line0, char *line1);
-[; ;My_library\My_RTCC.h: 115: void display_time_1602(time_t *tm, char *line0, char *line1);
-[; ;My_library\My_RTCC.h: 118: void RTCC_adjust_time_toggle(time_t *tm);
-[; ;My_library\My_RTCC.h: 120: void RTCC_adjust_time_cursor(time_t *tm);
-[; ;My_library\My_RTCC.h: 122: void RTCC_adjust_time_inc(time_t *tm);
-[; ;My_library\My_RTCC.h: 124: void RTCC_adjust_time_dec(time_t *tm);
-[; ;My_library\My_RTCC.h: 126: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
-[; ;My_library\My_RTCC.h: 128: void RTCC_task(void);
+[; ;My_library\My_RTCC.h: 41: typedef uint32_t epoch_t;
+[; ;My_library\My_RTCC.h: 45: typedef struct {
+[; ;My_library\My_RTCC.h: 47: union {
+[; ;My_library\My_RTCC.h: 48: uint8_t flags;
+[; ;My_library\My_RTCC.h: 50: struct {
+[; ;My_library\My_RTCC.h: 51: uint8_t ss : 1;
+[; ;My_library\My_RTCC.h: 52: uint8_t mm : 1;
+[; ;My_library\My_RTCC.h: 53: uint8_t hh : 1;
+[; ;My_library\My_RTCC.h: 54: uint8_t DD : 1;
+[; ;My_library\My_RTCC.h: 55: uint8_t MM : 1;
+[; ;My_library\My_RTCC.h: 56: uint8_t YY : 1;
+[; ;My_library\My_RTCC.h: 57: } flag;
+[; ;My_library\My_RTCC.h: 58: };
+[; ;My_library\My_RTCC.h: 59: } edit_t;
+[; ;My_library\My_RTCC.h: 63: typedef struct {
+[; ;My_library\My_RTCC.h: 64: epoch_t epoch;
+[; ;My_library\My_RTCC.h: 65: uint8_t ss;
+[; ;My_library\My_RTCC.h: 66: uint8_t mm;
+[; ;My_library\My_RTCC.h: 67: uint8_t hh;
+[; ;My_library\My_RTCC.h: 68: uint8_t EE;
+[; ;My_library\My_RTCC.h: 69: uint8_t DD;
+[; ;My_library\My_RTCC.h: 70: uint8_t MM;
+[; ;My_library\My_RTCC.h: 71: uint8_t YY;
+[; ;My_library\My_RTCC.h: 72: uint8_t colon;
+[; ;My_library\My_RTCC.h: 73: uint8_t halfsec;
+[; ;My_library\My_RTCC.h: 74: edit_t edit;
+[; ;My_library\My_RTCC.h: 75: } time_t;
+[; ;My_library\My_RTCC.h: 79: extern const char weekday_3char[7][4];
+[; ;My_library\My_RTCC.h: 81: extern time_t now;
+[; ;My_library\My_RTCC.h: 83: extern uint8_t time_change_flag;
+[; ;My_library\My_RTCC.h: 85: void RTCC_init(void);
+[; ;My_library\My_RTCC.h: 87: void RTCC_task(void);
+[; ;My_library\My_RTCC.h: 92: void RTCC_from_RTCC(time_t *tm);
+[; ;My_library\My_RTCC.h: 94: void RTCC_from_caltime(time_t *tm);
+[; ;My_library\My_RTCC.h: 96: void RTCC_from_epoch(time_t *tm);
+[; ;My_library\My_RTCC.h: 98: uint8_t month_length(uint8_t year, uint8_t month);
+[; ;My_library\My_RTCC.h: 102: static void display_dec(char *str, uint8_t dec, uint8_t edit);
+[; ;My_library\My_RTCC.h: 104: void display_time_0802(time_t *tm, char *line0, char *line1);
+[; ;My_library\My_RTCC.h: 106: void display_time_1602(time_t *tm, char *line0, char *line1);
+[; ;My_library\My_RTCC.h: 110: void RTCC_adjust_time_toggle(time_t *tm);
+[; ;My_library\My_RTCC.h: 112: void RTCC_adjust_time_cursor(time_t *tm);
+[; ;My_library\My_RTCC.h: 114: void RTCC_adjust_time_inc(time_t *tm);
+[; ;My_library\My_RTCC.h: 116: void RTCC_adjust_time_dec(time_t *tm);
+[; ;My_library\My_RTCC.h: 118: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
+[; ;My_library\My_RTCC.h: 123: static uint8_t d_to_x(uint8_t dec);
+[; ;My_library\My_RTCC.h: 125: static uint8_t x_to_d(uint8_t hex);
+[; ;My_library\My_RTCC.h: 127: static epoch_t get_quot_rem(epoch_t *quot, uint8_t div);
+[; ;My_library\My_RTCC.h: 131: static void RTCC_to_caltime(time_t *tm);
+[; ;My_library\My_RTCC.h: 133: static void caltime_to_RTCC(time_t *tm);
+[; ;My_library\My_RTCC.h: 135: static void epoch_to_caltime(time_t *tm);
+[; ;My_library\My_RTCC.h: 137: static void caltime_to_epoch(time_t *tm);
 [; ;My_library\My_ringbuf.h: 19: typedef struct ringbuf {
-[; ;My_library\My_ringbuf.h: 20: char *buf;
+[; ;My_library\My_ringbuf.h: 20: uint8_t *buf;
 [; ;My_library\My_ringbuf.h: 21: uint16_t size;
 [; ;My_library\My_ringbuf.h: 22: uint16_t head;
 [; ;My_library\My_ringbuf.h: 23: uint16_t tail;
 [; ;My_library\My_ringbuf.h: 24: } ringbuf_t;
-[; ;My_library\My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
+[; ;My_library\My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, uint8_t *internal_buf, uint16_t bufsize);
 [; ;My_library\My_ringbuf.h: 28: uint16_t ringbuf_num(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, char asciicode);
+[; ;My_library\My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, uint8_t data);
 [; ;My_library\My_ringbuf.h: 32: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
 [; ;My_library\My_ringbuf.h: 34: void ringbuf_put_str(ringbuf_t *rb, const char *str);
-[; ;My_library\My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
+[; ;My_library\My_ringbuf.h: 36: uint8_t ringbuf_pop(ringbuf_t *rb);
 [; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
 [; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
 [; ;io.h: 45: void OUT(uint8_t b, uint8_t value);

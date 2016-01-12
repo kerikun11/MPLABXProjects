@@ -10603,23 +10603,23 @@ void RTCC_task(void);
 
 # 19 "../My_library\My_ringbuf.h"
 typedef struct ringbuf {
-char *buf;
+uint8_t *buf;
 uint16_t size;
 uint16_t head;
 uint16_t tail;
 } ringbuf_t;
 
-void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
+void ringbuf_init(ringbuf_t *rb, uint8_t *internal_buf, uint16_t bufsize);
 
 uint16_t ringbuf_num(ringbuf_t *rb);
 
-void ringbuf_put(ringbuf_t *rb, char asciicode);
+void ringbuf_put(ringbuf_t *rb, uint8_t data);
 
 void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
 
 void ringbuf_put_str(ringbuf_t *rb, const char *str);
 
-char ringbuf_pop(ringbuf_t *rb);
+uint8_t ringbuf_pop(ringbuf_t *rb);
 
 void ringbuf_backspace(ringbuf_t *rb);
 

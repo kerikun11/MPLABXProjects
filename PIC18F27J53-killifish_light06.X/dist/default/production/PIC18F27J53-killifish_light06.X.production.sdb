@@ -3,8 +3,8 @@
 [d edition pro ]
 [d chip 18F27J53 ]
 [d frameptr 4065 ]
-"136 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
-[e E8796 . `uc
+"137 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
+[e E291 . `uc
 DETACHED_STATE 0
 ATTACHED_STATE 1
 POWERED_STATE 2
@@ -13,8 +13,8 @@ ADR_PENDING_STATE 8
 ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
-"708
-[e E8547 . `ui
+"709
+[e E42 . `ui
 EVENT_NONE 0
 EVENT_DEVICE_STACK_BASE 1
 EVENT_HOST_STACK_BASE 100
@@ -50,8 +50,8 @@ EVENT_AUDIO_BASE 1000
 EVENT_USER_BASE 10000
 EVENT_BUS_ERROR 32767
 ]
-"2017
-[e E8805 . `uc
+"2018
+[e E300 . `uc
 EVENT_CONFIGURED 1
 EVENT_SET_DESCRIPTOR 2
 EVENT_EP0_REQUEST 3
@@ -59,7 +59,7 @@ EVENT_ATTACH 4
 EVENT_TRANSFER_TERMINATED 5
 ]
 "482 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device_cdc.c
-[e E8545 . `ui
+[e E40 . `ui
 EVENT_NONE 0
 EVENT_DEVICE_STACK_BASE 1
 EVENT_HOST_STACK_BASE 100
@@ -96,7 +96,7 @@ EVENT_USER_BASE 10000
 EVENT_BUS_ERROR 32767
 ]
 "483
-[e E8803 . `uc
+[e E298 . `uc
 EVENT_CONFIGURED 1
 EVENT_SET_DESCRIPTOR 2
 EVENT_EP0_REQUEST 3
@@ -111,8 +111,8 @@ ST7032_SEND 2
 ST7032_STOP 3
 ST7032_WAIT 4
 ]
-"18 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
-[e E8794 . `uc
+"60 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
+[e E319 . `uc
 DETACHED_STATE 0
 ATTACHED_STATE 1
 POWERED_STATE 2
@@ -121,8 +121,8 @@ ADR_PENDING_STATE 8
 ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
-"44
-[e E8545 . `ui
+"119
+[e E70 . `ui
 EVENT_NONE 0
 EVENT_DEVICE_STACK_BASE 1
 EVENT_HOST_STACK_BASE 100
@@ -158,8 +158,8 @@ EVENT_AUDIO_BASE 1000
 EVENT_USER_BASE 10000
 EVENT_BUS_ERROR 32767
 ]
-"45
-[e E8803 . `uc
+"120
+[e E328 . `uc
 EVENT_CONFIGURED 1
 EVENT_SET_DESCRIPTOR 2
 EVENT_EP0_REQUEST 3
@@ -167,7 +167,7 @@ EVENT_ATTACH 4
 EVENT_TRANSFER_TERMINATED 5
 ]
 "59 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-killifish_light06.X\PIC18F27J53-killifish_light06.c
-[e E9617 . `uc
+[e E9614 . `uc
 TIME_SYNC_mode 0
 ADC_mode 1
 COMMAND_mode 2
@@ -278,67 +278,69 @@ COMMAND_mode 2
 [v _terminal_at_hand terminal_at_hand `(v  1 e 0 0 ]
 "93
 [v _terminal_time terminal_time `(v  1 e 0 0 ]
-"7 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
-[v _USB_ISR USB_ISR `(v  1 e 0 0 ]
-"11
-[v _USB_init USB_init `(v  1 e 0 0 ]
-"17
-[v _is_usb_available is_usb_available `(uc  1 e 1 0 ]
-"21
-[v _put_string_usb put_string_usb `(i  1 e 2 0 ]
-"32
-[v _get_string_usb get_string_usb `(i  1 e 2 0 ]
-"44
+"20 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
+[v _USB_CDC_init USB_CDC_init `(v  1 e 0 0 ]
+"26
+[v _USB_CDC_buffer_init USB_CDC_buffer_init `(v  1 s 0 USB_CDC_buffer_init ]
+"33
+[v _USB_CDC_ISR USB_CDC_ISR `(v  1 e 0 0 ]
+"39
+[v _USB_CDC_task USB_CDC_task `(v  1 e 0 0 ]
+"94
+[v _USB_CDC_send USB_CDC_send `(v  1 s 0 USB_CDC_send ]
+"101
+[v _USB_CDC_get USB_CDC_get `(uc  1 s 1 USB_CDC_get ]
+"110
+[v _APP_DeviceCDCBasicDemoInitialize APP_DeviceCDCBasicDemoInitialize `(v  1 s 0 APP_DeviceCDCBasicDemoInitialize ]
+"119
 [v _USER_USB_CALLBACK_EVENT_HANDLER USER_USB_CALLBACK_EVENT_HANDLER `(uc  1 e 1 0 ]
-"66
-[v _USB_task USB_task `(v  1 e 0 0 ]
-"298 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
+"299 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
 [v _USBDeviceInit USBDeviceInit `(v  1 e 0 0 ]
 [v i2_USBDeviceInit USBDeviceInit `(v  1 e 0 0 ]
-"489
+"490
 [v _USBDeviceTasks USBDeviceTasks `(v  1 e 0 0 ]
-"878
+"879
 [v _USBEnableEndpoint USBEnableEndpoint `(v  1 e 0 0 ]
-"995
+"996
 [v _USBTransferOnePacket USBTransferOnePacket `(*.39v  1 e 2 0 ]
 [v i2_USBTransferOnePacket USBTransferOnePacket `(*.39v  1 e 2 0 ]
-"1352
+"1353
 [v _USBDeviceAttach USBDeviceAttach `(v  1 e 0 0 ]
-"1416
+"1417
 [v _USBCtrlEPAllowStatusStage USBCtrlEPAllowStatusStage `(v  1 e 0 0 ]
-"1488
+"1489
 [v _USBCtrlEPAllowDataStage USBCtrlEPAllowDataStage `(v  1 e 0 0 ]
-"1543
+"1544
 [v _USBConfigureEndpoint USBConfigureEndpoint `(v  1 s 0 USBConfigureEndpoint ]
-"1616
+"1617
 [v _USBCtrlEPServiceComplete USBCtrlEPServiceComplete `(v  1 s 0 USBCtrlEPServiceComplete ]
-"1771
+"1772
 [v _USBCtrlTrfTxService USBCtrlTrfTxService `(v  1 s 0 USBCtrlTrfTxService ]
-"1852
+"1853
 [v _USBCtrlTrfRxService USBCtrlTrfRxService `(v  1 s 0 USBCtrlTrfRxService ]
-"1968
+"1969
 [v _USBStdSetCfgHandler USBStdSetCfgHandler `(v  1 s 0 USBStdSetCfgHandler ]
-"2043
+"2044
 [v _USBStdGetDscHandler USBStdGetDscHandler `(v  1 s 0 USBStdGetDscHandler ]
-"2129
+"2130
 [v _USBStdGetStatusHandler USBStdGetStatusHandler `(v  1 s 0 USBStdGetStatusHandler ]
-"2202
+"2203
 [v _USBStallHandler USBStallHandler `(v  1 s 0 USBStallHandler ]
-"2245
+"2246
 [v _USBSuspend USBSuspend `(v  1 s 0 USBSuspend ]
-"2302
+"2303
 [v _USBWakeFromSuspend USBWakeFromSuspend `(v  1 s 0 USBWakeFromSuspend ]
-"2369
+"2370
 [v _USBCtrlEPService USBCtrlEPService `(v  1 s 0 USBCtrlEPService ]
-"2469
+"2470
 [v _USBCtrlTrfSetupHandler USBCtrlTrfSetupHandler `(v  1 s 0 USBCtrlTrfSetupHandler ]
-"2541
+"2542
 [v _USBCtrlTrfOutHandler USBCtrlTrfOutHandler `(v  1 s 0 USBCtrlTrfOutHandler ]
-"2595
+"2596
 [v _USBCtrlTrfInHandler USBCtrlTrfInHandler `(v  1 s 0 USBCtrlTrfInHandler ]
-"2689
+"2690
 [v _USBCheckStdRequest USBCheckStdRequest `(v  1 s 0 USBCheckStdRequest ]
-"2757
+"2758
 [v _USBStdFeatureReqHandler USBStdFeatureReqHandler `(v  1 s 0 USBStdFeatureReqHandler ]
 "204 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device_cdc.c
 [v _USBCheckCDCRequest USBCheckCDCRequest `(v  1 e 0 0 ]
@@ -411,13 +413,13 @@ COMMAND_mode 2
 [v _light_task light_task `(v  1 e 0 0 ]
 "285
 [v _main_init main_init `(v  1 e 0 0 ]
-"308
+"304
 [v _main main `(i  1 e 2 0 ]
 "3 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_I2C.c
 [v _I2C_sent_flag I2C_sent_flag `uc  1 e 1 0 ]
 "4
 [v _I2C_cfct_flag I2C_cfct_flag `uc  1 e 1 0 ]
-"217 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
+"220 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
 [v _ms ms `ul  1 e 4 0 ]
 "17 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
 [v _weekday_3char weekday_3char `C[7][4]uc  1 e 28 0 ]
@@ -442,10 +444,14 @@ COMMAND_mode 2
 [v _uart_tx uart_tx `S3374  1 e 8 0 ]
 "8
 [v _uart_rx uart_rx `S3374  1 e 8 0 ]
-"4 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
-[v _usb_tx usb_tx `S3374  1 e 8 0 ]
-"5
+"15 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
 [v _usb_rx usb_rx `S3374  1 e 8 0 ]
+"16
+[v _usb_tx usb_tx `S3374  1 e 8 0 ]
+"17
+[v _readBuffer readBuffer `[64]uc  1 s 64 readBuffer ]
+"18
+[v _writeBuffer writeBuffer `[64]uc  1 s 64 writeBuffer ]
 [s S21 _USB_DEVICE_DESCRIPTOR 18 `uc 1 bLength 1 0 `uc 1 bDescriptorType 1 1 `ui 1 bcdUSB 2 2 `uc 1 bDeviceClass 1 4 `uc 1 bDeviceSubClass 1 5 `uc 1 bDeviceProtocol 1 6 `uc 1 bMaxPacketSize0 1 7 `ui 1 idVendor 2 8 `ui 1 idProduct 2 10 `ui 1 bcdDevice 2 12 `uc 1 iManufacturer 1 14 `uc 1 iProduct 1 15 `uc 1 iSerialNumber 1 16 `uc 1 bNumConfigurations 1 17 ]
 "166 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_descriptors.c
 [v _device_dsc device_dsc `CS21  1 e 18 0 ]
@@ -463,11 +469,11 @@ COMMAND_mode 2
 [v _USB_CD_Ptr USB_CD_Ptr `C[1]*.32Cuc  1 e 2 0 ]
 "294
 [v _USB_SD_Ptr USB_SD_Ptr `C[3]*.32Cuc  1 e 6 0 ]
-"136 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
-[v _USBDeviceState USBDeviceState `VEE8796  1 e 1 0 ]
-"137
-[v _USBActiveConfiguration USBActiveConfiguration `VEuc  1 e 1 0 ]
+"137 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
+[v _USBDeviceState USBDeviceState `VEE291  1 e 1 0 ]
 "138
+[v _USBActiveConfiguration USBActiveConfiguration `VEuc  1 e 1 0 ]
+"139
 [v _USBAlternateInterface USBAlternateInterface `VE[2]uc  1 e 2 0 ]
 [s S114 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
@@ -478,7 +484,7 @@ COMMAND_mode 2
 `uc 1 DTS 1 0 :1:6 
 `uc 1 UOWN 1 0 :1:7 
 ]
-"139
+"140
 [s S123 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
@@ -497,18 +503,18 @@ COMMAND_mode 2
 `ui 1 ADR 2 2 ]
 [u S148 __BDT 4 `S139 1 . 4 0 `S144 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
 [v _pBDTEntryEP0OutCurrent pBDTEntryEP0OutCurrent `*.39VES148  1 e 2 0 ]
-"140
-[v _pBDTEntryEP0OutNext pBDTEntryEP0OutNext `*.39VES148  1 e 2 0 ]
 "141
-[v _pBDTEntryOut pBDTEntryOut `[3]*.39VES148  1 e 6 0 ]
+[v _pBDTEntryEP0OutNext pBDTEntryEP0OutNext `*.39VES148  1 e 2 0 ]
 "142
-[v _pBDTEntryIn pBDTEntryIn `[3]*.39VES148  1 e 6 0 ]
+[v _pBDTEntryOut pBDTEntryOut `[3]*.39VES148  1 e 6 0 ]
 "143
-[v _shortPacketStatus shortPacketStatus `VEuc  1 e 1 0 ]
+[v _pBDTEntryIn pBDTEntryIn `[3]*.39VES148  1 e 6 0 ]
 "144
+[v _shortPacketStatus shortPacketStatus `VEuc  1 e 1 0 ]
+"145
 [v _controlTransferState controlTransferState `VEuc  1 e 1 0 ]
 [u S153 . 3 `*.2uc 1 bRam 3 0 `*.2Cuc 1 bRom 3 0 `*.2ui 1 wRam 3 0 `*.2Cui 1 wRom 3 0 ]
-"145
+"146
 [s S158 . 1 `uc 1 ctrl_trf_mem 1 0 :1:0 
 `uc 1 reserved 1 0 :5:1 
 `uc 1 includeZero 1 0 :1:6 
@@ -520,55 +526,55 @@ COMMAND_mode 2
 [s S173 . 6 `S153 1 pSrc 3 0 `S163 1 info 1 3 `S169 1 wCount 2 4 ]
 [v _inPipes inPipes `VE[1]S173  1 e 6 0 ]
 [u S177 . 3 `*.2uc 1 bRam 3 0 `*.2ui 1 wRam 3 0 ]
-"146
+"147
 [s S180 . 1 `uc 1 reserved 1 0 :7:0 
 `uc 1 busy 1 0 :1:7 
 ]
 [u S183 . 1 `S180 1 bits 1 0 `uc 1 Val 1 0 ]
 [s S187 . 9 `S177 1 pDst 3 0 `S183 1 info 1 3 `S169 1 wCount 2 4 `*.38(v 1 pFunc 3 6 ]
 [v _outPipes outPipes `VE[1]S187  1 e 9 0 ]
-"147
-[v _pDst pDst `*.39VEuc  1 e 2 0 ]
 "148
-[v _RemoteWakeup RemoteWakeup `VEuc  1 e 1 0 ]
+[v _pDst pDst `*.39VEuc  1 e 2 0 ]
 "149
+[v _RemoteWakeup RemoteWakeup `VEuc  1 e 1 0 ]
+"150
 [v _USBBusIsSuspended USBBusIsSuspended `VEuc  1 e 1 0 ]
 [s S192 . 1 `uc 1 filler1 1 0 :1:0 
 `uc 1 ping_pong 1 0 :1:1 
 `uc 1 direction 1 0 :1:2 
 `uc 1 endpoint_number 1 0 :4:3 
 ]
-"150
+"151
 [u S197 __USTAT 1 `S192 1 . 1 0 `uc 1 Val 1 0 ]
 [v _USTATcopy USTATcopy `VES197  1 e 1 0 ]
-"151
-[v _endpoint_number endpoint_number `VEuc  1 e 1 0 ]
 "152
+[v _endpoint_number endpoint_number `VEuc  1 e 1 0 ]
+"153
 [v _BothEP0OutUOWNsSet BothEP0OutUOWNsSet `VEuc  1 e 1 0 ]
 [s S200 . 1 `uc 1 ping_pong_state 1 0 :1:0 
 `uc 1 transfer_terminated 1 0 :1:1 
 ]
-"153
+"154
 [u S203 . 1 `S200 1 bits 1 0 `uc 1 Val 1 0 ]
 [v _ep_data_in ep_data_in `VE[3]S203  1 e 3 0 ]
-"154
-[v _ep_data_out ep_data_out `VE[3]S203  1 e 3 0 ]
 "155
-[v _USBStatusStageTimeoutCounter USBStatusStageTimeoutCounter `VEuc  1 e 1 0 ]
+[v _ep_data_out ep_data_out `VE[3]S203  1 e 3 0 ]
 "156
-[v _USBDeferStatusStagePacket USBDeferStatusStagePacket `VEuc  1 e 1 0 ]
+[v _USBStatusStageTimeoutCounter USBStatusStageTimeoutCounter `VEuc  1 e 1 0 ]
 "157
-[v _USBStatusStageEnabledFlag1 USBStatusStageEnabledFlag1 `VEuc  1 e 1 0 ]
+[v _USBDeferStatusStagePacket USBDeferStatusStagePacket `VEuc  1 e 1 0 ]
 "158
-[v _USBStatusStageEnabledFlag2 USBStatusStageEnabledFlag2 `VEuc  1 e 1 0 ]
+[v _USBStatusStageEnabledFlag1 USBStatusStageEnabledFlag1 `VEuc  1 e 1 0 ]
 "159
-[v _USBDeferINDataStagePackets USBDeferINDataStagePackets `VEuc  1 e 1 0 ]
+[v _USBStatusStageEnabledFlag2 USBStatusStageEnabledFlag2 `VEuc  1 e 1 0 ]
 "160
+[v _USBDeferINDataStagePackets USBDeferINDataStagePackets `VEuc  1 e 1 0 ]
+"161
 [v _USBDeferOUTDataStagePackets USBDeferOUTDataStagePackets `VEuc  1 e 1 0 ]
-"167
+"168
 [v _BDT BDT `VE[12]S148  1 e 48 @3328 ]
 [s S206 . 8 `uc 1 bmRequestType 1 0 `uc 1 bRequest 1 1 `ui 1 wValue 2 2 `ui 1 wIndex 2 4 `ui 1 wLength 2 6 ]
-"172
+"173
 [s S233 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `S169 1 W_Value 2 2 `S169 1 W_Index 2 4 `S169 1 W_Length 2 6 ]
@@ -632,7 +638,7 @@ COMMAND_mode 2
 ]
 [u S314 . 8 `S206 1 . 8 0 `S233 1 . 8 0 `S239 1 . 8 0 `S257 1 . 1 0 `S259 1 . 8 0 `S267 1 . 8 0 `S276 1 . 8 0 `S285 1 . 8 0 `S294 1 . 8 0 `S303 1 . 8 0 ]
 [v _SetupPkt SetupPkt `VES314  1 e 8 @3376 ]
-"173
+"174
 [v _CtrlTrfData CtrlTrfData `VE[8]uc  1 e 8 @3384 ]
 "122 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device_cdc.c
 [v _cdc_data_tx cdc_data_tx `VE[64]uc  1 e 64 0 ]
@@ -669,43 +675,43 @@ COMMAND_mode 2
 [v _control_signal_bitmap control_signal_bitmap `S1578  1 e 1 0 ]
 "167
 [v _dummy_encapsulated_cmd_response dummy_encapsulated_cmd_response `[8]uc  1 e 8 0 ]
-[s S5548 . 1 `uc 1 IOLOCK 1 0 :1:0 
+[s S5559 . 1 `uc 1 IOLOCK 1 0 :1:0 
 ]
 "1078 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
-[u S5550 . 1 `S5548 1 . 1 0 ]
-[v _PPSCONbits PPSCONbits `VES5550  1 e 1 @3775 ]
+[u S5561 . 1 `S5559 1 . 1 0 ]
+[v _PPSCONbits PPSCONbits `VES5561  1 e 1 @3775 ]
 "1105
 [v _RPOR3 RPOR3 `VEuc  1 e 1 @3779 ]
 "1111
 [v _RPOR4 RPOR4 `VEuc  1 e 1 @3780 ]
 "1117
 [v _RPOR5 RPOR5 `VEuc  1 e 1 @3781 ]
-[s S5718 . 1 `uc 1 CCP4M 1 0 :4:0 
+[s S5729 . 1 `uc 1 CCP4M 1 0 :4:0 
 `uc 1 DC4B 1 0 :2:4 
 ]
 "1916
-[s S5721 . 1 `uc 1 CCP4M0 1 0 :1:0 
+[s S5732 . 1 `uc 1 CCP4M0 1 0 :1:0 
 `uc 1 CCP4M1 1 0 :1:1 
 `uc 1 CCP4M2 1 0 :1:2 
 `uc 1 CCP4M3 1 0 :1:3 
 `uc 1 DC4B0 1 0 :1:4 
 `uc 1 DC4B1 1 0 :1:5 
 ]
-[u S5728 . 1 `S5718 1 . 1 0 `S5721 1 . 1 0 ]
-[v _CCP4CONbits CCP4CONbits `VES5728  1 e 1 @3858 ]
+[u S5739 . 1 `S5729 1 . 1 0 `S5732 1 . 1 0 ]
+[v _CCP4CONbits CCP4CONbits `VES5739  1 e 1 @3858 ]
 "1960
 [v _CCPR4L CCPR4L `VEuc  1 e 1 @3859 ]
-[s S5772 . 1 `uc 1 CCPR4L 1 0 :8:0 
+[s S5783 . 1 `uc 1 CCPR4L 1 0 :8:0 
 ]
 "1970
-[u S5774 . 1 `S5772 1 . 1 0 ]
-[v _CCPR4Lbits CCPR4Lbits `VES5774  1 e 1 @3859 ]
-[s S5681 . 1 `uc 1 CCP3M 1 0 :4:0 
+[u S5785 . 1 `S5783 1 . 1 0 ]
+[v _CCPR4Lbits CCPR4Lbits `VES5785  1 e 1 @3859 ]
+[s S5692 . 1 `uc 1 CCP3M 1 0 :4:0 
 `uc 1 DC3B 1 0 :2:4 
 `uc 1 P3M 1 0 :2:6 
 ]
 "2020
-[s S5685 . 1 `uc 1 CCP3M0 1 0 :1:0 
+[s S5696 . 1 `uc 1 CCP3M0 1 0 :1:0 
 `uc 1 CCP3M1 1 0 :1:1 
 `uc 1 CCP3M2 1 0 :1:2 
 `uc 1 CCP3M3 1 0 :1:3 
@@ -714,15 +720,15 @@ COMMAND_mode 2
 `uc 1 P3M0 1 0 :1:6 
 `uc 1 P3M1 1 0 :1:7 
 ]
-[u S5694 . 1 `S5681 1 . 1 0 `S5685 1 . 1 0 ]
-[v _CCP3CONbits CCP3CONbits `VES5694  1 e 1 @3861 ]
+[u S5705 . 1 `S5692 1 . 1 0 `S5696 1 . 1 0 ]
+[v _CCP3CONbits CCP3CONbits `VES5705  1 e 1 @3861 ]
 "2079
 [v _CCPR3L CCPR3L `VEuc  1 e 1 @3862 ]
-[s S5711 . 1 `uc 1 CCPR3L 1 0 :8:0 
+[s S5722 . 1 `uc 1 CCPR3L 1 0 :8:0 
 ]
 "2089
-[u S5713 . 1 `S5711 1 . 1 0 ]
-[v _CCPR3Lbits CCPR3Lbits `VES5713  1 e 1 @3862 ]
+[u S5724 . 1 `S5722 1 . 1 0 ]
+[v _CCPR3Lbits CCPR3Lbits `VES5724  1 e 1 @3862 ]
 [s S2939 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T5SYNC 1 0 :1:2 
 ]
@@ -837,7 +843,7 @@ COMMAND_mode 2
 [v _ANCON0 ANCON0 `VEuc  1 e 1 @3912 ]
 "5667
 [v _ANCON1 ANCON1 `VEuc  1 e 1 @3913 ]
-[s S5742 . 1 `uc 1 C4TSEL 1 0 :2:0 
+[s S5753 . 1 `uc 1 C4TSEL 1 0 :2:0 
 `uc 1 C5TSEL0 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 C6TSEL0 1 0 :1:4 
@@ -845,20 +851,20 @@ COMMAND_mode 2
 `uc 1 C7TSEL 1 0 :2:6 
 ]
 "5965
-[s S5749 . 1 `uc 1 C4TSEL0 1 0 :1:0 
+[s S5760 . 1 `uc 1 C4TSEL0 1 0 :1:0 
 `uc 1 C4TSEL1 1 0 :1:1 
 `uc 1 . 1 0 :4:2 
 `uc 1 C7TSEL0 1 0 :1:6 
 `uc 1 C7TSEL1 1 0 :1:7 
 ]
-[u S5755 . 1 `S5742 1 . 1 0 `S5749 1 . 1 0 ]
-[v _CCPTMRS1bits CCPTMRS1bits `VES5755  1 e 1 @3921 ]
-[s S5598 . 1 `uc 1 C1TSEL 1 0 :3:0 
+[u S5766 . 1 `S5753 1 . 1 0 `S5760 1 . 1 0 ]
+[v _CCPTMRS1bits CCPTMRS1bits `VES5766  1 e 1 @3921 ]
+[s S5609 . 1 `uc 1 C1TSEL 1 0 :3:0 
 `uc 1 C2TSEL 1 0 :3:3 
 `uc 1 C3TSEL 1 0 :2:6 
 ]
 "6031
-[s S5602 . 1 `uc 1 C1TSEL0 1 0 :1:0 
+[s S5613 . 1 `uc 1 C1TSEL0 1 0 :1:0 
 `uc 1 C1TSEL1 1 0 :1:1 
 `uc 1 C1TSEL2 1 0 :1:2 
 `uc 1 C2TSEL0 1 0 :1:3 
@@ -867,8 +873,8 @@ COMMAND_mode 2
 `uc 1 C3TSEL0 1 0 :1:6 
 `uc 1 C3TSEL1 1 0 :1:7 
 ]
-[u S5611 . 1 `S5598 1 . 1 0 `S5602 1 . 1 0 ]
-[v _CCPTMRS0bits CCPTMRS0bits `VES5611  1 e 1 @3922 ]
+[u S5622 . 1 `S5609 1 . 1 0 `S5613 1 . 1 0 ]
+[v _CCPTMRS0bits CCPTMRS0bits `VES5622  1 e 1 @3922 ]
 "6290
 [v _UIR UIR `VEuc  1 e 1 @3938 ]
 [s S396 . 1 `uc 1 URSTIF 1 0 :1:0 
@@ -988,7 +994,7 @@ COMMAND_mode 2
 [v _BAUDCON1bits BAUDCON1bits `VES4871  1 e 1 @3966 ]
 "8514
 [v _SPBRGH1 SPBRGH1 `VEuc  1 e 1 @3967 ]
-[s S5406 . 1 `uc 1 RA0 1 0 :1:0 
+[s S5417 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -998,7 +1004,7 @@ COMMAND_mode 2
 `uc 1 RA7 1 0 :1:7 
 ]
 "8634
-[s S5415 . 1 `uc 1 AN0 1 0 :1:0 
+[s S5426 . 1 `uc 1 AN0 1 0 :1:0 
 `uc 1 AN1 1 0 :1:1 
 `uc 1 AN2 1 0 :1:2 
 `uc 1 AN3 1 0 :1:3 
@@ -1007,10 +1013,10 @@ COMMAND_mode 2
 `uc 1 OSC2 1 0 :1:6 
 `uc 1 OSC1 1 0 :1:7 
 ]
-[s S5424 . 1 `uc 1 . 1 0 :5:0 
+[s S5435 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_SS1 1 0 :1:5 
 ]
-[s S5427 . 1 `uc 1 C1INA 1 0 :1:0 
+[s S5438 . 1 `uc 1 C1INA 1 0 :1:0 
 `uc 1 C2INA 1 0 :1:1 
 `uc 1 VREF_MINUS 1 0 :1:2 
 `uc 1 VREF_PLUS 1 0 :1:3 
@@ -1019,43 +1025,43 @@ COMMAND_mode 2
 `uc 1 CLKO 1 0 :1:6 
 `uc 1 CLKI 1 0 :1:7 
 ]
-[s S5436 . 1 `uc 1 . 1 0 :2:0 
+[s S5447 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 CVREF 1 0 :1:2 
 `uc 1 C1INB 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 HLVDIN 1 0 :1:5 
 ]
-[s S5442 . 1 `uc 1 RP0 1 0 :1:0 
+[s S5453 . 1 `uc 1 RP0 1 0 :1:0 
 `uc 1 RP1 1 0 :1:1 
 `uc 1 C2INB 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 RCV 1 0 :1:5 
 ]
-[s S5448 . 1 `uc 1 ULPWU 1 0 :1:0 
+[s S5459 . 1 `uc 1 ULPWU 1 0 :1:0 
 `uc 1 VBG 1 0 :1:1 
 `uc 1 C1IND 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 RP2 1 0 :1:5 
 ]
-[s S5454 . 1 `uc 1 . 1 0 :2:0 
+[s S5465 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 C3INB 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 C1INC 1 0 :1:5 
 ]
-[s S5459 . 1 `uc 1 . 1 0 :5:0 
+[s S5470 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LVDIN 1 0 :1:5 
 ]
-[s S5462 . 1 `uc 1 . 1 0 :4:0 
+[s S5473 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 RA4 1 0 :1:4 
 ]
-[s S5465 . 1 `uc 1 . 1 0 :7:0 
+[s S5476 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RJPU 1 0 :1:7 
 ]
-[s S5468 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S5479 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 ]
-[u S5470 . 1 `S5406 1 . 1 0 `S5415 1 . 1 0 `S5424 1 . 1 0 `S5427 1 . 1 0 `S5436 1 . 1 0 `S5442 1 . 1 0 `S5448 1 . 1 0 `S5454 1 . 1 0 `S5459 1 . 1 0 `S5462 1 . 1 0 `S5465 1 . 1 0 `S5468 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES5470  1 e 1 @3968 ]
-[s S5309 . 1 `uc 1 LATB0 1 0 :1:0 
+[u S5481 . 1 `S5417 1 . 1 0 `S5426 1 . 1 0 `S5435 1 . 1 0 `S5438 1 . 1 0 `S5447 1 . 1 0 `S5453 1 . 1 0 `S5459 1 . 1 0 `S5465 1 . 1 0 `S5470 1 . 1 0 `S5473 1 . 1 0 `S5476 1 . 1 0 `S5479 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES5481  1 e 1 @3968 ]
+[s S5320 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -1065,31 +1071,31 @@ COMMAND_mode 2
 `uc 1 LATB7 1 0 :1:7 
 ]
 "9830
-[s S5318 . 1 `uc 1 LB0 1 0 :1:0 
+[s S5329 . 1 `uc 1 LB0 1 0 :1:0 
 ]
-[s S5320 . 1 `uc 1 . 1 0 :1:0 
+[s S5331 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 LB1 1 0 :1:1 
 ]
-[s S5323 . 1 `uc 1 . 1 0 :2:0 
+[s S5334 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LB2 1 0 :1:2 
 ]
-[s S5326 . 1 `uc 1 . 1 0 :3:0 
+[s S5337 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 LB3 1 0 :1:3 
 ]
-[s S5329 . 1 `uc 1 . 1 0 :4:0 
+[s S5340 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LB4 1 0 :1:4 
 ]
-[s S5332 . 1 `uc 1 . 1 0 :5:0 
+[s S5343 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LB5 1 0 :1:5 
 ]
-[s S5335 . 1 `uc 1 . 1 0 :6:0 
+[s S5346 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 LB6 1 0 :1:6 
 ]
-[s S5338 . 1 `uc 1 . 1 0 :7:0 
+[s S5349 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LB7 1 0 :1:7 
 ]
-[u S5341 . 1 `S5309 1 . 1 0 `S5318 1 . 1 0 `S5320 1 . 1 0 `S5323 1 . 1 0 `S5326 1 . 1 0 `S5329 1 . 1 0 `S5332 1 . 1 0 `S5335 1 . 1 0 `S5338 1 . 1 0 ]
-[v _LATBbits LATBbits `VES5341  1 e 1 @3978 ]
+[u S5352 . 1 `S5320 1 . 1 0 `S5329 1 . 1 0 `S5331 1 . 1 0 `S5334 1 . 1 0 `S5337 1 . 1 0 `S5340 1 . 1 0 `S5343 1 . 1 0 `S5346 1 . 1 0 `S5349 1 . 1 0 ]
+[v _LATBbits LATBbits `VES5352  1 e 1 @3978 ]
 [s S3050 . 1 `uc 1 TMR1GIE 1 0 :1:0 
 `uc 1 TMR5GIE 1 0 :1:1 
 `uc 1 TMR5IE 1 0 :1:2 
@@ -1364,12 +1370,12 @@ COMMAND_mode 2
 "12872
 [u S3210 . 1 `S3201 1 . 1 0 ]
 [v _CTMUCONHbits CTMUCONHbits `VES3210  1 e 1 @4019 ]
-[s S5635 . 1 `uc 1 CCP2M 1 0 :4:0 
+[s S5646 . 1 `uc 1 CCP2M 1 0 :4:0 
 `uc 1 DC2B 1 0 :2:4 
 `uc 1 P2M 1 0 :2:6 
 ]
 "12943
-[s S5639 . 1 `uc 1 CCP2M0 1 0 :1:0 
+[s S5650 . 1 `uc 1 CCP2M0 1 0 :1:0 
 `uc 1 CCP2M1 1 0 :1:1 
 `uc 1 CCP2M2 1 0 :1:2 
 `uc 1 CCP2M3 1 0 :1:3 
@@ -1378,25 +1384,25 @@ COMMAND_mode 2
 `uc 1 P2M0 1 0 :1:6 
 `uc 1 P2M1 1 0 :1:7 
 ]
-[s S5648 . 1 `uc 1 . 1 0 :4:0 
+[s S5659 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CCP2Y 1 0 :1:4 
 `uc 1 CCP2X 1 0 :1:5 
 ]
-[u S5652 . 1 `S5635 1 . 1 0 `S5639 1 . 1 0 `S5648 1 . 1 0 ]
-[v _CCP2CONbits CCP2CONbits `VES5652  1 e 1 @4020 ]
+[u S5663 . 1 `S5646 1 . 1 0 `S5650 1 . 1 0 `S5659 1 . 1 0 ]
+[v _CCP2CONbits CCP2CONbits `VES5663  1 e 1 @4020 ]
 "13108
 [v _CCPR2L CCPR2L `VEuc  1 e 1 @4021 ]
-[s S5674 . 1 `uc 1 CCPR2L 1 0 :8:0 
+[s S5685 . 1 `uc 1 CCPR2L 1 0 :8:0 
 ]
 "13118
-[u S5676 . 1 `S5674 1 . 1 0 ]
-[v _CCPR2Lbits CCPR2Lbits `VES5676  1 e 1 @4021 ]
-[s S5559 . 1 `uc 1 CCP1M 1 0 :4:0 
+[u S5687 . 1 `S5685 1 . 1 0 ]
+[v _CCPR2Lbits CCPR2Lbits `VES5687  1 e 1 @4021 ]
+[s S5570 . 1 `uc 1 CCP1M 1 0 :4:0 
 `uc 1 DC1B 1 0 :2:4 
 `uc 1 P1M 1 0 :2:6 
 ]
 "13682
-[s S5563 . 1 `uc 1 CCP1M0 1 0 :1:0 
+[s S5574 . 1 `uc 1 CCP1M0 1 0 :1:0 
 `uc 1 CCP1M1 1 0 :1:1 
 `uc 1 CCP1M2 1 0 :1:2 
 `uc 1 CCP1M3 1 0 :1:3 
@@ -1405,19 +1411,19 @@ COMMAND_mode 2
 `uc 1 P1M0 1 0 :1:6 
 `uc 1 P1M1 1 0 :1:7 
 ]
-[s S5572 . 1 `uc 1 . 1 0 :4:0 
+[s S5583 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CCP1Y 1 0 :1:4 
 `uc 1 CCP1X 1 0 :1:5 
 ]
-[u S5576 . 1 `S5559 1 . 1 0 `S5563 1 . 1 0 `S5572 1 . 1 0 ]
-[v _CCP1CONbits CCP1CONbits `VES5576  1 e 1 @4026 ]
+[u S5587 . 1 `S5570 1 . 1 0 `S5574 1 . 1 0 `S5583 1 . 1 0 ]
+[v _CCP1CONbits CCP1CONbits `VES5587  1 e 1 @4026 ]
 "13847
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4027 ]
-[s S5628 . 1 `uc 1 CCPR1L 1 0 :8:0 
+[s S5639 . 1 `uc 1 CCPR1L 1 0 :8:0 
 ]
 "13857
-[u S5630 . 1 `S5628 1 . 1 0 ]
-[v _CCPR1Lbits CCPR1Lbits `VES5630  1 e 1 @4027 ]
+[u S5641 . 1 `S5639 1 . 1 0 ]
+[v _CCPR1Lbits CCPR1Lbits `VES5641  1 e 1 @4027 ]
 [s S3148 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 ADCAL 1 0 :1:6 
@@ -1684,12 +1690,12 @@ COMMAND_mode 2
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @4041 ]
 "16261
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
-[s S5779 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S5790 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "16314
-[s S5783 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S5794 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -1697,8 +1703,8 @@ COMMAND_mode 2
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S5791 . 1 `S5779 1 . 1 0 `S5783 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES5791  1 e 1 @4042 ]
+[u S5802 . 1 `S5790 1 . 1 0 `S5794 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES5802  1 e 1 @4042 ]
 "16363
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 [s S2716 . 1 `uc 1 . 1 0 :2:0 
@@ -1876,11 +1882,11 @@ COMMAND_mode 2
 "53
 [v _ADC_flag ADC_flag `uc  1 e 1 0 ]
 "59
-[v _light_mode light_mode `E9617  1 e 1 0 ]
-"308
+[v _light_mode light_mode `E9614  1 e 1 0 ]
+"304
 [v _main main `(i  1 e 2 0 ]
 {
-"329
+"325
 } 0
 "8 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_terminal.c
 [v _terminal_task terminal_task `(v  1 e 0 0 ]
@@ -2073,10 +2079,6 @@ COMMAND_mode 2
 [v _main_init main_init `(v  1 e 0 0 ]
 {
 "302
-[v main_init@txbuf txbuf `[1000]uc  1 s 1000 txbuf ]
-"304
-[v main_init@rxbuf rxbuf `[250]uc  1 s 250 rxbuf ]
-"306
 } 0
 "101 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_PIC.c
 [v _timer3_init timer3_init `(v  1 e 0 0 ]
@@ -2103,6 +2105,20 @@ COMMAND_mode 2
 [v timer0_init@prescaler prescaler `uc  1 a 1 1 ]
 "48
 } 0
+"20 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
+[v _USB_CDC_init USB_CDC_init `(v  1 e 0 0 ]
+{
+"24
+} 0
+"26
+[v _USB_CDC_buffer_init USB_CDC_buffer_init `(v  1 s 0 USB_CDC_buffer_init ]
+{
+"27
+[v USB_CDC_buffer_init@rxbuf rxbuf `[250]uc  1 s 250 rxbuf ]
+"29
+[v USB_CDC_buffer_init@txbuf txbuf `[1500]uc  1 s 1500 txbuf ]
+"31
+} 0
 "5 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ringbuf.c
 [v _ringbuf_init ringbuf_init `(v  1 e 0 0 ]
 {
@@ -2112,17 +2128,12 @@ COMMAND_mode 2
 [v ringbuf_init@bufsize bufsize `ui  1 p 2 4 ]
 "10
 } 0
-"11 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
-[v _USB_init USB_init `(v  1 e 0 0 ]
-{
-"15
-} 0
-"298 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
+"299 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
 [v _USBDeviceInit USBDeviceInit `(v  1 e 0 0 ]
 {
-"300
+"301
 [v USBDeviceInit@i i `uc  1 a 1 8 ]
-"385
+"386
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 [v _memset memset `(*.39v  1 e 2 0 ]
@@ -2135,10 +2146,10 @@ COMMAND_mode 2
 [v memset@n n `ui  1 p 2 4 ]
 "22
 } 0
-"1352 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
+"1353 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
 [v _USBDeviceAttach USBDeviceAttach `(v  1 e 0 0 ]
 {
-"1382
+"1383
 } 0
 "22 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
 [v _RTCC_init RTCC_init `(v  1 e 0 0 ]
@@ -2269,7 +2280,7 @@ COMMAND_mode 2
 "235
 [v light_task@temp temp `ul  1 a 4 46 ]
 "261
-[v light_task@value_6073 value `uc  1 a 1 45 ]
+[v light_task@value_6083 value `uc  1 a 1 45 ]
 "250
 [v light_task@value value `uc  1 a 1 44 ]
 "230
@@ -2277,7 +2288,7 @@ COMMAND_mode 2
 "247
 [v light_task@n n `uc  1 s 1 n ]
 "258
-[v light_task@_6072 n `uc  1 s 1 n ]
+[v light_task@_6082 n `uc  1 s 1 n ]
 "283
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\llmod.c
@@ -2333,21 +2344,21 @@ COMMAND_mode 2
 [v ___lwdiv@divisor divisor `ui  1 p 2 8 ]
 "31
 } 0
-"66 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
-[v _USB_task USB_task `(v  1 e 0 0 ]
+"39 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
+[v _USB_CDC_task USB_CDC_task `(v  1 e 0 0 ]
 {
-"68
-[v USB_task@rx_len rx_len `i  1 a 2 20 ]
-"67
-[v USB_task@data data `uc  1 a 1 22 ]
-"77
+"88
+[v USB_CDC_task@i i `ui  1 a 2 16 ]
+"75
+[v USB_CDC_task@length length `ui  1 a 2 18 ]
+"92
 } 0
 "20 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ringbuf.c
 [v _ringbuf_put ringbuf_put `(v  1 e 0 0 ]
 {
 [s S3374 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
 [v ringbuf_put@rb rb `*.39S3374  1 p 2 8 ]
-[v ringbuf_put@asciicode asciicode `uc  1 p 1 10 ]
+[v ringbuf_put@data data `uc  1 p 1 10 ]
 "26
 } 0
 "45
@@ -2367,12 +2378,11 @@ COMMAND_mode 2
 [v ringbuf_num@rb rb `*.39S3374  1 p 2 0 ]
 "18
 } 0
-"21 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
-[v _put_string_usb put_string_usb `(i  1 e 2 0 ]
+"94 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
+[v _USB_CDC_send USB_CDC_send `(v  1 s 0 USB_CDC_send ]
 {
-[v put_string_usb@s s `*.39uc  1 p 2 12 ]
-[v put_string_usb@len len `i  1 p 2 14 ]
-"30
+[v USB_CDC_send@length length `ui  1 p 2 12 ]
+"99
 } 0
 "613 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device_cdc.c
 [v _putUSBUSART putUSBUSART `(v  1 e 0 0 ]
@@ -2381,20 +2391,12 @@ COMMAND_mode 2
 [v putUSBUSART@length length `uc  1 p 1 2 ]
 "644
 } 0
-"32 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
-[v _get_string_usb get_string_usb `(i  1 e 2 0 ]
+"101 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
+[v _USB_CDC_get USB_CDC_get `(uc  1 s 1 USB_CDC_get ]
 {
-"33
-[v get_string_usb@rx_len rx_len `i  1 a 2 18 ]
-"32
-[v get_string_usb@s s `*.39uc  1 p 2 13 ]
-[v get_string_usb@len len `i  1 p 2 15 ]
-"42
-} 0
-"17
-[v _is_usb_available is_usb_available `(uc  1 e 1 0 ]
-{
-"19
+"102
+[v USB_CDC_get@numBytesRead numBytesRead `uc  1 a 1 13 ]
+"108
 } 0
 "542 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device_cdc.c
 [v _getsUSBUSART getsUSBUSART `(uc  1 e 1 0 ]
@@ -2412,7 +2414,7 @@ COMMAND_mode 2
 [v CDCTxService@i i `uc  1 a 1 10 ]
 "989
 } 0
-"995 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
+"996 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
 [v _USBTransferOnePacket USBTransferOnePacket `(*.39v  1 e 2 0 ]
 {
 [v USBTransferOnePacket@ep ep `uc  1 a 1 wreg ]
@@ -2425,7 +2427,7 @@ COMMAND_mode 2
 `uc 1 DTS 1 0 :1:6 
 `uc 1 UOWN 1 0 :1:7 
 ]
-"997
+"998
 [s S123 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
@@ -2444,14 +2446,14 @@ COMMAND_mode 2
 `ui 1 ADR 2 2 ]
 [u S148 __BDT 4 `S139 1 . 4 0 `S144 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
 [v USBTransferOnePacket@handle handle `*.39VES148  1 a 2 5 ]
-"995
+"996
 [v USBTransferOnePacket@ep ep `uc  1 a 1 wreg ]
 [v USBTransferOnePacket@dir dir `uc  1 p 1 0 ]
 [v USBTransferOnePacket@data data `*.39uc  1 p 2 1 ]
 [v USBTransferOnePacket@len len `uc  1 p 1 3 ]
-"1000
+"1001
 [v USBTransferOnePacket@ep ep `uc  1 a 1 4 ]
-"1047
+"1048
 } 0
 "352 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c
 [v _RTCC_task RTCC_task `(v  1 e 0 0 ]
@@ -2589,72 +2591,72 @@ COMMAND_mode 2
 [v button_timer_interrupt@sw_value sw_value `uc  1 p 1 2 ]
 "26
 } 0
-"7 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
-[v _USB_ISR USB_ISR `(v  1 e 0 0 ]
+"33 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
+[v _USB_CDC_ISR USB_CDC_ISR `(v  1 e 0 0 ]
 {
-"9
+"37
 } 0
-"489 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
+"490 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
 [v _USBDeviceTasks USBDeviceTasks `(v  1 e 0 0 ]
 {
-"491
+"492
 [v USBDeviceTasks@i i `uc  1 a 1 29 ]
-"827
+"828
 } 0
-"298
+"299
 [v i2_USBDeviceInit USBDeviceInit `(v  1 e 0 0 ]
 {
 [v i2USBDeviceInit@i USBDeviceInit `uc  1 a 1 8 ]
-"385
+"386
 } 0
-"2302
+"2303
 [v _USBWakeFromSuspend USBWakeFromSuspend `(v  1 s 0 USBWakeFromSuspend ]
 {
-"2346
+"2347
 } 0
-"2245
+"2246
 [v _USBSuspend USBSuspend `(v  1 s 0 USBSuspend ]
 {
-"2285
+"2286
 } 0
-"2202
+"2203
 [v _USBStallHandler USBStallHandler `(v  1 s 0 USBStallHandler ]
 {
-"2227
+"2228
 } 0
-"2369
+"2370
 [v _USBCtrlEPService USBCtrlEPService `(v  1 s 0 USBCtrlEPService ]
 {
-"2398
+"2399
 [v USBCtrlEPService@setup_cnt setup_cnt `uc  1 a 1 28 ]
-"2427
+"2428
 } 0
-"2469
+"2470
 [v _USBCtrlTrfSetupHandler USBCtrlTrfSetupHandler `(v  1 s 0 USBCtrlTrfSetupHandler ]
 {
-"2518
+"2519
 } 0
-"1616
+"1617
 [v _USBCtrlEPServiceComplete USBCtrlEPServiceComplete `(v  1 s 0 USBCtrlEPServiceComplete ]
 {
-"1748
+"1749
 } 0
-"1488
+"1489
 [v _USBCtrlEPAllowDataStage USBCtrlEPAllowDataStage `(v  1 e 0 0 ]
 {
-"1518
+"1519
 } 0
-"2689
+"2690
 [v _USBCheckStdRequest USBCheckStdRequest `(v  1 s 0 USBCheckStdRequest ]
 {
-"2736
+"2737
 } 0
-"1968
+"1969
 [v _USBStdSetCfgHandler USBStdSetCfgHandler `(v  1 s 0 USBStdSetCfgHandler ]
 {
-"1970
+"1971
 [v USBStdSetCfgHandler@i i `uc  1 a 1 20 ]
-"2024
+"2025
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 [v i2_memset memset `(*.39v  1 e 2 0 ]
@@ -2665,7 +2667,7 @@ COMMAND_mode 2
 [v i2memset@n n `ui  1 p 2 4 ]
 "22
 } 0
-"2129 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
+"2130 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
 [v _USBStdGetStatusHandler USBStdGetStatusHandler `(v  1 s 0 USBStdGetStatusHandler ]
 {
 [s S114 . 1 `uc 1 BC8 1 0 :1:0 
@@ -2677,7 +2679,7 @@ COMMAND_mode 2
 `uc 1 DTS 1 0 :1:6 
 `uc 1 UOWN 1 0 :1:7 
 ]
-"2161
+"2162
 [s S123 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
@@ -2696,14 +2698,14 @@ COMMAND_mode 2
 `ui 1 ADR 2 2 ]
 [u S148 __BDT 4 `S139 1 . 4 0 `S144 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
 [v USBStdGetStatusHandler@p p `*.39S148  1 a 2 1 ]
-"2184
+"2185
 } 0
-"2043
+"2044
 [v _USBStdGetDscHandler USBStdGetDscHandler `(v  1 s 0 USBStdGetDscHandler ]
 {
-"2112
+"2113
 } 0
-"2757
+"2758
 [v _USBStdFeatureReqHandler USBStdFeatureReqHandler `(v  1 s 0 USBStdFeatureReqHandler ]
 {
 [s S114 . 1 `uc 1 BC8 1 0 :1:0 
@@ -2715,7 +2717,7 @@ COMMAND_mode 2
 `uc 1 DTS 1 0 :1:6 
 `uc 1 UOWN 1 0 :1:7 
 ]
-"2759
+"2760
 [s S123 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
@@ -2734,35 +2736,40 @@ COMMAND_mode 2
 `ui 1 ADR 2 2 ]
 [u S148 __BDT 4 `S139 1 . 4 0 `S144 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
 [v USBStdFeatureReqHandler@p p `*.39S148  1 a 2 24 ]
-"2764
+"2765
 [v USBStdFeatureReqHandler@pUEP pUEP `*.39uc  1 a 2 21 ]
 [s S200 . 1 `uc 1 ping_pong_state 1 0 :1:0 
 `uc 1 transfer_terminated 1 0 :1:1 
 ]
-"2760
+"2761
 [u S203 . 1 `S200 1 bits 1 0 `uc 1 Val 1 0 ]
 [v USBStdFeatureReqHandler@current_ep_data current_ep_data `S203  1 a 1 23 ]
-"2983
+"2984
 } 0
-"44 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
+"119 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
 [v _USER_USB_CALLBACK_EVENT_HANDLER USER_USB_CALLBACK_EVENT_HANDLER `(uc  1 e 1 0 ]
 {
-[v USER_USB_CALLBACK_EVENT_HANDLER@event event `E8545  1 p 2 12 ]
+[v USER_USB_CALLBACK_EVENT_HANDLER@event event `E70  1 p 2 12 ]
 [v USER_USB_CALLBACK_EVENT_HANDLER@pdata pdata `*.39v  1 p 2 14 ]
 [v USER_USB_CALLBACK_EVENT_HANDLER@size size `ui  1 p 2 16 ]
-"54
+"165
 } 0
 "204 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device_cdc.c
 [v _USBCheckCDCRequest USBCheckCDCRequest `(v  1 e 0 0 ]
 {
 "317
 } 0
-"351
+"110 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_usb_cdc.c
+[v _APP_DeviceCDCBasicDemoInitialize APP_DeviceCDCBasicDemoInitialize `(v  1 s 0 APP_DeviceCDCBasicDemoInitialize ]
+{
+"117
+} 0
+"351 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device_cdc.c
 [v _CDCInitEP CDCInitEP `(v  1 e 0 0 ]
 {
 "404
 } 0
-"995 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
+"996 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/usb/usb_device.c
 [v i2_USBTransferOnePacket USBTransferOnePacket `(*.39v  1 e 2 0 ]
 {
 [v i2USBTransferOnePacket@ep ep `uc  1 a 1 wreg ]
@@ -2797,24 +2804,24 @@ COMMAND_mode 2
 [v i2USBTransferOnePacket@dir dir `uc  1 p 1 0 ]
 [v i2USBTransferOnePacket@data data `*.39uc  1 p 2 1 ]
 [v i2USBTransferOnePacket@len len `uc  1 p 1 3 ]
-"1000
+"1001
 [v i2USBTransferOnePacket@ep ep `uc  1 a 1 4 ]
-"1047
+"1048
 } 0
-"878
+"879
 [v _USBEnableEndpoint USBEnableEndpoint `(v  1 e 0 0 ]
 {
 [v USBEnableEndpoint@ep ep `uc  1 a 1 wreg ]
-"880
+"881
 [v USBEnableEndpoint@p p `*.39uc  1 a 2 9 ]
-"878
+"879
 [v USBEnableEndpoint@ep ep `uc  1 a 1 wreg ]
 [v USBEnableEndpoint@options options `uc  1 p 1 8 ]
-"884
+"885
 [v USBEnableEndpoint@ep ep `uc  1 a 1 11 ]
-"902
+"903
 } 0
-"1543
+"1544
 [v _USBConfigureEndpoint USBConfigureEndpoint `(v  1 s 0 USBConfigureEndpoint ]
 {
 [v USBConfigureEndpoint@EPNum EPNum `uc  1 a 1 wreg ]
@@ -2827,7 +2834,7 @@ COMMAND_mode 2
 `uc 1 DTS 1 0 :1:6 
 `uc 1 UOWN 1 0 :1:7 
 ]
-"1545
+"1546
 [s S123 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
@@ -2846,43 +2853,43 @@ COMMAND_mode 2
 `ui 1 ADR 2 2 ]
 [u S148 __BDT 4 `S139 1 . 4 0 `S144 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
 [v USBConfigureEndpoint@handle handle `*.39VES148  1 a 2 6 ]
-"1543
+"1544
 [v USBConfigureEndpoint@EPNum EPNum `uc  1 a 1 wreg ]
 [v USBConfigureEndpoint@direction direction `uc  1 p 1 0 ]
-"1549
+"1550
 [v USBConfigureEndpoint@EPNum EPNum `uc  1 a 1 5 ]
-"1585
+"1586
 } 0
-"2541
+"2542
 [v _USBCtrlTrfOutHandler USBCtrlTrfOutHandler `(v  1 s 0 USBCtrlTrfOutHandler ]
 {
-"2570
+"2571
 } 0
-"1852
+"1853
 [v _USBCtrlTrfRxService USBCtrlTrfRxService `(v  1 s 0 USBCtrlTrfRxService ]
 {
-"1854
-[v USBCtrlTrfRxService@byteToRead byteToRead `uc  1 a 1 1 ]
 "1855
+[v USBCtrlTrfRxService@byteToRead byteToRead `uc  1 a 1 1 ]
+"1856
 [v USBCtrlTrfRxService@i i `uc  1 a 1 0 ]
-"1947
+"1948
 } 0
-"1416
+"1417
 [v _USBCtrlEPAllowStatusStage USBCtrlEPAllowStatusStage `(v  1 e 0 0 ]
 {
-"1459
+"1460
 } 0
-"2595
+"2596
 [v _USBCtrlTrfInHandler USBCtrlTrfInHandler `(v  1 s 0 USBCtrlTrfInHandler ]
 {
-"2597
+"2598
 [v USBCtrlTrfInHandler@lastDTS lastDTS `uc  1 a 1 1 ]
-"2670
+"2671
 } 0
-"1771
+"1772
 [v _USBCtrlTrfTxService USBCtrlTrfTxService `(v  1 s 0 USBCtrlTrfTxService ]
 {
-"1773
+"1774
 [v USBCtrlTrfTxService@byteToSend byteToSend `uc  1 a 1 0 ]
-"1825
+"1826
 } 0

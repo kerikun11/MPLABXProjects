@@ -10593,7 +10593,7 @@ void I2C_LCD_Puts(const uint8_t * s);
 void I2C_LCD_CreateChar(int p, char *dt);
 void I2C_LCD_init(void);
 
-# 39 "../My_library\My_RTCC.h"
+# 41 "../My_library\My_RTCC.h"
 typedef uint32_t epoch_t;
 
 
@@ -10631,8 +10631,8 @@ edit_t edit;
 } time_t;
 
 
-extern const char weekday_3char[7][4];
 
+extern const char weekday_3char[7][4];
 
 extern time_t now;
 
@@ -10640,23 +10640,9 @@ extern uint8_t time_change_flag;
 
 void RTCC_init(void);
 
-
-uint8_t d_to_x(uint8_t dec);
-
-uint8_t x_to_d(uint8_t hex);
-
-uint8_t month_length(uint8_t year, uint8_t month);
-
-epoch_t get_quot_rem(epoch_t *quot, uint8_t div);
+void RTCC_task(void);
 
 
-void RTCC_to_caltime(time_t *tm);
-
-void caltime_to_RTCC(time_t *tm);
-
-void epoch_to_caltime(time_t *tm);
-
-void caltime_to_epoch(time_t *tm);
 
 
 void RTCC_from_RTCC(time_t *tm);
@@ -10665,12 +10651,16 @@ void RTCC_from_caltime(time_t *tm);
 
 void RTCC_from_epoch(time_t *tm);
 
+uint8_t month_length(uint8_t year, uint8_t month);
 
-void display_dec(char *str, uint8_t dec, uint8_t edit);
+
+
+static void display_dec(char *str, uint8_t dec, uint8_t edit);
 
 void display_time_0802(time_t *tm, char *line0, char *line1);
 
 void display_time_1602(time_t *tm, char *line0, char *line1);
+
 
 
 void RTCC_adjust_time_toggle(time_t *tm);
@@ -10683,7 +10673,24 @@ void RTCC_adjust_time_dec(time_t *tm);
 
 void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
 
-void RTCC_task(void);
+
+
+
+static uint8_t d_to_x(uint8_t dec);
+
+static uint8_t x_to_d(uint8_t hex);
+
+static epoch_t get_quot_rem(epoch_t *quot, uint8_t div);
+
+
+
+static void RTCC_to_caltime(time_t *tm);
+
+static void caltime_to_RTCC(time_t *tm);
+
+static void epoch_to_caltime(time_t *tm);
+
+static void caltime_to_epoch(time_t *tm);
 
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdbool.h"
 typedef unsigned char bool;
@@ -10694,7 +10701,7 @@ typedef unsigned size_t;
 # 6 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stddef.h"
 typedef int ptrdiff_t;
 
-# 139 "../My_library/USB_CDC\usb/usb_common.h"
+# 139 "../My_library\usb/usb_common.h"
 typedef union
 {
 uint8_t bitmap;
@@ -10851,7 +10858,7 @@ uint8_t bDeviceProtocol;
 # 457
 typedef bool (*USB_EVENT_HANDLER) ( USB_EVENT event, void *data, unsigned int size );
 
-# 76 "../My_library/USB_CDC\usb/usb_ch9.h"
+# 76 "../My_library\usb/usb_ch9.h"
 typedef struct  _USB_DEVICE_DESCRIPTOR
 {
 uint8_t bLength;
@@ -11095,7 +11102,7 @@ unsigned :8;
 
 } CTRL_TRF_SETUP, SETUP_PKT, *PSETUP_PKT;
 
-# 78 "../My_library/USB_CDC\usb/usb_device.h"
+# 78 "../My_library\usb/usb_device.h"
 typedef enum
 {
 
@@ -11358,7 +11365,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 262 "../My_library/USB_CDC\usb/usb_hal_pic18.h"
+# 262 "../My_library\usb/usb_hal_pic18.h"
 typedef union _BD_STAT
 {
 uint8_t Val;
@@ -11458,7 +11465,7 @@ extern volatile OUT_PIPE outPipes[1];
 extern volatile BDT_ENTRY* pBDTEntryOut[2+1];
 extern volatile BDT_ENTRY* pBDTEntryIn[2+1];
 
-# 167 "../My_library/USB_CDC\usb/usb_hal.h"
+# 167 "../My_library\usb/usb_hal.h"
 void OTGCORE_SetDeviceAddr( uint8_t addr );
 
 # 203
@@ -11499,7 +11506,7 @@ bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t 
 # 603
 bool USBHALInitialize ( unsigned long flags );
 
-# 542 "../My_library/USB_CDC\usb/usb_device_cdc.h"
+# 542 "../My_library\usb/usb_device_cdc.h"
 void CDCInitEP(void);
 
 # 568
@@ -11642,7 +11649,7 @@ extern LINE_CODING line_coding;
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 
-# 25 "../My_library/USB_CDC\My_USB_CDC.h"
+# 25 "../My_library\My_USB_CDC.h"
 extern ringbuf_t usb_rx;
 extern ringbuf_t usb_tx;
 
@@ -11659,13 +11666,17 @@ static uint8_t USB_CDC_get(void);
 static void APP_DeviceCDCBasicDemoInitialize();
 bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t size);
 
-# 68 "../My_library\My_UART.h"
+# 65 "../My_library\My_UART.h"
 extern ringbuf_t uart_tx;
 extern ringbuf_t uart_rx;
+
 
 void UART_init(void);
 void UART_ISR(void);
 void UART_task(void);
+
+
+static void UART_buffer_init(void);
 
 # 44 "main.c"
 void interrupt ISR(void) {
@@ -11699,12 +11710,7 @@ timer3_init(2);
 I2C_LCD_init();
 RTCC_init();
 USB_CDC_init();
-
 UART_init();
-static uint8_t uarttx[1000];
-ringbuf_init(&uart_tx, uarttx, sizeof (uarttx));
-static uint8_t uartrx[100];
-ringbuf_init(&uart_rx, uartrx, sizeof (uartrx));
 
 RTCC_from_RTCC(&now);
 if (now.DD == 0) {
@@ -11719,8 +11725,23 @@ I2C_LCD_SetCursor(0, 1);
 I2C_LCD_Puts("USB UART");
 }
 
-void loop(void) {
+int main(void) {
+setup();
+INTCONbits.GIE = 1;
+while (1) {
+INTCONbits.GIE = 0;
+USB_CDC_task();
+INTCONbits.GIE = 1;
+
+INTCONbits.GIE = 0;
+UART_task();
+INTCONbits.GIE = 1;
+
+INTCONbits.GIE = 0;
 RTCC_task();
+INTCONbits.GIE = 1;
+
+INTCONbits.GIE = 0;
 if (time_change_flag) {
 time_change_flag = 0;
 char s[2][20];
@@ -11731,8 +11752,9 @@ I2C_LCD_Puts(s[0]);
 I2C_LCD_SetCursor(0, 1);
 I2C_LCD_Puts(s[1]);
 }
-USB_CDC_task();
-UART_task();
+INTCONbits.GIE = 1;
+
+INTCONbits.GIE = 0;
 if (ringbuf_num(&usb_rx)) {
 ringbuf_put(&usb_tx, ringbuf_pop(&usb_rx));
 LATBbits.LATB7 = !LATBbits.LATB7;
@@ -11741,16 +11763,7 @@ if (ringbuf_num(&uart_rx)) {
 ringbuf_put(&uart_tx, ringbuf_pop(&uart_rx));
 LATBbits.LATB6 = !LATBbits.LATB6;
 }
-}
-
-int main(void) {
-setup();
 INTCONbits.GIE = 1;
-while (1) {
-uint8_t GIE_cache = INTCONbits.GIE;
-INTCONbits.GIE = 0;
-loop();
-INTCONbits.GIE = GIE_cache;
 }
 return 0;
 }

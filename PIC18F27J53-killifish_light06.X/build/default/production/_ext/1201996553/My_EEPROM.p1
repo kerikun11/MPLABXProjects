@@ -8139,20 +8139,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 152: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 154: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 156: extern __nonreentrant void _delay3(unsigned char);
-[; ;My_library\My_ringbuf.h: 19: typedef struct ringbuf {
-[; ;My_library\My_ringbuf.h: 20: char *buf;
-[; ;My_library\My_ringbuf.h: 21: uint16_t size;
-[; ;My_library\My_ringbuf.h: 22: uint16_t head;
-[; ;My_library\My_ringbuf.h: 23: uint16_t tail;
-[; ;My_library\My_ringbuf.h: 24: } ringbuf_t;
-[; ;My_library\My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
-[; ;My_library\My_ringbuf.h: 28: uint16_t ringbuf_num(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, char asciicode);
-[; ;My_library\My_ringbuf.h: 32: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
-[; ;My_library\My_ringbuf.h: 34: void ringbuf_put_str(ringbuf_t *rb, const char *str);
-[; ;My_library\My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
-[; ;My_library\My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
 [; ;My_library\My_PIC.h: 20: void OSC_init(void);
 [; ;My_library\My_PIC.h: 36: void timer0_init(uint8_t prescaler);
 [; ;My_library\My_PIC.h: 51: void timer1_init(uint8_t prescaler, uint8_t clock_select);
@@ -8163,8 +8149,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_PIC.h: 95: void CTMU_init(void);
 [; ;My_library\My_PIC.h: 96: uint16_t CTMU_read(uint8_t ch);
 [; ;My_library\My_PIC.h: 101: void Delay_ms(uint16_t ms);
-[; ;My_library\My_PIC.h: 105: void millis_timer(void);
-[; ;My_library\My_PIC.h: 106: uint32_t millis(void);
+[; ;My_library\My_PIC.h: 106: void millis_timer(void);
+[; ;My_library\My_PIC.h: 107: uint32_t millis(void);
 [; ;My_library\My_I2C.h: 19: extern uint8_t I2C_sent_flag;
 [; ;My_library\My_I2C.h: 20: extern uint8_t I2C_cfct_flag;
 [; ;My_library\My_I2C.h: 21: extern uint8_t I2C_busy;
@@ -8200,7 +8186,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ans ( _I2C_Start (2 , -> -> 80 `i `uc -> -> 0 `i `uc ]
 [; ;My_EEPROM.c: 10: if (ans == 0) {
 "10
-[e $ ! == -> _ans `i -> 0 `i 1220  ]
+[e $ ! == -> _ans `i -> 0 `i 1219  ]
 {
 [; ;My_EEPROM.c: 12: I2C_Send(Reg_h);
 "12
@@ -8213,7 +8199,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _I2C_Send (1 _data ]
 "15
 }
-[e :U 1220 ]
+[e :U 1219 ]
 [; ;My_EEPROM.c: 15: }
 [; ;My_EEPROM.c: 16: I2C_Stop();
 "16
@@ -8223,7 +8209,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
 [; ;My_EEPROM.c: 18: }
 "18
-[e :UE 1219 ]
+[e :UE 1218 ]
 }
 "20
 [v _EEP_read `(uc ~T0 @X0 1 ef2`uc`uc ]
@@ -8244,7 +8230,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ans ( _I2C_Start (2 , -> -> 80 `i `uc -> -> 0 `i `uc ]
 [; ;My_EEPROM.c: 25: if (ans == 0) {
 "25
-[e $ ! == -> _ans `i -> 0 `i 1222  ]
+[e $ ! == -> _ans `i -> 0 `i 1221  ]
 {
 [; ;My_EEPROM.c: 26: I2C_Send(Reg_h);
 "26
@@ -8254,21 +8240,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _I2C_Send (1 _Reg_l ]
 "28
 }
-[e :U 1222 ]
+[e :U 1221 ]
 [; ;My_EEPROM.c: 28: }
 [; ;My_EEPROM.c: 29: ans = I2C_rStart(0x50, 1);
 "29
 [e = _ans ( _I2C_rStart (2 , -> 80 `i -> 1 `i ]
 [; ;My_EEPROM.c: 30: if (ans == 0) {
 "30
-[e $ ! == -> _ans `i -> 0 `i 1223  ]
+[e $ ! == -> _ans `i -> 0 `i 1222  ]
 {
 [; ;My_EEPROM.c: 31: data = I2C_Receive(1);
 "31
 [e = _data ( _I2C_Receive (1 -> -> 1 `i `uc ]
 "32
 }
-[e :U 1223 ]
+[e :U 1222 ]
 [; ;My_EEPROM.c: 32: }
 [; ;My_EEPROM.c: 33: I2C_Stop();
 "33
@@ -8279,10 +8265,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_EEPROM.c: 35: return data;
 "35
 [e ) _data ]
-[e $UE 1221  ]
+[e $UE 1220  ]
 [; ;My_EEPROM.c: 36: }
 "36
-[e :UE 1221 ]
+[e :UE 1220 ]
 }
 "38
 [v _EEP_read16 `(ui ~T0 @X0 1 ef2`uc`uc ]
@@ -8306,7 +8292,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ans ( _I2C_Start (2 , -> -> 80 `i `uc -> -> 0 `i `uc ]
 [; ;My_EEPROM.c: 44: if (ans == 0) {
 "44
-[e $ ! == -> _ans `i -> 0 `i 1225  ]
+[e $ ! == -> _ans `i -> 0 `i 1224  ]
 {
 [; ;My_EEPROM.c: 45: I2C_Send(Reg_h);
 "45
@@ -8316,14 +8302,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _I2C_Send (1 _Reg_l ]
 "47
 }
-[e :U 1225 ]
+[e :U 1224 ]
 [; ;My_EEPROM.c: 47: }
 [; ;My_EEPROM.c: 48: ans = I2C_rStart(0x50, 1);
 "48
 [e = _ans ( _I2C_rStart (2 , -> 80 `i -> 1 `i ]
 [; ;My_EEPROM.c: 49: if (ans == 0) {
 "49
-[e $ ! == -> _ans `i -> 0 `i 1226  ]
+[e $ ! == -> _ans `i -> 0 `i 1225  ]
 {
 [; ;My_EEPROM.c: 50: d[3] = I2C_Receive(0);
 "50
@@ -8339,7 +8325,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _d * -> -> -> 0 `i `ui `ux -> -> # *U &U _d `ui `ux ( _I2C_Receive (1 -> -> 1 `i `uc ]
 "54
 }
-[e :U 1226 ]
+[e :U 1225 ]
 [; ;My_EEPROM.c: 54: }
 [; ;My_EEPROM.c: 55: I2C_Stop();
 "55
@@ -8353,10 +8339,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_EEPROM.c: 58: return data;
 "58
 [e ) _data ]
-[e $UE 1224  ]
+[e $UE 1223  ]
 [; ;My_EEPROM.c: 59: }
 "59
-[e :UE 1224 ]
+[e :UE 1223 ]
 }
 "61
 [v _EEP_read32 `(ul ~T0 @X0 1 ef2`uc`uc ]
@@ -8380,7 +8366,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ans ( _I2C_Start (2 , -> -> 80 `i `uc -> -> 0 `i `uc ]
 [; ;My_EEPROM.c: 67: if (ans == 0) {
 "67
-[e $ ! == -> _ans `i -> 0 `i 1228  ]
+[e $ ! == -> _ans `i -> 0 `i 1227  ]
 {
 [; ;My_EEPROM.c: 68: I2C_Send(Reg_h);
 "68
@@ -8390,14 +8376,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _I2C_Send (1 _Reg_l ]
 "70
 }
-[e :U 1228 ]
+[e :U 1227 ]
 [; ;My_EEPROM.c: 70: }
 [; ;My_EEPROM.c: 71: ans = I2C_rStart(0x50, 1);
 "71
 [e = _ans ( _I2C_rStart (2 , -> 80 `i -> 1 `i ]
 [; ;My_EEPROM.c: 72: if (ans == 0) {
 "72
-[e $ ! == -> _ans `i -> 0 `i 1229  ]
+[e $ ! == -> _ans `i -> 0 `i 1228  ]
 {
 [; ;My_EEPROM.c: 73: d[3] = I2C_Receive(0);
 "73
@@ -8413,7 +8399,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _d * -> -> -> 0 `i `ui `ux -> -> # *U &U _d `ui `ux ( _I2C_Receive (1 -> -> 1 `i `uc ]
 "77
 }
-[e :U 1229 ]
+[e :U 1228 ]
 [; ;My_EEPROM.c: 77: }
 [; ;My_EEPROM.c: 78: I2C_Stop();
 "78
@@ -8424,10 +8410,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_EEPROM.c: 80: return (uint32_t) ((uint32_t) d[3] << 24)+((uint32_t) d[2] << 16)+(d[1] << 8) + d[0];
 "80
 [e ) + + + << -> *U + &U _d * -> -> -> 3 `i `ui `ux -> -> # *U &U _d `ui `ux `ul -> 24 `i << -> *U + &U _d * -> -> -> 2 `i `ui `ux -> -> # *U &U _d `ui `ux `ul -> 16 `i -> -> << -> *U + &U _d * -> -> -> 1 `i `ui `ux -> -> # *U &U _d `ui `ux `i -> 8 `i `l `ul -> *U + &U _d * -> -> -> 0 `i `ui `ux -> -> # *U &U _d `ui `ux `ul ]
-[e $UE 1227  ]
+[e $UE 1226  ]
 [; ;My_EEPROM.c: 81: }
 "81
-[e :UE 1227 ]
+[e :UE 1226 ]
 }
 "83
 [v _EEP_write16 `(v ~T0 @X0 1 ef3`uc`uc`ui ]
@@ -8446,7 +8432,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ans ( _I2C_Start (2 , -> -> 80 `i `uc -> -> 0 `i `uc ]
 [; ;My_EEPROM.c: 86: if (ans == 0) {
 "86
-[e $ ! == -> _ans `i -> 0 `i 1231  ]
+[e $ ! == -> _ans `i -> 0 `i 1230  ]
 {
 [; ;My_EEPROM.c: 88: I2C_Send(Reg_h);
 "88
@@ -8462,7 +8448,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _I2C_Send (1 -> >> _data -> 0 `i `uc ]
 "92
 }
-[e :U 1231 ]
+[e :U 1230 ]
 [; ;My_EEPROM.c: 92: }
 [; ;My_EEPROM.c: 93: I2C_Stop();
 "93
@@ -8472,7 +8458,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
 [; ;My_EEPROM.c: 95: }
 "95
-[e :UE 1230 ]
+[e :UE 1229 ]
 }
 "97
 [v _EEP_write32 `(v ~T0 @X0 1 ef3`uc`uc`ul ]
@@ -8491,7 +8477,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ans ( _I2C_Start (2 , -> -> 80 `i `uc -> -> 0 `i `uc ]
 [; ;My_EEPROM.c: 100: if (ans == 0) {
 "100
-[e $ ! == -> _ans `i -> 0 `i 1233  ]
+[e $ ! == -> _ans `i -> 0 `i 1232  ]
 {
 [; ;My_EEPROM.c: 102: I2C_Send(Reg_h);
 "102
@@ -8513,7 +8499,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _I2C_Send (1 -> >> _data -> 0 `i `uc ]
 "108
 }
-[e :U 1233 ]
+[e :U 1232 ]
 [; ;My_EEPROM.c: 108: }
 [; ;My_EEPROM.c: 109: I2C_Stop();
 "109
@@ -8523,5 +8509,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
 [; ;My_EEPROM.c: 111: }
 "111
-[e :UE 1232 ]
+[e :UE 1231 ]
 }

@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"30 ../My_library/USB_CDC\My_USB_CDC.h
+"30 ../My_library\My_USB_CDC.h
 [v _USB_CDC_ISR `(v ~T0 @X0 0 ef ]
-"72 ../My_library\My_UART.h
+"70 ../My_library\My_UART.h
 [v _UART_ISR `(v ~T0 @X0 0 ef ]
 "18300 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
 [s S1192 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -141,38 +141,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _timer3_init `(v ~T0 @X0 0 ef1`uc ]
 "56 ../My_library\My_ST7032.h
 [v _I2C_LCD_init `(v ~T0 @X0 0 ef ]
-"83 ../My_library\My_RTCC.h
+"85 ../My_library\My_RTCC.h
 [v _RTCC_init `(v ~T0 @X0 0 ef ]
-"29 ../My_library/USB_CDC\My_USB_CDC.h
+"29 ../My_library\My_USB_CDC.h
 [v _USB_CDC_init `(v ~T0 @X0 0 ef ]
-"71 ../My_library\My_UART.h
+"69 ../My_library\My_UART.h
 [v _UART_init `(v ~T0 @X0 0 ef ]
-"19 ../My_library\My_ringbuf.h
-[s S1221 `*uc 1 `ui 1 `ui 1 `ui 1 ]
-[n S1221 ringbuf buf size head tail ]
-"26
-[v _ringbuf_init `(v ~T0 @X0 0 ef3`*S1221`*uc`ui ]
-"68 ../My_library\My_UART.h
-[v _uart_tx `S1221 ~T0 @X0 0 e ]
-"69
-[v _uart_rx `S1221 ~T0 @X0 0 e ]
-"48 ../My_library\My_RTCC.h
+"50 ../My_library\My_RTCC.h
 [s S1224 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1224 . ss mm hh DD MM YY ]
-"45
+"47
 [u S1223 `uc 1 `S1224 1 ]
 [n S1223 . flags flag ]
-"43
+"45
 [s S1222 `S1223 1 ]
 [n S1222 . . ]
-"61
+"63
 [s S1225 `ul 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `S1222 1 ]
 [n S1225 . epoch ss mm hh EE DD MM YY colon halfsec edit ]
-"104
+"92
 [v _RTCC_from_RTCC `(v ~T0 @X0 0 ef1`*S1225 ]
-"79
+"81
 [v _now `S1225 ~T0 @X0 0 e ]
-"108
+"96
 [v _RTCC_from_epoch `(v ~T0 @X0 0 ef1`*S1225 ]
 "51 ../My_library\My_ST7032.h
 [v _I2C_LCD_Clear `(v ~T0 @X0 0 ef ]
@@ -180,23 +171,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _I2C_LCD_SetCursor `(v ~T0 @X0 0 ef2`uc`uc ]
 "54
 [v _I2C_LCD_Puts `(v ~T0 @X0 0 ef1`*Cuc ]
-"128 ../My_library\My_RTCC.h
-[v _RTCC_task `(v ~T0 @X0 0 ef ]
-"81
-[v _time_change_flag `uc ~T0 @X0 0 e ]
-"113
-[v _display_time_0802 `(v ~T0 @X0 0 ef3`*S1225`*uc`*uc ]
-"31 ../My_library/USB_CDC\My_USB_CDC.h
+[p mainexit ]
+"31 ../My_library\My_USB_CDC.h
 [v _USB_CDC_task `(v ~T0 @X0 0 ef ]
-"73 ../My_library\My_UART.h
+"71 ../My_library\My_UART.h
 [v _UART_task `(v ~T0 @X0 0 ef ]
-"28 ../My_library\My_ringbuf.h
+"87 ../My_library\My_RTCC.h
+[v _RTCC_task `(v ~T0 @X0 0 ef ]
+"83
+[v _time_change_flag `uc ~T0 @X0 0 e ]
+"104
+[v _display_time_0802 `(v ~T0 @X0 0 ef3`*S1225`*uc`*uc ]
+"19 ../My_library\My_ringbuf.h
+[s S1221 `*uc 1 `ui 1 `ui 1 `ui 1 ]
+[n S1221 ringbuf buf size head tail ]
+"28
 [v _ringbuf_num `(ui ~T0 @X0 0 ef1`*S1221 ]
-"25 ../My_library/USB_CDC\My_USB_CDC.h
+"25 ../My_library\My_USB_CDC.h
 [v _usb_rx `S1221 ~T0 @X0 0 e ]
 "30 ../My_library\My_ringbuf.h
 [v _ringbuf_put `(v ~T0 @X0 0 ef2`*S1221`uc ]
-"26 ../My_library/USB_CDC\My_USB_CDC.h
+"26 ../My_library\My_USB_CDC.h
 [v _usb_tx `S1221 ~T0 @X0 0 e ]
 "36 ../My_library\My_ringbuf.h
 [v _ringbuf_pop `(uc ~T0 @X0 0 ef1`*S1221 ]
@@ -232,7 +227,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S640 . . . . . . . . . . ]
 "9830
 [v _LATBbits `VS640 ~T0 @X0 0 e@3978 ]
-[p mainexit ]
+"66 ../My_library\My_UART.h
+[v _uart_rx `S1221 ~T0 @X0 0 e ]
+"65
+[v _uart_tx `S1221 ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -8479,57 +8477,57 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_ST7032.h: 54: void I2C_LCD_Puts(const uint8_t * s);
 [; ;My_library\My_ST7032.h: 55: void I2C_LCD_CreateChar(int p, char *dt);
 [; ;My_library\My_ST7032.h: 56: void I2C_LCD_init(void);
-[; ;My_library\My_RTCC.h: 39: typedef uint32_t epoch_t;
-[; ;My_library\My_RTCC.h: 43: typedef struct {
-[; ;My_library\My_RTCC.h: 45: union {
-[; ;My_library\My_RTCC.h: 46: uint8_t flags;
-[; ;My_library\My_RTCC.h: 48: struct {
-[; ;My_library\My_RTCC.h: 49: uint8_t ss : 1;
-[; ;My_library\My_RTCC.h: 50: uint8_t mm : 1;
-[; ;My_library\My_RTCC.h: 51: uint8_t hh : 1;
-[; ;My_library\My_RTCC.h: 52: uint8_t DD : 1;
-[; ;My_library\My_RTCC.h: 53: uint8_t MM : 1;
-[; ;My_library\My_RTCC.h: 54: uint8_t YY : 1;
-[; ;My_library\My_RTCC.h: 55: } flag;
-[; ;My_library\My_RTCC.h: 56: };
-[; ;My_library\My_RTCC.h: 57: } edit_t;
-[; ;My_library\My_RTCC.h: 61: typedef struct {
-[; ;My_library\My_RTCC.h: 62: epoch_t epoch;
-[; ;My_library\My_RTCC.h: 63: uint8_t ss;
-[; ;My_library\My_RTCC.h: 64: uint8_t mm;
-[; ;My_library\My_RTCC.h: 65: uint8_t hh;
-[; ;My_library\My_RTCC.h: 66: uint8_t EE;
-[; ;My_library\My_RTCC.h: 67: uint8_t DD;
-[; ;My_library\My_RTCC.h: 68: uint8_t MM;
-[; ;My_library\My_RTCC.h: 69: uint8_t YY;
-[; ;My_library\My_RTCC.h: 70: uint8_t colon;
-[; ;My_library\My_RTCC.h: 71: uint8_t halfsec;
-[; ;My_library\My_RTCC.h: 72: edit_t edit;
-[; ;My_library\My_RTCC.h: 73: } time_t;
-[; ;My_library\My_RTCC.h: 76: extern const char weekday_3char[7][4];
-[; ;My_library\My_RTCC.h: 79: extern time_t now;
-[; ;My_library\My_RTCC.h: 81: extern uint8_t time_change_flag;
-[; ;My_library\My_RTCC.h: 83: void RTCC_init(void);
-[; ;My_library\My_RTCC.h: 86: uint8_t d_to_x(uint8_t dec);
-[; ;My_library\My_RTCC.h: 88: uint8_t x_to_d(uint8_t hex);
-[; ;My_library\My_RTCC.h: 90: uint8_t month_length(uint8_t year, uint8_t month);
-[; ;My_library\My_RTCC.h: 92: epoch_t get_quot_rem(epoch_t *quot, uint8_t div);
-[; ;My_library\My_RTCC.h: 95: void RTCC_to_caltime(time_t *tm);
-[; ;My_library\My_RTCC.h: 97: void caltime_to_RTCC(time_t *tm);
-[; ;My_library\My_RTCC.h: 99: void epoch_to_caltime(time_t *tm);
-[; ;My_library\My_RTCC.h: 101: void caltime_to_epoch(time_t *tm);
-[; ;My_library\My_RTCC.h: 104: void RTCC_from_RTCC(time_t *tm);
-[; ;My_library\My_RTCC.h: 106: void RTCC_from_caltime(time_t *tm);
-[; ;My_library\My_RTCC.h: 108: void RTCC_from_epoch(time_t *tm);
-[; ;My_library\My_RTCC.h: 111: void display_dec(char *str, uint8_t dec, uint8_t edit);
-[; ;My_library\My_RTCC.h: 113: void display_time_0802(time_t *tm, char *line0, char *line1);
-[; ;My_library\My_RTCC.h: 115: void display_time_1602(time_t *tm, char *line0, char *line1);
-[; ;My_library\My_RTCC.h: 118: void RTCC_adjust_time_toggle(time_t *tm);
-[; ;My_library\My_RTCC.h: 120: void RTCC_adjust_time_cursor(time_t *tm);
-[; ;My_library\My_RTCC.h: 122: void RTCC_adjust_time_inc(time_t *tm);
-[; ;My_library\My_RTCC.h: 124: void RTCC_adjust_time_dec(time_t *tm);
-[; ;My_library\My_RTCC.h: 126: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
-[; ;My_library\My_RTCC.h: 128: void RTCC_task(void);
+[; ;My_library\My_RTCC.h: 41: typedef uint32_t epoch_t;
+[; ;My_library\My_RTCC.h: 45: typedef struct {
+[; ;My_library\My_RTCC.h: 47: union {
+[; ;My_library\My_RTCC.h: 48: uint8_t flags;
+[; ;My_library\My_RTCC.h: 50: struct {
+[; ;My_library\My_RTCC.h: 51: uint8_t ss : 1;
+[; ;My_library\My_RTCC.h: 52: uint8_t mm : 1;
+[; ;My_library\My_RTCC.h: 53: uint8_t hh : 1;
+[; ;My_library\My_RTCC.h: 54: uint8_t DD : 1;
+[; ;My_library\My_RTCC.h: 55: uint8_t MM : 1;
+[; ;My_library\My_RTCC.h: 56: uint8_t YY : 1;
+[; ;My_library\My_RTCC.h: 57: } flag;
+[; ;My_library\My_RTCC.h: 58: };
+[; ;My_library\My_RTCC.h: 59: } edit_t;
+[; ;My_library\My_RTCC.h: 63: typedef struct {
+[; ;My_library\My_RTCC.h: 64: epoch_t epoch;
+[; ;My_library\My_RTCC.h: 65: uint8_t ss;
+[; ;My_library\My_RTCC.h: 66: uint8_t mm;
+[; ;My_library\My_RTCC.h: 67: uint8_t hh;
+[; ;My_library\My_RTCC.h: 68: uint8_t EE;
+[; ;My_library\My_RTCC.h: 69: uint8_t DD;
+[; ;My_library\My_RTCC.h: 70: uint8_t MM;
+[; ;My_library\My_RTCC.h: 71: uint8_t YY;
+[; ;My_library\My_RTCC.h: 72: uint8_t colon;
+[; ;My_library\My_RTCC.h: 73: uint8_t halfsec;
+[; ;My_library\My_RTCC.h: 74: edit_t edit;
+[; ;My_library\My_RTCC.h: 75: } time_t;
+[; ;My_library\My_RTCC.h: 79: extern const char weekday_3char[7][4];
+[; ;My_library\My_RTCC.h: 81: extern time_t now;
+[; ;My_library\My_RTCC.h: 83: extern uint8_t time_change_flag;
+[; ;My_library\My_RTCC.h: 85: void RTCC_init(void);
+[; ;My_library\My_RTCC.h: 87: void RTCC_task(void);
+[; ;My_library\My_RTCC.h: 92: void RTCC_from_RTCC(time_t *tm);
+[; ;My_library\My_RTCC.h: 94: void RTCC_from_caltime(time_t *tm);
+[; ;My_library\My_RTCC.h: 96: void RTCC_from_epoch(time_t *tm);
+[; ;My_library\My_RTCC.h: 98: uint8_t month_length(uint8_t year, uint8_t month);
+[; ;My_library\My_RTCC.h: 102: static void display_dec(char *str, uint8_t dec, uint8_t edit);
+[; ;My_library\My_RTCC.h: 104: void display_time_0802(time_t *tm, char *line0, char *line1);
+[; ;My_library\My_RTCC.h: 106: void display_time_1602(time_t *tm, char *line0, char *line1);
+[; ;My_library\My_RTCC.h: 110: void RTCC_adjust_time_toggle(time_t *tm);
+[; ;My_library\My_RTCC.h: 112: void RTCC_adjust_time_cursor(time_t *tm);
+[; ;My_library\My_RTCC.h: 114: void RTCC_adjust_time_inc(time_t *tm);
+[; ;My_library\My_RTCC.h: 116: void RTCC_adjust_time_dec(time_t *tm);
+[; ;My_library\My_RTCC.h: 118: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
+[; ;My_library\My_RTCC.h: 123: static uint8_t d_to_x(uint8_t dec);
+[; ;My_library\My_RTCC.h: 125: static uint8_t x_to_d(uint8_t hex);
+[; ;My_library\My_RTCC.h: 127: static epoch_t get_quot_rem(epoch_t *quot, uint8_t div);
+[; ;My_library\My_RTCC.h: 131: static void RTCC_to_caltime(time_t *tm);
+[; ;My_library\My_RTCC.h: 133: static void caltime_to_RTCC(time_t *tm);
+[; ;My_library\My_RTCC.h: 135: static void epoch_to_caltime(time_t *tm);
+[; ;My_library\My_RTCC.h: 137: static void caltime_to_epoch(time_t *tm);
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stddef.h: 6: typedef int ptrdiff_t;
@@ -9154,24 +9152,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device_cdc.h: 958: extern LINE_CODING line_coding;
 [; ;usb_device_cdc.h: 960: extern volatile CTRL_TRF_SETUP SetupPkt;
 [; ;usb_device_cdc.h: 961: extern const uint8_t configDescriptor1[];
-[; ;USB_CDC\My_USB_CDC.h: 25: extern ringbuf_t usb_rx;
-[; ;USB_CDC\My_USB_CDC.h: 26: extern ringbuf_t usb_tx;
-[; ;USB_CDC\My_USB_CDC.h: 29: void USB_CDC_init(void);
-[; ;USB_CDC\My_USB_CDC.h: 30: void USB_CDC_ISR(void);
-[; ;USB_CDC\My_USB_CDC.h: 31: void USB_CDC_task(void);
-[; ;USB_CDC\My_USB_CDC.h: 34: static void USB_CDC_buffer_init(void);
-[; ;USB_CDC\My_USB_CDC.h: 35: static void USB_CDC_send(uint16_t length);
-[; ;USB_CDC\My_USB_CDC.h: 36: static uint8_t USB_CDC_get(void);
-[; ;USB_CDC\My_USB_CDC.h: 38: static void APP_DeviceCDCBasicDemoInitialize();
-[; ;USB_CDC\My_USB_CDC.h: 39: bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t size);
-[; ;My_library\My_UART.h: 68: extern ringbuf_t uart_tx;
-[; ;My_library\My_UART.h: 69: extern ringbuf_t uart_rx;
-[; ;My_library\My_UART.h: 71: void UART_init(void);
-[; ;My_library\My_UART.h: 72: void UART_ISR(void);
-[; ;My_library\My_UART.h: 73: void UART_task(void);
-[v F9492 `(v ~T0 @X0 1 tf ]
+[; ;My_library\My_USB_CDC.h: 25: extern ringbuf_t usb_rx;
+[; ;My_library\My_USB_CDC.h: 26: extern ringbuf_t usb_tx;
+[; ;My_library\My_USB_CDC.h: 29: void USB_CDC_init(void);
+[; ;My_library\My_USB_CDC.h: 30: void USB_CDC_ISR(void);
+[; ;My_library\My_USB_CDC.h: 31: void USB_CDC_task(void);
+[; ;My_library\My_USB_CDC.h: 34: static void USB_CDC_buffer_init(void);
+[; ;My_library\My_USB_CDC.h: 35: static void USB_CDC_send(uint16_t length);
+[; ;My_library\My_USB_CDC.h: 36: static uint8_t USB_CDC_get(void);
+[; ;My_library\My_USB_CDC.h: 38: static void APP_DeviceCDCBasicDemoInitialize();
+[; ;My_library\My_USB_CDC.h: 39: bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t size);
+[; ;My_library\My_UART.h: 65: extern ringbuf_t uart_tx;
+[; ;My_library\My_UART.h: 66: extern ringbuf_t uart_rx;
+[; ;My_library\My_UART.h: 69: void UART_init(void);
+[; ;My_library\My_UART.h: 70: void UART_ISR(void);
+[; ;My_library\My_UART.h: 71: void UART_task(void);
+[; ;My_library\My_UART.h: 74: static void UART_buffer_init(void);
+[v F9494 `(v ~T0 @X0 1 tf ]
 "44
-[v _ISR `IF9492 ~T0 @X0 1 e ]
+[v _ISR `IF9494 ~T0 @X0 1 e ]
 {
 [; ;main.c: 44: void interrupt ISR(void) {
 [e :U _ISR ]
@@ -9270,180 +9269,175 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 74: USB_CDC_init();
 "74
 [e ( _USB_CDC_init ..  ]
-[; ;main.c: 76: UART_init();
-"76
+[; ;main.c: 75: UART_init();
+"75
 [e ( _UART_init ..  ]
+[; ;main.c: 77: RTCC_from_RTCC(&now);
 "77
-[v F9495 `uc ~T0 @X0 -> 1000 `i s uarttx ]
-[; ;main.c: 77: static uint8_t uarttx[1000];
-[; ;main.c: 78: ringbuf_init(&uart_tx, uarttx, sizeof (uarttx));
-"78
-[e ( _ringbuf_init (3 , , &U _uart_tx &U F9495 -> # F9495 `ui ]
-"79
-[v F9496 `uc ~T0 @X0 -> 100 `i s uartrx ]
-[; ;main.c: 79: static uint8_t uartrx[100];
-[; ;main.c: 80: ringbuf_init(&uart_rx, uartrx, sizeof (uartrx));
-"80
-[e ( _ringbuf_init (3 , , &U _uart_rx &U F9496 -> # F9496 `ui ]
-[; ;main.c: 82: RTCC_from_RTCC(&now);
-"82
 [e ( _RTCC_from_RTCC (1 &U _now ]
-[; ;main.c: 83: if (now.DD == 0) {
-"83
+[; ;main.c: 78: if (now.DD == 0) {
+"78
 [e $ ! == -> . _now 5 `i -> 0 `i 1297  ]
 {
-[; ;main.c: 84: now.epoch = 0;
-"84
+[; ;main.c: 79: now.epoch = 0;
+"79
 [e = . _now 0 -> -> -> 0 `i `l `ul ]
-[; ;main.c: 85: RTCC_from_epoch(&now);
-"85
+[; ;main.c: 80: RTCC_from_epoch(&now);
+"80
 [e ( _RTCC_from_epoch (1 &U _now ]
-"86
+"81
 }
 [e :U 1297 ]
-[; ;main.c: 86: }
-[; ;main.c: 88: I2C_LCD_Clear();
-"88
+[; ;main.c: 81: }
+[; ;main.c: 83: I2C_LCD_Clear();
+"83
 [e ( _I2C_LCD_Clear ..  ]
-[; ;main.c: 89: I2C_LCD_SetCursor(0, 0);
-"89
+[; ;main.c: 84: I2C_LCD_SetCursor(0, 0);
+"84
 [e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 90: I2C_LCD_Puts("18F27J53");
-"90
+[; ;main.c: 85: I2C_LCD_Puts("18F27J53");
+"85
 [e ( _I2C_LCD_Puts (1 :s 1C ]
-[; ;main.c: 91: I2C_LCD_SetCursor(0, 1);
-"91
+[; ;main.c: 86: I2C_LCD_SetCursor(0, 1);
+"86
 [e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 92: I2C_LCD_Puts("USB UART");
-"92
+[; ;main.c: 87: I2C_LCD_Puts("USB UART");
+"87
 [e ( _I2C_LCD_Puts (1 :s 2C ]
-[; ;main.c: 93: }
-"93
+[; ;main.c: 88: }
+"88
 [e :UE 1296 ]
 }
-"95
-[v _loop `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 95: void loop(void) {
-[e :U _loop ]
-[f ]
-[; ;main.c: 96: RTCC_task();
-"96
-[e ( _RTCC_task ..  ]
-[; ;main.c: 97: if (time_change_flag) {
-"97
-[e $ ! != -> _time_change_flag `i -> -> -> 0 `i `uc `i 1299  ]
-{
-[; ;main.c: 98: time_change_flag = 0;
-"98
-[e = _time_change_flag -> -> 0 `i `uc ]
-[v F9500 `uc ~T0 @X0 -> 20 `i t ]
-"99
-[v _s `F9500 ~T0 @X0 -> 2 `i a ]
-[; ;main.c: 99: char s[2][20];
-[; ;main.c: 100: display_time_0802(&now, s[0], s[1]);
-"100
-[e ( _display_time_0802 (3 , , &U _now &U *U + &U _s * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux &U *U + &U _s * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux ]
-[; ;main.c: 101: I2C_LCD_Clear();
-"101
-[e ( _I2C_LCD_Clear ..  ]
-[; ;main.c: 102: I2C_LCD_SetCursor(0, 0);
-"102
-[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 103: I2C_LCD_Puts(s[0]);
-"103
-[e ( _I2C_LCD_Puts (1 -> &U *U + &U _s * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux `*Cuc ]
-[; ;main.c: 104: I2C_LCD_SetCursor(0, 1);
-"104
-[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 105: I2C_LCD_Puts(s[1]);
-"105
-[e ( _I2C_LCD_Puts (1 -> &U *U + &U _s * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux `*Cuc ]
-"106
-}
-[e :U 1299 ]
-[; ;main.c: 106: }
-[; ;main.c: 107: USB_CDC_task();
-"107
-[e ( _USB_CDC_task ..  ]
-[; ;main.c: 108: UART_task();
-"108
-[e ( _UART_task ..  ]
-[; ;main.c: 109: if (ringbuf_num(&usb_rx)) {
-"109
-[e $ ! != ( _ringbuf_num (1 &U _usb_rx -> -> 0 `i `ui 1300  ]
-{
-[; ;main.c: 110: ringbuf_put(&usb_tx, ringbuf_pop(&usb_rx));
-"110
-[e ( _ringbuf_put (2 , &U _usb_tx ( _ringbuf_pop (1 &U _usb_rx ]
-[; ;main.c: 111: LATBbits.LATB7 = !LATBbits.LATB7;
-"111
-[e = . . _LATBbits 0 7 -> -> ! != -> . . _LATBbits 0 7 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-"112
-}
-[e :U 1300 ]
-[; ;main.c: 112: }
-[; ;main.c: 113: if (ringbuf_num(&uart_rx)) {
-"113
-[e $ ! != ( _ringbuf_num (1 &U _uart_rx -> -> 0 `i `ui 1301  ]
-{
-[; ;main.c: 114: ringbuf_put(&uart_tx, ringbuf_pop(&uart_rx));
-"114
-[e ( _ringbuf_put (2 , &U _uart_tx ( _ringbuf_pop (1 &U _uart_rx ]
-[; ;main.c: 115: LATBbits.LATB6 = !LATBbits.LATB6;
-"115
-[e = . . _LATBbits 0 6 -> -> ! != -> . . _LATBbits 0 6 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-"116
-}
-[e :U 1301 ]
-[; ;main.c: 116: }
-[; ;main.c: 117: }
-"117
-[e :UE 1298 ]
-}
-"119
+"90
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 119: int main(void) {
+[; ;main.c: 90: int main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 120: setup();
-"120
+[; ;main.c: 91: setup();
+"91
 [e ( _setup ..  ]
-[; ;main.c: 121: INTCONbits.GIE = 1;
-"121
+[; ;main.c: 92: INTCONbits.GIE = 1;
+"92
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 122: while (1) {
-"122
-[e :U 1304 ]
+[; ;main.c: 93: while (1) {
+"93
+[e :U 1300 ]
 {
-"123
-[v _GIE_cache `uc ~T0 @X0 1 a ]
-[; ;main.c: 123: uint8_t GIE_cache = INTCONbits.GIE;
-[e = _GIE_cache . . _INTCONbits 1 7 ]
-[; ;main.c: 124: INTCONbits.GIE = 0;
-"124
+[; ;main.c: 94: INTCONbits.GIE = 0;
+"94
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 125: loop();
-"125
-[e ( _loop ..  ]
-[; ;main.c: 126: INTCONbits.GIE = GIE_cache;
-"126
-[e = . . _INTCONbits 1 7 _GIE_cache ]
-"127
+[; ;main.c: 95: USB_CDC_task();
+"95
+[e ( _USB_CDC_task ..  ]
+[; ;main.c: 96: INTCONbits.GIE = 1;
+"96
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 98: INTCONbits.GIE = 0;
+"98
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 99: UART_task();
+"99
+[e ( _UART_task ..  ]
+[; ;main.c: 100: INTCONbits.GIE = 1;
+"100
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 102: INTCONbits.GIE = 0;
+"102
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 103: RTCC_task();
+"103
+[e ( _RTCC_task ..  ]
+[; ;main.c: 104: INTCONbits.GIE = 1;
+"104
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 106: INTCONbits.GIE = 0;
+"106
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 107: if (time_change_flag) {
+"107
+[e $ ! != -> _time_change_flag `i -> -> -> 0 `i `uc `i 1302  ]
+{
+[; ;main.c: 108: time_change_flag = 0;
+"108
+[e = _time_change_flag -> -> 0 `i `uc ]
+[v F9500 `uc ~T0 @X0 -> 20 `i t ]
+"109
+[v _s `F9500 ~T0 @X0 -> 2 `i a ]
+[; ;main.c: 109: char s[2][20];
+[; ;main.c: 110: display_time_0802(&now, s[0], s[1]);
+"110
+[e ( _display_time_0802 (3 , , &U _now &U *U + &U _s * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux &U *U + &U _s * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux ]
+[; ;main.c: 111: I2C_LCD_Clear();
+"111
+[e ( _I2C_LCD_Clear ..  ]
+[; ;main.c: 112: I2C_LCD_SetCursor(0, 0);
+"112
+[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 113: I2C_LCD_Puts(s[0]);
+"113
+[e ( _I2C_LCD_Puts (1 -> &U *U + &U _s * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux `*Cuc ]
+[; ;main.c: 114: I2C_LCD_SetCursor(0, 1);
+"114
+[e ( _I2C_LCD_SetCursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 115: I2C_LCD_Puts(s[1]);
+"115
+[e ( _I2C_LCD_Puts (1 -> &U *U + &U _s * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _s `ui -> -> 20 `i `ui `ux `*Cuc ]
+"116
+}
+[e :U 1302 ]
+[; ;main.c: 116: }
+[; ;main.c: 117: INTCONbits.GIE = 1;
+"117
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 119: INTCONbits.GIE = 0;
+"119
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 120: if (ringbuf_num(&usb_rx)) {
+"120
+[e $ ! != ( _ringbuf_num (1 &U _usb_rx -> -> 0 `i `ui 1303  ]
+{
+[; ;main.c: 121: ringbuf_put(&usb_tx, ringbuf_pop(&usb_rx));
+"121
+[e ( _ringbuf_put (2 , &U _usb_tx ( _ringbuf_pop (1 &U _usb_rx ]
+[; ;main.c: 122: LATBbits.LATB7 = !LATBbits.LATB7;
+"122
+[e = . . _LATBbits 0 7 -> -> ! != -> . . _LATBbits 0 7 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+"123
 }
 [e :U 1303 ]
-"122
-[e $U 1304  ]
-[e :U 1305 ]
+[; ;main.c: 123: }
+[; ;main.c: 124: if (ringbuf_num(&uart_rx)) {
+"124
+[e $ ! != ( _ringbuf_num (1 &U _uart_rx -> -> 0 `i `ui 1304  ]
+{
+[; ;main.c: 125: ringbuf_put(&uart_tx, ringbuf_pop(&uart_rx));
+"125
+[e ( _ringbuf_put (2 , &U _uart_tx ( _ringbuf_pop (1 &U _uart_rx ]
+[; ;main.c: 126: LATBbits.LATB6 = !LATBbits.LATB6;
+"126
+[e = . . _LATBbits 0 6 -> -> ! != -> . . _LATBbits 0 6 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+"127
+}
+[e :U 1304 ]
 [; ;main.c: 127: }
-[; ;main.c: 128: return 0;
+[; ;main.c: 128: INTCONbits.GIE = 1;
 "128
-[e ) -> 0 `i ]
-[e $UE 1302  ]
-[; ;main.c: 129: }
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "129
-[e :UE 1302 ]
+}
+[e :U 1299 ]
+"93
+[e $U 1300  ]
+[e :U 1301 ]
+[; ;main.c: 129: }
+[; ;main.c: 130: return 0;
+"130
+[e ) -> 0 `i ]
+[e $UE 1298  ]
+[; ;main.c: 131: }
+"131
+[e :UE 1298 ]
 }
 [a 2C 85 83 66 32 85 65 82 84 0 ]
 [a 1C 49 56 70 50 55 74 53 51 0 ]

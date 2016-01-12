@@ -1,6 +1,731 @@
 
 # 1 "../My_library/usb/usb_descriptors.c"
 
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdbool.h"
+typedef unsigned char bool;
+
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 139 "../My_library\usb/usb_common.h"
+typedef union
+{
+uint8_t bitmap;
+struct
+{
+uint8_t ep_num: 4;
+uint8_t zero_pkt: 1;
+uint8_t dts: 1;
+uint8_t force_dts: 1;
+uint8_t direction: 1;
+}field;
+
+} TRANSFER_FLAGS;
+
+# 213
+typedef enum
+{
+
+EVENT_NONE = 0,
+
+EVENT_DEVICE_STACK_BASE = 1,
+
+EVENT_HOST_STACK_BASE = 100,
+
+
+EVENT_HUB_ATTACH,
+
+
+EVENT_STALL,
+
+
+EVENT_VBUS_SES_REQUEST,
+
+
+
+
+EVENT_VBUS_OVERCURRENT,
+
+# 240
+EVENT_VBUS_REQUEST_POWER,
+
+
+
+
+EVENT_VBUS_RELEASE_POWER,
+
+# 254
+EVENT_VBUS_POWER_AVAILABLE,
+
+
+
+EVENT_UNSUPPORTED_DEVICE,
+
+
+
+EVENT_CANNOT_ENUMERATE,
+
+
+
+EVENT_CLIENT_INIT_ERROR,
+
+# 272
+EVENT_OUT_OF_MEMORY,
+
+
+EVENT_UNSPECIFIED_ERROR,
+
+
+
+EVENT_DETACH,
+
+
+
+
+EVENT_TRANSFER,
+
+
+
+EVENT_SOF,
+
+
+EVENT_RESUME,
+
+
+
+EVENT_SUSPEND,
+
+
+
+EVENT_RESET,
+
+# 305
+EVENT_DATA_ISOC_READ,
+
+# 311
+EVENT_DATA_ISOC_WRITE,
+
+# 321
+EVENT_OVERRIDE_CLIENT_DRIVER_SELECTION,
+
+# 329
+EVENT_1MS,
+
+
+EVENT_GENERIC_BASE = 400,
+
+EVENT_MSD_BASE = 500,
+
+EVENT_HID_BASE = 600,
+
+EVENT_PRINTER_BASE = 700,
+
+EVENT_CDC_BASE = 800,
+
+EVENT_CHARGER_BASE = 900,
+
+EVENT_AUDIO_BASE = 1000,
+
+EVENT_USER_BASE = 10000,
+
+
+
+
+EVENT_BUS_ERROR = 32767
+
+} USB_EVENT;
+
+# 365
+typedef struct _transfer_event_data
+{
+TRANSFER_FLAGS flags;
+uint32_t size;
+uint8_t pid;
+
+} USB_TRANSFER_EVENT_DATA;
+
+# 382
+typedef struct _vbus_power_data
+{
+uint8_t port;
+uint8_t current;
+} USB_VBUS_POWER_EVENT_DATA;
+
+# 395
+typedef struct _override_client_driver_data
+{
+uint16_t idVendor;
+uint16_t idProduct;
+uint8_t bDeviceClass;
+uint8_t bDeviceSubClass;
+uint8_t bDeviceProtocol;
+} USB_OVERRIDE_CLIENT_DRIVER_EVENT_DATA;
+
+# 457
+typedef bool (*USB_EVENT_HANDLER) ( USB_EVENT event, void *data, unsigned int size );
+
+# 76 "../My_library\usb/usb_ch9.h"
+typedef struct  _USB_DEVICE_DESCRIPTOR
+{
+uint8_t bLength;
+uint8_t bDescriptorType;
+uint16_t bcdUSB;
+uint8_t bDeviceClass;
+uint8_t bDeviceSubClass;
+uint8_t bDeviceProtocol;
+uint8_t bMaxPacketSize0;
+uint16_t idVendor;
+uint16_t idProduct;
+uint16_t bcdDevice;
+uint8_t iManufacturer;
+uint8_t iProduct;
+uint8_t iSerialNumber;
+uint8_t bNumConfigurations;
+} USB_DEVICE_DESCRIPTOR;
+
+# 102
+typedef struct  _USB_CONFIGURATION_DESCRIPTOR
+{
+uint8_t bLength;
+uint8_t bDescriptorType;
+uint16_t wTotalLength;
+uint8_t bNumInterfaces;
+uint8_t bConfigurationValue;
+uint8_t iConfiguration;
+uint8_t bmAttributes;
+uint8_t bMaxPower;
+} USB_CONFIGURATION_DESCRIPTOR;
+
+# 127
+typedef struct  _USB_INTERFACE_DESCRIPTOR
+{
+uint8_t bLength;
+uint8_t bDescriptorType;
+uint8_t bInterfaceNumber;
+uint8_t bAlternateSetting;
+uint8_t bNumEndpoints;
+uint8_t bInterfaceClass;
+uint8_t bInterfaceSubClass;
+uint8_t bInterfaceProtocol;
+uint8_t iInterface;
+} USB_INTERFACE_DESCRIPTOR;
+
+# 148
+typedef struct  _USB_ENDPOINT_DESCRIPTOR
+{
+uint8_t bLength;
+uint8_t bDescriptorType;
+uint8_t bEndpointAddress;
+uint8_t bmAttributes;
+uint16_t wMaxPacketSize;
+uint8_t bInterval;
+} USB_ENDPOINT_DESCRIPTOR;
+
+# 198
+typedef struct
+{
+uint8_t index;
+uint8_t type;
+uint16_t language_id;
+
+} DESCRIPTOR_ID;
+
+# 213
+typedef struct  _USB_OTG_DESCRIPTOR
+{
+uint8_t bLength;
+uint8_t bDescriptorType;
+uint8_t bmAttributes;
+} USB_OTG_DESCRIPTOR;
+
+# 237
+typedef struct  _USB_STRING_DSC
+{
+uint8_t bLength;
+uint8_t bDescriptorType;
+
+} USB_STRING_DESCRIPTOR;
+
+# 256
+typedef struct  _USB_DEVICE_QUALIFIER_DESCRIPTOR
+{
+uint8_t bLength;
+uint8_t bType;
+uint16_t bcdUSB;
+uint8_t bDeviceClass;
+uint8_t bDeviceSubClass;
+uint8_t bDeviceProtocol;
+uint8_t bMaxPacketSize0;
+uint8_t bNumConfigurations;
+uint8_t bReserved;
+
+} USB_DEVICE_QUALIFIER_DESCRIPTOR;
+
+# 279
+typedef union 
+{
+
+struct 
+{
+uint8_t bmRequestType;
+uint8_t bRequest;
+uint16_t wValue;
+uint16_t wIndex;
+uint16_t wLength;
+};
+struct 
+{
+unsigned :8;
+unsigned :8;
+union
+{
+uint16_t Val;
+uint8_t v[2];
+struct
+{
+uint8_t LB;
+uint8_t HB;
+} byte;
+} W_Value;
+
+union
+{
+uint16_t Val;
+uint8_t v[2];
+struct
+{
+uint8_t LB;
+uint8_t HB;
+} byte;
+} W_Index;
+
+union
+{
+uint16_t Val;
+uint8_t v[2];
+struct
+{
+uint8_t LB;
+uint8_t HB;
+} byte;
+} W_Length;
+};
+struct 
+{
+unsigned Recipient:5;
+unsigned RequestType:2;
+unsigned DataDir:1;
+unsigned :8;
+uint8_t bFeature;
+unsigned :8;
+unsigned :8;
+unsigned :8;
+unsigned :8;
+unsigned :8;
+};
+struct 
+{
+union
+{
+uint8_t bmRequestType;
+struct
+{
+uint8_t recipient: 5;
+uint8_t type: 2;
+uint8_t direction: 1;
+};
+}requestInfo;
+};
+struct 
+{
+unsigned :8;
+unsigned :8;
+uint8_t bDscIndex;
+uint8_t bDescriptorType;
+uint16_t wLangID;
+unsigned :8;
+unsigned :8;
+};
+struct 
+{
+unsigned :8;
+unsigned :8;
+uint8_t bDevADR;
+uint8_t bDevADRH;
+unsigned :8;
+unsigned :8;
+unsigned :8;
+unsigned :8;
+};
+struct 
+{
+unsigned :8;
+unsigned :8;
+uint8_t bConfigurationValue;
+uint8_t bCfgRSD;
+unsigned :8;
+unsigned :8;
+unsigned :8;
+unsigned :8;
+};
+struct 
+{
+unsigned :8;
+unsigned :8;
+uint8_t bAltID;
+uint8_t bAltID_H;
+uint8_t bIntfID;
+uint8_t bIntfID_H;
+unsigned :8;
+unsigned :8;
+};
+struct 
+{
+unsigned :8;
+unsigned :8;
+unsigned :8;
+unsigned :8;
+uint8_t bEPID;
+uint8_t bEPID_H;
+unsigned :8;
+unsigned :8;
+};
+struct 
+{
+unsigned :8;
+unsigned :8;
+unsigned :8;
+unsigned :8;
+unsigned EPNum:4;
+unsigned :3;
+unsigned EPDir:1;
+unsigned :8;
+unsigned :8;
+unsigned :8;
+};
+
+
+
+} CTRL_TRF_SETUP, SETUP_PKT, *PSETUP_PKT;
+
+# 78 "../My_library\usb/usb_device.h"
+typedef enum
+{
+
+# 83
+DETACHED_STATE
+= 0x00 ,
+
+# 87
+ATTACHED_STATE
+= 0x01 ,
+
+# 91
+POWERED_STATE
+= 0x02 ,
+
+# 95
+DEFAULT_STATE
+= 0x04 ,
+
+# 102
+ADR_PENDING_STATE
+= 0x08 ,
+
+# 106
+ADDRESS_STATE
+= 0x10 ,
+
+# 113
+CONFIGURED_STATE
+= 0x20
+} USB_DEVICE_STATE;
+
+
+
+typedef enum
+{
+
+EVENT_CONFIGURED
+= EVENT_DEVICE_STACK_BASE ,
+
+
+EVENT_SET_DESCRIPTOR,
+
+# 132
+EVENT_EP0_REQUEST,
+
+# 161
+EVENT_ATTACH,
+
+
+
+
+EVENT_TRANSFER_TERMINATED
+
+} USB_DEVICE_STACK_EVENTS;
+
+# 200
+void USBDeviceInit(void);
+
+# 304
+void USBDeviceTasks(void);
+
+# 356
+void USBEnableEndpoint(uint8_t ep, uint8_t options);
+
+# 449
+void* USBTransferOnePacket(uint8_t ep,uint8_t dir,uint8_t* data,uint8_t len);
+
+# 474
+void USBStallEndpoint(uint8_t ep, uint8_t dir);
+
+# 498
+void USBCancelIO(uint8_t endpoint);
+
+# 595
+void USBDeviceDetach(void);
+
+# 640
+void USBDeviceAttach(void);
+
+# 679
+void USBCtrlEPAllowStatusStage(void);
+
+# 709
+void USBCtrlEPAllowDataStage(void);
+
+# 785
+void USBDeferOUTDataStage(void);
+extern volatile bool USBDeferOUTDataStagePackets;
+
+# 855
+void USBDeferStatusStage(void);
+extern volatile bool USBDeferStatusStagePacket;
+
+# 907
+bool USBOUTDataStageDeferred(void);
+
+# 990
+void USBDeferINDataStage(void);
+extern volatile bool USBDeferINDataStagePackets;
+
+# 1044
+bool USBINDataStageDeferred(void);
+
+# 1114
+bool USBGetRemoteWakeupStatus(void);
+
+# 1171
+USB_DEVICE_STATE USBGetDeviceState(void);
+
+# 1227
+bool USBGetSuspendState(void);
+
+# 1262
+bool USBIsDeviceSuspended(void);
+
+# 1305
+bool USBIsBusSuspended(void);
+
+# 1331
+void USBSoftDetach(void);
+
+# 1369
+bool USBHandleBusy(void* handle);
+
+# 1403
+uint16_t USBHandleGetLength(void* handle);
+
+# 1435
+uint16_t USBHandleGetAddr(void*);
+
+# 1535
+void* USBGetNextHandle(uint8_t ep_num, uint8_t ep_dir);
+
+# 1568
+void USBEP0Transmit(uint8_t options);
+
+# 1596
+void USBEP0SendRAMPtr(uint8_t* src, uint16_t size, uint8_t Options);
+
+# 1628
+void USBEP0SendROMPtr(uint8_t* src, uint16_t size, uint8_t Options);
+
+# 1656
+void USBEP0Receive(uint8_t* dest, uint16_t size, void (*function));
+
+# 1691
+void* USBTxOnePacket(uint8_t ep, uint8_t* data, uint16_t len);
+
+# 1728
+void* USBRxOnePacket(uint8_t ep, uint8_t* data, uint16_t len);
+
+# 1760
+bool USB_APPLICATION_EVENT_HANDLER(uint8_t address, USB_EVENT event, void *pdata, uint16_t size);
+
+# 1828
+typedef union
+{
+uint16_t Val;
+uint8_t v[2];
+struct
+{
+uint8_t LB;
+uint8_t HB;
+} byte;
+} uint16_t_VAL;
+
+
+
+
+typedef struct 
+{
+union 
+{
+
+
+uint8_t *bRam;
+const uint8_t *bRom;
+uint16_t *wRam;
+const uint16_t *wRom;
+}pSrc;
+union 
+{
+struct 
+{
+
+uint8_t ctrl_trf_mem :1;
+uint8_t reserved :5;
+
+
+uint8_t includeZero :1;
+
+uint8_t busy :1;
+}bits;
+uint8_t Val;
+}info;
+uint16_t_VAL  wCount;
+}IN_PIPE;
+
+extern volatile IN_PIPE inPipes[];
+
+typedef struct 
+{
+union 
+{
+
+
+uint8_t *bRam;
+uint16_t *wRam;
+}pDst;
+union 
+{
+struct 
+{
+uint8_t reserved :7;
+
+uint8_t busy :1;
+}bits;
+uint8_t Val;
+}info;
+uint16_t_VAL wCount;
+void (*pFunc)(void);
+}OUT_PIPE;
+
+# 1904
+extern volatile bool RemoteWakeup;
+extern volatile bool USBBusIsSuspended;
+extern volatile USB_DEVICE_STATE USBDeviceState;
+extern volatile uint8_t USBActiveConfiguration;
+
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
@@ -7680,7 +8405,7 @@ extern volatile __bit ACTVIE @ (((unsigned) &UIE)*8) + 2;
 
 extern volatile __bit ACTVIF @ (((unsigned) &UIR)*8) + 2;
 
-extern volatile __bit __attribute__((__deprecated__)) ADCAL @ (((unsigned) &ADCON1)*8) + 6;
+extern volatile __bit  ADCAL @ (((unsigned) &ADCON1)*8) + 6;
 
 extern volatile __bit ADCMD @ (((unsigned) &PMDIS0)*8) + 0;
 
@@ -10319,8 +11044,8 @@ extern volatile __bit nWRITE @ (((unsigned) &SSP1STAT)*8) + 2;
 extern volatile __bit nWRITE2 @ (((unsigned) &SSP2STAT)*8) + 2;
 
 # 18 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18.h"
-__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
-__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
+ void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+ void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 
 
 # 42
@@ -10335,742 +11060,6 @@ extern __nonreentrant void _delay(unsigned long);
 extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
-
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdbool.h"
-typedef unsigned char bool;
-
-# 32 "../My_library\usb/system.h"
-typedef enum
-{
-SYSTEM_STATE_USB_START,
-SYSTEM_STATE_USB_SUSPEND,
-SYSTEM_STATE_USB_RESUME
-} SYSTEM_STATE;
-
-# 51
-void SYSTEM_Initialize( SYSTEM_STATE state );
-
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 43
-typedef unsigned char uint8_t;
-
-# 49
-typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
-# 138 "../My_library\usb/usb_common.h"
-typedef union
-{
-uint8_t bitmap;
-struct
-{
-uint8_t ep_num: 4;
-uint8_t zero_pkt: 1;
-uint8_t dts: 1;
-uint8_t force_dts: 1;
-uint8_t direction: 1;
-}field;
-
-} TRANSFER_FLAGS;
-
-# 212
-typedef enum
-{
-
-EVENT_NONE = 0,
-
-EVENT_DEVICE_STACK_BASE = 1,
-
-EVENT_HOST_STACK_BASE = 100,
-
-
-EVENT_HUB_ATTACH,
-
-
-EVENT_STALL,
-
-
-EVENT_VBUS_SES_REQUEST,
-
-
-
-
-EVENT_VBUS_OVERCURRENT,
-
-# 239
-EVENT_VBUS_REQUEST_POWER,
-
-
-
-
-EVENT_VBUS_RELEASE_POWER,
-
-# 253
-EVENT_VBUS_POWER_AVAILABLE,
-
-
-
-EVENT_UNSUPPORTED_DEVICE,
-
-
-
-EVENT_CANNOT_ENUMERATE,
-
-
-
-EVENT_CLIENT_INIT_ERROR,
-
-# 271
-EVENT_OUT_OF_MEMORY,
-
-
-EVENT_UNSPECIFIED_ERROR,
-
-
-
-EVENT_DETACH,
-
-
-
-
-EVENT_TRANSFER,
-
-
-
-EVENT_SOF,
-
-
-EVENT_RESUME,
-
-
-
-EVENT_SUSPEND,
-
-
-
-EVENT_RESET,
-
-# 304
-EVENT_DATA_ISOC_READ,
-
-# 310
-EVENT_DATA_ISOC_WRITE,
-
-# 320
-EVENT_OVERRIDE_CLIENT_DRIVER_SELECTION,
-
-# 328
-EVENT_1MS,
-
-
-EVENT_GENERIC_BASE = 400,
-
-EVENT_MSD_BASE = 500,
-
-EVENT_HID_BASE = 600,
-
-EVENT_PRINTER_BASE = 700,
-
-EVENT_CDC_BASE = 800,
-
-EVENT_CHARGER_BASE = 900,
-
-EVENT_AUDIO_BASE = 1000,
-
-EVENT_USER_BASE = 10000,
-
-
-
-
-EVENT_BUS_ERROR = 32767
-
-} USB_EVENT;
-
-# 364
-typedef struct _transfer_event_data
-{
-TRANSFER_FLAGS flags;
-uint32_t size;
-uint8_t pid;
-
-} USB_TRANSFER_EVENT_DATA;
-
-# 381
-typedef struct _vbus_power_data
-{
-uint8_t port;
-uint8_t current;
-} USB_VBUS_POWER_EVENT_DATA;
-
-# 394
-typedef struct _override_client_driver_data
-{
-uint16_t idVendor;
-uint16_t idProduct;
-uint8_t bDeviceClass;
-uint8_t bDeviceSubClass;
-uint8_t bDeviceProtocol;
-} USB_OVERRIDE_CLIENT_DRIVER_EVENT_DATA;
-
-# 456
-typedef bool (*USB_EVENT_HANDLER) ( USB_EVENT event, void *data, unsigned int size );
-
-# 76 "../My_library\usb/usb_ch9.h"
-typedef struct  _USB_DEVICE_DESCRIPTOR
-{
-uint8_t bLength;
-uint8_t bDescriptorType;
-uint16_t bcdUSB;
-uint8_t bDeviceClass;
-uint8_t bDeviceSubClass;
-uint8_t bDeviceProtocol;
-uint8_t bMaxPacketSize0;
-uint16_t idVendor;
-uint16_t idProduct;
-uint16_t bcdDevice;
-uint8_t iManufacturer;
-uint8_t iProduct;
-uint8_t iSerialNumber;
-uint8_t bNumConfigurations;
-} USB_DEVICE_DESCRIPTOR;
-
-# 102
-typedef struct  _USB_CONFIGURATION_DESCRIPTOR
-{
-uint8_t bLength;
-uint8_t bDescriptorType;
-uint16_t wTotalLength;
-uint8_t bNumInterfaces;
-uint8_t bConfigurationValue;
-uint8_t iConfiguration;
-uint8_t bmAttributes;
-uint8_t bMaxPower;
-} USB_CONFIGURATION_DESCRIPTOR;
-
-# 127
-typedef struct  _USB_INTERFACE_DESCRIPTOR
-{
-uint8_t bLength;
-uint8_t bDescriptorType;
-uint8_t bInterfaceNumber;
-uint8_t bAlternateSetting;
-uint8_t bNumEndpoints;
-uint8_t bInterfaceClass;
-uint8_t bInterfaceSubClass;
-uint8_t bInterfaceProtocol;
-uint8_t iInterface;
-} USB_INTERFACE_DESCRIPTOR;
-
-# 148
-typedef struct  _USB_ENDPOINT_DESCRIPTOR
-{
-uint8_t bLength;
-uint8_t bDescriptorType;
-uint8_t bEndpointAddress;
-uint8_t bmAttributes;
-uint16_t wMaxPacketSize;
-uint8_t bInterval;
-} USB_ENDPOINT_DESCRIPTOR;
-
-# 198
-typedef struct
-{
-uint8_t index;
-uint8_t type;
-uint16_t language_id;
-
-} DESCRIPTOR_ID;
-
-# 213
-typedef struct  _USB_OTG_DESCRIPTOR
-{
-uint8_t bLength;
-uint8_t bDescriptorType;
-uint8_t bmAttributes;
-} USB_OTG_DESCRIPTOR;
-
-# 237
-typedef struct  _USB_STRING_DSC
-{
-uint8_t bLength;
-uint8_t bDescriptorType;
-
-} USB_STRING_DESCRIPTOR;
-
-# 256
-typedef struct  _USB_DEVICE_QUALIFIER_DESCRIPTOR
-{
-uint8_t bLength;
-uint8_t bType;
-uint16_t bcdUSB;
-uint8_t bDeviceClass;
-uint8_t bDeviceSubClass;
-uint8_t bDeviceProtocol;
-uint8_t bMaxPacketSize0;
-uint8_t bNumConfigurations;
-uint8_t bReserved;
-
-} USB_DEVICE_QUALIFIER_DESCRIPTOR;
-
-# 279
-typedef union 
-{
-
-struct 
-{
-uint8_t bmRequestType;
-uint8_t bRequest;
-uint16_t wValue;
-uint16_t wIndex;
-uint16_t wLength;
-};
-struct 
-{
-unsigned :8;
-unsigned :8;
-union
-{
-uint16_t Val;
-uint8_t v[2];
-struct
-{
-uint8_t LB;
-uint8_t HB;
-} byte;
-} W_Value;
-
-union
-{
-uint16_t Val;
-uint8_t v[2];
-struct
-{
-uint8_t LB;
-uint8_t HB;
-} byte;
-} W_Index;
-
-union
-{
-uint16_t Val;
-uint8_t v[2];
-struct
-{
-uint8_t LB;
-uint8_t HB;
-} byte;
-} W_Length;
-};
-struct 
-{
-unsigned Recipient:5;
-unsigned RequestType:2;
-unsigned DataDir:1;
-unsigned :8;
-uint8_t bFeature;
-unsigned :8;
-unsigned :8;
-unsigned :8;
-unsigned :8;
-unsigned :8;
-};
-struct 
-{
-union
-{
-uint8_t bmRequestType;
-struct
-{
-uint8_t recipient: 5;
-uint8_t type: 2;
-uint8_t direction: 1;
-};
-}requestInfo;
-};
-struct 
-{
-unsigned :8;
-unsigned :8;
-uint8_t bDscIndex;
-uint8_t bDescriptorType;
-uint16_t wLangID;
-unsigned :8;
-unsigned :8;
-};
-struct 
-{
-unsigned :8;
-unsigned :8;
-uint8_t bDevADR;
-uint8_t bDevADRH;
-unsigned :8;
-unsigned :8;
-unsigned :8;
-unsigned :8;
-};
-struct 
-{
-unsigned :8;
-unsigned :8;
-uint8_t bConfigurationValue;
-uint8_t bCfgRSD;
-unsigned :8;
-unsigned :8;
-unsigned :8;
-unsigned :8;
-};
-struct 
-{
-unsigned :8;
-unsigned :8;
-uint8_t bAltID;
-uint8_t bAltID_H;
-uint8_t bIntfID;
-uint8_t bIntfID_H;
-unsigned :8;
-unsigned :8;
-};
-struct 
-{
-unsigned :8;
-unsigned :8;
-unsigned :8;
-unsigned :8;
-uint8_t bEPID;
-uint8_t bEPID_H;
-unsigned :8;
-unsigned :8;
-};
-struct 
-{
-unsigned :8;
-unsigned :8;
-unsigned :8;
-unsigned :8;
-unsigned EPNum:4;
-unsigned :3;
-unsigned EPDir:1;
-unsigned :8;
-unsigned :8;
-unsigned :8;
-};
-
-
-
-} CTRL_TRF_SETUP, SETUP_PKT, *PSETUP_PKT;
-
-# 78 "../My_library\usb/usb_device.h"
-typedef enum
-{
-
-# 83
-DETACHED_STATE
-= 0x00 ,
-
-# 87
-ATTACHED_STATE
-= 0x01 ,
-
-# 91
-POWERED_STATE
-= 0x02 ,
-
-# 95
-DEFAULT_STATE
-= 0x04 ,
-
-# 102
-ADR_PENDING_STATE
-= 0x08 ,
-
-# 106
-ADDRESS_STATE
-= 0x10 ,
-
-# 113
-CONFIGURED_STATE
-= 0x20
-} USB_DEVICE_STATE;
-
-
-
-typedef enum
-{
-
-EVENT_CONFIGURED
-= EVENT_DEVICE_STACK_BASE ,
-
-
-EVENT_SET_DESCRIPTOR,
-
-# 132
-EVENT_EP0_REQUEST,
-
-# 161
-EVENT_ATTACH,
-
-
-
-
-EVENT_TRANSFER_TERMINATED
-
-} USB_DEVICE_STACK_EVENTS;
-
-# 200
-void USBDeviceInit(void);
-
-# 304
-void USBDeviceTasks(void);
-
-# 356
-void USBEnableEndpoint(uint8_t ep, uint8_t options);
-
-# 449
-void* USBTransferOnePacket(uint8_t ep,uint8_t dir,uint8_t* data,uint8_t len);
-
-# 474
-void USBStallEndpoint(uint8_t ep, uint8_t dir);
-
-# 498
-void USBCancelIO(uint8_t endpoint);
-
-# 595
-void USBDeviceDetach(void);
-
-# 640
-void USBDeviceAttach(void);
-
-# 679
-void USBCtrlEPAllowStatusStage(void);
-
-# 709
-void USBCtrlEPAllowDataStage(void);
-
-# 785
-void USBDeferOUTDataStage(void);
-extern volatile bool USBDeferOUTDataStagePackets;
-
-# 855
-void USBDeferStatusStage(void);
-extern volatile bool USBDeferStatusStagePacket;
-
-# 907
-bool USBOUTDataStageDeferred(void);
-
-# 990
-void USBDeferINDataStage(void);
-extern volatile bool USBDeferINDataStagePackets;
-
-# 1044
-bool USBINDataStageDeferred(void);
-
-# 1114
-bool USBGetRemoteWakeupStatus(void);
-
-# 1171
-USB_DEVICE_STATE USBGetDeviceState(void);
-
-# 1227
-bool USBGetSuspendState(void);
-
-# 1262
-bool USBIsDeviceSuspended(void);
-
-# 1305
-bool USBIsBusSuspended(void);
-
-# 1331
-void USBSoftDetach(void);
-
-# 1369
-bool USBHandleBusy(void* handle);
-
-# 1403
-uint16_t USBHandleGetLength(void* handle);
-
-# 1435
-uint16_t USBHandleGetAddr(void*);
-
-# 1535
-void* USBGetNextHandle(uint8_t ep_num, uint8_t ep_dir);
-
-# 1568
-void USBEP0Transmit(uint8_t options);
-
-# 1596
-void USBEP0SendRAMPtr(uint8_t* src, uint16_t size, uint8_t Options);
-
-# 1628
-void USBEP0SendROMPtr(uint8_t* src, uint16_t size, uint8_t Options);
-
-# 1656
-void USBEP0Receive(uint8_t* dest, uint16_t size, void (*function));
-
-# 1691
-void* USBTxOnePacket(uint8_t ep, uint8_t* data, uint16_t len);
-
-# 1728
-void* USBRxOnePacket(uint8_t ep, uint8_t* data, uint16_t len);
-
-# 1760
-bool USB_APPLICATION_EVENT_HANDLER(uint8_t address, USB_EVENT event, void *pdata, uint16_t size);
-
-# 1828
-typedef union
-{
-uint16_t Val;
-uint8_t v[2];
-struct
-{
-uint8_t LB;
-uint8_t HB;
-} byte;
-} uint16_t_VAL;
-
-
-
-
-typedef struct 
-{
-union 
-{
-
-
-uint8_t *bRam;
-const uint8_t *bRom;
-uint16_t *wRam;
-const uint16_t *wRom;
-}pSrc;
-union 
-{
-struct 
-{
-
-uint8_t ctrl_trf_mem :1;
-uint8_t reserved :5;
-
-
-uint8_t includeZero :1;
-
-uint8_t busy :1;
-}bits;
-uint8_t Val;
-}info;
-uint16_t_VAL  wCount;
-}IN_PIPE;
-
-extern volatile IN_PIPE inPipes[];
-
-typedef struct 
-{
-union 
-{
-
-
-uint8_t *bRam;
-uint16_t *wRam;
-}pDst;
-union 
-{
-struct 
-{
-uint8_t reserved :7;
-
-uint8_t busy :1;
-}bits;
-uint8_t Val;
-}info;
-uint16_t_VAL wCount;
-void (*pFunc)(void);
-}OUT_PIPE;
-
-# 1904
-extern volatile bool RemoteWakeup;
-extern volatile bool USBBusIsSuspended;
-extern volatile USB_DEVICE_STATE USBDeviceState;
-extern volatile uint8_t USBActiveConfiguration;
 
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\__size_t.h"
 typedef unsigned size_t;
@@ -11107,7 +11096,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 261 "../My_library\usb/usb_hal_pic18.h"
+# 262 "../My_library\usb/usb_hal_pic18.h"
 typedef union _BD_STAT
 {
 uint8_t Val;
@@ -11172,7 +11161,7 @@ unsigned char endpoint_number:4;
 uint8_t Val;
 } USTAT_FIELDS;
 
-# 331
+# 332
 typedef union _POINTER
 {
 struct
@@ -11198,7 +11187,7 @@ const uint16_t* wRom;
 
 } POINTER;
 
-# 601
+# 602
 extern volatile uint8_t USBActiveConfiguration;
 extern volatile IN_PIPE inPipes[1];
 extern volatile OUT_PIPE outPipes[1];

@@ -42,13 +42,13 @@ void main(void) {
     USB_CDC_init();
 
     while (1) {
-        INTCONbits.GIE = 0;
+        INTCONbits.GIE = 0; // 関数の二重呼び出しを防ぐために割り込み禁止
         // 受信したデータをそのまま送信する。
         if (ringbuf_num(&usb_rx)) {
             uint8_t data = ringbuf_pop(&usb_rx);
             ringbuf_put(&usb_tx, data);
         }
         USB_CDC_task();
-        INTCONbits.GIE = 1;
+        INTCONbits.GIE = 1; // 割り込み禁止の解除
     }
 }

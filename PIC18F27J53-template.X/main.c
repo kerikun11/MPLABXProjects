@@ -27,12 +27,12 @@
 #include <My_ST7032.h>
 #include <My_RTCC.h>
 #include <My_ringbuf.h>
-#include <My_usb_cdc.h>
+#include <My_USB_CDC.h>
 #include <My_terminal.h>
 #include <My_UART.h>
 
 void interrupt ISR(void) {
-    USB_ISR();
+    USB_CDC_ISR();
     UART_ISR();
     I2C_ISR();
     if (INTCONbits.T0IF && INTCONbits.T0IE) {
@@ -84,18 +84,8 @@ void main_init(void) {
     timer3_init(2); // button
     I2C_LCD_init();
     RTCC_init();
-
-    USB_init();
-    static uint8_t usbtx[1000];
-    ringbuf_init(&usb_tx, usbtx, sizeof (usbtx));
-    static uint8_t usbrx[100];
-    ringbuf_init(&usb_rx, usbrx, sizeof (usbrx));
-
+    USB_CDC_init();
     UART_init();
-    static uint8_t uarttx[1000];
-    ringbuf_init(&uart_tx, uarttx, sizeof (uarttx));
-    static uint8_t uartrx[100];
-    ringbuf_init(&uart_rx, uartrx, sizeof (uartrx));
 }
 
 int main(void) {
@@ -112,7 +102,7 @@ int main(void) {
     while (1) {
         INTCONbits.GIE = 0;
 
-        USB_task();
+        USB_CDC_task();
         UART_task();
         RTCC_task();
         terminal_task(&usb_tx, &usb_rx);

@@ -72,12 +72,7 @@ void setup(void) {
     I2C_LCD_init();
     RTCC_init();
     USB_CDC_init();
-
     UART_init();
-    static uint8_t uarttx[1000];
-    ringbuf_init(&uart_tx, uarttx, sizeof (uarttx));
-    static uint8_t uartrx[100];
-    ringbuf_init(&uart_rx, uartrx, sizeof (uartrx));
 
     RTCC_from_RTCC(&now);
     if (now.DD == 0) {
@@ -92,38 +87,45 @@ void setup(void) {
     I2C_LCD_Puts("USB UART");
 }
 
-void loop(void) {
-    RTCC_task();
-    if (time_change_flag) {
-        time_change_flag = 0;
-        char s[2][20];
-        display_time_0802(&now, s[0], s[1]);
-        I2C_LCD_Clear();
-        I2C_LCD_SetCursor(0, 0);
-        I2C_LCD_Puts(s[0]);
-        I2C_LCD_SetCursor(0, 1);
-        I2C_LCD_Puts(s[1]);
-    }
-    USB_CDC_task();
-    UART_task();
-    if (ringbuf_num(&usb_rx)) {
-        ringbuf_put(&usb_tx, ringbuf_pop(&usb_rx));
-        LED0 = !LED0;
-    }
-    if (ringbuf_num(&uart_rx)) {
-        ringbuf_put(&uart_tx, ringbuf_pop(&uart_rx));
-        LED1 = !LED1;
-    }
-}
-
 int main(void) {
     setup();
     INTCONbits.GIE = 1;
     while (1) {
-        uint8_t GIE_cache = INTCONbits.GIE;
         INTCONbits.GIE = 0;
-        loop();
-        INTCONbits.GIE = GIE_cache;
+        USB_CDC_task();
+        INTCONbits.GIE = 1;
+
+        INTCONbits.GIE = 0;
+        UART_task();
+        INTCONbits.GIE = 1;
+
+        INTCONbits.GIE = 0;
+        RTCC_task();
+        INTCONbits.GIE = 1;
+
+        INTCONbits.GIE = 0;
+        if (time_change_flag) {
+            time_change_flag = 0;
+            char s[2][20];
+            display_time_0802(&now, s[0], s[1]);
+            I2C_LCD_Clear();
+            I2C_LCD_SetCursor(0, 0);
+            I2C_LCD_Puts(s[0]);
+            I2C_LCD_SetCursor(0, 1);
+            I2C_LCD_Puts(s[1]);
+        }
+        INTCONbits.GIE = 1;
+
+        INTCONbits.GIE = 0;
+        if (ringbuf_num(&usb_rx)) {
+            ringbuf_put(&usb_tx, ringbuf_pop(&usb_rx));
+            LED0 = !LED0;
+        }
+        if (ringbuf_num(&uart_rx)) {
+            ringbuf_put(&uart_tx, ringbuf_pop(&uart_rx));
+            LED1 = !LED1;
+        }
+        INTCONbits.GIE = 1;
     }
     return 0;
 }

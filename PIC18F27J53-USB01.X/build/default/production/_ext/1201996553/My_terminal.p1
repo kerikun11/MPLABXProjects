@@ -22,34 +22,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ringbuf_delete `(v ~T0 @X0 0 ef1`*S1 ]
 "194 C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"48 ../My_library/My_RTCC.h
+"50 ../My_library/My_RTCC.h
 [s S1229 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1229 . ss mm hh DD MM YY ]
-"45
+"47
 [u S1228 `uc 1 `S1229 1 ]
 [n S1228 . flags flag ]
-"43
+"45
 [s S1227 `S1228 1 ]
 [n S1227 . . ]
-"61
+"63
 [s S1230 `ul 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `S1227 1 ]
 [n S1230 . epoch ss mm hh EE DD MM YY colon halfsec edit ]
-"79
+"81
 [v _now `S1230 ~T0 @X0 0 e ]
-"104
+"92
 [v _RTCC_from_RTCC `(v ~T0 @X0 0 ef1`*S1230 ]
 [v F8901 `Cuc ~T0 @X0 -> 4 `i t ]
-"76
+"79
 [v _weekday_3char `F8901 ~T0 @X0 -> 0 `x e ]
-"106
+"94
 [v _RTCC_from_caltime `(v ~T0 @X0 0 ef1`*S1230 ]
-"81
+"83
 [v _time_change_flag `uc ~T0 @X0 0 e ]
 "43 C:\Program Files (x86)\Microchip\xc8\v1.35\include\string.h
 [v _strcmp `(i ~T0 @X0 0 ef2`*Cuc`*Cuc ]
 "55 C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdlib.h
 [v _atoi `(i ~T0 @X0 0 ef1`*Cuc ]
-"90 ../My_library/My_RTCC.h
+"98 ../My_library/My_RTCC.h
 [v _month_length `(uc ~T0 @X0 0 ef2`uc`uc ]
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
@@ -8322,57 +8322,57 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_button.h: 50: };
 [; ;My_button.h: 51: } button_t;
 [; ;My_button.h: 53: void button_timer_interrupt(button_t *bt, uint8_t sw_value);
-[; ;My_RTCC.h: 39: typedef uint32_t epoch_t;
-[; ;My_RTCC.h: 43: typedef struct {
-[; ;My_RTCC.h: 45: union {
-[; ;My_RTCC.h: 46: uint8_t flags;
-[; ;My_RTCC.h: 48: struct {
-[; ;My_RTCC.h: 49: uint8_t ss : 1;
-[; ;My_RTCC.h: 50: uint8_t mm : 1;
-[; ;My_RTCC.h: 51: uint8_t hh : 1;
-[; ;My_RTCC.h: 52: uint8_t DD : 1;
-[; ;My_RTCC.h: 53: uint8_t MM : 1;
-[; ;My_RTCC.h: 54: uint8_t YY : 1;
-[; ;My_RTCC.h: 55: } flag;
-[; ;My_RTCC.h: 56: };
-[; ;My_RTCC.h: 57: } edit_t;
-[; ;My_RTCC.h: 61: typedef struct {
-[; ;My_RTCC.h: 62: epoch_t epoch;
-[; ;My_RTCC.h: 63: uint8_t ss;
-[; ;My_RTCC.h: 64: uint8_t mm;
-[; ;My_RTCC.h: 65: uint8_t hh;
-[; ;My_RTCC.h: 66: uint8_t EE;
-[; ;My_RTCC.h: 67: uint8_t DD;
-[; ;My_RTCC.h: 68: uint8_t MM;
-[; ;My_RTCC.h: 69: uint8_t YY;
-[; ;My_RTCC.h: 70: uint8_t colon;
-[; ;My_RTCC.h: 71: uint8_t halfsec;
-[; ;My_RTCC.h: 72: edit_t edit;
-[; ;My_RTCC.h: 73: } time_t;
-[; ;My_RTCC.h: 76: extern const char weekday_3char[7][4];
-[; ;My_RTCC.h: 79: extern time_t now;
-[; ;My_RTCC.h: 81: extern uint8_t time_change_flag;
-[; ;My_RTCC.h: 83: void RTCC_init(void);
-[; ;My_RTCC.h: 86: uint8_t d_to_x(uint8_t dec);
-[; ;My_RTCC.h: 88: uint8_t x_to_d(uint8_t hex);
-[; ;My_RTCC.h: 90: uint8_t month_length(uint8_t year, uint8_t month);
-[; ;My_RTCC.h: 92: epoch_t get_quot_rem(epoch_t *quot, uint8_t div);
-[; ;My_RTCC.h: 95: void RTCC_to_caltime(time_t *tm);
-[; ;My_RTCC.h: 97: void caltime_to_RTCC(time_t *tm);
-[; ;My_RTCC.h: 99: void epoch_to_caltime(time_t *tm);
-[; ;My_RTCC.h: 101: void caltime_to_epoch(time_t *tm);
-[; ;My_RTCC.h: 104: void RTCC_from_RTCC(time_t *tm);
-[; ;My_RTCC.h: 106: void RTCC_from_caltime(time_t *tm);
-[; ;My_RTCC.h: 108: void RTCC_from_epoch(time_t *tm);
-[; ;My_RTCC.h: 111: void display_dec(char *str, uint8_t dec, uint8_t edit);
-[; ;My_RTCC.h: 113: void display_time_0802(time_t *tm, char *line0, char *line1);
-[; ;My_RTCC.h: 115: void display_time_1602(time_t *tm, char *line0, char *line1);
-[; ;My_RTCC.h: 118: void RTCC_adjust_time_toggle(time_t *tm);
-[; ;My_RTCC.h: 120: void RTCC_adjust_time_cursor(time_t *tm);
-[; ;My_RTCC.h: 122: void RTCC_adjust_time_inc(time_t *tm);
-[; ;My_RTCC.h: 124: void RTCC_adjust_time_dec(time_t *tm);
-[; ;My_RTCC.h: 126: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
-[; ;My_RTCC.h: 128: void RTCC_task(void);
+[; ;My_RTCC.h: 41: typedef uint32_t epoch_t;
+[; ;My_RTCC.h: 45: typedef struct {
+[; ;My_RTCC.h: 47: union {
+[; ;My_RTCC.h: 48: uint8_t flags;
+[; ;My_RTCC.h: 50: struct {
+[; ;My_RTCC.h: 51: uint8_t ss : 1;
+[; ;My_RTCC.h: 52: uint8_t mm : 1;
+[; ;My_RTCC.h: 53: uint8_t hh : 1;
+[; ;My_RTCC.h: 54: uint8_t DD : 1;
+[; ;My_RTCC.h: 55: uint8_t MM : 1;
+[; ;My_RTCC.h: 56: uint8_t YY : 1;
+[; ;My_RTCC.h: 57: } flag;
+[; ;My_RTCC.h: 58: };
+[; ;My_RTCC.h: 59: } edit_t;
+[; ;My_RTCC.h: 63: typedef struct {
+[; ;My_RTCC.h: 64: epoch_t epoch;
+[; ;My_RTCC.h: 65: uint8_t ss;
+[; ;My_RTCC.h: 66: uint8_t mm;
+[; ;My_RTCC.h: 67: uint8_t hh;
+[; ;My_RTCC.h: 68: uint8_t EE;
+[; ;My_RTCC.h: 69: uint8_t DD;
+[; ;My_RTCC.h: 70: uint8_t MM;
+[; ;My_RTCC.h: 71: uint8_t YY;
+[; ;My_RTCC.h: 72: uint8_t colon;
+[; ;My_RTCC.h: 73: uint8_t halfsec;
+[; ;My_RTCC.h: 74: edit_t edit;
+[; ;My_RTCC.h: 75: } time_t;
+[; ;My_RTCC.h: 79: extern const char weekday_3char[7][4];
+[; ;My_RTCC.h: 81: extern time_t now;
+[; ;My_RTCC.h: 83: extern uint8_t time_change_flag;
+[; ;My_RTCC.h: 85: void RTCC_init(void);
+[; ;My_RTCC.h: 87: void RTCC_task(void);
+[; ;My_RTCC.h: 92: void RTCC_from_RTCC(time_t *tm);
+[; ;My_RTCC.h: 94: void RTCC_from_caltime(time_t *tm);
+[; ;My_RTCC.h: 96: void RTCC_from_epoch(time_t *tm);
+[; ;My_RTCC.h: 98: uint8_t month_length(uint8_t year, uint8_t month);
+[; ;My_RTCC.h: 102: static void display_dec(char *str, uint8_t dec, uint8_t edit);
+[; ;My_RTCC.h: 104: void display_time_0802(time_t *tm, char *line0, char *line1);
+[; ;My_RTCC.h: 106: void display_time_1602(time_t *tm, char *line0, char *line1);
+[; ;My_RTCC.h: 110: void RTCC_adjust_time_toggle(time_t *tm);
+[; ;My_RTCC.h: 112: void RTCC_adjust_time_cursor(time_t *tm);
+[; ;My_RTCC.h: 114: void RTCC_adjust_time_inc(time_t *tm);
+[; ;My_RTCC.h: 116: void RTCC_adjust_time_dec(time_t *tm);
+[; ;My_RTCC.h: 118: void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
+[; ;My_RTCC.h: 123: static uint8_t d_to_x(uint8_t dec);
+[; ;My_RTCC.h: 125: static uint8_t x_to_d(uint8_t hex);
+[; ;My_RTCC.h: 127: static epoch_t get_quot_rem(epoch_t *quot, uint8_t div);
+[; ;My_RTCC.h: 131: static void RTCC_to_caltime(time_t *tm);
+[; ;My_RTCC.h: 133: static void caltime_to_RTCC(time_t *tm);
+[; ;My_RTCC.h: 135: static void epoch_to_caltime(time_t *tm);
+[; ;My_RTCC.h: 137: static void caltime_to_epoch(time_t *tm);
 "8 ../My_library/My_terminal.c
 [v _terminal_task `(v ~T0 @X0 1 ef2`*S1`*S1 ]
 {

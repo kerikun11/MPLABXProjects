@@ -5,9 +5,9 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\PIC18F27J53-I2C_LCD_old01.X.production.sym \
   --cmf=dist/default/production\PIC18F27J53-I2C_LCD_old01.X.production.cmf \
-  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s3ao.2 \
+  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s6ng.2 \
   -Mdist/default/production/PIC18F27J53-I2C_LCD_old01.X.production.map -E1 \
-  -ver=XC8 -ASTACK=02C8h-0cffh -pstack=STACK \
+  -ver=XC8 -ASTACK=0AD6h-0cffh -pstack=STACK \
   -ACODE=00h-00h,01000h-01005h,01008h-01015h,01018h-01FFF7h \
   -ACONST=00h-00h,01000h-01005h,01008h-01015h,01018h-01FFF7h \
   -ASMALLCONST=01000h-01005h,01008h-01015h,01018h-010FFh,01100h-011FFhx494,01FF00h-01FFF7h \
@@ -28,7 +28,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\KERIKU~1\AppData\Local\Temp\s3ao.obj \
+  C:\Users\KERIKU~1\AppData\Local\Temp\s6ng.obj \
   dist/default/production\PIC18F27J53-I2C_LCD_old01.X.production.obj 
 
 Object code version is 3.11
@@ -41,7 +41,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\KERIKU~1\AppData\Local\Temp\s3ao.obj
+C:\Users\KERIKU~1\AppData\Local\Temp\s6ng.obj
                 end_init                             A4       A4        4        4       0
                 reset_vec                             0        0        4        0       0
                 config                            1FFF8    1FFF8        8    1FFF8       0
@@ -49,28 +49,31 @@ dist/default/production\PIC18F27J53-I2C_LCD_old01.X.production.obj
                 intcode                               8        8       9C        4       0
                 temp                                 54       54        1        1       1
                 mediumconst                        FE6E     FE6E      192     7F37       0
-                text13                            102D4    102D4       1E     8000       0
-                text12                            1030C    1030C       18     8000       0
-                text11                            1024A    1024A       30     8000       0
-                text10                            10336    10336        A     8000       0
-                text9                             100FE    100FE       6A     8000       0
-                text8                             10212    10212       38     8000       0
-                text7                             102A8    102A8       2C     8000       0
-                text6                             102F2    102F2       1A     8000       0
-                text5                             10324    10324       12     8000       0
+                text13                            10300    10300       1E     8000       0
+                text12                            10338    10338       18     8000       0
+                text11                            10276    10276       30     8000       0
+                text10                            10362    10362        A     8000       0
+                text9                             10184    10184       6A     8000       0
+                text8                             1023E    1023E       38     8000       0
+                text7                             102D4    102D4       2C     8000       0
+                text6                             1031E    1031E       1A     8000       0
+                text5                             10350    10350       12     8000       0
                 text4                             10000    10000       90     8000       0
                 text3                              1008     1008        E      804       0
-                text2                             101C2    101C2       50     8000       0
-                text1                             1027A    1027A       2E     8000       0
-                text0                             10090    10090       6E     8000       0
+                text2                             101EE    101EE       50     8000       0
+                text1                             102A6    102A6       2E     8000       0
+                text0                             10116    10116       6E     8000       0
                 cstackCOMRAM                         45       45        F        1       1
-                cstackBANK0                          ED       ED        B       60       1
-                bssBANK2                            200      200       C8      200       1
+                cstackBANK0                          EB       EB        B       60       1
+                bssBIGRAMl                          4FA      4FA      5DC      4FA       1
+                bssBANK4                            400      400       FA      400       1
+                bssBANK3                            300      300       C8      300       1
+                bssBANK2                            200      200       80      200       1
                 bssBANK1                            100      100       CB      100       1
-                dataBANK0                            F8       F8        5       60       1
-                bssBANK0                             60       60       8D       60       1
+                dataBANK0                            F6       F6        5       60       1
+                bssBANK0                             60       60       8B       60       1
                 bssCOMRAM                             1        1       44        1       1
-                cinit                             10168    10168       5A     8000       0
+                cinit                             10090    10090       86     8000       0
                 idataBANK0                         1000     1000        5     1000       0
 
 TOTAL           Name                               Link     Load   Length     Space
@@ -80,21 +83,21 @@ TOTAL           Name                               Link     Load   Length     Sp
                 end_init                             A4       A4        4         0
                 intcode                               8        8       9C         0
                 reset_vec                             0        0        4         0
-                text13                            102D4    102D4       1E         0
-                text12                            1030C    1030C       18         0
-                text11                            1024A    1024A       30         0
-                text10                            10336    10336        A         0
-                text9                             100FE    100FE       6A         0
-                text8                             10212    10212       38         0
-                text7                             102A8    102A8       2C         0
-                text6                             102F2    102F2       1A         0
-                text5                             10324    10324       12         0
+                text13                            10300    10300       1E         0
+                text12                            10338    10338       18         0
+                text11                            10276    10276       30         0
+                text10                            10362    10362        A         0
+                text9                             10184    10184       6A         0
+                text8                             1023E    1023E       38         0
+                text7                             102D4    102D4       2C         0
+                text6                             1031E    1031E       1A         0
+                text5                             10350    10350       12         0
                 text4                             10000    10000       90         0
                 text3                              1008     1008        E         0
-                text2                             101C2    101C2       50         0
-                text1                             1027A    1027A       2E         0
-                text0                             10090    10090       6E         0
-                cinit                             10168    10168       5A         0
+                text2                             101EE    101EE       50         0
+                text1                             102A6    102A6       2E         0
+                text0                             10116    10116       6E         0
+                cinit                             10090    10090       86         0
                 idataBANK0                         1000     1000        5         0
 
         CLASS   CONST          
@@ -113,23 +116,26 @@ TOTAL           Name                               Link     Load   Length     Sp
                 abs_s1                              D00      D00       40         1
 
         CLASS   BIGRAM         
+                bssBIGRAMl                          4FA      4FA      5DC         1
 
         CLASS   RAM            
 
         CLASS   BANK0          
-                cstackBANK0                          ED       ED        B         1
-                dataBANK0                            F8       F8        5         1
-                bssBANK0                             60       60       8D         1
+                cstackBANK0                          EB       EB        B         1
+                dataBANK0                            F6       F6        5         1
+                bssBANK0                             60       60       8B         1
 
         CLASS   BANK1          
                 bssBANK1                            100      100       CB         1
 
         CLASS   BANK2          
-                bssBANK2                            200      200       C8         1
+                bssBANK2                            200      200       80         1
 
         CLASS   BANK3          
+                bssBANK3                            300      300       C8         1
 
         CLASS   BANK4          
+                bssBANK4                            400      400       FA         1
 
         CLASS   BANK5          
 
@@ -167,81 +173,83 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 bssCOMRAM                      000001  000054  000055         1       1  COMRAM  
                 intcode                        000008  0000A0  0000A8         4       0  CODE    
-                bssBANK0                       000060  00009D  0000FD        60       1  BANK0   
+                bssBANK0                       000060  00009B  0000FB        60       1  BANK0   
                 bssBANK1                       000100  0000CB  0001CB       100       1  BANK1   
-                bssBANK2                       000200  0000C8  0002C8       200       1  BANK2   
+                bssBANK2                       000200  000080  000280       200       1  BANK2   
+                bssBANK3                       000300  0000C8  0003C8       300       1  BANK3   
+                bssBANK4                       000400  0000FA  0004FA       400       1  BANK4   
+                bssBIGRAMl                     0004FA  0005DC  000AD6       4FA       1  BIGRAM  
                 idataBANK0                     001000  000005  001005      1000       0  CODE    
                 text3                          001008  00000E  001016       804       0  CODE    
                 mediumconst                    00FE6E  000192  010000      7F37       0  MEDIUMCO
-                text4                          010000  000340  010340      8000       0  CODE    
+                text4                          010000  00036C  01036C      8000       0  CODE    
                 config                         01FFF8  000008  020000     1FFF8       0  CONFIG  
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            000FD-000FF               3
+        BANK0            000FB-000FF               5
         BANK1            001CB-001FF              35
-        BANK10           00A00-00AFF             100
+        BANK10           00AD6-00AFF              2A
         BANK11           00B00-00BFF             100
         BANK12           00C00-00CFF             100
         BANK13           00D40-00DFF              C0
         BANK14           00E00-00EAF              B0
-        BANK2            002C8-002FF              38
-        BANK3            00300-003FF             100
-        BANK4            00400-004FF             100
-        BANK5            00500-005FF             100
-        BANK6            00600-006FF             100
-        BANK7            00700-007FF             100
-        BANK8            00800-008FF             100
-        BANK9            00900-009FF             100
+        BANK2            00280-002FF              80
+        BANK3            003C8-003FF              38
         BIGRAM           00055-0005F               B
-                         000FD-000FF               3
+                         000FB-000FF               5
                          001CB-001FF              35
-                         002C8-00CFF             A38
+                         00280-002FF              80
+                         003C8-003FF              38
+                         00AD6-00CFF             22A
                          00D40-00EAF             170
         CODE             01005-01005               1
                          01018-0FE6D            EE56
-                         10340-1FFF7            FCB8
+                         1036C-1FFF7            FC8C
         COMRAM           00055-0005F               B
         CONST            01005-01005               1
                          01018-0FE6D            EE56
-                         10340-1FFF7            FCB8
+                         1036C-1FFF7            FC8C
         MEDIUMCONST      01005-01005               1
                          01018-0FE6D            EE56
                          10F00-1FFF7            F0F8
-        RAM              000FD-000FF               3
+        RAM              000FB-000FF               5
                          001CB-001FF              35
-                         002C8-00CFF             100
+                         00280-002FF              80
+                         003C8-003FF              38
+                         00AD6-00CFF             100
                          00D40-00EAF              C0
         SFR              00EB0-00FFF              60
         SMALLCONST       01005-01005               1
                          01018-0FE6D             100
-                         10340-1FFF7             100
-        STACK            002C8-00CFF             A38
+                         1036C-1FFF7             100
+        STACK            00AD6-00CFF             22A
 
                                   Symbol Table
 
-I2C_IdleCheck@mask               cstackBANK0   000EE
-I2C_LCD_Command@ans              cstackBANK0   000F2
-I2C_LCD_Command@c                cstackBANK0   000F1
-I2C_LCD_Puts@ans                 cstackBANK0   000F4
-I2C_LCD_Puts@s                   cstackBANK0   000F1
-I2C_LCD_SetCursor@F8685          dataBANK0     000F8
-I2C_LCD_SetCursor@col            cstackBANK0   000F6
-I2C_LCD_SetCursor@row            cstackBANK0   000F3
-I2C_LCD_SetCursor@row_offsets    cstackBANK0   000F4
-I2C_LCD_init@i                   cstackBANK0   000F5
-I2C_LCD_init@i_4452              cstackBANK0   000F6
-I2C_Send@data                    cstackBANK0   000EF
-I2C_Start@adrs                   cstackBANK0   000F0
-I2C_Start@rw                     cstackBANK0   000EF
+I2C_IdleCheck@mask               cstackBANK0   000EC
+I2C_LCD_Command@ans              cstackBANK0   000F0
+I2C_LCD_Command@c                cstackBANK0   000EF
+I2C_LCD_Puts@ans                 cstackBANK0   000F2
+I2C_LCD_Puts@s                   cstackBANK0   000EF
+I2C_LCD_SetCursor@F8685          dataBANK0     000F6
+I2C_LCD_SetCursor@col            cstackBANK0   000F4
+I2C_LCD_SetCursor@row            cstackBANK0   000F1
+I2C_LCD_SetCursor@row_offsets    cstackBANK0   000F2
+I2C_LCD_init@i                   cstackBANK0   000F3
+I2C_LCD_init@i_4452              cstackBANK0   000F4
+I2C_Send@data                    cstackBANK0   000ED
+I2C_Start@adrs                   cstackBANK0   000EE
+I2C_Start@rw                     cstackBANK0   000ED
 RTCC_task@prev_halfsec           bssCOMRAM     00024
-ST7032_cursor@F8640              dataBANK0     000FA
-ST7032_init@buf                  bssBANK2      00200
+ST7032_cursor@F8640              dataBANK0     000F8
+ST7032_init@buf                  bssBANK3      00300
 ST7032_task@st7032_state         bssCOMRAM     00025
 ST7032_task@wait                 bssBANK0      0007E
-USBCBSendResume@delay_count      bssBANK0      00080
+USB_CDC_buffer_init@rxbuf        bssBANK4      00400
+USB_CDC_buffer_init@txbuf        bssBIGRAMl    004FA
 _ADCON0bits                      (abs)         00FC2
 _ADCON1bits                      (abs)         00FC1
 _ADRES                           (abs)         00FC3
@@ -261,18 +269,18 @@ _CTMUCONLbits                    (abs)         00FB2
 _CTMUICON                        (abs)         00FB1
 _CtrlTrfData                     (abs)         00D38
 _EECON2                          (abs)         00FA7
-_I2C_IdleCheck                   text13        102D4
-_I2C_LCD_Clear                   text6         102F2
-_I2C_LCD_Command                 text8         10212
-_I2C_LCD_Puts                    text9         100FE
-_I2C_LCD_SetCursor               text7         102A8
+_I2C_IdleCheck                   text13        10300
+_I2C_LCD_Clear                   text6         1031E
+_I2C_LCD_Command                 text8         1023E
+_I2C_LCD_Puts                    text9         10184
+_I2C_LCD_SetCursor               text7         102D4
 _I2C_LCD_init                    text4         10000
-_I2C_Send                        text12        1030C
-_I2C_Start                       text11        1024A
-_I2C_Stop                        text10        10336
-_I2C_busy                        bssBANK0      00088
-_I2C_cfct_flag                   bssBANK0      00089
-_I2C_init_old                    text5         10324
+_I2C_Send                        text12        10338
+_I2C_Start                       text11        10276
+_I2C_Stop                        text10        10362
+_I2C_busy                        bssBANK0      00086
+_I2C_cfct_flag                   bssBANK0      00087
+_I2C_init_old                    text5         10350
 _I2C_sent_flag                   bssCOMRAM     00027
 _INTCON2bits                     (abs)         00FF1
 _INTCONbits                      (abs)         00FF2
@@ -400,6 +408,9 @@ __Hbss                           bss           00000
 __HbssBANK0                      bssBANK0      00000
 __HbssBANK1                      bssBANK1      00000
 __HbssBANK2                      bssBANK2      00000
+__HbssBANK3                      bssBANK3      00000
+__HbssBANK4                      bssBANK4      00000
+__HbssBIGRAMl                    bssBIGRAMl    00000
 __HbssCOMRAM                     bssCOMRAM     00000
 __Hcinit                         cinit         00000
 __Hclrtext                       clrtext       00000
@@ -443,7 +454,7 @@ __Hrparam                        rparam        00000
 __Hsfr                           sfr           00000
 __Hsmallconst                    smallconst    00000
 __Hspace_0                       (abs)         20000
-__Hspace_1                       (abs)         002C8
+__Hspace_1                       (abs)         00AD6
 __Hspace_2                       (abs)         00000
 __Hstack                         stack         00000
 __Hstruct                        struct        00000
@@ -487,6 +498,9 @@ __Lbss                           bss           00000
 __LbssBANK0                      bssBANK0      00000
 __LbssBANK1                      bssBANK1      00000
 __LbssBANK2                      bssBANK2      00000
+__LbssBANK3                      bssBANK3      00000
+__LbssBANK4                      bssBANK4      00000
+__LbssBIGRAMl                    bssBIGRAMl    00000
 __LbssCOMRAM                     bssCOMRAM     00000
 __Lcinit                         cinit         00000
 __Lclrtext                       clrtext       00000
@@ -551,7 +565,7 @@ __Ltext7                         text7         00000
 __Ltext8                         text8         00000
 __Ltext9                         text9         00000
 __S0                             (abs)         20000
-__S1                             (abs)         002C8
+__S1                             (abs)         00AD6
 __S2                             (abs)         00000
 ___inthi_sp                      stack         00000
 ___intlo_sp                      stack         00000
@@ -560,58 +574,61 @@ ___rparam_used                   (abs)         00001
 ___sp                            stack         00000
 __accesstop                      (abs)         00060
 __activetblptr                   (abs)         00003
-__end_of_I2C_IdleCheck           text13        102F2
-__end_of_I2C_LCD_Clear           text6         1030C
-__end_of_I2C_LCD_Command         text8         1024A
-__end_of_I2C_LCD_Puts            text9         10168
-__end_of_I2C_LCD_SetCursor       text7         102D4
+__end_of_I2C_IdleCheck           text13        1031E
+__end_of_I2C_LCD_Clear           text6         10338
+__end_of_I2C_LCD_Command         text8         10276
+__end_of_I2C_LCD_Puts            text9         101EE
+__end_of_I2C_LCD_SetCursor       text7         10300
 __end_of_I2C_LCD_init            text4         10090
-__end_of_I2C_Send                text12        10324
-__end_of_I2C_Start               text11        1027A
-__end_of_I2C_Stop                text10        10340
-__end_of_I2C_init_old            text5         10336
+__end_of_I2C_Send                text12        10350
+__end_of_I2C_Start               text11        102A6
+__end_of_I2C_Stop                text10        1036C
+__end_of_I2C_init_old            text5         10362
 __end_of_ISR                     intcode       000A4
 __end_of_OSC_init                text3         01016
 __end_of_USB_CD_Ptr              mediumconst   0FE81
 __end_of_USB_SD_Ptr              mediumconst   0FE7F
-__end_of__initialization         cinit         101B8
+__end_of__initialization         cinit         1010C
 __end_of_configDescriptor1       mediumconst   0FEC4
 __end_of_device_dsc              mediumconst   0FF5A
 __end_of_dpowers                 mediumconst   0FE79
-__end_of_main                    text0         100FE
-__end_of_main_init               text1         102A8
+__end_of_main                    text0         10184
+__end_of_main_init               text1         102D4
 __end_of_sd000                   mediumconst   0FF5E
 __end_of_sd001                   mediumconst   0FEF8
 __end_of_sd002                   mediumconst   0FF2C
-__end_of_timer1_init             text2         10212
+__end_of_timer1_init             text2         1023E
 __end_of_weekday_3char           mediumconst   0FF48
-__initialization                 cinit         10168
+__initialization                 cinit         10090
 __mediumconst                    mediumconst   0FE6E
 __pbssBANK0                      bssBANK0      00060
 __pbssBANK1                      bssBANK1      00100
 __pbssBANK2                      bssBANK2      00200
+__pbssBANK3                      bssBANK3      00300
+__pbssBANK4                      bssBANK4      00400
+__pbssBIGRAMl                    bssBIGRAMl    004FA
 __pbssCOMRAM                     bssCOMRAM     00001
-__pcinit                         cinit         10168
-__pcstackBANK0                   cstackBANK0   000ED
+__pcinit                         cinit         10090
+__pcstackBANK0                   cstackBANK0   000EB
 __pcstackCOMRAM                  cstackCOMRAM  00045
-__pdataBANK0                     dataBANK0     000F8
+__pdataBANK0                     dataBANK0     000F6
 __pidataBANK0                    idataBANK0    01000
 __pintcode                       intcode       00008
 __pmediumconst                   mediumconst   0FE6E
-__ptext0                         text0         10090
-__ptext1                         text1         1027A
-__ptext10                        text10        10336
-__ptext11                        text11        1024A
-__ptext12                        text12        1030C
-__ptext13                        text13        102D4
-__ptext2                         text2         101C2
+__ptext0                         text0         10116
+__ptext1                         text1         102A6
+__ptext10                        text10        10362
+__ptext11                        text11        10276
+__ptext12                        text12        10338
+__ptext13                        text13        10300
+__ptext2                         text2         101EE
 __ptext3                         text3         01008
 __ptext4                         text4         10000
-__ptext5                         text5         10324
-__ptext6                         text6         102F2
-__ptext7                         text7         102A8
-__ptext8                         text8         10212
-__ptext9                         text9         100FE
+__ptext5                         text5         10350
+__ptext6                         text6         1031E
+__ptext7                         text7         102D4
+__ptext8                         text8         1023E
+__ptext9                         text9         10184
 __ramtop                         ramtop        00F00
 __size_of_I2C_IdleCheck          (abs)         00000
 __size_of_I2C_LCD_Clear          (abs)         00000
@@ -638,20 +655,20 @@ _cdc_trf_state                   bssCOMRAM     00033
 _cdc_tx_len                      bssCOMRAM     00034
 _configDescriptor1               mediumconst   0FE81
 _controlTransferState            bssCOMRAM     00035
-_control_signal_bitmap           bssBANK0      0008A
+_control_signal_bitmap           bssBANK0      00088
 _device_dsc                      mediumconst   0FF48
 _dpowers                         mediumconst   0FE6F
-_dummy_encapsulated_cmd_response bssBANK0      000B6
+_dummy_encapsulated_cmd_response bssBANK0      000B4
 _endpoint_number                 bssCOMRAM     00036
 _ep_data_in                      bssCOMRAM     00016
 _ep_data_out                     bssCOMRAM     00019
 _inPipes                         bssCOMRAM     0000A
 _lcd_tx                          bssCOMRAM     00039
-_line_coding                     bssBANK0      000E6
-_main                            text0         10090
-_main_init                       text1         1027A
+_line_coding                     bssBANK0      000E4
+_main                            text0         10116
+_main_init                       text1         102A6
 _ms                              bssBANK0      00074
-_now                             bssBANK0      000A8
+_now                             bssBANK0      000A6
 _one_second_flag                 bssCOMRAM     00037
 _outPipes                        bssCOMRAM     00001
 _pBDTEntryEP0OutCurrent          bssCOMRAM     00020
@@ -660,42 +677,44 @@ _pBDTEntryIn                     bssCOMRAM     00010
 _pBDTEntryOut                    bssBANK0      0006A
 _pCDCDst                         bssBANK0      00078
 _pCDCSrc                         bssBANK0      0007B
-_pDst                            bssBANK0      00082
+_pDst                            bssBANK0      00080
+_readBuffer                      bssBANK2      00200
 _sd000                           mediumconst   0FF5A
 _sd001                           mediumconst   0FEC4
 _sd002                           mediumconst   0FEF8
 _shortPacketStatus               bssCOMRAM     00038
-_st7032_state                    bssBANK0      0008B
-_time_change_flag                bssBANK0      0008C
-_timer1_init                     text2         101C2
-_uart_rx                         bssBANK0      000BE
-_uart_tx                         bssBANK0      000C6
-_usb_rx                          bssBANK0      000CE
-_usb_tx                          bssBANK0      000D6
+_st7032_state                    bssBANK0      00089
+_time_change_flag                bssBANK0      0008A
+_timer1_init                     text2         101EE
+_uart_rx                         bssBANK0      000BC
+_uart_tx                         bssBANK0      000C4
+_usb_rx                          bssBANK0      000CC
+_usb_tx                          bssBANK0      000D4
 _weekday_3char                   mediumconst   0FF2C
+_writeBuffer                     bssBANK2      00240
 btemp                            temp          00054
-end_of_initialization            cinit         101B8
-epoch_to_caltime@day_cache       bssBANK0      00084
-epoch_to_caltime@month_cache     dataBANK0     000FC
-epoch_to_caltime@year_cache      bssBANK0      0008D
+end_of_initialization            cinit         1010C
+epoch_to_caltime@day_cache       bssBANK0      00082
+epoch_to_caltime@month_cache     dataBANK0     000FA
+epoch_to_caltime@year_cache      bssBANK0      0008B
 int$flags                        temp          00054
 intlevel0                        text          00000
 intlevel1                        text          00000
 intlevel2                        text          00000
 intlevel3                        text          00000
-millis_timer@cnt                 bssBANK0      00086
+millis_timer@cnt                 bssBANK0      00084
 stackhi                          (abs)         00CFF
-stacklo                          (abs)         002C8
+stacklo                          (abs)         00AD6
 start                            init          000A4
-start_initialization             cinit         10168
-terminal_task@command            bssBANK0      000DE
-terminal_task@command_init       bssBANK0      0008E
-terminal_task@op0                bssBANK0      0008F
+start_initialization             cinit         10090
+terminal_task@command            bssBANK0      000DC
+terminal_task@command_init       bssBANK0      0008C
+terminal_task@op0                bssBANK0      0008D
 terminal_task@op1                bssBANK1      00180
 terminal_task@op2                bssBANK1      00199
 terminal_task@op3                bssBANK1      001B2
-timer1_init@clock_select         cstackBANK0   000ED
-timer1_init@prescaler            cstackBANK0   000EF
+timer1_init@clock_select         cstackBANK0   000EB
+timer1_init@prescaler            cstackBANK0   000ED
 
 
 FUNCTION INFORMATION:
@@ -708,7 +727,7 @@ FUNCTION INFORMATION:
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  2  1417[None  ] int 
+                  2  1438[None  ] int 
  Registers used:
 		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
  Tracked objects:
@@ -1187,7 +1206,7 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 ../My_library/My_PIC.c
-		_timer1_init   		CODE           	101C2	0000	81
+		_timer1_init   		CODE           	101EE	0000	81
 		_OSC_init      		CODE           	1008	0000	15
 
 ../My_library/My_PIC.c estimated size: 96
@@ -1199,35 +1218,35 @@ shared
 		_sd001         		MEDIUMCONST    	FEC4	0000	53
 		_sd002         		MEDIUMCONST    	FEF8	0000	53
 		_dpowers       		MEDIUMCONST    	FE6F	0000	11
-		__initialization		CODE           	10168	0000	81
+		__initialization		CODE           	10090	0000	125
 		_device_dsc    		MEDIUMCONST    	FF48	0000	19
 		_USB_SD_Ptr    		MEDIUMCONST    	FE79	0000	7
 		_sd000         		MEDIUMCONST    	FF5A	0000	5
 
-shared estimated size: 329
+shared estimated size: 373
 
 ../My_library/My_ST7032.c
-		_I2C_LCD_Clear 		CODE           	102F2	0000	27
-		_I2C_LCD_SetCursor		CODE           	102A8	0000	45
-		_I2C_LCD_Command		CODE           	10212	0000	57
+		_I2C_LCD_Clear 		CODE           	1031E	0000	27
+		_I2C_LCD_SetCursor		CODE           	102D4	0000	45
+		_I2C_LCD_Command		CODE           	1023E	0000	57
 		_I2C_LCD_init  		CODE           	10000	0000	145
-		_I2C_LCD_Puts  		CODE           	100FE	0000	107
+		_I2C_LCD_Puts  		CODE           	10184	0000	107
 
 ../My_library/My_ST7032.c estimated size: 381
 
 ../My_library/My_I2C.c
-		_I2C_init_old  		CODE           	10324	0000	19
-		_I2C_IdleCheck 		CODE           	102D4	0000	31
-		_I2C_Stop      		CODE           	10336	0000	11
-		_I2C_Send      		CODE           	1030C	0000	25
-		_I2C_Start     		CODE           	1024A	0000	49
+		_I2C_init_old  		CODE           	10350	0000	19
+		_I2C_IdleCheck 		CODE           	10300	0000	31
+		_I2C_Stop      		CODE           	10362	0000	11
+		_I2C_Send      		CODE           	10338	0000	25
+		_I2C_Start     		CODE           	10276	0000	49
 
 ../My_library/My_I2C.c estimated size: 135
 
 main.c
 		_ISR           		CODE           	0008	0000	157
-		_main          		CODE           	10090	0000	111
-		_main_init     		CODE           	1027A	0000	47
+		_main          		CODE           	10116	0000	111
+		_main_init     		CODE           	102A6	0000	47
 
 main.c estimated size: 315
 

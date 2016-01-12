@@ -1,20 +1,20 @@
-/* 
- * File:   My_UART.h
- * Author: kerikun11
- *
- * Created on 2015/11/11, 9:59
- */
-
+/*******************************************************************
+ * Microchip PIC, USB-CDC Library
+ * Author:  @Ryokeri14
+ * Date:    2016.01.10
+ * RCIF,TXIF フラグの回収はレジスタ読み込みまたは上書きにより行われる。
+ *******************************************************************/
 #ifndef MY_UART_H
 #define	MY_UART_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
+/** INCLUDES *******************************************************/
 #include <xc.h>
 #include <stdint.h>
 #include "My_ringbuf.h"
+
+/** VALUES ********************************************************/
+#define UART_TX_BUFFER_SIZE 500
+#define UART_RX_BUFFER_SIZE 100
 
 #if defined(__18F27J53)    
 #define _XTAL_FREQ 48000000
@@ -61,20 +61,17 @@ extern "C" {
 #define _PEIE   INTCONbits.PEIE
 #endif
 
-    //*************************** UART ***************************//
-    // UART_ISR();
-    // を割り込み関数内に書いておくこと。
-    // RCIF,TXIF フラグの回収はレジスタ読み込みまたは上書きにより行われる。
-    extern ringbuf_t uart_tx;
-    extern ringbuf_t uart_rx;
+/** VARIABLES **************************************************/
+extern ringbuf_t uart_tx;
+extern ringbuf_t uart_rx;
 
-    void UART_init(void);
-    void UART_ISR(void);
-    void UART_task(void);
+/** USER FUNCTIONS **********************************************/
+void UART_init(void);
+void UART_ISR(void);
+void UART_task(void);
 
-#ifdef	__cplusplus
-}
-#endif
+/** FUNCTIONS ***************************************************/
+static void UART_buffer_init(void);
 
 #endif	/* MY_UART_H */
 

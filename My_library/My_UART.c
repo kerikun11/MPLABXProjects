@@ -2,8 +2,8 @@
 
 //*************************** UART ***************************//
 // UART_ISR();
-// ‚ğŠ„‚è‚İŠÖ”“à‚É‘‚¢‚Ä‚¨‚­‚±‚ÆB
-// RCIF,TXIF ƒtƒ‰ƒO‚Ì‰ñû‚ÍƒŒƒWƒXƒ^“Ç‚İ‚İ‚Ü‚½‚Íã‘‚«‚É‚æ‚ès‚í‚ê‚éB
+// ã‚’å‰²ã‚Šè¾¼ã¿é–¢æ•°å†…ã«æ›¸ã„ã¦ãŠãã“ã¨ã€‚
+// RCIF,TXIF ãƒ•ãƒ©ã‚°ã®å›åã¯ãƒ¬ã‚¸ã‚¹ã‚¿èª­ã¿è¾¼ã¿ã¾ãŸã¯ä¸Šæ›¸ãã«ã‚ˆã‚Šè¡Œã‚ã‚Œã‚‹ã€‚
 ringbuf_t uart_tx;
 ringbuf_t uart_rx;
 
@@ -24,6 +24,14 @@ void UART_init(void) {
 #endif
     _RCIE = 1;
     _PEIE = 1;
+    UART_buffer_init();
+}
+
+static void UART_buffer_init(void) {
+    static uint8_t uarttx[UART_TX_BUFFER_SIZE];
+    ringbuf_init(&uart_tx, uarttx, sizeof (uarttx));
+    static uint8_t uartrx[UART_RX_BUFFER_SIZE];
+    ringbuf_init(&uart_rx, uartrx, sizeof (uartrx));
 }
 
 void UART_ISR(void) {

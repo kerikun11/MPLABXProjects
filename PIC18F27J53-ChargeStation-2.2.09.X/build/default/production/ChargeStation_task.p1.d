@@ -18,7 +18,6 @@ ChargeStation_task.h  \
 ../My_library/My_terminal.h  \
 ../My_library/usb/usb_device.h  \
 ../My_library/My_RTCC.h  \
-../My_library/usb/system.h  \
 ctmu.h  \
 ../My_library/usb/usb_config.h  \
 ../My_library/My_button.h  \

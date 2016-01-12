@@ -3,5 +3,4 @@
  ../My_library/My_EEPROM.c  \
 ../My_library/My_PIC.h  \
 ../My_library/My_I2C.h  \
-../My_library/My_ringbuf.h  \
 ../My_library/My_EEPROM.h 

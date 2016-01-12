@@ -10426,30 +10426,6 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 19 "../My_library/My_ringbuf.h"
-typedef struct ringbuf {
-char *buf;
-uint16_t size;
-uint16_t head;
-uint16_t tail;
-} ringbuf_t;
-
-void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
-
-uint16_t ringbuf_num(ringbuf_t *rb);
-
-void ringbuf_put(ringbuf_t *rb, char asciicode);
-
-void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
-
-void ringbuf_put_str(ringbuf_t *rb, const char *str);
-
-char ringbuf_pop(ringbuf_t *rb);
-
-void ringbuf_backspace(ringbuf_t *rb);
-
-void ringbuf_delete(ringbuf_t *rb);
-
 # 20 "../My_library/My_PIC.h"
 void OSC_init(void);
 
@@ -10479,6 +10455,7 @@ uint16_t CTMU_read(uint8_t ch);
 
 
 void Delay_ms(uint16_t ms);
+
 
 
 
@@ -10614,12 +10591,11 @@ sum += ADRES;
 return sum / 10 / 4;
 }
 
-
-
-
+# 214
 void Delay_ms(uint16_t ms) {
 while (ms--)_delay((unsigned long)((1)*(48000000/4000.0)));
 }
+
 
 
 uint32_t ms;

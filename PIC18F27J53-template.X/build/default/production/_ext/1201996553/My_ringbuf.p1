@@ -31,17 +31,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;My_ringbuf.h: 19: typedef struct ringbuf {
-[; ;My_ringbuf.h: 20: char *buf;
+[; ;My_ringbuf.h: 20: uint8_t *buf;
 [; ;My_ringbuf.h: 21: uint16_t size;
 [; ;My_ringbuf.h: 22: uint16_t head;
 [; ;My_ringbuf.h: 23: uint16_t tail;
 [; ;My_ringbuf.h: 24: } ringbuf_t;
-[; ;My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, char *internal_buf, uint16_t bufsize);
+[; ;My_ringbuf.h: 26: void ringbuf_init(ringbuf_t *rb, uint8_t *internal_buf, uint16_t bufsize);
 [; ;My_ringbuf.h: 28: uint16_t ringbuf_num(ringbuf_t *rb);
-[; ;My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, char asciicode);
+[; ;My_ringbuf.h: 30: void ringbuf_put(ringbuf_t *rb, uint8_t data);
 [; ;My_ringbuf.h: 32: void ringbuf_put_num(ringbuf_t *rb, const uint16_t value, uint8_t digits);
 [; ;My_ringbuf.h: 34: void ringbuf_put_str(ringbuf_t *rb, const char *str);
-[; ;My_ringbuf.h: 36: char ringbuf_pop(ringbuf_t *rb);
+[; ;My_ringbuf.h: 36: uint8_t ringbuf_pop(ringbuf_t *rb);
 [; ;My_ringbuf.h: 38: void ringbuf_backspace(ringbuf_t *rb);
 [; ;My_ringbuf.h: 40: void ringbuf_delete(ringbuf_t *rb);
 "5 ../My_library/My_ringbuf.c
@@ -105,18 +105,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 "20
 [v _ringbuf_put `(v ~T0 @X0 1 ef2`*S1`uc ]
 {
-[; ;My_ringbuf.c: 20: void ringbuf_put(ringbuf_t *rb, char asciicode) {
+[; ;My_ringbuf.c: 20: void ringbuf_put(ringbuf_t *rb, uint8_t data) {
 [e :U _ringbuf_put ]
 [v _rb `*S1 ~T0 @X0 1 r1 ]
-[v _asciicode `uc ~T0 @X0 1 r2 ]
+[v _data `uc ~T0 @X0 1 r2 ]
 [f ]
 [; ;My_ringbuf.c: 21: if (ringbuf_num(rb) < rb->size) {
 "21
 [e $ ! < ( _ringbuf_num (1 _rb . *U _rb 1 7  ]
 {
-[; ;My_ringbuf.c: 22: rb->buf[rb->head] = asciicode;
+[; ;My_ringbuf.c: 22: rb->buf[rb->head] = data;
 "22
-[e = *U + . *U _rb 0 * -> . *U _rb 2 `ux -> -> # *U . *U _rb 0 `ui `ux _asciicode ]
+[e = *U + . *U _rb 0 * -> . *U _rb 2 `ux -> -> # *U . *U _rb 0 `ui `ux _data ]
 [; ;My_ringbuf.c: 23: if (rb->head + 1 < rb->size) rb->head++;
 "23
 [e $ ! < + . *U _rb 2 -> -> 1 `i `ui . *U _rb 1 8  ]
@@ -221,7 +221,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "45
 [v _ringbuf_pop `(uc ~T0 @X0 1 ef1`*S1 ]
 {
-[; ;My_ringbuf.c: 45: char ringbuf_pop(ringbuf_t *rb) {
+[; ;My_ringbuf.c: 45: uint8_t ringbuf_pop(ringbuf_t *rb) {
 [e :U _ringbuf_pop ]
 [v _rb `*S1 ~T0 @X0 1 r1 ]
 [f ]
