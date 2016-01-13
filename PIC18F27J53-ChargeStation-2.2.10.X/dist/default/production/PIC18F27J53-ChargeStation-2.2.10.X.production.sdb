@@ -103,9 +103,9 @@ EVENT_EP0_REQUEST 3
 EVENT_ATTACH 4
 EVENT_TRANSFER_TERMINATED 5
 ]
-"13 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
+"11 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
 [e E8590 ST7032_STATE `uc
-ST7032_IDOLE 0
+ST7032_IDLE 0
 ST7032_START 1
 ST7032_SEND 2
 ST7032_STOP 3
@@ -217,7 +217,7 @@ SETTINGS 3
 "3 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_button.c
 [v _button_timer_interrupt button_timer_interrupt `(v  1 e 0 0 ]
 "7 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_I2C.c
-[v _I2C_idole_check I2C_idole_check `(uc  1 e 1 0 ]
+[v _I2C_idle_check I2C_idle_check `(uc  1 e 1 0 ]
 "11
 [v _I2C_start I2C_start `(v  1 e 0 0 ]
 "19
@@ -308,23 +308,23 @@ SETTINGS 3
 [v _epoch_to_caltime epoch_to_caltime `(v  1 s 0 epoch_to_caltime ]
 "343
 [v _caltime_to_epoch caltime_to_epoch `(v  1 s 0 caltime_to_epoch ]
-"16 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
+"14 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
 [v _ST7032_command ST7032_command `(v  1 e 0 0 ]
-"24
+"22
 [v _ST7032_clear ST7032_clear `(v  1 e 0 0 ]
-"28
+"26
 [v _ST7032_cursor ST7032_cursor `(v  1 e 0 0 ]
-"33
+"31
 [v _ST7032_put ST7032_put `(v  1 e 0 0 ]
-"41
+"39
 [v _ST7032_puts ST7032_puts `(v  1 e 0 0 ]
-"60
+"58
 [v _ST7032_init ST7032_init `(v  1 e 0 0 ]
-"81
+"79
 [v _ST7032_task ST7032_task `(v  1 e 0 0 ]
-"141
+"139
 [v _I2C_LCD_Command I2C_LCD_Command `(v  1 e 0 0 ]
-"154
+"152
 [v _I2C_LCD_Clear I2C_LCD_Clear `(v  1 e 0 0 ]
 "8 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_terminal.c
 [v _terminal_task terminal_task `(v  1 e 0 0 ]
@@ -539,7 +539,7 @@ SETTINGS 3
 "13
 [v _time_change_flag time_change_flag `uc  1 e 1 0 ]
 [s S3289 ringbuf 8 `*.39uc 1 buf 2 0 `ui 1 size 2 2 `ui 1 head 2 4 `ui 1 tail 2 6 ]
-"14 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
+"12 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
 [v _lcd_tx lcd_tx `S3289  1 e 8 0 ]
 "7 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_UART.c
 [v _uart_tx uart_tx `S3289  1 e 8 0 ]
@@ -1769,7 +1769,7 @@ SETTINGS 3
 "126 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-ChargeStation-2.2.10.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"167
+"173
 } 0
 "8 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_terminal.c
 [v _terminal_task terminal_task `(v  1 e 0 0 ]
@@ -2202,32 +2202,32 @@ SETTINGS 3
 [v strcat@from from `*.34Cuc  1 p 2 2 ]
 "26
 } 0
-"41 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
+"39 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
 [v _ST7032_puts ST7032_puts `(v  1 e 0 0 ]
 {
 [v ST7032_puts@s s `*.34Cuc  1 p 2 16 ]
-"45
+"43
 } 0
-"33
+"31
 [v _ST7032_put ST7032_put `(v  1 e 0 0 ]
 {
 [v ST7032_put@c c `uc  1 a 1 wreg ]
 [v ST7032_put@c c `uc  1 a 1 wreg ]
 [v ST7032_put@c c `uc  1 a 1 15 ]
-"39
+"37
 } 0
-"28
+"26
 [v _ST7032_cursor ST7032_cursor `(v  1 e 0 0 ]
 {
 [v ST7032_cursor@col col `uc  1 a 1 wreg ]
-"29
+"27
 [v ST7032_cursor@row_offsets row_offsets `[2]uc  1 a 2 18 ]
-"28
+"26
 [v ST7032_cursor@col col `uc  1 a 1 wreg ]
 [v ST7032_cursor@row row `uc  1 p 1 17 ]
 [v ST7032_cursor@F8640 F8640 `[2]uc  1 s 2 F8640 ]
 [v ST7032_cursor@col col `uc  1 a 1 20 ]
-"31
+"29
 } 0
 "248 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC18F27J53-ChargeStation-2.2.10.X\ChargeStation_task.c
 [v _data_out data_out `(v  1 e 0 0 ]
@@ -2413,12 +2413,12 @@ SETTINGS 3
 {
 "1383
 } 0
-"60 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
+"58 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
 [v _ST7032_init ST7032_init `(v  1 e 0 0 ]
 {
-"63
+"61
 [v ST7032_init@buf buf `[200]uc  1 s 200 buf ]
-"79
+"77
 } 0
 "5 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ringbuf.c
 [v _ringbuf_init ringbuf_init `(v  1 e 0 0 ]
@@ -2429,19 +2429,19 @@ SETTINGS 3
 [v ringbuf_init@bufsize bufsize `ui  1 p 2 4 ]
 "10
 } 0
-"24 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
+"22 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
 [v _ST7032_clear ST7032_clear `(v  1 e 0 0 ]
 {
-"26
+"24
 } 0
-"16
+"14
 [v _ST7032_command ST7032_command `(v  1 e 0 0 ]
 {
 [v ST7032_command@command command `uc  1 a 1 wreg ]
 [v ST7032_command@command command `uc  1 a 1 wreg ]
 [v ST7032_command@wait wait `uc  1 p 1 15 ]
 [v ST7032_command@command command `uc  1 a 1 16 ]
-"22
+"20
 } 0
 "31 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_I2C.c
 [v _I2C_init_new I2C_init_new `(v  1 e 0 0 ]
@@ -2730,15 +2730,15 @@ SETTINGS 3
 [v USBTransferOnePacket@ep ep `uc  1 a 1 4 ]
 "1048
 } 0
-"81 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
+"79 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ST7032.c
 [v _ST7032_task ST7032_task `(v  1 e 0 0 ]
 {
-"100
+"98
 [v ST7032_task@data data `uc  1 a 1 17 ]
-"84
+"82
 [v ST7032_task@wait wait `ui  1 s 2 wait ]
 [v ST7032_task@st7032_state st7032_state `E8590  1 s 1 st7032_state ]
-"135
+"133
 } 0
 "45 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_ringbuf.c
 [v _ringbuf_pop ringbuf_pop `(uc  1 e 1 0 ]
@@ -2776,11 +2776,11 @@ SETTINGS 3
 "25
 } 0
 "7
-[v _I2C_idole_check I2C_idole_check `(uc  1 e 1 0 ]
+[v _I2C_idle_check I2C_idle_check `(uc  1 e 1 0 ]
 {
-[v I2C_idole_check@mask mask `uc  1 a 1 wreg ]
-[v I2C_idole_check@mask mask `uc  1 a 1 wreg ]
-[v I2C_idole_check@mask mask `uc  1 a 1 1 ]
+[v I2C_idle_check@mask mask `uc  1 a 1 wreg ]
+[v I2C_idle_check@mask mask `uc  1 a 1 wreg ]
+[v I2C_idle_check@mask mask `uc  1 a 1 1 ]
 "9
 } 0
 "38 C:\Users\kerikun11\OneDrive\MPLABXProjects/My_library/My_RTCC.c

@@ -5,9 +5,9 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\PIC18F27J53-I2C_LCD_new02.X.production.sym \
   --cmf=dist/default/production\PIC18F27J53-I2C_LCD_new02.X.production.cmf \
-  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s4gs.2 \
+  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s8nk.2 \
   -Mdist/default/production/PIC18F27J53-I2C_LCD_new02.X.production.map -E1 \
-  -ver=XC8 -ASTACK=0AD6h-0cffh -pstack=STACK \
+  -ver=XC8 -ASTACK=09DCh-0cffh -pstack=STACK \
   -ACODE=01000h-01005h,01008h-01015h,01018h-01FFF7h \
   -ACONST=01000h-01005h,01008h-01015h,01018h-01FFF7h \
   -ASMALLCONST=01000h-01005h,01008h-01015h,01018h-010FFh,01100h-011FFhx494,01FF00h-01FFF7h \
@@ -28,7 +28,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\KERIKU~1\AppData\Local\Temp\s4gs.obj \
+  C:\Users\KERIKU~1\AppData\Local\Temp\s8nk.obj \
   dist/default/production\PIC18F27J53-I2C_LCD_new02.X.production.obj 
 
 Object code version is 3.11
@@ -41,7 +41,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\KERIKU~1\AppData\Local\Temp\s4gs.obj
+C:\Users\KERIKU~1\AppData\Local\Temp\s8nk.obj
                 end_init                           10A8     10A8        4      804       0
                 reset_vec                          1000     1000        4      800       0
                 config                            1FFF8    1FFF8        8    1FFF8       0
@@ -74,10 +74,10 @@ dist/default/production\PIC18F27J53-I2C_LCD_new02.X.production.obj
                 cstackCOMRAM                         3A       3A       16        1       1
                 cstackBANK0                          FB       FB        5       60       1
                 cstackBANK1                         1CB      1CB        A      100       1
-                bssBIGRAMl                          4FA      4FA      5DC      4FA       1
-                bssBANK4                            400      400       FA      400       1
-                bssBANK3                            300      300       C8      300       1
-                bssBANK2                            200      200       80      200       1
+                bssBIGRAMl                          4C8      4C8      514      4C8       1
+                bssBANK4                            400      400       C8      400       1
+                bssBANK3                            300      300       64      300       1
+                bssBANK2                            200      200       E4      200       1
                 bssBANK1                            100      100       CB      100       1
                 dataBANK0                            F6       F6        5       60       1
                 bssBANK0                             60       60       96       60       1
@@ -133,7 +133,7 @@ TOTAL           Name                               Link     Load   Length     Sp
                 abs_s1                              D00      D00       40         1
 
         CLASS   BIGRAM         
-                bssBIGRAMl                          4FA      4FA      5DC         1
+                bssBIGRAMl                          4C8      4C8      514         1
 
         CLASS   RAM            
 
@@ -147,13 +147,13 @@ TOTAL           Name                               Link     Load   Length     Sp
                 bssBANK1                            100      100       CB         1
 
         CLASS   BANK2          
-                bssBANK2                            200      200       80         1
+                bssBANK2                            200      200       E4         1
 
         CLASS   BANK3          
-                bssBANK3                            300      300       C8         1
+                bssBANK3                            300      300       64         1
 
         CLASS   BANK4          
-                bssBANK4                            400      400       FA         1
+                bssBANK4                            400      400       C8         1
 
         CLASS   BANK5          
 
@@ -191,10 +191,10 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 bssCOMRAM                      000001  000050  000051         1       1  COMRAM  
                 bssBANK0                       000060  0000A0  000100        60       1  BANK0   
                 bssBANK1                       000100  0000D5  0001D5       100       1  BANK1   
-                bssBANK2                       000200  000080  000280       200       1  BANK2   
-                bssBANK3                       000300  0000C8  0003C8       300       1  BANK3   
-                bssBANK4                       000400  0000FA  0004FA       400       1  BANK4   
-                bssBIGRAMl                     0004FA  0005DC  000AD6       4FA       1  BIGRAM  
+                bssBANK2                       000200  0000E4  0002E4       200       1  BANK2   
+                bssBANK3                       000300  000064  000364       300       1  BANK3   
+                bssBANK4                       000400  0000C8  0004C8       400       1  BANK4   
+                bssBIGRAMl                     0004C8  000514  0009DC       4C8       1  BIGRAM  
                 reset_vec                      001000  000004  001004       800       0  CODE    
                 intcode                        001008  0000A4  0010AC       804       0  CODE    
                 mediumconst                    00FE6E  000192  010000      7F37       0  MEDIUMCO
@@ -207,18 +207,19 @@ UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
         BANK1            001D5-001FF              2B
-        BANK10           00AD6-00AFF              2A
+        BANK10           00A00-00AFF             100
         BANK11           00B00-00BFF             100
         BANK12           00C00-00CFF             100
         BANK13           00D40-00DFF              C0
         BANK14           00E00-00EAF              B0
-        BANK2            00280-002FF              80
-        BANK3            003C8-003FF              38
+        BANK2            002E4-002FF              1C
+        BANK3            00364-003FF              9C
+        BANK9            009DC-009FF              24
         BIGRAM           00051-0005F               F
                          001D5-001FF              2B
-                         00280-002FF              80
-                         003C8-003FF              38
-                         00AD6-00CFF             22A
+                         002E4-002FF              1C
+                         00364-003FF              9C
+                         009DC-00CFF             324
                          00D40-00EAF             170
         CODE             01004-01005               2
                          010AC-0FE6D            EDC2
@@ -234,22 +235,22 @@ UNUSED ADDRESS RANGES
                          010AC-0FE6D            EDC2
                          10F00-1FFF7            F0F8
         RAM              001D5-001FF              2B
-                         00280-002FF              80
-                         003C8-003FF              38
-                         00AD6-00CFF             100
+                         002E4-002FF              1C
+                         00364-003FF              9C
+                         009DC-00CFF             100
                          00D40-00EAF              C0
         SFR              00EB0-00FFF              60
         SMALLCONST       01004-01005               2
                          010AC-0FE6D             100
                          10789-10789               1
                          10792-1FFF7             100
-        STACK            00AD6-00CFF             22A
+        STACK            009DC-00CFF             324
 
                                   Symbol Table
 
 ?_ringbuf_num                    cstackCOMRAM  00049
 I2C_LCD_SetCursor@F8685          dataBANK0     000F6
-I2C_idole_check@mask             cstackCOMRAM  0004A
+I2C_idle_check@mask              cstackCOMRAM  0004A
 I2C_send@data                    cstackCOMRAM  00049
 RTCC_task@prev_halfsec           bssCOMRAM     0001C
 ST7032_command@command           cstackCOMRAM  0004F
@@ -258,14 +259,16 @@ ST7032_cursor@F8640              dataBANK0     000F8
 ST7032_cursor@col                cstackBANK1   001D3
 ST7032_cursor@row                cstackBANK0   000FF
 ST7032_cursor@row_offsets        cstackBANK1   001D1
-ST7032_init@buf                  bssBANK3      00300
+ST7032_init@buf                  bssBANK4      00400
 ST7032_put@c                     cstackCOMRAM  0004E
 ST7032_puts@s                    cstackBANK1   001D1
 ST7032_task@data                 cstackBANK0   000FF
 ST7032_task@st7032_state         bssCOMRAM     0001D
 ST7032_task@wait                 bssBANK0      00084
-USB_CDC_buffer_init@rxbuf        bssBANK4      00400
-USB_CDC_buffer_init@txbuf        bssBIGRAMl    004FA
+UART_buffer_init@uartrx          bssBANK2      00200
+UART_buffer_init@uarttx          bssBIGRAMl    007E8
+USB_CDC_buffer_init@rxbuf        bssBANK3      00300
+USB_CDC_buffer_init@txbuf        bssBIGRAMl    004C8
 _ADCON0bits                      (abs)         00FC2
 _ADCON1bits                      (abs)         00FC1
 _ADRES                           (abs)         00FC3
@@ -288,7 +291,7 @@ _EECON2                          (abs)         00FA7
 _I2C_ISR                         text22        10718
 _I2C_busy                        bssBANK0      0008E
 _I2C_cfct_flag                   bssBANK0      0008F
-_I2C_idole_check                 text14        10752
+_I2C_idle_check                  text14        10752
 _I2C_init_new                    text7         10736
 _I2C_send                        text13        1077C
 _I2C_sent_flag                   bssCOMRAM     0001F
@@ -474,7 +477,7 @@ __Hrparam                        rparam        00000
 __Hsfr                           sfr           00000
 __Hsmallconst                    smallconst    00000
 __Hspace_0                       (abs)         20000
-__Hspace_1                       (abs)         00AD6
+__Hspace_1                       (abs)         009DC
 __Hspace_2                       (abs)         00000
 __Hstack                         stack         00000
 __Hstruct                        struct        00000
@@ -602,7 +605,7 @@ __Ltext7                         text7         00000
 __Ltext8                         text8         00000
 __Ltext9                         text9         00000
 __S0                             (abs)         20000
-__S1                             (abs)         00AD6
+__S1                             (abs)         009DC
 __S2                             (abs)         00000
 ___inthi_sp                      stack         00000
 ___intlo_sp                      stack         00000
@@ -612,7 +615,7 @@ ___sp                            stack         00000
 __accesstop                      (abs)         00060
 __activetblptr                   (abs)         00003
 __end_of_I2C_ISR                 text22        10736
-__end_of_I2C_idole_check         text14        10762
+__end_of_I2C_idle_check          text14        10762
 __end_of_I2C_init_new            text7         10752
 __end_of_I2C_send                text13        10784
 __end_of_I2C_start               text12        10792
@@ -651,7 +654,7 @@ __pbssBANK1                      bssBANK1      00100
 __pbssBANK2                      bssBANK2      00200
 __pbssBANK3                      bssBANK3      00300
 __pbssBANK4                      bssBANK4      00400
-__pbssBIGRAMl                    bssBIGRAMl    004FA
+__pbssBIGRAMl                    bssBIGRAMl    004C8
 __pbssCOMRAM                     bssCOMRAM     00001
 __pcinit                         cinit         10420
 __pcstackBANK0                   cstackBANK0   000FB
@@ -685,7 +688,7 @@ __ptext8                         text8         10762
 __ptext9                         text9         10000
 __ramtop                         ramtop        00F00
 __size_of_I2C_ISR                (abs)         00000
-__size_of_I2C_idole_check        (abs)         00000
+__size_of_I2C_idle_check         (abs)         00000
 __size_of_I2C_init_new           (abs)         00000
 __size_of_I2C_send               (abs)         00000
 __size_of_I2C_start              (abs)         00000
@@ -740,7 +743,7 @@ _pBDTEntryOut                    bssBANK0      0006A
 _pCDCDst                         bssBANK0      0007E
 _pCDCSrc                         bssBANK0      00081
 _pDst                            bssBANK0      00088
-_readBuffer                      bssBANK2      00200
+_readBuffer                      bssBANK2      00264
 _ringbuf_init                    text5         105C0
 _ringbuf_num                     text20        1012A
 _ringbuf_pop                     text10        102C6
@@ -758,7 +761,7 @@ _uart_tx                         bssBANK0      000CD
 _usb_rx                          bssBANK0      000D5
 _usb_tx                          bssBANK0      000DD
 _weekday_3char                   mediumconst   0FF2C
-_writeBuffer                     bssBANK2      00240
+_writeBuffer                     bssBANK2      002A4
 btemp                            temp          00050
 end_of_initialization            cinit         1049C
 epoch_to_caltime@day_cache       bssBANK0      0008A
@@ -779,7 +782,7 @@ ringbuf_pop@ret                  cstackCOMRAM  0004D
 ringbuf_put@data                 cstackCOMRAM  0004D
 ringbuf_put@rb                   cstackCOMRAM  0004B
 stackhi                          (abs)         00CFF
-stacklo                          (abs)         00AD6
+stacklo                          (abs)         009DC
 start                            init          010A8
 start_initialization             cinit         10420
 terminal_task@command            bssBANK0      000E5
@@ -803,7 +806,7 @@ FUNCTION INFORMATION:
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  2  1444[None  ] int 
+                  2  1463[None  ] int 
  Registers used:
 		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
  Tracked objects:
@@ -924,7 +927,7 @@ Total ram usage:        2 bytes
 
  *************** function _ST7032_init *****************
  Defined at:
-		line 60 in file "../My_library/My_ST7032.c"
+		line 58 in file "../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -961,9 +964,11 @@ Total ram usage:        0 bytes
 		line 5 in file "../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2   15[COMRAM] PTR struct ringbuf
-		 -> usb_tx(8), usb_rx(8), terminal_task@command(8), lcd_tx(8), 
+		 -> usb_rx(8), usb_tx(8), uart_rx(8), uart_tx(8), 
+		 -> terminal_task@command(8), lcd_tx(8), 
   internal_buf    2   17[COMRAM] PTR unsigned char 
-		 -> USB_CDC_buffer_init@txbuf(1500), USB_CDC_buffer_init@rxbuf(250), terminal_task@buf(100), ST7032_init@buf(200), 
+		 -> USB_CDC_buffer_init@rxbuf(100), USB_CDC_buffer_init@txbuf(800), UART_buffer_init@uartrx(100), UART_buffer_init@uarttx(500), 
+		 -> terminal_task@buf(100), ST7032_init@buf(200), 
   bufsize         2   19[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
 		None
@@ -988,13 +993,14 @@ Total ram usage:        6 bytes
  This function is called by:
 		_ST7032_init
 		_terminal_task
+		_UART_buffer_init
 		_USB_CDC_buffer_init
  This function uses a non-reentrant model
 
 
  *************** function _ST7032_clear *****************
  Defined at:
-		line 24 in file "../My_library/My_ST7032.c"
+		line 22 in file "../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1085,7 +1091,7 @@ Total ram usage:        0 bytes
 
  *************** function _ST7032_task *****************
  Defined at:
-		line 81 in file "../My_library/My_ST7032.c"
+		line 79 in file "../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1107,7 +1113,7 @@ Total ram usage:        3 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_I2C_idole_check
+		_I2C_idle_check
 		_I2C_send
 		_I2C_start
 		_I2C_stop
@@ -1242,7 +1248,7 @@ Total ram usage:        1 bytes
  This function uses a non-reentrant model
 
 
- *************** function _I2C_idole_check *****************
+ *************** function _I2C_idle_check *****************
  Defined at:
 		line 7 in file "../My_library/My_I2C.c"
  Parameters:    Size  Location     Type
@@ -1274,7 +1280,7 @@ Total ram usage:        2 bytes
 
  *************** function _ST7032_puts *****************
  Defined at:
-		line 41 in file "../My_library/My_ST7032.c"
+		line 39 in file "../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
   s               2    6[BANK1 ] PTR const unsigned char 
 		 -> STR_42(8), STR_41(9), 
@@ -1305,7 +1311,7 @@ Total ram usage:        2 bytes
 
  *************** function _ST7032_put *****************
  Defined at:
-		line 33 in file "../My_library/My_ST7032.c"
+		line 31 in file "../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
   c               1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -1335,7 +1341,7 @@ Total ram usage:        1 bytes
 
  *************** function _ST7032_cursor *****************
  Defined at:
-		line 28 in file "../My_library/My_ST7032.c"
+		line 26 in file "../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
   col             1    wreg     unsigned char 
   row             1    4[BANK0 ] unsigned char 
@@ -1367,7 +1373,7 @@ Total ram usage:        4 bytes
 
  *************** function _ST7032_command *****************
  Defined at:
-		line 16 in file "../My_library/My_ST7032.c"
+		line 14 in file "../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
   command         1    wreg     unsigned char 
   wait            1   20[COMRAM] unsigned char 
@@ -1443,7 +1449,7 @@ Total ram usage:        7 bytes
 		line 12 in file "../My_library/My_ringbuf.c"
  Parameters:    Size  Location     Type
   rb              2   15[COMRAM] PTR struct ringbuf
-		 -> usb_tx(8), usb_rx(8), uart_rx(8), uart_tx(8), 
+		 -> usb_rx(8), usb_tx(8), uart_rx(8), uart_tx(8), 
 		 -> terminal_task@command(8), lcd_tx(8), 
  Auto vars:     Size  Location     Type
 		None
@@ -1581,10 +1587,10 @@ shared estimated size: 373
 ../My_library/My_ST7032.c estimated size: 745
 
 ../My_library/My_I2C.c
+		_I2C_idle_check		CODE           	10752	0000	17
 		_I2C_stop      		CODE           	1078A	0000	5
 		_I2C_send      		CODE           	1077C	0000	9
 		_I2C_init_new  		CODE           	10736	0000	29
-		_I2C_idole_check		CODE           	10752	0000	17
 		_I2C_start     		CODE           	1078E	0000	5
 		_I2C_ISR       		CODE           	10718	0000	31
 

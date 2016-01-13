@@ -8899,17 +8899,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _USB_CDC_buffer_init ]
 [f ]
 "27
-[v F9333 `uc ~T0 @X0 -> 250 `i s rxbuf ]
-[; ;My_usb_cdc.c: 27: static uint8_t rxbuf[250];
-[; ;My_usb_cdc.c: 28: ringbuf_init(&usb_rx, rxbuf, sizeof (rxbuf));
+[v F9333 `uc ~T0 @X0 -> 800 `i s txbuf ]
+[; ;My_usb_cdc.c: 27: static uint8_t txbuf[800];
+[; ;My_usb_cdc.c: 28: ringbuf_init(&usb_tx, txbuf, sizeof (txbuf));
 "28
-[e ( _ringbuf_init (3 , , &U _usb_rx &U F9333 -> # F9333 `ui ]
+[e ( _ringbuf_init (3 , , &U _usb_tx &U F9333 -> # F9333 `ui ]
 "29
-[v F9334 `uc ~T0 @X0 -> 1500 `i s txbuf ]
-[; ;My_usb_cdc.c: 29: static uint8_t txbuf[1500];
-[; ;My_usb_cdc.c: 30: ringbuf_init(&usb_tx, txbuf, sizeof (txbuf));
+[v F9334 `uc ~T0 @X0 -> 100 `i s rxbuf ]
+[; ;My_usb_cdc.c: 29: static uint8_t rxbuf[100];
+[; ;My_usb_cdc.c: 30: ringbuf_init(&usb_rx, rxbuf, sizeof (rxbuf));
 "30
-[e ( _ringbuf_init (3 , , &U _usb_tx &U F9334 -> # F9334 `ui ]
+[e ( _ringbuf_init (3 , , &U _usb_rx &U F9334 -> # F9334 `ui ]
 [; ;My_usb_cdc.c: 31: }
 "31
 [e :UE 1287 ]

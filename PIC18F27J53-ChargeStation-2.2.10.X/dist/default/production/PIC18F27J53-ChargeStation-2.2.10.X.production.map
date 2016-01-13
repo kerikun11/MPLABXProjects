@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\PIC18F27J53-ChargeStation-2.2.10.X.production.sym \
   --cmf=dist/default/production\PIC18F27J53-ChargeStation-2.2.10.X.production.cmf \
-  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\sos.2 \
+  -z -Q18F27J53 -oC:\Users\KERIKU~1\AppData\Local\Temp\s7c8.2 \
   -Mdist/default/production/PIC18F27J53-ChargeStation-2.2.10.X.production.map \
   -E1 -ver=XC8 -ASTACK=0B7Dh-0cffh -pstack=STACK \
   -ACODE=01000h-01005h,01008h-01015h,01018h-01FFF7h \
@@ -28,7 +28,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\KERIKU~1\AppData\Local\Temp\sos.obj \
+  C:\Users\KERIKU~1\AppData\Local\Temp\s7c8.obj \
   dist/default/production\PIC18F27J53-ChargeStation-2.2.10.X.production.obj 
 
 Object code version is 3.11
@@ -41,7 +41,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\KERIKU~1\AppData\Local\Temp\sos.obj
+C:\Users\KERIKU~1\AppData\Local\Temp\s7c8.obj
                 end_init                           10FA     10FA        4      804       0
                 reset_vec                          1000     1000        4      800       0
                 config                            1FFF8    1FFF8        8    1FFF8       0
@@ -513,7 +513,7 @@ CTMU_read@ch                               cstackBANK0   00070
 CTMU_read@i                                cstackBANK0   00075
 CTMU_read@sum                              cstackBANK0   00071
 I2C_LCD_SetCursor@F8685                    dataBANK1     001E2
-I2C_idole_check@mask                       cstackBANK0   00061
+I2C_idle_check@mask                        cstackBANK0   00061
 I2C_send@data                              cstackBANK0   00060
 ISR@cnt                                    bssBANK1      00116
 ISR@cnt_t1                                 bssBANK1      00117
@@ -616,7 +616,7 @@ _EECON2                                    (abs)         00FA7
 _I2C_ISR                                   text136       16E50
 _I2C_busy                                  bssBANK1      0011A
 _I2C_cfct_flag                             bssBANK1      0011B
-_I2C_idole_check                           text93        16EBE
+_I2C_idle_check                            text93        16EBE
 _I2C_init_new                              text63        16E6E
 _I2C_send                                  text92        16F06
 _I2C_sent_flag                             bssCOMRAM     0000E
@@ -1266,7 +1266,7 @@ __end_of_CDCTxService                      text85        13124
 __end_of_CTMU_init                         text71        16D5E
 __end_of_CTMU_read                         text77        15524
 __end_of_I2C_ISR                           text136       16E6E
-__end_of_I2C_idole_check                   text93        16ED6
+__end_of_I2C_idle_check                    text93        16ED6
 __end_of_I2C_init_new                      text63        16E8A
 __end_of_I2C_send                          text92        16F10
 __end_of_I2C_start                         text91        16F24
@@ -1572,7 +1572,7 @@ __size_of_CDCTxService                     (abs)         00000
 __size_of_CTMU_init                        (abs)         00000
 __size_of_CTMU_read                        (abs)         00000
 __size_of_I2C_ISR                          (abs)         00000
-__size_of_I2C_idole_check                  (abs)         00000
+__size_of_I2C_idle_check                   (abs)         00000
 __size_of_I2C_init_new                     (abs)         00000
 __size_of_I2C_send                         (abs)         00000
 __size_of_I2C_start                        (abs)         00000
@@ -3337,7 +3337,7 @@ Total ram usage:        6 bytes
 
  *************** function _ST7032_puts *****************
  Defined at:
-		line 41 in file "../My_library/My_ST7032.c"
+		line 39 in file "../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
   s               2   16[BANK0 ] PTR const unsigned char 
 		 -> display_LCD@str_5618(20), display_LCD@str(40), display_char(40), STR_50(16), 
@@ -3371,7 +3371,7 @@ Total ram usage:        2 bytes
 
  *************** function _ST7032_put *****************
  Defined at:
-		line 33 in file "../My_library/My_ST7032.c"
+		line 31 in file "../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
   c               1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -3401,7 +3401,7 @@ Total ram usage:        1 bytes
 
  *************** function _ST7032_cursor *****************
  Defined at:
-		line 28 in file "../My_library/My_ST7032.c"
+		line 26 in file "../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
   col             1    wreg     unsigned char 
   row             1   17[BANK0 ] unsigned char 
@@ -4106,7 +4106,7 @@ Total ram usage:        0 bytes
 
  *************** function _ST7032_init *****************
  Defined at:
-		line 60 in file "../My_library/My_ST7032.c"
+		line 58 in file "../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4179,7 +4179,7 @@ Total ram usage:        6 bytes
 
  *************** function _ST7032_clear *****************
  Defined at:
-		line 24 in file "../My_library/My_ST7032.c"
+		line 22 in file "../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4212,7 +4212,7 @@ Total ram usage:        0 bytes
 
  *************** function _ST7032_command *****************
  Defined at:
-		line 16 in file "../My_library/My_ST7032.c"
+		line 14 in file "../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
   command         1    wreg     unsigned char 
   wait            1   15[BANK0 ] unsigned char 
@@ -5036,7 +5036,7 @@ Total ram usage:        7 bytes
 
  *************** function _ST7032_task *****************
  Defined at:
-		line 81 in file "../My_library/My_ST7032.c"
+		line 79 in file "../My_library/My_ST7032.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5058,7 +5058,7 @@ Total ram usage:        3 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:   14
  This function calls:
-		_I2C_idole_check
+		_I2C_idle_check
 		_I2C_send
 		_I2C_start
 		_I2C_stop
@@ -5233,7 +5233,7 @@ Total ram usage:        1 bytes
  This function uses a non-reentrant model
 
 
- *************** function _I2C_idole_check *****************
+ *************** function _I2C_idle_check *****************
  Defined at:
 		line 7 in file "../My_library/My_I2C.c"
  Parameters:    Size  Location     Type
@@ -6884,10 +6884,10 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c estimated size: 121
 
 ../My_library/My_I2C.c
+		_I2C_idle_check		CODE           	16EBE	0000	25
 		_I2C_stop      		CODE           	16F1C	0000	5
 		_I2C_send      		CODE           	16F06	0000	11
 		_I2C_init_new  		CODE           	16E6E	0000	29
-		_I2C_idole_check		CODE           	16EBE	0000	25
 		_I2C_start     		CODE           	16F20	0000	5
 		_I2C_ISR       		CODE           	16E50	0000	31
 

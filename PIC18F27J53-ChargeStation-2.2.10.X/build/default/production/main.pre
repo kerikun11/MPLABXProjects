@@ -10509,7 +10509,7 @@ extern uint8_t I2C_sent_flag;
 extern uint8_t I2C_cfct_flag;
 extern uint8_t I2C_busy;
 
-uint8_t I2C_idole_check(uint8_t mask);
+uint8_t I2C_idle_check(uint8_t mask);
 void I2C_start(void);
 void I2C_restart(void);
 void I2C_stop(void);
@@ -10529,7 +10529,7 @@ uint8_t I2C_Receive(uint8_t ack);
 
 # 19 "../My_library\My_ST7032.h"
 typedef enum ST7032_STATE {
-ST7032_IDOLE,
+ST7032_IDLE,
 ST7032_START,
 ST7032_SEND,
 ST7032_STOP,
@@ -11872,18 +11872,23 @@ while (1) {
 INTCONbits.GIE = 0;
 RTCC_task();
 INTCONbits.GIE = 1;
+
 INTCONbits.GIE = 0;
 ST7032_task();
 INTCONbits.GIE = 1;
+
 INTCONbits.GIE = 0;
 USB_CDC_task();
 INTCONbits.GIE = 1;
+
 INTCONbits.GIE = 0;
 terminal_task(&usb_tx, &usb_rx);
 INTCONbits.GIE = 1;
+
 INTCONbits.GIE = 0;
 normal_task();
 INTCONbits.GIE = 1;
+
 
 INTCONbits.GIE = 0;
 ctmu_task();
@@ -11894,6 +11899,7 @@ port[2].ctmu.flag.pressing) {
 bootload();
 }
 INTCONbits.GIE = 1;
+
 
 INTCONbits.GIE = 0;
 sleep_task();

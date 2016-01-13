@@ -10657,7 +10657,7 @@ uint8_t long_holding_7 : 1;
 
 void button_timer_interrupt(button_t *bt, uint8_t sw_value);
 
-# 39 "../My_library/My_RTCC.h"
+# 41 "../My_library/My_RTCC.h"
 typedef uint32_t epoch_t;
 
 
@@ -10695,8 +10695,8 @@ edit_t edit;
 } time_t;
 
 
-extern const char weekday_3char[7][4];
 
+extern const char weekday_3char[7][4];
 
 extern time_t now;
 
@@ -10704,23 +10704,9 @@ extern uint8_t time_change_flag;
 
 void RTCC_init(void);
 
-
-uint8_t d_to_x(uint8_t dec);
-
-uint8_t x_to_d(uint8_t hex);
-
-uint8_t month_length(uint8_t year, uint8_t month);
-
-epoch_t get_quot_rem(epoch_t *quot, uint8_t div);
+void RTCC_task(void);
 
 
-void RTCC_to_caltime(time_t *tm);
-
-void caltime_to_RTCC(time_t *tm);
-
-void epoch_to_caltime(time_t *tm);
-
-void caltime_to_epoch(time_t *tm);
 
 
 void RTCC_from_RTCC(time_t *tm);
@@ -10729,12 +10715,16 @@ void RTCC_from_caltime(time_t *tm);
 
 void RTCC_from_epoch(time_t *tm);
 
+uint8_t month_length(uint8_t year, uint8_t month);
 
-void display_dec(char *str, uint8_t dec, uint8_t edit);
+
+
+static void display_dec(char *str, uint8_t dec, uint8_t edit);
 
 void display_time_0802(time_t *tm, char *line0, char *line1);
 
 void display_time_1602(time_t *tm, char *line0, char *line1);
+
 
 
 void RTCC_adjust_time_toggle(time_t *tm);
@@ -10747,7 +10737,24 @@ void RTCC_adjust_time_dec(time_t *tm);
 
 void RTCC_adjust_time_button(time_t *tm, button_t *mode, button_t *cnt_inc, button_t *cnt_dec);
 
-void RTCC_task(void);
+
+
+
+static uint8_t d_to_x(uint8_t dec);
+
+static uint8_t x_to_d(uint8_t hex);
+
+static epoch_t get_quot_rem(epoch_t *quot, uint8_t div);
+
+
+
+static void RTCC_to_caltime(time_t *tm);
+
+static void caltime_to_RTCC(time_t *tm);
+
+static void epoch_to_caltime(time_t *tm);
+
+static void caltime_to_epoch(time_t *tm);
 
 # 8 "../My_library/My_terminal.c"
 void terminal_task(ringbuf_t *tx, ringbuf_t *rx) {

@@ -1,7 +1,5 @@
 #include "My_ST7032.h"
 
-#include <My_I2C.h>
-
 #define ST7032_ADDRESS 0x3E 
 
 #define I2C_NULL        0
@@ -79,13 +77,13 @@ void ST7032_init(void) {
 }
 
 void ST7032_task(void) {
-    if (I2C_idole_check(0x05)) return;
+    if (I2C_idle_check(0x05)) return;
 
     static uint16_t wait;
-    static st7032_state_t st7032_state = ST7032_IDOLE;
+    static st7032_state_t st7032_state = ST7032_IDLE;
 
     switch (st7032_state) {
-        case ST7032_IDOLE:
+        case ST7032_IDLE:
             if (ringbuf_num(&lcd_tx)) {
                 st7032_state = ST7032_START;
             }
@@ -128,7 +126,7 @@ void ST7032_task(void) {
             st7032_state = ST7032_WAIT;
             break;
         case ST7032_WAIT:
-            if (wait == 0) st7032_state = ST7032_IDOLE;
+            if (wait == 0) st7032_state = ST7032_IDLE;
             else wait--;
             break;
     }

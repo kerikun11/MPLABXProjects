@@ -11497,10 +11497,10 @@ USB_CDC_buffer_init();
 }
 
 static void USB_CDC_buffer_init(void) {
-static uint8_t rxbuf[250];
-ringbuf_init(&usb_rx, rxbuf, sizeof (rxbuf));
-static uint8_t txbuf[1500];
+static uint8_t txbuf[800];
 ringbuf_init(&usb_tx, txbuf, sizeof (txbuf));
+static uint8_t rxbuf[100];
+ringbuf_init(&usb_rx, rxbuf, sizeof (rxbuf));
 }
 
 void USB_CDC_ISR(void) {

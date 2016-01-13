@@ -8397,7 +8397,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_I2C.h: 19: extern uint8_t I2C_sent_flag;
 [; ;My_library\My_I2C.h: 20: extern uint8_t I2C_cfct_flag;
 [; ;My_library\My_I2C.h: 21: extern uint8_t I2C_busy;
-[; ;My_library\My_I2C.h: 23: uint8_t I2C_idole_check(uint8_t mask);
+[; ;My_library\My_I2C.h: 23: uint8_t I2C_idle_check(uint8_t mask);
 [; ;My_library\My_I2C.h: 24: void I2C_start(void);
 [; ;My_library\My_I2C.h: 25: void I2C_restart(void);
 [; ;My_library\My_I2C.h: 26: void I2C_stop(void);
@@ -8413,7 +8413,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_I2C.h: 41: uint8_t I2C_Send(uint8_t data);
 [; ;My_library\My_I2C.h: 42: uint8_t I2C_Receive(uint8_t ack);
 [; ;My_library\My_ST7032.h: 19: typedef enum ST7032_STATE {
-[; ;My_library\My_ST7032.h: 20: ST7032_IDOLE,
+[; ;My_library\My_ST7032.h: 20: ST7032_IDLE,
 [; ;My_library\My_ST7032.h: 21: ST7032_START,
 [; ;My_library\My_ST7032.h: 22: ST7032_SEND,
 [; ;My_library\My_ST7032.h: 23: ST7032_STOP,
@@ -9495,87 +9495,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 138: INTCONbits.GIE = 1;
 "138
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 139: INTCONbits.GIE = 0;
-"139
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 140: ST7032_task();
+[; ;main.c: 140: INTCONbits.GIE = 0;
 "140
-[e ( _ST7032_task ..  ]
-[; ;main.c: 141: INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 141: ST7032_task();
 "141
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 142: INTCONbits.GIE = 0;
+[e ( _ST7032_task ..  ]
+[; ;main.c: 142: INTCONbits.GIE = 1;
 "142
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 143: USB_CDC_task();
-"143
-[e ( _USB_CDC_task ..  ]
-[; ;main.c: 144: INTCONbits.GIE = 1;
-"144
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 145: INTCONbits.GIE = 0;
-"145
+[; ;main.c: 144: INTCONbits.GIE = 0;
+"144
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 146: terminal_task(&usb_tx, &usb_rx);
+[; ;main.c: 145: USB_CDC_task();
+"145
+[e ( _USB_CDC_task ..  ]
+[; ;main.c: 146: INTCONbits.GIE = 1;
 "146
-[e ( _terminal_task (2 , &U _usb_tx &U _usb_rx ]
-[; ;main.c: 147: INTCONbits.GIE = 1;
-"147
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 [; ;main.c: 148: INTCONbits.GIE = 0;
 "148
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 149: normal_task();
+[; ;main.c: 149: terminal_task(&usb_tx, &usb_rx);
 "149
-[e ( _normal_task ..  ]
+[e ( _terminal_task (2 , &U _usb_tx &U _usb_rx ]
 [; ;main.c: 150: INTCONbits.GIE = 1;
 "150
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 [; ;main.c: 152: INTCONbits.GIE = 0;
 "152
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 153: ctmu_task();
+[; ;main.c: 153: normal_task();
 "153
-[e ( _ctmu_task ..  ]
-[; ;main.c: 154: if (ctmu_m.flag.pressing &&
-[; ;main.c: 155: port[0].ctmu.flag.pressing &&
-[; ;main.c: 156: port[1].ctmu.flag.pressing &&
-[; ;main.c: 157: port[2].ctmu.flag.pressing) {
+[e ( _normal_task ..  ]
+[; ;main.c: 154: INTCONbits.GIE = 1;
+"154
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 157: INTCONbits.GIE = 0;
 "157
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 158: ctmu_task();
+"158
+[e ( _ctmu_task ..  ]
+[; ;main.c: 159: if (ctmu_m.flag.pressing &&
+[; ;main.c: 160: port[0].ctmu.flag.pressing &&
+[; ;main.c: 161: port[1].ctmu.flag.pressing &&
+[; ;main.c: 162: port[2].ctmu.flag.pressing) {
+"162
 [e $ ! && && && != -> . . . _ctmu_m 1 1 8 `i -> -> -> 0 `i `uc `i != -> . . . . *U + &U _port * -> -> -> 0 `i `ui `ux -> -> # *U &U _port `ui `ux 0 1 1 8 `i -> -> -> 0 `i `uc `i != -> . . . . *U + &U _port * -> -> -> 1 `i `ui `ux -> -> # *U &U _port `ui `ux 0 1 1 8 `i -> -> -> 0 `i `uc `i != -> . . . . *U + &U _port * -> -> -> 2 `i `ui `ux -> -> # *U &U _port `ui `ux 0 1 1 8 `i -> -> -> 0 `i `uc `i 1313  ]
 {
-[; ;main.c: 158: bootload();
-"158
+[; ;main.c: 163: bootload();
+"163
 [e ( _bootload ..  ]
-"159
+"164
 }
 [e :U 1313 ]
-[; ;main.c: 159: }
-[; ;main.c: 160: INTCONbits.GIE = 1;
-"160
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 162: INTCONbits.GIE = 0;
-"162
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;main.c: 163: sleep_task();
-"163
-[e ( _sleep_task ..  ]
-[; ;main.c: 164: INTCONbits.GIE = 1;
-"164
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 164: }
+[; ;main.c: 165: INTCONbits.GIE = 1;
 "165
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 168: INTCONbits.GIE = 0;
+"168
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;main.c: 169: sleep_task();
+"169
+[e ( _sleep_task ..  ]
+[; ;main.c: 170: INTCONbits.GIE = 1;
+"170
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"171
 }
 [e :U 1310 ]
 "134
 [e $U 1311  ]
 [e :U 1312 ]
-[; ;main.c: 165: }
-[; ;main.c: 166: return 0;
-"166
+[; ;main.c: 171: }
+[; ;main.c: 172: return 0;
+"172
 [e ) -> 0 `i ]
 [e $UE 1309  ]
-[; ;main.c: 167: }
-"167
+[; ;main.c: 173: }
+"173
 [e :UE 1309 ]
 }
 [a 1C 67 104 97 114 103 101 32 83 116 97 116 105 111 110 0 ]

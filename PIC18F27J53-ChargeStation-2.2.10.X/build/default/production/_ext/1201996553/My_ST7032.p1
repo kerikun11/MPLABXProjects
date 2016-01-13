@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"13 ../My_library/My_ST7032.c
+"11 ../My_library/My_ST7032.c
 [c E8590 0 1 2 3 4 .. ]
-[n E8590 ST7032_STATE ST7032_IDOLE ST7032_START ST7032_SEND ST7032_STOP ST7032_WAIT  ]
+[n E8590 ST7032_STATE ST7032_IDLE ST7032_START ST7032_SEND ST7032_STOP ST7032_WAIT  ]
 "19 ../My_library\My_ringbuf.h
 [s S1 `*uc 1 `ui 1 `ui 1 `ui 1 ]
 [n S1 ringbuf buf size head tail ]
@@ -12,7 +12,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "26 ../My_library\My_ringbuf.h
 [v _ringbuf_init `(v ~T0 @X0 0 ef3`*S1`*uc`ui ]
 "23 ../My_library\My_I2C.h
-[v _I2C_idole_check `(uc ~T0 @X0 0 ef1`uc ]
+[v _I2C_idle_check `(uc ~T0 @X0 0 ef1`uc ]
 "28 ../My_library\My_ringbuf.h
 [v _ringbuf_num `(ui ~T0 @X0 0 ef1`*S1 ]
 "19 ../My_library\My_I2C.h
@@ -8174,7 +8174,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_I2C.h: 19: extern uint8_t I2C_sent_flag;
 [; ;My_library\My_I2C.h: 20: extern uint8_t I2C_cfct_flag;
 [; ;My_library\My_I2C.h: 21: extern uint8_t I2C_busy;
-[; ;My_library\My_I2C.h: 23: uint8_t I2C_idole_check(uint8_t mask);
+[; ;My_library\My_I2C.h: 23: uint8_t I2C_idle_check(uint8_t mask);
 [; ;My_library\My_I2C.h: 24: void I2C_start(void);
 [; ;My_library\My_I2C.h: 25: void I2C_restart(void);
 [; ;My_library\My_I2C.h: 26: void I2C_stop(void);
@@ -8190,7 +8190,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_I2C.h: 41: uint8_t I2C_Send(uint8_t data);
 [; ;My_library\My_I2C.h: 42: uint8_t I2C_Receive(uint8_t ack);
 [; ;My_ST7032.h: 19: typedef enum ST7032_STATE {
-[; ;My_ST7032.h: 20: ST7032_IDOLE,
+[; ;My_ST7032.h: 20: ST7032_IDLE,
 [; ;My_ST7032.h: 21: ST7032_START,
 [; ;My_ST7032.h: 22: ST7032_SEND,
 [; ;My_ST7032.h: 23: ST7032_STOP,
@@ -8212,56 +8212,56 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_ST7032.h: 54: void I2C_LCD_Puts(const uint8_t * s);
 [; ;My_ST7032.h: 55: void I2C_LCD_CreateChar(int p, char *dt);
 [; ;My_ST7032.h: 56: void I2C_LCD_init(void);
-"13 ../My_library/My_ST7032.c
+"11 ../My_library/My_ST7032.c
 [v _st7032_state `E8590 ~T0 @X0 1 e ]
-[; ;My_ST7032.c: 13: st7032_state_t st7032_state;
-"14
+[; ;My_ST7032.c: 11: st7032_state_t st7032_state;
+"12
 [v _lcd_tx `S1 ~T0 @X0 1 e ]
-[; ;My_ST7032.c: 14: ringbuf_t lcd_tx;
-"16
+[; ;My_ST7032.c: 12: ringbuf_t lcd_tx;
+"14
 [v _ST7032_command `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;My_ST7032.c: 16: void ST7032_command(uint8_t command, uint8_t wait) {
+[; ;My_ST7032.c: 14: void ST7032_command(uint8_t command, uint8_t wait) {
 [e :U _ST7032_command ]
 [v _command `uc ~T0 @X0 1 r1 ]
 [v _wait `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;My_ST7032.c: 17: ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
-"17
+[; ;My_ST7032.c: 15: ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
+"15
 [e ( _ringbuf_put (2 , &U _lcd_tx -> + << -> 62 `i -> 1 `i -> 0 `i `uc ]
-[; ;My_ST7032.c: 18: ringbuf_put(&lcd_tx, 0x80);
-"18
+[; ;My_ST7032.c: 16: ringbuf_put(&lcd_tx, 0x80);
+"16
 [e ( _ringbuf_put (2 , &U _lcd_tx -> -> 128 `i `uc ]
-[; ;My_ST7032.c: 19: ringbuf_put(&lcd_tx, command);
-"19
+[; ;My_ST7032.c: 17: ringbuf_put(&lcd_tx, command);
+"17
 [e ( _ringbuf_put (2 , &U _lcd_tx _command ]
-[; ;My_ST7032.c: 20: ringbuf_put(&lcd_tx, 0);
-"20
+[; ;My_ST7032.c: 18: ringbuf_put(&lcd_tx, 0);
+"18
 [e ( _ringbuf_put (2 , &U _lcd_tx -> -> 0 `i `uc ]
-[; ;My_ST7032.c: 21: ringbuf_put(&lcd_tx, wait);
-"21
+[; ;My_ST7032.c: 19: ringbuf_put(&lcd_tx, wait);
+"19
 [e ( _ringbuf_put (2 , &U _lcd_tx _wait ]
-[; ;My_ST7032.c: 22: }
-"22
+[; ;My_ST7032.c: 20: }
+"20
 [e :UE 1219 ]
 }
-"24
+"22
 [v _ST7032_clear `(v ~T0 @X0 1 ef ]
 {
-[; ;My_ST7032.c: 24: void ST7032_clear(void) {
+[; ;My_ST7032.c: 22: void ST7032_clear(void) {
 [e :U _ST7032_clear ]
 [f ]
-[; ;My_ST7032.c: 25: ST7032_command(0x01, 2);
-"25
+[; ;My_ST7032.c: 23: ST7032_command(0x01, 2);
+"23
 [e ( _ST7032_command (2 , -> -> 1 `i `uc -> -> 2 `i `uc ]
-[; ;My_ST7032.c: 26: }
-"26
+[; ;My_ST7032.c: 24: }
+"24
 [e :UE 1220 ]
 }
-"28
+"26
 [v _ST7032_cursor `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;My_ST7032.c: 28: void ST7032_cursor(uint8_t col, uint8_t row) {
+[; ;My_ST7032.c: 26: void ST7032_cursor(uint8_t col, uint8_t row) {
 [e :U _ST7032_cursor ]
 [v _col `uc ~T0 @X0 1 r1 ]
 [v _row `uc ~T0 @X0 1 r2 ]
@@ -8269,95 +8269,95 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F8640 `uc ~T0 @X0 -> 0 `x s ]
 [i F8640
 :U ..
-"29
+"27
 -> -> 0 `i `uc
 -> -> 64 `i `uc
 ..
 ]
 [v _row_offsets `uc ~T0 @X0 2  a ]
-[; ;My_ST7032.c: 29: uint8_t row_offsets[] = {0x00, 0x40};
+[; ;My_ST7032.c: 27: uint8_t row_offsets[] = {0x00, 0x40};
 [e = _row_offsets F8640 ]
-[; ;My_ST7032.c: 30: ST7032_command(0x80 | (col + row_offsets[row]), 0);
-"30
+[; ;My_ST7032.c: 28: ST7032_command(0x80 | (col + row_offsets[row]), 0);
+"28
 [e ( _ST7032_command (2 , -> | -> 128 `i + -> _col `i -> *U + &U _row_offsets * -> _row `ux -> -> # *U &U _row_offsets `ui `ux `i `uc -> -> 0 `i `uc ]
-[; ;My_ST7032.c: 31: }
-"31
+[; ;My_ST7032.c: 29: }
+"29
 [e :UE 1221 ]
 }
-"33
+"31
 [v _ST7032_put `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_ST7032.c: 33: void ST7032_put(char c) {
+[; ;My_ST7032.c: 31: void ST7032_put(char c) {
 [e :U _ST7032_put ]
 [v _c `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_ST7032.c: 34: ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
-"34
+[; ;My_ST7032.c: 32: ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
+"32
 [e ( _ringbuf_put (2 , &U _lcd_tx -> + << -> 62 `i -> 1 `i -> 0 `i `uc ]
-[; ;My_ST7032.c: 35: ringbuf_put(&lcd_tx, 0b11000000);
-"35
+[; ;My_ST7032.c: 33: ringbuf_put(&lcd_tx, 0b11000000);
+"33
 [e ( _ringbuf_put (2 , &U _lcd_tx -> -> 192 `i `uc ]
-[; ;My_ST7032.c: 36: ringbuf_put(&lcd_tx, c);
-"36
+[; ;My_ST7032.c: 34: ringbuf_put(&lcd_tx, c);
+"34
 [e ( _ringbuf_put (2 , &U _lcd_tx _c ]
-[; ;My_ST7032.c: 37: ringbuf_put(&lcd_tx, 0);
-"37
+[; ;My_ST7032.c: 35: ringbuf_put(&lcd_tx, 0);
+"35
 [e ( _ringbuf_put (2 , &U _lcd_tx -> -> 0 `i `uc ]
-[; ;My_ST7032.c: 38: ringbuf_put(&lcd_tx, 1);
-"38
+[; ;My_ST7032.c: 36: ringbuf_put(&lcd_tx, 1);
+"36
 [e ( _ringbuf_put (2 , &U _lcd_tx -> -> 1 `i `uc ]
-[; ;My_ST7032.c: 39: }
-"39
+[; ;My_ST7032.c: 37: }
+"37
 [e :UE 1222 ]
 }
-"41
+"39
 [v _ST7032_puts `(v ~T0 @X0 1 ef1`*Cuc ]
 {
-[; ;My_ST7032.c: 41: void ST7032_puts(const uint8_t *s) {
+[; ;My_ST7032.c: 39: void ST7032_puts(const uint8_t *s) {
 [e :U _ST7032_puts ]
 [v _s `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-[; ;My_ST7032.c: 42: while (*s) {
-"42
+[; ;My_ST7032.c: 40: while (*s) {
+"40
 [e $U 1224  ]
 [e :U 1225 ]
 {
-[; ;My_ST7032.c: 43: ST7032_put(*s++);
-"43
+[; ;My_ST7032.c: 41: ST7032_put(*s++);
+"41
 [e ( _ST7032_put (1 *U ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x ]
-"44
+"42
 }
 [e :U 1224 ]
-"42
+"40
 [e $ != -> *U _s `i -> -> -> 0 `i `Cuc `i 1225  ]
 [e :U 1226 ]
-[; ;My_ST7032.c: 44: }
-[; ;My_ST7032.c: 45: }
-"45
+[; ;My_ST7032.c: 42: }
+[; ;My_ST7032.c: 43: }
+"43
 [e :UE 1223 ]
 }
-"47
+"45
 [v _ST7032_create_char `(v ~T0 @X0 1 ef2`i`*uc ]
 {
-[; ;My_ST7032.c: 47: void ST7032_create_char(int p, char *dt) {
+[; ;My_ST7032.c: 45: void ST7032_create_char(int p, char *dt) {
 [e :U _ST7032_create_char ]
 [v _p `i ~T0 @X0 1 r1 ]
 [v _dt `*uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;My_ST7032.c: 48: ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
-"48
+[; ;My_ST7032.c: 46: ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
+"46
 [e ( _ringbuf_put (2 , &U _lcd_tx -> + << -> 62 `i -> 1 `i -> 0 `i `uc ]
-[; ;My_ST7032.c: 49: ringbuf_put(&lcd_tx, 0x80);
-"49
+[; ;My_ST7032.c: 47: ringbuf_put(&lcd_tx, 0x80);
+"47
 [e ( _ringbuf_put (2 , &U _lcd_tx -> -> 128 `i `uc ]
-[; ;My_ST7032.c: 50: ringbuf_put(&lcd_tx, 0x40 | (p << 3));
-"50
+[; ;My_ST7032.c: 48: ringbuf_put(&lcd_tx, 0x40 | (p << 3));
+"48
 [e ( _ringbuf_put (2 , &U _lcd_tx -> | -> 64 `i << _p -> 3 `i `uc ]
-[; ;My_ST7032.c: 51: ringbuf_put(&lcd_tx, 0x40);
-"51
+[; ;My_ST7032.c: 49: ringbuf_put(&lcd_tx, 0x40);
+"49
 [e ( _ringbuf_put (2 , &U _lcd_tx -> -> 64 `i `uc ]
-[; ;My_ST7032.c: 52: for (uint8_t i = 0; i < 7; i++) {
-"52
+[; ;My_ST7032.c: 50: for (uint8_t i = 0; i < 7; i++) {
+"50
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -8365,275 +8365,275 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1229  ]
 [e :U 1228 ]
 {
-[; ;My_ST7032.c: 53: ringbuf_put(&lcd_tx, *dt++);
-"53
+[; ;My_ST7032.c: 51: ringbuf_put(&lcd_tx, *dt++);
+"51
 [e ( _ringbuf_put (2 , &U _lcd_tx *U ++ _dt * -> -> 1 `i `x -> -> # *U _dt `i `x ]
-"55
+"53
 }
-"52
+"50
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 7 `i 1228  ]
 [e :U 1229 ]
-"55
+"53
 }
-[; ;My_ST7032.c: 55: }
-[; ;My_ST7032.c: 56: ringbuf_put(&lcd_tx, 0);
-"56
+[; ;My_ST7032.c: 53: }
+[; ;My_ST7032.c: 54: ringbuf_put(&lcd_tx, 0);
+"54
 [e ( _ringbuf_put (2 , &U _lcd_tx -> -> 0 `i `uc ]
-[; ;My_ST7032.c: 57: ringbuf_put(&lcd_tx, 1);
-"57
+[; ;My_ST7032.c: 55: ringbuf_put(&lcd_tx, 1);
+"55
 [e ( _ringbuf_put (2 , &U _lcd_tx -> -> 1 `i `uc ]
-[; ;My_ST7032.c: 58: }
-"58
+[; ;My_ST7032.c: 56: }
+"56
 [e :UE 1227 ]
 }
-"60
+"58
 [v _ST7032_init `(v ~T0 @X0 1 ef ]
 {
-[; ;My_ST7032.c: 60: void ST7032_init(void) {
+[; ;My_ST7032.c: 58: void ST7032_init(void) {
 [e :U _ST7032_init ]
 [f ]
-[; ;My_ST7032.c: 61: I2C_init_new();
-"61
+[; ;My_ST7032.c: 59: I2C_init_new();
+"59
 [e ( _I2C_init_new ..  ]
-"63
+"61
 [v F8647 `uc ~T0 @X0 -> 200 `i s buf ]
-[; ;My_ST7032.c: 63: static char buf[200];
-[; ;My_ST7032.c: 64: ringbuf_init(&lcd_tx, buf, sizeof (buf));
-"64
+[; ;My_ST7032.c: 61: static char buf[200];
+[; ;My_ST7032.c: 62: ringbuf_init(&lcd_tx, buf, sizeof (buf));
+"62
 [e ( _ringbuf_init (3 , , &U _lcd_tx &U F8647 -> # F8647 `ui ]
-[; ;My_ST7032.c: 66: ringbuf_put(&lcd_tx, 0);
-"66
+[; ;My_ST7032.c: 64: ringbuf_put(&lcd_tx, 0);
+"64
 [e ( _ringbuf_put (2 , &U _lcd_tx -> -> 0 `i `uc ]
-[; ;My_ST7032.c: 67: ringbuf_put(&lcd_tx, 3);
-"67
+[; ;My_ST7032.c: 65: ringbuf_put(&lcd_tx, 3);
+"65
 [e ( _ringbuf_put (2 , &U _lcd_tx -> -> 3 `i `uc ]
-[; ;My_ST7032.c: 69: ST7032_command(0x38, 1);
-"69
+[; ;My_ST7032.c: 67: ST7032_command(0x38, 1);
+"67
 [e ( _ST7032_command (2 , -> -> 56 `i `uc -> -> 1 `i `uc ]
-[; ;My_ST7032.c: 70: ST7032_command(0x39, 1);
-"70
+[; ;My_ST7032.c: 68: ST7032_command(0x39, 1);
+"68
 [e ( _ST7032_command (2 , -> -> 57 `i `uc -> -> 1 `i `uc ]
-[; ;My_ST7032.c: 71: ST7032_command(0x14, 1);
-"71
+[; ;My_ST7032.c: 69: ST7032_command(0x14, 1);
+"69
 [e ( _ST7032_command (2 , -> -> 20 `i `uc -> -> 1 `i `uc ]
-[; ;My_ST7032.c: 72: ST7032_command(0x70, 1);
-"72
+[; ;My_ST7032.c: 70: ST7032_command(0x70, 1);
+"70
 [e ( _ST7032_command (2 , -> -> 112 `i `uc -> -> 1 `i `uc ]
-[; ;My_ST7032.c: 73: ST7032_command(0x56, 1);
-"73
+[; ;My_ST7032.c: 71: ST7032_command(0x56, 1);
+"71
 [e ( _ST7032_command (2 , -> -> 86 `i `uc -> -> 1 `i `uc ]
-[; ;My_ST7032.c: 74: ST7032_command(0x6C, 3);
-"74
+[; ;My_ST7032.c: 72: ST7032_command(0x6C, 3);
+"72
 [e ( _ST7032_command (2 , -> -> 108 `i `uc -> -> 3 `i `uc ]
-[; ;My_ST7032.c: 75: ST7032_command(0x38, 1);
-"75
+[; ;My_ST7032.c: 73: ST7032_command(0x38, 1);
+"73
 [e ( _ST7032_command (2 , -> -> 56 `i `uc -> -> 1 `i `uc ]
-[; ;My_ST7032.c: 76: ST7032_command(0x0C, 1);
-"76
+[; ;My_ST7032.c: 74: ST7032_command(0x0C, 1);
+"74
 [e ( _ST7032_command (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
-[; ;My_ST7032.c: 77: ST7032_command(0x06, 1);
-"77
+[; ;My_ST7032.c: 75: ST7032_command(0x06, 1);
+"75
 [e ( _ST7032_command (2 , -> -> 6 `i `uc -> -> 1 `i `uc ]
-[; ;My_ST7032.c: 78: ST7032_clear();
-"78
+[; ;My_ST7032.c: 76: ST7032_clear();
+"76
 [e ( _ST7032_clear ..  ]
-[; ;My_ST7032.c: 79: }
-"79
+[; ;My_ST7032.c: 77: }
+"77
 [e :UE 1231 ]
 }
-"81
+"79
 [v _ST7032_task `(v ~T0 @X0 1 ef ]
 {
-[; ;My_ST7032.c: 81: void ST7032_task(void) {
+[; ;My_ST7032.c: 79: void ST7032_task(void) {
 [e :U _ST7032_task ]
 [f ]
-[; ;My_ST7032.c: 82: if (I2C_idole_check(0x05)) return;
-"82
-[e $ ! != -> ( _I2C_idole_check (1 -> -> 5 `i `uc `i -> -> -> 0 `i `uc `i 1233  ]
+[; ;My_ST7032.c: 80: if (I2C_idle_check(0x05)) return;
+"80
+[e $ ! != -> ( _I2C_idle_check (1 -> -> 5 `i `uc `i -> -> -> 0 `i `uc `i 1233  ]
 [e $UE 1232  ]
 [e :U 1233 ]
-"84
+"82
 [v F8649 `ui ~T0 @X0 1 s wait ]
 [v F8650 `E8590 ~T0 @X0 1 s st7032_state ]
 [i F8650
-"85
+"83
 . `E8590 0
 ]
-[; ;My_ST7032.c: 84: static uint16_t wait;
-[; ;My_ST7032.c: 85: static st7032_state_t st7032_state = ST7032_IDOLE;
-[; ;My_ST7032.c: 87: switch (st7032_state) {
-"87
+[; ;My_ST7032.c: 82: static uint16_t wait;
+[; ;My_ST7032.c: 83: static st7032_state_t st7032_state = ST7032_IDLE;
+[; ;My_ST7032.c: 85: switch (st7032_state) {
+"85
 [e $U 1235  ]
 {
-[; ;My_ST7032.c: 88: case ST7032_IDOLE:
-"88
+[; ;My_ST7032.c: 86: case ST7032_IDLE:
+"86
 [e :U 1236 ]
-[; ;My_ST7032.c: 89: if (ringbuf_num(&lcd_tx)) {
-"89
+[; ;My_ST7032.c: 87: if (ringbuf_num(&lcd_tx)) {
+"87
 [e $ ! != ( _ringbuf_num (1 &U _lcd_tx -> -> 0 `i `ui 1237  ]
 {
-[; ;My_ST7032.c: 90: st7032_state = ST7032_START;
-"90
+[; ;My_ST7032.c: 88: st7032_state = ST7032_START;
+"88
 [e = F8650 . `E8590 1 ]
-"91
+"89
 }
 [e :U 1237 ]
-[; ;My_ST7032.c: 91: }
-[; ;My_ST7032.c: 92: break;
-"92
+[; ;My_ST7032.c: 89: }
+[; ;My_ST7032.c: 90: break;
+"90
 [e $U 1234  ]
-[; ;My_ST7032.c: 93: case ST7032_START:
-"93
+[; ;My_ST7032.c: 91: case ST7032_START:
+"91
 [e :U 1238 ]
-[; ;My_ST7032.c: 94: I2C_sent_flag = 1;
-"94
+[; ;My_ST7032.c: 92: I2C_sent_flag = 1;
+"92
 [e = _I2C_sent_flag -> -> 1 `i `uc ]
-[; ;My_ST7032.c: 95: I2C_start();
-"95
+[; ;My_ST7032.c: 93: I2C_start();
+"93
 [e ( _I2C_start ..  ]
-[; ;My_ST7032.c: 96: st7032_state = ST7032_SEND;
-"96
+[; ;My_ST7032.c: 94: st7032_state = ST7032_SEND;
+"94
 [e = F8650 . `E8590 2 ]
-[; ;My_ST7032.c: 97: break;
-"97
+[; ;My_ST7032.c: 95: break;
+"95
 [e $U 1234  ]
-[; ;My_ST7032.c: 98: case ST7032_SEND:
-"98
+[; ;My_ST7032.c: 96: case ST7032_SEND:
+"96
 [e :U 1239 ]
-[; ;My_ST7032.c: 99: if (!I2C_sent_flag) return;
-"99
+[; ;My_ST7032.c: 97: if (!I2C_sent_flag) return;
+"97
 [e $ ! ! != -> _I2C_sent_flag `i -> -> -> 0 `i `uc `i 1240  ]
 [e $UE 1232  ]
 [e :U 1240 ]
-"100
+"98
 [v _data `uc ~T0 @X0 1 a ]
-[; ;My_ST7032.c: 100: uint8_t data = ringbuf_pop(&lcd_tx);
+[; ;My_ST7032.c: 98: uint8_t data = ringbuf_pop(&lcd_tx);
 [e = _data ( _ringbuf_pop (1 &U _lcd_tx ]
-[; ;My_ST7032.c: 101: if (data != 0) {
-"101
+[; ;My_ST7032.c: 99: if (data != 0) {
+"99
 [e $ ! != -> _data `i -> 0 `i 1241  ]
 {
-[; ;My_ST7032.c: 102: I2C_sent_flag = 0;
-"102
+[; ;My_ST7032.c: 100: I2C_sent_flag = 0;
+"100
 [e = _I2C_sent_flag -> -> 0 `i `uc ]
-[; ;My_ST7032.c: 103: I2C_send(data);
-"103
+[; ;My_ST7032.c: 101: I2C_send(data);
+"101
 [e ( _I2C_send (1 _data ]
-"104
+"102
 }
-[; ;My_ST7032.c: 104: } else {
+[; ;My_ST7032.c: 102: } else {
 [e $U 1242  ]
 [e :U 1241 ]
 {
-[; ;My_ST7032.c: 105: wait = ringbuf_pop(&lcd_tx);
-"105
+[; ;My_ST7032.c: 103: wait = ringbuf_pop(&lcd_tx);
+"103
 [e = F8649 -> ( _ringbuf_pop (1 &U _lcd_tx `ui ]
-[; ;My_ST7032.c: 106: switch (wait) {
-"106
+[; ;My_ST7032.c: 104: switch (wait) {
+"104
 [e $U 1244  ]
 {
-[; ;My_ST7032.c: 107: case 0:
-"107
+[; ;My_ST7032.c: 105: case 0:
+"105
 [e :U 1245 ]
-[; ;My_ST7032.c: 108: wait = 0;
-"108
-[e = F8649 -> -> 0 `i `ui ]
-[; ;My_ST7032.c: 109: break;
-"109
-[e $U 1243  ]
-[; ;My_ST7032.c: 110: case 1:
-"110
-[e :U 1246 ]
-[; ;My_ST7032.c: 111: wait = 2;
-"111
-[e = F8649 -> -> 2 `i `ui ]
-[; ;My_ST7032.c: 112: break;
-"112
-[e $U 1243  ]
-[; ;My_ST7032.c: 113: case 2:
-"113
-[e :U 1247 ]
-[; ;My_ST7032.c: 114: wait = 25;
-"114
-[e = F8649 -> -> 25 `i `ui ]
-[; ;My_ST7032.c: 115: break;
-"115
-[e $U 1243  ]
-[; ;My_ST7032.c: 116: case 3:
-"116
-[e :U 1248 ]
-[; ;My_ST7032.c: 117: wait = 800;
-"117
-[e = F8649 -> -> 800 `i `ui ]
-[; ;My_ST7032.c: 118: break;
-"118
-[e $U 1243  ]
-[; ;My_ST7032.c: 119: default:
-"119
-[e :U 1249 ]
-[; ;My_ST7032.c: 120: wait = 1;
-"120
-[e = F8649 -> -> 1 `i `ui ]
-[; ;My_ST7032.c: 121: break;
-"121
-[e $U 1243  ]
-"122
-}
-[; ;My_ST7032.c: 122: }
-[e $U 1243  ]
+[; ;My_ST7032.c: 106: wait = 0;
 "106
+[e = F8649 -> -> 0 `i `ui ]
+[; ;My_ST7032.c: 107: break;
+"107
+[e $U 1243  ]
+[; ;My_ST7032.c: 108: case 1:
+"108
+[e :U 1246 ]
+[; ;My_ST7032.c: 109: wait = 2;
+"109
+[e = F8649 -> -> 2 `i `ui ]
+[; ;My_ST7032.c: 110: break;
+"110
+[e $U 1243  ]
+[; ;My_ST7032.c: 111: case 2:
+"111
+[e :U 1247 ]
+[; ;My_ST7032.c: 112: wait = 25;
+"112
+[e = F8649 -> -> 25 `i `ui ]
+[; ;My_ST7032.c: 113: break;
+"113
+[e $U 1243  ]
+[; ;My_ST7032.c: 114: case 3:
+"114
+[e :U 1248 ]
+[; ;My_ST7032.c: 115: wait = 800;
+"115
+[e = F8649 -> -> 800 `i `ui ]
+[; ;My_ST7032.c: 116: break;
+"116
+[e $U 1243  ]
+[; ;My_ST7032.c: 117: default:
+"117
+[e :U 1249 ]
+[; ;My_ST7032.c: 118: wait = 1;
+"118
+[e = F8649 -> -> 1 `i `ui ]
+[; ;My_ST7032.c: 119: break;
+"119
+[e $U 1243  ]
+"120
+}
+[; ;My_ST7032.c: 120: }
+[e $U 1243  ]
+"104
 [e :U 1244 ]
 [e [\ F8649 , $ -> -> 0 `i `ui 1245
  , $ -> -> 1 `i `ui 1246
  , $ -> -> 2 `i `ui 1247
  , $ -> -> 3 `i `ui 1248
  1249 ]
-"122
+"120
 [e :U 1243 ]
-[; ;My_ST7032.c: 123: st7032_state = ST7032_STOP;
-"123
+[; ;My_ST7032.c: 121: st7032_state = ST7032_STOP;
+"121
 [e = F8650 . `E8590 3 ]
-"124
+"122
 }
 [e :U 1242 ]
-[; ;My_ST7032.c: 124: }
-[; ;My_ST7032.c: 125: break;
-"125
+[; ;My_ST7032.c: 122: }
+[; ;My_ST7032.c: 123: break;
+"123
 [e $U 1234  ]
-[; ;My_ST7032.c: 126: case ST7032_STOP:
-"126
+[; ;My_ST7032.c: 124: case ST7032_STOP:
+"124
 [e :U 1250 ]
-[; ;My_ST7032.c: 127: I2C_stop();
-"127
+[; ;My_ST7032.c: 125: I2C_stop();
+"125
 [e ( _I2C_stop ..  ]
-[; ;My_ST7032.c: 128: st7032_state = ST7032_WAIT;
-"128
+[; ;My_ST7032.c: 126: st7032_state = ST7032_WAIT;
+"126
 [e = F8650 . `E8590 4 ]
-[; ;My_ST7032.c: 129: break;
-"129
+[; ;My_ST7032.c: 127: break;
+"127
 [e $U 1234  ]
-[; ;My_ST7032.c: 130: case ST7032_WAIT:
-"130
+[; ;My_ST7032.c: 128: case ST7032_WAIT:
+"128
 [e :U 1251 ]
-[; ;My_ST7032.c: 131: if (wait == 0) st7032_state = ST7032_IDOLE;
-"131
+[; ;My_ST7032.c: 129: if (wait == 0) st7032_state = ST7032_IDLE;
+"129
 [e $ ! == F8649 -> -> 0 `i `ui 1252  ]
 [e = F8650 . `E8590 0 ]
 [e $U 1253  ]
-"132
+"130
 [e :U 1252 ]
-[; ;My_ST7032.c: 132: else wait--;
+[; ;My_ST7032.c: 130: else wait--;
 [e -- F8649 -> -> 1 `i `ui ]
 [e :U 1253 ]
-[; ;My_ST7032.c: 133: break;
-"133
+[; ;My_ST7032.c: 131: break;
+"131
 [e $U 1234  ]
-"134
+"132
 }
-[; ;My_ST7032.c: 134: }
+[; ;My_ST7032.c: 132: }
 [e $U 1234  ]
-"87
+"85
 [e :U 1235 ]
 [e [\ F8650 , $ . `E8590 0 1236
  , $ . `E8590 1 1238
@@ -8641,10 +8641,10 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ . `E8590 3 1250
  , $ . `E8590 4 1251
  1234 ]
-"134
+"132
 [e :U 1234 ]
-[; ;My_ST7032.c: 135: }
-"135
+[; ;My_ST7032.c: 133: }
+"133
 [e :UE 1232 ]
 }
 [; ;My_library\My_PIC.h: 20: void OSC_init(void);
@@ -8659,63 +8659,63 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_library\My_PIC.h: 101: void Delay_ms(uint16_t ms);
 [; ;My_library\My_PIC.h: 106: void millis_timer(void);
 [; ;My_library\My_PIC.h: 107: uint32_t millis(void);
-"141
+"139
 [v _I2C_LCD_Command `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_ST7032.c: 141: void I2C_LCD_Command(uint8_t c) {
+[; ;My_ST7032.c: 139: void I2C_LCD_Command(uint8_t c) {
 [e :U _I2C_LCD_Command ]
 [v _c `uc ~T0 @X0 1 r1 ]
 [f ]
-"142
+"140
 [v _ans `uc ~T0 @X0 1 a ]
-[; ;My_ST7032.c: 142: uint8_t ans;
-[; ;My_ST7032.c: 144: ans = I2C_Start(0x3E, 0);
-"144
+[; ;My_ST7032.c: 140: uint8_t ans;
+[; ;My_ST7032.c: 142: ans = I2C_Start(0x3E, 0);
+"142
 [e = _ans ( _I2C_Start (2 , -> -> 62 `i `uc -> -> 0 `i `uc ]
-[; ;My_ST7032.c: 145: if (ans == 0) {
-"145
+[; ;My_ST7032.c: 143: if (ans == 0) {
+"143
 [e $ ! == -> _ans `i -> 0 `i 1255  ]
 {
-[; ;My_ST7032.c: 147: I2C_Send(0b10000000);
-"147
+[; ;My_ST7032.c: 145: I2C_Send(0b10000000);
+"145
 [e ( _I2C_Send (1 -> -> 128 `i `uc ]
-[; ;My_ST7032.c: 148: I2C_Send(c);
-"148
+[; ;My_ST7032.c: 146: I2C_Send(c);
+"146
 [e ( _I2C_Send (1 _c ]
-"149
+"147
 }
 [e :U 1255 ]
-[; ;My_ST7032.c: 149: }
-[; ;My_ST7032.c: 150: I2C_Stop();
-"150
+[; ;My_ST7032.c: 147: }
+[; ;My_ST7032.c: 148: I2C_Stop();
+"148
 [e ( _I2C_Stop ..  ]
-[; ;My_ST7032.c: 151: _delay((unsigned long)((26)*(48000000/4000000.0)));
-"151
+[; ;My_ST7032.c: 149: _delay((unsigned long)((26)*(48000000/4000000.0)));
+"149
 [e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
-[; ;My_ST7032.c: 152: }
-"152
+[; ;My_ST7032.c: 150: }
+"150
 [e :UE 1254 ]
 }
-"154
+"152
 [v _I2C_LCD_Clear `(v ~T0 @X0 1 ef ]
 {
-[; ;My_ST7032.c: 154: void I2C_LCD_Clear(void) {
+[; ;My_ST7032.c: 152: void I2C_LCD_Clear(void) {
 [e :U _I2C_LCD_Clear ]
 [f ]
-[; ;My_ST7032.c: 155: I2C_LCD_Command(0x01);
-"155
+[; ;My_ST7032.c: 153: I2C_LCD_Command(0x01);
+"153
 [e ( _I2C_LCD_Command (1 -> -> 1 `i `uc ]
-[; ;My_ST7032.c: 156: _delay((unsigned long)((1100)*(48000000/4000000.0)));
-"156
+[; ;My_ST7032.c: 154: _delay((unsigned long)((1100)*(48000000/4000000.0)));
+"154
 [e ( __delay (1 -> * -> -> 1100 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
-[; ;My_ST7032.c: 157: }
-"157
+[; ;My_ST7032.c: 155: }
+"155
 [e :UE 1256 ]
 }
-"159
+"157
 [v _I2C_LCD_SetCursor `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;My_ST7032.c: 159: void I2C_LCD_SetCursor(uint8_t col, uint8_t row) {
+[; ;My_ST7032.c: 157: void I2C_LCD_SetCursor(uint8_t col, uint8_t row) {
 [e :U _I2C_LCD_SetCursor ]
 [v _col `uc ~T0 @X0 1 r1 ]
 [v _row `uc ~T0 @X0 1 r2 ]
@@ -8723,139 +8723,139 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F8685 `uc ~T0 @X0 -> 0 `x s ]
 [i F8685
 :U ..
-"160
+"158
 -> -> 0 `i `uc
 -> -> 64 `i `uc
 ..
 ]
 [v _row_offsets `uc ~T0 @X0 2  a ]
-[; ;My_ST7032.c: 160: uint8_t row_offsets[] = {0x00, 0x40};
+[; ;My_ST7032.c: 158: uint8_t row_offsets[] = {0x00, 0x40};
 [e = _row_offsets F8685 ]
-[; ;My_ST7032.c: 162: I2C_LCD_Command(0x80 | (col + row_offsets[row]));
-"162
+[; ;My_ST7032.c: 160: I2C_LCD_Command(0x80 | (col + row_offsets[row]));
+"160
 [e ( _I2C_LCD_Command (1 -> | -> 128 `i + -> _col `i -> *U + &U _row_offsets * -> _row `ux -> -> # *U &U _row_offsets `ui `ux `i `uc ]
-[; ;My_ST7032.c: 163: }
-"163
+[; ;My_ST7032.c: 161: }
+"161
 [e :UE 1257 ]
 }
-"165
+"163
 [v _I2C_LCD_Putc `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_ST7032.c: 165: void I2C_LCD_Putc(uint8_t c) {
+[; ;My_ST7032.c: 163: void I2C_LCD_Putc(uint8_t c) {
 [e :U _I2C_LCD_Putc ]
 [v _c `uc ~T0 @X0 1 r1 ]
 [f ]
-"166
+"164
 [v _ans `uc ~T0 @X0 1 a ]
-[; ;My_ST7032.c: 166: uint8_t ans;
-[; ;My_ST7032.c: 168: ans = I2C_Start(0x3E, 0);
-"168
+[; ;My_ST7032.c: 164: uint8_t ans;
+[; ;My_ST7032.c: 166: ans = I2C_Start(0x3E, 0);
+"166
 [e = _ans ( _I2C_Start (2 , -> -> 62 `i `uc -> -> 0 `i `uc ]
-[; ;My_ST7032.c: 169: if (ans == 0) {
-"169
+[; ;My_ST7032.c: 167: if (ans == 0) {
+"167
 [e $ ! == -> _ans `i -> 0 `i 1259  ]
 {
-[; ;My_ST7032.c: 171: I2C_Send(0b11000000);
-"171
+[; ;My_ST7032.c: 169: I2C_Send(0b11000000);
+"169
 [e ( _I2C_Send (1 -> -> 192 `i `uc ]
-[; ;My_ST7032.c: 172: I2C_Send(c);
-"172
+[; ;My_ST7032.c: 170: I2C_Send(c);
+"170
 [e ( _I2C_Send (1 _c ]
-"173
+"171
 }
 [e :U 1259 ]
-[; ;My_ST7032.c: 173: }
-[; ;My_ST7032.c: 174: I2C_Stop();
-"174
+[; ;My_ST7032.c: 171: }
+[; ;My_ST7032.c: 172: I2C_Stop();
+"172
 [e ( _I2C_Stop ..  ]
-[; ;My_ST7032.c: 175: _delay((unsigned long)((26)*(48000000/4000000.0)));
-"175
+[; ;My_ST7032.c: 173: _delay((unsigned long)((26)*(48000000/4000000.0)));
+"173
 [e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
-[; ;My_ST7032.c: 176: }
-"176
+[; ;My_ST7032.c: 174: }
+"174
 [e :UE 1258 ]
 }
-"178
+"176
 [v _I2C_LCD_Puts `(v ~T0 @X0 1 ef1`*Cuc ]
 {
-[; ;My_ST7032.c: 178: void I2C_LCD_Puts(const uint8_t * s) {
+[; ;My_ST7032.c: 176: void I2C_LCD_Puts(const uint8_t * s) {
 [e :U _I2C_LCD_Puts ]
 [v _s `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-"179
+"177
 [v _ans `i ~T0 @X0 1 a ]
-[; ;My_ST7032.c: 179: int ans;
-[; ;My_ST7032.c: 181: ans = I2C_Start(0x3E, 0);
-"181
+[; ;My_ST7032.c: 177: int ans;
+[; ;My_ST7032.c: 179: ans = I2C_Start(0x3E, 0);
+"179
 [e = _ans -> ( _I2C_Start (2 , -> -> 62 `i `uc -> -> 0 `i `uc `i ]
-[; ;My_ST7032.c: 182: if (ans == 0) {
-"182
+[; ;My_ST7032.c: 180: if (ans == 0) {
+"180
 [e $ ! == _ans -> 0 `i 1261  ]
 {
-[; ;My_ST7032.c: 183: I2C_Send(0b01000000);
-"183
+[; ;My_ST7032.c: 181: I2C_Send(0b01000000);
+"181
 [e ( _I2C_Send (1 -> -> 64 `i `uc ]
-[; ;My_ST7032.c: 184: while (*s) {
-"184
+[; ;My_ST7032.c: 182: while (*s) {
+"182
 [e $U 1262  ]
 [e :U 1263 ]
 {
-[; ;My_ST7032.c: 185: I2C_Send(*s++);
-"185
+[; ;My_ST7032.c: 183: I2C_Send(*s++);
+"183
 [e ( _I2C_Send (1 *U ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x ]
-[; ;My_ST7032.c: 186: _delay((unsigned long)((26)*(48000000/4000000.0)));
-"186
+[; ;My_ST7032.c: 184: _delay((unsigned long)((26)*(48000000/4000000.0)));
+"184
 [e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
-"187
+"185
 }
 [e :U 1262 ]
-"184
+"182
 [e $ != -> *U _s `i -> -> -> 0 `i `Cuc `i 1263  ]
 [e :U 1264 ]
-"188
+"186
 }
 [e :U 1261 ]
-[; ;My_ST7032.c: 187: }
-[; ;My_ST7032.c: 188: }
-[; ;My_ST7032.c: 189: I2C_Stop();
-"189
+[; ;My_ST7032.c: 185: }
+[; ;My_ST7032.c: 186: }
+[; ;My_ST7032.c: 187: I2C_Stop();
+"187
 [e ( _I2C_Stop ..  ]
-[; ;My_ST7032.c: 190: }
-"190
+[; ;My_ST7032.c: 188: }
+"188
 [e :UE 1260 ]
 }
-"192
+"190
 [v _I2C_LCD_CreateChar `(v ~T0 @X0 1 ef2`i`*uc ]
 {
-[; ;My_ST7032.c: 192: void I2C_LCD_CreateChar(int p, char *dt) {
+[; ;My_ST7032.c: 190: void I2C_LCD_CreateChar(int p, char *dt) {
 [e :U _I2C_LCD_CreateChar ]
 [v _p `i ~T0 @X0 1 r1 ]
 [v _dt `*uc ~T0 @X0 1 r2 ]
 [f ]
-"193
+"191
 [v _ans `uc ~T0 @X0 1 a ]
-[; ;My_ST7032.c: 193: uint8_t ans;
-[; ;My_ST7032.c: 195: ans = I2C_Start(0x3E, 0);
-"195
+[; ;My_ST7032.c: 191: uint8_t ans;
+[; ;My_ST7032.c: 193: ans = I2C_Start(0x3E, 0);
+"193
 [e = _ans ( _I2C_Start (2 , -> -> 62 `i `uc -> -> 0 `i `uc ]
-[; ;My_ST7032.c: 196: if (ans == 0) {
-"196
+[; ;My_ST7032.c: 194: if (ans == 0) {
+"194
 [e $ ! == -> _ans `i -> 0 `i 1266  ]
 {
-[; ;My_ST7032.c: 198: I2C_Send(0b10000000);
-"198
+[; ;My_ST7032.c: 196: I2C_Send(0b10000000);
+"196
 [e ( _I2C_Send (1 -> -> 128 `i `uc ]
-[; ;My_ST7032.c: 199: I2C_Send(0x40 | (p << 3));
-"199
+[; ;My_ST7032.c: 197: I2C_Send(0x40 | (p << 3));
+"197
 [e ( _I2C_Send (1 -> | -> 64 `i << _p -> 3 `i `uc ]
-[; ;My_ST7032.c: 200: _delay((unsigned long)((26)*(48000000/4000000.0)));
-"200
+[; ;My_ST7032.c: 198: _delay((unsigned long)((26)*(48000000/4000000.0)));
+"198
 [e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
-[; ;My_ST7032.c: 202: I2C_Send(0b01000000);
-"202
+[; ;My_ST7032.c: 200: I2C_Send(0b01000000);
+"200
 [e ( _I2C_Send (1 -> -> 64 `i `uc ]
-[; ;My_ST7032.c: 203: for (uint8_t i = 0; i < 7; i++) {
-"203
+[; ;My_ST7032.c: 201: for (uint8_t i = 0; i < 7; i++) {
+"201
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -8863,43 +8863,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1268  ]
 [e :U 1267 ]
 {
-[; ;My_ST7032.c: 204: I2C_Send(*dt++);
-"204
+[; ;My_ST7032.c: 202: I2C_Send(*dt++);
+"202
 [e ( _I2C_Send (1 *U ++ _dt * -> -> 1 `i `x -> -> # *U _dt `i `x ]
-[; ;My_ST7032.c: 205: _delay((unsigned long)((26)*(48000000/4000000.0)));
-"205
-[e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
-"206
-}
+[; ;My_ST7032.c: 203: _delay((unsigned long)((26)*(48000000/4000000.0)));
 "203
+[e ( __delay (1 -> * -> -> 26 `i `d / -> -> 48000000 `l `d .4000000.0 `ul ]
+"204
+}
+"201
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 7 `i 1267  ]
 [e :U 1268 ]
-"206
+"204
 }
-"207
+"205
 }
 [e :U 1266 ]
-[; ;My_ST7032.c: 206: }
-[; ;My_ST7032.c: 207: }
-[; ;My_ST7032.c: 208: I2C_Stop();
-"208
+[; ;My_ST7032.c: 204: }
+[; ;My_ST7032.c: 205: }
+[; ;My_ST7032.c: 206: I2C_Stop();
+"206
 [e ( _I2C_Stop ..  ]
-[; ;My_ST7032.c: 209: }
-"209
+[; ;My_ST7032.c: 207: }
+"207
 [e :UE 1265 ]
 }
-"211
+"209
 [v _I2C_LCD_init `(v ~T0 @X0 1 ef ]
 {
-[; ;My_ST7032.c: 211: void I2C_LCD_init(void) {
+[; ;My_ST7032.c: 209: void I2C_LCD_init(void) {
 [e :U _I2C_LCD_init ]
 [f ]
-[; ;My_ST7032.c: 212: I2C_init_old();
-"212
+[; ;My_ST7032.c: 210: I2C_init_old();
+"210
 [e ( _I2C_init_old ..  ]
-[; ;My_ST7032.c: 214: for (uint8_t i = 0; i < 40; i++) _delay((unsigned long)((1)*(48000000/4000.0)));
-"214
+[; ;My_ST7032.c: 212: for (uint8_t i = 0; i < 40; i++) _delay((unsigned long)((1)*(48000000/4000.0)));
+"212
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -8911,26 +8911,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ < -> _i `i -> 40 `i 1271  ]
 [e :U 1272 ]
 }
-[; ;My_ST7032.c: 215: I2C_LCD_Command(0x38);
-"215
+[; ;My_ST7032.c: 213: I2C_LCD_Command(0x38);
+"213
 [e ( _I2C_LCD_Command (1 -> -> 56 `i `uc ]
-[; ;My_ST7032.c: 216: I2C_LCD_Command(0x39);
-"216
+[; ;My_ST7032.c: 214: I2C_LCD_Command(0x39);
+"214
 [e ( _I2C_LCD_Command (1 -> -> 57 `i `uc ]
-[; ;My_ST7032.c: 217: I2C_LCD_Command(0x14);
-"217
+[; ;My_ST7032.c: 215: I2C_LCD_Command(0x14);
+"215
 [e ( _I2C_LCD_Command (1 -> -> 20 `i `uc ]
-[; ;My_ST7032.c: 218: I2C_LCD_Command(0x70);
-"218
+[; ;My_ST7032.c: 216: I2C_LCD_Command(0x70);
+"216
 [e ( _I2C_LCD_Command (1 -> -> 112 `i `uc ]
-[; ;My_ST7032.c: 219: I2C_LCD_Command(0x56);
-"219
+[; ;My_ST7032.c: 217: I2C_LCD_Command(0x56);
+"217
 [e ( _I2C_LCD_Command (1 -> -> 86 `i `uc ]
-[; ;My_ST7032.c: 220: I2C_LCD_Command(0x6C);
-"220
+[; ;My_ST7032.c: 218: I2C_LCD_Command(0x6C);
+"218
 [e ( _I2C_LCD_Command (1 -> -> 108 `i `uc ]
-[; ;My_ST7032.c: 221: for (uint8_t i = 0; i < 40; i++) _delay((unsigned long)((1)*(48000000/4000.0)));
-"221
+[; ;My_ST7032.c: 219: for (uint8_t i = 0; i < 40; i++) _delay((unsigned long)((1)*(48000000/4000.0)));
+"219
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -8942,19 +8942,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ < -> _i `i -> 40 `i 1274  ]
 [e :U 1275 ]
 }
-[; ;My_ST7032.c: 222: I2C_LCD_Command(0x38);
-"222
+[; ;My_ST7032.c: 220: I2C_LCD_Command(0x38);
+"220
 [e ( _I2C_LCD_Command (1 -> -> 56 `i `uc ]
-[; ;My_ST7032.c: 223: I2C_LCD_Command(0x0C);
-"223
+[; ;My_ST7032.c: 221: I2C_LCD_Command(0x0C);
+"221
 [e ( _I2C_LCD_Command (1 -> -> 12 `i `uc ]
-[; ;My_ST7032.c: 224: I2C_LCD_Command(0x06);
-"224
+[; ;My_ST7032.c: 222: I2C_LCD_Command(0x06);
+"222
 [e ( _I2C_LCD_Command (1 -> -> 6 `i `uc ]
-[; ;My_ST7032.c: 225: I2C_LCD_Clear();
-"225
+[; ;My_ST7032.c: 223: I2C_LCD_Clear();
+"223
 [e ( _I2C_LCD_Clear ..  ]
-[; ;My_ST7032.c: 226: }
-"226
+[; ;My_ST7032.c: 224: }
+"224
 [e :UE 1270 ]
 }

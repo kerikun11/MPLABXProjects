@@ -11404,29 +11404,7 @@ const unsigned int __attribute__((address(0x1006))) FlashSignatureWord = 0x600D;
 void main(void)
 {
 
-# 330
-{ANCON1bits.PCFG12 = 1;};
-
-
-
-if(PORTBbits.RB0 == 1)
-{
-
-
-
-{ANCON1bits.PCFG12 = 0;};
-
-
-
-goto DoFlashSignatureCheck;
-}
-else
-{
-
-BootMain();
-}
-
-
+# 352
 DoFlashSignatureCheck:
 
 if(*(const unsigned int*)0x1006 == 0x600D)

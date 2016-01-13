@@ -17,7 +17,7 @@ extern "C" {
 #endif
 
     typedef enum ST7032_STATE {
-        ST7032_IDOLE,
+        ST7032_IDLE,
         ST7032_START,
         ST7032_SEND,
         ST7032_STOP,

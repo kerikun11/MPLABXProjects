@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.35 build -356382666 
-                                                                                               Tue Jan 12 21:57:23 2016
+                                                                                               Wed Jan 13 14:00:07 2016
 
 Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080246
      1                           	processor	18F27J53
@@ -2382,7 +2382,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2376  000060                     __pcstackBANK0:
   2377                           	opt stack 0
   2378  000060                     ??_isdigit:
-  2379  000060                     ??_I2C_idole_check:
+  2379  000060                     ??_I2C_idle_check:
   2380  000060                     ??_timer0_init:
   2381  000060                     ??_timer3_init:
   2382  000060                     ??_x_to_d:
@@ -2450,7 +2450,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2444                           ; 4 bytes @ 0x0
   2445  000060                     	ds	1
   2446  000061                     ??_timer1_init:
-  2447  000061                     I2C_idole_check@mask:
+  2447  000061                     I2C_idle_check@mask:
   2448                           	opt stack 0
   2449  000061                     timer0_init@prescaler:
   2450                           	opt stack 0
@@ -3383,28 +3383,28 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3372                           ;main.c: 138: INTCONbits.GIE = 1;
   3373  015FCC  8EF2               	bsf	intcon,7,c	;volatile
   3374                           
-  3375                           ;main.c: 139: INTCONbits.GIE = 0;
+  3375                           ;main.c: 140: INTCONbits.GIE = 0;
   3376  015FCE  9EF2               	bcf	intcon,7,c	;volatile
   3377                           
-  3378                           ;main.c: 140: ST7032_task();
+  3378                           ;main.c: 141: ST7032_task();
   3379  015FD0  ECF5  F099         	call	_ST7032_task	;wreg free
   3380                           
-  3381                           ;main.c: 141: INTCONbits.GIE = 1;
+  3381                           ;main.c: 142: INTCONbits.GIE = 1;
   3382  015FD4  8EF2               	bsf	intcon,7,c	;volatile
   3383                           
-  3384                           ;main.c: 142: INTCONbits.GIE = 0;
+  3384                           ;main.c: 144: INTCONbits.GIE = 0;
   3385  015FD6  9EF2               	bcf	intcon,7,c	;volatile
   3386                           
-  3387                           ;main.c: 143: USB_CDC_task();
+  3387                           ;main.c: 145: USB_CDC_task();
   3388  015FD8  EC5C  F0A0         	call	_USB_CDC_task	;wreg free
   3389                           
-  3390                           ;main.c: 144: INTCONbits.GIE = 1;
+  3390                           ;main.c: 146: INTCONbits.GIE = 1;
   3391  015FDC  8EF2               	bsf	intcon,7,c	;volatile
   3392                           
-  3393                           ;main.c: 145: INTCONbits.GIE = 0;
+  3393                           ;main.c: 148: INTCONbits.GIE = 0;
   3394  015FDE  9EF2               	bcf	intcon,7,c	;volatile
   3395                           
-  3396                           ;main.c: 146: terminal_task(&usb_tx, &usb_rx);
+  3396                           ;main.c: 149: terminal_task(&usb_tx, &usb_rx);
   3397  015FE0  0EC6               	movlw	low _usb_tx
   3398  015FE2  0101               	movlb	1	; () banked
   3399  015FE4  6F92               	movwf	terminal_task@tx& (0+255),b
@@ -3419,28 +3419,28 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3408  015FF6  6F95               	movwf	(terminal_task@rx+1)& (0+255),b
   3409  015FF8  ECC6  F086         	call	_terminal_task	;wreg free
   3410                           
-  3411                           ;main.c: 147: INTCONbits.GIE = 1;
+  3411                           ;main.c: 150: INTCONbits.GIE = 1;
   3412  015FFC  8EF2               	bsf	intcon,7,c	;volatile
   3413                           
-  3414                           ;main.c: 148: INTCONbits.GIE = 0;
+  3414                           ;main.c: 152: INTCONbits.GIE = 0;
   3415  015FFE  9EF2               	bcf	intcon,7,c	;volatile
   3416                           
-  3417                           ;main.c: 149: normal_task();
+  3417                           ;main.c: 153: normal_task();
   3418  016000  ECD5  F0A7         	call	_normal_task	;wreg free
   3419                           
-  3420                           ;main.c: 150: INTCONbits.GIE = 1;
+  3420                           ;main.c: 154: INTCONbits.GIE = 1;
   3421  016004  8EF2               	bsf	intcon,7,c	;volatile
   3422                           
-  3423                           ;main.c: 152: INTCONbits.GIE = 0;
+  3423                           ;main.c: 157: INTCONbits.GIE = 0;
   3424  016006  9EF2               	bcf	intcon,7,c	;volatile
   3425                           
-  3426                           ;main.c: 153: ctmu_task();
+  3426                           ;main.c: 158: ctmu_task();
   3427  016008  EC6B  F0B7         	call	_ctmu_task	;wreg free
   3428                           
-  3429                           ;main.c: 154: if (ctmu_m.flag.pressing &&
-  3430                           ;main.c: 155: port[0].ctmu.flag.pressing &&
-  3431                           ;main.c: 156: port[1].ctmu.flag.pressing &&
-  3432                           ;main.c: 157: port[2].ctmu.flag.pressing) {
+  3429                           ;main.c: 159: if (ctmu_m.flag.pressing &&
+  3430                           ;main.c: 160: port[0].ctmu.flag.pressing &&
+  3431                           ;main.c: 161: port[1].ctmu.flag.pressing &&
+  3432                           ;main.c: 162: port[2].ctmu.flag.pressing) {
   3433  01600C  0100               	movlb	0	; () banked
   3434  01600E  A1FF               	btfss	(_ctmu_m+3)& (0+255),0,b
   3435  016010  D00A               	goto	l13171
@@ -3460,22 +3460,22 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   3449  016020  B15F               	btfsc	(_port+49)& (0+255),0,b
   3450                           
   3451                           ; BSR set to: 1
-  3452                           ;main.c: 158: bootload();
+  3452                           ;main.c: 163: bootload();
   3453  016022  ECA3  F0B4         	call	_bootload	;wreg free
   3454  016026                     l13171:
   3455                           
-  3456                           ;main.c: 159: }
-  3457                           ;main.c: 160: INTCONbits.GIE = 1;
+  3456                           ;main.c: 164: }
+  3457                           ;main.c: 165: INTCONbits.GIE = 1;
   3458  016026  8EF2               	bsf	intcon,7,c	;volatile
   3459                           
-  3460                           ;main.c: 162: INTCONbits.GIE = 0;
+  3460                           ;main.c: 168: INTCONbits.GIE = 0;
   3461  016028  9EF2               	bcf	intcon,7,c	;volatile
   3462                           
-  3463                           ;main.c: 163: sleep_task();
+  3463                           ;main.c: 169: sleep_task();
   3464  01602A  EC03  F0A7         	call	_sleep_task	;wreg free
   3465  01602E                     l13175:
   3466                           
-  3467                           ;main.c: 164: INTCONbits.GIE = 1;
+  3467                           ;main.c: 170: INTCONbits.GIE = 1;
   3468  01602E  8EF2               	bsf	intcon,7,c	;volatile
   3469  016030  D7CA               	goto	l13127
   3470  016032                     __end_of_main:
@@ -12971,7 +12971,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  12770                           
  12771 ;; *************** function _ST7032_puts *****************
  12772 ;; Defined at:
- 12773 ;;		line 41 in file "../My_library/My_ST7032.c"
+ 12773 ;;		line 39 in file "../My_library/My_ST7032.c"
  12774 ;; Parameters:    Size  Location     Type
  12775 ;;  s               2   16[BANK0 ] PTR const unsigned char 
  12776 ;;		 -> display_LCD@str_5618(20), display_LCD@str(40), display_char(40), STR_50(16), 
@@ -13014,13 +13014,13 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  12808  01670E                     _ST7032_puts:
  12809                           	opt stack 12
  12810                           
- 12811                           ;My_ST7032.c: 42: while (*s) {
+ 12811                           ;My_ST7032.c: 40: while (*s) {
  12812                           
  12813                           ;incstack = 0
  12814  01670E  D016               	goto	l11405
  12815  016710                     l11401:
  12816                           
- 12817                           ;My_ST7032.c: 43: ST7032_put(*s++);
+ 12817                           ;My_ST7032.c: 41: ST7032_put(*s++);
  12818  016710  C070  FFF6         	movff	ST7032_puts@s,tblptrl
  12819  016714  C071  FFF7         	movff	ST7032_puts@s+1,tblptrh
  12820  016718  0E00               	movlw	low (__mediumconst shr (0+16))
@@ -13088,7 +13088,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  12882                           
  12883 ;; *************** function _ST7032_put *****************
  12884 ;; Defined at:
- 12885 ;;		line 33 in file "../My_library/My_ST7032.c"
+ 12885 ;;		line 31 in file "../My_library/My_ST7032.c"
  12886 ;; Parameters:    Size  Location     Type
  12887 ;;  c               1    wreg     unsigned char 
  12888 ;; Auto vars:     Size  Location     Type
@@ -13132,7 +13132,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  12921  01611A  0100               	movlb	0	; () banked
  12922  01611C  6F6F               	movwf	ST7032_put@c& (0+255),b
  12923                           
- 12924                           ;My_ST7032.c: 34: ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
+ 12924                           ;My_ST7032.c: 32: ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
  12925  01611E  0E23               	movlw	low _lcd_tx
  12926  016120  0100               	movlb	0	; () banked
  12927  016122  6F68               	movwf	ringbuf_put@rb& (0+255),b
@@ -13144,7 +13144,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  12933  01612E  6F6A               	movwf	ringbuf_put@data& (0+255),b
  12934  016130  EC99  F0A6         	call	_ringbuf_put	;wreg free
  12935                           
- 12936                           ;My_ST7032.c: 35: ringbuf_put(&lcd_tx, 0b11000000);
+ 12936                           ;My_ST7032.c: 33: ringbuf_put(&lcd_tx, 0b11000000);
  12937  016134  0E23               	movlw	low _lcd_tx
  12938  016136  0100               	movlb	0	; () banked
  12939  016138  6F68               	movwf	ringbuf_put@rb& (0+255),b
@@ -13156,7 +13156,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  12945  016144  6F6A               	movwf	ringbuf_put@data& (0+255),b
  12946  016146  EC99  F0A6         	call	_ringbuf_put	;wreg free
  12947                           
- 12948                           ;My_ST7032.c: 36: ringbuf_put(&lcd_tx, c);
+ 12948                           ;My_ST7032.c: 34: ringbuf_put(&lcd_tx, c);
  12949  01614A  0E23               	movlw	low _lcd_tx
  12950  01614C  0100               	movlb	0	; () banked
  12951  01614E  6F68               	movwf	ringbuf_put@rb& (0+255),b
@@ -13166,7 +13166,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  12955  016156  C06F  F06A         	movff	ST7032_put@c,ringbuf_put@data
  12956  01615A  EC99  F0A6         	call	_ringbuf_put	;wreg free
  12957                           
- 12958                           ;My_ST7032.c: 37: ringbuf_put(&lcd_tx, 0);
+ 12958                           ;My_ST7032.c: 35: ringbuf_put(&lcd_tx, 0);
  12959  01615E  0E23               	movlw	low _lcd_tx
  12960  016160  0100               	movlb	0	; () banked
  12961  016162  6F68               	movwf	ringbuf_put@rb& (0+255),b
@@ -13178,7 +13178,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  12967  01616E  6F6A               	movwf	ringbuf_put@data& (0+255),b
  12968  016170  EC99  F0A6         	call	_ringbuf_put	;wreg free
  12969                           
- 12970                           ;My_ST7032.c: 38: ringbuf_put(&lcd_tx, 1);
+ 12970                           ;My_ST7032.c: 36: ringbuf_put(&lcd_tx, 1);
  12971  016174  0E23               	movlw	low _lcd_tx
  12972  016176  0100               	movlb	0	; () banked
  12973  016178  6F68               	movwf	ringbuf_put@rb& (0+255),b
@@ -13218,7 +13218,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  13007                           
  13008 ;; *************** function _ST7032_cursor *****************
  13009 ;; Defined at:
- 13010 ;;		line 28 in file "../My_library/My_ST7032.c"
+ 13010 ;;		line 26 in file "../My_library/My_ST7032.c"
  13011 ;; Parameters:    Size  Location     Type
  13012 ;;  col             1    wreg     unsigned char 
  13013 ;;  row             1   17[BANK0 ] unsigned char 
@@ -13266,11 +13266,11 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  13050  016B4E  0100               	movlb	0	; () banked
  13051  016B50  6F74               	movwf	ST7032_cursor@col& (0+255),b
  13052                           
- 13053                           ;My_ST7032.c: 29: uint8_t row_offsets[] = {0x00, 0x40};
+ 13053                           ;My_ST7032.c: 27: uint8_t row_offsets[] = {0x00, 0x40};
  13054  016B52  C1E4  F072         	movff	ST7032_cursor@F8640,ST7032_cursor@row_offsets
  13055  016B56  C1E5  F073         	movff	ST7032_cursor@F8640+1,ST7032_cursor@row_offsets+1
  13056                           
- 13057                           ;My_ST7032.c: 30: ST7032_command(0x80 | (col + row_offsets[row]), 0);
+ 13057                           ;My_ST7032.c: 28: ST7032_command(0x80 | (col + row_offsets[row]), 0);
  13058  016B5A  0E00               	movlw	0
  13059  016B5C  0100               	movlb	0	; () banked
  13060  016B5E  6F6F               	movwf	ST7032_command@wait& (0+255),b
@@ -17165,7 +17165,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  16845                           
  16846 ;; *************** function _ST7032_init *****************
  16847 ;; Defined at:
- 16848 ;;		line 60 in file "../My_library/My_ST7032.c"
+ 16848 ;;		line 58 in file "../My_library/My_ST7032.c"
  16849 ;; Parameters:    Size  Location     Type
  16850 ;;		None
  16851 ;; Auto vars:     Size  Location     Type
@@ -17208,13 +17208,13 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  16883  015212                     _ST7032_init:
  16884                           	opt stack 13
  16885                           
- 16886                           ;My_ST7032.c: 61: I2C_init_new();
+ 16886                           ;My_ST7032.c: 59: I2C_init_new();
  16887                           
  16888                           ;incstack = 0
  16889  015212  EC37  F0B7         	call	_I2C_init_new	;wreg free
  16890                           
- 16891                           ;My_ST7032.c: 63: static char buf[200];
- 16892                           ;My_ST7032.c: 64: ringbuf_init(&lcd_tx, buf, sizeof (buf));
+ 16891                           ;My_ST7032.c: 61: static char buf[200];
+ 16892                           ;My_ST7032.c: 62: ringbuf_init(&lcd_tx, buf, sizeof (buf));
  16893  015216  0E23               	movlw	low _lcd_tx
  16894  015218  0100               	movlb	0	; () banked
  16895  01521A  6F60               	movwf	ringbuf_init@rb& (0+255),b
@@ -17234,7 +17234,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  16909  015236  6F64               	movwf	ringbuf_init@bufsize& (0+255),b
  16910  015238  ECDE  F0B3         	call	_ringbuf_init	;wreg free
  16911                           
- 16912                           ;My_ST7032.c: 66: ringbuf_put(&lcd_tx, 0);
+ 16912                           ;My_ST7032.c: 64: ringbuf_put(&lcd_tx, 0);
  16913  01523C  0E23               	movlw	low _lcd_tx
  16914  01523E  0100               	movlb	0	; () banked
  16915  015240  6F68               	movwf	ringbuf_put@rb& (0+255),b
@@ -17246,7 +17246,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  16921  01524C  6F6A               	movwf	ringbuf_put@data& (0+255),b
  16922  01524E  EC99  F0A6         	call	_ringbuf_put	;wreg free
  16923                           
- 16924                           ;My_ST7032.c: 67: ringbuf_put(&lcd_tx, 3);
+ 16924                           ;My_ST7032.c: 65: ringbuf_put(&lcd_tx, 3);
  16925  015252  0E23               	movlw	low _lcd_tx
  16926  015254  0100               	movlb	0	; () banked
  16927  015256  6F68               	movwf	ringbuf_put@rb& (0+255),b
@@ -17258,70 +17258,70 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  16933  015262  6F6A               	movwf	ringbuf_put@data& (0+255),b
  16934  015264  EC99  F0A6         	call	_ringbuf_put	;wreg free
  16935                           
- 16936                           ;My_ST7032.c: 69: ST7032_command(0x38, 1);
+ 16936                           ;My_ST7032.c: 67: ST7032_command(0x38, 1);
  16937  015268  0E01               	movlw	1
  16938  01526A  0100               	movlb	0	; () banked
  16939  01526C  6F6F               	movwf	ST7032_command@wait& (0+255),b
  16940  01526E  0E38               	movlw	56
  16941  015270  ECFF  F0B0         	call	_ST7032_command
  16942                           
- 16943                           ;My_ST7032.c: 70: ST7032_command(0x39, 1);
+ 16943                           ;My_ST7032.c: 68: ST7032_command(0x39, 1);
  16944  015274  0E01               	movlw	1
  16945  015276  0100               	movlb	0	; () banked
  16946  015278  6F6F               	movwf	ST7032_command@wait& (0+255),b
  16947  01527A  0E39               	movlw	57
  16948  01527C  ECFF  F0B0         	call	_ST7032_command
  16949                           
- 16950                           ;My_ST7032.c: 71: ST7032_command(0x14, 1);
+ 16950                           ;My_ST7032.c: 69: ST7032_command(0x14, 1);
  16951  015280  0E01               	movlw	1
  16952  015282  0100               	movlb	0	; () banked
  16953  015284  6F6F               	movwf	ST7032_command@wait& (0+255),b
  16954  015286  0E14               	movlw	20
  16955  015288  ECFF  F0B0         	call	_ST7032_command
  16956                           
- 16957                           ;My_ST7032.c: 72: ST7032_command(0x70, 1);
+ 16957                           ;My_ST7032.c: 70: ST7032_command(0x70, 1);
  16958  01528C  0E01               	movlw	1
  16959  01528E  0100               	movlb	0	; () banked
  16960  015290  6F6F               	movwf	ST7032_command@wait& (0+255),b
  16961  015292  0E70               	movlw	112
  16962  015294  ECFF  F0B0         	call	_ST7032_command
  16963                           
- 16964                           ;My_ST7032.c: 73: ST7032_command(0x56, 1);
+ 16964                           ;My_ST7032.c: 71: ST7032_command(0x56, 1);
  16965  015298  0E01               	movlw	1
  16966  01529A  0100               	movlb	0	; () banked
  16967  01529C  6F6F               	movwf	ST7032_command@wait& (0+255),b
  16968  01529E  0E56               	movlw	86
  16969  0152A0  ECFF  F0B0         	call	_ST7032_command
  16970                           
- 16971                           ;My_ST7032.c: 74: ST7032_command(0x6C, 3);
+ 16971                           ;My_ST7032.c: 72: ST7032_command(0x6C, 3);
  16972  0152A4  0E03               	movlw	3
  16973  0152A6  0100               	movlb	0	; () banked
  16974  0152A8  6F6F               	movwf	ST7032_command@wait& (0+255),b
  16975  0152AA  0E6C               	movlw	108
  16976  0152AC  ECFF  F0B0         	call	_ST7032_command
  16977                           
- 16978                           ;My_ST7032.c: 75: ST7032_command(0x38, 1);
+ 16978                           ;My_ST7032.c: 73: ST7032_command(0x38, 1);
  16979  0152B0  0E01               	movlw	1
  16980  0152B2  0100               	movlb	0	; () banked
  16981  0152B4  6F6F               	movwf	ST7032_command@wait& (0+255),b
  16982  0152B6  0E38               	movlw	56
  16983  0152B8  ECFF  F0B0         	call	_ST7032_command
  16984                           
- 16985                           ;My_ST7032.c: 76: ST7032_command(0x0C, 1);
+ 16985                           ;My_ST7032.c: 74: ST7032_command(0x0C, 1);
  16986  0152BC  0E01               	movlw	1
  16987  0152BE  0100               	movlb	0	; () banked
  16988  0152C0  6F6F               	movwf	ST7032_command@wait& (0+255),b
  16989  0152C2  0E0C               	movlw	12
  16990  0152C4  ECFF  F0B0         	call	_ST7032_command
  16991                           
- 16992                           ;My_ST7032.c: 77: ST7032_command(0x06, 1);
+ 16992                           ;My_ST7032.c: 75: ST7032_command(0x06, 1);
  16993  0152C8  0E01               	movlw	1
  16994  0152CA  0100               	movlb	0	; () banked
  16995  0152CC  6F6F               	movwf	ST7032_command@wait& (0+255),b
  16996  0152CE  0E06               	movlw	6
  16997  0152D0  ECFF  F0B0         	call	_ST7032_command
  16998                           
- 16999                           ;My_ST7032.c: 78: ST7032_clear();
+ 16999                           ;My_ST7032.c: 76: ST7032_clear();
  17000  0152D4  EC7C  F0B7         	call	_ST7032_clear	;wreg free
  17001  0152D8  0012               	return		;funcret
  17002  0152DA                     __end_of_ST7032_init:
@@ -17477,7 +17477,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17146                           
  17147 ;; *************** function _ST7032_clear *****************
  17148 ;; Defined at:
- 17149 ;;		line 24 in file "../My_library/My_ST7032.c"
+ 17149 ;;		line 22 in file "../My_library/My_ST7032.c"
  17150 ;; Parameters:    Size  Location     Type
  17151 ;;		None
  17152 ;; Auto vars:     Size  Location     Type
@@ -17519,7 +17519,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17183  016EF8                     _ST7032_clear:
  17184                           	opt stack 12
  17185                           
- 17186                           ;My_ST7032.c: 25: ST7032_command(0x01, 2);
+ 17186                           ;My_ST7032.c: 23: ST7032_command(0x01, 2);
  17187                           
  17188                           ; BSR set to: 0
  17189                           ;incstack = 0
@@ -17558,7 +17558,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17222                           
  17223 ;; *************** function _ST7032_command *****************
  17224 ;; Defined at:
- 17225 ;;		line 16 in file "../My_library/My_ST7032.c"
+ 17225 ;;		line 14 in file "../My_library/My_ST7032.c"
  17226 ;; Parameters:    Size  Location     Type
  17227 ;;  command         1    wreg     unsigned char 
  17228 ;;  wait            1   15[BANK0 ] unsigned char 
@@ -17605,7 +17605,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17264  0161FE  0100               	movlb	0	; () banked
  17265  016200  6F70               	movwf	ST7032_command@command& (0+255),b
  17266                           
- 17267                           ;My_ST7032.c: 17: ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
+ 17267                           ;My_ST7032.c: 15: ringbuf_put(&lcd_tx, (0x3E << 1) + 0);
  17268  016202  0E23               	movlw	low _lcd_tx
  17269  016204  0100               	movlb	0	; () banked
  17270  016206  6F68               	movwf	ringbuf_put@rb& (0+255),b
@@ -17617,7 +17617,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17276  016212  6F6A               	movwf	ringbuf_put@data& (0+255),b
  17277  016214  EC99  F0A6         	call	_ringbuf_put	;wreg free
  17278                           
- 17279                           ;My_ST7032.c: 18: ringbuf_put(&lcd_tx, 0x80);
+ 17279                           ;My_ST7032.c: 16: ringbuf_put(&lcd_tx, 0x80);
  17280  016218  0E23               	movlw	low _lcd_tx
  17281  01621A  0100               	movlb	0	; () banked
  17282  01621C  6F68               	movwf	ringbuf_put@rb& (0+255),b
@@ -17629,7 +17629,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17288  016228  6F6A               	movwf	ringbuf_put@data& (0+255),b
  17289  01622A  EC99  F0A6         	call	_ringbuf_put	;wreg free
  17290                           
- 17291                           ;My_ST7032.c: 19: ringbuf_put(&lcd_tx, command);
+ 17291                           ;My_ST7032.c: 17: ringbuf_put(&lcd_tx, command);
  17292  01622E  0E23               	movlw	low _lcd_tx
  17293  016230  0100               	movlb	0	; () banked
  17294  016232  6F68               	movwf	ringbuf_put@rb& (0+255),b
@@ -17639,7 +17639,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17298  01623A  C070  F06A         	movff	ST7032_command@command,ringbuf_put@data
  17299  01623E  EC99  F0A6         	call	_ringbuf_put	;wreg free
  17300                           
- 17301                           ;My_ST7032.c: 20: ringbuf_put(&lcd_tx, 0);
+ 17301                           ;My_ST7032.c: 18: ringbuf_put(&lcd_tx, 0);
  17302  016242  0E23               	movlw	low _lcd_tx
  17303  016244  0100               	movlb	0	; () banked
  17304  016246  6F68               	movwf	ringbuf_put@rb& (0+255),b
@@ -17651,7 +17651,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  17310  016252  6F6A               	movwf	ringbuf_put@data& (0+255),b
  17311  016254  EC99  F0A6         	call	_ringbuf_put	;wreg free
  17312                           
- 17313                           ;My_ST7032.c: 21: ringbuf_put(&lcd_tx, wait);
+ 17313                           ;My_ST7032.c: 19: ringbuf_put(&lcd_tx, wait);
  17314  016258  0E23               	movlw	low _lcd_tx
  17315  01625A  0100               	movlb	0	; () banked
  17316  01625C  6F68               	movwf	ringbuf_put@rb& (0+255),b
@@ -22176,7 +22176,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21707                           
  21708 ;; *************** function _ST7032_task *****************
  21709 ;; Defined at:
- 21710 ;;		line 81 in file "../My_library/My_ST7032.c"
+ 21710 ;;		line 79 in file "../My_library/My_ST7032.c"
  21711 ;; Parameters:    Size  Location     Type
  21712 ;;		None
  21713 ;; Auto vars:     Size  Location     Type
@@ -22203,7 +22203,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21729 ;; Hardware stack levels used:    1
  21730 ;; Hardware stack levels required when called:   14
  21731 ;; This function calls:
- 21732 ;;		_I2C_idole_check
+ 21732 ;;		_I2C_idle_check
  21733 ;;		_I2C_send
  21734 ;;		_I2C_start
  21735 ;;		_I2C_stop
@@ -22220,19 +22220,19 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21746  0133EA                     _ST7032_task:
  21747                           	opt stack 16
  21748                           
- 21749                           ;My_ST7032.c: 82: if (I2C_idole_check(0x05)) return;
+ 21749                           ;My_ST7032.c: 80: if (I2C_idle_check(0x05)) return;
  21750                           
  21751                           ; BSR set to: 0
  21752                           ;incstack = 0
  21753  0133EA  0E05               	movlw	5
- 21754  0133EC  EC5F  F0B7         	call	_I2C_idole_check
+ 21754  0133EC  EC5F  F0B7         	call	_I2C_idle_check
  21755  0133F0  0900               	iorlw	0
  21756  0133F2  A4D8               	btfss	status,2,c
  21757  0133F4  0012               	return	
  21758  0133F6  D08E               	goto	l12741
  21759  0133F8                     l12689:
  21760                           
- 21761                           ;My_ST7032.c: 89: if (ringbuf_num(&lcd_tx)) {
+ 21761                           ;My_ST7032.c: 87: if (ringbuf_num(&lcd_tx)) {
  21762  0133F8  0E23               	movlw	low _lcd_tx
  21763  0133FA  0100               	movlb	0	; () banked
  21764  0133FC  6F60               	movwf	ringbuf_num@rb& (0+255),b
@@ -22248,43 +22248,43 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21774  013412  0012               	return	
  21775                           
  21776                           ; BSR set to: 0
- 21777                           ;My_ST7032.c: 90: st7032_state = ST7032_START;
+ 21777                           ;My_ST7032.c: 88: st7032_state = ST7032_START;
  21778  013414  0E01               	movlw	1
  21779  013416  0101               	movlb	1	; () banked
  21780  013418  6F19               	movwf	ST7032_task@st7032_state& (0+255),b
  21781                           
  21782                           ; BSR set to: 1
- 21783                           ;My_ST7032.c: 91: }
- 21784                           ;My_ST7032.c: 92: break;
+ 21783                           ;My_ST7032.c: 89: }
+ 21784                           ;My_ST7032.c: 90: break;
  21785  01341A  0012               	return	
  21786  01341C                     l12693:
  21787                           
  21788                           ; BSR set to: 1
- 21789                           ;My_ST7032.c: 94: I2C_sent_flag = 1;
+ 21789                           ;My_ST7032.c: 92: I2C_sent_flag = 1;
  21790  01341C  0E01               	movlw	1
  21791  01341E  6E0E               	movwf	_I2C_sent_flag,c
  21792                           
  21793                           ; BSR set to: 1
- 21794                           ;My_ST7032.c: 95: I2C_start();
+ 21794                           ;My_ST7032.c: 93: I2C_start();
  21795  013420  EC90  F0B7         	call	_I2C_start	;wreg free
  21796                           
- 21797                           ;My_ST7032.c: 96: st7032_state = ST7032_SEND;
+ 21797                           ;My_ST7032.c: 94: st7032_state = ST7032_SEND;
  21798  013424  0E02               	movlw	2
  21799  013426  0101               	movlb	1	; () banked
  21800  013428  6F19               	movwf	ST7032_task@st7032_state& (0+255),b
  21801                           
- 21802                           ;My_ST7032.c: 97: break;
+ 21802                           ;My_ST7032.c: 95: break;
  21803  01342A  0012               	return	
  21804  01342C                     l12699:
  21805                           
  21806                           ; BSR set to: 1
- 21807                           ;My_ST7032.c: 99: if (!I2C_sent_flag) return;
+ 21807                           ;My_ST7032.c: 97: if (!I2C_sent_flag) return;
  21808  01342C  500E               	movf	_I2C_sent_flag,w,c
  21809  01342E  B4D8               	btfsc	status,2,c
  21810  013430  0012               	return	
  21811                           
  21812                           ; BSR set to: 1
- 21813                           ;My_ST7032.c: 100: uint8_t data = ringbuf_pop(&lcd_tx);
+ 21813                           ;My_ST7032.c: 98: uint8_t data = ringbuf_pop(&lcd_tx);
  21814                           
  21815                           ; BSR set to: 1
  21816                           
@@ -22300,7 +22300,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21826  013444  6F71               	movwf	ST7032_task@data& (0+255),b
  21827                           
  21828                           ; BSR set to: 0
- 21829                           ;My_ST7032.c: 101: if (data != 0) {
+ 21829                           ;My_ST7032.c: 99: if (data != 0) {
  21830  013446  0100               	movlb	0	; () banked
  21831  013448  5171               	movf	ST7032_task@data& (0+255),w,b
  21832  01344A  0100               	movlb	0	; () banked
@@ -22308,21 +22308,21 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21834  01344E  D007               	goto	l12711
  21835                           
  21836                           ; BSR set to: 0
- 21837                           ;My_ST7032.c: 102: I2C_sent_flag = 0;
+ 21837                           ;My_ST7032.c: 100: I2C_sent_flag = 0;
  21838  013450  0E00               	movlw	0
  21839  013452  6E0E               	movwf	_I2C_sent_flag,c
  21840                           
  21841                           ; BSR set to: 0
- 21842                           ;My_ST7032.c: 103: I2C_send(data);
+ 21842                           ;My_ST7032.c: 101: I2C_send(data);
  21843  013454  0100               	movlb	0	; () banked
  21844  013456  5171               	movf	ST7032_task@data& (0+255),w,b
  21845  013458  EC83  F0B7         	call	_I2C_send
  21846                           
- 21847                           ;My_ST7032.c: 104: } else {
+ 21847                           ;My_ST7032.c: 102: } else {
  21848  01345C  0012               	return	
  21849  01345E                     l12711:
  21850                           
- 21851                           ;My_ST7032.c: 105: wait = ringbuf_pop(&lcd_tx);
+ 21851                           ;My_ST7032.c: 103: wait = ringbuf_pop(&lcd_tx);
  21852  01345E  0E23               	movlw	low _lcd_tx
  21853  013460  0100               	movlb	0	; () banked
  21854  013462  6F68               	movwf	ringbuf_pop@rb& (0+255),b
@@ -22338,11 +22338,11 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21864  013478  6F0C               	movwf	ST7032_task@wait& (0+255),b
  21865  01347A  6B0D               	clrf	(ST7032_task@wait+1)& (0+255),b
  21866                           
- 21867                           ;My_ST7032.c: 106: switch (wait) {
+ 21867                           ;My_ST7032.c: 104: switch (wait) {
  21868  01347C  D01A               	goto	l12725
  21869  01347E                     l12713:
  21870                           
- 21871                           ;My_ST7032.c: 108: wait = 0;
+ 21871                           ;My_ST7032.c: 106: wait = 0;
  21872  01347E  0E00               	movlw	0
  21873  013480  0101               	movlb	1	; () banked
  21874  013482  6F0D               	movwf	(ST7032_task@wait+1)& (0+255),b
@@ -22350,7 +22350,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21876  013486  D013               	goto	L10
  21877  013488                     l12715:
  21878                           
- 21879                           ;My_ST7032.c: 111: wait = 2;
+ 21879                           ;My_ST7032.c: 109: wait = 2;
  21880  013488  0E00               	movlw	0
  21881  01348A  0101               	movlb	1	; () banked
  21882  01348C  6F0D               	movwf	(ST7032_task@wait+1)& (0+255),b
@@ -22358,7 +22358,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21884  013490  D00E               	goto	L10
  21885  013492                     l12717:
  21886                           
- 21887                           ;My_ST7032.c: 114: wait = 25;
+ 21887                           ;My_ST7032.c: 112: wait = 25;
  21888  013492  0E00               	movlw	0
  21889  013494  0101               	movlb	1	; () banked
  21890  013496  6F0D               	movwf	(ST7032_task@wait+1)& (0+255),b
@@ -22366,7 +22366,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21892  01349A  D009               	goto	L10
  21893  01349C                     l12719:
  21894                           
- 21895                           ;My_ST7032.c: 117: wait = 800;
+ 21895                           ;My_ST7032.c: 115: wait = 800;
  21896  01349C  0E03               	movlw	3
  21897  01349E  0101               	movlb	1	; () banked
  21898  0134A0  6F0D               	movwf	(ST7032_task@wait+1)& (0+255),b
@@ -22374,7 +22374,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21900  0134A4  D004               	goto	L10
  21901  0134A6                     l12721:
  21902                           
- 21903                           ;My_ST7032.c: 120: wait = 1;
+ 21903                           ;My_ST7032.c: 118: wait = 1;
  21904  0134A6  0E00               	movlw	0
  21905  0134A8  0101               	movlb	1	; () banked
  21906  0134AA  6F0D               	movwf	(ST7032_task@wait+1)& (0+255),b
@@ -22383,9 +22383,9 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21909  0134AE  6F0C               	movwf	ST7032_task@wait& (0+255),b
  21910                           
  21911                           ; BSR set to: 1
- 21912                           ;My_ST7032.c: 122: }
+ 21912                           ;My_ST7032.c: 120: }
  21913                           
- 21914                           ;My_ST7032.c: 121: break;
+ 21914                           ;My_ST7032.c: 119: break;
  21915  0134B0  D018               	goto	l12727
  21916  0134B2                     l12725:
  21917                           
@@ -22431,32 +22431,32 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21956  0134E0  D7E2               	goto	l12721
  21957  0134E2                     l12727:
  21958                           
- 21959                           ;My_ST7032.c: 123: st7032_state = ST7032_STOP;
+ 21959                           ;My_ST7032.c: 121: st7032_state = ST7032_STOP;
  21960  0134E2  0E03               	movlw	3
  21961  0134E4  0101               	movlb	1	; () banked
  21962  0134E6  6F19               	movwf	ST7032_task@st7032_state& (0+255),b
  21963                           
  21964                           ; BSR set to: 1
- 21965                           ;My_ST7032.c: 124: }
- 21966                           ;My_ST7032.c: 125: break;
+ 21965                           ;My_ST7032.c: 122: }
+ 21966                           ;My_ST7032.c: 123: break;
  21967  0134E8  0012               	return	
  21968  0134EA                     l12729:
  21969                           
  21970                           ; BSR set to: 1
- 21971                           ;My_ST7032.c: 127: I2C_stop();
+ 21971                           ;My_ST7032.c: 125: I2C_stop();
  21972  0134EA  EC8E  F0B7         	call	_I2C_stop	;wreg free
  21973                           
- 21974                           ;My_ST7032.c: 128: st7032_state = ST7032_WAIT;
+ 21974                           ;My_ST7032.c: 126: st7032_state = ST7032_WAIT;
  21975  0134EE  0E04               	movlw	4
  21976  0134F0  0101               	movlb	1	; () banked
  21977  0134F2  6F19               	movwf	ST7032_task@st7032_state& (0+255),b
  21978                           
- 21979                           ;My_ST7032.c: 129: break;
+ 21979                           ;My_ST7032.c: 127: break;
  21980  0134F4  0012               	return	
  21981  0134F6                     l12733:
  21982                           
  21983                           ; BSR set to: 1
- 21984                           ;My_ST7032.c: 131: if (wait == 0) st7032_state = ST7032_IDOLE;
+ 21984                           ;My_ST7032.c: 129: if (wait == 0) st7032_state = ST7032_IDLE;
  21985  0134F6  0101               	movlb	1	; () banked
  21986  0134F8  510C               	movf	ST7032_task@wait& (0+255),w,b
  21987  0134FA  0101               	movlb	1	; () banked
@@ -22472,17 +22472,17 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  21997  01350A                     l12737:
  21998                           
  21999                           ; BSR set to: 1
- 22000                           ;My_ST7032.c: 132: else wait--;
+ 22000                           ;My_ST7032.c: 130: else wait--;
  22001  01350A  0101               	movlb	1	; () banked
  22002  01350C  070C               	decf	ST7032_task@wait& (0+255),f,b
  22003  01350E  A0D8               	btfss	status,0,c
  22004  013510  070D               	decf	(ST7032_task@wait+1)& (0+255),f,b
  22005                           
  22006                           ; BSR set to: 1
- 22007                           ;My_ST7032.c: 134: }
+ 22007                           ;My_ST7032.c: 132: }
  22008                           
  22009                           ; BSR set to: 1
- 22010                           ;My_ST7032.c: 133: break;
+ 22010                           ;My_ST7032.c: 131: break;
  22011  013512  0012               	return	
  22012  013514                     l12741:
  22013  013514  0101               	movlb	1	; () banked
@@ -23156,7 +23156,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  22656                           fsr2l	equ	0xFD9
  22657                           status	equ	0xFD8
  22658                           
- 22659 ;; *************** function _I2C_idole_check *****************
+ 22659 ;; *************** function _I2C_idle_check *****************
  22660 ;; Defined at:
  22661 ;;		line 7 in file "../My_library/My_I2C.c"
  22662 ;; Parameters:    Size  Location     Type
@@ -23194,26 +23194,26 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
  22689                           	psect	text93
  22690  016EBE                     __ptext93:
  22691                           	opt stack 0
- 22692  016EBE                     _I2C_idole_check:
+ 22692  016EBE                     _I2C_idle_check:
  22693                           	opt stack 17
  22694                           
  22695                           ;incstack = 0
- 22696                           ;I2C_idole_check@mask stored from wreg
+ 22696                           ;I2C_idle_check@mask stored from wreg
  22697  016EBE  0100               	movlb	0	; () banked
- 22698  016EC0  6F61               	movwf	I2C_idole_check@mask& (0+255),b
+ 22698  016EC0  6F61               	movwf	I2C_idle_check@mask& (0+255),b
  22699                           
  22700                           ;My_I2C.c: 8: return ((SSP1CON2 & 0x1F) | (SSP1STAT & mask));
  22701  016EC2  50C7               	movf	4039,w,c	;volatile
  22702  016EC4  0100               	movlb	0	; () banked
- 22703  016EC6  1561               	andwf	I2C_idole_check@mask& (0+255),w,b
+ 22703  016EC6  1561               	andwf	I2C_idle_check@mask& (0+255),w,b
  22704  016EC8  0100               	movlb	0	; () banked
- 22705  016ECA  6F60               	movwf	??_I2C_idole_check& (0+255),b
+ 22705  016ECA  6F60               	movwf	??_I2C_idle_check& (0+255),b
  22706  016ECC  50C5               	movf	4037,w,c	;volatile
  22707  016ECE  0B1F               	andlw	31
  22708  016ED0  0100               	movlb	0	; () banked
- 22709  016ED2  1160               	iorwf	??_I2C_idole_check& (0+255),w,b
+ 22709  016ED2  1160               	iorwf	??_I2C_idle_check& (0+255),w,b
  22710  016ED4  0012               	return	
- 22711  016ED6                     __end_of_I2C_idole_check:
+ 22711  016ED6                     __end_of_I2C_idle_check:
  22712                           	opt stack 0
  22713                           tblptru	equ	0xFF8
  22714                           tblptrh	equ	0xFF7
@@ -33008,7 +33008,7 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (1) _ST7032_task                                          3     3      0    4263
                                              15 BANK0      3     3      0
-                    _I2C_idole_check
+                     _I2C_idle_check
                            _I2C_send
                           _I2C_start
                            _I2C_stop
@@ -33029,7 +33029,7 @@ Call Graph Tables:
  (2) _I2C_send                                             1     1      0      31
                                               0 BANK0      1     1      0
  ---------------------------------------------------------------------------------
- (2) _I2C_idole_check                                      2     2      0      31
+ (2) _I2C_idle_check                                       2     2      0      31
                                               0 BANK0      2     2      0
  ---------------------------------------------------------------------------------
  (1) _RTCC_task                                            0     0      0    6563
@@ -33221,7 +33221,7 @@ Call Graph Tables:
          _month_length
            ___awmod
    _ST7032_task
-     _I2C_idole_check
+     _I2C_idle_check
      _I2C_send
      _I2C_start
      _I2C_stop
@@ -33875,63 +33875,63 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.35 build -356382666 
-Symbol Table                                                                                   Tue Jan 12 21:57:23 2016
+Symbol Table                                                                                   Wed Jan 13 14:00:07 2016
 
               ?_settings_integrating_reset 002D                                 _USB_SD_Ptr FA79  
-                             ?_display_LCD 002D                     _settings_led_indicator 2594  
-                 __end_of_port_button_task 3288                  settings_adjust_time@state 0127  
-                          _ringbuf_put_num 5EC2                               ?_display_dec 00AB  
-                          _ringbuf_put_str 63AE                               ___awdiv@sign 0065  
-                                       _ms 020E                         __size_of_ANALOG_IN 002C  
-                            _USBDeviceInit 3288                        ___wmul@multiplicand 0078  
-                       i2___lwdiv@dividend 002D                          ??_RTCC_from_epoch 0091  
-                       __size_of_CDCInitEP 006C                               __CFG_CP0$OFF 000000  
-                       __size_of_I2C_start 0004                settings_led_indicator@state 012A  
-     USER_USB_CALLBACK_EVENT_HANDLER@event 0039       USER_USB_CALLBACK_EVENT_HANDLER@pdata 003B  
-                                      l207 6ADA                                        l208 6AD8  
-                                      l146 32FE                __end_of_USBStdGetDscHandler 3686  
-                                      _ADC 6BB2                                        l504 300E  
-                                      l530 11E4                                        l531 1208  
-                                      l532 122C                                        l509 3060  
-                                      l525 1128                                        l526 1150  
-                                      l710 688C                                        l527 1176  
-                                      l528 119C                                        l529 11C0  
-                                      l705 6A18                                        l724 6BD2  
-                                      l735 54BC                                        l920 1944  
-                                      l905 16A0                                        _BDT 000D00  
-                                      l774 5EC4                                        l952 575E  
-                                      l971 2D36                                        l958 4AB2  
-                                      _ISR 1008                                        _UIE 000F36  
-                                      _UIR 000F62                                        _OUT 618C  
-                            ?_get_quot_rem 0079                         caltime_to_epoch@tm 0079  
-                          __end_of_I2C_ISR 6E6E                                 _USBSuspend 6C38  
-                                      _now 0173                          _RTCC_from_caltime 6D5E  
-                             ___awmod@sign 0065                       USBStdSetCfgHandler@i 0041  
-                                      prod 000FF3                                        wreg 000FE8  
-                           _USBDeviceTasks 3686                                 _TXSTA1bits 000FAD  
-                           _USBDeviceState 0013                 __end_of_settings_auto_stop 2A2A  
-                              ?_ST7032_put 002D                    _RTCC_adjust_time_cursor 3DB6  
-                       ?_RTCC_from_caltime 008F                      ??_USBCtrlTrfRxService 002D  
-                 __size_ofi2_USBDeviceInit 0144                             ??_getsUSBUSART 006A  
-                                     ?_ADC 0060                   USBEnableEndpoint@options 0035  
-                  _RTCC_adjust_time_toggle 6988                                       ?_ISR 002D  
-                         _terminal_at_hand 653A                                       ?_OUT 0060  
-                              ?_LED_output 0060                                       l2010 0272  
-                                     l2221 438A                                       l1525 3230  
-                                     l1541 5028                                       l1382 4142  
-                                     l1542 503E                                       l1375 40C0  
-                                     l1704 60D8                                       l1536 4FB8  
-                                     l1393 6CDA                                       l2418 574C  
-                                     l1706 60E6                                       l1707 60F4  
-                                     l2428 5BF0                                       l1556 4EC8  
-               USBConfigureEndpoint@handle 0033                                       l2471 5FB2  
-                                     l2481 6530                                       l1690 61CA  
-                                     l1691 61D8                                       l1931 2552  
-                                     l1909 27A6                                       l1870 4774  
-                                     l1688 61BC                                       OUT@b 0061  
-                                     l1869 47D4                                       l1957 2B70  
-                                     l1887 29E8                         __CFG_WPFP$PAGE_127 000000  
-                        ??_I2C_idole_check 0060                                       l8521 1250  
+                         ??_I2C_idle_check 0060                               ?_display_LCD 002D  
+                   _settings_led_indicator 2594                   __end_of_port_button_task 3288  
+                settings_adjust_time@state 0127                            _ringbuf_put_num 5EC2  
+                             ?_display_dec 00AB                            _ringbuf_put_str 63AE  
+                             ___awdiv@sign 0065                                         _ms 020E  
+                       __size_of_ANALOG_IN 002C                              _USBDeviceInit 3288  
+                      ___wmul@multiplicand 0078                         i2___lwdiv@dividend 002D  
+                        ??_RTCC_from_epoch 0091                         __size_of_CDCInitEP 006C  
+                             __CFG_CP0$OFF 000000                         __size_of_I2C_start 0004  
+              settings_led_indicator@state 012A       USER_USB_CALLBACK_EVENT_HANDLER@event 0039  
+     USER_USB_CALLBACK_EVENT_HANDLER@pdata 003B                                        l207 6ADA  
+                                      l208 6AD8                                        l146 32FE  
+              __end_of_USBStdGetDscHandler 3686                                        _ADC 6BB2  
+                                      l504 300E                                        l530 11E4  
+                                      l531 1208                                        l532 122C  
+                                      l509 3060                                        l525 1128  
+                                      l526 1150                                        l710 688C  
+                                      l527 1176                                        l528 119C  
+                                      l529 11C0                                        l705 6A18  
+                                      l724 6BD2                                        l735 54BC  
+                                      l920 1944                                        l905 16A0  
+                                      _BDT 000D00                                        l774 5EC4  
+                                      l952 575E                                        l971 2D36  
+                                      l958 4AB2                                        _ISR 1008  
+                                      _UIE 000F36                                        _UIR 000F62  
+                                      _OUT 618C                              ?_get_quot_rem 0079  
+                       caltime_to_epoch@tm 0079                            __end_of_I2C_ISR 6E6E  
+                               _USBSuspend 6C38                                        _now 0173  
+                        _RTCC_from_caltime 6D5E                               ___awmod@sign 0065  
+                     USBStdSetCfgHandler@i 0041                                        prod 000FF3  
+                                      wreg 000FE8                             _USBDeviceTasks 3686  
+                               _TXSTA1bits 000FAD                             _USBDeviceState 0013  
+               __end_of_settings_auto_stop 2A2A                                ?_ST7032_put 002D  
+                  _RTCC_adjust_time_cursor 3DB6                         ?_RTCC_from_caltime 008F  
+                    ??_USBCtrlTrfRxService 002D                   __size_ofi2_USBDeviceInit 0144  
+                           ??_getsUSBUSART 006A                                       ?_ADC 0060  
+                 USBEnableEndpoint@options 0035                    _RTCC_adjust_time_toggle 6988  
+                                     ?_ISR 002D                           _terminal_at_hand 653A  
+                                     ?_OUT 0060                                ?_LED_output 0060  
+                                     l2010 0272                                       l2221 438A  
+                                     l1525 3230                                       l1541 5028  
+                                     l1382 4142                                       l1542 503E  
+                                     l1375 40C0                                       l1704 60D8  
+                                     l1536 4FB8                                       l1393 6CDA  
+                                     l2418 574C                                       l1706 60E6  
+                                     l1707 60F4                                       l2428 5BF0  
+                                     l1556 4EC8                 USBConfigureEndpoint@handle 0033  
+                                     l2471 5FB2                                       l2481 6530  
+                                     l1690 61CA                                       l1691 61D8  
+                                     l1931 2552                                       l1909 27A6  
+                                     l1870 4774                                       l1688 61BC  
+                                     OUT@b 0061                                       l1869 47D4  
+                                     l1957 2B70                                       l1887 29E8  
+                       __CFG_WPFP$PAGE_127 000000                                       l8521 1250  
                                      l8541 131A                                       l8533 12C8  
                                      l8525 1278                                       l8545 1344  
                                      l8537 12F0                                       l8529 12A0  
@@ -34468,79 +34468,78 @@ Symbol Table                                                                    
             __size_of_USBConfigureEndpoint 0094                          ?_port_button_task 002D  
               __end_of_USBCtrlTrfInHandler 5462                            __CFG_DSWDTPS$G2 000000  
                    i2_USBTransferOnePacket 58D4                         ??_port_button_task 0066  
-                          _I2C_idole_check 6EBE                       terminal_task@command 0181  
-                            _I2C_cfct_flag 011B                          _CDCTxService$2005 0068  
-                               _cdc_notice 0200                    __size_of_ringbuf_delete 0026  
-                                ?i2_memset 002D                                 _cdc_rx_len 0018  
-                               ??_I2C_send 0060                                 _cdc_tx_len 001A  
-                             ??_ST7032_put 006F                                 ??_I2C_stop 0060  
-                               ??_ADC_init 0060                 caltime_to_epoch@month_4002 0080  
-                 ??_USBCtrlTrfSetupHandler 0047                             ??i2_LED_output 002E  
-                             ??_LED_output 0061                     RTCC_adjust_time_dec@tm 0091  
-                         ?_USBDeviceAttach 002D                     _USBStdGetStatusHandler 581A  
-                             sprintf@width 00A9                     RTCC_adjust_time_inc@tm 0091  
-                               __pbssBANK0 00E6                                 __pbssBANK1 0100  
-                               __pbssBANK2 0200                                 __pbssBANK3 0300  
-                               __pbssBANK4 0400                                 __pbssBANK5 0500  
-                                ?_Auto_cut 002D                             LED_indicator@i 0038  
-                           ??_millis_timer 002D                         __size_of_ctmu_task 0014  
-                                ISR@cnt_t1 0117   __end_of_APP_DeviceCDCBasicDemoInitialize 6D0E  
-__size_of_APP_DeviceCDCBasicDemoInitialize 002A         ??_APP_DeviceCDCBasicDemoInitialize 0039  
-        ?_APP_DeviceCDCBasicDemoInitialize 002D           _APP_DeviceCDCBasicDemoInitialize 6CE4  
-                       ST7032_command@wait 006F                    __end_of_caltime_to_RTCC 4B88  
-           __end_of_settings_led_indicator 27E8                            _RTCC_to_caltime 575E  
-                       _settings_auto_stop 27E8                __size_of_USBWakeFromSuspend 0032  
-                              _pBDTEntryIn 00F5           __end_of_USBCtrlEPServiceComplete 42A2  
-              __size_of_USBCheckCDCRequest 00D6                      __end_of_weekday_3char FBC0  
-                   ??_settings_adjust_time 0099                      RTCC_task@prev_halfsec 0118  
-                     USBCtrlTrfRxService@i 002D                                    ?___lmul 006D  
-                    settings_auto_stop@str 0067                                    ?___wmul 0076  
-                           ST7032_init@buf 0500                        ?_settings_auto_stop 002D  
-                                  ?_d_to_x 002D                               ST7032_puts@s 0070  
-                       __end_of_ST7032_put 618C                                    _I2C_ISR 6E50  
-                                  ?_memset 0060                             ___lmul@product 0075  
-                               _device_dsc FBC0                         __end_of_LED_output 611A  
-                         _USBCtrlEPService 5078                                    ?_x_to_d 002D  
-                               _ep_data_in 0001                                    ?_strcat 0060  
-                                  ?_strcmp 0060                                    ?_strcpy 0060  
-                  settings_auto_stop@state 0128                __end_of_USBCtrlTrfRxService 3DB6  
-                       _USBCheckStdRequest 4394                          _configDescriptor1 FAF9  
-                                  i2l10003 3B7C                                    i2l10013 3BD6  
-                                  i2l10007 3B84                                    i2l10019 3C54  
-                                  i2l10027 3C9A                                    i2l10515 1098  
-                                  i2l10525 10B4                                    i2l10509 1078  
-                                  i2l13251 66AC                                    i2l10499 1056  
-                                  i2l13249 667C                         __CFG_OSC$INTOSCPLL 000000  
-                     __end_of_ST7032_clear 6F06                                 ANALOG_IN@b 0060  
-                               ??i2_memset 0033                                  ?_data_out 00AB  
-              __end_of_USBCtrlTrfTxService 48FC                        _USBStdSetCfgHandler 465A  
-                   I2C_LCD_SetCursor@F8685 01E2                                    _SPBRGH1 000F7F  
-                            _I2C_sent_flag 000E                                    _SSP1ADD 000FC8  
-                                  _SSP1BUF 000FC9                       terminal_operation@tx 00DB  
-                                  _RTCVALH 000F3B                                    _RTCVALL 000F3A  
-                     ??_settings_auto_stop 0066                        ?_USBCheckStdRequest 002D  
-             __size_of_USBStdGetDscHandler 014E                                    _UIEbits 000F36  
-                          integrate_time@i 0062                    __end_of_RTCC_from_epoch 6EA4  
-                                ?_bootload 002D                           ST7032_cursor@col 0074  
-                     timer1_init@prescaler 0062                       _RTCC_adjust_time_dec 1912  
-                                  _UIRbits 000F62                       _RTCC_adjust_time_inc 166E  
-                         ST7032_cursor@row 0071                                 ??_Auto_cut 007C  
-                         __CFG_CFGPLLEN$ON 000000                   ??_button_timer_interrupt 0086  
-                            _cdc_trf_state 0019                            ??_ctmu_sampling 0088  
-                          ??_LED_indicator 0035                              ?_month_length 0066  
-                      epoch_to_caltime@day 0087                        epoch_to_caltime@num 008B  
-                          ??_ST7032_cursor 0072                          RTCC_from_epoch@tm 008F  
-                                  _pCDCDst 0106                                    _pCDCSrc 0109  
-                    __size_of_getsUSBUSART 00D2                     display_time_1602@line0 00B5  
-                   display_time_1602@line1 00B7                                  _ANALOG_IN 6BE0  
-                                  __Hparam 0000                             _ST7032_command 61FE  
-                           _ctmu_set_ratio 4574        settings_integrating_reset@strp_6176 0094  
-                     ?_USBStdSetCfgHandler 002D                                  _CDCInitEP 626E  
-                                  __Lparam 0000                                 _ctmu_ratio 001C  
-                                _I2C_start 6F20                          ringbuf_put_num@rb 0083  
-                           display_LCD@str 0192                 __size_of_USBEnableEndpoint 003C  
-                        ringbuf_put_str@rb 006F                                 _readBuffer 0380  
-                  __end_of_I2C_idole_check 6ED6                       ??_USBCheckStdRequest 0047  
+                     terminal_task@command 0181                              _I2C_cfct_flag 011B  
+                        _CDCTxService$2005 0068                                 _cdc_notice 0200  
+                  __size_of_ringbuf_delete 0026                                  ?i2_memset 002D  
+                               _cdc_rx_len 0018                                 ??_I2C_send 0060  
+                               _cdc_tx_len 001A                               ??_ST7032_put 006F  
+                               ??_I2C_stop 0060                                 ??_ADC_init 0060  
+               caltime_to_epoch@month_4002 0080                   ??_USBCtrlTrfSetupHandler 0047  
+                           ??i2_LED_output 002E                               ??_LED_output 0061  
+                   RTCC_adjust_time_dec@tm 0091                           ?_USBDeviceAttach 002D  
+                   _USBStdGetStatusHandler 581A                               sprintf@width 00A9  
+                   RTCC_adjust_time_inc@tm 0091                                 __pbssBANK0 00E6  
+                               __pbssBANK1 0100                                 __pbssBANK2 0200  
+                               __pbssBANK3 0300                                 __pbssBANK4 0400  
+                               __pbssBANK5 0500                                  ?_Auto_cut 002D  
+                           LED_indicator@i 0038                             ??_millis_timer 002D  
+                       __size_of_ctmu_task 0014                                  ISR@cnt_t1 0117  
+ __end_of_APP_DeviceCDCBasicDemoInitialize 6D0E  __size_of_APP_DeviceCDCBasicDemoInitialize 002A  
+       ??_APP_DeviceCDCBasicDemoInitialize 0039          ?_APP_DeviceCDCBasicDemoInitialize 002D  
+         _APP_DeviceCDCBasicDemoInitialize 6CE4                         ST7032_command@wait 006F  
+                  __end_of_caltime_to_RTCC 4B88             __end_of_settings_led_indicator 27E8  
+                          _RTCC_to_caltime 575E                         _settings_auto_stop 27E8  
+              __size_of_USBWakeFromSuspend 0032                                _pBDTEntryIn 00F5  
+         __end_of_USBCtrlEPServiceComplete 42A2                __size_of_USBCheckCDCRequest 00D6  
+                    __end_of_weekday_3char FBC0                     ??_settings_adjust_time 0099  
+                    RTCC_task@prev_halfsec 0118                       USBCtrlTrfRxService@i 002D  
+                                  ?___lmul 006D                      settings_auto_stop@str 0067  
+                                  ?___wmul 0076                             ST7032_init@buf 0500  
+                      ?_settings_auto_stop 002D                                    ?_d_to_x 002D  
+                             ST7032_puts@s 0070                         __end_of_ST7032_put 618C  
+                                  _I2C_ISR 6E50                                    ?_memset 0060  
+                           ___lmul@product 0075                                 _device_dsc FBC0  
+                       __end_of_LED_output 611A                           _USBCtrlEPService 5078  
+                                  ?_x_to_d 002D                                 _ep_data_in 0001  
+                                  ?_strcat 0060                                    ?_strcmp 0060  
+                                  ?_strcpy 0060                    settings_auto_stop@state 0128  
+              __end_of_USBCtrlTrfRxService 3DB6                         _USBCheckStdRequest 4394  
+                        _configDescriptor1 FAF9                                    i2l10003 3B7C  
+                                  i2l10013 3BD6                                    i2l10007 3B84  
+                                  i2l10019 3C54                                    i2l10027 3C9A  
+                                  i2l10515 1098                                    i2l10525 10B4  
+                                  i2l10509 1078                                    i2l13251 66AC  
+                                  i2l10499 1056                                    i2l13249 667C  
+                       __CFG_OSC$INTOSCPLL 000000                       __end_of_ST7032_clear 6F06  
+                               ANALOG_IN@b 0060                                 ??i2_memset 0033  
+                                ?_data_out 00AB                __end_of_USBCtrlTrfTxService 48FC  
+                      _USBStdSetCfgHandler 465A                     I2C_LCD_SetCursor@F8685 01E2  
+                                  _SPBRGH1 000F7F                              _I2C_sent_flag 000E  
+                                  _SSP1ADD 000FC8                                    _SSP1BUF 000FC9  
+                     terminal_operation@tx 00DB                                    _RTCVALH 000F3B  
+                                  _RTCVALL 000F3A                       ??_settings_auto_stop 0066  
+                      ?_USBCheckStdRequest 002D               __size_of_USBStdGetDscHandler 014E  
+                                  _UIEbits 000F36                            integrate_time@i 0062  
+                  __end_of_RTCC_from_epoch 6EA4                                  ?_bootload 002D  
+                         ST7032_cursor@col 0074                       timer1_init@prescaler 0062  
+                     _RTCC_adjust_time_dec 1912                                    _UIRbits 000F62  
+                     _RTCC_adjust_time_inc 166E                           ST7032_cursor@row 0071  
+                               ??_Auto_cut 007C                           __CFG_CFGPLLEN$ON 000000  
+                 ??_button_timer_interrupt 0086                              _cdc_trf_state 0019  
+                          ??_ctmu_sampling 0088                            ??_LED_indicator 0035  
+                            ?_month_length 0066                        epoch_to_caltime@day 0087  
+                      epoch_to_caltime@num 008B                            ??_ST7032_cursor 0072  
+                        RTCC_from_epoch@tm 008F                                    _pCDCDst 0106  
+                                  _pCDCSrc 0109                      __size_of_getsUSBUSART 00D2  
+                   display_time_1602@line0 00B5                     display_time_1602@line1 00B7  
+                                _ANALOG_IN 6BE0                                    __Hparam 0000  
+                           _ST7032_command 61FE                             _ctmu_set_ratio 4574  
+      settings_integrating_reset@strp_6176 0094                       ?_USBStdSetCfgHandler 002D  
+                                _CDCInitEP 626E                                    __Lparam 0000  
+                               _ctmu_ratio 001C                                  _I2C_start 6F20  
+                        ringbuf_put_num@rb 0083                             display_LCD@str 0192  
+               __size_of_USBEnableEndpoint 003C                          ringbuf_put_str@rb 006F  
+                               _readBuffer 0380                       ??_USBCheckStdRequest 0047  
             __size_of_USBCtrlTrfOutHandler 005C                              ?_ringbuf_init 0060  
                                   ___awdiv 55E4                            __size_of___lmul 0076  
                                   ___awmod 598E                                    ___lldiv 56A2  
@@ -34575,39 +34574,39 @@ __size_of_APP_DeviceCDCBasicDemoInitialize 002A         ??_APP_DeviceCDCBasicDem
                   __size_of_RTCC_from_RTCC 001A                                 data_out@tx 00AB  
                                   _isdigit 6C90                                  _T3CONbits 000F79  
                          ___awmod@dividend 0060                                 ??_data_out 00AD  
-           settings_integrating_reset@strp 0092                                  _T5CONbits 000F22  
-                    __end_of_hardware_init 67BC                            i2_USBDeviceInit 37CA  
-                         i2USBDeviceInit@i 0035                          __end_ofdata_out@p FBE2  
-                                  _uart_rx 02AE                                    _uart_tx 02B6  
-                       __end_of_USB_CD_Ptr FA81                                    _sprintf 0000  
-          __size_of_USBCtrlTrfSetupHandler 008E                    __end_of_RTCC_to_caltime 581A  
-                    ?_RTCC_adjust_time_dec 0091                      ?_RTCC_adjust_time_inc 0091  
-                    __size_of_get_quot_rem 00D4                       end_of_initialization 5B5E  
-                             _getsUSBUSART 4ED8                                 ??_bootload 0075  
-                                _CTMU_init 6D36                                  _CTMU_read 5462  
-                    __end_of_settings_task 2C4A                               _CTMUCONHbits 000FB3  
-                       __end_of_USB_SD_Ptr FA7F                               _CTMUCONLbits 000FB2  
-                      _pBDTEntryEP0OutNext 000B            settings_integrating_reset@state 0129  
-                           ??_month_length 0067                             display_dec@dec 00AD  
-                                  memset@c 0062                                    memset@n 0064  
-                                  memset@p 0066                             display_dec@str 00AB  
-          _dummy_encapsulated_cmd_response 02A6                     _terminal_data_out_flag 0125  
-             terminal_operation@percentage 00E5                     __end_of_ST7032_command 626E  
-                   __end_of_ctmu_set_ratio 465A                                  i2u1013_45 6436  
-                                i2u1013_46 643A                                  i2u1014_40 6444  
-                                i2u1016_40 6450                                  i2u1018_40 645C  
-                              sleep_task@i 0075                   ?_USBStdFeatureReqHandler 002D  
-                         ?_caltime_to_RTCC 0069                      ??_USBStdSetCfgHandler 0041  
-                     __size_of_USB_CDC_ISR 0006                            ___lldiv@divisor 0064  
-                               ?_ANALOG_IN 002D                       timer3_init@prescaler 0061  
-                               ?_CDCInitEP 002D                            ___lldiv@counter 006C  
-                     __size_of_USB_CDC_get 002A                                 ?_I2C_start 002D  
-                       __end_of_USBSuspend 6C64                             ??_ringbuf_init 0066  
-                  _USBCtrlEPAllowDataStage 5A30                                    postdec1 000FE5  
-                                  postdec2 000FDD                                 _sleep_task 4E06  
-                                  postinc0 000FEE                                    postinc1 000FE6  
-                                  postinc2 000FDE                       __end_ofi2_LED_output 6476  
-                 _USBCtrlEPServiceComplete 41AE                        I2C_idole_check@mask 0061  
+           settings_integrating_reset@strp 0092                    __size_of_I2C_idle_check 0018  
+                                _T5CONbits 000F22                      __end_of_hardware_init 67BC  
+                          i2_USBDeviceInit 37CA                           i2USBDeviceInit@i 0035  
+                        __end_ofdata_out@p FBE2                                    _uart_rx 02AE  
+                                  _uart_tx 02B6                         __end_of_USB_CD_Ptr FA81  
+                                  _sprintf 0000            __size_of_USBCtrlTrfSetupHandler 008E  
+                  __end_of_RTCC_to_caltime 581A                      ?_RTCC_adjust_time_dec 0091  
+                    ?_RTCC_adjust_time_inc 0091                      __size_of_get_quot_rem 00D4  
+                     end_of_initialization 5B5E                               _getsUSBUSART 4ED8  
+                               ??_bootload 0075                                  _CTMU_init 6D36  
+                                _CTMU_read 5462                      __end_of_settings_task 2C4A  
+                             _CTMUCONHbits 000FB3                         __end_of_USB_SD_Ptr FA7F  
+                             _CTMUCONLbits 000FB2                        _pBDTEntryEP0OutNext 000B  
+          settings_integrating_reset@state 0129                             ??_month_length 0067  
+                           display_dec@dec 00AD                                    memset@c 0062  
+                                  memset@n 0064                                    memset@p 0066  
+                           display_dec@str 00AB            _dummy_encapsulated_cmd_response 02A6  
+                   _terminal_data_out_flag 0125               terminal_operation@percentage 00E5  
+                   __end_of_ST7032_command 626E                     __end_of_ctmu_set_ratio 465A  
+                                i2u1013_45 6436                                  i2u1013_46 643A  
+                                i2u1014_40 6444                                  i2u1016_40 6450  
+                                i2u1018_40 645C                                sleep_task@i 0075  
+                 ?_USBStdFeatureReqHandler 002D                           ?_caltime_to_RTCC 0069  
+                    ??_USBStdSetCfgHandler 0041                       __size_of_USB_CDC_ISR 0006  
+                          ___lldiv@divisor 0064                                 ?_ANALOG_IN 002D  
+                     timer3_init@prescaler 0061                                 ?_CDCInitEP 002D  
+                          ___lldiv@counter 006C                       __size_of_USB_CDC_get 002A  
+                               ?_I2C_start 002D                         __end_of_USBSuspend 6C64  
+                           ??_ringbuf_init 0066                    _USBCtrlEPAllowDataStage 5A30  
+                                  postdec1 000FE5                                    postdec2 000FDD  
+                               _sleep_task 4E06                                    postinc0 000FEE  
+                                  postinc1 000FE6                                    postinc2 000FDE  
+                     __end_ofi2_LED_output 6476                   _USBCtrlEPServiceComplete 41AE  
                                   strcmp@r 0065                 _USBStatusStageEnabledFlag1 0014  
                _USBStatusStageEnabledFlag2 0015                         USBEnableEndpoint@p 0036  
                              I2C_send@data 0060                           __CFG_DSBOREN$OFF 000000  
@@ -34635,63 +34634,63 @@ __size_of_APP_DeviceCDCBasicDemoInitialize 002A         ??_APP_DeviceCDCBasicDem
                        i2___awdiv@dividend 002D                          putUSBUSART@length 0062  
                       __CFG_MSSP7B_EN$MSK7 000000                          LED_indicator@cntf 0215  
                            ringbuf_init@rb 0060                     _USBCtrlTrfSetupHandler 5D24  
-                            ??_display_LCD 00BA                           ?_I2C_idole_check 002D  
-              __end_of_USB_CDC_buffer_init 6900                             ringbuf_pop@ret 006E  
-                            ??_display_dec 00AF                    ?i2_USBTransferOnePacket 002D  
-             ??_settings_integrating_reset 0066                      __end_of_USBDeviceInit 33EA  
-                        ?_terminal_at_hand 00CB                             __end_of___lmul 60A8  
-                 ?_RTCC_adjust_time_cursor 0060                      ST7032_command@command 0070  
-                           __end_of___wmul 6B1A                             __end_of_d_to_x 6D36  
-                    __size_of_ST7032_clear 000E                   ?_RTCC_adjust_time_toggle 0060  
-                  __end_ofi2_USBDeviceInit 390E                     __end_of_ringbuf_delete 6DAA  
-                       ??_terminal_at_hand 00D2                                  i2memset@c 002F  
-                                i2memset@n 0031                                  i2memset@p 0033  
-                           __end_of_memset 6B4E                                 ?_RTCC_init 002D  
-                               ?_RTCC_task 002D                           __CFG_DSWDTEN$OFF 000000  
-                        _USBBusIsSuspended 011C                             __end_of_x_to_d 6E50  
-                           __end_of_strcat 65FA                      epoch_to_caltime@month 008A  
-                           __end_of_strcmp 6656                             __end_of_strcpy 6AAC  
-                      start_initialization 5ACE                                 CTMU_read@i 0075  
-                         month_length@year 006B                    ?_USBStdGetStatusHandler 002D  
-                              __end_of_ADC 6BE0                         i2___awdiv@quotient 0033  
-                              __end_of_ISR 10FA              USBCtrlTrfRxService@byteToRead 002E  
-                              __end_of_OUT 61FE                     ??_RTCC_adjust_time_dec 0093  
-                   ??_RTCC_adjust_time_inc 0093                                _cdc_data_rx 0300  
-                           ??_USB_CDC_init 0069                                _cdc_data_tx 0340  
-                        __size_ofi2_memset 002C                             ??_USB_CDC_send 006E  
-                           ??_USB_CDC_task 006F                                 ?i2___awdiv 002D  
-             __end_of_USBConfigureEndpoint 5C96                           ?_RTCC_to_caltime 0062  
-                __size_of_port_button_task 0164                                 ?i2___lwdiv 002D  
-          __end_of_USBStdFeatureReqHandler 20C4          __end_of_USBCtrlEPAllowStatusStage 539E  
-                    __end_of_software_init 55E4                   __end_of_USBCtrlEPService 5146  
-                      settings_auto_stop@i 0093                        settings_auto_stop@j 0095  
-                        _integrate_current 3FBC                            ___llmod@divisor 0071  
-      __size_of_settings_integrating_reset 025E                          __size_of_Auto_cut 0134  
-                          ___llmod@counter 0075                    settings_led_indicator@i 0093  
-                  settings_led_indicator@j 0095                         ?_integrate_current 002D  
-                ??_USBCtrlEPAllowDataStage 002E                                ??_ANALOG_IN 0060  
-                              ??_CDCInitEP 0039                             USBDeviceInit@i 0068  
-                            ??_ST7032_init 0071                               _ST7032_clear 6EF8  
-                            ??_ST7032_task 006F                                ??_I2C_start 0060  
-                            ??_ST7032_puts 0072                     _pBDTEntryEP0OutCurrent 0009  
-                             _ctmu_value_m 0110                    USBTransferOnePacket@dir 0060  
-                  USBTransferOnePacket@len 0063             __end_ofi2_USBTransferOnePacket 598E  
-                         display_LCD@onoff FBD2                 settings_auto_stop@str_6141 007B  
-                      ringbuf_put_num@temp 0089               settings_led_indicator@i_6160 0094  
-                                 ??___lmul 0075                                ?_sleep_task 002D  
-                                 ??___wmul 007A                        _USBStdGetDscHandler 3538  
-                                 ??_d_to_x 0068                        ??_integrate_current 006D  
-              __size_of_terminal_operation 0272                          __CFG_ADCSEL$BIT12 000000  
-                              __pdataBANK1 01E2                                   ?_I2C_ISR 002D  
-                                 ??_memset 0066                   __size_of_ringbuf_put_num 0082  
-                 __size_of_ringbuf_put_str 0064                     _button_timer_interrupt 10F6  
-                                 ??_x_to_d 0060                            ?_ringbuf_delete 0060  
-                                 ??_strcat 0064                                   ??_strcmp 0064  
-                                 ??_strcpy 0064                       __end_of_month_length 49DA  
-                           _RTCC_from_RTCC 6EA4                        __end_of_display_LCD 09E0  
-                   _USBActiveConfiguration 002B             __end_of_USBStdGetStatusHandler 58D4  
-                              ?_print_time 00AB                    __size_of_integrate_time 0062  
-                      __end_of_display_dec 6344                                __pbssCOMRAM 0001  
+                            ??_display_LCD 00BA                __end_of_USB_CDC_buffer_init 6900  
+                           ringbuf_pop@ret 006E                              ??_display_dec 00AF  
+                  ?i2_USBTransferOnePacket 002D               ??_settings_integrating_reset 0066  
+                    __end_of_USBDeviceInit 33EA                          ?_terminal_at_hand 00CB  
+                           __end_of___lmul 60A8                   ?_RTCC_adjust_time_cursor 0060  
+                    ST7032_command@command 0070                             __end_of___wmul 6B1A  
+                           __end_of_d_to_x 6D36                      __size_of_ST7032_clear 000E  
+                 ?_RTCC_adjust_time_toggle 0060                    __end_ofi2_USBDeviceInit 390E  
+                   __end_of_ringbuf_delete 6DAA                         ??_terminal_at_hand 00D2  
+                                i2memset@c 002F                                  i2memset@n 0031  
+                                i2memset@p 0033                             __end_of_memset 6B4E  
+                               ?_RTCC_init 002D                                 ?_RTCC_task 002D  
+                         __CFG_DSWDTEN$OFF 000000                          _USBBusIsSuspended 011C  
+                           __end_of_x_to_d 6E50                             __end_of_strcat 65FA  
+                    epoch_to_caltime@month 008A                             __end_of_strcmp 6656  
+                           __end_of_strcpy 6AAC                        start_initialization 5ACE  
+                               CTMU_read@i 0075                           month_length@year 006B  
+                  ?_USBStdGetStatusHandler 002D                                __end_of_ADC 6BE0  
+                       i2___awdiv@quotient 0033                                __end_of_ISR 10FA  
+            USBCtrlTrfRxService@byteToRead 002E                                __end_of_OUT 61FE  
+                   ??_RTCC_adjust_time_dec 0093                     ??_RTCC_adjust_time_inc 0093  
+                              _cdc_data_rx 0300                             ??_USB_CDC_init 0069  
+                              _cdc_data_tx 0340                          __size_ofi2_memset 002C  
+                           ??_USB_CDC_send 006E                             ??_USB_CDC_task 006F  
+                               ?i2___awdiv 002D               __end_of_USBConfigureEndpoint 5C96  
+                         ?_RTCC_to_caltime 0062                  __size_of_port_button_task 0164  
+                               ?i2___lwdiv 002D            __end_of_USBStdFeatureReqHandler 20C4  
+        __end_of_USBCtrlEPAllowStatusStage 539E                      __end_of_software_init 55E4  
+                 __end_of_USBCtrlEPService 5146                        settings_auto_stop@i 0093  
+                      settings_auto_stop@j 0095                          _integrate_current 3FBC  
+                          ___llmod@divisor 0071        __size_of_settings_integrating_reset 025E  
+                        __size_of_Auto_cut 0134                            ___llmod@counter 0075  
+                  settings_led_indicator@i 0093                    settings_led_indicator@j 0095  
+                       ?_integrate_current 002D                  ??_USBCtrlEPAllowDataStage 002E  
+                              ??_ANALOG_IN 0060                                ??_CDCInitEP 0039  
+                           USBDeviceInit@i 0068                              ??_ST7032_init 0071  
+                             _ST7032_clear 6EF8                              ??_ST7032_task 006F  
+                              ??_I2C_start 0060                              ??_ST7032_puts 0072  
+                   _pBDTEntryEP0OutCurrent 0009                               _ctmu_value_m 0110  
+                  USBTransferOnePacket@dir 0060                    USBTransferOnePacket@len 0063  
+           __end_ofi2_USBTransferOnePacket 598E                           display_LCD@onoff FBD2  
+               settings_auto_stop@str_6141 007B                        ringbuf_put_num@temp 0089  
+             settings_led_indicator@i_6160 0094                                   ??___lmul 0075  
+                              ?_sleep_task 002D                                   ??___wmul 007A  
+                      _USBStdGetDscHandler 3538                                   ??_d_to_x 0068  
+                      ??_integrate_current 006D                __size_of_terminal_operation 0272  
+                        __CFG_ADCSEL$BIT12 000000                                __pdataBANK1 01E2  
+                                 ?_I2C_ISR 002D                                   ??_memset 0066  
+                 __size_of_ringbuf_put_num 0082                   __size_of_ringbuf_put_str 0064  
+                   _button_timer_interrupt 10F6                                   ??_x_to_d 0060  
+                          ?_ringbuf_delete 0060                                   ??_strcat 0064  
+                                 ??_strcmp 0064                                   ??_strcpy 0064  
+                     __end_of_month_length 49DA                             _RTCC_from_RTCC 6EA4  
+                      __end_of_display_LCD 09E0                     _USBActiveConfiguration 002B  
+           __end_of_USBStdGetStatusHandler 58D4                                ?_print_time 00AB  
+                  __size_of_integrate_time 0062                        __end_of_display_dec 6344  
+                           _I2C_idle_check 6EBE                                __pbssCOMRAM 0001  
                       RTCC_to_caltime@dumy 0064                              __pcstackBANK0 0060  
                             __pcstackBANK1 0192               __size_of_USBCtrlTrfInHandler 00C4  
                             __pcstackBANK6 0600                       __end_of_ringbuf_init 6810  
@@ -34734,170 +34733,171 @@ __size_of_APP_DeviceCDCBasicDemoInitialize 002A         ??_APP_DeviceCDCBasicDem
                    settings_auto_stop@strp 008F                     __end_of_RTCC_from_RTCC 6EBE  
                       __end_of_ST7032_init 52DA                        __end_of_ST7032_task 3538  
                       __end_of_ST7032_puts 6766                           ?i2_USBDeviceInit 002D  
-                 settings_auto_stop@i_6143 0094                                ??_RTCC_init 0091  
-                                 ?_display 0060                                ??_RTCC_task 0088  
-                     _USBTransferOnePacket 49DA                                   ?_isdigit 002D  
-                         _epoch_to_caltime 2C4A                                   OUT@value 0060  
-                     __CFG_RTCOSC$T1OSCREF 000000                                   _I2C_busy 011A  
-                                 _I2C_send 6F06                           _display_LCD$7053 01CE  
-                         _display_LCD$7054 01D2                           _display_LCD$7055 01D6  
-                         _display_LCD$7056 01DA                           _display_LCD$7057 01DE  
-                                _ctmu_task 6ED6                                   _I2C_stop 6F1C  
-                                 _ADC_init 6DD0                                _PADCFG1bits 000F3C  
-             __end_of_USBCtrlTrfOutHandler 670E                        ringbuf_backspace@rb 0068  
-                            ?_I2C_init_new 002D                      ??_USBStdGetDscHandler 002D  
-                          ST7032_task@data 0071                                _ep_data_out 0004  
-                         ___lwdiv@quotient 0081                      terminal_at_hand@value 00D1  
-                          ST7032_task@wait 010C                                ??i2___awdiv 0031  
-                                 ?_sprintf 0083               __size_of_USBCtrlTrfRxService 0118  
-              __size_of_settings_auto_stop 0242              USBConfigureEndpoint@direction 002D  
-                              ??i2___lwdiv 0031                               i2_LED_output 6412  
-                      __size_of_sleep_task 00D2                                  data_out@i 00CB  
-                                data_out@p FBDC                                  d_to_x@dec 0068  
-                                 _CTMUCONH 000FB3                                   _CTMUCONL 000FB2  
-                                 _CTMUICON 000FB1               __size_of_USBCtrlTrfTxService 00E0  
-                 ringbuf_init@internal_buf 0062                             ___wmul@product 007A  
-               ??_USBCtrlEPServiceComplete 002E                      __end_of_ctmu_sampling 3FBC  
-                    __end_of_LED_indicator 3C9E                               _millis_timer 6DAA  
-                                 _IPR1bits 000F9F                                   _IPR2bits 000FA2  
-                                 _PIE1bits 000F9D                                   _PIE2bits 000FA0  
-                                 _IPR5bits 000F99                                   _PIE5bits 000F91  
-                      __size_of_print_time 008C                      __end_of_ST7032_cursor 6B80  
-                                 _PIR1bits 000F9E                                   i2u610_40 48A2  
-                                 i2u610_47 4898                                   _PIR2bits 000FA1  
-                                 i2u612_40 48E4                                   i2u612_47 48DA  
-                                 i2u641_40 3652                                   _PIR5bits 000F98  
-                                 i2u641_47 3648                 epoch_to_caltime@year_cache 0126  
-                                 i2u638_40 35C0                                   i2u638_47 35B6  
-                                 i2u639_40 35F6                                   i2u639_47 35EC  
-                USBCtrlEPService@setup_cnt 0049                              ??_ringbuf_pop 006A  
-                            ??_ringbuf_num 0062                              ??_ringbuf_put 006B  
-                                 _RCONbits 000FD0                          _display_time_1602 13BE  
-                            ??_putUSBUSART 0063                                   _UEP0bits 000F26  
-       __end_of_settings_integrating_reset 2594                 _settings_integrating_reset 2336  
-               _USBDeferINDataStagePackets 0010                      terminal_operation@op0 00DD  
-                    terminal_operation@op1 00DF                      terminal_operation@op2 00E1  
-                    terminal_operation@op3 00E3                                   _SSP1CON1 000FC6  
-                                 _SSP1CON2 000FC5                              ??_timer0_init 0060  
-                            ??_timer1_init 0061                __size_of_USBCheckStdRequest 00F2  
-                              _display_LCD 051C                              ??_timer3_init 0060  
-                            ??_normal_task 00CC                                   _SSP1STAT 000FC7  
-                                 _UCONbits 000F65                       __end_of_USB_CDC_init 6EF8  
+                   __end_of_I2C_idle_check 6ED6                   settings_auto_stop@i_6143 0094  
+                              ??_RTCC_init 0091                                   ?_display 0060  
+                              ??_RTCC_task 0088                       _USBTransferOnePacket 49DA  
+                                 ?_isdigit 002D                           _epoch_to_caltime 2C4A  
+                                 OUT@value 0060                       __CFG_RTCOSC$T1OSCREF 000000  
+                                 _I2C_busy 011A                                   _I2C_send 6F06  
+                         _display_LCD$7053 01CE                           _display_LCD$7054 01D2  
+                         _display_LCD$7055 01D6                           _display_LCD$7056 01DA  
+                         _display_LCD$7057 01DE                                  _ctmu_task 6ED6  
+                                 _I2C_stop 6F1C                                   _ADC_init 6DD0  
+                              _PADCFG1bits 000F3C               __end_of_USBCtrlTrfOutHandler 670E  
+                      ringbuf_backspace@rb 0068                              ?_I2C_init_new 002D  
+                    ??_USBStdGetDscHandler 002D                            ST7032_task@data 0071  
+                              _ep_data_out 0004                           ___lwdiv@quotient 0081  
+                    terminal_at_hand@value 00D1                            ST7032_task@wait 010C  
+                              ??i2___awdiv 0031                                   ?_sprintf 0083  
+             __size_of_USBCtrlTrfRxService 0118                __size_of_settings_auto_stop 0242  
+            USBConfigureEndpoint@direction 002D                                ??i2___lwdiv 0031  
+                             i2_LED_output 6412                        __size_of_sleep_task 00D2  
+                                data_out@i 00CB                                  data_out@p FBDC  
+                                d_to_x@dec 0068                                   _CTMUCONH 000FB3  
+                                 _CTMUCONL 000FB2                                   _CTMUICON 000FB1  
+             __size_of_USBCtrlTrfTxService 00E0                   ringbuf_init@internal_buf 0062  
+                           ___wmul@product 007A                 ??_USBCtrlEPServiceComplete 002E  
+                    __end_of_ctmu_sampling 3FBC                      __end_of_LED_indicator 3C9E  
+                             _millis_timer 6DAA                                   _IPR1bits 000F9F  
+                                 _IPR2bits 000FA2                                   _PIE1bits 000F9D  
+                                 _PIE2bits 000FA0                                   _IPR5bits 000F99  
+                                 _PIE5bits 000F91                        __size_of_print_time 008C  
+                    __end_of_ST7032_cursor 6B80                                   _PIR1bits 000F9E  
+                                 i2u610_40 48A2                                   i2u610_47 4898  
+                                 _PIR2bits 000FA1                                   i2u612_40 48E4  
+                                 i2u612_47 48DA                                   i2u641_40 3652  
+                                 _PIR5bits 000F98                                   i2u641_47 3648  
+               epoch_to_caltime@year_cache 0126                                   i2u638_40 35C0  
+                                 i2u638_47 35B6                                   i2u639_40 35F6  
+                                 i2u639_47 35EC                  USBCtrlEPService@setup_cnt 0049  
+                            ??_ringbuf_pop 006A                              ??_ringbuf_num 0062  
+                            ??_ringbuf_put 006B                                   _RCONbits 000FD0  
+                        _display_time_1602 13BE                              ??_putUSBUSART 0063  
+                                 _UEP0bits 000F26         __end_of_settings_integrating_reset 2594  
+               _settings_integrating_reset 2336                 _USBDeferINDataStagePackets 0010  
+                    terminal_operation@op0 00DD                      terminal_operation@op1 00DF  
+                    terminal_operation@op2 00E1                      terminal_operation@op3 00E3  
+                                 _SSP1CON1 000FC6                                   _SSP1CON2 000FC5  
+                            ??_timer0_init 0060                              ??_timer1_init 0061  
+              __size_of_USBCheckStdRequest 00F2                                _display_LCD 051C  
+                            ??_timer3_init 0060                              ??_normal_task 00CC  
+                                 _SSP1STAT 000FC7                                   _UCONbits 000F65  
+                     __end_of_USB_CDC_init 6EF8                         I2C_idle_check@mask 0061  
                      __end_of_USB_CDC_send 6E10                       __end_of_USB_CDC_task 41AE  
                        ?_display_time_1602 00B3                                _display_dec 62DA  
                      _USBConfigureEndpoint 5C02                            ?_RTCC_from_RTCC 0086  
                          __size_of_I2C_ISR 001E           __size_of_USBStdFeatureReqHandler 0280  
                                _ADCON0bits 000FC2                                 _ADCON1bits 000FC1  
                         ___wmul@multiplier 0076                      ?_USBTransferOnePacket 0060  
-                         __CFG_SOSCSEL$LOW 000000                             software_init@i 0084  
-           button_timer_interrupt@sw_value 0085                              ?_CDCTxService 002D  
-                      ??_display_time_1602 00B9                               _RemoteWakeup 000F  
-                        i2___awdiv@divisor 002F                                   i2_memset 6C64  
-                           ??_I2C_init_new 0060                          i2___awdiv@counter 0031  
-                        ??_ringbuf_put_num 0088                                 ?_ctmu_task 002D  
-                        ??_ringbuf_put_str 0073                              ringbuf_pop@rb 0068  
-                            ringbuf_num@rb 0060                    __end_of_USBStallHandler 6946  
-                            ringbuf_put@rb 0068                   ??_settings_led_indicator 0066  
-                         ??_ST7032_command 0070                          ___lmul@multiplier 006D  
-                         ??_ctmu_set_ratio 0083                                _INTCON2bits 000FF1  
-                         _port_button_task 3124                                  copy_data0 5B52  
-               __size_of_integrate_current 00FC                ??_USBCtrlEPAllowStatusStage 002D  
-              __end_of_USBStdSetCfgHandler 473C                                   _Auto_cut 3A44  
-                     epoch_to_caltime@year 0089              settings_task@item_change_flag 0099  
-                            ??_USB_CDC_ISR 004B                     __size_of_terminal_task 036A  
-                   __size_of_terminal_time 03AC                              ??_USB_CDC_get 006D  
-                       __end_of_device_dsc FBD2                    ?_USBCtrlTrfSetupHandler 002D  
-                __end_of_display_time_1602 166E                    USBStdGetStatusHandler@p 002E  
-                                 __Hrparam 0000                                _ST7032_init 5212  
-                                 __Lrparam 0000                     USBTransferOnePacket@ep 0064  
-                              _ST7032_task 33EA                              i2LED_output@b 002E  
-                              _ST7032_puts 670E                                   _SetupPkt 000D30  
-                            _weekday_3char FBA4                     __size_of_hardware_init 0056  
-                    __size_of_month_length 00DE                         ringbuf_put_str@str 0071  
-                    ?_USBConfigureEndpoint 002D                   __size_of_caltime_to_RTCC 00D6  
-                        ??_USBDeviceAttach 0060                           __size_of___awdiv 00BE  
-                         __size_of___awmod 00A2                           __size_of___lldiv 00BC  
-                         __size_of___llmod 009A                           __size_of___lwdiv 0078  
-                         __size_of___lwmod 0062                     __size_of_settings_task 0220  
-                      __end_of_ringbuf_pop 5212                        __end_of_ringbuf_num 4574  
-                      __end_of_ringbuf_put 4E06                        __end_of_putUSBUSART 6E30  
-                              _line_coding 0189                             _integrate_flag 0121  
-                           ??_CDCTxService 0067                             _integrate_time 6476  
-                      __end_of_timer0_init 6A3A                      __size_of_ringbuf_init 0054  
-                      __end_of_timer1_init 68B2                           __size_of_display 0136  
-                               sprintf@len 00A1                        __end_of_timer3_init 6C38  
-                               sprintf@val 00A3                        __end_of_normal_task 5078  
-                      display_LCD@str_5618 01BA                          i2LED_output@value 002D  
-                               strcat@from 0062                                   _data_out 2E3C  
-                         __size_of_isdigit 002A                    __size_of_USBDeviceTasks 0144  
-                          ___lwdiv@divisor 007E                            ___lwdiv@counter 0080  
-                     timer0_init@prescaler 0061                                   __ptext10 5EC2  
-                                 __ptext11 6D84                                   __ptext20 27E8  
-                                 __ptext12 5C96                                   __ptext21 473C  
-                                 __ptext13 5524                   __end_ofdisplay_LCD@onoff FBDC  
-                                 __ptext30 3FBC                                   __ptext22 6988  
-                                 __ptext14 4574                                   __ptext31 051C  
-                                 __ptext23 166E                                   __ptext15 4E06  
-                                 __ptext40 0000                                   __ptext32 13BE  
-                                 __ptext24 1912                                   __ptext16 4FAA  
-                                 __ptext41 6C90                                   __ptext33 6A74  
-                                 __ptext25 3DB6                                   __ptext17 2A2A  
-                                 __ptext50 6766                                   __ptext42 5B68  
-                                 __ptext34 62DA                                   __ptext26 3124  
-                                 __ptext18 2594                                   __ptext51 6C0C  
-                                 __ptext43 63AE                                   __ptext35 659A  
-                                 __ptext27 390E                                   __ptext19 2336  
-                                 __ptext60 67BC                                   __ptext52 6862  
-                                 __ptext44 64D8                                   __ptext36 670E  
-                                 __ptext28 60A8                                   __ptext61 6EF8  
-                                 __ptext53 6A00                                   __ptext45 3A44  
-                                 __ptext37 611A                                   __ptext29 6476  
-                                 __ptext70 55E4                                   __ptext62 61FE  
-                                 __ptext54 6EEA                                   __ptext46 6AE4  
-                                 __ptext38 6B4E                                   __ptext71 6D36  
-                                 __ptext63 6E6E                                   __ptext55 68B2  
-                                 __ptext47 618C                                   __ptext39 2E3C  
-                                 __ptext80 4D32                                   __ptext72 6DD0  
-                                 __ptext64 6344                                   __ptext56 3288  
-                                 __ptext48 6BE0                                   __ptext81 6DF0  
-                                 __ptext73 6ED6                                   __ptext65 6E8A  
-                                 __ptext57 6B1A                                   __ptext49 6BB2  
-                                 __ptext90 6F1C                                   __ptext82 6E10  
-                                 __ptext74 3EBA                                   __ptext66 2C4A  
-                                 __ptext58 6AAC                                   __ptext91 6F20  
-                                 __ptext83 6CBA                                   __ptext75 10F6  
-                                 __ptext67 4C5E                                   __ptext59 5212  
-                                 __ptext92 6F06                                   __ptext84 4ED8  
-                                 __ptext76 5F44                                   __ptext68 4AB2  
-                                 __ptext93 6EBE                                   __ptext85 2FB4  
-                                 __ptext77 5462                                   __ptext69 6D0E  
-                                 __ptext94 6A3A                                   __ptext86 49DA  
-                                 __ptext78 56A2                                   __ptext95 6EA4  
-                                 __ptext87 33EA                                   __ptext79 40B8  
-                                 __ptext96 1BB6                                   __ptext88 5146  
-                                 __ptext97 48FC                                   __ptext89 4486  
-                                 __ptext98 598E                                   __ptext99 6032  
-                             _SSP1CON1bits 000FC6                               _SSP1CON2bits 000FC5  
-         __size_of_RTCC_adjust_time_cursor 0104                  __size_of_terminal_at_hand 0060  
-         __size_of_RTCC_adjust_time_toggle 003C                                   _bootload 6946  
-                         __size_of_sprintf 051C                                 strcpy@from 0062  
-                     terminal_at_hand@hand 00CD                              __size_of_atoi 00F2  
-           __end_of_USBCtrlTrfSetupHandler 5DB2                              __size_of_main 0076  
-                        ?_USBCtrlEPService 002D                                data_out@str 00AD  
-                             _month_length 48FC                         ??_USBCtrlEPService 0047  
-                 __size_of_RTCC_from_epoch 001A                        _USBCtrlTrfInHandler 539E  
-                      __end_of_USB_CDC_ISR 6F16                               ??_sleep_task 0075  
-                      __end_of_USB_CDC_get 6CE4                                   _outPipes 00E6  
-                         ??_ringbuf_delete 0062                    ?_button_timer_interrupt 0083  
-                     _USBCtrlTrfOutHandler 66B2                                   int$flags 0059  
-                             _ringbuf_init 67BC                                   atoi@sign 0080  
-                _USBCtrlEPAllowStatusStage 52DA           settings_integrating_reset@i_6177 0097  
-                                x_to_d@hex 0061                               _SSP1STATbits 000FC7  
-                                 display@i 0065                     ??_USBTransferOnePacket 0064  
-                            _terminal_task 0D8C                              _terminal_time 09E0  
-                   __end_of_integrate_time 64D8                  _USBDeferStatusStagePacket 0012  
-                             ??_print_time 00AD                   CDCTxService@byte_to_send 006B  
-                 __size_of_I2C_idole_check 0018               __size_of_USB_CDC_buffer_init 004E  
+                          ?_I2C_idle_check 002D                           __CFG_SOSCSEL$LOW 000000  
+                           software_init@i 0084             button_timer_interrupt@sw_value 0085  
+                            ?_CDCTxService 002D                        ??_display_time_1602 00B9  
+                             _RemoteWakeup 000F                          i2___awdiv@divisor 002F  
+                                 i2_memset 6C64                             ??_I2C_init_new 0060  
+                        i2___awdiv@counter 0031                          ??_ringbuf_put_num 0088  
+                               ?_ctmu_task 002D                          ??_ringbuf_put_str 0073  
+                            ringbuf_pop@rb 0068                              ringbuf_num@rb 0060  
+                  __end_of_USBStallHandler 6946                              ringbuf_put@rb 0068  
+                 ??_settings_led_indicator 0066                           ??_ST7032_command 0070  
+                        ___lmul@multiplier 006D                           ??_ctmu_set_ratio 0083  
+                              _INTCON2bits 000FF1                           _port_button_task 3124  
+                                copy_data0 5B52                 __size_of_integrate_current 00FC  
+              ??_USBCtrlEPAllowStatusStage 002D                __end_of_USBStdSetCfgHandler 473C  
+                                 _Auto_cut 3A44                       epoch_to_caltime@year 0089  
+            settings_task@item_change_flag 0099                              ??_USB_CDC_ISR 004B  
+                   __size_of_terminal_task 036A                     __size_of_terminal_time 03AC  
+                            ??_USB_CDC_get 006D                         __end_of_device_dsc FBD2  
+                  ?_USBCtrlTrfSetupHandler 002D                  __end_of_display_time_1602 166E  
+                  USBStdGetStatusHandler@p 002E                                   __Hrparam 0000  
+                              _ST7032_init 5212                                   __Lrparam 0000  
+                   USBTransferOnePacket@ep 0064                                _ST7032_task 33EA  
+                            i2LED_output@b 002E                                _ST7032_puts 670E  
+                                 _SetupPkt 000D30                              _weekday_3char FBA4  
+                   __size_of_hardware_init 0056                      __size_of_month_length 00DE  
+                       ringbuf_put_str@str 0071                      ?_USBConfigureEndpoint 002D  
+                 __size_of_caltime_to_RTCC 00D6                          ??_USBDeviceAttach 0060  
+                         __size_of___awdiv 00BE                           __size_of___awmod 00A2  
+                         __size_of___lldiv 00BC                           __size_of___llmod 009A  
+                         __size_of___lwdiv 0078                           __size_of___lwmod 0062  
+                   __size_of_settings_task 0220                        __end_of_ringbuf_pop 5212  
+                      __end_of_ringbuf_num 4574                        __end_of_ringbuf_put 4E06  
+                      __end_of_putUSBUSART 6E30                                _line_coding 0189  
+                           _integrate_flag 0121                             ??_CDCTxService 0067  
+                           _integrate_time 6476                        __end_of_timer0_init 6A3A  
+                    __size_of_ringbuf_init 0054                        __end_of_timer1_init 68B2  
+                         __size_of_display 0136                                 sprintf@len 00A1  
+                      __end_of_timer3_init 6C38                                 sprintf@val 00A3  
+                      __end_of_normal_task 5078                        display_LCD@str_5618 01BA  
+                        i2LED_output@value 002D                                 strcat@from 0062  
+                                 _data_out 2E3C                           __size_of_isdigit 002A  
+                  __size_of_USBDeviceTasks 0144                            ___lwdiv@divisor 007E  
+                          ___lwdiv@counter 0080                       timer0_init@prescaler 0061  
+                                 __ptext10 5EC2                                   __ptext11 6D84  
+                                 __ptext20 27E8                                   __ptext12 5C96  
+                                 __ptext21 473C                                   __ptext13 5524  
+                 __end_ofdisplay_LCD@onoff FBDC                                   __ptext30 3FBC  
+                                 __ptext22 6988                                   __ptext14 4574  
+                                 __ptext31 051C                                   __ptext23 166E  
+                                 __ptext15 4E06                                   __ptext40 0000  
+                                 __ptext32 13BE                                   __ptext24 1912  
+                                 __ptext16 4FAA                                   __ptext41 6C90  
+                                 __ptext33 6A74                                   __ptext25 3DB6  
+                                 __ptext17 2A2A                                   __ptext50 6766  
+                                 __ptext42 5B68                                   __ptext34 62DA  
+                                 __ptext26 3124                                   __ptext18 2594  
+                                 __ptext51 6C0C                                   __ptext43 63AE  
+                                 __ptext35 659A                                   __ptext27 390E  
+                                 __ptext19 2336                                   __ptext60 67BC  
+                                 __ptext52 6862                                   __ptext44 64D8  
+                                 __ptext36 670E                                   __ptext28 60A8  
+                                 __ptext61 6EF8                                   __ptext53 6A00  
+                                 __ptext45 3A44                                   __ptext37 611A  
+                                 __ptext29 6476                                   __ptext70 55E4  
+                                 __ptext62 61FE                                   __ptext54 6EEA  
+                                 __ptext46 6AE4                                   __ptext38 6B4E  
+                                 __ptext71 6D36                                   __ptext63 6E6E  
+                                 __ptext55 68B2                                   __ptext47 618C  
+                                 __ptext39 2E3C                                   __ptext80 4D32  
+                                 __ptext72 6DD0                                   __ptext64 6344  
+                                 __ptext56 3288                                   __ptext48 6BE0  
+                                 __ptext81 6DF0                                   __ptext73 6ED6  
+                                 __ptext65 6E8A                                   __ptext57 6B1A  
+                                 __ptext49 6BB2                                   __ptext90 6F1C  
+                                 __ptext82 6E10                                   __ptext74 3EBA  
+                                 __ptext66 2C4A                                   __ptext58 6AAC  
+                                 __ptext91 6F20                                   __ptext83 6CBA  
+                                 __ptext75 10F6                                   __ptext67 4C5E  
+                                 __ptext59 5212                                   __ptext92 6F06  
+                                 __ptext84 4ED8                                   __ptext76 5F44  
+                                 __ptext68 4AB2                                   __ptext93 6EBE  
+                                 __ptext85 2FB4                                   __ptext77 5462  
+                                 __ptext69 6D0E                                   __ptext94 6A3A  
+                                 __ptext86 49DA                                   __ptext78 56A2  
+                                 __ptext95 6EA4                                   __ptext87 33EA  
+                                 __ptext79 40B8                                   __ptext96 1BB6  
+                                 __ptext88 5146                                   __ptext97 48FC  
+                                 __ptext89 4486                                   __ptext98 598E  
+                                 __ptext99 6032                               _SSP1CON1bits 000FC6  
+                             _SSP1CON2bits 000FC5           __size_of_RTCC_adjust_time_cursor 0104  
+                __size_of_terminal_at_hand 0060           __size_of_RTCC_adjust_time_toggle 003C  
+                                 _bootload 6946                           __size_of_sprintf 051C  
+                               strcpy@from 0062                       terminal_at_hand@hand 00CD  
+                            __size_of_atoi 00F2             __end_of_USBCtrlTrfSetupHandler 5DB2  
+                            __size_of_main 0076                          ?_USBCtrlEPService 002D  
+                              data_out@str 00AD                               _month_length 48FC  
+                       ??_USBCtrlEPService 0047                   __size_of_RTCC_from_epoch 001A  
+                      _USBCtrlTrfInHandler 539E                        __end_of_USB_CDC_ISR 6F16  
+                             ??_sleep_task 0075                        __end_of_USB_CDC_get 6CE4  
+                                 _outPipes 00E6                           ??_ringbuf_delete 0062  
+                  ?_button_timer_interrupt 0083                       _USBCtrlTrfOutHandler 66B2  
+                                 int$flags 0059                               _ringbuf_init 67BC  
+                                 atoi@sign 0080                  _USBCtrlEPAllowStatusStage 52DA  
+         settings_integrating_reset@i_6177 0097                                  x_to_d@hex 0061  
+                             _SSP1STATbits 000FC7                                   display@i 0065  
+                   ??_USBTransferOnePacket 0064                              _terminal_task 0D8C  
+                            _terminal_time 09E0                     __end_of_integrate_time 64D8  
+                _USBDeferStatusStagePacket 0012                               ??_print_time 00AD  
+                 CDCTxService@byte_to_send 006B               __size_of_USB_CDC_buffer_init 004E  
                               _OSCTUNEbits 000F9B                                 _INTCONbits 000FF2  
                      ?_USBCtrlTrfInHandler 002D                                ??_ctmu_task 0088  
             USBCtrlTrfTxService@byteToSend 002D                                 _ST7032_put 611A  

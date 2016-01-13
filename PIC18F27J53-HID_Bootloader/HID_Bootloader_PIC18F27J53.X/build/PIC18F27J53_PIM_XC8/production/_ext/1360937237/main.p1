@@ -1,48 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"5673 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
-[s S366 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S366 . PCFG8 PCFG9 PCFG10 PCFG11 PCFG12 . VBGEN ]
-"5682
-[s S367 :7 `uc 1 :1 `uc 1 ]
-[n S367 . . PCFG15 ]
-"5672
-[u S365 `S366 1 `S367 1 ]
-[n S365 . . . ]
-"5687
-[v _ANCON1bits `VS365 ~T0 @X0 0 e@3913 ]
-"8839
-[s S598 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S598 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"8849
-[s S599 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S599 . AN12 AN10 AN8 AN9 . KBI2 KBI3 ]
-"8858
-[s S600 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S600 . INT0 . CTED1 CTED2 KBI0 KBI1 PGC PGD ]
-"8868
-[s S601 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S601 . RP3 RTCC . SCK1 SDI1 RP9 RP10 ]
-"8877
-[s S602 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S602 . . RP4 VMO VPO SCL1 SDA1 ]
-"8885
-[s S603 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S603 . . REFO RP6 RP7 RP8 ]
-"8892
-[s S604 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S604 . . C3INC RP5 C3INA CCP4 CCP5 CCP6 CCP7 ]
-"8902
-[s S605 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S605 . C3IND . C2INC ]
-"8907
-[s S606 :3 `uc 1 :1 `uc 1 ]
-[n S606 . . CCP2_PA2 ]
-"8838
-[u S597 `S598 1 `S599 1 `S600 1 `S601 1 `S602 1 `S603 1 `S604 1 `S605 1 `S606 1 ]
-[n S597 . . . . . . . . . . ]
-"8912
-[v _PORTBbits `VS597 ~T0 @X0 0 e@3969 ]
 "263 ../src/main.c
 [v _BootMain `(v ~T0 @X0 0 ef ]
 "18294 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f27j53.h
@@ -9168,54 +9125,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 323: {
 [e :U _main ]
 [f ]
-[; ;main.c: 330: {ANCON1bits.PCFG12 = 1;};
-"330
-{
-[e = . . _ANCON1bits 0 4 -> -> 1 `i `uc ]
-}
-[; ;main.c: 334: if(PORTBbits.RB0 == 1)
-"334
-[e $ ! == -> . . _PORTBbits 0 0 `i -> 1 `i 1284  ]
-[; ;main.c: 335: {
-"335
-{
-[; ;main.c: 339: {ANCON1bits.PCFG12 = 0;};
-"339
-{
-[e = . . _ANCON1bits 0 4 -> -> 0 `i `uc ]
-}
-[; ;main.c: 343: goto DoFlashSignatureCheck;
-"343
-[e $U 1285  ]
-"344
-}
-[; ;main.c: 344: }
-[e $U 1286  ]
-"345
-[e :U 1284 ]
-[; ;main.c: 345: else
-[; ;main.c: 346: {
-"346
-{
-[; ;main.c: 348: BootMain();
-"348
-[e ( _BootMain ..  ]
-"349
-}
-[e :U 1286 ]
-[; ;main.c: 349: }
 [; ;main.c: 352: DoFlashSignatureCheck:
 "352
-[e :U 1285 ]
+[e :U 1284 ]
 [; ;main.c: 354: if(*(const unsigned int*)0x1006 == 0x600D)
 "354
-[e $ ! == *U -> -> 4102 `i `*Cui -> -> 24589 `i `ui 1287  ]
+[e $ ! == *U -> -> 4102 `i `*Cui -> -> 24589 `i `ui 1285  ]
 [; ;main.c: 355: {
 "355
 {
 [; ;main.c: 361: if(*(const unsigned int*)0x1000 != 0xFFFF)
 "361
-[e $ ! != *U -> -> 4096 `i `*Cui -> 65535 `ui 1288  ]
+[e $ ! != *U -> -> 4096 `i `*Cui -> 65535 `ui 1286  ]
 [; ;main.c: 362: {
 "362
 {
@@ -9223,10 +9144,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; <"                     goto 0x1000 ;# ">
 "371
 }
-[e :U 1288 ]
+[e :U 1286 ]
 "372
 }
-[e :U 1287 ]
+[e :U 1285 ]
 [; ;main.c: 371: }
 [; ;main.c: 372: }
 [; ;main.c: 378: BootMain();
@@ -9255,7 +9176,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _InitializeSystem ..  ]
 [; ;main.c: 450: while(1)
 "450
-[e :U 1291 ]
+[e :U 1289 ]
 [; ;main.c: 451: {
 "451
 {
@@ -9276,14 +9197,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _ProcessIO ..  ]
 "467
 }
-[e :U 1290 ]
+[e :U 1288 ]
 "450
-[e $U 1291  ]
-[e :U 1292 ]
+[e $U 1289  ]
+[e :U 1290 ]
 [; ;main.c: 467: }
 [; ;main.c: 468: }
 "468
-[e :UE 1289 ]
+[e :UE 1287 ]
 }
 "494
 [v _InitializeSystem `(v ~T0 @X0 1 ef ]
@@ -9322,7 +9243,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _USBDeviceInit ..  ]
 [; ;main.c: 587: }
 "587
-[e :UE 1293 ]
+[e :UE 1291 ]
 }
 "611
 [v _BlinkUSBStatus `(v ~T0 @X0 1 ef ]
@@ -9333,26 +9254,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _BlinkUSBStatus ]
 [f ]
 "614
-[v F9507 `ui ~T0 @X0 1 s led_count ]
-[i F9507
+[v F9506 `ui ~T0 @X0 1 s led_count ]
+[i F9506
 -> -> 0 `i `ui
 ]
 [; ;main.c: 614: static unsigned int led_count = 0;
 [; ;main.c: 616: led_count--;
 "616
-[e -- F9507 -> -> 1 `i `ui ]
+[e -- F9506 -> -> 1 `i `ui ]
 [; ;main.c: 617: if(led_count == 0)
 "617
-[e $ ! == F9507 -> -> 0 `i `ui 1295  ]
+[e $ ! == F9506 -> -> 0 `i `ui 1293  ]
 [; ;main.c: 618: {
 "618
 {
 [; ;main.c: 619: led_count = 0x4E00;
 "619
-[e = F9507 -> -> 19968 `i `ui ]
+[e = F9506 -> -> 19968 `i `ui ]
 [; ;main.c: 620: if(usb_device_state < 6)
 "620
-[e $ ! < -> _usb_device_state `i -> 6 `i 1296  ]
+[e $ ! < -> _usb_device_state `i -> 6 `i 1294  ]
 [; ;main.c: 621: {
 "621
 {
@@ -9362,9 +9283,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "623
 }
 [; ;main.c: 623: }
-[e $U 1297  ]
+[e $U 1295  ]
 "624
-[e :U 1296 ]
+[e :U 1294 ]
 [; ;main.c: 624: else
 [; ;main.c: 625: {
 "625
@@ -9374,15 +9295,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATCbits 0 2 -> -> ! != -> . . _LATCbits 0 2 `i -> -> -> 0 `i `Vuc `i `i `uc ]
 "627
 }
-[e :U 1297 ]
+[e :U 1295 ]
 "628
 }
-[e :U 1295 ]
+[e :U 1293 ]
 [; ;main.c: 627: }
 [; ;main.c: 628: }
 [; ;main.c: 630: }
 "630
-[e :UE 1294 ]
+[e :UE 1292 ]
 }
 "635
 [v _LowVoltageCheck `(v ~T0 @X0 1 ef ]
@@ -9394,7 +9315,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;main.c: 641: if(WDTCONbits.LVDSTAT == 0)
 "641
-[e $ ! == -> . . _WDTCONbits 0 6 `i -> 0 `i 1299  ]
+[e $ ! == -> . . _WDTCONbits 0 6 `i -> 0 `i 1297  ]
 [; ;main.c: 642: {
 "642
 {
@@ -9415,14 +9336,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _uint_delay_counter -> -> 1024 `i `ui ]
 [; ;main.c: 653: while(uint_delay_counter)
 "653
-[e $U 1300  ]
-[e :U 1301 ]
+[e $U 1298  ]
+[e :U 1299 ]
 [; ;main.c: 654: {
 "654
 {
 [; ;main.c: 655: if(WDTCONbits.LVDSTAT == 1)
 "655
-[e $ ! == -> . . _WDTCONbits 0 6 `i -> 1 `i 1303  ]
+[e $ ! == -> . . _WDTCONbits 0 6 `i -> 1 `i 1301  ]
 [; ;main.c: 656: {
 "656
 {
@@ -9432,9 +9353,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "658
 }
 [; ;main.c: 658: }
-[e $U 1304  ]
+[e $U 1302  ]
 "659
-[e :U 1303 ]
+[e :U 1301 ]
 [; ;main.c: 659: else
 [; ;main.c: 660: {
 "660
@@ -9444,28 +9365,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _uint_delay_counter -> -> 1024 `i `ui ]
 "662
 }
-[e :U 1304 ]
+[e :U 1302 ]
 [; ;main.c: 662: }
 [; ;main.c: 663: asm(" clrwdt");
 "663
 [; <"  clrwdt ;# ">
 "664
 }
-[e :U 1300 ]
+[e :U 1298 ]
 "653
-[e $ != _uint_delay_counter -> -> 0 `i `ui 1301  ]
-[e :U 1302 ]
+[e $ != _uint_delay_counter -> -> 0 `i `ui 1299  ]
+[e :U 1300 ]
 [; ;main.c: 664: }
 [; ;main.c: 668: asm(" reset");
 "668
 [; <"  reset ;# ">
 "669
 }
-[e :U 1299 ]
+[e :U 1297 ]
 [; ;main.c: 669: }
 [; ;main.c: 670: }
 "670
-[e :UE 1298 ]
+[e :UE 1296 ]
 }
 "736
 [v _USBCBWakeFromSuspend `(v ~T0 @X0 1 ef ]
@@ -9480,7 +9401,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _DelayRoutine (1 -> -> 768 `i `ui ]
 [; ;main.c: 753: }
 "753
-[e :UE 1305 ]
+[e :UE 1303 ]
 }
 "772
 [v _USBCBSuspend `(v ~T0 @X0 1 ef ]
@@ -9491,21 +9412,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _USBCBSuspend ]
 [f ]
 "774
-[v F9511 `uc ~T0 @X0 1 s OSCCONSave ]
+[v F9510 `uc ~T0 @X0 1 s OSCCONSave ]
 [; ;main.c: 774: static unsigned char OSCCONSave;
 [; ;main.c: 778: LATCbits.LATC2 = 0;
 "778
 [e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
 [; ;main.c: 784: OSCCONSave = OSCCON;
 "784
-[e = F9511 _OSCCON ]
+[e = F9510 _OSCCON ]
 [; ;main.c: 785: asm(" sleep");
 "785
 [; <"  sleep ;# ">
 [; ;main.c: 787: while((PIR2bits.USBIF == 0) && (RCONbits.TO == 0))
 "787
-[e $U 1307  ]
-[e :U 1308 ]
+[e $U 1305  ]
+[e :U 1306 ]
 [; ;main.c: 788: {
 "788
 {
@@ -9514,17 +9435,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; <"  sleep ;# ">
 "790
 }
-[e :U 1307 ]
+[e :U 1305 ]
 "787
-[e $ && == -> . . _PIR2bits 0 4 `i -> 0 `i == -> . . _RCONbits 7 3 `i -> 0 `i 1308  ]
-[e :U 1309 ]
+[e $ && == -> . . _PIR2bits 0 4 `i -> 0 `i == -> . . _RCONbits 7 3 `i -> 0 `i 1306  ]
+[e :U 1307 ]
 [; ;main.c: 790: }
 [; ;main.c: 793: OSCCON = OSCCONSave;
 "793
-[e = _OSCCON F9511 ]
+[e = _OSCCON F9510 ]
 [; ;main.c: 802: }
 "802
-[e :UE 1306 ]
+[e :UE 1304 ]
 }
 "830
 [v _USBCBInitEP `(v ~T0 @X0 1 ef1`uc ]
@@ -9539,7 +9460,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;main.c: 839: if(ConfigurationIndex == 1)
 "839
-[e $ ! == -> _ConfigurationIndex `i -> 1 `i 1311  ]
+[e $ ! == -> _ConfigurationIndex `i -> 1 `i 1309  ]
 [; ;main.c: 840: {
 "840
 {
@@ -9551,11 +9472,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _UserInit ..  ]
 "849
 }
-[e :U 1311 ]
+[e :U 1309 ]
 [; ;main.c: 849: }
 [; ;main.c: 855: }
 "855
-[e :UE 1310 ]
+[e :UE 1308 ]
 }
 "881
 [v _USBCBCheckOtherReq `(v ~T0 @X0 1 ef ]
@@ -9570,5 +9491,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _USBCheckHIDRequest ..  ]
 [; ;main.c: 884: }
 "884
-[e :UE 1312 ]
+[e :UE 1310 ]
 }

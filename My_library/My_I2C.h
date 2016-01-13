@@ -20,7 +20,7 @@ extern uint8_t I2C_sent_flag;
 extern uint8_t I2C_cfct_flag;
 extern uint8_t I2C_busy;
 
-uint8_t I2C_idole_check(uint8_t mask);
+uint8_t I2C_idle_check(uint8_t mask);
 void I2C_start(void);
 void I2C_restart(void);
 void I2C_stop(void);

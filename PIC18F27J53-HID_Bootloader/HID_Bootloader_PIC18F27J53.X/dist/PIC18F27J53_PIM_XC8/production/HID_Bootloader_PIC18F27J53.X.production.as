@@ -3619,8 +3619,6 @@ __end_of_FlashSignatureWord:
 _ANCON0	set	0xF48
 	global	_ANCON1
 _ANCON1	set	0xF49
-	global	_ANCON1bits
-_ANCON1bits	set	0xF49
 	global	_UADDR
 _UADDR	set	0xF38
 	global	_UCFG
@@ -3667,8 +3665,6 @@ _OSCTUNEbits	set	0xF9B
 _PIE2bits	set	0xFA0
 	global	_PIR2bits
 _PIR2bits	set	0xFA1
-	global	_PORTBbits
-_PORTBbits	set	0xF81
 	global	_RCONbits
 _RCONbits	set	0xFD0
 	global	_STKPTR
@@ -4107,7 +4103,7 @@ SignFlash@pROM:	; 3 bytes @ 0x8
 ;!		 -> hid_report_in(BIGRAMh[64]), hid_report_out(BIGRAMh[64]), EP0OutEvenBuf(ABS[8]), EP0OutOddBuf(BIGRAMh[8]), 
 ;!		 -> CtrlTrfData(BIGRAMh[8]), 
 ;!
-;!    S841$ADR	PTR unsigned char  size(2) Largest target is 64
+;!    S663$ADR	PTR unsigned char  size(2) Largest target is 64
 ;!		 -> hid_report_in(BIGRAMh[64]), hid_report_out(BIGRAMh[64]), EP0OutEvenBuf(ABS[8]), EP0OutOddBuf(BIGRAMh[8]), 
 ;!		 -> CtrlTrfData(BIGRAMh[8]), 
 ;!
@@ -4123,19 +4119,19 @@ SignFlash@pROM:	; 3 bytes @ 0x8
 ;!
 ;!    pDst.bRam	PTR unsigned char  size(2) Largest target is 0
 ;!
-;!    S688_POINTER$wRom	PTR const unsigned short  size(2) Largest target is 0
+;!    S510_POINTER$wRom	PTR const unsigned short  size(2) Largest target is 0
 ;!
 ;!    pSrc.wRom	PTR const unsigned short  size(2) Largest target is 0
 ;!
-;!    S688_POINTER$bRom	PTR const unsigned char  size(2) Largest target is 0
+;!    S510_POINTER$bRom	PTR const unsigned char  size(2) Largest target is 0
 ;!
 ;!    pSrc.bRom	PTR const unsigned char  size(2) Largest target is 0
 ;!
-;!    S688_POINTER$wRam	PTR unsigned int  size(2) Largest target is 0
+;!    S510_POINTER$wRam	PTR unsigned int  size(2) Largest target is 0
 ;!
 ;!    pSrc.wRam	PTR unsigned int  size(2) Largest target is 0
 ;!
-;!    S688_POINTER$bRam	PTR unsigned char  size(2) Largest target is 0
+;!    S510_POINTER$bRam	PTR unsigned char  size(2) Largest target is 0
 ;!
 ;!    pSrc.bRam	PTR unsigned char  size(2) Largest target is 0
 ;!
@@ -4620,41 +4616,13 @@ psect	text0
 _main:
 ;incstack = 0
 	opt	stack 23
-	line	330
+	line	352
+;main.c: 352: DoFlashSignatureCheck:
 	
-l3299:
-;main.c: 330: {ANCON1bits.PCFG12 = 1;};
-	movlb	15	; () banked
-	bsf	((3913))&0ffh,4	;volatile
-	line	334
-;main.c: 334: if(PORTBbits.RB0 == 1)
-	btfss	((c:3969)),c,0	;volatile
-	goto	u2201
-	goto	u2200
-u2201:
-	goto	l3305
-u2200:
-	line	339
-	
-l3301:; BSR set to: 15
-
-;main.c: 335: {
-;main.c: 339: {ANCON1bits.PCFG12 = 0;};
-	bcf	((3913))&0ffh,4	;volatile
-	line	343
-;main.c: 343: goto DoFlashSignatureCheck;
-	goto	l3307
-	line	348
-	
-l3305:; BSR set to: 15
-
-;main.c: 345: else
-;main.c: 346: {
-;main.c: 348: BootMain();
-	call	_BootMain	;wreg free
+l55:
 	line	354
 	
-l3307:
+l3285:
 ;main.c: 354: if(*(const unsigned int*)0x1006 == 0x600D)
 	movlw	low((4102))
 	movwf	tblptrl
@@ -4669,20 +4637,20 @@ l3307:
 	tblrd	*+
 	movlw	13
 	xorwf	tablat,w
-	bnz	u2211
+	bnz	u2191
 tblrd	*+
 	movlw	96
 	xorwf	tablat,w
 	btfss	status,2
-	goto	u2211
-	goto	u2210
+	goto	u2191
+	goto	u2190
 
-u2211:
-	goto	l3313
-u2210:
+u2191:
+	goto	l3291
+u2190:
 	line	361
 	
-l3309:
+l3287:
 ;main.c: 355: {
 ;main.c: 361: if(*(const unsigned int*)0x1000 != 0xFFFF)
 	movlw	low((4096))
@@ -4697,32 +4665,32 @@ l3309:
 	endif
 	tblrd	*+
 	incf	tablat,w
-	bnz	u2220
+	bnz	u2200
 tblrd	*+
 	incf	tablat,w
 	btfsc	status,2
-	goto	u2221
-	goto	u2220
+	goto	u2201
+	goto	u2200
 
-u2221:
-	goto	l3313
-u2220:
+u2201:
+	goto	l3291
+u2200:
 	line	366
 	
-l3311:
+l3289:
 # 366 "../src/main.c"
 goto 0x1000 ;# 
 psect	text0
 	line	378
 	
-l3313:
+l3291:
 ;main.c: 371: }
 ;main.c: 372: }
 ;main.c: 378: BootMain();
 	call	_BootMain	;wreg free
 	line	380
 	
-l64:
+l58:
 	global	start
 	goto	start
 	opt stack 0
@@ -4743,7 +4711,7 @@ GLOBAL	__end_of_main
 ;; Registers used:
 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -4781,7 +4749,7 @@ _BootMain:
 	opt	stack 23
 	line	424
 	
-l3287:
+l3273:
 ;main.c: 424: INTCON = 0x00;
 	clrf	((c:4082)),c	;volatile
 	line	438
@@ -4789,38 +4757,38 @@ l3287:
 	clrf	((c:4092)),c	;volatile
 	line	447
 	
-l3289:
+l3275:
 ;main.c: 447: InitializeSystem();
 	call	_InitializeSystem	;wreg free
 	line	450
 ;main.c: 450: while(1)
 	
-l67:
+l61:
 	line	452
 # 452 "../src/main.c"
 clrwdt ;# 
 psect	_BootMain_text
 	line	457
 	
-l3291:
+l3277:
 ;main.c: 457: USBDeviceTasks();
 	call	_USBDeviceTasks	;wreg free
 	line	459
 	
-l3293:
+l3279:
 ;main.c: 459: BlinkUSBStatus();
 	call	_BlinkUSBStatus	;wreg free
 	line	461
 	
-l3295:
+l3281:
 ;main.c: 461: LowVoltageCheck();
 	call	_LowVoltageCheck	;wreg free
 	line	465
 	
-l3297:
+l3283:
 ;main.c: 465: ProcessIO();
 	call	_ProcessIO	;wreg free
-	goto	l67
+	goto	l61
 	return	;funcret
 	opt stack 0
 	line	468
@@ -4841,7 +4809,7 @@ GLOBAL	__end_of_BootMain
 ;; Registers used:
 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -4881,54 +4849,54 @@ _ProcessIO:
 	opt	stack 23
 	line	275
 	
-l3113:
+l3099:
 ;boot_18fxxjxx.c: 267: static unsigned int i;
 ;boot_18fxxjxx.c: 275: if((usb_device_state != 6) || (UCONbits.SUSPND == 1))
 		movlw	6
 	xorwf	((c:_usb_device_state)),c,w
 	btfss	status,2
+	goto	u2041
+	goto	u2040
+
+u2041:
+	goto	l608
+u2040:
+	
+l3101:
+	btfss	((c:3941)),c,1	;volatile
 	goto	u2051
 	goto	u2050
-
 u2051:
-	goto	l614
+	goto	l3103
 u2050:
-	
-l3115:
-	btfss	((c:3941)),c,1	;volatile
-	goto	u2061
-	goto	u2060
-u2061:
-	goto	l3117
-u2060:
-	goto	l614
+	goto	l608
 	line	285
 	
-l3117:
+l3103:
 ;boot_18fxxjxx.c: 280: }
 ;boot_18fxxjxx.c: 285: if(BootState == 0x00)
 	movf	((c:_BootState)),c,w
 	btfss	status,2
-	goto	u2071
-	goto	u2070
-u2071:
-	goto	l3285
-u2070:
+	goto	u2061
+	goto	u2060
+u2061:
+	goto	l3271
+u2060:
 	line	289
 	
-l3119:
+l3105:
 ;boot_18fxxjxx.c: 286: {
 ;boot_18fxxjxx.c: 289: if(!ep1Bo.Stat.UOWN)
 	movlb	13	; () banked
 	btfsc	((3340))&0ffh,7	;volatile
-	goto	u2081
-	goto	u2080
-u2081:
-	goto	l614
-u2080:
+	goto	u2071
+	goto	u2070
+u2071:
+	goto	l608
+u2070:
 	line	293
 	
-l3121:; BSR set to: 13
+l3107:; BSR set to: 13
 
 ;boot_18fxxjxx.c: 290: {
 ;boot_18fxxjxx.c: 293: HIDRxReport((char *)&PacketFromPC, 0x40);
@@ -4939,21 +4907,21 @@ l3121:; BSR set to: 13
 	call	_HIDRxReport
 	line	294
 	
-l3123:; BSR set to: 13
+l3109:; BSR set to: 13
 
 ;boot_18fxxjxx.c: 294: BootState = 0x01;
 	movlw	low(01h)
 	movwf	((c:_BootState)),c
 	line	297
 	
-l3125:; BSR set to: 13
+l3111:; BSR set to: 13
 
 ;boot_18fxxjxx.c: 297: for(i = 0; i < 0x40; i++)
 	clrf	((c:ProcessIO@i)),c
 	clrf	((c:ProcessIO@i+1)),c
 	line	298
 	
-l3131:
+l3117:
 ;boot_18fxxjxx.c: 298: PacketToPC.Contents[i] = 0;
 	movf	((c:ProcessIO@i)),c,w
 	addlw	low(_PacketToPC)
@@ -4963,26 +4931,26 @@ l3131:
 	movwf	indf2
 	line	297
 	
-l3133:
+l3119:
 	infsnz	((c:ProcessIO@i)),c
 	incf	((c:ProcessIO@i+1)),c
 	
-l3135:
+l3121:
 		movf	((c:ProcessIO@i+1)),c,w
-	bnz	u2090
+	bnz	u2080
 	movlw	64
 	subwf	 ((c:ProcessIO@i)),c,w
 	btfss	status,0
-	goto	u2091
-	goto	u2090
+	goto	u2081
+	goto	u2080
 
-u2091:
-	goto	l3131
-u2090:
-	goto	l614
+u2081:
+	goto	l3117
+u2080:
+	goto	l608
 	line	309
 	
-l3137:; BSR set to: 0
+l3123:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 309: PacketToPC.Command = 0x02;
 	movlw	low(02h)
@@ -5011,7 +4979,7 @@ l3137:; BSR set to: 0
 	movwf	(3+(_PacketToPC+04h))&0ffh
 	line	314
 	
-l3139:; BSR set to: 0
+l3125:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 314: PacketToPC.Length1 = (unsigned long)(ProgramMemStopAddress - (uint32_t)0x1000);
 	movlw	0
@@ -5030,14 +4998,14 @@ l3139:; BSR set to: 0
 	movwf	3+(0+(_PacketToPC+08h))&0ffh
 	line	315
 	
-l3141:; BSR set to: 0
+l3127:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 315: PacketToPC.Type2 = 0x03;
 	movlw	low(03h)
 	movwf	(0+(_PacketToPC+0Ch))&0ffh
 	line	316
 	
-l3143:; BSR set to: 0
+l3129:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 316: PacketToPC.Address2 = (unsigned long)(uint32_t)0x01FFF8;
 	movlw	low(01FFF8h)
@@ -5050,7 +5018,7 @@ l3143:; BSR set to: 0
 	movwf	(3+(_PacketToPC+0Dh))&0ffh
 	line	317
 	
-l3145:; BSR set to: 0
+l3131:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 317: PacketToPC.Length2 = (unsigned long)8;
 	movlw	low(08h)
@@ -5063,32 +5031,32 @@ l3145:; BSR set to: 0
 	movwf	(3+(_PacketToPC+011h))&0ffh
 	line	318
 	
-l3147:; BSR set to: 0
+l3133:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 318: PacketToPC.Type3 = 0xFF;
 	setf	(0+(_PacketToPC+015h))&0ffh
 	line	319
 	
-l3149:; BSR set to: 0
+l3135:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 319: PacketToPC.VersionFlag = 0xA5;
 	movlw	low(0A5h)
 	movwf	(0+(_PacketToPC+039h))&0ffh
 	line	323
 	
-l3151:; BSR set to: 0
+l3137:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 323: if(!ep1Bi.Stat.UOWN)
 	movlb	13	; () banked
 	btfsc	((3344))&0ffh,7	;volatile
-	goto	u2101
-	goto	u2100
-u2101:
-	goto	l614
-u2100:
+	goto	u2091
+	goto	u2090
+u2091:
+	goto	l608
+u2090:
 	line	325
 	
-l3153:; BSR set to: 13
+l3139:; BSR set to: 13
 
 ;boot_18fxxjxx.c: 324: {
 ;boot_18fxxjxx.c: 325: HIDTxReport((char *)&PacketToPC, 0x40);
@@ -5099,25 +5067,25 @@ l3153:; BSR set to: 13
 	call	_HIDTxReport
 	line	326
 	
-l3155:
+l3141:
 ;boot_18fxxjxx.c: 326: BootState = 0x00;
 	clrf	((c:_BootState)),c
-	goto	l614
+	goto	l608
 	line	330
 	
-l3157:; BSR set to: 0
+l3143:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 330: if(PacketFromPC.LockValue == 0x00)
 	movf	(0+(_PacketFromPC+01h))&0ffh,w
 	btfss	status,2
-	goto	u2111
-	goto	u2110
-u2111:
-	goto	l3161
-u2110:
+	goto	u2101
+	goto	u2100
+u2101:
+	goto	l3147
+u2100:
 	line	332
 	
-l3159:; BSR set to: 0
+l3145:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 331: {
 ;boot_18fxxjxx.c: 332: MaxPageToErase = (((uint32_t)0x01FFF8)/1024);
@@ -5135,10 +5103,10 @@ l3159:; BSR set to: 0
 	movwf	((c:_ProgramMemStopAddress+3)),c
 	line	334
 ;boot_18fxxjxx.c: 334: }
-	goto	l3155
+	goto	l3141
 	line	337
 	
-l3161:; BSR set to: 0
+l3147:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 335: else
 ;boot_18fxxjxx.c: 336: {
@@ -5155,42 +5123,42 @@ l3161:; BSR set to: 0
 	movwf	((c:_ProgramMemStopAddress+2)),c
 	movlw	high highword(01FC00h)
 	movwf	((c:_ProgramMemStopAddress+3)),c
-	goto	l3155
+	goto	l3141
 	line	347
 	
-l3165:; BSR set to: 0
+l3151:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 347: for(i = ((uint32_t)0x1000/1024); i < (MaxPageToErase + 1); i++)
 	movlw	high(04h)
 	movwf	((c:ProcessIO@i+1)),c
 	movlw	low(04h)
 	movwf	((c:ProcessIO@i)),c
-	goto	l3175
+	goto	l3161
 	line	349
 	
-l3167:
+l3153:
 ;boot_18fxxjxx.c: 348: {
 ;boot_18fxxjxx.c: 349: ClearWatchdog();
 	call	_ClearWatchdog	;wreg free
 	line	350
 	
-l3169:
+l3155:
 ;boot_18fxxjxx.c: 350: EraseFlashPage(i);
 	movff	(c:ProcessIO@i),(c:EraseFlashPage@PageNumToErase)
 	movff	(c:ProcessIO@i+1),(c:EraseFlashPage@PageNumToErase+1)
 	call	_EraseFlashPage	;wreg free
 	line	351
 	
-l3171:
+l3157:
 ;boot_18fxxjxx.c: 351: USBDeviceTasks();
 	call	_USBDeviceTasks	;wreg free
 	line	347
 	
-l3173:
+l3159:
 	infsnz	((c:ProcessIO@i)),c
 	incf	((c:ProcessIO@i+1)),c
 	
-l3175:
+l3161:
 	movf	((c:_MaxPageToErase)),c,w
 	movwf	(??_ProcessIO+0+0)&0ffh,c
 	clrf	(??_ProcessIO+0+0+1)&0ffh,c
@@ -5204,35 +5172,35 @@ l3175:
 	movf	(??_ProcessIO+0+1),c,w
 	subwfb	((c:ProcessIO@i+1)),c,w
 	btfss	status,0
+	goto	u2111
+	goto	u2110
+
+u2111:
+	goto	l3153
+u2110:
+	goto	l3141
+	line	356
+	
+l3163:; BSR set to: 0
+
+;boot_18fxxjxx.c: 356: if(ProgrammedPointer == (uint32_t)0xFFFFFFFF)
+		incf	((c:_ProgrammedPointer)),c,w
+	bnz	u2121
+	incf	((c:_ProgrammedPointer+1)),c,w
+	bnz	u2121
+	incf	((c:_ProgrammedPointer+2)),c,w
+	bnz	u2121
+	incf	((c:_ProgrammedPointer+3)),c,w
+	btfss	status,2
 	goto	u2121
 	goto	u2120
 
 u2121:
 	goto	l3167
 u2120:
-	goto	l3155
-	line	356
-	
-l3177:; BSR set to: 0
-
-;boot_18fxxjxx.c: 356: if(ProgrammedPointer == (uint32_t)0xFFFFFFFF)
-		incf	((c:_ProgrammedPointer)),c,w
-	bnz	u2131
-	incf	((c:_ProgrammedPointer+1)),c,w
-	bnz	u2131
-	incf	((c:_ProgrammedPointer+2)),c,w
-	bnz	u2131
-	incf	((c:_ProgrammedPointer+3)),c,w
-	btfss	status,2
-	goto	u2131
-	goto	u2130
-
-u2131:
-	goto	l3181
-u2130:
 	line	357
 	
-l3179:; BSR set to: 0
+l3165:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 357: ProgrammedPointer = PacketFromPC.Address;
 	movff	0+(_PacketFromPC+01h),(c:_ProgrammedPointer)
@@ -5241,39 +5209,39 @@ l3179:; BSR set to: 0
 	movff	3+(_PacketFromPC+01h),(c:_ProgrammedPointer+3)
 	line	359
 	
-l3181:; BSR set to: 0
+l3167:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 359: if(ProgrammedPointer == (uint32_t)PacketFromPC.Address)
 	movf	((c:_ProgrammedPointer)),c,w
 xorwf	(0+(_PacketFromPC+01h))&0ffh,w
-	bnz	u2141
+	bnz	u2131
 movf	((c:_ProgrammedPointer+1)),c,w
 xorwf	(1+(_PacketFromPC+01h))&0ffh,w
-	bnz	u2141
+	bnz	u2131
 movf	((c:_ProgrammedPointer+2)),c,w
 xorwf	(2+(_PacketFromPC+01h))&0ffh,w
-	bnz	u2141
+	bnz	u2131
 movf	((c:_ProgrammedPointer+3)),c,w
 xorwf	(3+(_PacketFromPC+01h))&0ffh,w
 	btfss	status,2
-	goto	u2141
-	goto	u2140
+	goto	u2131
+	goto	u2130
 
-u2141:
-	goto	l3155
-u2140:
+u2131:
+	goto	l3141
+u2130:
 	line	361
 	
-l3183:; BSR set to: 0
+l3169:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 360: {
 ;boot_18fxxjxx.c: 361: for(i = 0; i < PacketFromPC.Size; i++)
 	clrf	((c:ProcessIO@i)),c
 	clrf	((c:ProcessIO@i+1)),c
-	goto	l3197
+	goto	l3183
 	line	363
 	
-l3185:; BSR set to: 0
+l3171:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 362: {
 ;boot_18fxxjxx.c: 363: ProgrammingBuffer[BufferedDataIndex] = PacketFromPC.Data[i+(0x3A-PacketFromPC.Size)];
@@ -5291,13 +5259,13 @@ l3185:; BSR set to: 0
 	movff	indf2,indf1
 	line	364
 	
-l3187:; BSR set to: 0
+l3173:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 364: BufferedDataIndex++;
 	incf	((c:_BufferedDataIndex)),c
 	line	365
 	
-l3189:; BSR set to: 0
+l3175:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 365: ProgrammedPointer++;
 	movlw	low(01h)
@@ -5308,33 +5276,141 @@ l3189:; BSR set to: 0
 	addwfc	((c:_ProgrammedPointer+3)),c
 	line	366
 	
-l3191:; BSR set to: 0
+l3177:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 366: if(BufferedDataIndex == 0x3A)
 		movlw	58
 	xorwf	((c:_BufferedDataIndex)),c,w
 	btfss	status,2
-	goto	u2151
-	goto	u2150
+	goto	u2141
+	goto	u2140
 
-u2151:
-	goto	l3195
-u2150:
+u2141:
+	goto	l3181
+u2140:
 	line	368
 	
-l3193:; BSR set to: 0
+l3179:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 367: {
 ;boot_18fxxjxx.c: 368: WriteFlashSubBlock();
 	call	_WriteFlashSubBlock	;wreg free
 	line	361
 	
-l3195:
+l3181:
 	infsnz	((c:ProcessIO@i)),c
 	incf	((c:ProcessIO@i+1)),c
 	
-l3197:
+l3183:
 	movlb	0	; () banked
+	movf	(0+(_PacketFromPC+05h))&0ffh,w
+	movwf	(??_ProcessIO+0+0)&0ffh,c
+	clrf	(??_ProcessIO+0+0+1)&0ffh,c
+
+		movf	(??_ProcessIO+0+0),c,w
+	subwf	((c:ProcessIO@i)),c,w
+	movf	(??_ProcessIO+0+1),c,w
+	subwfb	((c:ProcessIO@i+1)),c,w
+	btfss	status,0
+	goto	u2151
+	goto	u2150
+
+u2151:
+	goto	l3171
+u2150:
+	goto	l3141
+	line	378
+	
+l3185:; BSR set to: 0
+
+;boot_18fxxjxx.c: 378: WriteFlashSubBlock();
+	call	_WriteFlashSubBlock	;wreg free
+	line	379
+	
+l3187:
+;boot_18fxxjxx.c: 379: ProgrammedPointer = 0xFFFFFFFF;
+	setf	((c:_ProgrammedPointer)),c
+	setf	((c:_ProgrammedPointer+1)),c
+	setf	((c:_ProgrammedPointer+2)),c
+	setf	((c:_ProgrammedPointer+3)),c
+	goto	l3141
+	line	384
+	
+l3191:; BSR set to: 0
+
+;boot_18fxxjxx.c: 384: PacketToPC.Command = 0x07;
+	movlw	low(07h)
+	movwf	((_PacketToPC))&0ffh
+	line	385
+	
+l3193:; BSR set to: 0
+
+;boot_18fxxjxx.c: 385: PacketToPC.Address = PacketFromPC.Address;
+	movff	0+(_PacketFromPC+01h),0+(_PacketToPC+01h)
+	movff	1+(_PacketFromPC+01h),1+(_PacketToPC+01h)
+	movff	2+(_PacketFromPC+01h),2+(_PacketToPC+01h)
+	movff	3+(_PacketFromPC+01h),3+(_PacketToPC+01h)
+	line	386
+	
+l3195:; BSR set to: 0
+
+;boot_18fxxjxx.c: 386: PacketToPC.Size = PacketFromPC.Size;
+	movff	0+(_PacketFromPC+05h),0+(_PacketToPC+05h)
+	line	389
+	
+l3197:; BSR set to: 0
+
+;boot_18fxxjxx.c: 389: TBLPTRU = PacketFromPC.Address >> 16;
+	movff	0+2+0+(_PacketFromPC+01h),(c:4088)	;volatile
+	line	390
+	
+l3199:; BSR set to: 0
+
+;boot_18fxxjxx.c: 390: TBLPTRH = PacketFromPC.Address >> 8;
+	movff	0+1+0+(_PacketFromPC+01h),(c:4087)	;volatile
+	line	391
+	
+l3201:; BSR set to: 0
+
+;boot_18fxxjxx.c: 391: TBLPTRL = PacketFromPC.Address;
+	movff	0+(_PacketFromPC+01h),(c:4086)	;volatile
+	line	392
+	
+l3203:; BSR set to: 0
+
+;boot_18fxxjxx.c: 392: for(i = 0; i < PacketFromPC.Size; i++)
+	clrf	((c:ProcessIO@i)),c
+	clrf	((c:ProcessIO@i+1)),c
+	goto	l3209
+	line	393
+	
+l635:; BSR set to: 0
+
+	line	395
+# 395 "../src/boot_18fxxjxx.c"
+tblrdpostinc ;# 
+psect	text2
+	line	397
+	
+l3205:
+;boot_18fxxjxx.c: 397: PacketToPC.Data[i+((0x40 - 6) - PacketFromPC.Size)] = TABLAT;
+	movlb	0	; () banked
+	movf	(0+(_PacketFromPC+05h))&0ffh,w
+	sublw	low(_PacketToPC+040h)
+	addwf	((c:ProcessIO@i)),c,w
+	movwf	fsr2l
+	clrf	fsr2h
+	movff	(c:4085),indf2	;volatile
+
+	line	392
+	
+l3207:; BSR set to: 0
+
+	infsnz	((c:ProcessIO@i)),c
+	incf	((c:ProcessIO@i+1)),c
+	
+l3209:; BSR set to: 0
+
 	movf	(0+(_PacketFromPC+05h))&0ffh,w
 	movwf	(??_ProcessIO+0+0)&0ffh,c
 	clrf	(??_ProcessIO+0+0+1)&0ffh,c
@@ -5348,132 +5424,24 @@ l3197:
 	goto	u2160
 
 u2161:
-	goto	l3185
+	goto	l635
 u2160:
-	goto	l3155
-	line	378
 	
-l3199:; BSR set to: 0
-
-;boot_18fxxjxx.c: 378: WriteFlashSubBlock();
-	call	_WriteFlashSubBlock	;wreg free
-	line	379
-	
-l3201:
-;boot_18fxxjxx.c: 379: ProgrammedPointer = 0xFFFFFFFF;
-	setf	((c:_ProgrammedPointer)),c
-	setf	((c:_ProgrammedPointer+1)),c
-	setf	((c:_ProgrammedPointer+2)),c
-	setf	((c:_ProgrammedPointer+3)),c
-	goto	l3155
-	line	384
-	
-l3205:; BSR set to: 0
-
-;boot_18fxxjxx.c: 384: PacketToPC.Command = 0x07;
-	movlw	low(07h)
-	movwf	((_PacketToPC))&0ffh
-	line	385
-	
-l3207:; BSR set to: 0
-
-;boot_18fxxjxx.c: 385: PacketToPC.Address = PacketFromPC.Address;
-	movff	0+(_PacketFromPC+01h),0+(_PacketToPC+01h)
-	movff	1+(_PacketFromPC+01h),1+(_PacketToPC+01h)
-	movff	2+(_PacketFromPC+01h),2+(_PacketToPC+01h)
-	movff	3+(_PacketFromPC+01h),3+(_PacketToPC+01h)
-	line	386
-	
-l3209:; BSR set to: 0
-
-;boot_18fxxjxx.c: 386: PacketToPC.Size = PacketFromPC.Size;
-	movff	0+(_PacketFromPC+05h),0+(_PacketToPC+05h)
-	line	389
-	
-l3211:; BSR set to: 0
-
-;boot_18fxxjxx.c: 389: TBLPTRU = PacketFromPC.Address >> 16;
-	movff	0+2+0+(_PacketFromPC+01h),(c:4088)	;volatile
-	line	390
-	
-l3213:; BSR set to: 0
-
-;boot_18fxxjxx.c: 390: TBLPTRH = PacketFromPC.Address >> 8;
-	movff	0+1+0+(_PacketFromPC+01h),(c:4087)	;volatile
-	line	391
-	
-l3215:; BSR set to: 0
-
-;boot_18fxxjxx.c: 391: TBLPTRL = PacketFromPC.Address;
-	movff	0+(_PacketFromPC+01h),(c:4086)	;volatile
-	line	392
-	
-l3217:; BSR set to: 0
-
-;boot_18fxxjxx.c: 392: for(i = 0; i < PacketFromPC.Size; i++)
-	clrf	((c:ProcessIO@i)),c
-	clrf	((c:ProcessIO@i+1)),c
-	goto	l3223
-	line	393
-	
-l641:; BSR set to: 0
-
-	line	395
-# 395 "../src/boot_18fxxjxx.c"
-tblrdpostinc ;# 
-psect	text2
-	line	397
-	
-l3219:
-;boot_18fxxjxx.c: 397: PacketToPC.Data[i+((0x40 - 6) - PacketFromPC.Size)] = TABLAT;
-	movlb	0	; () banked
-	movf	(0+(_PacketFromPC+05h))&0ffh,w
-	sublw	low(_PacketToPC+040h)
-	addwf	((c:ProcessIO@i)),c,w
-	movwf	fsr2l
-	clrf	fsr2h
-	movff	(c:4085),indf2	;volatile
-
-	line	392
-	
-l3221:; BSR set to: 0
-
-	infsnz	((c:ProcessIO@i)),c
-	incf	((c:ProcessIO@i+1)),c
-	
-l3223:; BSR set to: 0
-
-	movf	(0+(_PacketFromPC+05h))&0ffh,w
-	movwf	(??_ProcessIO+0+0)&0ffh,c
-	clrf	(??_ProcessIO+0+0+1)&0ffh,c
-
-		movf	(??_ProcessIO+0+0),c,w
-	subwf	((c:ProcessIO@i)),c,w
-	movf	(??_ProcessIO+0+1),c,w
-	subwfb	((c:ProcessIO@i+1)),c,w
-	btfss	status,0
-	goto	u2171
-	goto	u2170
-
-u2171:
-	goto	l641
-u2170:
-	
-l642:; BSR set to: 0
+l636:; BSR set to: 0
 
 	line	409
 ;boot_18fxxjxx.c: 398: }
 ;boot_18fxxjxx.c: 409: if(!ep1Bi.Stat.UOWN)
 	movlb	13	; () banked
 	btfsc	((3344))&0ffh,7	;volatile
-	goto	u2181
-	goto	u2180
-u2181:
-	goto	l614
-u2180:
+	goto	u2171
+	goto	u2170
+u2171:
+	goto	l608
+u2170:
 	line	411
 	
-l3225:; BSR set to: 13
+l3211:; BSR set to: 13
 
 ;boot_18fxxjxx.c: 410: {
 ;boot_18fxxjxx.c: 411: HIDTxReport((char *)&PacketToPC, 0x40);
@@ -5482,17 +5450,17 @@ l3225:; BSR set to: 13
 	movlw	(_PacketToPC)&0ffh
 	
 	call	_HIDTxReport
-	goto	l3155
+	goto	l3141
 	line	416
 	
-l3229:; BSR set to: 0
+l3215:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 416: SignFlash();
 	call	_SignFlash	;wreg free
-	goto	l3155
+	goto	l3141
 	line	425
 	
-l3233:; BSR set to: 0
+l3219:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 425: PacketToPC.Command = 0x0C;
 	movlw	low(0Ch)
@@ -5505,7 +5473,7 @@ l3233:; BSR set to: 0
 	movwf	(0+(_PacketToPC+01h))&0ffh
 	line	427
 	
-l3235:; BSR set to: 0
+l3221:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 427: PacketToPC.ApplicationVersion = *(const unsigned int*)0x1016;
 	movlw	low((4118))
@@ -5527,7 +5495,7 @@ l3235:; BSR set to: 0
 
 	line	428
 	
-l3237:; BSR set to: 0
+l3223:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 428: PacketToPC.SignatureAddress = 0x1006;
 	movlw	low(01006h)
@@ -5540,7 +5508,7 @@ l3237:; BSR set to: 0
 	movwf	(3+(_PacketToPC+05h))&0ffh
 	line	429
 	
-l3239:; BSR set to: 0
+l3225:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 429: PacketToPC.SignatureValue = 0x600D;
 	movlw	high(0600Dh)
@@ -5549,7 +5517,7 @@ l3239:; BSR set to: 0
 	movwf	(0+(_PacketToPC+09h))&0ffh
 	line	430
 	
-l3241:; BSR set to: 0
+l3227:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 430: PacketToPC.ErasePageSize = 1024;
 	movlw	low(0400h)
@@ -5562,115 +5530,115 @@ l3241:; BSR set to: 0
 	movwf	(3+(_PacketToPC+0Bh))&0ffh
 	line	431
 	
-l3243:; BSR set to: 0
+l3229:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 431: PacketToPC.Config1LMask = 0xFF;
 	setf	(0+(_PacketToPC+0Fh))&0ffh
 	line	432
 	
-l3245:; BSR set to: 0
+l3231:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 432: PacketToPC.Config1HMask = 0xFF;
 	setf	(0+(_PacketToPC+010h))&0ffh
 	line	433
 	
-l3247:; BSR set to: 0
+l3233:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 433: PacketToPC.Config2LMask = 0xFF;
 	setf	(0+(_PacketToPC+011h))&0ffh
 	line	434
 	
-l3249:; BSR set to: 0
+l3235:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 434: PacketToPC.Config2HMask = 0xFF;
 	setf	(0+(_PacketToPC+012h))&0ffh
 	line	435
 	
-l3251:; BSR set to: 0
+l3237:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 435: PacketToPC.Config3LMask = 0xFF;
 	setf	(0+(_PacketToPC+013h))&0ffh
 	line	436
 	
-l3253:; BSR set to: 0
+l3239:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 436: PacketToPC.Config3HMask = 0xFF;
 	setf	(0+(_PacketToPC+014h))&0ffh
 	line	437
 	
-l3255:; BSR set to: 0
+l3241:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 437: PacketToPC.Config4LMask = 0xFF;
 	setf	(0+(_PacketToPC+015h))&0ffh
 	line	438
 	
-l3257:; BSR set to: 0
+l3243:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 438: PacketToPC.Config4HMask = 0xFF;
 	setf	(0+(_PacketToPC+016h))&0ffh
 	line	439
 	
-l3259:; BSR set to: 0
+l3245:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 439: PacketToPC.Config5LMask = 0x00;
 	clrf	(0+(_PacketToPC+017h))&0ffh
 	line	440
 	
-l3261:; BSR set to: 0
+l3247:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 440: PacketToPC.Config5HMask = 0x00;
 	clrf	(0+(_PacketToPC+018h))&0ffh
 	line	441
 	
-l3263:; BSR set to: 0
+l3249:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 441: PacketToPC.Config6LMask = 0x00;
 	clrf	(0+(_PacketToPC+019h))&0ffh
 	line	442
 	
-l3265:; BSR set to: 0
+l3251:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 442: PacketToPC.Config6HMask = 0x00;
 	clrf	(0+(_PacketToPC+01Ah))&0ffh
 	line	443
 	
-l3267:; BSR set to: 0
+l3253:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 443: PacketToPC.Config7LMask = 0x00;
 	clrf	(0+(_PacketToPC+01Bh))&0ffh
 	line	444
 	
-l3269:; BSR set to: 0
+l3255:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 444: PacketToPC.Config7HMask = 0x00;
 	clrf	(0+(_PacketToPC+01Ch))&0ffh
 	line	445
 	
-l3271:; BSR set to: 0
+l3257:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 445: PacketToPC.Config8LMask = 0x00;
 	clrf	(0+(_PacketToPC+01Dh))&0ffh
 	line	446
 	
-l3273:; BSR set to: 0
+l3259:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 446: PacketToPC.Config8HMask = 0x00;
 	clrf	(0+(_PacketToPC+01Eh))&0ffh
 	line	449
 	
-l3275:; BSR set to: 0
+l3261:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 449: if(!ep1Bi.Stat.UOWN)
 	movlb	13	; () banked
 	btfsc	((3344))&0ffh,7	;volatile
-	goto	u2191
-	goto	u2190
-u2191:
-	goto	l614
-u2190:
+	goto	u2181
+	goto	u2180
+u2181:
+	goto	l608
+u2180:
 	line	451
 	
-l3277:; BSR set to: 13
+l3263:; BSR set to: 13
 
 ;boot_18fxxjxx.c: 450: {
 ;boot_18fxxjxx.c: 451: HIDTxReport((char *)&PacketToPC, 0x40);
@@ -5679,17 +5647,17 @@ l3277:; BSR set to: 13
 	movlw	(_PacketToPC)&0ffh
 	
 	call	_HIDTxReport
-	goto	l3155
+	goto	l3141
 	line	456
 	
-l3281:; BSR set to: 0
+l3267:; BSR set to: 0
 
 ;boot_18fxxjxx.c: 456: ResetDeviceCleanly();
 	call	_ResetDeviceCleanly	;wreg free
-	goto	l3155
+	goto	l3141
 	line	305
 	
-l3285:
+l3271:
 	movlb	0	; () banked
 	movf	((_PacketFromPC))&0ffh,w
 	; Switch size 1, requested type "space"
@@ -5701,36 +5669,36 @@ l3285:
 
 	xorlw	2^0	; case 2
 	skipnz
-	goto	l3137
+	goto	l3123
 	xorlw	3^2	; case 3
 	skipnz
-	goto	l3157
+	goto	l3143
 	xorlw	4^3	; case 4
 	skipnz
-	goto	l3165
+	goto	l3151
 	xorlw	5^4	; case 5
 	skipnz
-	goto	l3177
+	goto	l3163
 	xorlw	6^5	; case 6
 	skipnz
-	goto	l3199
+	goto	l3185
 	xorlw	7^6	; case 7
 	skipnz
-	goto	l3205
+	goto	l3191
 	xorlw	8^7	; case 8
 	skipnz
-	goto	l3281
+	goto	l3267
 	xorlw	9^8	; case 9
 	skipnz
-	goto	l3229
+	goto	l3215
 	xorlw	12^9	; case 12
 	skipnz
-	goto	l3233
-	goto	l3155
+	goto	l3219
+	goto	l3141
 
 	line	464
 	
-l614:
+l608:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_ProcessIO
@@ -5782,7 +5750,7 @@ _WriteFlashSubBlock:
 	opt	stack 26
 	line	583
 	
-l3019:
+l3005:
 ;boot_18fxxjxx.c: 578: static unsigned char i;
 ;boot_18fxxjxx.c: 579: uint16_t WordToWrite;
 ;boot_18fxxjxx.c: 580: static uint32_t Address;
@@ -5790,10 +5758,10 @@ l3019:
 	clrf	((c:WriteFlashSubBlock@i)),c
 	line	584
 ;boot_18fxxjxx.c: 584: while(BufferedDataIndex > 0)
-	goto	l3043
+	goto	l3029
 	line	587
 	
-l3021:
+l3007:
 ;boot_18fxxjxx.c: 585: {
 ;boot_18fxxjxx.c: 587: Address = (ProgrammedPointer - BufferedDataIndex);
 	movf	((c:_BufferedDataIndex)),c,w
@@ -5820,22 +5788,22 @@ l3021:
 	movwf	3+((c:WriteFlashSubBlock@Address)),c
 	line	588
 	
-l3023:
+l3009:
 ;boot_18fxxjxx.c: 588: TBLPTRU = Address >> 16;
 	movff	0+((c:WriteFlashSubBlock@Address)+02h),(c:4088)	;volatile
 	line	589
 	
-l3025:
+l3011:
 ;boot_18fxxjxx.c: 589: TBLPTRH = Address >> 8;
 	movff	0+((c:WriteFlashSubBlock@Address)+01h),(c:4087)	;volatile
 	line	590
 	
-l3027:
+l3013:
 ;boot_18fxxjxx.c: 590: TBLPTRL = (uint8_t)Address;
 	movff	(c:WriteFlashSubBlock@Address),(c:4086)	;volatile
 	line	592
 	
-l3029:
+l3015:
 ;boot_18fxxjxx.c: 592: TABLAT = ProgrammingBuffer[i];
 	movlw	low(_ProgrammingBuffer)
 	addwf	((c:WriteFlashSubBlock@i)),c,w
@@ -5851,12 +5819,12 @@ tblwtpostinc ;#
 psect	text3
 	line	596
 	
-l3031:
+l3017:
 ;boot_18fxxjxx.c: 596: i++;
 	incf	((c:WriteFlashSubBlock@i)),c
 	line	597
 	
-l3033:
+l3019:
 ;boot_18fxxjxx.c: 597: TABLAT = ProgrammingBuffer[i];
 	movlw	low(_ProgrammingBuffer)
 	addwf	((c:WriteFlashSubBlock@i)),c,w
@@ -5872,44 +5840,44 @@ tblwt ;#
 psect	text3
 	line	601
 	
-l3035:
+l3021:
 ;boot_18fxxjxx.c: 601: i++;
 	incf	((c:WriteFlashSubBlock@i)),c
 	line	617
 	
-l3037:
+l3023:
 ;boot_18fxxjxx.c: 617: EECON1 = 0b00100100;
 	movlw	low(024h)
 	movwf	((c:4006)),c	;volatile
 	line	618
 	
-l3039:
+l3025:
 ;boot_18fxxjxx.c: 618: UnlockAndActivate(0xB5);
 	movlw	(0B5h)&0ffh
 	
 	call	_UnlockAndActivate
 	line	620
 	
-l3041:
+l3027:
 ;boot_18fxxjxx.c: 620: BufferedDataIndex = BufferedDataIndex - 0x02;
 	movlw	(-2)&0ffh
 	addwf	((c:_BufferedDataIndex)),c
 	line	584
 	
-l3043:
+l3029:
 		movf	((c:_BufferedDataIndex)),c,w
 	xorlw	80h
 	addlw	-(80h^01h)
 	btfsc	status,0
-	goto	u2011
-	goto	u2010
+	goto	u2001
+	goto	u2000
 
-u2011:
-	goto	l3021
-u2010:
+u2001:
+	goto	l3007
+u2000:
 	line	622
 	
-l673:
+l667:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_WriteFlashSubBlock
@@ -5929,7 +5897,7 @@ GLOBAL	__end_of_WriteFlashSubBlock
 ;; Registers used:
 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -5968,136 +5936,136 @@ _USBDeviceTasks:
 	opt	stack 24
 	line	469
 	
-l2903:
+l2889:
 ;usb_device.c: 465: static volatile BDT* pBDTEntry;
 ;usb_device.c: 466: static uint8_t i;
 ;usb_device.c: 469: USBCheckBusStatus();
 	call	_USBCheckBusStatus	;wreg free
 	line	474
 	
-l2905:
+l2891:
 ;usb_device.c: 474: if(usb_device_state == 0) return;
 	movf	((c:_usb_device_state)),c,w
 	btfss	status,2
-	goto	u1781
-	goto	u1780
-u1781:
-	goto	l291
-u1780:
-	goto	l292
+	goto	u1771
+	goto	u1770
+u1771:
+	goto	l285
+u1770:
+	goto	l286
 	
-l291:
+l285:
 	line	480
 ;usb_device.c: 480: if(UIRbits.ACTVIF) USBWakeFromSuspend();
 	btfss	((c:3938)),c,2	;volatile
-	goto	u1791
-	goto	u1790
-u1791:
-	goto	l2911
-u1790:
+	goto	u1781
+	goto	u1780
+u1781:
+	goto	l2897
+u1780:
 	
-l2909:
+l2895:
 	call	_USBWakeFromSuspend	;wreg free
 	line	485
 	
-l2911:
+l2897:
 ;usb_device.c: 485: if(UCONbits.SUSPND == 1) return;
 	btfss	((c:3941)),c,1	;volatile
-	goto	u1801
-	goto	u1800
-u1801:
-	goto	l294
-u1800:
-	goto	l292
+	goto	u1791
+	goto	u1790
+u1791:
+	goto	l288
+u1790:
+	goto	l286
 	
-l294:
+l288:
 	line	493
 ;usb_device.c: 493: if(UIRbits.URSTIF) USBProtocolResetHandler();
 	btfss	((c:3938)),c,0	;volatile
-	goto	u1811
-	goto	u1810
-u1811:
-	goto	l2917
-u1810:
+	goto	u1801
+	goto	u1800
+u1801:
+	goto	l2903
+u1800:
 	
-l2915:
+l2901:
 	call	_USBProtocolResetHandler	;wreg free
 	line	498
 	
-l2917:
+l2903:
 ;usb_device.c: 498: if(UIRbits.IDLEIF) USBSuspend();
 	btfss	((c:3938)),c,4	;volatile
-	goto	u1821
-	goto	u1820
-u1821:
-	goto	l2921
-u1820:
+	goto	u1811
+	goto	u1810
+u1811:
+	goto	l2907
+u1810:
 	
-l2919:
+l2905:
 	call	_USBSuspend	;wreg free
 	line	515
 	
-l2921:
+l2907:
 ;usb_device.c: 515: if(usb_device_state < 3) return;
 		movlw	03h-0
 	cpfslt	((c:_usb_device_state)),c
-	goto	u1831
-	goto	u1830
+	goto	u1821
+	goto	u1820
 
-u1831:
-	goto	l297
-u1830:
-	goto	l292
+u1821:
+	goto	l291
+u1820:
+	goto	l286
 	
-l297:
+l291:
 	line	520
 ;usb_device.c: 520: for(bTRNIFCount = 0; bTRNIFCount < 4; bTRNIFCount++)
 	clrf	((c:_bTRNIFCount)),c
 	line	521
 	
-l298:
+l292:
 	line	522
 ;usb_device.c: 521: {
 ;usb_device.c: 522: if(UIRbits.TRNIF)
 	btfss	((c:3938)),c,3	;volatile
-	goto	u1841
-	goto	u1840
-u1841:
-	goto	l292
-u1840:
+	goto	u1831
+	goto	u1830
+u1831:
+	goto	l286
+u1830:
 	line	525
 	
-l2929:
+l2915:
 ;usb_device.c: 523: {
 ;usb_device.c: 525: USTATSave = USTAT;
 	movf	((c:3940)),c,w	;volatile
 	line	526
 	
-l2931:
+l2917:
 ;usb_device.c: 526: if((USTAT & 0x7C) == ((0x00<<3)|(0<<2)))
 	movff	(c:3940),??_USBDeviceTasks+0+0	;volatile
 	movlw	07Ch
 	andwf	(??_USBDeviceTasks+0+0),c
 	btfss	status,2
-	goto	u1851
-	goto	u1850
-u1851:
-	goto	l2959
-u1850:
+	goto	u1841
+	goto	u1840
+u1841:
+	goto	l2945
+u1840:
 	line	529
 	
-l2933:
+l2919:
 ;usb_device.c: 527: {
 ;usb_device.c: 529: if(USTATbits.PPBI == 0)
 	btfsc	((c:3940)),c,1	;volatile
-	goto	u1861
-	goto	u1860
-u1861:
-	goto	l2937
-u1860:
+	goto	u1851
+	goto	u1850
+u1851:
+	goto	l2923
+u1850:
 	line	532
 	
-l2935:
+l2921:
 ;usb_device.c: 530: {
 ;usb_device.c: 532: pBDTEntry = &ep0BoEven;
 		movlw	low(3328)
@@ -6107,10 +6075,10 @@ l2935:
 
 	line	533
 ;usb_device.c: 533: }
-	goto	l2939
+	goto	l2925
 	line	537
 	
-l2937:
+l2923:
 ;usb_device.c: 534: else
 ;usb_device.c: 535: {
 ;usb_device.c: 537: pBDTEntry = &ep0BoOdd;
@@ -6121,13 +6089,13 @@ l2937:
 
 	line	541
 	
-l2939:
+l2925:
 ;usb_device.c: 538: }
 ;usb_device.c: 541: UIRbits.TRNIF = 0;
 	bcf	((c:3938)),c,3	;volatile
 	line	544
 	
-l2941:
+l2927:
 ;usb_device.c: 544: if(pBDTEntry->Stat.PID == 0b00001101)
 	movff	(c:USBDeviceTasks@pBDTEntry),fsr2l
 	movff	(c:USBDeviceTasks@pBDTEntry+1),fsr2h
@@ -6136,20 +6104,20 @@ l2941:
 	andlw	(1<<4)-1
 	xorlw	0Dh
 	btfss	status,2
-	goto	u1871
-	goto	u1870
-u1871:
-	goto	l308
-u1870:
+	goto	u1861
+	goto	u1860
+u1861:
+	goto	l302
+u1860:
 	line	548
 	
-l2943:
+l2929:
 ;usb_device.c: 545: {
 ;usb_device.c: 548: for(i = 0; i < sizeof(CTRL_TRF_SETUP); i++)
 	clrf	((c:USBDeviceTasks@i)),c
 	line	550
 	
-l2949:
+l2935:
 ;usb_device.c: 549: {
 ;usb_device.c: 550: SetupPkt._byte[i] = *pBDTEntry->ADR++;
 	lfsr	2,02h
@@ -6167,7 +6135,7 @@ l2949:
 	clrf	fsr1h
 	movff	indf2,indf1
 	
-l2951:
+l2937:
 	lfsr	2,02h
 	movf	((c:USBDeviceTasks@pBDTEntry)),c,w
 	addwf	fsr2l
@@ -6178,85 +6146,85 @@ l2951:
 	addwfc	postdec2
 	line	548
 	
-l2953:
+l2939:
 	incf	((c:USBDeviceTasks@i)),c
 	
-l2955:
+l2941:
 		movlw	08h-1
 	cpfsgt	((c:USBDeviceTasks@i)),c
-	goto	u1881
-	goto	u1880
+	goto	u1871
+	goto	u1870
 
-u1881:
-	goto	l2949
-u1880:
+u1871:
+	goto	l2935
+u1870:
 	line	555
 	
-l2957:
+l2943:
 ;usb_device.c: 551: }
 ;usb_device.c: 555: USBCtrlTrfSetupHandler();
 	call	_USBCtrlTrfSetupHandler	;wreg free
 	line	556
 ;usb_device.c: 556: }
-	goto	l2965
+	goto	l2951
 	line	563
 	
-l2959:
+l2945:
 ;usb_device.c: 563: else if(USTAT == ((0x00<<3)|(1<<2)))
 		movlw	4
 	xorwf	((c:3940)),c,w	;volatile
 	btfss	status,2
-	goto	u1891
-	goto	u1890
+	goto	u1881
+	goto	u1880
 
-u1891:
-	goto	l309
-u1890:
+u1881:
+	goto	l303
+u1880:
 	line	566
 	
-l2961:
+l2947:
 ;usb_device.c: 564: {
 ;usb_device.c: 566: UIRbits.TRNIF = 0;
 	bcf	((c:3938)),c,3	;volatile
 	line	567
 	
-l2963:
+l2949:
 ;usb_device.c: 567: USBCtrlTrfInHandler();
 	call	_USBCtrlTrfInHandler	;wreg free
 	line	568
 ;usb_device.c: 568: }
-	goto	l2965
+	goto	l2951
 	line	569
 	
-l309:
+l303:
 	line	575
 ;usb_device.c: 569: else
 ;usb_device.c: 570: {
 ;usb_device.c: 575: UIRbits.TRNIF = 0;
 	bcf	((c:3938)),c,3	;volatile
-	goto	l2965
+	goto	l2951
 	line	576
 	
-l308:
+l302:
 	line	520
 ;usb_device.c: 576: }
 ;usb_device.c: 577: }
 	
-l2965:
+l2951:
 	incf	((c:_bTRNIFCount)),c
 	
-l2967:
+l2953:
 		movlw	04h-1
 	cpfsgt	((c:_bTRNIFCount)),c
-	goto	u1901
-	goto	u1900
+	goto	u1891
+	goto	u1890
 
-u1901:
-	goto	l298
-u1900:
+u1891:
+	goto	l292
+u1890:
 	line	584
 	
-l292:
+l286:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBDeviceTasks
@@ -6276,7 +6244,7 @@ GLOBAL	__end_of_USBDeviceTasks
 ;; Registers used:
 ;;		wreg, status,2, status,0, cstack
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -6308,37 +6276,37 @@ _USBWakeFromSuspend:
 	opt	stack 25
 	line	706
 	
-l2815:
+l2801:
 ;usb_device.c: 706: USBCBWakeFromSuspend();
 	call	_USBCBWakeFromSuspend	;wreg free
 	line	709
 	
-l2817:
+l2803:
 ;usb_device.c: 709: UCONbits.SUSPND = 0;
 	bcf	((c:3941)),c,1	;volatile
 	line	710
 	
-l2819:
+l2805:
 ;usb_device.c: 710: UIEbits.ACTVIE = 0;
 	movlb	15	; () banked
 	bcf	((3894))&0ffh,2	;volatile
 	line	711
 ;usb_device.c: 711: while(UIRbits.ACTVIF){UIRbits.ACTVIF = 0;}
-	goto	l319
+	goto	l313
 	
-l320:
+l314:
 	bcf	((c:3938)),c,2	;volatile
 	
-l319:
+l313:
 	btfsc	((c:3938)),c,2	;volatile
-	goto	u1681
-	goto	u1680
-u1681:
-	goto	l320
-u1680:
+	goto	u1671
+	goto	u1670
+u1671:
+	goto	l314
+u1670:
 	line	713
 	
-l322:
+l316:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBWakeFromSuspend
@@ -6358,7 +6326,7 @@ GLOBAL	__end_of_USBWakeFromSuspend
 ;; Registers used:
 ;;		wreg, status,2, status,0, cstack
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -6391,7 +6359,7 @@ _USBCBWakeFromSuspend:
 	opt	stack 25
 	line	742
 	
-l2671:
+l2657:
 ;main.c: 742: DelayRoutine(0x300);
 	movlw	high(0300h)
 	movwf	((c:DelayRoutine@DelayAmount+1)),c
@@ -6400,7 +6368,7 @@ l2671:
 	call	_DelayRoutine	;wreg free
 	line	753
 	
-l93:
+l87:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBCBWakeFromSuspend
@@ -6420,7 +6388,7 @@ GLOBAL	__end_of_USBCBWakeFromSuspend
 ;; Registers used:
 ;;		wreg, status,2, status,0, cstack
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : F/F
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -6453,62 +6421,62 @@ _USBSuspend:
 	opt	stack 27
 	line	646
 	
-l2821:
+l2807:
 ;usb_device.c: 611: static unsigned char UIESave;
 ;usb_device.c: 646: UIESave = UIE;
 	movff	(3894),(c:USBSuspend@UIESave)	;volatile
 	line	647
 	
-l2823:
+l2809:
 ;usb_device.c: 647: UIE = 0b00000100;
 	movlw	low(04h)
 	movlb	15	; () banked
 	movwf	((3894))&0ffh	;volatile
 	line	651
 	
-l2825:; BSR set to: 15
+l2811:; BSR set to: 15
 
 ;usb_device.c: 651: UIRbits.IDLEIF = 0;
 	bcf	((c:3938)),c,4	;volatile
 	line	652
 	
-l2827:; BSR set to: 15
+l2813:; BSR set to: 15
 
 ;usb_device.c: 652: UCONbits.SUSPND = 1;
 	bsf	((c:3941)),c,1	;volatile
 	line	659
 	
-l2829:; BSR set to: 15
+l2815:; BSR set to: 15
 
 ;usb_device.c: 659: PIR2bits.USBIF = 0;
 	bcf	((c:4001)),c,4	;volatile
 	line	663
 	
-l2831:; BSR set to: 15
+l2817:; BSR set to: 15
 
 ;usb_device.c: 663: PIE2bits.USBIE = 1;
 	bsf	((c:4000)),c,4	;volatile
 	line	672
 	
-l2833:; BSR set to: 15
+l2819:; BSR set to: 15
 
 ;usb_device.c: 672: USBCBSuspend();
 	call	_USBCBSuspend	;wreg free
 	line	679
 	
-l2835:
+l2821:
 ;usb_device.c: 679: PIE2bits.USBIE = 0;
 	bcf	((c:4000)),c,4	;volatile
 	line	680
 	
-l2837:
+l2823:
 ;usb_device.c: 680: UIE |= UIESave;
 	movf	((c:USBSuspend@UIESave)),c,w
 	movlb	15	; () banked
 	iorwf	((3894))&0ffh	;volatile
 	line	684
 	
-l316:; BSR set to: 15
+l310:; BSR set to: 15
 
 	return	;funcret
 	opt stack 0
@@ -6562,7 +6530,7 @@ _USBCBSuspend:; BSR set to: 15
 	opt	stack 27
 	line	778
 	
-l2673:; BSR set to: 15
+l2659:; BSR set to: 15
 
 ;main.c: 774: static unsigned char OSCCONSave;
 ;main.c: 778: LATCbits.LATC2 = 0;
@@ -6576,40 +6544,40 @@ sleep ;#
 psect	text8
 	line	787
 ;main.c: 787: while((PIR2bits.USBIF == 0) && (RCONbits.TO == 0))
-	goto	l98
+	goto	l92
 	
-l99:
+l93:
 	line	789
 # 789 "../src/main.c"
 sleep ;# 
 psect	text8
 	line	790
 	
-l98:
+l92:
 	line	787
 	btfsc	((c:4001)),c,4	;volatile
+	goto	u1521
+	goto	u1520
+u1521:
+	goto	l96
+u1520:
+	
+l2661:
+	btfss	((c:4048)),c,3	;volatile
 	goto	u1531
 	goto	u1530
 u1531:
-	goto	l102
+	goto	l93
 u1530:
 	
-l2675:
-	btfss	((c:4048)),c,3	;volatile
-	goto	u1541
-	goto	u1540
-u1541:
-	goto	l99
-u1540:
-	
-l102:
+l96:
 	line	793
 ;main.c: 790: }
 ;main.c: 793: OSCCON = OSCCONSave;
 	movff	(c:USBCBSuspend@OSCCONSave),(c:4051)	;volatile
 	line	802
 	
-l103:
+l97:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBCBSuspend
@@ -6629,7 +6597,7 @@ GLOBAL	__end_of_USBCBSuspend
 ;; Registers used:
 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -6664,7 +6632,7 @@ _USBCtrlTrfSetupHandler:
 	opt	stack 24
 	line	819
 	
-l2839:
+l2825:
 ;usb_device.c: 819: ep0Bi.Stat._byte = 0x00;
 	movlb	13	; () banked
 	clrf	((3336))&0ffh	;volatile
@@ -6674,14 +6642,14 @@ l2839:
 	line	825
 ;usb_device.c: 825: if(ep0BoEven.Stat.UOWN == 1)
 	btfss	((3328))&0ffh,7	;volatile
-	goto	u1691
-	goto	u1690
-u1691:
-	goto	l331
-u1690:
+	goto	u1681
+	goto	u1680
+u1681:
+	goto	l325
+u1680:
 	line	827
 	
-l2841:; BSR set to: 13
+l2827:; BSR set to: 13
 
 ;usb_device.c: 826: {
 ;usb_device.c: 827: ep0BoEven.Stat._byte = 0x00;
@@ -6691,76 +6659,76 @@ l2841:; BSR set to: 13
 	clrf	((c:_EP0OutOddNeedsArmingNext)),c
 	line	829
 	
-l331:; BSR set to: 13
+l325:; BSR set to: 13
 
 	line	830
 ;usb_device.c: 829: }
 ;usb_device.c: 830: if(ep0BoOdd.Stat.UOWN == 1)
 	btfss	((3332))&0ffh,7	;volatile
-	goto	u1701
-	goto	u1700
-u1701:
-	goto	l2847
-u1700:
+	goto	u1691
+	goto	u1690
+u1691:
+	goto	l2833
+u1690:
 	line	832
 	
-l2843:; BSR set to: 13
+l2829:; BSR set to: 13
 
 ;usb_device.c: 831: {
 ;usb_device.c: 832: ep0BoOdd.Stat._byte = 0x00;
 	clrf	((3332))&0ffh	;volatile
 	line	833
 	
-l2845:; BSR set to: 13
+l2831:; BSR set to: 13
 
 ;usb_device.c: 833: EP0OutOddNeedsArmingNext = 1;
 	movlw	low(01h)
 	movwf	((c:_EP0OutOddNeedsArmingNext)),c
 	line	835
 	
-l2847:; BSR set to: 13
+l2833:; BSR set to: 13
 
 ;usb_device.c: 834: }
 ;usb_device.c: 835: ctrl_trf_state = 0;
 	clrf	((c:_ctrl_trf_state)),c
 	line	836
 	
-l2849:; BSR set to: 13
+l2835:; BSR set to: 13
 
 ;usb_device.c: 836: ctrl_trf_session_owner = 0;
 	clrf	((c:_ctrl_trf_session_owner)),c
 	line	837
 	
-l2851:; BSR set to: 13
+l2837:; BSR set to: 13
 
 ;usb_device.c: 837: wCount.Val = 0;
 	clrf	((c:_wCount)),c
 	clrf	((c:_wCount+1)),c
 	line	838
 	
-l2853:; BSR set to: 13
+l2839:; BSR set to: 13
 
 ;usb_device.c: 838: UCONbits.PKTDIS = 0;
 	bcf	((c:3941)),c,4	;volatile
 	line	844
 	
-l2855:; BSR set to: 13
+l2841:; BSR set to: 13
 
 ;usb_device.c: 844: USBCheckStdRequest();
 	call	_USBCheckStdRequest	;wreg free
 	line	845
 	
-l2857:
+l2843:
 ;usb_device.c: 845: USBCBCheckOtherReq();
 	call	_USBCBCheckOtherReq	;wreg free
 	line	848
 	
-l2859:
+l2845:
 ;usb_device.c: 848: USBCtrlEPServiceComplete();
 	call	_USBCtrlEPServiceComplete	;wreg free
 	line	850
 	
-l333:
+l327:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBCtrlTrfSetupHandler
@@ -6813,18 +6781,18 @@ _USBCtrlEPServiceComplete:
 	opt	stack 26
 	line	1173
 	
-l2735:
+l2721:
 ;usb_device.c: 1173: if(ctrl_trf_session_owner == 0)
 	movf	((c:_ctrl_trf_session_owner)),c,w
 	btfss	status,2
-	goto	u1571
-	goto	u1570
-u1571:
-	goto	l365
-u1570:
+	goto	u1561
+	goto	u1560
+u1561:
+	goto	l359
+u1560:
 	line	1178
 	
-l2737:
+l2723:
 ;usb_device.c: 1174: {
 ;usb_device.c: 1178: ep0Bi.Stat._byte = 0x04;
 	movlw	low(04h)
@@ -6832,33 +6800,33 @@ l2737:
 	movwf	((3336))&0ffh	;volatile
 	line	1179
 	
-l2739:; BSR set to: 13
+l2725:; BSR set to: 13
 
 ;usb_device.c: 1179: ep0Bi.Stat._byte |= 0x80;
 	bsf	(0+(7/8)+(3336))&0ffh,(7)&7	;volatile
 	line	1180
 	
-l2741:; BSR set to: 13
+l2727:; BSR set to: 13
 
 ;usb_device.c: 1180: TempBDT.Stat._byte = 0x04;
 	movlw	low(04h)
 	movwf	((c:_TempBDT)),c
 	line	1181
 	
-l2743:; BSR set to: 13
+l2729:; BSR set to: 13
 
 ;usb_device.c: 1181: if(EP0OutOddNeedsArmingNext == 1)
 		decf	((c:_EP0OutOddNeedsArmingNext)),c,w
 	btfss	status,2
-	goto	u1581
-	goto	u1580
+	goto	u1571
+	goto	u1570
 
-u1581:
-	goto	l2749
-u1580:
+u1571:
+	goto	l2735
+u1570:
 	line	1183
 	
-l2745:; BSR set to: 13
+l2731:; BSR set to: 13
 
 ;usb_device.c: 1182: {
 ;usb_device.c: 1183: LoadBDTandSetUOWN(1);
@@ -6867,15 +6835,15 @@ l2745:; BSR set to: 13
 	call	_LoadBDTandSetUOWN
 	line	1184
 	
-l2747:
+l2733:
 ;usb_device.c: 1184: EP0OutOddNeedsArmingNext = 0;
 	clrf	((c:_EP0OutOddNeedsArmingNext)),c
 	line	1185
 ;usb_device.c: 1185: }
-	goto	l376
+	goto	l370
 	line	1188
 	
-l2749:; BSR set to: 13
+l2735:; BSR set to: 13
 
 ;usb_device.c: 1186: else
 ;usb_device.c: 1187: {
@@ -6885,80 +6853,80 @@ l2749:; BSR set to: 13
 	call	_LoadBDTandSetUOWN
 	line	1189
 	
-l2751:
+l2737:
 ;usb_device.c: 1189: EP0OutOddNeedsArmingNext = 1;
 	movlw	low(01h)
 	movwf	((c:_EP0OutOddNeedsArmingNext)),c
-	goto	l376
+	goto	l370
 	line	1192
 	
-l365:
+l359:
 	line	1194
 ;usb_device.c: 1192: else
 ;usb_device.c: 1193: {
 ;usb_device.c: 1194: if(SetupPkt.DataDir == 1)
 	btfss	((c:_SetupPkt)),c,7
-	goto	u1591
-	goto	u1590
-u1591:
-	goto	l2773
-u1590:
+	goto	u1581
+	goto	u1580
+u1581:
+	goto	l2759
+u1580:
 	line	1219
 	
-l2753:
+l2739:
 ;usb_device.c: 1195: {
 ;usb_device.c: 1219: ctrl_trf_state = 1;
 	movlw	low(01h)
 	movwf	((c:_ctrl_trf_state)),c
 	line	1224
 	
-l2755:
+l2741:
 ;usb_device.c: 1224: if(SetupPkt.wLength < wCount.Val)
 		movf	((c:_wCount)),c,w
 	subwf	(0+((c:_SetupPkt)+06h)),c,w
 	movf	((c:_wCount+1)),c,w
 	subwfb	(1+((c:_SetupPkt)+06h)),c,w
 	btfsc	status,0
-	goto	u1601
-	goto	u1600
+	goto	u1591
+	goto	u1590
 
-u1601:
-	goto	l2759
-u1600:
+u1591:
+	goto	l2745
+u1590:
 	line	1225
 	
-l2757:
+l2743:
 ;usb_device.c: 1225: wCount.Val = SetupPkt.wLength;
 	movff	0+((c:_SetupPkt)+06h),(c:_wCount)
 	movff	1+((c:_SetupPkt)+06h),(c:_wCount+1)
 	line	1229
 	
-l2759:
+l2745:
 ;usb_device.c: 1229: USBCtrlTrfTxService();
 	call	_USBCtrlTrfTxService	;wreg free
 	line	1233
 	
-l2761:
+l2747:
 ;usb_device.c: 1233: TempBDT.Stat._byte = 0x40 | 0x08;
 	movlw	low(048h)
 	movwf	((c:_TempBDT)),c
 	line	1234
 	
-l2763:
+l2749:
 ;usb_device.c: 1234: LoadBDTandSetUOWN(1);
 	movlw	(01h)&0ffh
 	
 	call	_LoadBDTandSetUOWN
 	line	1235
 	
-l2765:
+l2751:
 ;usb_device.c: 1235: LoadBDTandSetUOWN(0);
 	movlw	(0)&0ffh
 	
 	call	_LoadBDTandSetUOWN
 	line	1240
 	
-l2767:
+l2753:
 ;usb_device.c: 1240: ep0Bi.ADR = (uint8_t*)&CtrlTrfData;
 		movlw	low(3364)
 	movlb	13	; () banked
@@ -6968,23 +6936,23 @@ l2767:
 
 	line	1241
 	
-l2769:; BSR set to: 13
+l2755:; BSR set to: 13
 
 ;usb_device.c: 1241: ep0Bi.Stat._byte = 0x40|0x08;
 	movlw	low(048h)
 	movwf	((3336))&0ffh	;volatile
 	line	1242
 	
-l2771:; BSR set to: 13
+l2757:; BSR set to: 13
 
 ;usb_device.c: 1242: ep0Bi.Stat._byte |= 0x80;
 	bsf	(0+(7/8)+(3336))&0ffh,(7)&7	;volatile
 	line	1243
 ;usb_device.c: 1243: }
-	goto	l376
+	goto	l370
 	line	1256
 	
-l2773:
+l2759:
 ;usb_device.c: 1244: else
 ;usb_device.c: 1245: {
 ;usb_device.c: 1256: ctrl_trf_state = 2;
@@ -6996,40 +6964,40 @@ l2773:
 	movwf	((c:_TempBDT)),c
 	line	1263
 	
-l2775:
+l2761:
 ;usb_device.c: 1263: if(SetupPkt.wLength == 0)
 	movf	(0+((c:_SetupPkt)+06h)),c,w
 iorwf	(1+((c:_SetupPkt)+06h)),c,w
 	btfss	status,2
-	goto	u1611
-	goto	u1610
+	goto	u1601
+	goto	u1600
 
-u1611:
-	goto	l2779
-u1610:
+u1601:
+	goto	l2765
+u1600:
 	line	1265
 	
-l2777:
+l2763:
 ;usb_device.c: 1264: {
 ;usb_device.c: 1265: TempBDT.Stat._byte = 0x40|0x08;
 	movlw	low(048h)
 	movwf	((c:_TempBDT)),c
 	line	1268
 	
-l2779:
+l2765:
 ;usb_device.c: 1266: }
 ;usb_device.c: 1268: if(EP0OutOddNeedsArmingNext == 1)
 		decf	((c:_EP0OutOddNeedsArmingNext)),c,w
 	btfss	status,2
-	goto	u1621
-	goto	u1620
+	goto	u1611
+	goto	u1610
 
-u1621:
-	goto	l2785
-u1620:
+u1611:
+	goto	l2771
+u1610:
 	line	1270
 	
-l2781:
+l2767:
 ;usb_device.c: 1269: {
 ;usb_device.c: 1270: LoadBDTandSetUOWN(1);
 	movlw	(01h)&0ffh
@@ -7037,15 +7005,15 @@ l2781:
 	call	_LoadBDTandSetUOWN
 	line	1271
 	
-l2783:
+l2769:
 ;usb_device.c: 1271: EP0OutOddNeedsArmingNext = 0;
 	clrf	((c:_EP0OutOddNeedsArmingNext)),c
 	line	1272
 ;usb_device.c: 1272: }
-	goto	l2789
+	goto	l2775
 	line	1275
 	
-l2785:
+l2771:
 ;usb_device.c: 1273: else
 ;usb_device.c: 1274: {
 ;usb_device.c: 1275: LoadBDTandSetUOWN(0);
@@ -7054,47 +7022,47 @@ l2785:
 	call	_LoadBDTandSetUOWN
 	line	1276
 	
-l2787:
+l2773:
 ;usb_device.c: 1276: EP0OutOddNeedsArmingNext = 1;
 	movlw	low(01h)
 	movwf	((c:_EP0OutOddNeedsArmingNext)),c
 	line	1281
 	
-l2789:
+l2775:
 ;usb_device.c: 1277: }
 ;usb_device.c: 1281: if(SetupPkt.wLength == 0)
 	movf	(0+((c:_SetupPkt)+06h)),c,w
 iorwf	(1+((c:_SetupPkt)+06h)),c,w
 	btfss	status,2
-	goto	u1631
-	goto	u1630
+	goto	u1621
+	goto	u1620
 
-u1631:
-	goto	l376
-u1630:
+u1621:
+	goto	l370
+u1620:
 	line	1284
 	
-l2791:
+l2777:
 ;usb_device.c: 1282: {
 ;usb_device.c: 1284: ep0Bi.Cnt = 0;
 	movlb	13	; () banked
 	clrf	(0+(3336+01h))&0ffh	;volatile
 	line	1285
 	
-l2793:; BSR set to: 13
+l2779:; BSR set to: 13
 
 ;usb_device.c: 1285: ep0Bi.Stat._byte = 0x40|0x08;
 	movlw	low(048h)
 	movwf	((3336))&0ffh	;volatile
 	line	1286
 	
-l2795:; BSR set to: 13
+l2781:; BSR set to: 13
 
 ;usb_device.c: 1286: ep0Bi.Stat._byte |= 0x80;
 	bsf	(0+(7/8)+(3336))&0ffh,(7)&7	;volatile
 	line	1296
 	
-l376:
+l370:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBCtrlEPServiceComplete
@@ -7149,7 +7117,7 @@ _USBCheckStdRequest:
 	opt	stack 24
 	line	1318
 	
-l2697:; BSR set to: 13
+l2683:; BSR set to: 13
 
 ;usb_device.c: 1318: if(SetupPkt.RequestType != 0x00) return;
 	swapf	((c:_SetupPkt)),c,w
@@ -7157,19 +7125,19 @@ l2697:; BSR set to: 13
 	andlw	(1<<2)-1
 	iorlw	0
 	btfsc	status,2
-	goto	u1561
-	goto	u1560
-u1561:
-	goto	l2733
-u1560:
-	goto	l380
+	goto	u1551
+	goto	u1550
+u1551:
+	goto	l2719
+u1550:
+	goto	l374
 	
-l2699:; BSR set to: 13
+l2685:; BSR set to: 13
 
-	goto	l380
+	goto	l374
 	line	1323
 	
-l2701:; BSR set to: 13
+l2687:; BSR set to: 13
 
 ;usb_device.c: 1323: ctrl_trf_session_owner = 1;
 	movlw	low(01h)
@@ -7180,35 +7148,35 @@ l2701:; BSR set to: 13
 	movwf	((c:_usb_device_state)),c
 	line	1326
 ;usb_device.c: 1326: break;
-	goto	l380
+	goto	l374
 	line	1328
 	
-l2703:; BSR set to: 13
+l2689:; BSR set to: 13
 
 ;usb_device.c: 1328: USBStdGetDscHandler();
 	call	_USBStdGetDscHandler	;wreg free
 	line	1329
 ;usb_device.c: 1329: break;
-	goto	l380
+	goto	l374
 	line	1331
 	
-l2705:; BSR set to: 13
+l2691:; BSR set to: 13
 
 ;usb_device.c: 1331: USBStdSetCfgHandler();
 	call	_USBStdSetCfgHandler	;wreg free
 	line	1332
 ;usb_device.c: 1332: break;
-	goto	l380
+	goto	l374
 	line	1334
 	
-l2707:; BSR set to: 13
+l2693:; BSR set to: 13
 
 ;usb_device.c: 1334: ctrl_trf_session_owner = 1;
 	movlw	low(01h)
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	1335
 	
-l2709:; BSR set to: 13
+l2695:; BSR set to: 13
 
 ;usb_device.c: 1335: pSrc.bRam = (uint8_t*)&usb_active_cfg;
 		movlw	low(_usb_active_cfg)
@@ -7217,49 +7185,49 @@ l2709:; BSR set to: 13
 
 	line	1336
 	
-l2711:; BSR set to: 13
+l2697:; BSR set to: 13
 
 ;usb_device.c: 1336: usb_stat.ctrl_trf_mem = 0;
 	bcf	((c:_usb_stat)),c,1
 	line	1338
 	
-l2713:; BSR set to: 13
+l2699:; BSR set to: 13
 
 ;usb_device.c: 1338: wCount.v[0] = 1;
 	movlw	low(01h)
 	movwf	((c:_wCount)),c
 	line	1339
 ;usb_device.c: 1339: break;
-	goto	l380
+	goto	l374
 	line	1341
 	
-l2715:; BSR set to: 13
+l2701:; BSR set to: 13
 
 ;usb_device.c: 1341: USBStdGetStatusHandler();
 	call	_USBStdGetStatusHandler	;wreg free
 	line	1342
 ;usb_device.c: 1342: break;
-	goto	l380
+	goto	l374
 	line	1345
 	
-l2717:; BSR set to: 13
+l2703:; BSR set to: 13
 
 ;usb_device.c: 1344: case 3:
 ;usb_device.c: 1345: USBStdFeatureReqHandler();
 	call	_USBStdFeatureReqHandler	;wreg free
 	line	1346
 ;usb_device.c: 1346: break;
-	goto	l380
+	goto	l374
 	line	1348
 	
-l2719:; BSR set to: 13
+l2705:; BSR set to: 13
 
 ;usb_device.c: 1348: ctrl_trf_session_owner = 1;
 	movlw	low(01h)
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	1349
 	
-l2721:; BSR set to: 13
+l2707:; BSR set to: 13
 
 ;usb_device.c: 1349: pSrc.bRam = (uint8_t*)&usb_alt_intf+SetupPkt.bIntfID;
 	movf	(0+((c:_SetupPkt)+04h)),c,w
@@ -7268,17 +7236,17 @@ l2721:; BSR set to: 13
 		movff	(??_USBCheckStdRequest+0+0),(c:_pSrc)
 	clrf	((c:_pSrc+1)),c
 
-	goto	l2711
+	goto	l2697
 	line	1354
 	
-l2727:; BSR set to: 13
+l2713:; BSR set to: 13
 
 ;usb_device.c: 1354: ctrl_trf_session_owner = 1;
 	movlw	low(01h)
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	1355
 	
-l2729:; BSR set to: 13
+l2715:; BSR set to: 13
 
 ;usb_device.c: 1355: usb_alt_intf[SetupPkt.bIntfID] = SetupPkt.bAltID;
 	movf	(0+((c:_SetupPkt)+04h)),c,w
@@ -7289,10 +7257,10 @@ l2729:; BSR set to: 13
 
 	line	1356
 ;usb_device.c: 1356: break;
-	goto	l380
+	goto	l374
 	line	1320
 	
-l2733:; BSR set to: 13
+l2719:; BSR set to: 13
 
 	movf	(0+((c:_SetupPkt)+01h)),c,w
 	; Switch size 1, requested type "space"
@@ -7304,42 +7272,42 @@ l2733:; BSR set to: 13
 
 	xorlw	0^0	; case 0
 	skipnz
-	goto	l2715
+	goto	l2701
 	xorlw	1^0	; case 1
 	skipnz
-	goto	l2717
+	goto	l2703
 	xorlw	3^1	; case 3
 	skipnz
-	goto	l2717
+	goto	l2703
 	xorlw	5^3	; case 5
 	skipnz
-	goto	l2701
+	goto	l2687
 	xorlw	6^5	; case 6
 	skipnz
-	goto	l2703
+	goto	l2689
 	xorlw	7^6	; case 7
 	skipnz
-	goto	l2699
+	goto	l2685
 	xorlw	8^7	; case 8
 	skipnz
-	goto	l2707
+	goto	l2693
 	xorlw	9^8	; case 9
 	skipnz
-	goto	l2705
+	goto	l2691
 	xorlw	10^9	; case 10
 	skipnz
-	goto	l2719
+	goto	l2705
 	xorlw	11^10	; case 11
 	skipnz
-	goto	l2727
+	goto	l2713
 	xorlw	12^11	; case 12
 	skipnz
-	goto	l380
-	goto	l380
+	goto	l374
+	goto	l374
 
 	line	1363
 	
-l380:
+l374:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBCheckStdRequest
@@ -7391,7 +7359,7 @@ _USBStdSetCfgHandler:
 	opt	stack 24
 	line	1435
 	
-l2573:; BSR set to: 13
+l2559:; BSR set to: 13
 
 ;usb_device.c: 1433: static unsigned char i;
 ;usb_device.c: 1435: ctrl_trf_session_owner = 1;
@@ -7399,44 +7367,44 @@ l2573:; BSR set to: 13
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	1437
 	
-l2575:; BSR set to: 13
+l2561:; BSR set to: 13
 
 ;usb_device.c: 1437: UEP1=0x00;UEP2=0x00;UEP3=0x00; UEP4=0x00;UEP5=0x00;UEP6=0x00;UEP7=0x00;;
 	movlb	15	; () banked
 	clrf	((3879))&0ffh	;volatile
 	
-l2577:; BSR set to: 15
+l2563:; BSR set to: 15
 
 	clrf	((3880))&0ffh	;volatile
 	
-l2579:; BSR set to: 15
+l2565:; BSR set to: 15
 
 	clrf	((3881))&0ffh	;volatile
 	
-l2581:; BSR set to: 15
+l2567:; BSR set to: 15
 
 	clrf	((3882))&0ffh	;volatile
 	
-l2583:; BSR set to: 15
+l2569:; BSR set to: 15
 
 	clrf	((3883))&0ffh	;volatile
 	
-l2585:; BSR set to: 15
+l2571:; BSR set to: 15
 
 	clrf	((3884))&0ffh	;volatile
 	
-l2587:; BSR set to: 15
+l2573:; BSR set to: 15
 
 	clrf	((3885))&0ffh	;volatile
 	line	1439
 	
-l2589:; BSR set to: 15
+l2575:; BSR set to: 15
 
 ;usb_device.c: 1439: for(i = 0; i < 1; i++)
 	clrf	((c:USBStdSetCfgHandler@i)),c
 	line	1441
 	
-l2593:
+l2579:
 ;usb_device.c: 1440: {
 ;usb_device.c: 1441: usb_alt_intf[i] = 0;
 	movf	((c:USBStdSetCfgHandler@i)),c,w
@@ -7447,54 +7415,54 @@ l2593:
 	movwf	indf2
 	line	1439
 	
-l2595:
+l2581:
 	incf	((c:USBStdSetCfgHandler@i)),c
 	
-l2597:
+l2583:
 	movf	((c:USBStdSetCfgHandler@i)),c,w
 	btfsc	status,2
-	goto	u1381
-	goto	u1380
-u1381:
-	goto	l2593
-u1380:
+	goto	u1371
+	goto	u1370
+u1371:
+	goto	l2579
+u1370:
 	
-l410:
+l404:
 	line	1445
 ;usb_device.c: 1442: }
 ;usb_device.c: 1445: usb_active_cfg = SetupPkt.bCfgValue;
 	movff	0+((c:_SetupPkt)+02h),(c:_usb_active_cfg)
 	line	1452
 	
-l2599:
+l2585:
 ;usb_device.c: 1452: USBCBInitEP(usb_active_cfg);
 	movf	((c:_usb_active_cfg)),c,w
 	
 	call	_USBCBInitEP
 	line	1454
 	
-l2601:
+l2587:
 ;usb_device.c: 1454: if(SetupPkt.bCfgValue == 0)
 	movf	(0+((c:_SetupPkt)+02h)),c,w
 	btfss	status,2
-	goto	u1391
-	goto	u1390
-u1391:
-	goto	l2605
-u1390:
+	goto	u1381
+	goto	u1380
+u1381:
+	goto	l2591
+u1380:
 	line	1456
 	
-l2603:
+l2589:
 ;usb_device.c: 1455: {
 ;usb_device.c: 1456: usb_device_state = 5;
 	movlw	low(05h)
 	movwf	((c:_usb_device_state)),c
 	line	1457
 ;usb_device.c: 1457: }
-	goto	l413
+	goto	l407
 	line	1460
 	
-l2605:
+l2591:
 ;usb_device.c: 1458: else
 ;usb_device.c: 1459: {
 ;usb_device.c: 1460: usb_device_state = 6;
@@ -7502,7 +7470,7 @@ l2605:
 	movwf	((c:_usb_device_state)),c
 	line	1462
 	
-l413:
+l407:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBStdSetCfgHandler
@@ -7553,7 +7521,7 @@ _USBStdGetStatusHandler:
 	opt	stack 26
 	line	1482
 	
-l2607:; BSR set to: 13
+l2593:; BSR set to: 13
 
 ;usb_device.c: 1482: CtrlTrfData._byte0 = 0;
 	clrf	((3364))&0ffh	;volatile
@@ -7562,10 +7530,10 @@ l2607:; BSR set to: 13
 	clrf	(0+(3364+01h))&0ffh	;volatile
 	line	1485
 ;usb_device.c: 1485: switch(SetupPkt.Recipient)
-	goto	l2629
+	goto	l2615
 	line	1488
 	
-l2609:; BSR set to: 13
+l2595:; BSR set to: 13
 
 ;usb_device.c: 1488: ctrl_trf_session_owner = 1;
 	movlw	low(01h)
@@ -7573,42 +7541,42 @@ l2609:; BSR set to: 13
 	line	1496
 ;usb_device.c: 1494: if(0 == 1)
 	
-l2613:; BSR set to: 13
+l2599:; BSR set to: 13
 
 ;usb_device.c: 1496: if(usb_stat.RemoteWakeup == 1)
 	btfss	((c:_usb_stat)),c,0
-	goto	u1401
-	goto	u1400
-u1401:
-	goto	l2631
-u1400:
+	goto	u1391
+	goto	u1390
+u1391:
+	goto	l2617
+u1390:
 	line	1497
 	
-l2615:; BSR set to: 13
+l2601:; BSR set to: 13
 
 ;usb_device.c: 1497: CtrlTrfData._byte0|=0b00000010;
 	bsf	(0+(1/8)+(3364))&0ffh,(1)&7	;volatile
-	goto	l2631
+	goto	l2617
 	line	1500
 	
-l2617:; BSR set to: 13
+l2603:; BSR set to: 13
 
 ;usb_device.c: 1500: ctrl_trf_session_owner = 1;
 	movlw	low(01h)
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	1501
 ;usb_device.c: 1501: break;
-	goto	l2631
+	goto	l2617
 	line	1503
 	
-l2619:; BSR set to: 13
+l2605:; BSR set to: 13
 
 ;usb_device.c: 1503: ctrl_trf_session_owner = 1;
 	movlw	low(01h)
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	1507
 	
-l2621:; BSR set to: 13
+l2607:; BSR set to: 13
 
 ;usb_device.c: 1507: pDst.bRam = (uint8_t*)&ep0BoEven+(SetupPkt.EPNum*8)+(SetupPkt.EPDir*4)+4;
 	movf	(0+((c:_SetupPkt)+04h)),c,w
@@ -7627,14 +7595,14 @@ l2621:; BSR set to: 13
 	movf	(prodh),c,w
 	addwfc	(??_USBStdGetStatusHandler+0+1),c
 	btfsc	(0+((c:_SetupPkt)+04h)),c,7
-	goto	u1411
-	goto	u1410
-u1411:
+	goto	u1401
+	goto	u1400
+u1401:
 	movlw	1
-	goto	u1416
-u1410:
+	goto	u1406
+u1400:
 	movlw	0
-u1416:
+u1406:
 	mullw	04h
 	movf	(prodl),c,w
 	addwf	(??_USBStdGetStatusHandler+0+0),c,w
@@ -7644,28 +7612,28 @@ u1416:
 	movwf	1+((c:_pDst)),c
 	line	1508
 	
-l2623:; BSR set to: 13
+l2609:; BSR set to: 13
 
 ;usb_device.c: 1508: if(*pDst.bRam & 0x04)
 	movff	(c:_pDst),fsr2l
 	movff	(c:_pDst+1),fsr2h
 	btfss	indf2,(2)&7
-	goto	u1421
-	goto	u1420
-u1421:
-	goto	l2631
-u1420:
+	goto	u1411
+	goto	u1410
+u1411:
+	goto	l2617
+u1410:
 	line	1509
 	
-l2625:; BSR set to: 13
+l2611:; BSR set to: 13
 
 ;usb_device.c: 1509: CtrlTrfData._byte0=0x01;
 	movlw	low(01h)
 	movwf	((3364))&0ffh	;volatile
-	goto	l2631
+	goto	l2617
 	line	1485
 	
-l2629:; BSR set to: 13
+l2615:; BSR set to: 13
 
 	movf	((c:_SetupPkt)),c,w
 	andlw	(1<<5)-1
@@ -7678,31 +7646,31 @@ l2629:; BSR set to: 13
 
 	xorlw	0^0	; case 0
 	skipnz
-	goto	l2609
+	goto	l2595
 	xorlw	1^0	; case 1
 	skipnz
-	goto	l2617
+	goto	l2603
 	xorlw	2^1	; case 2
 	skipnz
-	goto	l2619
-	goto	l2631
+	goto	l2605
+	goto	l2617
 
 	line	1513
 	
-l2631:; BSR set to: 13
+l2617:; BSR set to: 13
 
 ;usb_device.c: 1513: if(ctrl_trf_session_owner == 1)
 		decf	((c:_ctrl_trf_session_owner)),c,w
 	btfss	status,2
-	goto	u1431
-	goto	u1430
+	goto	u1421
+	goto	u1420
 
-u1431:
-	goto	l425
-u1430:
+u1421:
+	goto	l419
+u1420:
 	line	1515
 	
-l2633:; BSR set to: 13
+l2619:; BSR set to: 13
 
 ;usb_device.c: 1514: {
 ;usb_device.c: 1515: pSrc.bRam = (uint8_t*)&CtrlTrfData;
@@ -7713,20 +7681,20 @@ l2633:; BSR set to: 13
 
 	line	1516
 	
-l2635:; BSR set to: 13
+l2621:; BSR set to: 13
 
 ;usb_device.c: 1516: usb_stat.ctrl_trf_mem = 0;
 	bcf	((c:_usb_stat)),c,1
 	line	1517
 	
-l2637:; BSR set to: 13
+l2623:; BSR set to: 13
 
 ;usb_device.c: 1517: wCount.v[0] = 2;
 	movlw	low(02h)
 	movwf	((c:_wCount)),c
 	line	1519
 	
-l425:; BSR set to: 13
+l419:; BSR set to: 13
 
 	return	;funcret
 	opt stack 0
@@ -7779,29 +7747,29 @@ _USBStdGetDscHandler:; BSR set to: 13
 	opt	stack 26
 	line	1385
 	
-l2545:; BSR set to: 13
+l2531:; BSR set to: 13
 
 ;usb_device.c: 1385: if(SetupPkt.bmRequestType == 0x80)
 		movlw	128
 	xorwf	((c:_SetupPkt)),c,w
 	btfss	status,2
-	goto	u1351
-	goto	u1350
+	goto	u1341
+	goto	u1340
 
-u1351:
-	goto	l404
-u1350:
-	goto	l2571
+u1341:
+	goto	l398
+u1340:
+	goto	l2557
 	line	1390
 	
-l2549:; BSR set to: 13
+l2535:; BSR set to: 13
 
 ;usb_device.c: 1390: ctrl_trf_session_owner = 1;
 	movlw	low(01h)
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	1391
 	
-l2551:; BSR set to: 13
+l2537:; BSR set to: 13
 
 ;usb_device.c: 1391: pSrc.bRom = (const uint8_t*)&device_dsc;
 		movlw	low(_device_dsc)
@@ -7813,29 +7781,29 @@ l2551:; BSR set to: 13
 
 	line	1392
 	
-l2553:; BSR set to: 13
+l2539:; BSR set to: 13
 
 ;usb_device.c: 1392: wCount.v[0] = sizeof(device_dsc);
 	movlw	low(012h)
 	movwf	((c:_wCount)),c
 	line	1393
 ;usb_device.c: 1393: break;
-	goto	l400
+	goto	l394
 	line	1396
 	
-l2555:; BSR set to: 13
+l2541:; BSR set to: 13
 
 ;usb_device.c: 1396: if(SetupPkt.bDscIndex < 1)
 	movf	(0+((c:_SetupPkt)+02h)),c,w
 	btfss	status,2
-	goto	u1361
-	goto	u1360
-u1361:
-	goto	l400
-u1360:
+	goto	u1351
+	goto	u1350
+u1351:
+	goto	l394
+u1350:
 	line	1398
 	
-l2557:; BSR set to: 13
+l2543:; BSR set to: 13
 
 ;usb_device.c: 1397: {
 ;usb_device.c: 1398: ctrl_trf_session_owner = 1;
@@ -7843,7 +7811,7 @@ l2557:; BSR set to: 13
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	1399
 	
-l2559:; BSR set to: 13
+l2545:; BSR set to: 13
 
 ;usb_device.c: 1399: pSrc.bRom = (const BYTE*)&CFG01;
 		movlw	low(_CFG01)
@@ -7855,24 +7823,24 @@ l2559:; BSR set to: 13
 
 	line	1400
 	
-l2561:; BSR set to: 13
+l2547:; BSR set to: 13
 
 ;usb_device.c: 1400: wCount.Val = sizeof(CFG01);
 	movlw	high(029h)
 	movwf	((c:_wCount+1)),c
 	movlw	low(029h)
 	movwf	((c:_wCount)),c
-	goto	l400
+	goto	l394
 	line	1404
 	
-l2563:; BSR set to: 13
+l2549:; BSR set to: 13
 
 ;usb_device.c: 1404: ctrl_trf_session_owner = 1;
 	movlw	low(01h)
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	1405
 	
-l2565:; BSR set to: 13
+l2551:; BSR set to: 13
 
 ;usb_device.c: 1405: pSrc.bRom = *(USB_SD_Ptr+SetupPkt.bDscIndex);
 	movf	(0+((c:_SetupPkt)+02h)),c,w
@@ -7900,7 +7868,7 @@ movlw	high(__smallconst)
 
 	line	1406
 	
-l2567:; BSR set to: 13
+l2553:; BSR set to: 13
 
 ;usb_device.c: 1406: wCount.Val = *pSrc.bRom;
 	movff	(c:_pSrc),tblptrl
@@ -7910,24 +7878,24 @@ l2567:; BSR set to: 13
 	
 	movlw	high __ramtop-1
 	cpfsgt	tblptrh
-	bra	u1377
+	bra	u1367
 	tblrd	*
 	
 	movf	tablat,w
-	bra	u1370
-u1377:
+	bra	u1360
+u1367:
 	movff	tblptrl,fsr1l
 	movff	tblptrh,fsr1h
 	movf	indf1,w
-u1370:
+u1360:
 	movwf	((c:_wCount)),c
 	clrf	((c:_wCount+1)),c
 	line	1407
 ;usb_device.c: 1407: break;
-	goto	l400
+	goto	l394
 	line	1387
 	
-l2571:; BSR set to: 13
+l2557:; BSR set to: 13
 
 	movf	(0+((c:_SetupPkt)+03h)),c,w
 	; Switch size 1, requested type "space"
@@ -7939,24 +7907,24 @@ l2571:; BSR set to: 13
 
 	xorlw	1^0	; case 1
 	skipnz
-	goto	l2549
+	goto	l2535
 	xorlw	2^1	; case 2
 	skipnz
-	goto	l2555
+	goto	l2541
 	xorlw	3^2	; case 3
 	skipnz
-	goto	l2563
-	goto	l400
+	goto	l2549
+	goto	l394
 
 	line	1408
 	
-l400:
+l394:
 	line	1410
 ;usb_device.c: 1410: usb_stat.ctrl_trf_mem = 1;
 	bsf	((c:_usb_stat)),c,1
 	line	1412
 	
-l404:
+l398:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBStdGetDscHandler
@@ -8007,32 +7975,32 @@ _USBStdFeatureReqHandler:
 	opt	stack 26
 	line	1541
 	
-l2639:; BSR set to: 13
+l2625:; BSR set to: 13
 
 ;usb_device.c: 1541: if((SetupPkt.bFeature == 0x01)&&(SetupPkt.Recipient == 0))
 		decf	(0+((c:_SetupPkt)+02h)),c,w
 	btfss	status,2
-	goto	u1441
-	goto	u1440
+	goto	u1431
+	goto	u1430
 
-u1441:
-	goto	l2649
-u1440:
+u1431:
+	goto	l2635
+u1430:
 	
-l2641:; BSR set to: 13
+l2627:; BSR set to: 13
 
 	movf	((c:_SetupPkt)),c,w
 	andlw	(1<<5)-1
 	iorlw	0
 	btfss	status,2
-	goto	u1451
-	goto	u1450
-u1451:
-	goto	l2649
-u1450:
+	goto	u1441
+	goto	u1440
+u1441:
+	goto	l2635
+u1440:
 	line	1543
 	
-l2643:; BSR set to: 13
+l2629:; BSR set to: 13
 
 ;usb_device.c: 1542: {
 ;usb_device.c: 1543: ctrl_trf_session_owner = 1;
@@ -8040,28 +8008,28 @@ l2643:; BSR set to: 13
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	1544
 	
-l2645:; BSR set to: 13
+l2631:; BSR set to: 13
 
 ;usb_device.c: 1544: if(SetupPkt.bRequest == 3)
 		movlw	3
 	xorwf	(0+((c:_SetupPkt)+01h)),c,w
 	btfss	status,2
-	goto	u1461
-	goto	u1460
+	goto	u1451
+	goto	u1450
 
-u1461:
-	goto	l429
-u1460:
+u1451:
+	goto	l423
+u1450:
 	line	1545
 	
-l2647:; BSR set to: 13
+l2633:; BSR set to: 13
 
 ;usb_device.c: 1545: usb_stat.RemoteWakeup = 1;
 	bsf	((c:_usb_stat)),c,0
-	goto	l2649
+	goto	l2635
 	line	1546
 	
-l429:; BSR set to: 13
+l423:; BSR set to: 13
 
 	line	1547
 ;usb_device.c: 1546: else
@@ -8069,44 +8037,44 @@ l429:; BSR set to: 13
 	bcf	((c:_usb_stat)),c,0
 	line	1551
 	
-l2649:; BSR set to: 13
+l2635:; BSR set to: 13
 
 ;usb_device.c: 1548: }
 ;usb_device.c: 1551: if((SetupPkt.bFeature == 0x00)&&(SetupPkt.Recipient == 2)&&(SetupPkt.EPNum != 0))
 	movf	(0+((c:_SetupPkt)+02h)),c,w
 	btfss	status,2
-	goto	u1471
-	goto	u1470
-u1471:
-	goto	l436
-u1470:
+	goto	u1461
+	goto	u1460
+u1461:
+	goto	l430
+u1460:
 	
-l2651:; BSR set to: 13
+l2637:; BSR set to: 13
 
 	movf	((c:_SetupPkt)),c,w
 	andlw	(1<<5)-1
 	xorlw	02h
 	btfss	status,2
-	goto	u1481
-	goto	u1480
-u1481:
-	goto	l436
-u1480:
+	goto	u1471
+	goto	u1470
+u1471:
+	goto	l430
+u1470:
 	
-l2653:; BSR set to: 13
+l2639:; BSR set to: 13
 
 	movf	(0+((c:_SetupPkt)+04h)),c,w
 	andlw	(1<<4)-1
 	iorlw	0
 	btfsc	status,2
-	goto	u1491
-	goto	u1490
-u1491:
-	goto	l436
-u1490:
+	goto	u1481
+	goto	u1480
+u1481:
+	goto	l430
+u1480:
 	line	1553
 	
-l2655:; BSR set to: 13
+l2641:; BSR set to: 13
 
 ;usb_device.c: 1552: {
 ;usb_device.c: 1553: ctrl_trf_session_owner = 1;
@@ -8114,7 +8082,7 @@ l2655:; BSR set to: 13
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	1555
 	
-l2657:; BSR set to: 13
+l2643:; BSR set to: 13
 
 ;usb_device.c: 1555: pDst.bRam = (uint8_t*)&ep0BoEven+(SetupPkt.EPNum*8)+(SetupPkt.EPDir*4)+4;
 	movf	(0+((c:_SetupPkt)+04h)),c,w
@@ -8133,14 +8101,14 @@ l2657:; BSR set to: 13
 	movf	(prodh),c,w
 	addwfc	(??_USBStdFeatureReqHandler+0+1),c
 	btfsc	(0+((c:_SetupPkt)+04h)),c,7
-	goto	u1501
-	goto	u1500
-u1501:
+	goto	u1491
+	goto	u1490
+u1491:
 	movlw	1
-	goto	u1506
-u1500:
+	goto	u1496
+u1490:
 	movlw	0
-u1506:
+u1496:
 	mullw	04h
 	movf	(prodl),c,w
 	addwf	(??_USBStdFeatureReqHandler+0+0),c,w
@@ -8150,21 +8118,21 @@ u1506:
 	movwf	1+((c:_pDst)),c
 	line	1557
 	
-l2659:; BSR set to: 13
+l2645:; BSR set to: 13
 
 ;usb_device.c: 1557: if(SetupPkt.bRequest == 3)
 		movlw	3
 	xorwf	(0+((c:_SetupPkt)+01h)),c,w
 	btfss	status,2
-	goto	u1511
-	goto	u1510
+	goto	u1501
+	goto	u1500
 
-u1511:
-	goto	l432
-u1510:
+u1501:
+	goto	l426
+u1500:
 	line	1559
 	
-l2661:; BSR set to: 13
+l2647:; BSR set to: 13
 
 ;usb_device.c: 1558: {
 ;usb_device.c: 1559: *pDst.bRam = 0x04;
@@ -8174,7 +8142,7 @@ l2661:; BSR set to: 13
 	movwf	indf2
 	line	1560
 	
-l2663:; BSR set to: 13
+l2649:; BSR set to: 13
 
 ;usb_device.c: 1560: *pDst.bRam |= 0x80;
 	movff	(c:_pDst),fsr2l
@@ -8183,34 +8151,34 @@ l2663:; BSR set to: 13
 	bsf	plusw2,(7)&7
 	line	1561
 ;usb_device.c: 1561: }
-	goto	l436
+	goto	l430
 	line	1562
 	
-l432:; BSR set to: 13
+l426:; BSR set to: 13
 
 	line	1564
 ;usb_device.c: 1562: else
 ;usb_device.c: 1563: {
 ;usb_device.c: 1564: if(SetupPkt.EPDir == 1)
 	btfss	(0+((c:_SetupPkt)+04h)),c,7
-	goto	u1521
-	goto	u1520
-u1521:
-	goto	l2667
-u1520:
+	goto	u1511
+	goto	u1510
+u1511:
+	goto	l2653
+u1510:
 	line	1565
 	
-l2665:; BSR set to: 13
+l2651:; BSR set to: 13
 
 ;usb_device.c: 1565: *pDst.bRam = 0x00|0x40;
 	movff	(c:_pDst),fsr2l
 	movff	(c:_pDst+1),fsr2h
 	movlw	low(040h)
 	movwf	indf2
-	goto	l436
+	goto	l430
 	line	1568
 	
-l2667:; BSR set to: 13
+l2653:; BSR set to: 13
 
 ;usb_device.c: 1566: else
 ;usb_device.c: 1567: {
@@ -8221,7 +8189,7 @@ l2667:; BSR set to: 13
 	movwf	indf2
 	line	1569
 	
-l2669:; BSR set to: 13
+l2655:; BSR set to: 13
 
 ;usb_device.c: 1569: *pDst.bRam |= 0x80;
 	movff	(c:_pDst),fsr2l
@@ -8230,7 +8198,7 @@ l2669:; BSR set to: 13
 	bsf	plusw2,(7)&7
 	line	1573
 	
-l436:; BSR set to: 13
+l430:; BSR set to: 13
 
 	return	;funcret
 	opt stack 0
@@ -8285,12 +8253,12 @@ _USBCBCheckOtherReq:; BSR set to: 13
 	opt	stack 25
 	line	883
 	
-l2677:
+l2663:
 ;main.c: 883: USBCheckHIDRequest();
 	call	_USBCheckHIDRequest	;wreg free
 	line	884
 	
-l110:
+l104:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBCBCheckOtherReq
@@ -8344,53 +8312,53 @@ _USBCheckHIDRequest:
 	opt	stack 25
 	line	75
 	
-l2389:
+l2375:
 ;usb_device_hid.c: 75: if(SetupPkt.Recipient != 1) return;
 	movf	((c:_SetupPkt)),c,w
 	andlw	(1<<5)-1
 	decf	wreg
 	btfsc	status,2
-	goto	u1201
-	goto	u1200
-u1201:
-	goto	l2393
-u1200:
-	goto	l495
+	goto	u1191
+	goto	u1190
+u1191:
+	goto	l2379
+u1190:
+	goto	l489
 	line	76
 	
-l2393:
+l2379:
 ;usb_device_hid.c: 76: if(SetupPkt.bIntfID != 0x00) return;
 	movf	(0+((c:_SetupPkt)+04h)),c,w
 	btfsc	status,2
-	goto	u1211
-	goto	u1210
-u1211:
-	goto	l2397
-u1210:
-	goto	l495
+	goto	u1201
+	goto	u1200
+u1201:
+	goto	l2383
+u1200:
+	goto	l489
 	line	83
 	
-l2397:
+l2383:
 ;usb_device_hid.c: 83: if(SetupPkt.bRequest == 6)
 		movlw	6
 	xorwf	(0+((c:_SetupPkt)+01h)),c,w
 	btfss	status,2
-	goto	u1221
-	goto	u1220
+	goto	u1211
+	goto	u1210
 
-u1221:
-	goto	l2419
-u1220:
-	goto	l2417
+u1211:
+	goto	l2405
+u1210:
+	goto	l2403
 	line	88
 	
-l2401:
+l2387:
 ;usb_device_hid.c: 88: ctrl_trf_session_owner = 2;
 	movlw	low(02h)
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	89
 	
-l2403:
+l2389:
 ;usb_device_hid.c: 89: pSrc.bRom = &CFG01[18];
 		movlw	low(_CFG01+012h)
 	movwf	((c:_pSrc)),c
@@ -8401,7 +8369,7 @@ l2403:
 
 	line	90
 	
-l2405:
+l2391:
 ;usb_device_hid.c: 90: wCount.Val = sizeof(USB_HID_DSC);
 	movlw	high(09h)
 	movwf	((c:_wCount+1)),c
@@ -8409,27 +8377,27 @@ l2405:
 	movwf	((c:_wCount)),c
 	line	91
 ;usb_device_hid.c: 91: break;
-	goto	l500
+	goto	l494
 	line	93
 	
-l2407:
+l2393:
 ;usb_device_hid.c: 93: ctrl_trf_session_owner = 2;
 	movlw	low(02h)
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	94
 	
-l2409:
+l2395:
 ;usb_device_hid.c: 94: { if(usb_active_cfg == 1) pSrc.bRom = (const uint8_t*)&hid_rpt01; };
 		decf	((c:_usb_active_cfg)),c,w
 	btfss	status,2
-	goto	u1231
-	goto	u1230
+	goto	u1221
+	goto	u1220
 
-u1231:
-	goto	l502
-u1230:
+u1221:
+	goto	l496
+u1220:
 	
-l2411:
+l2397:
 		movlw	low(_hid_rpt01)
 	movwf	((c:_pSrc)),c
 	movf	((c:_pSrc)),c,w
@@ -8438,27 +8406,27 @@ l2411:
 	movwf	((c:_pSrc+1)),c
 
 	
-l502:
+l496:
 	line	95
 ;usb_device_hid.c: 95: { if(usb_active_cfg == 1) wCount.Val = sizeof(hid_rpt01); };
 		decf	((c:_usb_active_cfg)),c,w
 	btfss	status,2
-	goto	u1241
-	goto	u1240
+	goto	u1231
+	goto	u1230
 
-u1241:
-	goto	l500
-u1240:
+u1231:
+	goto	l494
+u1230:
 	
-l2413:
+l2399:
 	movlw	high(01Dh)
 	movwf	((c:_wCount+1)),c
 	movlw	low(01Dh)
 	movwf	((c:_wCount)),c
-	goto	l500
+	goto	l494
 	line	85
 	
-l2417:
+l2403:
 	movf	(0+((c:_SetupPkt)+03h)),c,w
 	; Switch size 1, requested type "space"
 ; Number of cases is 3, Range of values is 33 to 35
@@ -8469,24 +8437,24 @@ l2417:
 
 	xorlw	33^0	; case 33
 	skipnz
-	goto	l2401
+	goto	l2387
 	xorlw	34^33	; case 34
 	skipnz
-	goto	l2407
+	goto	l2393
 	xorlw	35^34	; case 35
 	skipnz
-	goto	l500
-	goto	l500
+	goto	l494
+	goto	l494
 
 	line	100
 	
-l500:
+l494:
 	line	101
 ;usb_device_hid.c: 101: usb_stat.ctrl_trf_mem = 1;
 	bsf	((c:_usb_stat)),c,1
 	line	104
 	
-l2419:
+l2405:
 ;usb_device_hid.c: 102: }
 ;usb_device_hid.c: 104: if(SetupPkt.RequestType != 0x01) return;
 	swapf	((c:_SetupPkt)),c,w
@@ -8494,37 +8462,37 @@ l2419:
 	andlw	(1<<2)-1
 	decf	wreg
 	btfsc	status,2
-	goto	u1251
-	goto	u1250
-u1251:
-	goto	l2453
-u1250:
-	goto	l495
+	goto	u1241
+	goto	u1240
+u1241:
+	goto	l2439
+u1240:
+	goto	l489
 	line	108
 	
-l2423:
+l2409:
 ;usb_device_hid.c: 108: HIDGetReportHandler();
 	call	_HIDGetReportHandler	;wreg free
 	line	109
 ;usb_device_hid.c: 109: break;
-	goto	l495
+	goto	l489
 	line	111
 	
-l2425:
+l2411:
 ;usb_device_hid.c: 111: HIDSetReportHandler();
 	call	_HIDSetReportHandler	;wreg free
 	line	112
 ;usb_device_hid.c: 112: break;
-	goto	l495
+	goto	l489
 	line	114
 	
-l2427:
+l2413:
 ;usb_device_hid.c: 114: ctrl_trf_session_owner = 2;
 	movlw	low(02h)
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	115
 	
-l2429:
+l2415:
 ;usb_device_hid.c: 115: pSrc.bRam = (uint8_t*)&idle_rate;
 		movlw	low(_idle_rate)
 	movwf	((c:_pSrc)),c
@@ -8532,64 +8500,64 @@ l2429:
 
 	line	116
 	
-l2431:
+l2417:
 ;usb_device_hid.c: 116: usb_stat.ctrl_trf_mem = 0;
 	bcf	((c:_usb_stat)),c,1
 	line	117
 	
-l2433:
+l2419:
 ;usb_device_hid.c: 117: wCount.v[0] = 1;
 	movlw	low(01h)
 	movwf	((c:_wCount)),c
 	line	118
 ;usb_device_hid.c: 118: break;
-	goto	l495
+	goto	l489
 	line	120
 	
-l2435:
+l2421:
 ;usb_device_hid.c: 120: ctrl_trf_session_owner = 2;
 	movlw	low(02h)
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	122
 	
-l2437:
+l2423:
 ;usb_device_hid.c: 122: idle_rate = SetupPkt.W_Value.v[1];
 	movff	0+((c:_SetupPkt)+03h),(c:_idle_rate)
 	line	123
 ;usb_device_hid.c: 123: break;
-	goto	l495
+	goto	l489
 	line	125
 	
-l2439:
+l2425:
 ;usb_device_hid.c: 125: ctrl_trf_session_owner = 2;
 	movlw	low(02h)
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	126
 	
-l2441:
+l2427:
 ;usb_device_hid.c: 126: pSrc.bRam = (uint8_t*)&active_protocol;
 		movlw	low(_active_protocol)
 	movwf	((c:_pSrc)),c
 	clrf	((c:_pSrc+1)),c
 
-	goto	l2431
+	goto	l2417
 	line	131
 	
-l2447:
+l2433:
 ;usb_device_hid.c: 131: ctrl_trf_session_owner = 2;
 	movlw	low(02h)
 	movwf	((c:_ctrl_trf_session_owner)),c
 	line	133
 	
-l2449:
+l2435:
 ;usb_device_hid.c: 133: active_protocol = SetupPkt.W_Value.v[0];
 	movff	0+((c:_SetupPkt)+02h),(c:_active_protocol)
 	line	134
 ;usb_device_hid.c: 134: break;
-	goto	l495
+	goto	l489
 	line	105
 	
-l2453:
+l2439:
 	movf	(0+((c:_SetupPkt)+01h)),c,w
 	; Switch size 1, requested type "space"
 ; Number of cases is 6, Range of values is 1 to 11
@@ -8600,27 +8568,27 @@ l2453:
 
 	xorlw	1^0	; case 1
 	skipnz
-	goto	l2423
+	goto	l2409
 	xorlw	2^1	; case 2
 	skipnz
-	goto	l2427
+	goto	l2413
 	xorlw	3^2	; case 3
 	skipnz
-	goto	l2439
+	goto	l2425
 	xorlw	9^3	; case 9
 	skipnz
-	goto	l2425
+	goto	l2411
 	xorlw	10^9	; case 10
 	skipnz
-	goto	l2435
+	goto	l2421
 	xorlw	11^10	; case 11
 	skipnz
-	goto	l2447
-	goto	l495
+	goto	l2433
+	goto	l489
 
 	line	137
 	
-l495:
+l489:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBCheckHIDRequest
@@ -8671,7 +8639,7 @@ _HIDSetReportHandler:
 	opt	stack 25
 	line	148
 	
-l519:
+l513:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_HIDSetReportHandler
@@ -8722,7 +8690,7 @@ _HIDGetReportHandler:
 	opt	stack 25
 	line	142
 	
-l516:
+l510:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_HIDGetReportHandler
@@ -8742,7 +8710,7 @@ GLOBAL	__end_of_HIDGetReportHandler
 ;; Registers used:
 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -8775,46 +8743,46 @@ _USBCtrlTrfInHandler:
 	opt	stack 27
 	line	1020
 	
-l2861:
+l2847:
 ;usb_device.c: 1020: if(usb_device_state == 4)
 		movlw	4
 	xorwf	((c:_usb_device_state)),c,w
 	btfss	status,2
-	goto	u1711
-	goto	u1710
+	goto	u1701
+	goto	u1700
 
-u1711:
-	goto	l2871
-u1710:
+u1701:
+	goto	l2857
+u1700:
 	line	1022
 	
-l2863:
+l2849:
 ;usb_device.c: 1021: {
 ;usb_device.c: 1022: UADDR = SetupPkt.bDevADR;
 	movff	0+((c:_SetupPkt)+02h),(3896)	;volatile
 	line	1023
 	
-l2865:
+l2851:
 ;usb_device.c: 1023: if(UADDR > 0)
 	movlb	15	; () banked
 	movf	((3896))&0ffh,w	;volatile
 	btfsc	status,2
-	goto	u1721
-	goto	u1720
-u1721:
-	goto	l2869
-u1720:
+	goto	u1711
+	goto	u1710
+u1711:
+	goto	l2855
+u1710:
 	line	1024
 	
-l2867:; BSR set to: 15
+l2853:; BSR set to: 15
 
 ;usb_device.c: 1024: usb_device_state = 5;
 	movlw	low(05h)
 	movwf	((c:_usb_device_state)),c
-	goto	l2871
+	goto	l2857
 	line	1026
 	
-l2869:; BSR set to: 15
+l2855:; BSR set to: 15
 
 ;usb_device.c: 1025: else
 ;usb_device.c: 1026: usb_device_state = 3;
@@ -8822,39 +8790,39 @@ l2869:; BSR set to: 15
 	movwf	((c:_usb_device_state)),c
 	line	1031
 	
-l2871:
+l2857:
 ;usb_device.c: 1027: }
 ;usb_device.c: 1031: if(ctrl_trf_state == 1)
 		decf	((c:_ctrl_trf_state)),c,w
 	btfss	status,2
-	goto	u1731
-	goto	u1730
+	goto	u1721
+	goto	u1720
 
-u1731:
-	goto	l345
-u1730:
+u1721:
+	goto	l339
+u1720:
 	line	1035
 	
-l2873:
+l2859:
 ;usb_device.c: 1032: {
 ;usb_device.c: 1035: USBCtrlTrfTxService();
 	call	_USBCtrlTrfTxService	;wreg free
 	line	1038
 	
-l2875:
+l2861:
 ;usb_device.c: 1038: if(short_pkt_status == 2)
 		movlw	2
 	xorwf	((c:_short_pkt_status)),c,w
 	btfss	status,2
-	goto	u1741
-	goto	u1740
+	goto	u1731
+	goto	u1730
 
-u1741:
-	goto	l340
-u1740:
+u1731:
+	goto	l334
+u1730:
 	line	1042
 	
-l2877:
+l2863:
 ;usb_device.c: 1039: {
 ;usb_device.c: 1042: ep0Bi.Stat._byte = 0x04;
 	movlw	low(04h)
@@ -8862,38 +8830,38 @@ l2877:
 	movwf	((3336))&0ffh	;volatile
 	line	1043
 	
-l2879:; BSR set to: 13
+l2865:; BSR set to: 13
 
 ;usb_device.c: 1043: ep0Bi.Stat._byte |= 0x80;
 	bsf	(0+(7/8)+(3336))&0ffh,(7)&7	;volatile
 	line	1044
 ;usb_device.c: 1044: }
-	goto	l345
+	goto	l339
 	line	1045
 	
-l340:
+l334:
 	line	1048
 ;usb_device.c: 1045: else
 ;usb_device.c: 1046: {
 ;usb_device.c: 1048: if(ep0Bi.Stat.DTS == 0)
 	movlb	13	; () banked
 	btfsc	((3336))&0ffh,6	;volatile
-	goto	u1751
-	goto	u1750
-u1751:
-	goto	l2883
-u1750:
+	goto	u1741
+	goto	u1740
+u1741:
+	goto	l2869
+u1740:
 	line	1049
 	
-l2881:; BSR set to: 13
+l2867:; BSR set to: 13
 
 ;usb_device.c: 1049: ep0Bi.Stat._byte = 0x40|0x08;
 	movlw	low(048h)
 	movwf	((3336))&0ffh	;volatile
-	goto	l2885
+	goto	l2871
 	line	1051
 	
-l2883:; BSR set to: 13
+l2869:; BSR set to: 13
 
 ;usb_device.c: 1050: else
 ;usb_device.c: 1051: ep0Bi.Stat._byte = 0x00|0x08;
@@ -8901,13 +8869,13 @@ l2883:; BSR set to: 13
 	movwf	((3336))&0ffh	;volatile
 	line	1053
 	
-l2885:; BSR set to: 13
+l2871:; BSR set to: 13
 
 ;usb_device.c: 1053: ep0Bi.Stat._byte |= 0x80;
 	bsf	(0+(7/8)+(3336))&0ffh,(7)&7	;volatile
 	line	1063
 	
-l345:
+l339:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBCtrlTrfInHandler
@@ -8959,82 +8927,82 @@ _USBCtrlTrfTxService:
 	opt	stack 26
 	line	1092
 	
-l2501:
+l2487:
 ;usb_device.c: 1087: static uint8_t bytes_to_send;
 ;usb_device.c: 1092: bytes_to_send = 8;
 	movlw	low(08h)
 	movwf	((c:USBCtrlTrfTxService@bytes_to_send)),c
 	line	1093
 	
-l2503:
+l2489:
 ;usb_device.c: 1093: if(wCount.Val < 8)
 		movf	((c:_wCount+1)),c,w
-	bnz	u1271
+	bnz	u1261
 	movlw	8
 	subwf	 ((c:_wCount)),c,w
 	btfsc	status,0
-	goto	u1271
-	goto	u1270
+	goto	u1261
+	goto	u1260
 
-u1271:
-	goto	l2515
-u1270:
+u1261:
+	goto	l2501
+u1260:
 	line	1097
 	
-l2505:
+l2491:
 ;usb_device.c: 1094: {
 ;usb_device.c: 1097: bytes_to_send = wCount.Val;
 	movff	(c:_wCount),(c:USBCtrlTrfTxService@bytes_to_send)
 	line	1098
 	
-l2507:
+l2493:
 ;usb_device.c: 1098: if(short_pkt_status == 0)
 	movf	((c:_short_pkt_status)),c,w
 	btfss	status,2
-	goto	u1281
-	goto	u1280
-u1281:
-	goto	l2511
-u1280:
+	goto	u1271
+	goto	u1270
+u1271:
+	goto	l2497
+u1270:
 	line	1100
 	
-l2509:
+l2495:
 ;usb_device.c: 1099: {
 ;usb_device.c: 1100: short_pkt_status = 1;
 	movlw	low(01h)
 	movwf	((c:_short_pkt_status)),c
 	line	1101
 ;usb_device.c: 1101: }
-	goto	l2515
+	goto	l2501
 	line	1102
 	
-l2511:
+l2497:
 ;usb_device.c: 1102: else if(short_pkt_status == 1)
 		decf	((c:_short_pkt_status)),c,w
 	btfss	status,2
-	goto	u1291
-	goto	u1290
+	goto	u1281
+	goto	u1280
 
-u1291:
-	goto	l2515
-u1290:
+u1281:
+	goto	l2501
+u1280:
 	line	1104
 	
-l2513:
+l2499:
 ;usb_device.c: 1103: {
 ;usb_device.c: 1104: short_pkt_status = 2;
 	movlw	low(02h)
 	movwf	((c:_short_pkt_status)),c
 	line	1109
 	
-l2515:
+l2501:
 ;usb_device.c: 1105: }
 ;usb_device.c: 1106: }
 ;usb_device.c: 1109: ep0Bi.Cnt = bytes_to_send;
 	movff	(c:USBCtrlTrfTxService@bytes_to_send),0+(3336+01h)	;volatile
 	line	1112
 	
-l2517:
+l2503:
 ;usb_device.c: 1112: wCount.Val -= bytes_to_send;
 	movf	((c:USBCtrlTrfTxService@bytes_to_send)),c,w
 	subwf	((c:_wCount)),c
@@ -9042,7 +9010,7 @@ l2517:
 	subwfb	((c:_wCount+1)),c
 	line	1117
 	
-l2519:
+l2505:
 ;usb_device.c: 1117: pDst.bRam = (uint8_t*)&CtrlTrfData;
 		movlw	low(3364)
 	movwf	((c:_pDst)),c
@@ -9051,18 +9019,18 @@ l2519:
 
 	line	1118
 	
-l2521:
+l2507:
 ;usb_device.c: 1118: if(usb_stat.ctrl_trf_mem == 1)
 	btfss	((c:_usb_stat)),c,1
-	goto	u1301
-	goto	u1300
-u1301:
-	goto	l2543
-u1300:
-	goto	l2533
+	goto	u1291
+	goto	u1290
+u1291:
+	goto	l2529
+u1290:
+	goto	l2519
 	line	1122
 	
-l2525:
+l2511:
 ;usb_device.c: 1121: {
 ;usb_device.c: 1122: *pDst.bRam = *pSrc.bRom;
 	movff	(c:_pSrc),tblptrl
@@ -9074,48 +9042,48 @@ l2525:
 	movff	(c:_pDst+1),fsr2h
 	movlw	high __ramtop-1
 	cpfsgt	tblptrh
-	bra	u1317
+	bra	u1307
 	tblrd	*
 	
 	movf	tablat,w
-	bra	u1310
-u1317:
+	bra	u1300
+u1307:
 	movff	tblptrl,fsr1l
 	movff	tblptrh,fsr1h
 	movf	indf1,w
-u1310:
+u1300:
 	movwf	indf2
 	line	1123
 	
-l2527:
+l2513:
 ;usb_device.c: 1123: pDst.bRam++;
 	infsnz	((c:_pDst)),c
 	incf	((c:_pDst+1)),c
 	line	1124
 	
-l2529:
+l2515:
 ;usb_device.c: 1124: pSrc.bRom++;
 	infsnz	((c:_pSrc)),c
 	incf	((c:_pSrc+1)),c
 	line	1125
 	
-l2531:
+l2517:
 ;usb_device.c: 1125: bytes_to_send--;
 	decf	((c:USBCtrlTrfTxService@bytes_to_send)),c
 	line	1120
 	
-l2533:
+l2519:
 	movf	((c:USBCtrlTrfTxService@bytes_to_send)),c,w
 	btfss	status,2
-	goto	u1321
-	goto	u1320
-u1321:
-	goto	l2525
-u1320:
-	goto	l362
+	goto	u1311
+	goto	u1310
+u1311:
+	goto	l2511
+u1310:
+	goto	l356
 	line	1132
 	
-l2535:
+l2521:
 ;usb_device.c: 1131: {
 ;usb_device.c: 1132: *pDst.bRam = *pSrc.bRam;
 	movff	(c:_pSrc),tblptrl
@@ -9127,47 +9095,47 @@ l2535:
 	movff	(c:_pDst+1),fsr2h
 	movlw	high __ramtop-1
 	cpfsgt	tblptrh
-	bra	u1337
+	bra	u1327
 	tblrd	*
 	
 	movf	tablat,w
-	bra	u1330
-u1337:
+	bra	u1320
+u1327:
 	movff	tblptrl,fsr1l
 	movff	tblptrh,fsr1h
 	movf	indf1,w
-u1330:
+u1320:
 	movwf	indf2
 	line	1133
 	
-l2537:
+l2523:
 ;usb_device.c: 1133: pDst.bRam++;
 	infsnz	((c:_pDst)),c
 	incf	((c:_pDst+1)),c
 	line	1134
 	
-l2539:
+l2525:
 ;usb_device.c: 1134: pSrc.bRam++;
 	infsnz	((c:_pSrc)),c
 	incf	((c:_pSrc+1)),c
 	line	1135
 	
-l2541:
+l2527:
 ;usb_device.c: 1135: bytes_to_send--;
 	decf	((c:USBCtrlTrfTxService@bytes_to_send)),c
 	line	1130
 	
-l2543:
+l2529:
 	movf	((c:USBCtrlTrfTxService@bytes_to_send)),c,w
 	btfss	status,2
-	goto	u1341
-	goto	u1340
-u1341:
-	goto	l2535
-u1340:
+	goto	u1331
+	goto	u1330
+u1331:
+	goto	l2521
+u1330:
 	line	1139
 	
-l362:
+l356:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBCtrlTrfTxService
@@ -9223,7 +9191,7 @@ _SignFlash:
 	opt	stack 25
 	line	483
 	
-l3045:
+l3031:
 ;boot_18fxxjxx.c: 478: static unsigned int i;
 ;boot_18fxxjxx.c: 479: far const uint8_t* pROM;
 ;boot_18fxxjxx.c: 483: pROM = (far const uint8_t*)(0x1006 & (uint32_t)(0x1000000 - 1024));
@@ -9236,13 +9204,13 @@ l3045:
 
 	line	484
 	
-l3047:
+l3033:
 ;boot_18fxxjxx.c: 484: for(i = 0; i < 1024; i++)
 	clrf	((c:SignFlash@i)),c
 	clrf	((c:SignFlash@i+1)),c
 	line	486
 	
-l3051:
+l3037:
 ;boot_18fxxjxx.c: 485: {
 ;boot_18fxxjxx.c: 486: ProgrammingBuffer[i] = *pROM++;
 	movff	(c:SignFlash@pROM),tblptrl
@@ -9258,7 +9226,7 @@ l3051:
 	
 	movff	tablat,indf2
 	
-l3053:
+l3039:
 	movlw	low(01h)
 	addwf	((c:SignFlash@pROM)),c
 	movlw	high(01h)
@@ -9267,22 +9235,22 @@ l3053:
 	addwfc	((c:SignFlash@pROM+2)),c
 	line	484
 	
-l3055:
+l3041:
 	infsnz	((c:SignFlash@i)),c
 	incf	((c:SignFlash@i+1)),c
 	
-l3057:
+l3043:
 		movlw	4
 	subwf	 ((c:SignFlash@i+1)),c,w
 	btfss	status,0
-	goto	u2021
-	goto	u2020
+	goto	u2011
+	goto	u2010
 
-u2021:
-	goto	l3051
-u2020:
+u2011:
+	goto	l3037
+u2010:
 	
-l654:
+l648:
 	line	490
 ;boot_18fxxjxx.c: 487: }
 ;boot_18fxxjxx.c: 490: ProgrammingBuffer[(0x1006 & ~(uint32_t)(0x1000000 - 1024))] = (unsigned char)0x600D;
@@ -9296,7 +9264,7 @@ l654:
 
 	line	494
 	
-l3059:
+l3045:
 ;boot_18fxxjxx.c: 494: EraseFlashPage(0x1006 / 1024);
 	movlw	high(04h)
 	movwf	((c:EraseFlashPage@PageNumToErase+1)),c
@@ -9305,7 +9273,7 @@ l3059:
 	call	_EraseFlashPage	;wreg free
 	line	502
 	
-l3061:
+l3047:
 ;boot_18fxxjxx.c: 502: pROM = (far const uint8_t*)((0x1006 & (uint32_t)(0x1000000 - 1024)) + 1024 - 1);
 		movlw	low(013FFh)
 	movwf	((c:SignFlash@pROM)),c
@@ -9316,30 +9284,30 @@ l3061:
 
 	line	504
 	
-l3063:
+l3049:
 ;boot_18fxxjxx.c: 504: i = 1024 - 1;
 	movlw	high(03FFh)
 	movwf	((c:SignFlash@i+1)),c
 	setf	((c:SignFlash@i)),c
 	line	508
 	
-l3065:
+l3051:
 ;boot_18fxxjxx.c: 506: {
 ;boot_18fxxjxx.c: 508: TBLPTRU = (uint32_t)pROM >> 16;
 	movff	0+((c:SignFlash@pROM)+02h),(c:4088)	;volatile
 	line	509
 	
-l3067:
+l3053:
 ;boot_18fxxjxx.c: 509: TBLPTRH = (uint16_t)pROM >> 8;
 	movff	0+((c:SignFlash@pROM)+01h),(c:4087)	;volatile
 	line	510
 	
-l3069:
+l3055:
 ;boot_18fxxjxx.c: 510: TBLPTRL = (uint8_t)pROM;
 	movff	(c:SignFlash@pROM),(c:4086)	;volatile
 	line	514
 	
-l3071:
+l3057:
 ;boot_18fxxjxx.c: 514: TABLAT = ProgrammingBuffer[i];
 	movlw	low(_ProgrammingBuffer)
 	addwf	((c:SignFlash@i)),c,w
@@ -9355,39 +9323,39 @@ tblwt ;#
 psect	text22
 	line	525
 	
-l3073:
+l3059:
 ;boot_18fxxjxx.c: 525: if((i % 64) == 0)
 	movff	(c:SignFlash@i),??_SignFlash+0+0
 	movlw	03Fh
 	andwf	(??_SignFlash+0+0),c
 	btfss	status,2
-	goto	u2031
-	goto	u2030
-u2031:
-	goto	l3081
-u2030:
+	goto	u2021
+	goto	u2020
+u2021:
+	goto	l3067
+u2020:
 	line	528
 	
-l3075:
+l3061:
 ;boot_18fxxjxx.c: 526: {
 ;boot_18fxxjxx.c: 528: ClearWatchdog();
 	call	_ClearWatchdog	;wreg free
 	line	529
 	
-l3077:
+l3063:
 ;boot_18fxxjxx.c: 529: EECON1 = 0x04;
 	movlw	low(04h)
 	movwf	((c:4006)),c	;volatile
 	line	530
 	
-l3079:
+l3065:
 ;boot_18fxxjxx.c: 530: UnlockAndActivate(0xB5);
 	movlw	(0B5h)&0ffh
 	
 	call	_UnlockAndActivate
 	line	533
 	
-l3081:
+l3067:
 ;boot_18fxxjxx.c: 531: }
 ;boot_18fxxjxx.c: 533: pROM--;
 	movlw	low(01h)
@@ -9402,30 +9370,30 @@ tblrdpostdec ;#
 psect	text22
 	line	543
 	
-l3083:
+l3069:
 ;boot_18fxxjxx.c: 543: if(i == 0)
 	movf	((c:SignFlash@i)),c,w
 iorwf	((c:SignFlash@i+1)),c,w
 	btfss	status,2
-	goto	u2041
-	goto	u2040
+	goto	u2031
+	goto	u2030
 
-u2041:
-	goto	l3087
-u2040:
-	goto	l660
+u2031:
+	goto	l3073
+u2030:
+	goto	l654
 	line	547
 	
-l3087:
+l3073:
 ;boot_18fxxjxx.c: 546: }
 ;boot_18fxxjxx.c: 547: i--;
 	decf	((c:SignFlash@i)),c
 	btfss	status,0
 	decf	((c:SignFlash@i+1)),c
-	goto	l3065
+	goto	l3051
 	line	549
 	
-l660:
+l654:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_SignFlash
@@ -9478,23 +9446,23 @@ _EraseFlashPage:
 	opt	stack 25
 	line	686
 	
-l2887:
+l2873:
 ;boot_18fxxjxx.c: 683: static uint32_t TablePointerValue;
 ;boot_18fxxjxx.c: 686: if(PageNumToErase < ((uint32_t)0x1000/1024))
 		movf	((c:EraseFlashPage@PageNumToErase+1)),c,w
-	bnz	u1761
+	bnz	u1751
 	movlw	4
 	subwf	 ((c:EraseFlashPage@PageNumToErase)),c,w
 	btfsc	status,0
-	goto	u1761
-	goto	u1760
+	goto	u1751
+	goto	u1750
 
-u1761:
-	goto	l2891
-u1760:
+u1751:
+	goto	l2877
+u1750:
 	line	687
 	
-l2889:
+l2875:
 ;boot_18fxxjxx.c: 687: PageNumToErase = ((uint32_t)0x1000/1024);
 	movlw	high(04h)
 	movwf	((c:EraseFlashPage@PageNumToErase+1)),c
@@ -9502,7 +9470,7 @@ l2889:
 	movwf	((c:EraseFlashPage@PageNumToErase)),c
 	line	691
 	
-l2891:
+l2877:
 ;boot_18fxxjxx.c: 691: TablePointerValue = 1024 * (uint32_t)PageNumToErase;
 	movf	((c:EraseFlashPage@PageNumToErase)),c,w
 	movwf	(??_EraseFlashPage+0+0)&0ffh,c
@@ -9513,49 +9481,49 @@ l2891:
 	
 	clrf	3+(??_EraseFlashPage+0+0)&0ffh,c
 	movlw	0Ah
-u1775:
+u1765:
 	bcf	status,0
 	rlcf	(??_EraseFlashPage+0+0),c
 	rlcf	(??_EraseFlashPage+0+1),c
 	rlcf	(??_EraseFlashPage+0+2),c
 	rlcf	(??_EraseFlashPage+0+3),c
 	decfsz	wreg
-	goto	u1775
+	goto	u1765
 	movff	??_EraseFlashPage+0+0,(c:EraseFlashPage@TablePointerValue)
 	movff	??_EraseFlashPage+0+1,(c:EraseFlashPage@TablePointerValue+1)
 	movff	??_EraseFlashPage+0+2,(c:EraseFlashPage@TablePointerValue+2)
 	movff	??_EraseFlashPage+0+3,(c:EraseFlashPage@TablePointerValue+3)
 	line	692
 	
-l2893:
+l2879:
 ;boot_18fxxjxx.c: 692: TBLPTRU = TablePointerValue >> 16;
 	movff	0+((c:EraseFlashPage@TablePointerValue)+02h),(c:4088)	;volatile
 	line	693
 	
-l2895:
+l2881:
 ;boot_18fxxjxx.c: 693: TBLPTRH = TablePointerValue >> 8;
 	movff	0+((c:EraseFlashPage@TablePointerValue)+01h),(c:4087)	;volatile
 	line	694
 	
-l2897:
+l2883:
 ;boot_18fxxjxx.c: 694: TBLPTRL = 0x00;
 	clrf	((c:4086)),c	;volatile
 	line	700
 	
-l2899:
+l2885:
 ;boot_18fxxjxx.c: 700: EECON1 = 0b00010100;
 	movlw	low(014h)
 	movwf	((c:4006)),c	;volatile
 	line	701
 	
-l2901:
+l2887:
 ;boot_18fxxjxx.c: 701: UnlockAndActivate(0xB5);
 	movlw	(0B5h)&0ffh
 	
 	call	_UnlockAndActivate
 	line	702
 	
-l689:
+l683:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_EraseFlashPage
@@ -9611,30 +9579,30 @@ _UnlockAndActivate:
 	movwf	((c:UnlockAndActivate@UnlockKey)),c
 	line	637
 	
-l2797:
+l2783:
 ;boot_18fxxjxx.c: 637: INTCONbits.GIE = 0;
 	bcf	((c:4082)),c,7	;volatile
 	line	640
 	
-l2799:
+l2785:
 ;boot_18fxxjxx.c: 640: LowVoltageCheck();
 	call	_LowVoltageCheck	;wreg free
 	line	644
 	
-l2801:
+l2787:
 ;boot_18fxxjxx.c: 644: if(UnlockKey != 0xB5)
 		movlw	181
 	xorwf	((c:UnlockAndActivate@UnlockKey)),c,w
 	btfsc	status,2
-	goto	u1641
-	goto	u1640
+	goto	u1631
+	goto	u1630
 
-u1641:
-	goto	l2805
-u1640:
+u1631:
+	goto	l2791
+u1630:
 	line	653
 	
-l2803:
+l2789:
 ;boot_18fxxjxx.c: 645: {
 ;boot_18fxxjxx.c: 653: OSCCON = 0x03;
 	movlw	low(03h)
@@ -9642,15 +9610,15 @@ l2803:
 	line	654
 ;boot_18fxxjxx.c: 654: while(1)
 	
-l677:
+l671:
 	line	656
 # 656 "../src/boot_18fxxjxx.c"
 sleep ;# 
 psect	text24
-	goto	l677
+	goto	l671
 	line	662
 	
-l2805:
+l2791:
 ;boot_18fxxjxx.c: 659: }
 ;boot_18fxxjxx.c: 662: EECON2 = 0x55;
 	movlw	low(055h)
@@ -9661,27 +9629,27 @@ l2805:
 	movwf	((c:4007)),c	;volatile
 	line	664
 	
-l2807:
+l2793:
 ;boot_18fxxjxx.c: 664: EECON1bits.WR = 1;
 	bsf	((c:4006)),c,1	;volatile
 	line	676
 ;boot_18fxxjxx.c: 676: while(EECON1bits.WR);
 	
-l680:
+l674:
 	btfsc	((c:4006)),c,1	;volatile
-	goto	u1651
-	goto	u1650
-u1651:
-	goto	l680
-u1650:
+	goto	u1641
+	goto	u1640
+u1641:
+	goto	l674
+u1640:
 	
-l682:
+l676:
 	line	677
 ;boot_18fxxjxx.c: 677: EECON1bits.WREN = 0;
 	bcf	((c:4006)),c,2	;volatile
 	line	678
 	
-l683:
+l677:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_UnlockAndActivate
@@ -9701,7 +9669,7 @@ GLOBAL	__end_of_UnlockAndActivate
 ;; Registers used:
 ;;		wreg, status,2, status,0
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -9734,34 +9702,34 @@ _LowVoltageCheck:
 	opt	stack 26
 	line	641
 	
-l2373:
+l2359:
 ;main.c: 641: if(WDTCONbits.LVDSTAT == 0)
 	btfsc	((c:4032)),c,6	;volatile
-	goto	u1171
-	goto	u1170
-u1171:
-	goto	l90
-u1170:
+	goto	u1161
+	goto	u1160
+u1161:
+	goto	l84
+u1160:
 	line	646
 	
-l2375:
+l2361:
 ;main.c: 642: {
 ;main.c: 646: OSCCON = 0x03;
 	movlw	low(03h)
 	movwf	((c:4051)),c	;volatile
 	line	647
 	
-l2377:
+l2363:
 ;main.c: 647: UCONbits.SUSPND = 0;
 	bcf	((c:3941)),c,1	;volatile
 	line	648
 	
-l2379:
+l2365:
 ;main.c: 648: UCONbits.USBEN = 0;
 	bcf	((c:3941)),c,3	;volatile
 	line	649
 	
-l2381:
+l2367:
 ;main.c: 649: INTCON = 0x00;
 	clrf	((c:4082)),c	;volatile
 	line	652
@@ -9772,21 +9740,21 @@ l2381:
 	movwf	((c:_uint_delay_counter)),c
 	line	653
 ;main.c: 653: while(uint_delay_counter)
-	goto	l2387
+	goto	l2373
 	
-l86:
+l80:
 	line	655
 ;main.c: 654: {
 ;main.c: 655: if(WDTCONbits.LVDSTAT == 1)
 	btfss	((c:4032)),c,6	;volatile
-	goto	u1181
-	goto	u1180
-u1181:
-	goto	l2385
-u1180:
+	goto	u1171
+	goto	u1170
+u1171:
+	goto	l2371
+u1170:
 	line	657
 	
-l2383:
+l2369:
 ;main.c: 656: {
 ;main.c: 657: uint_delay_counter--;
 	decf	((c:_uint_delay_counter)),c
@@ -9794,10 +9762,10 @@ l2383:
 	decf	((c:_uint_delay_counter+1)),c
 	line	658
 ;main.c: 658: }
-	goto	l88
+	goto	l82
 	line	661
 	
-l2385:
+l2371:
 ;main.c: 659: else
 ;main.c: 660: {
 ;main.c: 661: uint_delay_counter = 0x400;
@@ -9807,32 +9775,32 @@ l2385:
 	movwf	((c:_uint_delay_counter)),c
 	line	662
 	
-l88:
+l82:
 	line	663
 # 663 "../src/main.c"
 clrwdt ;# 
 psect	text25
 	line	653
 	
-l2387:
+l2373:
 	movf	((c:_uint_delay_counter)),c,w
 iorwf	((c:_uint_delay_counter+1)),c,w
 	btfss	status,2
-	goto	u1191
-	goto	u1190
+	goto	u1181
+	goto	u1180
 
-u1191:
-	goto	l86
-u1190:
+u1181:
+	goto	l80
+u1180:
 	
-l89:
+l83:
 	line	668
 # 668 "../src/main.c"
 reset ;# 
 psect	text25
 	line	670
 	
-l90:
+l84:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_LowVoltageCheck
@@ -9885,7 +9853,7 @@ _ResetDeviceCleanly:
 	opt	stack 25
 	line	563
 	
-l3089:
+l3075:
 ;boot_18fxxjxx.c: 563: USBDisableWithLongDelay();
 	call	_USBDisableWithLongDelay	;wreg free
 	line	564
@@ -9894,21 +9862,21 @@ reset ;#
 psect	text26
 	line	565
 	
-l3091:
+l3077:
 ;boot_18fxxjxx.c: 565: __nop();
 	opt	asmopt_off
 	nop
 	opt	asmopt_on
 	line	566
 	
-l3093:
+l3079:
 ;boot_18fxxjxx.c: 566: __nop();
 	opt	asmopt_off
 	nop
 	opt	asmopt_on
 	line	567
 	
-l663:
+l657:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_ResetDeviceCleanly
@@ -9966,32 +9934,32 @@ _HIDTxReport:
 	movwf	((c:HIDTxReport@buffer)),c
 	line	237
 	
-l2977:
+l2963:
 ;usb_device_hid.c: 231: uint8_t i;
 ;usb_device_hid.c: 237: if(len > 64)
 		movlw	041h-1
 	cpfsgt	((c:HIDTxReport@len)),c
-	goto	u1921
-	goto	u1920
+	goto	u1911
+	goto	u1910
 
-u1921:
-	goto	l2981
-u1920:
+u1911:
+	goto	l2967
+u1910:
 	line	238
 	
-l2979:
+l2965:
 ;usb_device_hid.c: 238: len = 64;
 	movlw	low(040h)
 	movwf	((c:HIDTxReport@len)),c
 	line	243
 	
-l2981:
+l2967:
 ;usb_device_hid.c: 243: for (i = 0; i < len; i++)
 	clrf	((c:HIDTxReport@i)),c
-	goto	l2987
+	goto	l2973
 	line	244
 	
-l2983:
+l2969:
 ;usb_device_hid.c: 244: hid_report_in[i] = buffer[i];
 	movf	((c:HIDTxReport@buffer)),c,w
 	addwf	((c:HIDTxReport@i)),c,w
@@ -10006,41 +9974,41 @@ l2983:
 	movff	indf2,indf1
 	line	243
 	
-l2985:
+l2971:
 	incf	((c:HIDTxReport@i)),c
 	
-l2987:
+l2973:
 		movf	((c:HIDTxReport@len)),c,w
 	subwf	((c:HIDTxReport@i)),c,w
 	btfss	status,0
-	goto	u1931
-	goto	u1930
+	goto	u1921
+	goto	u1920
 
-u1931:
-	goto	l2983
-u1930:
+u1921:
+	goto	l2969
+u1920:
 	
-l528:
+l522:
 	line	246
 ;usb_device_hid.c: 246: ep1Bi.Cnt = len;
 	movff	(c:HIDTxReport@len),0+(3344+01h)	;volatile
 	line	247
 	
-l2989:
+l2975:
 ;usb_device_hid.c: 247: { ep1Bi.Stat._byte &= 0x40; ep1Bi.Stat.DTS = !ep1Bi.Stat.DTS; ep1Bi.Stat._byte |= 0x08; ep1Bi.Stat._byte |= 0x80; };
 	movlw	(040h)&0ffh
 	movlb	13	; () banked
 	andwf	((3344))&0ffh	;volatile
 	btfss	((3344))&0ffh,6	;volatile
-	goto	u1941
-	goto	u1940
-u1941:
+	goto	u1931
+	goto	u1930
+u1931:
 	clrf	(??_HIDTxReport+0+0)&0ffh,c
 	incf	(??_HIDTxReport+0+0)&0ffh,c
-	goto	u1958
-u1940:
+	goto	u1948
+u1930:
 	clrf	(??_HIDTxReport+0+0)&0ffh,c
-u1958:
+u1948:
 	swapf	(??_HIDTxReport+0+0),c
 	rlncf	(??_HIDTxReport+0+0),c
 	rlncf	(??_HIDTxReport+0+0),c
@@ -10051,16 +10019,16 @@ u1958:
 	xorwf	(??_HIDTxReport+0+0),c,w
 	movwf	((3344))&0ffh	;volatile
 	
-l2991:; BSR set to: 13
+l2977:; BSR set to: 13
 
 	bsf	(0+(3/8)+(3344))&0ffh,(3)&7	;volatile
 	
-l2993:; BSR set to: 13
+l2979:; BSR set to: 13
 
 	bsf	(0+(7/8)+(3344))&0ffh,(7)&7	;volatile
 	line	249
 	
-l529:; BSR set to: 13
+l523:; BSR set to: 13
 
 	return	;funcret
 	opt stack 0
@@ -10118,49 +10086,49 @@ _HIDRxReport:; BSR set to: 13
 	movwf	((c:HIDRxReport@buffer)),c
 	line	286
 	
-l2995:
+l2981:
 ;usb_device_hid.c: 286: hid_rpt_rx_len = 0;
 	clrf	((c:_hid_rpt_rx_len)),c
 	line	288
 ;usb_device_hid.c: 288: if(!ep1Bo.Stat.UOWN)
 	movlb	13	; () banked
 	btfsc	((3340))&0ffh,7	;volatile
-	goto	u1961
-	goto	u1960
-u1961:
-	goto	l537
-u1960:
+	goto	u1951
+	goto	u1950
+u1951:
+	goto	l531
+u1950:
 	line	294
 	
-l2997:; BSR set to: 13
+l2983:; BSR set to: 13
 
 ;usb_device_hid.c: 289: {
 ;usb_device_hid.c: 294: if(len > ep1Bo.Cnt)
 		movf	((c:HIDRxReport@len)),c,w
 	subwf	(0+(3340+01h))&0ffh,w	;volatile
 	btfsc	status,0
-	goto	u1971
-	goto	u1970
+	goto	u1961
+	goto	u1960
 
-u1971:
-	goto	l533
-u1970:
+u1961:
+	goto	l527
+u1960:
 	line	295
 	
-l2999:; BSR set to: 13
+l2985:; BSR set to: 13
 
 ;usb_device_hid.c: 295: len = ep1Bo.Cnt;
 	movff	0+(3340+01h),(c:HIDRxReport@len)	;volatile
 	
-l533:; BSR set to: 13
+l527:; BSR set to: 13
 
 	line	300
 ;usb_device_hid.c: 300: for(hid_rpt_rx_len = 0; hid_rpt_rx_len < len; hid_rpt_rx_len++)
 	clrf	((c:_hid_rpt_rx_len)),c
-	goto	l3005
+	goto	l2991
 	line	301
 	
-l3001:
+l2987:
 ;usb_device_hid.c: 301: buffer[hid_rpt_rx_len] = hid_report_out[hid_rpt_rx_len];
 	movlw	low(3372)
 	addwf	((c:_hid_rpt_rx_len)),c,w
@@ -10175,46 +10143,46 @@ l3001:
 	movff	indf2,indf1
 	line	300
 	
-l3003:
+l2989:
 	incf	((c:_hid_rpt_rx_len)),c
 	
-l3005:
+l2991:
 		movf	((c:HIDRxReport@len)),c,w
 	subwf	((c:_hid_rpt_rx_len)),c,w
 	btfss	status,0
-	goto	u1981
-	goto	u1980
+	goto	u1971
+	goto	u1970
 
-u1981:
-	goto	l3001
-u1980:
+u1971:
+	goto	l2987
+u1970:
 	line	306
 	
-l3007:
+l2993:
 ;usb_device_hid.c: 306: ep1Bo.Cnt = sizeof(hid_report_out);
 	movlw	low(040h)
 	movlb	13	; () banked
 	movwf	(0+(3340+01h))&0ffh	;volatile
 	line	307
 	
-l3009:; BSR set to: 13
+l2995:; BSR set to: 13
 
 ;usb_device_hid.c: 307: { ep1Bo.Stat._byte &= 0x40; ep1Bo.Stat.DTS = !ep1Bo.Stat.DTS; ep1Bo.Stat._byte |= 0x08; ep1Bo.Stat._byte |= 0x80; };
 	movlw	(040h)&0ffh
 	andwf	((3340))&0ffh	;volatile
 	
-l3011:; BSR set to: 13
+l2997:; BSR set to: 13
 
 	btfss	((3340))&0ffh,6	;volatile
-	goto	u1991
-	goto	u1990
-u1991:
+	goto	u1981
+	goto	u1980
+u1981:
 	clrf	(??_HIDRxReport+0+0)&0ffh,c
 	incf	(??_HIDRxReport+0+0)&0ffh,c
-	goto	u2008
-u1990:
+	goto	u1998
+u1980:
 	clrf	(??_HIDRxReport+0+0)&0ffh,c
-u2008:
+u1998:
 	swapf	(??_HIDRxReport+0+0),c
 	rlncf	(??_HIDRxReport+0+0),c
 	rlncf	(??_HIDRxReport+0+0),c
@@ -10225,16 +10193,16 @@ u2008:
 	xorwf	(??_HIDRxReport+0+0),c,w
 	movwf	((3340))&0ffh	;volatile
 	
-l3013:; BSR set to: 13
+l2999:; BSR set to: 13
 
 	bsf	(0+(3/8)+(3340))&0ffh,(3)&7	;volatile
 	
-l3015:; BSR set to: 13
+l3001:; BSR set to: 13
 
 	bsf	(0+(7/8)+(3340))&0ffh,(7)&7	;volatile
 	line	312
 	
-l537:; BSR set to: 13
+l531:; BSR set to: 13
 
 	return	;funcret
 	opt stack 0
@@ -10255,7 +10223,7 @@ GLOBAL	__end_of_HIDRxReport
 ;; Registers used:
 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -10291,18 +10259,18 @@ _InitializeSystem:; BSR set to: 13
 	opt	stack 23
 	line	509
 	
-l3095:
+l3081:
 ;main.c: 509: OSCCON = 0x60;
 	movlw	low(060h)
 	movwf	((c:4051)),c	;volatile
 	line	510
 	
-l3097:
+l3083:
 ;main.c: 510: OSCTUNEbits.PLLEN = 1;
 	bsf	((c:3995)),c,6	;volatile
 	line	512
 	
-l3099:
+l3085:
 ;main.c: 512: DelayRoutine(0x300);
 	movlw	high(0300h)
 	movwf	((c:DelayRoutine@DelayAmount+1)),c
@@ -10311,40 +10279,40 @@ l3099:
 	call	_DelayRoutine	;wreg free
 	line	527
 	
-l3101:
+l3087:
 ;main.c: 527: ANCON0 = 0x00;
 	movlb	15	; () banked
 	clrf	((3912))&0ffh	;volatile
 	line	528
 	
-l3103:; BSR set to: 15
+l3089:; BSR set to: 15
 
 ;main.c: 528: ANCON1 = 0x00;
 	clrf	((3913))&0ffh	;volatile
 	line	578
 	
-l3105:; BSR set to: 15
+l3091:; BSR set to: 15
 
 ;main.c: 578: UserInit();
 	call	_UserInit	;wreg free
 	line	580
 	
-l3107:
+l3093:
 ;main.c: 580: LATCbits.LATC2 = 0;
 	bcf	((c:3979)),c,2	;volatile
 	line	581
 	
-l3109:
+l3095:
 ;main.c: 581: TRISCbits.TRISC2 = 0;
 	bcf	((c:3988)),c,2	;volatile
 	line	585
 	
-l3111:
+l3097:
 ;main.c: 585: USBDeviceInit();
 	call	_USBDeviceInit	;wreg free
 	line	587
 	
-l73:
+l67:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_InitializeSystem
@@ -10398,34 +10366,34 @@ _USBDeviceInit:
 	opt	stack 23
 	line	323
 	
-l2969:
+l2955:
 ;usb_device.c: 323: if(UCONbits.USBEN == 1)
 	btfss	((c:3941)),c,3	;volatile
-	goto	u1911
-	goto	u1910
-u1911:
-	goto	l2973
-u1910:
+	goto	u1901
+	goto	u1900
+u1901:
+	goto	l2959
+u1900:
 	line	328
 	
-l2971:
+l2957:
 ;usb_device.c: 324: {
 ;usb_device.c: 328: USBDisableWithLongDelay();
 	call	_USBDisableWithLongDelay	;wreg free
 	line	330
 	
-l2973:
+l2959:
 ;usb_device.c: 329: }
 ;usb_device.c: 330: DeviceIsSoftDetached = 0;
 	clrf	((c:_DeviceIsSoftDetached)),c
 	line	338
 	
-l2975:
+l2961:
 ;usb_device.c: 338: USBCheckBusStatus();
 	call	_USBCheckBusStatus	;wreg free
 	line	339
 	
-l272:
+l266:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBDeviceInit
@@ -10445,7 +10413,7 @@ GLOBAL	__end_of_USBDeviceInit
 ;; Registers used:
 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -10478,37 +10446,37 @@ _USBCheckBusStatus:
 	opt	stack 24
 	line	402
 	
-l2809:
+l2795:
 ;usb_device.c: 402: if(DeviceIsSoftDetached == 1)
 		decf	((c:_DeviceIsSoftDetached)),c,w
 	btfss	status,2
-	goto	u1661
-	goto	u1660
+	goto	u1651
+	goto	u1650
 
-u1661:
-	goto	l282
-u1660:
-	goto	l283
+u1651:
+	goto	l276
+u1650:
+	goto	l277
 	line	405
 	
-l282:
+l276:
 	line	431
 ;usb_device.c: 405: }
 ;usb_device.c: 431: if(UCONbits.USBEN == 0)
 	btfsc	((c:3941)),c,3	;volatile
-	goto	u1671
-	goto	u1670
-u1671:
-	goto	l283
-u1670:
+	goto	u1661
+	goto	u1660
+u1661:
+	goto	l277
+u1660:
 	line	432
 	
-l2813:
+l2799:
 ;usb_device.c: 432: USBSoftAttach();
 	call	_USBSoftAttach	;wreg free
 	line	434
 	
-l283:
+l277:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBCheckBusStatus
@@ -10528,7 +10496,7 @@ GLOBAL	__end_of_USBCheckBusStatus
 ;; Registers used:
 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -10561,67 +10529,67 @@ _USBSoftAttach:
 	opt	stack 24
 	line	352
 	
-l2679:
+l2665:
 ;usb_device.c: 352: if(DeviceIsSoftDetached == 1)
 		decf	((c:_DeviceIsSoftDetached)),c,w
 	btfss	status,2
-	goto	u1551
-	goto	u1550
+	goto	u1541
+	goto	u1540
 
-u1551:
-	goto	l2683
-u1550:
+u1541:
+	goto	l2669
+u1540:
 	line	354
 	
-l2681:
+l2667:
 ;usb_device.c: 353: {
 ;usb_device.c: 354: USBDisableWithLongDelay();
 	call	_USBDisableWithLongDelay	;wreg free
 	line	357
 	
-l2683:
+l2669:
 ;usb_device.c: 355: }
 ;usb_device.c: 357: UCON = 0;
 	clrf	((c:3941)),c	;volatile
 	line	358
 	
-l2685:
+l2671:
 ;usb_device.c: 358: UCFG = 0x10|0x00|0x04|0x01;
 	movlw	low(015h)
 	movlb	15	; () banked
 	movwf	((3897))&0ffh	;volatile
 	line	359
 	
-l2687:; BSR set to: 15
+l2673:; BSR set to: 15
 
 ;usb_device.c: 359: UIE = 0;
 	clrf	((3894))&0ffh	;volatile
 	line	360
 	
-l2689:; BSR set to: 15
+l2675:; BSR set to: 15
 
 ;usb_device.c: 360: UCONbits.USBEN = 1;
 	bsf	((c:3941)),c,3	;volatile
 	line	362
 	
-l2691:; BSR set to: 15
+l2677:; BSR set to: 15
 
 ;usb_device.c: 362: USBProtocolResetHandler();
 	call	_USBProtocolResetHandler	;wreg free
 	line	363
 	
-l2693:
+l2679:
 ;usb_device.c: 363: usb_device_state = 1;
 	movlw	low(01h)
 	movwf	((c:_usb_device_state)),c
 	line	364
 	
-l2695:
+l2681:
 ;usb_device.c: 364: DeviceIsSoftDetached = 0;
 	clrf	((c:_DeviceIsSoftDetached)),c
 	line	365
 	
-l276:
+l270:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBSoftAttach
@@ -10641,7 +10609,7 @@ GLOBAL	__end_of_USBSoftAttach
 ;; Registers used:
 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -10676,19 +10644,19 @@ _USBProtocolResetHandler:
 	opt	stack 26
 	line	746
 	
-l2461:
+l2447:
 ;usb_device.c: 746: usb_device_state = 3;
 	movlw	low(03h)
 	movwf	((c:_usb_device_state)),c
 	line	747
 	
-l2463:
+l2449:
 ;usb_device.c: 747: UEIE = 0;
 	movlb	15	; () banked
 	clrf	((3895))&0ffh	;volatile
 	line	748
 	
-l2465:; BSR set to: 15
+l2451:; BSR set to: 15
 
 ;usb_device.c: 748: UIR = 0;
 	clrf	((c:3938)),c	;volatile
@@ -10698,38 +10666,38 @@ l2465:; BSR set to: 15
 	movwf	((3894))&0ffh	;volatile
 	line	750
 	
-l2467:; BSR set to: 15
+l2453:; BSR set to: 15
 
 ;usb_device.c: 750: UADDR = 0x00;
 	clrf	((3896))&0ffh	;volatile
 	line	751
 	
-l2469:; BSR set to: 15
+l2455:; BSR set to: 15
 
 ;usb_device.c: 751: UEP1=0x00;UEP2=0x00;UEP3=0x00; UEP4=0x00;UEP5=0x00;UEP6=0x00;UEP7=0x00;;
 	clrf	((3879))&0ffh	;volatile
 	
-l2471:; BSR set to: 15
+l2457:; BSR set to: 15
 
 	clrf	((3880))&0ffh	;volatile
 	
-l2473:; BSR set to: 15
+l2459:; BSR set to: 15
 
 	clrf	((3881))&0ffh	;volatile
 	
-l2475:; BSR set to: 15
+l2461:; BSR set to: 15
 
 	clrf	((3882))&0ffh	;volatile
 	
-l2477:; BSR set to: 15
+l2463:; BSR set to: 15
 
 	clrf	((3883))&0ffh	;volatile
 	
-l2479:; BSR set to: 15
+l2465:; BSR set to: 15
 
 	clrf	((3884))&0ffh	;volatile
 	
-l2481:; BSR set to: 15
+l2467:; BSR set to: 15
 
 	clrf	((3885))&0ffh	;volatile
 	line	752
@@ -10738,35 +10706,35 @@ l2481:; BSR set to: 15
 	movwf	((3878))&0ffh	;volatile
 	line	753
 	
-l2483:; BSR set to: 15
+l2469:; BSR set to: 15
 
 ;usb_device.c: 753: UCONbits.PPBRST = 1;
 	bsf	((c:3941)),c,6	;volatile
 	line	754
 ;usb_device.c: 754: while(UIRbits.TRNIF == 1)
-	goto	l2487
+	goto	l2473
 	
-l326:
+l320:
 	line	756
 ;usb_device.c: 755: {
 ;usb_device.c: 756: UIRbits.TRNIF = 0;
 	bcf	((c:3938)),c,3	;volatile
 	line	757
 	
-l2485:
+l2471:
 ;usb_device.c: 757: ClearWatchdog();
 	call	_ClearWatchdog	;wreg free
 	line	754
 	
-l2487:
+l2473:
 	btfsc	((c:3938)),c,3	;volatile
-	goto	u1261
-	goto	u1260
-u1261:
-	goto	l326
-u1260:
+	goto	u1251
+	goto	u1250
+u1251:
+	goto	l320
+u1250:
 	
-l327:
+l321:
 	line	759
 ;usb_device.c: 758: }
 ;usb_device.c: 759: UCONbits.PPBRST = 0;
@@ -10776,43 +10744,43 @@ l327:
 	bcf	((c:3941)),c,4	;volatile
 	line	763
 	
-l2489:
+l2475:
 ;usb_device.c: 763: TempBDT.Stat._byte = 0x00|0x04;
 	movlw	low(04h)
 	movwf	((c:_TempBDT)),c
 	line	764
 	
-l2491:
+l2477:
 ;usb_device.c: 764: LoadBDTandSetUOWN(0);
 	movlw	(0)&0ffh
 	
 	call	_LoadBDTandSetUOWN
 	line	765
 	
-l2493:
+l2479:
 ;usb_device.c: 765: EP0OutOddNeedsArmingNext = 1;
 	movlw	low(01h)
 	movwf	((c:_EP0OutOddNeedsArmingNext)),c
 	line	766
 	
-l2495:
+l2481:
 ;usb_device.c: 766: usb_stat._byte = 0x00;
 	clrf	((c:_usb_stat)),c
 	line	767
 	
-l2497:
+l2483:
 ;usb_device.c: 767: usb_active_cfg = 0;
 	clrf	((c:_usb_active_cfg)),c
 	line	768
 	
-l2499:
+l2485:
 ;usb_device.c: 768: USBCBInitEP(0);
 	movlw	(0)&0ffh
 	
 	call	_USBCBInitEP
 	line	770
 	
-l328:
+l322:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBProtocolResetHandler
@@ -10869,31 +10837,31 @@ _USBCBInitEP:
 	movwf	((c:USBCBInitEP@ConfigurationIndex)),c
 	line	839
 	
-l2355:
+l2341:
 ;main.c: 839: if(ConfigurationIndex == 1)
 		decf	((c:USBCBInitEP@ConfigurationIndex)),c,w
 	btfss	status,2
-	goto	u1151
-	goto	u1150
+	goto	u1141
+	goto	u1140
 
-u1151:
-	goto	l107
-u1150:
+u1141:
+	goto	l101
+u1140:
 	line	845
 	
-l2357:
+l2343:
 ;main.c: 840: {
 ;main.c: 845: HIDInitEP();
 	call	_HIDInitEP	;wreg free
 	line	848
 	
-l2359:; BSR set to: 13
+l2345:; BSR set to: 13
 
 ;main.c: 848: UserInit();
 	call	_UserInit	;wreg free
 	line	855
 	
-l107:
+l101:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBCBInitEP
@@ -10946,7 +10914,7 @@ _UserInit:
 	opt	stack 26
 	line	240
 	
-l2323:
+l2309:
 ;boot_18fxxjxx.c: 240: MaxPageToErase = ((((uint32_t)0x01FFF8)/1024) - 1);
 	movlw	low(07Eh)
 	movwf	((c:_MaxPageToErase)),c
@@ -10962,12 +10930,12 @@ l2323:
 	movwf	((c:_ProgramMemStopAddress+3)),c
 	line	242
 	
-l2325:
+l2311:
 ;boot_18fxxjxx.c: 242: BootState = 0x00;
 	clrf	((c:_BootState)),c
 	line	243
 	
-l2327:
+l2313:
 ;boot_18fxxjxx.c: 243: ProgrammedPointer = 0xFFFFFFFF;
 	setf	((c:_ProgrammedPointer)),c
 	setf	((c:_ProgrammedPointer+1)),c
@@ -10975,12 +10943,12 @@ l2327:
 	setf	((c:_ProgrammedPointer+3)),c
 	line	244
 	
-l2329:
+l2315:
 ;boot_18fxxjxx.c: 244: BufferedDataIndex = 0;
 	clrf	((c:_BufferedDataIndex)),c
 	line	245
 	
-l606:
+l600:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_UserInit
@@ -11032,12 +11000,12 @@ _HIDInitEP:
 	opt	stack 26
 	line	173
 	
-l2331:
+l2317:
 ;usb_device_hid.c: 173: hid_rpt_rx_len =0;
 	clrf	((c:_hid_rpt_rx_len)),c
 	line	175
 	
-l2333:
+l2319:
 ;usb_device_hid.c: 175: UEP1 = 0x0E|0x10;
 	movlw	low(01Eh)
 	movlb	15	; () banked
@@ -11049,7 +11017,7 @@ l2333:
 	movwf	(0+(3340+01h))&0ffh	;volatile
 	line	179
 	
-l2335:; BSR set to: 13
+l2321:; BSR set to: 13
 
 ;usb_device_hid.c: 179: ep1Bo.ADR = (uint8_t*)&hid_report_out;
 		movlw	low(3372)
@@ -11059,20 +11027,20 @@ l2335:; BSR set to: 13
 
 	line	180
 	
-l2337:; BSR set to: 13
+l2323:; BSR set to: 13
 
 ;usb_device_hid.c: 180: ep1Bo.Stat._byte = 0x00|0x08;
 	movlw	low(08h)
 	movwf	((3340))&0ffh	;volatile
 	line	181
 	
-l2339:; BSR set to: 13
+l2325:; BSR set to: 13
 
 ;usb_device_hid.c: 181: ep1Bo.Stat._byte |= 0x80;
 	bsf	(0+(7/8)+(3340))&0ffh,(7)&7	;volatile
 	line	194
 	
-l2341:; BSR set to: 13
+l2327:; BSR set to: 13
 
 ;usb_device_hid.c: 194: ep1Bi.ADR = (uint8_t*)&hid_report_in;
 		movlw	low(3436)
@@ -11082,14 +11050,14 @@ l2341:; BSR set to: 13
 
 	line	195
 	
-l2343:; BSR set to: 13
+l2329:; BSR set to: 13
 
 ;usb_device_hid.c: 195: ep1Bi.Stat._byte = 0x00|0x40;
 	movlw	low(040h)
 	movwf	((3344))&0ffh	;volatile
 	line	197
 	
-l522:; BSR set to: 13
+l516:; BSR set to: 13
 
 	return	;funcret
 	opt stack 0
@@ -11146,7 +11114,7 @@ _LoadBDTandSetUOWN:; BSR set to: 13
 	movwf	((c:LoadBDTandSetUOWN@BDTIndexToLoad)),c
 	line	1591
 	
-l2361:
+l2347:
 ;usb_device.c: 1585: static volatile BDT* pBDTEntry;
 ;usb_device.c: 1591: TempBDT.Cnt = 8;
 	movlw	low(08h)
@@ -11160,18 +11128,18 @@ l2361:
 
 	line	1593
 	
-l2363:
+l2349:
 ;usb_device.c: 1593: if(BDTIndexToLoad == 0)
 	movf	((c:LoadBDTandSetUOWN@BDTIndexToLoad)),c,w
 	btfss	status,2
-	goto	u1161
-	goto	u1160
-u1161:
-	goto	l2367
-u1160:
+	goto	u1151
+	goto	u1150
+u1151:
+	goto	l2353
+u1150:
 	line	1595
 	
-l2365:
+l2351:
 ;usb_device.c: 1594: {
 ;usb_device.c: 1595: TempBDT.ADR = (uint8_t*)&EP0OutEvenBuf[0];
 		movlw	low(3348)
@@ -11188,10 +11156,10 @@ l2365:
 
 	line	1597
 ;usb_device.c: 1597: }
-	goto	l2369
+	goto	l2355
 	line	1600
 	
-l2367:
+l2353:
 ;usb_device.c: 1598: else
 ;usb_device.c: 1599: {
 ;usb_device.c: 1600: pBDTEntry = (volatile BDT*)(0xD00 + 4);
@@ -11202,7 +11170,7 @@ l2367:
 
 	line	1604
 	
-l2369:
+l2355:
 ;usb_device.c: 1601: }
 ;usb_device.c: 1604: *pBDTEntry = TempBDT;
 	movff	(c:LoadBDTandSetUOWN@pBDTEntry),fsr2l
@@ -11214,14 +11182,14 @@ l2369:
 
 	line	1607
 	
-l2371:
+l2357:
 ;usb_device.c: 1607: pBDTEntry->Stat.UOWN = 1;
 	movff	(c:LoadBDTandSetUOWN@pBDTEntry),fsr2l
 	movff	(c:LoadBDTandSetUOWN@pBDTEntry+1),fsr2h
 	bsf	c:indf2,7
 	line	1608
 	
-l443:
+l437:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_LoadBDTandSetUOWN
@@ -11275,7 +11243,7 @@ _USBDisableWithLongDelay:
 	opt	stack 24
 	line	1617
 	
-l2455:
+l2441:
 ;usb_device.c: 1617: UCONbits.SUSPND = 0;
 	bcf	((c:3941)),c,1	;volatile
 	line	1618
@@ -11283,7 +11251,7 @@ l2455:
 	clrf	((c:3941)),c	;volatile
 	line	1619
 	
-l2457:
+l2443:
 ;usb_device.c: 1619: DelayRoutine(0xFFFF);
 	movlw	high(0FFFFh)
 	movwf	((c:DelayRoutine@DelayAmount+1)),c
@@ -11291,12 +11259,12 @@ l2457:
 	call	_DelayRoutine	;wreg free
 	line	1620
 	
-l2459:
+l2445:
 ;usb_device.c: 1620: usb_device_state = 0;
 	clrf	((c:_usb_device_state)),c
 	line	1621
 	
-l446:
+l440:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_USBDisableWithLongDelay
@@ -11316,7 +11284,7 @@ GLOBAL	__end_of_USBDisableWithLongDelay
 ;; Registers used:
 ;;		wreg, status,2, status,0, cstack
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -11350,37 +11318,37 @@ _DelayRoutine:
 	opt	stack 25
 	line	1627
 	
-l2347:
+l2333:
 ;usb_device.c: 1627: while(DelayAmount)
-	goto	l2353
+	goto	l2339
 	line	1629
 	
-l2349:
+l2335:
 ;usb_device.c: 1628: {
 ;usb_device.c: 1629: ClearWatchdog();
 	call	_ClearWatchdog	;wreg free
 	line	1630
 	
-l2351:
+l2337:
 ;usb_device.c: 1630: DelayAmount--;
 	decf	((c:DelayRoutine@DelayAmount)),c
 	btfss	status,0
 	decf	((c:DelayRoutine@DelayAmount+1)),c
 	line	1627
 	
-l2353:
+l2339:
 	movf	((c:DelayRoutine@DelayAmount)),c,w
 iorwf	((c:DelayRoutine@DelayAmount+1)),c,w
 	btfss	status,2
-	goto	u1141
-	goto	u1140
+	goto	u1131
+	goto	u1130
 
-u1141:
-	goto	l2349
-u1140:
+u1131:
+	goto	l2335
+u1130:
 	line	1632
 	
-l452:
+l446:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_DelayRoutine
@@ -11434,13 +11402,13 @@ _ClearWatchdog:
 	opt	stack 25
 	line	1644
 	
-l2345:
+l2331:
 # 1644 "../src/usb_device.c"
 clrwdt ;# 
 psect	text40
 	line	1645
 	
-l455:
+l449:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_ClearWatchdog
@@ -11460,7 +11428,7 @@ GLOBAL	__end_of_ClearWatchdog
 ;; Registers used:
 ;;		wreg, status,2, status,0
 ;; Tracked objects:
-;;		On entry : 0/F
+;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
@@ -11492,7 +11460,7 @@ _BlinkUSBStatus:
 	opt	stack 29
 	line	616
 	
-l2109:
+l2103:
 ;main.c: 614: static unsigned int led_count = 0;
 ;main.c: 616: led_count--;
 	decf	((c:BlinkUSBStatus@led_count)),c
@@ -11500,7 +11468,7 @@ l2109:
 	decf	((c:BlinkUSBStatus@led_count+1)),c
 	line	617
 	
-l2111:
+l2105:
 ;main.c: 617: if(led_count == 0)
 	movf	((c:BlinkUSBStatus@led_count)),c,w
 iorwf	((c:BlinkUSBStatus@led_count+1)),c,w
@@ -11509,11 +11477,11 @@ iorwf	((c:BlinkUSBStatus@led_count+1)),c,w
 	goto	u920
 
 u921:
-	goto	l81
+	goto	l75
 u920:
 	line	619
 	
-l2113:
+l2107:
 ;main.c: 618: {
 ;main.c: 619: led_count = 0x4E00;
 	movlw	high(04E00h)
@@ -11522,7 +11490,7 @@ l2113:
 	movwf	((c:BlinkUSBStatus@led_count)),c
 	line	620
 	
-l2115:
+l2109:
 ;main.c: 620: if(usb_device_state < 6)
 		movlw	06h-0
 	cpfslt	((c:_usb_device_state)),c
@@ -11530,20 +11498,20 @@ l2115:
 	goto	u930
 
 u931:
-	goto	l2119
+	goto	l2113
 u930:
 	line	622
 	
-l2117:
+l2111:
 ;main.c: 621: {
 ;main.c: 622: LATCbits.LATC2 = 1;
 	bsf	((c:3979)),c,2	;volatile
 	line	623
 ;main.c: 623: }
-	goto	l81
+	goto	l75
 	line	626
 	
-l2119:
+l2113:
 ;main.c: 624: else
 ;main.c: 625: {
 ;main.c: 626: LATCbits.LATC2 = !LATCbits.LATC2;
@@ -11566,7 +11534,7 @@ u958:
 	movwf	((c:3979)),c	;volatile
 	line	630
 	
-l81:
+l75:
 	return	;funcret
 	opt stack 0
 GLOBAL	__end_of_BlinkUSBStatus

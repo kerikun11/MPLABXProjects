@@ -10542,7 +10542,7 @@ extern uint8_t I2C_sent_flag;
 extern uint8_t I2C_cfct_flag;
 extern uint8_t I2C_busy;
 
-uint8_t I2C_idole_check(uint8_t mask);
+uint8_t I2C_idle_check(uint8_t mask);
 void I2C_start(void);
 void I2C_restart(void);
 void I2C_stop(void);
@@ -10562,7 +10562,7 @@ uint8_t I2C_Receive(uint8_t ack);
 
 # 19 "../My_library\My_ST7032.h"
 typedef enum ST7032_STATE {
-ST7032_IDOLE,
+ST7032_IDLE,
 ST7032_START,
 ST7032_SEND,
 ST7032_STOP,

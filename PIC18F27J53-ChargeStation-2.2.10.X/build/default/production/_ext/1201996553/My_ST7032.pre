@@ -10455,7 +10455,7 @@ extern uint8_t I2C_sent_flag;
 extern uint8_t I2C_cfct_flag;
 extern uint8_t I2C_busy;
 
-uint8_t I2C_idole_check(uint8_t mask);
+uint8_t I2C_idle_check(uint8_t mask);
 void I2C_start(void);
 void I2C_restart(void);
 void I2C_stop(void);
@@ -10475,7 +10475,7 @@ uint8_t I2C_Receive(uint8_t ack);
 
 # 19 "../My_library/My_ST7032.h"
 typedef enum ST7032_STATE {
-ST7032_IDOLE,
+ST7032_IDLE,
 ST7032_START,
 ST7032_SEND,
 ST7032_STOP,
@@ -10509,7 +10509,7 @@ void I2C_LCD_Puts(const uint8_t * s);
 void I2C_LCD_CreateChar(int p, char *dt);
 void I2C_LCD_init(void);
 
-# 13 "../My_library/My_ST7032.c"
+# 11 "../My_library/My_ST7032.c"
 st7032_state_t st7032_state;
 ringbuf_t lcd_tx;
 
@@ -10579,13 +10579,13 @@ ST7032_clear();
 }
 
 void ST7032_task(void) {
-if (I2C_idole_check(0x05)) return;
+if (I2C_idle_check(0x05)) return;
 
 static uint16_t wait;
-static st7032_state_t st7032_state = ST7032_IDOLE;
+static st7032_state_t st7032_state = ST7032_IDLE;
 
 switch (st7032_state) {
-case ST7032_IDOLE:
+case ST7032_IDLE:
 if (ringbuf_num(&lcd_tx)) {
 st7032_state = ST7032_START;
 }
@@ -10628,7 +10628,7 @@ I2C_stop();
 st7032_state = ST7032_WAIT;
 break;
 case ST7032_WAIT:
-if (wait == 0) st7032_state = ST7032_IDOLE;
+if (wait == 0) st7032_state = ST7032_IDLE;
 else wait--;
 break;
 }
@@ -10670,7 +10670,7 @@ void Delay_ms(uint16_t ms);
 void millis_timer(void);
 uint32_t millis(void);
 
-# 141 "../My_library/My_ST7032.c"
+# 139 "../My_library/My_ST7032.c"
 void I2C_LCD_Command(uint8_t c) {
 uint8_t ans;
 

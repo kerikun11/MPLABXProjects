@@ -136,18 +136,23 @@ int main(void) {
         INTCONbits.GIE = 0;
         RTCC_task();
         INTCONbits.GIE = 1;
+        
         INTCONbits.GIE = 0;
         ST7032_task();
         INTCONbits.GIE = 1;
+
         INTCONbits.GIE = 0;
         USB_CDC_task();
         INTCONbits.GIE = 1;
+
         INTCONbits.GIE = 0;
         terminal_task(&usb_tx, &usb_rx);
         INTCONbits.GIE = 1;
+
         INTCONbits.GIE = 0;
         normal_task();
         INTCONbits.GIE = 1;
+
         // ** temporary *************************
         INTCONbits.GIE = 0;
         ctmu_task();
@@ -159,6 +164,7 @@ int main(void) {
         }
         INTCONbits.GIE = 1;
         // **************************************
+
         INTCONbits.GIE = 0;
         sleep_task();
         INTCONbits.GIE = 1;

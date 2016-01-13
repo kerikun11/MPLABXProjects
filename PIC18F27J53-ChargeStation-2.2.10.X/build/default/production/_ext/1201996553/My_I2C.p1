@@ -8283,7 +8283,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;My_I2C.h: 19: extern uint8_t I2C_sent_flag;
 [; ;My_I2C.h: 20: extern uint8_t I2C_cfct_flag;
 [; ;My_I2C.h: 21: extern uint8_t I2C_busy;
-[; ;My_I2C.h: 23: uint8_t I2C_idole_check(uint8_t mask);
+[; ;My_I2C.h: 23: uint8_t I2C_idle_check(uint8_t mask);
 [; ;My_I2C.h: 24: void I2C_start(void);
 [; ;My_I2C.h: 25: void I2C_restart(void);
 [; ;My_I2C.h: 26: void I2C_stop(void);
@@ -8308,10 +8308,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _I2C_busy `uc ~T0 @X0 1 e ]
 [; ;My_I2C.c: 5: uint8_t I2C_busy;
 "7
-[v _I2C_idole_check `(uc ~T0 @X0 1 ef1`uc ]
+[v _I2C_idle_check `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;My_I2C.c: 7: uint8_t I2C_idole_check(uint8_t mask) {
-[e :U _I2C_idole_check ]
+[; ;My_I2C.c: 7: uint8_t I2C_idle_check(uint8_t mask) {
+[e :U _I2C_idle_check ]
 [v _mask `uc ~T0 @X0 1 r1 ]
 [f ]
 [; ;My_I2C.c: 8: return ((SSP1CON2 & 0x1F) | (SSP1STAT & mask));

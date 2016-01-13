@@ -43,7 +43,7 @@
 //robust/recoverable (compared to software only entry into the bootloader), in
 //the event of a failed erase/program/verify operation, or an otherwise corrupted
 //application firmware image is loaded.
-#define ENABLE_IO_PIN_CHECK_BOOTLOADER_ENTRY  //Uncomment if you wish to enable I/O pin entry method into bootloader mode
+//#define ENABLE_IO_PIN_CHECK_BOOTLOADER_ENTRY  //Uncomment if you wish to enable I/O pin entry method into bootloader mode
                                               //Make sure proper sw2() macro definition is provided in HardwareProfile.h
 
 //Option to allow blinking of LED to show USB bus status.  May be optionally

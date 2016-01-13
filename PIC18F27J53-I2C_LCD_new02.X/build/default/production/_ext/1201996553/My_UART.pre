@@ -10450,13 +10450,17 @@ void ringbuf_backspace(ringbuf_t *rb);
 
 void ringbuf_delete(ringbuf_t *rb);
 
-# 68 "../My_library/My_UART.h"
+# 65 "../My_library/My_UART.h"
 extern ringbuf_t uart_tx;
 extern ringbuf_t uart_rx;
+
 
 void UART_init(void);
 void UART_ISR(void);
 void UART_task(void);
+
+
+static void UART_buffer_init(void);
 
 # 7 "../My_library/My_UART.c"
 ringbuf_t uart_tx;
@@ -10479,6 +10483,14 @@ IPR1bits.TX1IP = 0;
 
 PIE1bits.RCIE = 1;
 INTCONbits.PEIE = 1;
+UART_buffer_init();
+}
+
+static void UART_buffer_init(void) {
+static uint8_t uarttx[500];
+ringbuf_init(&uart_tx, uarttx, sizeof (uarttx));
+static uint8_t uartrx[100];
+ringbuf_init(&uart_rx, uartrx, sizeof (uartrx));
 }
 
 void UART_ISR(void) {

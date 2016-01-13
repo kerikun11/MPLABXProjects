@@ -4,7 +4,7 @@ uint8_t I2C_sent_flag;
 uint8_t I2C_cfct_flag;
 uint8_t I2C_busy;
 
-uint8_t I2C_idole_check(uint8_t mask) {
+uint8_t I2C_idle_check(uint8_t mask) {
     return ((SSP1CON2 & 0x1F) | (SSP1STAT & mask));
 }
 
