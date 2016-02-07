@@ -60,7 +60,7 @@ void terminal_task(ringbuf_t *tx, ringbuf_t *rx) {
 
 void print_time_dec(ringbuf_t *tx, uint8_t dec, uint8_t edit) {
     uint8_t str[10];
-    sprintf(str,"%02d",dec);
+    sprintf(str, "%02d", dec);
     if (now.edit.flags && now.halfsec)ringbuf_put_str(tx, "  ");
     else ringbuf_put_str(tx, str);
 }
@@ -91,7 +91,7 @@ void terminal_at_hand(ringbuf_t *tx, uint8_t *hand, uint8_t min, uint8_t max, ui
 }
 
 void terminal_time(ringbuf_t *tx, char *op0, char *op1, char *op2) {
-    if (!strcmp(op0, "print_time") || !strcmp(op0, "t")) {
+    if (!strcmp(op0, "print_time") || !strcmp(op0, "t") || !strcmp(op0, "")) {
         print_time(tx);
     }
     if (!strcmp(op0, "at") || !strcmp(op0, "adjust_time")) {

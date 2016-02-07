@@ -18,7 +18,7 @@
 #include <usb/usb_device_cdc.h>
 
 /** VALUES *********************************************************/
-#define USB_TX_BUFFER_SIZE 800
+#define USB_TX_BUFFER_SIZE 1000
 #define USB_RX_BUFFER_SIZE 100
 
 /** VARIABLES ******************************************************/

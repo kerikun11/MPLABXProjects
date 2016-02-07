@@ -119,30 +119,16 @@ void PWM_init(uint8_t PR) {
 }
 
 void PWM_set(uint8_t color, uint16_t value) {
-    value = value * value / PR_VALUE;
-    value = value * value / PR_VALUE;
-    value = value * 3 / 4;
+    value *= value;
+    value /= 256;
+    value *= 2;
+    value /= 3;
     switch (color) {
         case RED:
-            if (value < PR_VALUE / 4) {
-                value = value;
-            } else {
-                value = 2 * (value - PR_VALUE / 4) / 3 + PR_VALUE / 4;
-            }
             break;
         case GREEN:
-            if (value < PR_VALUE / 4) {
-                value = value;
-            } else {
-                value = value;
-            }
             break;
         case BLUE:
-            if (value < PR_VALUE / 4) {
-                value = value;
-            } else {
-                value = 3 * (value - PR_VALUE / 4) / 4 + PR_VALUE / 4;
-            }
             break;
         case WHITE:
             break;
@@ -170,11 +156,6 @@ void PWM_set(uint8_t color, uint16_t value) {
 void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op3) {
     if (!strcmp(op0, "help") || !strcmp(op0, "?")) {
         ringbuf_put_str(tx,
-                "\t**************************\n"
-                "\t**** Killifish Light  ****\n"
-                "\t**** Made by @Ryokeri ****\n"
-                "\t**************************\n\n"
-                "\tcommand \topeland1\topeland2\n\n"
                 "\tprint_time(t)\n"
                 "\tadjust_time(at) [hand:y,M,d,h,m,s] [value(decimal)]\n"
                 "\tpwm [color:R,G,B,W] [value(%):0~100]\n"
@@ -227,17 +208,27 @@ void terminal_operation(ringbuf_t *tx, char *op0, char *op1, char *op2, char *op
 }
 
 void light_task(void) {
-    uint8_t i;
     if (time_change_flag) {
         time_change_flag = 0;
         RTCC_from_RTCC(&now);
         if (light_mode == TIME_SYNC_mode) {
-            epoch_t temp = (epoch_t) now.epoch % DAY;
-            if (temp > DAY / 2)temp = DAY - temp;
-            temp = temp * 2 * PR_VALUE / DAY;
-            PWM_set(3, temp);
-            for (i = 0; i < 3; i++) {
-                PWM_set(i, temp);
+            uint16_t s = (epoch_t) (now.epoch % DAY) / (DAY / 1024);
+            if (s < 256) {
+                for (uint8_t i = 0; i < 3; i++) {
+                    PWM_set(i, 0);
+                }
+            } else if (s < 512) {
+                for (uint8_t i = 0; i < 3; i++) {
+                    PWM_set(i, s - 256);
+                }
+            } else if (s < 768) {
+                for (uint8_t i = 0; i < 3; i++) {
+                    PWM_set(i, 768 - s);
+                }
+            } else {
+                for (uint8_t i = 0; i < 3; i++) {
+                    PWM_set(i, 0);
+                }
             }
         }
     }
@@ -248,7 +239,7 @@ void light_task(void) {
         if (n >= 3) n = 0;
         else n++;
         uint8_t value = PR_VALUE / 3 * n;
-        for (i = 0; i < 3; i++) {
+        for (uint8_t i = 0; i < 3; i++) {
             PWM_set(i, value);
         }
     }
@@ -283,6 +274,7 @@ void light_task(void) {
 }
 
 void main_init(void) {
+
     OSC_init();
     TRISA = 0b11100111; // SWB,SWG,SWR,Vcap,x,ADCB,ADCG,ADCR
     TRISB = 0b00000000; // PGD,PGC,x,PWMW,x,PWMB,PWMG,PWMR
