@@ -121,8 +121,8 @@ void PWM_init(uint8_t PR) {
 void PWM_set(uint8_t color, uint16_t value) {
     value *= value;
     value /= 256;
-    value *= 2;
-    value /= 3;
+    value *= 3;
+    value /= 4;
     switch (color) {
         case RED:
             break;
@@ -212,6 +212,7 @@ void light_task(void) {
         time_change_flag = 0;
         RTCC_from_RTCC(&now);
         if (light_mode == TIME_SYNC_mode) {
+            PWM_set(3, 0);
             uint16_t s = (epoch_t) (now.epoch % DAY) / (DAY / 1024);
             if (s < 256) {
                 for (uint8_t i = 0; i < 3; i++) {
