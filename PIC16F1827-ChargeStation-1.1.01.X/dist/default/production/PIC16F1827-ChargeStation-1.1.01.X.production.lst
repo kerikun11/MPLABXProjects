@@ -1,0 +1,1539 @@
+
+
+Microchip Technology PIC LITE Macro Assembler V1.35 build -356382666 
+                                                                                               Mon Nov 16 18:38:02 2015
+
+Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080246
+     1                           	processor	16F1827
+     2                           	opt	pw 120
+     3                           	opt	lm
+     4                           	psect	nvBANK0,global,class=BANK0,space=1,delta=1
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     7                           	psect	clrtext,global,class=CODE,delta=2
+     8                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     9                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    10                           	psect	maintext,global,class=CODE,merge=1,split=1,delta=2
+    11                           	psect	intentry,global,class=CODE,delta=2
+    12                           	psect	text2,local,class=CODE,merge=1,delta=2
+    13                           	psect	text3,local,class=CODE,merge=1,delta=2
+    14                           	dabs	1,0x7E,2
+    15  0000                     	;# 
+    16  0001                     	;# 
+    17  0002                     	;# 
+    18  0003                     	;# 
+    19  0004                     	;# 
+    20  0005                     	;# 
+    21  0006                     	;# 
+    22  0007                     	;# 
+    23  0008                     	;# 
+    24  0009                     	;# 
+    25  000A                     	;# 
+    26  000B                     	;# 
+    27  000C                     	;# 
+    28  000D                     	;# 
+    29  0011                     	;# 
+    30  0012                     	;# 
+    31  0013                     	;# 
+    32  0014                     	;# 
+    33  0015                     	;# 
+    34  0016                     	;# 
+    35  0016                     	;# 
+    36  0017                     	;# 
+    37  0018                     	;# 
+    38  0019                     	;# 
+    39  001A                     	;# 
+    40  001B                     	;# 
+    41  001C                     	;# 
+    42  001E                     	;# 
+    43  001F                     	;# 
+    44  008C                     	;# 
+    45  008D                     	;# 
+    46  0091                     	;# 
+    47  0092                     	;# 
+    48  0093                     	;# 
+    49  0094                     	;# 
+    50  0095                     	;# 
+    51  0096                     	;# 
+    52  0097                     	;# 
+    53  0098                     	;# 
+    54  0099                     	;# 
+    55  009A                     	;# 
+    56  009B                     	;# 
+    57  009B                     	;# 
+    58  009C                     	;# 
+    59  009D                     	;# 
+    60  009E                     	;# 
+    61  010C                     	;# 
+    62  010D                     	;# 
+    63  0111                     	;# 
+    64  0112                     	;# 
+    65  0113                     	;# 
+    66  0114                     	;# 
+    67  0115                     	;# 
+    68  0116                     	;# 
+    69  0117                     	;# 
+    70  0118                     	;# 
+    71  0119                     	;# 
+    72  011A                     	;# 
+    73  011B                     	;# 
+    74  011D                     	;# 
+    75  011E                     	;# 
+    76  018C                     	;# 
+    77  018D                     	;# 
+    78  0191                     	;# 
+    79  0191                     	;# 
+    80  0192                     	;# 
+    81  0193                     	;# 
+    82  0193                     	;# 
+    83  0193                     	;# 
+    84  0194                     	;# 
+    85  0195                     	;# 
+    86  0196                     	;# 
+    87  0199                     	;# 
+    88  019A                     	;# 
+    89  019B                     	;# 
+    90  019B                     	;# 
+    91  019B                     	;# 
+    92  019B                     	;# 
+    93  019C                     	;# 
+    94  019C                     	;# 
+    95  019D                     	;# 
+    96  019E                     	;# 
+    97  019F                     	;# 
+    98  020C                     	;# 
+    99  020D                     	;# 
+   100  0211                     	;# 
+   101  0211                     	;# 
+   102  0212                     	;# 
+   103  0212                     	;# 
+   104  0213                     	;# 
+   105  0213                     	;# 
+   106  0214                     	;# 
+   107  0214                     	;# 
+   108  0215                     	;# 
+   109  0215                     	;# 
+   110  0215                     	;# 
+   111  0216                     	;# 
+   112  0216                     	;# 
+   113  0217                     	;# 
+   114  0217                     	;# 
+   115  0219                     	;# 
+   116  021A                     	;# 
+   117  021B                     	;# 
+   118  021C                     	;# 
+   119  021D                     	;# 
+   120  021E                     	;# 
+   121  021F                     	;# 
+   122  0291                     	;# 
+   123  0291                     	;# 
+   124  0292                     	;# 
+   125  0293                     	;# 
+   126  0294                     	;# 
+   127  0295                     	;# 
+   128  0295                     	;# 
+   129  0296                     	;# 
+   130  0298                     	;# 
+   131  0298                     	;# 
+   132  0299                     	;# 
+   133  029A                     	;# 
+   134  029B                     	;# 
+   135  029C                     	;# 
+   136  029C                     	;# 
+   137  029D                     	;# 
+   138  029E                     	;# 
+   139  029E                     	;# 
+   140  0311                     	;# 
+   141  0311                     	;# 
+   142  0312                     	;# 
+   143  0313                     	;# 
+   144  0318                     	;# 
+   145  0318                     	;# 
+   146  0319                     	;# 
+   147  031A                     	;# 
+   148  0394                     	;# 
+   149  0395                     	;# 
+   150  0396                     	;# 
+   151  039A                     	;# 
+   152  039C                     	;# 
+   153  039D                     	;# 
+   154  039E                     	;# 
+   155  039F                     	;# 
+   156  0415                     	;# 
+   157  0416                     	;# 
+   158  0417                     	;# 
+   159  041C                     	;# 
+   160  041D                     	;# 
+   161  041E                     	;# 
+   162  0FE4                     	;# 
+   163  0FE5                     	;# 
+   164  0FE6                     	;# 
+   165  0FE7                     	;# 
+   166  0FE8                     	;# 
+   167  0FE9                     	;# 
+   168  0FEA                     	;# 
+   169  0FEB                     	;# 
+   170  0FED                     	;# 
+   171  0FEE                     	;# 
+   172  0FEF                     	;# 
+   173                           
+   174                           	psect	nvBANK0
+   175  0058                     __pnvBANK0:	
+   176  0058                     _i:	
+   177  0058                     	ds	2
+   178  000B                     _INTCONbits	set	11
+   179  0011                     _PIR1bits	set	17
+   180  000C                     _PORTAbits	set	12
+   181  000D                     _PORTB	set	13
+   182  000D                     _PORTBbits	set	13
+   183  0018                     _T1CON	set	24
+   184  0017                     _TMR1H	set	23
+   185  0016                     _TMR1L	set	22
+   186  009B                     _ADRES	set	155
+   187  009D                     _ADCON0bits	set	157
+   188  009E                     _ADCON1	set	158
+   189  0095                     _OPTION_REG	set	149
+   190  0099                     _OSCCON	set	153
+   191  0091                     _PIE1bits	set	145
+   192  008C                     _TRISA	set	140
+   193  008D                     _TRISB	set	141
+   194  0117                     _FVRCON	set	279
+   195  018C                     _ANSELA	set	396
+   196  018D                     _ANSELB	set	397
+   197                           
+   198                           ; #config settings
+   199  0000                     
+   200                           	psect	cinit
+   201  013A                     start_initialization:	
+   202  013A                     __initialization:	
+   203                           
+   204                           ; Clear objects allocated to BANK0
+   205  013A  3020               	movlw	low __pbssBANK0
+   206  013B  0084               	movwf	4
+   207  013C  3000               	movlw	high __pbssBANK0
+   208  013D  0085               	movwf	5
+   209  013E  302C               	movlw	44
+   210  013F  3182  2249         	fcall	clear_ram0
+   211  0141                     end_of_initialization:	
+   212                           ;End of C runtime variable initialization code
+   213                           
+   214  0141                     __end_of__initialization:	
+   215  0141  107E               	bcf	int$flags,0	;clear compiler interrupt flag (level 1)
+   216  0142  0020               	movlb	0
+   217  0143  3181  2945         	ljmp	_main	;jump to C main() function
+   218                           
+   219                           	psect	bssBANK0
+   220  0020                     __pbssBANK0:	
+   221  0020                     _temp:	
+   222  0020                     	ds	16
+   223  0030                     _v:	
+   224  0030                     	ds	16
+   225  0040                     _d:	
+   226  0040                     	ds	4
+   227  0044                     _cnt:	
+   228  0044                     	ds	2
+   229  0046                     _cnt0:	
+   230  0046                     	ds	2
+   231  0048                     _cnt1:	
+   232  0048                     	ds	2
+   233  004A                     _j:	
+   234  004A                     	ds	2
+   235                           
+   236                           	psect	clrtext
+   237  0249                     clear_ram0:	
+   238                           ;	Called with FSR0 containing the base address, and
+   239                           ;	WREG with the size to clear
+   240                           
+   241  0249  0064               	clrwdt	;clear the watchdog before getting into this loop
+   242  024A                     clrloop0:	
+   243  024A  0180               	clrf	0	;clear RAM location pointed to by FSR
+   244  024B  3101               	addfsr 0,1
+   245  024C  0B89               	decfsz	9,f	;Have we reached the end of clearing yet?
+   246  024D  2A4A               	goto	clrloop0	;have we reached the end yet?
+   247  024E  3400               	retlw	0	;all done for this memory range, return
+   248                           
+   249                           	psect	cstackCOMMON
+   250  0070                     __pcstackCOMMON:	
+   251  0070                     ?_isr:	
+   252  0070                     ?_adc:	
+   253                           ; 0 bytes @ 0x0
+   254                           
+   255  0070                     ?_main:	
+   256                           ; 2 bytes @ 0x0
+   257                           
+   258  0070                     ?___lldiv:	
+   259                           ; 2 bytes @ 0x0
+   260                           
+   261  0070                     ___lldiv@divisor:	
+   262                           ; 4 bytes @ 0x0
+   263                           
+   264                           
+   265                           ; 4 bytes @ 0x0
+   266  0070                     	ds	2
+   267  0072                     ??_adc:	
+   268                           
+   269                           ; 0 bytes @ 0x2
+   270  0072                     	ds	1
+   271  0073                     adc@ch:	
+   272                           
+   273                           ; 1 bytes @ 0x3
+   274  0073                     	ds	1
+   275  0074                     ___lldiv@dividend:	
+   276                           
+   277                           ; 4 bytes @ 0x4
+   278  0074                     	ds	4
+   279  0078                     ??___lldiv:	
+   280                           
+   281                           ; 0 bytes @ 0x8
+   282  0078                     	ds	1
+   283  0079                     ___lldiv@quotient:	
+   284                           
+   285                           ; 4 bytes @ 0x9
+   286  0079                     	ds	4
+   287  007D                     ___lldiv@counter:	
+   288                           
+   289                           ; 1 bytes @ 0xD
+   290  007D                     	ds	1
+   291                           
+   292                           	psect	cstackBANK0
+   293  004C                     __pcstackBANK0:	
+   294  004C                     ??_isr:	
+   295                           
+   296                           ; 0 bytes @ 0x0
+   297  004C                     	ds	7
+   298  0053                     ??_main:	
+   299                           
+   300                           ; 0 bytes @ 0x7
+   301  0053                     	ds	5
+   302                           
+   303                           	psect	maintext
+   304  0145                     __pmaintext:	
+   305 ;;
+   306 ;;Main: autosize = 0, tempsize = 5, incstack = 0, save=0
+   307 ;;
+   308 ;; *************** function _main *****************
+   309 ;; Defined at:
+   310 ;;		line 92 in file "PIC16F1827-ChargeStation01.c"
+   311 ;; Parameters:    Size  Location     Type
+   312 ;;		None
+   313 ;; Auto vars:     Size  Location     Type
+   314 ;;		None
+   315 ;; Return value:  Size  Location     Type
+   316 ;;                  2   82[None  ] int 
+   317 ;; Registers used:
+   318 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0
+   319 ;; Tracked objects:
+   320 ;;		On entry : B1F/0
+   321 ;;		On exit  : 0/0
+   322 ;;		Unchanged: 0/0
+   323 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+   324 ;;      Params:         0       0       0       0       0       0
+   325 ;;      Locals:         0       0       0       0       0       0
+   326 ;;      Temps:          0       5       0       0       0       0
+   327 ;;      Totals:         0       5       0       0       0       0
+   328 ;;Total ram usage:        5 bytes
+   329 ;; Hardware stack levels required when called:    2
+   330 ;; This function calls:
+   331 ;;		Nothing
+   332 ;; This function is called by:
+   333 ;;		Startup code after reset
+   334 ;; This function uses a non-reentrant model
+   335 ;;
+   336                           
+   337                           
+   338                           ;psect for function _main
+   339  0145                     _main:	
+   340                           
+   341                           ;PIC16F1827-ChargeStation01.c: 93: OSCCON = 0x70;
+   342                           
+   343                           ;incstack = 0
+   344                           ; Regs used in _main: [wreg-fsr1h+status,2+status,0]
+   345  0145  3070               	movlw	112
+   346  0146  0021               	movlb	1	; select bank1
+   347  0147  0099               	movwf	25	;volatile
+   348                           
+   349                           ;PIC16F1827-ChargeStation01.c: 94: TRISA = 0xFF;
+   350  0148  30FF               	movlw	255
+   351  0149  008C               	movwf	12	;volatile
+   352                           
+   353                           ;PIC16F1827-ChargeStation01.c: 95: TRISB = 0x00;
+   354  014A  018D               	clrf	13	;volatile
+   355                           
+   356                           ;PIC16F1827-ChargeStation01.c: 96: ANSELA = 0x0F;
+   357  014B  300F               	movlw	15
+   358  014C  0023               	movlb	3	; select bank3
+   359  014D  008C               	movwf	12	;volatile
+   360                           
+   361                           ;PIC16F1827-ChargeStation01.c: 97: ANSELB = 0x00;
+   362  014E  018D               	clrf	13	;volatile
+   363                           
+   364                           ;PIC16F1827-ChargeStation01.c: 98: ADCON1 = 0x93;
+   365  014F  3093               	movlw	147
+   366  0150  0021               	movlb	1	; select bank1
+   367  0151  009E               	movwf	30	;volatile
+   368                           
+   369                           ;PIC16F1827-ChargeStation01.c: 99: FVRCON = 0x83;
+   370  0152  3083               	movlw	131
+   371  0153  0022               	movlb	2	; select bank2
+   372  0154  0097               	movwf	23	;volatile
+   373                           
+   374                           ;PIC16F1827-ChargeStation01.c: 101: PORTB = 0xF0;
+   375  0155  30F0               	movlw	240
+   376  0156  0020               	movlb	0	; select bank0
+   377  0157  008D               	movwf	13	;volatile
+   378                           
+   379                           ;PIC16F1827-ChargeStation01.c: 103: OPTION_REG = 0b10010011;
+   380  0158  3093               	movlw	147
+   381  0159  0021               	movlb	1	; select bank1
+   382  015A  0095               	movwf	21	;volatile
+   383                           
+   384                           ;PIC16F1827-ChargeStation01.c: 104: INTCONbits.TMR0IE = 1;
+   385  015B  168B               	bsf	11,5	;volatile
+   386                           
+   387                           ;PIC16F1827-ChargeStation01.c: 106: T1CON = 0x21;
+   388  015C  3021               	movlw	33
+   389  015D  0020               	movlb	0	; select bank0
+   390  015E  0098               	movwf	24	;volatile
+   391                           
+   392                           ;PIC16F1827-ChargeStation01.c: 107: TMR1H = 0x00;
+   393  015F  0197               	clrf	23	;volatile
+   394                           
+   395                           ;PIC16F1827-ChargeStation01.c: 108: TMR1L = 0x00;
+   396  0160  0196               	clrf	22	;volatile
+   397                           
+   398                           ;PIC16F1827-ChargeStation01.c: 109: PIE1bits.TMR1IE = 1;
+   399  0161  0021               	movlb	1	; select bank1
+   400  0162  1411               	bsf	17,0	;volatile
+   401                           
+   402                           ;PIC16F1827-ChargeStation01.c: 110: INTCONbits.PEIE = 1;
+   403  0163  170B               	bsf	11,6	;volatile
+   404                           
+   405                           ;PIC16F1827-ChargeStation01.c: 111: INTCONbits.GIE = 1;
+   406  0164  178B               	bsf	11,7	;volatile
+   407  0165                     l882:	
+   408                           ;PIC16F1827-ChargeStation01.c: 113: while (1) {
+   409                           
+   410                           
+   411                           ;PIC16F1827-ChargeStation01.c: 114: for (i = 0; i < 4; i++) {
+   412  0165  0020               	movlb	0	; select bank0
+   413  0166  01D8               	clrf	_i
+   414  0167  01D9               	clrf	_i+1
+   415  0168                     L1:	
+   416  0168  0859               	movf	_i+1,w
+   417  0169  3A80               	xorlw	128
+   418  016A  00D3               	movwf	??_main
+   419  016B  3080               	movlw	128
+   420  016C  0253               	subwf	??_main,w
+   421  016D  1D03               	skipz
+   422  016E  2971               	goto	u655
+   423  016F  3004               	movlw	4
+   424  0170  0258               	subwf	_i,w
+   425  0171                     u655:	
+   426  0171  1803               	btfsc	3,0
+   427  0172  2965               	goto	l882
+   428                           
+   429                           ;PIC16F1827-ChargeStation01.c: 115: if (PORTAbits.RA6 == 0) {
+   430  0173  0020               	movlb	0	; select bank0
+   431  0174  1F0C               	btfss	12,6	;volatile
+   432                           
+   433                           ;PIC16F1827-ChargeStation01.c: 116: PORTBbits.RB0 = 0;
+   434  0175  100D               	bcf	13,0	;volatile
+   435                           
+   436                           ;PIC16F1827-ChargeStation01.c: 117: }
+   437                           ;PIC16F1827-ChargeStation01.c: 118: if (PORTAbits.RA7 == 0) {
+   438  0176  1F8C               	btfss	12,7	;volatile
+   439                           
+   440                           ;PIC16F1827-ChargeStation01.c: 119: PORTBbits.RB1 = 0;
+   441  0177  108D               	bcf	13,1	;volatile
+   442                           
+   443                           ;PIC16F1827-ChargeStation01.c: 120: }
+   444                           ;PIC16F1827-ChargeStation01.c: 121: if (PORTAbits.RA4 == 0) {
+   445  0178  1E0C               	btfss	12,4	;volatile
+   446                           
+   447                           ;PIC16F1827-ChargeStation01.c: 122: PORTBbits.RB2 = 0;
+   448  0179  110D               	bcf	13,2	;volatile
+   449                           
+   450                           ;PIC16F1827-ChargeStation01.c: 123: }
+   451                           ;PIC16F1827-ChargeStation01.c: 124: if (PORTAbits.RA5 == 0) {
+   452  017A  1E8C               	btfss	12,5	;volatile
+   453                           
+   454                           ;PIC16F1827-ChargeStation01.c: 125: PORTBbits.RB3 = 0;
+   455  017B  118D               	bcf	13,3	;volatile
+   456                           
+   457                           ;PIC16F1827-ChargeStation01.c: 126: }
+   458                           ;PIC16F1827-ChargeStation01.c: 127: if (v[i] < 200) {
+   459  017C  0858               	movf	_i,w
+   460  017D  00D3               	movwf	??_main
+   461  017E  3001               	movlw	1
+   462  017F                     u705:	
+   463  017F  35D3               	lslf	??_main,f
+   464  0180  3EFF               	addlw	-1
+   465  0181  1D03               	skipz
+   466  0182  297F               	goto	u705
+   467  0183  3553               	lslf	??_main,w
+   468  0184  3E30               	addlw	(low (_v| 0))& (0+255)
+   469  0185  0086               	movwf	6
+   470  0186  0187               	clrf	7
+   471  0187  3F43               	moviw [3]fsr1
+   472  0188  1D03               	btfss	3,2
+   473  0189  29D9               	goto	l906
+   474  018A  3F42               	moviw [2]fsr1
+   475  018B  1D03               	btfss	3,2
+   476  018C  29D9               	goto	l906
+   477  018D  3F41               	moviw [1]fsr1
+   478  018E  1D03               	btfss	3,2
+   479  018F  29D9               	goto	l906
+   480  0190  3F40               	moviw [0]fsr1
+   481  0191  00D4               	movwf	??_main+1
+   482  0192  30C8               	movlw	200
+   483  0193  0254               	subwf	??_main+1,w
+   484  0194  1803               	btfsc	3,0
+   485  0195  29D9               	goto	l906
+   486                           
+   487                           ;PIC16F1827-ChargeStation01.c: 128: _delay((unsigned long)((100)*(32000000/4000.0)));
+   488  0196  3005               	movlw	5
+   489  0197  00D5               	movwf	??_main+2
+   490  0198  300F               	movlw	15
+   491  0199  00D4               	movwf	??_main+1
+   492  019A  30F4               	movlw	244
+   493  019B  00D3               	movwf	??_main
+   494  019C                     u757:	
+   495  019C  0BD3               	decfsz	??_main,f
+   496  019D  299C               	goto	u757
+   497  019E  0BD4               	decfsz	??_main+1,f
+   498  019F  299C               	goto	u757
+   499  01A0  0BD5               	decfsz	??_main+2,f
+   500  01A1  299C               	goto	u757
+   501                           
+   502                           ;PIC16F1827-ChargeStation01.c: 129: if (v[i] < 100) {
+   503  01A2  0020               	movlb	0	; select bank0
+   504  01A3  0858               	movf	_i,w
+   505  01A4  00D3               	movwf	??_main
+   506  01A5  3001               	movlw	1
+   507  01A6                     u725:	
+   508  01A6  35D3               	lslf	??_main,f
+   509  01A7  3EFF               	addlw	-1
+   510  01A8  1D03               	skipz
+   511  01A9  29A6               	goto	u725
+   512  01AA  3553               	lslf	??_main,w
+   513  01AB  3E30               	addlw	(low (_v| 0))& (0+255)
+   514  01AC  0086               	movwf	6
+   515  01AD  0187               	clrf	7
+   516  01AE  3F43               	moviw [3]fsr1
+   517  01AF  1D03               	btfss	3,2
+   518  01B0  29D9               	goto	l906
+   519  01B1  3F42               	moviw [2]fsr1
+   520  01B2  1D03               	btfss	3,2
+   521  01B3  29D9               	goto	l906
+   522  01B4  3F41               	moviw [1]fsr1
+   523  01B5  1D03               	btfss	3,2
+   524  01B6  29D9               	goto	l906
+   525  01B7  3F40               	moviw [0]fsr1
+   526  01B8  00D4               	movwf	??_main+1
+   527  01B9  3064               	movlw	100
+   528  01BA  0254               	subwf	??_main+1,w
+   529  01BB  1C03               	btfss	3,0
+   530  01BC  29C6               	goto	l904
+   531  01BD  29D9               	goto	l906
+   532  01BE                     l93:	
+   533                           ;PIC16F1827-ChargeStation01.c: 131: case 0:
+   534                           
+   535                           ;PIC16F1827-ChargeStation01.c: 130: switch (i) {
+   536                           
+   537                           
+   538                           ;PIC16F1827-ChargeStation01.c: 132: PORTBbits.RB0 = 1;
+   539  01BE  140D               	bsf	13,0	;volatile
+   540                           
+   541                           ;PIC16F1827-ChargeStation01.c: 133: break;
+   542  01BF  29D9               	goto	l906
+   543  01C0                     l95:	
+   544                           ;PIC16F1827-ChargeStation01.c: 134: case 1:
+   545                           
+   546                           
+   547                           ;PIC16F1827-ChargeStation01.c: 135: PORTBbits.RB1 = 1;
+   548  01C0  148D               	bsf	13,1	;volatile
+   549                           
+   550                           ;PIC16F1827-ChargeStation01.c: 136: break;
+   551  01C1  29D9               	goto	l906
+   552  01C2                     l96:	
+   553                           ;PIC16F1827-ChargeStation01.c: 137: case 2:
+   554                           
+   555                           
+   556                           ;PIC16F1827-ChargeStation01.c: 138: PORTBbits.RB2 = 1;
+   557  01C2  150D               	bsf	13,2	;volatile
+   558                           
+   559                           ;PIC16F1827-ChargeStation01.c: 139: break;
+   560  01C3  29D9               	goto	l906
+   561  01C4                     l97:	
+   562                           ;PIC16F1827-ChargeStation01.c: 140: case 3:
+   563                           
+   564                           
+   565                           ;PIC16F1827-ChargeStation01.c: 141: PORTBbits.RB3 = 1;
+   566  01C4  158D               	bsf	13,3	;volatile
+   567                           
+   568                           ;PIC16F1827-ChargeStation01.c: 143: }
+   569                           
+   570                           ;PIC16F1827-ChargeStation01.c: 142: break;
+   571  01C5  29D9               	goto	l906
+   572  01C6                     l904:	
+   573                           
+   574                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   575                           ; Switch size 1, requested type "space"
+   576                           ; Number of cases is 1, Range of values is 0 to 0
+   577                           ; switch strategies available:
+   578                           ; Name         Instructions Cycles
+   579                           ; simple_byte            4     3 (average)
+   580                           ; direct_byte            8     6 (fixed)
+   581                           ; jumptable            260     6 (fixed)
+   582                           ;	Chosen strategy is simple_byte
+   583  01C6  0859               	movf	_i+1,w
+   584  01C7  3A00               	xorlw	0	; case 0
+   585  01C8  1903               	skipnz
+   586  01C9  29CB               	goto	l944
+   587  01CA  29D9               	goto	l906
+   588  01CB                     l944:	
+   589                           
+   590                           ; Switch size 1, requested type "space"
+   591                           ; Number of cases is 4, Range of values is 0 to 3
+   592                           ; switch strategies available:
+   593                           ; Name         Instructions Cycles
+   594                           ; simple_byte           13     7 (average)
+   595                           ; direct_byte           14     6 (fixed)
+   596                           ; jumptable            260     6 (fixed)
+   597                           ;	Chosen strategy is simple_byte
+   598  01CB  0858               	movf	_i,w
+   599  01CC  3A00               	xorlw	0	; case 0
+   600  01CD  1903               	skipnz
+   601  01CE  29BE               	goto	l93
+   602  01CF  3A01               	xorlw	1	; case 1
+   603  01D0  1903               	skipnz
+   604  01D1  29C0               	goto	l95
+   605  01D2  3A03               	xorlw	3	; case 2
+   606  01D3  1903               	skipnz
+   607  01D4  29C2               	goto	l96
+   608  01D5  3A01               	xorlw	1	; case 3
+   609  01D6  1903               	skipnz
+   610  01D7  29C4               	goto	l97
+   611  01D8  29D9               	goto	l906
+   612  01D9                     l906:	
+   613  01D9  3001               	movlw	1
+   614  01DA  07D8               	addwf	_i,f
+   615  01DB  3000               	movlw	0
+   616  01DC  3DD9               	addwfc	_i+1,f
+   617  01DD  2968               	goto	L1
+   618  01DE                     __end_of_main:	
+   619                           ;PIC16F1827-ChargeStation01.c: 144: }
+   620                           ;PIC16F1827-ChargeStation01.c: 145: }
+   621                           ;PIC16F1827-ChargeStation01.c: 146: }
+   622                           ;PIC16F1827-ChargeStation01.c: 147: }
+   623                           ;PIC16F1827-ChargeStation01.c: 148: return 0;
+   624                           ;	Return value of _main is never used
+   625                           
+   626                           
+   627                           	psect	intentry
+   628  0004                     __pintentry:	
+   629 ;; *************** function _isr *****************
+   630 ;; Defined at:
+   631 ;;		line 46 in file "PIC16F1827-ChargeStation01.c"
+   632 ;; Parameters:    Size  Location     Type
+   633 ;;		None
+   634 ;; Auto vars:     Size  Location     Type
+   635 ;;		None
+   636 ;; Return value:  Size  Location     Type
+   637 ;;		None               void
+   638 ;; Registers used:
+   639 ;;		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+   640 ;; Tracked objects:
+   641 ;;		On entry : 0/0
+   642 ;;		On exit  : 0/0
+   643 ;;		Unchanged: 0/0
+   644 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+   645 ;;      Params:         0       0       0       0       0       0
+   646 ;;      Locals:         0       0       0       0       0       0
+   647 ;;      Temps:          0       7       0       0       0       0
+   648 ;;      Totals:         0       7       0       0       0       0
+   649 ;;Total ram usage:        7 bytes
+   650 ;; Hardware stack levels used:    1
+   651 ;; Hardware stack levels required when called:    1
+   652 ;; This function calls:
+   653 ;;		___lldiv
+   654 ;;		_adc
+   655 ;; This function is called by:
+   656 ;;		Interrupt level 1
+   657 ;; This function uses a non-reentrant model
+   658 ;;
+   659                           
+   660  0004                     _isr:	
+   661                           
+   662                           ;incstack = 0
+   663                           ; Regs used in _isr: [wreg+fsr1l+fsr1h+status,2+status,0+pclath+cstack]
+   664  0004  147E               	bsf	126,0	;set compiler interrupt flag (level 1)
+   665  0005  3180               	pagesel	$
+   666  0006  0020               	movlb	0	; select bank0
+   667  0007  087F               	movf	127,w
+   668  0008  00D2               	movwf	??_isr+6
+   669                           
+   670                           ;PIC16F1827-ChargeStation01.c: 47: if (PIR1bits.TMR1IF == 1) {
+   671  0009  1C11               	btfss	17,0	;volatile
+   672  000A  287F               	goto	i1l65
+   673                           
+   674                           ;PIC16F1827-ChargeStation01.c: 48: PIR1bits.TMR1IF = 0;
+   675  000B  1011               	bcf	17,0	;volatile
+   676                           
+   677                           ;PIC16F1827-ChargeStation01.c: 50: cnt1++;
+   678  000C  3001               	movlw	1
+   679  000D  07C8               	addwf	_cnt1,f
+   680  000E  3000               	movlw	0
+   681  000F  3DC9               	addwfc	_cnt1+1,f
+   682                           
+   683                           ;PIC16F1827-ChargeStation01.c: 51: if (cnt1 == 15) {
+   684  0010  300F               	movlw	15
+   685  0011  0648               	xorwf	_cnt1,w
+   686  0012  0449               	iorwf	_cnt1+1,w
+   687  0013  1D03               	btfss	3,2
+   688  0014  287F               	goto	i1l65
+   689                           
+   690                           ;PIC16F1827-ChargeStation01.c: 52: cnt1 = 0;
+   691  0015  01C8               	clrf	_cnt1
+   692  0016  01C9               	clrf	_cnt1+1
+   693                           
+   694                           ;PIC16F1827-ChargeStation01.c: 54: for (i = 0; i < 4; i++) {
+   695  0017  01D8               	clrf	_i
+   696  0018  01D9               	clrf	_i+1
+   697  0019  0859               	movf	_i+1,w
+   698  001A  3A80               	xorlw	128
+   699  001B  00CC               	movwf	??_isr
+   700  001C  3080               	movlw	128
+   701  001D  024C               	subwf	??_isr,w
+   702  001E  1D03               	skipz
+   703  001F  2822               	goto	u48_25
+   704  0020  3004               	movlw	4
+   705  0021  0258               	subwf	_i,w
+   706  0022                     u48_25:	
+   707  0022  1803               	btfsc	3,0
+   708  0023  287F               	goto	i1l65
+   709  0024                     i1l804:	
+   710                           
+   711                           ;PIC16F1827-ChargeStation01.c: 55: temp[i] = adc(i);
+   712  0024  0020               	movlb	0	; select bank0
+   713  0025  0858               	movf	_i,w
+   714  0026  3182  2230  3180   	fcall	_adc
+   715  0029  0870               	movf	?_adc,w
+   716  002A  0020               	movlb	0	; select bank0
+   717  002B  00CC               	movwf	??_isr
+   718  002C  0871               	movf	?_adc+1,w
+   719  002D  00CD               	movwf	??_isr+1
+   720  002E  01CE               	clrf	??_isr+2
+   721  002F  01CF               	clrf	??_isr+3
+   722  0030  0858               	movf	_i,w
+   723  0031  00D0               	movwf	??_isr+4
+   724  0032  3001               	movlw	1
+   725  0033                     u49_25:	
+   726  0033  35D0               	lslf	??_isr+4,f
+   727  0034  3EFF               	addlw	-1
+   728  0035  1D03               	skipz
+   729  0036  2833               	goto	u49_25
+   730  0037  3550               	lslf	??_isr+4,w
+   731  0038  3E20               	addlw	(low (_temp| 0))& (0+255)
+   732  0039  0086               	movwf	6
+   733  003A  0187               	clrf	7
+   734  003B  084C               	movf	??_isr,w
+   735  003C  3FC0               	movwi [0]fsr1
+   736  003D  084D               	movf	??_isr+1,w
+   737  003E  3FC1               	movwi [1]fsr1
+   738  003F  084E               	movf	??_isr+2,w
+   739  0040  3FC2               	movwi [2]fsr1
+   740  0041  084F               	movf	??_isr+3,w
+   741  0042  3FC3               	movwi [3]fsr1
+   742                           
+   743                           ;PIC16F1827-ChargeStation01.c: 56: v[i] = temp[i] * 2;
+   744  0043  0858               	movf	_i,w
+   745  0044  00CC               	movwf	??_isr
+   746  0045  3001               	movlw	1
+   747  0046                     u50_25:	
+   748  0046  35CC               	lslf	??_isr,f
+   749  0047  3EFF               	addlw	-1
+   750  0048  1D03               	skipz
+   751  0049  2846               	goto	u50_25
+   752  004A  354C               	lslf	??_isr,w
+   753  004B  3E20               	addlw	(low (_temp| 0))& (0+255)
+   754  004C  0086               	movwf	6
+   755  004D  0187               	clrf	7
+   756  004E  3F40               	moviw [0]fsr1
+   757  004F  00CD               	movwf	??_isr+1
+   758  0050  3F41               	moviw [1]fsr1
+   759  0051  00CE               	movwf	??_isr+2
+   760  0052  3F42               	moviw [2]fsr1
+   761  0053  00CF               	movwf	??_isr+3
+   762  0054  3F43               	moviw [3]fsr1
+   763  0055  00D0               	movwf	??_isr+4
+   764  0056  3001               	movlw	1
+   765  0057                     u51_25:	
+   766  0057  35CD               	lslf	??_isr+1,f
+   767  0058  0DCE               	rlf	??_isr+2,f
+   768  0059  0DCF               	rlf	??_isr+3,f
+   769  005A  0DD0               	rlf	??_isr+4,f
+   770  005B  0B89               	decfsz	9,f
+   771  005C  2857               	goto	u51_25
+   772  005D  0858               	movf	_i,w
+   773  005E  00D1               	movwf	??_isr+5
+   774  005F  3001               	movlw	1
+   775  0060                     u52_25:	
+   776  0060  35D1               	lslf	??_isr+5,f
+   777  0061  3EFF               	addlw	-1
+   778  0062  1D03               	skipz
+   779  0063  2860               	goto	u52_25
+   780  0064  3551               	lslf	??_isr+5,w
+   781  0065  3E30               	addlw	(low (_v| 0))& (0+255)
+   782  0066  0086               	movwf	6
+   783  0067  0187               	clrf	7
+   784  0068  084D               	movf	??_isr+1,w
+   785  0069  3FC0               	movwi [0]fsr1
+   786  006A  084E               	movf	??_isr+2,w
+   787  006B  3FC1               	movwi [1]fsr1
+   788  006C  084F               	movf	??_isr+3,w
+   789  006D  3FC2               	movwi [2]fsr1
+   790  006E  0850               	movf	??_isr+4,w
+   791  006F  3FC3               	movwi [3]fsr1
+   792  0070  3001               	movlw	1
+   793  0071  07D8               	addwf	_i,f
+   794  0072  3000               	movlw	0
+   795  0073  3DD9               	addwfc	_i+1,f
+   796  0074  0859               	movf	_i+1,w
+   797  0075  3A80               	xorlw	128
+   798  0076  00CC               	movwf	??_isr
+   799  0077  3080               	movlw	128
+   800  0078  024C               	subwf	??_isr,w
+   801  0079  1D03               	skipz
+   802  007A  287D               	goto	u53_25
+   803  007B  3004               	movlw	4
+   804  007C  0258               	subwf	_i,w
+   805  007D                     u53_25:	
+   806  007D  1C03               	skipc
+   807  007E  2824               	goto	i1l804
+   808  007F                     i1l65:	
+   809                           
+   810                           ;PIC16F1827-ChargeStation01.c: 57: }
+   811                           ;PIC16F1827-ChargeStation01.c: 58: }
+   812                           ;PIC16F1827-ChargeStation01.c: 59: }
+   813                           ;PIC16F1827-ChargeStation01.c: 60: if (INTCONbits.TMR0IF == 1) {
+   814  007F  1D0B               	btfss	11,2	;volatile
+   815  0080  2933               	goto	i1l80
+   816                           
+   817                           ;PIC16F1827-ChargeStation01.c: 61: INTCONbits.TMR0IF = 0;
+   818  0081  110B               	bcf	11,2	;volatile
+   819                           
+   820                           ;PIC16F1827-ChargeStation01.c: 62: cnt0++;
+   821  0082  3001               	movlw	1
+   822  0083  0020               	movlb	0	; select bank0
+   823  0084  07C6               	addwf	_cnt0,f
+   824  0085  3000               	movlw	0
+   825  0086  3DC7               	addwfc	_cnt0+1,f
+   826                           
+   827                           ;PIC16F1827-ChargeStation01.c: 63: if (cnt0 == 400) {
+   828  0087  3090               	movlw	144
+   829  0088  0646               	xorwf	_cnt0,w
+   830  0089  1D03               	skipz
+   831  008A  2933               	goto	i1l80
+   832  008B  0347               	decf	_cnt0+1,w
+   833  008C  1D03               	btfss	3,2
+   834  008D  2933               	goto	i1l80
+   835                           
+   836                           ;PIC16F1827-ChargeStation01.c: 64: cnt0 = 0;
+   837  008E  01C6               	clrf	_cnt0
+   838  008F  01C7               	clrf	_cnt0+1
+   839                           
+   840                           ;PIC16F1827-ChargeStation01.c: 65: cnt++;
+   841  0090  3001               	movlw	1
+   842  0091  07C4               	addwf	_cnt,f
+   843  0092  3000               	movlw	0
+   844  0093  3DC5               	addwfc	_cnt+1,f
+   845                           
+   846                           ;PIC16F1827-ChargeStation01.c: 66: if (cnt == 40) {
+   847  0094  3028               	movlw	40
+   848  0095  0644               	xorwf	_cnt,w
+   849  0096  0445               	iorwf	_cnt+1,w
+   850  0097  1D03               	btfss	3,2
+   851  0098  28DF               	goto	i1l71
+   852                           
+   853                           ;PIC16F1827-ChargeStation01.c: 67: cnt = 0;
+   854  0099  01C4               	clrf	_cnt
+   855  009A  01C5               	clrf	_cnt+1
+   856                           
+   857                           ;PIC16F1827-ChargeStation01.c: 68: for (j = 0; j < 4; j++) {
+   858  009B  01CA               	clrf	_j
+   859  009C  01CB               	clrf	_j+1
+   860  009D  084B               	movf	_j+1,w
+   861  009E  3A80               	xorlw	128
+   862  009F  00CC               	movwf	??_isr
+   863  00A0  3080               	movlw	128
+   864  00A1  024C               	subwf	??_isr,w
+   865  00A2  1D03               	skipz
+   866  00A3  28A6               	goto	u57_25
+   867  00A4  3004               	movlw	4
+   868  00A5  024A               	subwf	_j,w
+   869  00A6                     u57_25:	
+   870  00A6  1803               	btfsc	3,0
+   871  00A7  28DF               	goto	i1l71
+   872  00A8                     i1l830:	
+   873                           
+   874                           ;PIC16F1827-ChargeStation01.c: 69: d[j] = v[j] / 100;
+   875  00A8  3000               	movlw	0
+   876  00A9  00F3               	movwf	___lldiv@divisor+3
+   877  00AA  3000               	movlw	0
+   878  00AB  00F2               	movwf	___lldiv@divisor+2
+   879  00AC  3000               	movlw	0
+   880  00AD  00F1               	movwf	___lldiv@divisor+1
+   881  00AE  3064               	movlw	100
+   882  00AF  00F0               	movwf	___lldiv@divisor
+   883  00B0  0020               	movlb	0	; select bank0
+   884  00B1  084A               	movf	_j,w
+   885  00B2  00CC               	movwf	??_isr
+   886  00B3  3001               	movlw	1
+   887  00B4                     u58_25:	
+   888  00B4  35CC               	lslf	??_isr,f
+   889  00B5  3EFF               	addlw	-1
+   890  00B6  1D03               	skipz
+   891  00B7  28B4               	goto	u58_25
+   892  00B8  354C               	lslf	??_isr,w
+   893  00B9  3E30               	addlw	(low (_v| 0))& (0+255)
+   894  00BA  0086               	movwf	6
+   895  00BB  0187               	clrf	7
+   896  00BC  3F40               	moviw [0]fsr1
+   897  00BD  00F4               	movwf	___lldiv@dividend
+   898  00BE  3F41               	moviw [1]fsr1
+   899  00BF  00F5               	movwf	___lldiv@dividend+1
+   900  00C0  3F42               	moviw [2]fsr1
+   901  00C1  00F6               	movwf	___lldiv@dividend+2
+   902  00C2  3F43               	moviw [3]fsr1
+   903  00C3  00F7               	movwf	___lldiv@dividend+3
+   904  00C4  3181  21DE  3180   	fcall	___lldiv
+   905  00C7  0870               	movf	?___lldiv,w
+   906  00C8  0020               	movlb	0	; select bank0
+   907  00C9  00CD               	movwf	??_isr+1
+   908  00CA  084A               	movf	_j,w
+   909  00CB  3E40               	addlw	(low (_d| 0))& (0+255)
+   910  00CC  0086               	movwf	6
+   911  00CD  0187               	clrf	7
+   912  00CE  084D               	movf	??_isr+1,w
+   913  00CF  0081               	movwf	1
+   914  00D0  3001               	movlw	1
+   915  00D1  07CA               	addwf	_j,f
+   916  00D2  3000               	movlw	0
+   917  00D3  3DCB               	addwfc	_j+1,f
+   918  00D4  084B               	movf	_j+1,w
+   919  00D5  3A80               	xorlw	128
+   920  00D6  00CC               	movwf	??_isr
+   921  00D7  3080               	movlw	128
+   922  00D8  024C               	subwf	??_isr,w
+   923  00D9  1D03               	skipz
+   924  00DA  28DD               	goto	u59_25
+   925  00DB  3004               	movlw	4
+   926  00DC  024A               	subwf	_j,w
+   927  00DD                     u59_25:	
+   928  00DD  1C03               	skipc
+   929  00DE  28A8               	goto	i1l830
+   930  00DF                     i1l71:	
+   931                           
+   932                           ;PIC16F1827-ChargeStation01.c: 70: }
+   933                           ;PIC16F1827-ChargeStation01.c: 71: }
+   934                           ;PIC16F1827-ChargeStation01.c: 72: if ((cnt % 2) == 1) {
+   935  00DF  0020               	movlb	0	; select bank0
+   936  00E0  1C44               	btfss	_cnt,0
+   937  00E1  2930               	goto	i1l852
+   938                           
+   939                           ;PIC16F1827-ChargeStation01.c: 73: if (((cnt + 1) / 2) <= d[0]) {
+   940  00E2  0844               	movf	_cnt,w
+   941  00E3  3E01               	addlw	1
+   942  00E4  00CC               	movwf	??_isr
+   943  00E5  3000               	movlw	0
+   944  00E6  3D45               	addwfc	_cnt+1,w
+   945  00E7  00CD               	movwf	??_isr+1
+   946  00E8  36CD               	lsrf	??_isr+1,f
+   947  00E9  0CCC               	rrf	??_isr,f
+   948  00EA  0840               	movf	_d,w
+   949  00EB  00CE               	movwf	??_isr+2
+   950  00EC  01CF               	clrf	??_isr+3
+   951  00ED  084D               	movf	??_isr+1,w
+   952  00EE  024F               	subwf	??_isr+3,w
+   953  00EF  1D03               	skipz
+   954  00F0  28F3               	goto	u61_25
+   955  00F1  084C               	movf	??_isr,w
+   956  00F2  024E               	subwf	??_isr+2,w
+   957  00F3                     u61_25:	
+   958  00F3  1803               	btfsc	3,0
+   959                           
+   960                           ;PIC16F1827-ChargeStation01.c: 74: PORTBbits.RB4 = 1;
+   961  00F4  160D               	bsf	13,4	;volatile
+   962                           
+   963                           ;PIC16F1827-ChargeStation01.c: 75: }
+   964                           ;PIC16F1827-ChargeStation01.c: 76: if (((cnt + 1) / 2) <= d[1]) {
+   965  00F5  0844               	movf	_cnt,w
+   966  00F6  3E01               	addlw	1
+   967  00F7  00CC               	movwf	??_isr
+   968  00F8  3000               	movlw	0
+   969  00F9  3D45               	addwfc	_cnt+1,w
+   970  00FA  00CD               	movwf	??_isr+1
+   971  00FB  36CD               	lsrf	??_isr+1,f
+   972  00FC  0CCC               	rrf	??_isr,f
+   973  00FD  0841               	movf	_d+1,w
+   974  00FE  00CE               	movwf	??_isr+2
+   975  00FF  01CF               	clrf	??_isr+3
+   976  0100  084D               	movf	??_isr+1,w
+   977  0101  024F               	subwf	??_isr+3,w
+   978  0102  1D03               	skipz
+   979  0103  2906               	goto	u62_25
+   980  0104  084C               	movf	??_isr,w
+   981  0105  024E               	subwf	??_isr+2,w
+   982  0106                     u62_25:	
+   983  0106  1803               	btfsc	3,0
+   984                           
+   985                           ;PIC16F1827-ChargeStation01.c: 77: PORTBbits.RB5 = 1;
+   986  0107  168D               	bsf	13,5	;volatile
+   987                           
+   988                           ;PIC16F1827-ChargeStation01.c: 78: }
+   989                           ;PIC16F1827-ChargeStation01.c: 79: if (((cnt + 1) / 2) <= d[2]) {
+   990  0108  0844               	movf	_cnt,w
+   991  0109  3E01               	addlw	1
+   992  010A  00CC               	movwf	??_isr
+   993  010B  3000               	movlw	0
+   994  010C  3D45               	addwfc	_cnt+1,w
+   995  010D  00CD               	movwf	??_isr+1
+   996  010E  36CD               	lsrf	??_isr+1,f
+   997  010F  0CCC               	rrf	??_isr,f
+   998  0110  0842               	movf	_d+2,w
+   999  0111  00CE               	movwf	??_isr+2
+  1000  0112  01CF               	clrf	??_isr+3
+  1001  0113  084D               	movf	??_isr+1,w
+  1002  0114  024F               	subwf	??_isr+3,w
+  1003  0115  1D03               	skipz
+  1004  0116  2919               	goto	u63_25
+  1005  0117  084C               	movf	??_isr,w
+  1006  0118  024E               	subwf	??_isr+2,w
+  1007  0119                     u63_25:	
+  1008  0119  1803               	btfsc	3,0
+  1009                           
+  1010                           ;PIC16F1827-ChargeStation01.c: 80: PORTBbits.RB6 = 1;
+  1011  011A  170D               	bsf	13,6	;volatile
+  1012                           
+  1013                           ;PIC16F1827-ChargeStation01.c: 81: }
+  1014                           ;PIC16F1827-ChargeStation01.c: 82: if (((cnt + 1) / 2) <= d[3]) {
+  1015  011B  0844               	movf	_cnt,w
+  1016  011C  3E01               	addlw	1
+  1017  011D  00CC               	movwf	??_isr
+  1018  011E  3000               	movlw	0
+  1019  011F  3D45               	addwfc	_cnt+1,w
+  1020  0120  00CD               	movwf	??_isr+1
+  1021  0121  36CD               	lsrf	??_isr+1,f
+  1022  0122  0CCC               	rrf	??_isr,f
+  1023  0123  0843               	movf	_d+3,w
+  1024  0124  00CE               	movwf	??_isr+2
+  1025  0125  01CF               	clrf	??_isr+3
+  1026  0126  084D               	movf	??_isr+1,w
+  1027  0127  024F               	subwf	??_isr+3,w
+  1028  0128  1D03               	skipz
+  1029  0129  292C               	goto	u64_25
+  1030  012A  084C               	movf	??_isr,w
+  1031  012B  024E               	subwf	??_isr+2,w
+  1032  012C                     u64_25:	
+  1033  012C  1C03               	skipc
+  1034  012D  2933               	goto	i1l80
+  1035                           
+  1036                           ;PIC16F1827-ChargeStation01.c: 83: PORTBbits.RB7 = 1;
+  1037  012E  178D               	bsf	13,7	;volatile
+  1038                           
+  1039                           ;PIC16F1827-ChargeStation01.c: 84: }
+  1040                           ;PIC16F1827-ChargeStation01.c: 85: } else {
+  1041  012F  2933               	goto	i1l80
+  1042  0130                     i1l852:	
+  1043                           
+  1044                           ;PIC16F1827-ChargeStation01.c: 86: PORTB = PORTB & 0b00001111;
+  1045  0130  080D               	movf	13,w	;volatile
+  1046  0131  390F               	andlw	15
+  1047  0132  008D               	movwf	13	;volatile
+  1048  0133                     i1l80:	
+  1049  0133  0020               	movlb	0	; select bank0
+  1050  0134  0852               	movf	??_isr+6,w
+  1051  0135  00FF               	movwf	127
+  1052  0136  107E               	bcf	126,0	;clear compiler interrupt flag (level 1)
+  1053  0137  0009               	retfie
+  1054  0138                     __end_of_isr:	
+  1055                           
+  1056                           	psect	text2
+  1057  0230                     __ptext2:	
+  1058 ;; *************** function _adc *****************
+  1059 ;; Defined at:
+  1060 ;;		line 37 in file "PIC16F1827-ChargeStation01.c"
+  1061 ;; Parameters:    Size  Location     Type
+  1062 ;;  ch              1    wreg     unsigned char 
+  1063 ;; Auto vars:     Size  Location     Type
+  1064 ;;  ch              1    3[COMMON] unsigned char 
+  1065 ;; Return value:  Size  Location     Type
+  1066 ;;                  2    0[COMMON] unsigned int 
+  1067 ;; Registers used:
+  1068 ;;		wreg, status,2, status,0
+  1069 ;; Tracked objects:
+  1070 ;;		On entry : 0/0
+  1071 ;;		On exit  : 0/0
+  1072 ;;		Unchanged: 0/0
+  1073 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1074 ;;      Params:         2       0       0       0       0       0
+  1075 ;;      Locals:         1       0       0       0       0       0
+  1076 ;;      Temps:          1       0       0       0       0       0
+  1077 ;;      Totals:         4       0       0       0       0       0
+  1078 ;;Total ram usage:        4 bytes
+  1079 ;; Hardware stack levels used:    1
+  1080 ;; This function calls:
+  1081 ;;		Nothing
+  1082 ;; This function is called by:
+  1083 ;;		_isr
+  1084 ;; This function uses a non-reentrant model
+  1085 ;;
+  1086                           
+  1087                           
+  1088                           ;psect for function _adc
+  1089  0230                     _adc:	
+  1090                           
+  1091                           ;incstack = 0
+  1092                           ; Regs used in _adc: [wreg+status,2+status,0]
+  1093                           ;adc@ch stored from wreg
+  1094  0230  00F3               	movwf	adc@ch
+  1095                           
+  1096                           ;PIC16F1827-ChargeStation01.c: 38: ADCON0bits.ADON = 1;
+  1097  0231  0021               	movlb	1	; select bank1
+  1098  0232  141D               	bsf	29,0	;volatile
+  1099                           
+  1100                           ;PIC16F1827-ChargeStation01.c: 39: ADCON0bits.CHS = ch;
+  1101  0233  0873               	movf	adc@ch,w
+  1102  0234  00F2               	movwf	??_adc
+  1103  0235  0DF2               	rlf	??_adc,f
+  1104  0236  0DF2               	rlf	??_adc,f
+  1105  0237  081D               	movf	29,w	;volatile
+  1106  0238  0672               	xorwf	??_adc,w
+  1107  0239  3983               	andlw	-125
+  1108  023A  0672               	xorwf	??_adc,w
+  1109  023B  009D               	movwf	29	;volatile
+  1110                           
+  1111                           ;PIC16F1827-ChargeStation01.c: 40: _delay((unsigned long)((20)*(32000000/4000000.0)));
+  1112  023C  3035               	movlw	53
+  1113  023D  00F2               	movwf	??_adc
+  1114  023E                     u76_27:	
+  1115  023E  0BF2               	decfsz	??_adc,f
+  1116  023F  2A3E               	goto	u76_27
+  1117                           
+  1118                           ;PIC16F1827-ChargeStation01.c: 41: ADCON0bits.GO_nDONE = 1;
+  1119  0240  0021               	movlb	1	; select bank1
+  1120  0241  149D               	bsf	29,1	;volatile
+  1121  0242                     i1l59:	
+  1122                           ;PIC16F1827-ChargeStation01.c: 42: while (ADCON0bits.GO_nDONE);
+  1123                           
+  1124  0242  189D               	btfsc	29,1	;volatile
+  1125  0243  2A42               	goto	i1l59
+  1126                           
+  1127                           ;PIC16F1827-ChargeStation01.c: 43: return ADRES;
+  1128  0244  081C               	movf	28,w	;volatile
+  1129  0245  00F1               	movwf	?_adc+1
+  1130  0246  081B               	movf	27,w	;volatile
+  1131  0247  00F0               	movwf	?_adc
+  1132  0248  0008               	return
+  1133  0249                     __end_of_adc:	
+  1134                           
+  1135                           	psect	text3
+  1136  01DE                     __ptext3:	
+  1137 ;; *************** function ___lldiv *****************
+  1138 ;; Defined at:
+  1139 ;;		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c"
+  1140 ;; Parameters:    Size  Location     Type
+  1141 ;;  divisor         4    0[COMMON] unsigned long 
+  1142 ;;  dividend        4    4[COMMON] unsigned long 
+  1143 ;; Auto vars:     Size  Location     Type
+  1144 ;;  quotient        4    9[COMMON] unsigned long 
+  1145 ;;  counter         1   13[COMMON] unsigned char 
+  1146 ;; Return value:  Size  Location     Type
+  1147 ;;                  4    0[COMMON] unsigned long 
+  1148 ;; Registers used:
+  1149 ;;		wreg, status,2, status,0
+  1150 ;; Tracked objects:
+  1151 ;;		On entry : 0/0
+  1152 ;;		On exit  : 0/0
+  1153 ;;		Unchanged: 0/0
+  1154 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
+  1155 ;;      Params:         8       0       0       0       0       0
+  1156 ;;      Locals:         5       0       0       0       0       0
+  1157 ;;      Temps:          1       0       0       0       0       0
+  1158 ;;      Totals:        14       0       0       0       0       0
+  1159 ;;Total ram usage:       14 bytes
+  1160 ;; Hardware stack levels used:    1
+  1161 ;; This function calls:
+  1162 ;;		Nothing
+  1163 ;; This function is called by:
+  1164 ;;		_isr
+  1165 ;; This function uses a non-reentrant model
+  1166 ;;
+  1167                           
+  1168                           
+  1169                           ;psect for function ___lldiv
+  1170  01DE                     ___lldiv:	
+  1171                           
+  1172                           ;incstack = 0
+  1173                           ; Regs used in ___lldiv: [wreg+status,2+status,0]
+  1174  01DE  3000               	movlw	0
+  1175  01DF  00FC               	movwf	___lldiv@quotient+3
+  1176  01E0  3000               	movlw	0
+  1177  01E1  00FB               	movwf	___lldiv@quotient+2
+  1178  01E2  3000               	movlw	0
+  1179  01E3  00FA               	movwf	___lldiv@quotient+1
+  1180  01E4  3000               	movlw	0
+  1181  01E5  00F9               	movwf	___lldiv@quotient
+  1182  01E6  0873               	movf	___lldiv@divisor+3,w
+  1183  01E7  0472               	iorwf	___lldiv@divisor+2,w
+  1184  01E8  0471               	iorwf	___lldiv@divisor+1,w
+  1185  01E9  0470               	iorwf	___lldiv@divisor,w
+  1186  01EA  1903               	skipnz
+  1187  01EB  2A27               	goto	i1l786
+  1188  01EC  01FD               	clrf	___lldiv@counter
+  1189  01ED  0AFD               	incf	___lldiv@counter,f
+  1190  01EE                     i1l772:	
+  1191  01EE  1BF3               	btfsc	___lldiv@divisor+3,7
+  1192  01EF  29FC               	goto	i1l774
+  1193  01F0  3001               	movlw	1
+  1194  01F1                     u40_25:	
+  1195  01F1  35F0               	lslf	___lldiv@divisor,f
+  1196  01F2  0DF1               	rlf	___lldiv@divisor+1,f
+  1197  01F3  0DF2               	rlf	___lldiv@divisor+2,f
+  1198  01F4  0DF3               	rlf	___lldiv@divisor+3,f
+  1199  01F5  0B89               	decfsz	9,f
+  1200  01F6  29F1               	goto	u40_25
+  1201  01F7  3001               	movlw	1
+  1202  01F8  00F8               	movwf	??___lldiv
+  1203  01F9  0878               	movf	??___lldiv,w
+  1204  01FA  07FD               	addwf	___lldiv@counter,f
+  1205  01FB  29EE               	goto	i1l772
+  1206  01FC                     i1l774:	
+  1207  01FC  3001               	movlw	1
+  1208  01FD                     u42_25:	
+  1209  01FD  35F9               	lslf	___lldiv@quotient,f
+  1210  01FE  0DFA               	rlf	___lldiv@quotient+1,f
+  1211  01FF  0DFB               	rlf	___lldiv@quotient+2,f
+  1212  0200  0DFC               	rlf	___lldiv@quotient+3,f
+  1213  0201  0B89               	decfsz	9,f
+  1214  0202  29FD               	goto	u42_25
+  1215  0203  0873               	movf	___lldiv@divisor+3,w
+  1216  0204  0277               	subwf	___lldiv@dividend+3,w
+  1217  0205  1D03               	skipz
+  1218  0206  2A11               	goto	u43_25
+  1219  0207  0872               	movf	___lldiv@divisor+2,w
+  1220  0208  0276               	subwf	___lldiv@dividend+2,w
+  1221  0209  1D03               	skipz
+  1222  020A  2A11               	goto	u43_25
+  1223  020B  0871               	movf	___lldiv@divisor+1,w
+  1224  020C  0275               	subwf	___lldiv@dividend+1,w
+  1225  020D  1D03               	skipz
+  1226  020E  2A11               	goto	u43_25
+  1227  020F  0870               	movf	___lldiv@divisor,w
+  1228  0210  0274               	subwf	___lldiv@dividend,w
+  1229  0211                     u43_25:	
+  1230  0211  1C03               	skipc
+  1231  0212  2A1C               	goto	i1l782
+  1232  0213  0870               	movf	___lldiv@divisor,w
+  1233  0214  02F4               	subwf	___lldiv@dividend,f
+  1234  0215  0871               	movf	___lldiv@divisor+1,w
+  1235  0216  3BF5               	subwfb	___lldiv@dividend+1,f
+  1236  0217  0872               	movf	___lldiv@divisor+2,w
+  1237  0218  3BF6               	subwfb	___lldiv@dividend+2,f
+  1238  0219  0873               	movf	___lldiv@divisor+3,w
+  1239  021A  3BF7               	subwfb	___lldiv@dividend+3,f
+  1240  021B  1479               	bsf	___lldiv@quotient,0
+  1241  021C                     i1l782:	
+  1242  021C  3001               	movlw	1
+  1243  021D                     u44_25:	
+  1244  021D  36F3               	lsrf	___lldiv@divisor+3,f
+  1245  021E  0CF2               	rrf	___lldiv@divisor+2,f
+  1246  021F  0CF1               	rrf	___lldiv@divisor+1,f
+  1247  0220  0CF0               	rrf	___lldiv@divisor,f
+  1248  0221  0B89               	decfsz	9,f
+  1249  0222  2A1D               	goto	u44_25
+  1250  0223  3001               	movlw	1
+  1251  0224  02FD               	subwf	___lldiv@counter,f
+  1252  0225  1D03               	btfss	3,2
+  1253  0226  29FC               	goto	i1l774
+  1254  0227                     i1l786:	
+  1255  0227  087C               	movf	___lldiv@quotient+3,w
+  1256  0228  00F3               	movwf	?___lldiv+3
+  1257  0229  087B               	movf	___lldiv@quotient+2,w
+  1258  022A  00F2               	movwf	?___lldiv+2
+  1259  022B  087A               	movf	___lldiv@quotient+1,w
+  1260  022C  00F1               	movwf	?___lldiv+1
+  1261  022D  0879               	movf	___lldiv@quotient,w
+  1262  022E  00F0               	movwf	?___lldiv
+  1263  022F  0008               	return
+  1264  0230                     __end_of___lldiv:	
+  1265  007E                     btemp	set	126	;btemp
+  1266  007E                     int$flags	set	126
+  1267  007E                     wtemp	set	126
+  1268  007E                     wtemp0	set	126
+  1269  0080                     wtemp1	set	128
+  1270  0082                     wtemp2	set	130
+  1271  0084                     wtemp3	set	132
+  1272  0086                     wtemp4	set	134
+  1273  0088                     wtemp5	set	136
+  1274  007F                     wtemp6	set	127
+  1275  007E                     ttemp	set	126
+  1276  007E                     ttemp0	set	126
+  1277  0081                     ttemp1	set	129
+  1278  0084                     ttemp2	set	132
+  1279  0087                     ttemp3	set	135
+  1280  007F                     ttemp4	set	127
+  1281  007E                     ltemp	set	126
+  1282  007E                     ltemp0	set	126
+  1283  0082                     ltemp1	set	130
+  1284  0086                     ltemp2	set	134
+  1285  0080                     ltemp3	set	128
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         44
+    Persistent  2
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     14      14
+    BANK0            80     12      58
+    BANK1            80      0       0
+    BANK2            80      0       0
+    BANK3            80      0       0
+    BANK4            48      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _isr in COMMON
+
+    _isr->___lldiv
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _isr in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _isr in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _isr in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _isr in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _isr in BANK4
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 5     5      0       0
+                                              7 BANK0      5     5      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 0
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (1) _isr                                                  7     7      0     312
+                                              0 BANK0      7     7      0
+                            ___lldiv
+                                _adc
+ ---------------------------------------------------------------------------------
+ (2) _adc                                                  4     2      2      22
+                                              0 COMMON     4     2      2
+ ---------------------------------------------------------------------------------
+ (2) ___lldiv                                             14     6      8     290
+                                              0 COMMON    14     6      8
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+
+ _isr (ROOT)
+   ___lldiv
+   _adc
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             170      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITCOMMON            E      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               E      E       E       2      100.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR2              0      0       0       3        0.0%
+SFR2                 0      0       0       3        0.0%
+STACK                0      0       0       3        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+ABS                  0      0      48       4        0.0%
+BITBANK0            50      0       0       5        0.0%
+BITSFR4              0      0       0       5        0.0%
+SFR4                 0      0       0       5        0.0%
+BANK0               50      C      3A       6       72.5%
+BITSFR5              0      0       0       6        0.0%
+SFR5                 0      0       0       6        0.0%
+BITBANK1            50      0       0       7        0.0%
+BITSFR6              0      0       0       7        0.0%
+SFR6                 0      0       0       7        0.0%
+BANK1               50      0       0       8        0.0%
+BITSFR7              0      0       0       8        0.0%
+SFR7                 0      0       0       8        0.0%
+BITBANK2            50      0       0       9        0.0%
+BITSFR8              0      0       0       9        0.0%
+SFR8                 0      0       0       9        0.0%
+BANK2               50      0       0      10        0.0%
+BITSFR9              0      0       0      10        0.0%
+SFR9                 0      0       0      10        0.0%
+BITBANK3            50      0       0      11        0.0%
+BITSFR10             0      0       0      11        0.0%
+SFR10                0      0       0      11        0.0%
+BANK3               50      0       0      12        0.0%
+BITSFR11             0      0       0      12        0.0%
+SFR11                0      0       0      12        0.0%
+BITBANK4            30      0       0      13        0.0%
+BITSFR12             0      0       0      13        0.0%
+SFR12                0      0       0      13        0.0%
+BANK4               30      0       0      14        0.0%
+BITSFR13             0      0       0      14        0.0%
+SFR13                0      0       0      14        0.0%
+BITSFR14             0      0       0      15        0.0%
+SFR14                0      0       0      15        0.0%
+DATA                 0      0      48      15        0.0%
+BITSFR15             0      0       0      16        0.0%
+SFR15                0      0       0      16        0.0%
+BITSFR16             0      0       0      17        0.0%
+SFR16                0      0       0      17        0.0%
+BITSFR17             0      0       0      18        0.0%
+SFR17                0      0       0      18        0.0%
+BITSFR18             0      0       0      19        0.0%
+SFR18                0      0       0      19        0.0%
+BITSFR19             0      0       0      20        0.0%
+SFR19                0      0       0      20        0.0%
+BITSFR20             0      0       0      21        0.0%
+SFR20                0      0       0      21        0.0%
+BITSFR21             0      0       0      22        0.0%
+SFR21                0      0       0      22        0.0%
+BITSFR22             0      0       0      23        0.0%
+SFR22                0      0       0      23        0.0%
+BITSFR23             0      0       0      24        0.0%
+SFR23                0      0       0      24        0.0%
+BITSFR24             0      0       0      25        0.0%
+SFR24                0      0       0      25        0.0%
+BITSFR25             0      0       0      26        0.0%
+SFR25                0      0       0      26        0.0%
+BITSFR26             0      0       0      27        0.0%
+SFR26                0      0       0      27        0.0%
+BITSFR27             0      0       0      28        0.0%
+SFR27                0      0       0      28        0.0%
+BITSFR28             0      0       0      29        0.0%
+SFR28                0      0       0      29        0.0%
+BITSFR29             0      0       0      30        0.0%
+SFR29                0      0       0      30        0.0%
+BITSFR30             0      0       0      31        0.0%
+SFR30                0      0       0      31        0.0%
+BITSFR31             0      0       0      32        0.0%
+SFR31                0      0       0      32        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.35 build -356382666 
+Symbol Table                                                                                   Mon Nov 16 18:38:02 2015
+
+                      _d 0040                        _i 0058                        _j 004A  
+                      _v 0030              __CFG_CP$OFF 0000                       l93 01BE  
+                     l95 01C0                       l96 01C2                       l97 01C4  
+                    l904 01C6                      l906 01D9                      l944 01CB  
+                    l882 0165             __CFG_CPD$OFF 0000                      u705 017F  
+                    u725 01A6                      u655 0171                      u757 019C  
+                    _adc 0230                      _cnt 0044                      _isr 0004  
+           __CFG_BORV$LO 0000                      wreg 0009             __CFG_LVP$OFF 0000  
+                   ?_adc 0070                     ?_isr 0070                     i1l71 00DF  
+                   i1l80 0133                     i1l65 007F                     i1l59 0242  
+           __CFG_WRT$OFF 0000                     _cnt0 0046                     _cnt1 0048  
+                   _main 0145                     _temp 0020                     fsr0h 0005  
+                   fsr1h 0007                     fsr0l 0004                     indf0 0000  
+                   indf1 0001                     fsr1l 0006                     btemp 007E  
+                   ltemp 007E                     start 0138                     ttemp 007E  
+                   wtemp 007E            __CFG_IESO$OFF 0000                    ??_adc 0072  
+                  ??_isr 004C            __CFG_PLLEN$ON 0000                    ?_main 0070  
+                  _ADRES 009B            __CFG_WDTE$OFF 0000          __end_of___lldiv 0230  
+                  _T1CON 0018                    i1l804 0024                    i1l830 00A8  
+                  i1l772 01EE                    i1l852 0130                    i1l782 021C  
+                  i1l774 01FC                    i1l786 0227                    u40_25 01F1  
+                  _TMR1H 0017                    _TMR1L 0016                    u42_25 01FD  
+                  u50_25 0046                    _PORTB 000D                    u43_25 0211  
+                  u51_25 0057                    u44_25 021D                    u52_25 0060  
+                  u61_25 00F3                    u53_25 007D                    u62_25 0106  
+                  u63_25 0119                    u64_25 012C                    u48_25 0022  
+                  _TRISA 008C                    _TRISB 008D                    u57_25 00A6  
+                  u49_25 0033                    u58_25 00B4                    u59_25 00DD  
+                  u76_27 023E           __CFG_FCMEN$OFF 0000                    adc@ch 0073  
+         __CFG_BOREN$OFF 0000                    ltemp0 007E                    ltemp1 0082  
+                  ltemp2 0086                    ltemp3 0080                    ttemp0 007E  
+                  ttemp1 0081                    ttemp2 0084                    ttemp3 0087  
+                  ttemp4 007F                    status 0003                    wtemp0 007E  
+                  wtemp1 0080                    wtemp2 0082                    wtemp3 0084  
+                  wtemp4 0086                    wtemp5 0088                    wtemp6 007F  
+         __CFG_MCLRE$OFF 0000          __initialization 013A             __end_of_main 01DE  
+                 ??_main 0053                   _ADCON1 009E                   _ANSELA 018C  
+                 _ANSELB 018D                   _FVRCON 0117                   _OSCCON 0099  
+         __CFG_PWRTE$OFF 0000                ??___lldiv 0078  __end_of__initialization 0141  
+         __pcstackCOMMON 0070               __pbssBANK0 0020               __pmaintext 0145  
+             __pintentry 0004                  ___lldiv 01DE          __CFG_STVREN$OFF 0000  
+                __ptext2 0230                  __ptext3 01DE             __size_of_adc 0019  
+           __size_of_isr 0134                  clrloop0 024A     end_of_initialization 0141  
+        ___lldiv@divisor 0070          ___lldiv@counter 007D                _PORTAbits 000C  
+              _PORTBbits 000D         __CFG_FOSC$INTOSC 0000      start_initialization 013A  
+            __end_of_adc 0249              __end_of_isr 0138                ___latbits 0001  
+          __pcstackBANK0 004C                __pnvBANK0 0058                 ?___lldiv 0070  
+              clear_ram0 0249                 _PIE1bits 0091                 _PIR1bits 0011  
+             _ADCON0bits 009D         __size_of___lldiv 0052            __size_of_main 0099  
+               int$flags 007E               _INTCONbits 000B                 intlevel1 0000  
+       ___lldiv@dividend 0074        __CFG_CLKOUTEN$OFF 0000               _OPTION_REG 0095  
+       ___lldiv@quotient 0079  

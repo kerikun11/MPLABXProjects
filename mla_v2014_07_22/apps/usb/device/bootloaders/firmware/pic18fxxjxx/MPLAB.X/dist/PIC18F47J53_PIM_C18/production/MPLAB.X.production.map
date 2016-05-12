@@ -1,0 +1,87 @@
+MPLINK 5.00, LINKER
+Linker Error Map File - Created Fri Oct 09 12:05:59 2015
+
+*Warning* - This is only a partial map file due to a link time error.
+   Only sections which were allocated prior to the error are shown below.
+
+CODEPAGES:
+    Memory      Start        End              Section    Address Size(Bytes)
+ ---------  ---------  ---------            ---------  ---------  ---------
+  BootPage     0x0000     0x0fff           _entry_scn     0x0000     0x0006
+                                               .org_0     0x0008     0x0004
+                                               .org_1     0x0018     0x0008
+                                               .cinit     0x0020     0x000e
+                                    BOOT_MAIN_SECTION     0x0030     0x0028
+                                   .code_usb_device.o     0x0058     0x0674
+                                 .code_boot_18fxxjxx.o     0x06cc     0x05a8
+                                 .code_usb_device_hid.o     0x0c74     0x01b8
+                                         .code_main.o     0x0e2c     0x0108
+                                 .romdata_usb_descriptors.o     0x0f34     0x00bc
+
+      page     0x1000     0xfff7    FLASH_SIG_SECTION     0x1006     0x0002
+
+    config     0xfff8     0xffff .config_1fff8_main.o     0xfff8     0x0001
+                                 .config_1fff9_main.o     0xfff9     0x0001
+                                 .config_1fffa_main.o     0xfffa     0x0001
+                                 .config_1fffb_main.o     0xfffb     0x0001
+                                 .config_1fffc_main.o     0xfffc     0x0001
+                                 .config_1fffd_main.o     0xfffd     0x0001
+                                 .config_1fffe_main.o     0xfffe     0x0001
+                                 .config_1ffff_main.o     0xffff     0x0001
+
+     devid     0xfffe     0xffff                                           
+
+
+SHAREBANKS:
+
+DATABANKS:
+    Memory      Start        End              Section    Address Size(Bytes)
+ ---------  ---------  ---------            ---------  ---------  ---------
+      gpr0     0x0060     0x00ff     SomeSectionName3     0x0060     0x0041
+                                  .udata_usb_device.o     0x00a1     0x002a
+                                 OtherVariablesSection     0x00cb     0x0022
+
+      gpr1     0x0100     0x01ff                                           
+
+      gpr2     0x0200     0x02ff                                           
+
+      gpr3     0x0300     0x03ff                                           
+
+      gpr4     0x0400     0x04ff                                           
+
+      gpr5     0x0500     0x05ff                                           
+
+  writebuf     0x0600     0x09ff   WriteBufferSection     0x0600     0x0400
+
+     gpr10     0x0a00     0x0aff                                           
+
+     gpr11     0x0b00     0x0bff                                           
+
+     gpr12     0x0c00     0x0cff               .stack     0x0c00     0x0100
+
+     gpr13     0x0d00     0x0dff              USB_BDT     0x0d00     0x00ac
+                                 .udata_boot_18fxxjxx.o     0x0dac     0x0042
+
+     gpr14     0x0e00     0x0eaf                                           
+
+     sfr14     0x0eb0     0x0eff          SFR_BANKED0     0x0eb8     0x0005
+                                          SFR_BANKED1     0x0ebf     0x000f
+                                          SFR_BANKED2     0x0ed1     0x0008
+                                          SFR_BANKED3     0x0ee1     0x0004
+                                          SFR_BANKED4     0x0ee6     0x0005
+                                          SFR_BANKED5     0x0ef2     0x0003
+                                          SFR_BANKED6     0x0ef7     0x0002
+                                          SFR_BANKED7     0x0efc     0x0004
+
+     sfr15     0x0f00     0x0f5f          SFR_BANKED8     0x0f00     0x0043
+                                          SFR_BANKED9     0x0f44     0x001c
+
+
+ACCESSBANKS:
+    Memory      Start        End              Section    Address Size(Bytes)
+ ---------  ---------  ---------            ---------  ---------  ---------
+ accessram     0x0000     0x005f                                           
+
+ accesssfr     0x0f60     0x0fff        SFR_UNBANKED0     0x0f60     0x00a0
+
+

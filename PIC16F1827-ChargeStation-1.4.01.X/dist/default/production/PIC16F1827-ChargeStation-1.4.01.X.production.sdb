@@ -1,0 +1,783 @@
+[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F1827 ]
+[d frameptr 6 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 0 0 ]
+"24
+[v _memcpyee memcpyee `(v  1 e 0 0 ]
+"15 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\My_header_16F.h
+[v _timer0_init timer0_init `(v  1 e 0 0 ]
+"29
+[v _timer1_init timer1_init `(v  1 e 0 0 ]
+"43
+[v _adc_init adc_init `(v  1 e 0 0 ]
+"51
+[v _adc adc `(ui  1 e 2 0 ]
+"87
+[v _button_timer_interrupt button_timer_interrupt `(v  1 e 0 0 ]
+"113
+[v _ringbuf_init ringbuf_init `(v  1 e 0 0 ]
+"120
+[v _ringbuf_push ringbuf_push `(v  1 e 0 0 ]
+"128
+[v _ringbuf_pop ringbuf_pop `(uc  1 e 1 0 ]
+"137
+[v _ringbuf_num ringbuf_num `(uc  1 e 1 0 ]
+"199
+[v _I2C_IdleCheck I2C_IdleCheck `(v  1 e 0 0 ]
+[v i1_I2C_IdleCheck I2C_IdleCheck `(v  1 e 0 0 ]
+"203
+[v _I2C_init I2C_init `(v  1 e 0 0 ]
+"213
+[v _I2C_Start I2C_Start `(uc  1 e 1 0 ]
+[v i1_I2C_Start I2C_Start `(uc  1 e 1 0 ]
+"225
+[v _I2C_rStart I2C_rStart `(uc  1 e 1 0 ]
+"237
+[v _I2C_Stop I2C_Stop `(v  1 e 0 0 ]
+[v i1_I2C_Stop I2C_Stop `(v  1 e 0 0 ]
+"243
+[v _I2C_Send I2C_Send `(uc  1 e 1 0 ]
+[v i1_I2C_Send I2C_Send `(uc  1 e 1 0 ]
+"251
+[v _I2C_Receive I2C_Receive `(uc  1 e 1 0 ]
+"267
+[v _LCD_Command LCD_Command `(v  1 e 0 0 ]
+[v i1_LCD_Command LCD_Command `(v  1 e 0 0 ]
+"280
+[v _LCD_Clear LCD_Clear `(v  1 e 0 0 ]
+[v i1_LCD_Clear LCD_Clear `(v  1 e 0 0 ]
+"285
+[v _LCD_SetCursor LCD_SetCursor `(v  1 e 0 0 ]
+"291
+[v _LCD_Putc LCD_Putc `(v  1 e 0 0 ]
+"304
+[v _LCD_Puts LCD_Puts `(v  1 e 0 0 ]
+"337
+[v _LCD_init LCD_init `(v  1 e 0 0 ]
+"422
+[v _EEP_Write EEP_Write `(v  1 e 0 0 ]
+"435
+[v _EEP_Read EEP_Read `(uc  1 e 1 0 ]
+"62 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\PIC16F1827-ChargeStation4-01.c
+[v _isr isr `II(v  1 e 0 0 ]
+"124
+[v _lchika lchika `(v  1 e 0 0 ]
+"146
+[v _display display `(v  1 e 0 0 ]
+"215
+[v _OUT OUT `(v  1 e 0 0 ]
+[v i1_OUT OUT `(v  1 e 0 0 ]
+"243
+[v _LED LED `(v  1 e 0 0 ]
+[v i1_LED LED `(v  1 e 0 0 ]
+"259
+[v _flag_read flag_read `(uc  1 e 1 0 ]
+"272
+[v _flag_clear flag_clear `(v  1 e 0 0 ]
+"288
+[v _main_init main_init `(v  1 e 0 0 ]
+"307
+[v _main main `(i  1 e 2 0 ]
+[s S51 . 1 `uc 1 IOCIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 IOCIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"360 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1827.h
+[s S60 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 T0IE 1 0 :1:5 
+]
+[u S65 . 1 `S51 1 . 1 0 `S60 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES65  1 e 1 @11 ]
+[s S266 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 TMR1GIF 1 0 :1:7 
+]
+"553
+[u S275 . 1 `S266 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES275  1 e 1 @17 ]
+"736
+[v _TMR1L TMR1L `VEuc  1 e 1 @22 ]
+"755
+[v _TMR1H TMR1H `VEuc  1 e 1 @23 ]
+[s S83 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+`uc 1 TMR1CS0 1 0 :1:6 
+`uc 1 TMR1CS1 1 0 :1:7 
+]
+"796
+[s S92 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 TMR1CS 1 0 :2:6 
+]
+[u S96 . 1 `S83 1 . 1 0 `S92 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES96  1 e 1 @24 ]
+"1120
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
+"1181
+[v _TRISB TRISB `VEuc  1 e 1 @141 ]
+[s S115 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 TMR1GIE 1 0 :1:7 
+]
+"1259
+[u S124 . 1 `S115 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES124  1 e 1 @145 ]
+[s S19 . 1 `uc 1 PS0 1 0 :1:0 
+`uc 1 PS1 1 0 :1:1 
+`uc 1 PS2 1 0 :1:2 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 TMR0SE 1 0 :1:4 
+`uc 1 TMR0CS 1 0 :1:5 
+`uc 1 INTEDG 1 0 :1:6 
+`uc 1 nWPUEN 1 0 :1:7 
+]
+"1440
+[s S28 . 1 `uc 1 PS 1 0 :3:0 
+`uc 1 . 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+]
+[u S33 . 1 `S19 1 . 1 0 `S28 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES33  1 e 1 @149 ]
+"1664
+[v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
+"1796
+[v _ADRES ADRES `VEus  1 e 2 @155 ]
+[s S167 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+`uc 1 CHS4 1 0 :1:6 
+]
+"1865
+[s S175 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 ADGO 1 0 :1:1 
+`uc 1 CHS 1 0 :5:2 
+]
+[s S179 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[u S182 . 1 `S167 1 . 1 0 `S175 1 . 1 0 `S179 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES182  1 e 1 @157 ]
+[s S136 . 1 `uc 1 ADPREF0 1 0 :1:0 
+`uc 1 ADPREF1 1 0 :1:1 
+`uc 1 ADNREF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 ADCS0 1 0 :1:4 
+`uc 1 ADCS1 1 0 :1:5 
+`uc 1 ADCS2 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"1941
+[s S145 . 1 `uc 1 ADPREF 1 0 :2:0 
+`uc 1 . 1 0 :2:2 
+`uc 1 ADCS 1 0 :3:4 
+]
+[u S149 . 1 `S136 1 . 1 0 `S145 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES149  1 e 1 @158 ]
+"2400
+[v _FVRCON FVRCON `VEuc  1 e 1 @279 ]
+"2797
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"2848
+[v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
+"3117
+[v _TXREG TXREG `VEuc  1 e 1 @410 ]
+"3151
+[v _SPBRGL SPBRGL `VEuc  1 e 1 @411 ]
+"3200
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @412 ]
+"3232
+[v _RCSTA RCSTA `VEuc  1 e 1 @413 ]
+"3293
+[v _TXSTA TXSTA `VEuc  1 e 1 @414 ]
+"3433
+[v _WPUB WPUB `VEuc  1 e 1 @525 ]
+"3502
+[v _SSP1BUF SSP1BUF `VEuc  1 e 1 @529 ]
+"3539
+[v _SSP1ADD SSP1ADD `VEuc  1 e 1 @530 ]
+"3613
+[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @532 ]
+"3734
+[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @533 ]
+"3937
+[v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @534 ]
+[s S244 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"3959
+[u S253 . 1 `S244 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES253  1 e 1 @534 ]
+"6684
+[v _BCL1IF BCL1IF `VEb  1 e 0 @147 ]
+"6692
+[v _BRG16 BRG16 `VEb  1 e 0 @3323 ]
+"7050
+[v _LATA6 LATA6 `VEb  1 e 0 @2150 ]
+"7052
+[v _LATA7 LATA7 `VEb  1 e 0 @2151 ]
+"7054
+[v _LATB0 LATB0 `VEb  1 e 0 @2152 ]
+"7060
+[v _LATB3 LATB3 `VEb  1 e 0 @2155 ]
+"7064
+[v _LATB5 LATB5 `VEb  1 e 0 @2157 ]
+"7066
+[v _LATB6 LATB6 `VEb  1 e 0 @2158 ]
+"7218
+[v _RA3 RA3 `VEb  1 e 0 @99 ]
+"7220
+[v _RA4 RA4 `VEb  1 e 0 @100 ]
+"7222
+[v _RA5 RA5 `VEb  1 e 0 @101 ]
+"7270
+[v _SPEN SPEN `VEb  1 e 0 @3311 ]
+"7312
+[v _SSP1IF SSP1IF `VEb  1 e 0 @139 ]
+"7514
+[v _TXIE TXIE `VEb  1 e 0 @1164 ]
+"7516
+[v _TXIF TXIF `VEb  1 e 0 @140 ]
+[s S224 ringbuf 4 `*.5uc 1 buf 1 0 `uc 1 size 1 1 `uc 1 head 1 2 `uc 1 tail 1 3 ]
+"146 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\My_header_16F.h
+[v _tx_buf tx_buf `S224  1 e 4 0 ]
+"36 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\PIC16F1827-ChargeStation4-01.c
+[v _v v `[3]ui  1 e 6 0 ]
+"37
+[v _s s `[3]ui  1 e 6 0 ]
+"38
+[v _sp sp `[3]ui  1 e 6 0 ]
+"39
+[v _ss ss `[3]ul  1 e 12 0 ]
+"40
+[v _cut cut `[3]ui  1 e 6 0 ]
+"41
+[v _cnt cnt `[3]uc  1 e 3 0 ]
+"42
+[v _cntf cntf `[3]uc  1 e 3 0 ]
+"43
+[v _cnt0 cnt0 `ui  1 e 2 0 ]
+"44
+[v _cnt1s cnt1s `ui  1 e 2 0 ]
+"45
+[v _print_port print_port `uc  1 e 1 0 ]
+"46
+[v _print_content print_content `uc  1 e 1 0 ]
+[s S209 . 1 `uc 1 press 1 0 :1:0 
+`uc 1 long_hold_1 1 0 :1:1 
+`uc 1 long_hold_2 1 0 :1:2 
+`uc 1 long_hold_3 1 0 :1:3 
+`uc 1 pressing 1 0 :1:4 
+`uc 1 long_holding_1 1 0 :1:5 
+`uc 1 long_holding_2 1 0 :1:6 
+`uc 1 long_holding_3 1 0 :1:7 
+]
+"48
+[u S218 . 1 `uc 1 flags 1 0 `S209 1 flag 1 0 ]
+[s S221 button 3 `ui 1 cnt_sw 2 0 `S218 1 . 1 2 ]
+[v _sw_RA3 sw_RA3 `S221  1 e 3 0 ]
+"49
+[v _sw_RA4 sw_RA4 `S221  1 e 3 0 ]
+"50
+[v _sw_RA5 sw_RA5 `S221  1 e 3 0 ]
+"307
+[v _main main `(i  1 e 2 0 ]
+{
+"328
+[v main@data_3 data_3 `uc  1 a 1 53 ]
+"326
+[v main@data_2 data_2 `uc  1 a 1 52 ]
+"324
+[v main@data_1 data_1 `uc  1 a 1 51 ]
+"322
+[v main@data_0 data_0 `uc  1 a 1 50 ]
+"317
+[v main@ringbuf ringbuf `[50]uc  1 a 50 0 ]
+"320
+[v main@i i `uc  1 a 1 54 ]
+"368
+} 0
+"113 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\My_header_16F.h
+[v _ringbuf_init ringbuf_init `(v  1 e 0 0 ]
+{
+[s S224 ringbuf 4 `*.5uc 1 buf 1 0 `uc 1 size 1 1 `uc 1 head 1 2 `uc 1 tail 1 3 ]
+[v ringbuf_init@rb rb `*.5S224  1 a 1 wreg ]
+[v ringbuf_init@rb rb `*.5S224  1 a 1 wreg ]
+[v ringbuf_init@internal_buf internal_buf `*.5uc  1 p 1 0 ]
+[v ringbuf_init@bufsize bufsize `uc  1 p 1 1 ]
+[v ringbuf_init@rb rb `*.5S224  1 a 1 3 ]
+"118
+} 0
+"288 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\PIC16F1827-ChargeStation4-01.c
+[v _main_init main_init `(v  1 e 0 0 ]
+{
+"305
+} 0
+"29 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\My_header_16F.h
+[v _timer1_init timer1_init `(v  1 e 0 0 ]
+{
+[v timer1_init@prescaler prescaler `uc  1 a 1 wreg ]
+[v timer1_init@prescaler prescaler `uc  1 a 1 wreg ]
+[v timer1_init@prescaler prescaler `uc  1 a 1 1 ]
+"37
+} 0
+"15
+[v _timer0_init timer0_init `(v  1 e 0 0 ]
+{
+[v timer0_init@prescaler prescaler `uc  1 a 1 wreg ]
+[v timer0_init@prescaler prescaler `uc  1 a 1 wreg ]
+[v timer0_init@prescaler prescaler `uc  1 a 1 1 ]
+"26
+} 0
+"43
+[v _adc_init adc_init `(v  1 e 0 0 ]
+{
+[v adc_init@p_ref p_ref `uc  1 a 1 wreg ]
+[v adc_init@p_ref p_ref `uc  1 a 1 wreg ]
+[v adc_init@p_ref p_ref `uc  1 a 1 0 ]
+"49
+} 0
+"337
+[v _LCD_init LCD_init `(v  1 e 0 0 ]
+{
+"350
+} 0
+"280
+[v _LCD_Clear LCD_Clear `(v  1 e 0 0 ]
+{
+"283
+} 0
+"267
+[v _LCD_Command LCD_Command `(v  1 e 0 0 ]
+{
+[v LCD_Command@c c `uc  1 a 1 wreg ]
+"268
+[v LCD_Command@ans ans `uc  1 a 1 6 ]
+"267
+[v LCD_Command@c c `uc  1 a 1 wreg ]
+"270
+[v LCD_Command@c c `uc  1 a 1 5 ]
+"278
+} 0
+"203
+[v _I2C_init I2C_init `(v  1 e 0 0 ]
+{
+"211
+} 0
+"259 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\PIC16F1827-ChargeStation4-01.c
+[v _flag_read flag_read `(uc  1 e 1 0 ]
+{
+[v flag_read@port port `uc  1 a 1 wreg ]
+[v flag_read@port port `uc  1 a 1 wreg ]
+[v flag_read@bit_and bit_and `uc  1 p 1 0 ]
+[v flag_read@port port `uc  1 a 1 1 ]
+"270
+} 0
+"272
+[v _flag_clear flag_clear `(v  1 e 0 0 ]
+{
+[v flag_clear@port port `uc  1 a 1 wreg ]
+[v flag_clear@port port `uc  1 a 1 wreg ]
+[v flag_clear@bit_and bit_and `uc  1 p 1 0 ]
+[v flag_clear@port port `uc  1 a 1 2 ]
+"286
+} 0
+"215
+[v _OUT OUT `(v  1 e 0 0 ]
+{
+[v OUT@b b `uc  1 a 1 wreg ]
+[v OUT@b b `uc  1 a 1 wreg ]
+[v OUT@value value `uc  1 p 1 0 ]
+[v OUT@b b `uc  1 a 1 1 ]
+"241
+} 0
+"243
+[v _LED LED `(v  1 e 0 0 ]
+{
+[v LED@b b `uc  1 a 1 wreg ]
+[v LED@b b `uc  1 a 1 wreg ]
+[v LED@value value `uc  1 p 1 0 ]
+[v LED@b b `uc  1 a 1 1 ]
+"257
+} 0
+"435 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\My_header_16F.h
+[v _EEP_Read EEP_Read `(uc  1 e 1 0 ]
+{
+[v EEP_Read@Reg_h Reg_h `uc  1 a 1 wreg ]
+"436
+[v EEP_Read@ans ans `uc  1 a 1 10 ]
+"437
+[v EEP_Read@data data `uc  1 a 1 9 ]
+"435
+[v EEP_Read@Reg_h Reg_h `uc  1 a 1 wreg ]
+[v EEP_Read@Reg_l Reg_l `uc  1 p 1 6 ]
+"439
+[v EEP_Read@Reg_h Reg_h `uc  1 a 1 8 ]
+"451
+} 0
+"225
+[v _I2C_rStart I2C_rStart `(uc  1 e 1 0 ]
+{
+[v I2C_rStart@adrs adrs `i  1 p 2 2 ]
+[v I2C_rStart@rw rw `i  1 p 2 4 ]
+"235
+} 0
+"237
+[v _I2C_Stop I2C_Stop `(v  1 e 0 0 ]
+{
+"241
+} 0
+"213
+[v _I2C_Start I2C_Start `(uc  1 e 1 0 ]
+{
+[v I2C_Start@adrs adrs `uc  1 a 1 wreg ]
+[v I2C_Start@adrs adrs `uc  1 a 1 wreg ]
+[v I2C_Start@rw rw `uc  1 p 1 2 ]
+"215
+[v I2C_Start@adrs adrs `uc  1 a 1 3 ]
+"223
+} 0
+"243
+[v _I2C_Send I2C_Send `(uc  1 e 1 0 ]
+{
+[v I2C_Send@data data `uc  1 a 1 wreg ]
+[v I2C_Send@data data `uc  1 a 1 wreg ]
+[v I2C_Send@data data `uc  1 a 1 2 ]
+"249
+} 0
+"251
+[v _I2C_Receive I2C_Receive `(uc  1 e 1 0 ]
+{
+[v I2C_Receive@ack ack `uc  1 a 1 wreg ]
+"252
+[v I2C_Receive@data data `uc  1 a 1 4 ]
+"251
+[v I2C_Receive@ack ack `uc  1 a 1 wreg ]
+"254
+[v I2C_Receive@ack ack `uc  1 a 1 3 ]
+"262
+} 0
+"199
+[v _I2C_IdleCheck I2C_IdleCheck `(v  1 e 0 0 ]
+{
+[v I2C_IdleCheck@mask mask `uc  1 a 1 wreg ]
+[v I2C_IdleCheck@mask mask `uc  1 a 1 wreg ]
+[v I2C_IdleCheck@mask mask `uc  1 a 1 1 ]
+"201
+} 0
+"62 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\PIC16F1827-ChargeStation4-01.c
+[v _isr isr `II(v  1 e 0 0 ]
+{
+"63
+[v isr@i i `uc  1 a 1 26 ]
+"122
+} 0
+"215
+[v i1_OUT OUT `(v  1 e 0 0 ]
+{
+[v i1OUT@b b `uc  1 a 1 wreg ]
+[v i1OUT@b b `uc  1 a 1 wreg ]
+[v i1OUT@value value `uc  1 p 1 0 ]
+[v i1OUT@b b `uc  1 a 1 1 ]
+"241
+} 0
+"128 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\My_header_16F.h
+[v _ringbuf_pop ringbuf_pop `(uc  1 e 1 0 ]
+{
+[s S224 ringbuf 4 `*.5uc 1 buf 1 0 `uc 1 size 1 1 `uc 1 head 1 2 `uc 1 tail 1 3 ]
+[v ringbuf_pop@rb rb `*.5S224  1 a 1 wreg ]
+"129
+[v ringbuf_pop@ret ret `uc  1 a 1 2 ]
+"128
+[v ringbuf_pop@rb rb `*.5S224  1 a 1 wreg ]
+[v ringbuf_pop@rb rb `*.5S224  1 a 1 3 ]
+"135
+} 0
+"137
+[v _ringbuf_num ringbuf_num `(uc  1 e 1 0 ]
+{
+[s S224 ringbuf 4 `*.5uc 1 buf 1 0 `uc 1 size 1 1 `uc 1 head 1 2 `uc 1 tail 1 3 ]
+[v ringbuf_num@rb rb `*.5S224  1 a 1 wreg ]
+[v ringbuf_num@rb rb `*.5S224  1 a 1 wreg ]
+[v ringbuf_num@rb rb `*.5S224  1 a 1 1 ]
+"143
+} 0
+"124 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\PIC16F1827-ChargeStation4-01.c
+[v _lchika lchika `(v  1 e 0 0 ]
+{
+"125
+[v lchika@i i `uc  1 a 1 4 ]
+"144
+} 0
+"243
+[v i1_LED LED `(v  1 e 0 0 ]
+{
+[v i1LED@b b `uc  1 a 1 wreg ]
+[v i1LED@b b `uc  1 a 1 wreg ]
+[v i1LED@value value `uc  1 p 1 0 ]
+[v i1LED@b b `uc  1 a 1 1 ]
+"257
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"11
+[v ___awdiv@quotient quotient `i  1 a 2 7 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 6 ]
+[v ___awdiv@counter counter `uc  1 a 1 5 ]
+"6
+[v ___awdiv@divisor divisor `i  1 p 2 0 ]
+[v ___awdiv@dividend dividend `i  1 p 2 2 ]
+"42
+} 0
+"146 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\PIC16F1827-ChargeStation4-01.c
+[v _display display `(v  1 e 0 0 ]
+{
+[v display@i i `uc  1 a 1 wreg ]
+[v display@i i `uc  1 a 1 wreg ]
+[v display@co co `uc  1 p 1 14 ]
+[v display@i i `uc  1 a 1 17 ]
+"213
+} 0
+"280 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\My_header_16F.h
+[v i1_LCD_Clear LCD_Clear `(v  1 e 0 0 ]
+{
+"283
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 5 ]
+"6
+[v ___lwmod@divisor divisor `ui  1 p 2 0 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 2 ]
+"26
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 11 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 13 ]
+"6
+[v ___lwdiv@divisor divisor `ui  1 p 2 6 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 8 ]
+"31
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+{
+"11
+[v ___almod@sign sign `uc  1 a 1 10 ]
+[v ___almod@counter counter `uc  1 a 1 9 ]
+"5
+[v ___almod@divisor divisor `l  1 p 4 0 ]
+[v ___almod@dividend dividend `l  1 p 4 4 ]
+"35
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+{
+"11
+[v ___aldiv@quotient quotient `l  1 a 4 10 ]
+"12
+[v ___aldiv@sign sign `uc  1 a 1 9 ]
+[v ___aldiv@counter counter `uc  1 a 1 8 ]
+"6
+[v ___aldiv@divisor divisor `l  1 p 4 0 ]
+[v ___aldiv@dividend dividend `l  1 p 4 4 ]
+"42
+} 0
+"285 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\My_header_16F.h
+[v _LCD_SetCursor LCD_SetCursor `(v  1 e 0 0 ]
+{
+[v LCD_SetCursor@col col `uc  1 a 1 wreg ]
+"286
+[v LCD_SetCursor@row_offsets row_offsets `[2]uc  1 a 2 8 ]
+"285
+[v LCD_SetCursor@col col `uc  1 a 1 wreg ]
+[v LCD_SetCursor@row row `uc  1 p 1 7 ]
+[v LCD_SetCursor@F2888 F2888 `[2]uc  1 s 2 F2888 ]
+[v LCD_SetCursor@col col `uc  1 a 1 10 ]
+"289
+} 0
+"267
+[v i1_LCD_Command LCD_Command `(v  1 e 0 0 ]
+{
+[v i1LCD_Command@c c `uc  1 a 1 wreg ]
+[v i1LCD_Command@ans LCD_Command `uc  1 a 1 6 ]
+[v i1LCD_Command@c c `uc  1 a 1 wreg ]
+"270
+[v i1LCD_Command@c c `uc  1 a 1 5 ]
+"278
+} 0
+"304
+[v _LCD_Puts LCD_Puts `(v  1 e 0 0 ]
+{
+"305
+[v LCD_Puts@ans ans `i  1 a 2 8 ]
+"304
+[v LCD_Puts@s s `*.25DCCuc  1 p 2 4 ]
+"316
+} 0
+"291
+[v _LCD_Putc LCD_Putc `(v  1 e 0 0 ]
+{
+[v LCD_Putc@c c `uc  1 a 1 wreg ]
+"292
+[v LCD_Putc@ans ans `uc  1 a 1 6 ]
+"291
+[v LCD_Putc@c c `uc  1 a 1 wreg ]
+"294
+[v LCD_Putc@c c `uc  1 a 1 5 ]
+"302
+} 0
+"87
+[v _button_timer_interrupt button_timer_interrupt `(v  1 e 0 0 ]
+{
+[s S209 . 1 `uc 1 press 1 0 :1:0 
+`uc 1 long_hold_1 1 0 :1:1 
+`uc 1 long_hold_2 1 0 :1:2 
+`uc 1 long_hold_3 1 0 :1:3 
+`uc 1 pressing 1 0 :1:4 
+`uc 1 long_holding_1 1 0 :1:5 
+`uc 1 long_holding_2 1 0 :1:6 
+`uc 1 long_holding_3 1 0 :1:7 
+]
+[u S218 . 1 `uc 1 flags 1 0 `S209 1 flag 1 0 ]
+[s S221 button 3 `ui 1 cnt_sw 2 0 `S218 1 . 1 2 ]
+[v button_timer_interrupt@bt bt `*.4S221  1 a 1 wreg ]
+[v button_timer_interrupt@bt bt `*.4S221  1 a 1 wreg ]
+[v button_timer_interrupt@sw_value sw_value `uc  1 p 1 0 ]
+[v button_timer_interrupt@bt bt `*.4S221  1 a 1 3 ]
+"102
+} 0
+"51
+[v _adc adc `(ui  1 e 2 0 ]
+{
+[v adc@ch ch `uc  1 a 1 wreg ]
+[v adc@ch ch `uc  1 a 1 wreg ]
+[v adc@ch ch `uc  1 a 1 3 ]
+"58
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 8 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 4 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 6 ]
+"53
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"11
+[v ___lldiv@quotient quotient `ul  1 a 4 9 ]
+"12
+[v ___lldiv@counter counter `uc  1 a 1 13 ]
+"6
+[v ___lldiv@divisor divisor `ul  1 p 4 0 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 4 ]
+"31
+} 0
+"422 C:\Users\kerikun11\OneDrive\MPLABXProjects\PIC16F1827-ChargeStation-1.4.01.X\My_header_16F.h
+[v _EEP_Write EEP_Write `(v  1 e 0 0 ]
+{
+[v EEP_Write@Reg_h Reg_h `uc  1 a 1 wreg ]
+"423
+[v EEP_Write@ans ans `uc  1 a 1 8 ]
+"422
+[v EEP_Write@Reg_h Reg_h `uc  1 a 1 wreg ]
+[v EEP_Write@Reg_l Reg_l `uc  1 p 1 4 ]
+[v EEP_Write@data data `uc  1 p 1 5 ]
+"424
+[v EEP_Write@Reg_h Reg_h `uc  1 a 1 7 ]
+"433
+} 0
+"237
+[v i1_I2C_Stop I2C_Stop `(v  1 e 0 0 ]
+{
+"241
+} 0
+"213
+[v i1_I2C_Start I2C_Start `(uc  1 e 1 0 ]
+{
+[v i1I2C_Start@adrs adrs `uc  1 a 1 wreg ]
+[v i1I2C_Start@adrs adrs `uc  1 a 1 wreg ]
+[v i1I2C_Start@rw rw `uc  1 p 1 2 ]
+"215
+[v i1I2C_Start@adrs adrs `uc  1 a 1 3 ]
+"223
+} 0
+"243
+[v i1_I2C_Send I2C_Send `(uc  1 e 1 0 ]
+{
+[v i1I2C_Send@data data `uc  1 a 1 wreg ]
+[v i1I2C_Send@data data `uc  1 a 1 wreg ]
+[v i1I2C_Send@data data `uc  1 a 1 2 ]
+"249
+} 0
+"199
+[v i1_I2C_IdleCheck I2C_IdleCheck `(v  1 e 0 0 ]
+{
+[v i1I2C_IdleCheck@mask mask `uc  1 a 1 wreg ]
+[v i1I2C_IdleCheck@mask mask `uc  1 a 1 wreg ]
+[v i1I2C_IdleCheck@mask mask `uc  1 a 1 1 ]
+"201
+} 0

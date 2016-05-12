@@ -1,0 +1,2910 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.35 build -356382666 
+                                                                                               Mon Nov 16 19:16:31 2015
+
+Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080246
+     1                           	processor	18F27J53
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     6                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1
+     7                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     8                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+    10                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    21                           	psect	intcode,global,reloc=2,class=CODE,delta=1
+    22                           	psect	text12,global,reloc=2,class=CODE,delta=1
+    23                           	psect	text13,global,reloc=2,class=CODE,delta=1
+    24                           	psect	text14,global,reloc=2,class=CODE,delta=1
+    25                           	psect	text15,global,reloc=2,class=CODE,delta=1
+    26                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    27                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    28                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
+    29  0000                     _ANCON0	set	3912
+    30  0000                     _ANCON1	set	3913
+    31  0000                     _T5CONbits	set	3874
+    32  0000                     _ADRES	set	4035
+    33  0000                     _ADCON0bits	set	4034
+    34  0000                     _ADCON1bits	set	4033
+    35  0000                     _BAUDCON1bits	set	3966
+    36  0000                     _CTMUCONH	set	4019
+    37  0000                     _CTMUCONHbits	set	4019
+    38  0000                     _CTMUCONL	set	4018
+    39  0000                     _CTMUCONLbits	set	4018
+    40  0000                     _CTMUICON	set	4017
+    41  0000                     _INTCON2bits	set	4081
+    42  0000                     _INTCONbits	set	4082
+    43  0000                     _IPR1bits	set	3999
+    44  0000                     _IPR2bits	set	4002
+    45  0000                     _IPR5bits	set	3993
+    46  0000                     _OSCCONbits	set	4051
+    47  0000                     _OSCTUNEbits	set	3995
+    48  0000                     _PIE1bits	set	3997
+    49  0000                     _PIE2bits	set	4000
+    50  0000                     _PIE5bits	set	3985
+    51  0000                     _PIR1bits	set	3998
+    52  0000                     _PIR2bits	set	4001
+    53  0000                     _PIR5bits	set	3992
+    54  0000                     _PORTBbits	set	3969
+    55  0000                     _RCREG1	set	4015
+    56  0000                     _RCSTA1bits	set	4012
+    57  0000                     _SPBRG1	set	4016
+    58  0000                     _SPBRGH1	set	3967
+    59  0000                     _T0CONbits	set	4053
+    60  0000                     _T1CONbits	set	4045
+    61  0000                     _T3CONbits	set	3961
+    62  0000                     _TRISA	set	3986
+    63  0000                     _TRISB	set	3987
+    64  0000                     _TRISC	set	3988
+    65  0000                     _TXREG1	set	4014
+    66  0000                     _TXSTA1bits	set	4013
+    67  0000                     _LATB7	set	31831
+    68                           
+    69                           ; #config settings
+    70  0000                     
+    71                           	psect	cinit
+    72  000724                     __pcinit:
+    73                           	opt stack 0
+    74  000724                     start_initialization:
+    75                           	opt stack 0
+    76  000724                     __initialization:
+    77                           	opt stack 0
+    78                           
+    79                           ; Clear objects allocated to BANK0 (4 bytes)
+    80  000724  0100               	movlb	0
+    81  000726  6BD9               	clrf	(__pbssBANK0+3)& (0+255),b
+    82  000728  6BD8               	clrf	(__pbssBANK0+2)& (0+255),b
+    83  00072A  6BD7               	clrf	(__pbssBANK0+1)& (0+255),b
+    84  00072C  6BD6               	clrf	__pbssBANK0& (0+255),b
+    85                           
+    86                           ; Clear objects allocated to COMRAM (27 bytes)
+    87  00072E  EE00  F026         	lfsr	0,__pbssCOMRAM
+    88  000732  0E1B               	movlw	27
+    89  000734                     clear_0:
+    90  000734  6AEE               	clrf	postinc0,c
+    91  000736  06E8               	decf	wreg,f,c
+    92  000738  E1FD               	bnz	clear_0
+    93  00073A                     end_of_initialization:
+    94                           	opt stack 0
+    95  00073A                     __end_of__initialization:
+    96                           	opt stack 0
+    97  00073A  9041               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+    98  00073C  9241               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+    99  00073E  0100               	movlb	0
+   100  000740  EFFB  F001         	goto	_main	;jump to C main() function
+   101                           postinc0	equ	0xFEE
+   102                           wreg	equ	0xFE8
+   103                           
+   104                           	psect	bssCOMRAM
+   105  000026                     __pbssCOMRAM:
+   106                           	opt stack 0
+   107  000026                     _ms:
+   108                           	opt stack 0
+   109  000026                     	ds	4
+   110  00002A                     _d1:
+   111                           	opt stack 0
+   112  00002A                     	ds	3
+   113  00002D                     millis_timer@cnt:
+   114                           	opt stack 0
+   115  00002D                     	ds	2
+   116  00002F                     ISR@prev_A:
+   117                           	opt stack 0
+   118  00002F                     	ds	1
+   119  000030                     ISR@prev_B:
+   120                           	opt stack 0
+   121  000030                     	ds	1
+   122  000031                     _rx_buf:
+   123                           	opt stack 0
+   124  000031                     	ds	8
+   125  000039                     _tx_buf:
+   126                           	opt stack 0
+   127  000039                     	ds	8
+   128                           postinc0	equ	0xFEE
+   129                           wreg	equ	0xFE8
+   130                           
+   131                           	psect	bssBANK0
+   132  0000D6                     __pbssBANK0:
+   133                           	opt stack 0
+   134  0000D6                     _encoder:
+   135                           	opt stack 0
+   136  0000D6                     	ds	2
+   137  0000D8                     main@prev_e:
+   138                           	opt stack 0
+   139  0000D8                     	ds	2
+   140                           postinc0	equ	0xFEE
+   141                           wreg	equ	0xFE8
+   142                           
+   143                           	psect	cstackBANK0
+   144  000060                     __pcstackBANK0:
+   145                           	opt stack 0
+   146  000060                     ??_ringbuf_num:
+   147                           
+   148                           ; 0 bytes @ 0x0
+   149  000060                     	ds	6
+   150  000066                     ??_ringbuf_put:
+   151                           
+   152                           ; 0 bytes @ 0x6
+   153  000066                     	ds	4
+   154  00006A                     tx_sendn@value:
+   155                           	opt stack 0
+   156                           
+   157                           ; 2 bytes @ 0xA
+   158  00006A                     	ds	2
+   159  00006C                     tx_sendn@digits:
+   160                           	opt stack 0
+   161                           
+   162                           ; 1 bytes @ 0xC
+   163  00006C                     	ds	1
+   164  00006D                     tx_sendn@i:
+   165                           	opt stack 0
+   166                           
+   167                           ; 1 bytes @ 0xD
+   168  00006D                     	ds	1
+   169  00006E                     tx_sendn@temp:
+   170                           	opt stack 0
+   171                           
+   172                           ; 2 bytes @ 0xE
+   173  00006E                     	ds	2
+   174  000070                     ??_main:
+   175                           
+   176                           ; 0 bytes @ 0x10
+   177  000070                     	ds	2
+   178  000072                     main@txbuf:
+   179                           	opt stack 0
+   180                           
+   181                           ; 100 bytes @ 0x12
+   182  000072                     	ds	100
+   183                           postinc0	equ	0xFEE
+   184                           wreg	equ	0xFE8
+   185                           
+   186                           	psect	cstackCOMRAM
+   187  000001                     __pcstackCOMRAM:
+   188                           	opt stack 0
+   189  000001                     ?i2_ringbuf_num:
+   190                           	opt stack 0
+   191  000001                     i2ringbuf_num@rb:
+   192                           	opt stack 0
+   193                           
+   194                           ; 2 bytes @ 0x0
+   195  000001                     	ds	2
+   196  000003                     ??i2_ringbuf_num:
+   197                           
+   198                           ; 0 bytes @ 0x2
+   199  000003                     	ds	6
+   200  000009                     ringbuf_pop@rb:
+   201                           	opt stack 0
+   202  000009                     i2ringbuf_put@rb:
+   203                           	opt stack 0
+   204                           
+   205                           ; 2 bytes @ 0x8
+   206  000009                     	ds	2
+   207  00000B                     ??_ringbuf_pop:
+   208  00000B                     i2ringbuf_put@asciicode:
+   209                           	opt stack 0
+   210                           
+   211                           ; 1 bytes @ 0xA
+   212  00000B                     	ds	1
+   213  00000C                     ??i2_ringbuf_put:
+   214                           
+   215                           ; 0 bytes @ 0xB
+   216  00000C                     	ds	3
+   217  00000F                     ringbuf_pop@ret:
+   218                           	opt stack 0
+   219                           
+   220                           ; 1 bytes @ 0xE
+   221  00000F                     	ds	1
+   222  000010                     UART_ISR@ascii:
+   223                           	opt stack 0
+   224                           
+   225                           ; 1 bytes @ 0xF
+   226  000010                     	ds	1
+   227  000011                     ??_ISR:
+   228                           
+   229                           ; 0 bytes @ 0x10
+   230  000011                     	ds	14
+   231  00001F                     ??_timer0_init:
+   232  00001F                     ?_ringbuf_num:
+   233                           	opt stack 0
+   234  00001F                     ?___lwdiv:
+   235                           	opt stack 0
+   236  00001F                     ?___lwmod:
+   237                           	opt stack 0
+   238  00001F                     ringbuf_init@rb:
+   239                           	opt stack 0
+   240  00001F                     ringbuf_num@rb:
+   241                           	opt stack 0
+   242  00001F                     ___lwdiv@dividend:
+   243                           	opt stack 0
+   244  00001F                     ___lwmod@dividend:
+   245                           	opt stack 0
+   246                           
+   247                           ; 2 bytes @ 0x1E
+   248  00001F                     	ds	1
+   249  000020                     timer0_init@prescaler:
+   250                           	opt stack 0
+   251                           
+   252                           ; 1 bytes @ 0x1F
+   253  000020                     	ds	1
+   254  000021                     ringbuf_init@internal_buf:
+   255                           	opt stack 0
+   256  000021                     ringbuf_put@rb:
+   257                           	opt stack 0
+   258  000021                     ___lwdiv@divisor:
+   259                           	opt stack 0
+   260  000021                     ___lwmod@divisor:
+   261                           	opt stack 0
+   262                           
+   263                           ; 2 bytes @ 0x20
+   264  000021                     	ds	2
+   265  000023                     ringbuf_put@asciicode:
+   266                           	opt stack 0
+   267  000023                     ___lwdiv@counter:
+   268                           	opt stack 0
+   269  000023                     ___lwmod@counter:
+   270                           	opt stack 0
+   271  000023                     ringbuf_init@bufsize:
+   272                           	opt stack 0
+   273                           
+   274                           ; 2 bytes @ 0x22
+   275  000023                     	ds	1
+   276  000024                     tx_send@asciicode:
+   277                           	opt stack 0
+   278  000024                     ___lwdiv@quotient:
+   279                           	opt stack 0
+   280                           
+   281                           ; 2 bytes @ 0x23
+   282  000024                     	ds	1
+   283  000025                     
+   284                           ; 0 bytes @ 0x24
+   285  000025                     	ds	1
+   286  000026                     postinc0	equ	0xFEE
+   287                           wreg	equ	0xFE8
+   288                           
+   289                           ; 0 bytes @ 0x25
+   290 ;;
+   291 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   292 ;;
+   293 ;; *************** function _main *****************
+   294 ;; Defined at:
+   295 ;;		line 75 in file "PIC18F27J53-encoder01.c"
+   296 ;; Parameters:    Size  Location     Type
+   297 ;;		None
+   298 ;; Auto vars:     Size  Location     Type
+   299 ;;  txbuf         100   18[BANK0 ] unsigned char [100]
+   300 ;; Return value:  Size  Location     Type
+   301 ;;                  2  250[None  ] int 
+   302 ;; Registers used:
+   303 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
+   304 ;; Tracked objects:
+   305 ;;		On entry : 0/0
+   306 ;;		On exit  : 0/0
+   307 ;;		Unchanged: 0/0
+   308 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   309 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   310 ;;      Locals:         0     100       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   311 ;;      Temps:          0       2       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   312 ;;      Totals:         0     102       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   313 ;;Total ram usage:      102 bytes
+   314 ;; Hardware stack levels required when called:    8
+   315 ;; This function calls:
+   316 ;;		_OSC_init
+   317 ;;		_UART_init
+   318 ;;		_ringbuf_init
+   319 ;;		_timer0_init
+   320 ;;		_tx_send
+   321 ;;		_tx_sendn
+   322 ;; This function is called by:
+   323 ;;		Startup code after reset
+   324 ;; This function uses a non-reentrant model
+   325 ;;
+   326                           
+   327                           	psect	text0
+   328  0003F6                     __ptext0:
+   329                           	opt stack 0
+   330  0003F6                     _main:
+   331                           	opt stack 23
+   332                           
+   333                           ;PIC18F27J53-encoder01.c: 76: OSC_init();
+   334                           
+   335                           ;incstack = 0
+   336  0003F6  ECBD  F003         	call	_OSC_init	;wreg free
+   337                           
+   338                           ;PIC18F27J53-encoder01.c: 77: TRISA = 0b00000000;
+   339  0003FA  0E00               	movlw	0
+   340  0003FC  6E92               	movwf	3986,c	;volatile
+   341                           
+   342                           ;PIC18F27J53-encoder01.c: 78: TRISB = 0b00000011;
+   343  0003FE  0E03               	movlw	3
+   344  000400  6E93               	movwf	3987,c	;volatile
+   345                           
+   346                           ;PIC18F27J53-encoder01.c: 79: TRISC = 0b10000000;
+   347  000402  0E80               	movlw	128
+   348  000404  6E94               	movwf	3988,c	;volatile
+   349                           
+   350                           ;PIC18F27J53-encoder01.c: 80: ANCON0 = 0b11111111;
+   351  000406  010F               	movlb	15	; () banked
+   352  000408  6948               	setf	72,b	;volatile
+   353                           
+   354                           ; BSR set to: 15
+   355                           ;PIC18F27J53-encoder01.c: 81: ANCON1 = 0b00011111;
+   356  00040A  0E1F               	movlw	31
+   357  00040C  010F               	movlb	15	; () banked
+   358  00040E  6F49               	movwf	73,b	;volatile
+   359                           
+   360                           ; BSR set to: 15
+   361                           ;PIC18F27J53-encoder01.c: 82: INTCON2bits.RBPU = 0;
+   362  000410  9EF1               	bcf	intcon2,7,c	;volatile
+   363                           
+   364                           ; BSR set to: 15
+   365                           ;PIC18F27J53-encoder01.c: 84: timer0_init(3);
+   366  000412  0E03               	movlw	3
+   367  000414  EC7A  F003         	call	_timer0_init
+   368                           
+   369                           ;PIC18F27J53-encoder01.c: 86: UART_init();
+   370  000418  ECA2  F003         	call	_UART_init	;wreg free
+   371                           
+   372                           ;PIC18F27J53-encoder01.c: 87: uint8_t txbuf[100];
+   373                           ;PIC18F27J53-encoder01.c: 88: ringbuf_init(&tx_buf, txbuf, sizeof (txbuf));
+   374  00041C  0E39               	movlw	low _tx_buf
+   375  00041E  6E1F               	movwf	ringbuf_init@rb,c
+   376  000420  0E00               	movlw	high _tx_buf
+   377  000422  6E20               	movwf	ringbuf_init@rb+1,c
+   378  000424  0E72               	movlw	low main@txbuf
+   379  000426  6E21               	movwf	ringbuf_init@internal_buf,c
+   380  000428  0E00               	movlw	high main@txbuf
+   381  00042A  6E22               	movwf	ringbuf_init@internal_buf+1,c
+   382  00042C  0E00               	movlw	0
+   383  00042E  6E24               	movwf	ringbuf_init@bufsize+1,c
+   384  000430  0E64               	movlw	100
+   385  000432  6E23               	movwf	ringbuf_init@bufsize,c
+   386  000434  EC0D  F003         	call	_ringbuf_init	;wreg free
+   387                           
+   388                           ;PIC18F27J53-encoder01.c: 90: INTCONbits.GIE = 1;
+   389  000438  8EF2               	bsf	intcon,7,c	;volatile
+   390  00043A                     l1709:
+   391                           
+   392                           ;PIC18F27J53-encoder01.c: 93: static int16_t prev_e;
+   393                           ;PIC18F27J53-encoder01.c: 94: if (encoder != prev_e) {
+   394  00043A  0100               	movlb	0	; () banked
+   395  00043C  51D8               	movf	main@prev_e& (0+255),w,b
+   396  00043E  0100               	movlb	0	; () banked
+   397  000440  19D6               	xorwf	_encoder& (0+255),w,b
+   398  000442  E106               	bnz	u1000
+   399  000444  0100               	movlb	0	; () banked
+   400  000446  51D9               	movf	(main@prev_e+1)& (0+255),w,b
+   401  000448  0100               	movlb	0	; () banked
+   402  00044A  19D7               	xorwf	(_encoder+1)& (0+255),w,b
+   403  00044C  B4D8               	btfsc	status,2,c
+   404  00044E  D7F5               	goto	l1709
+   405  000450                     u1000:
+   406                           
+   407                           ; BSR set to: 0
+   408                           ;PIC18F27J53-encoder01.c: 95: prev_e = encoder;
+   409  000450  C0D6  F0D8         	movff	_encoder,main@prev_e
+   410  000454  C0D7  F0D9         	movff	_encoder+1,main@prev_e+1
+   411                           
+   412                           ; BSR set to: 0
+   413                           ;PIC18F27J53-encoder01.c: 96: if (encoder < 0) {
+   414  000458  0100               	movlb	0	; () banked
+   415  00045A  AFD7               	btfss	(_encoder+1)& (0+255),7,b
+   416  00045C  D019               	goto	l1717
+   417                           
+   418                           ; BSR set to: 0
+   419                           ;PIC18F27J53-encoder01.c: 97: tx_send('-');
+   420  00045E  0E2D               	movlw	45
+   421  000460  ECB2  F003         	call	_tx_send
+   422                           
+   423                           ;PIC18F27J53-encoder01.c: 98: tx_sendn(-encoder, 5);
+   424  000464  C0D6  F070         	movff	_encoder,??_main
+   425  000468  C0D7  F071         	movff	_encoder+1,??_main+1
+   426  00046C  0100               	movlb	0	; () banked
+   427  00046E  1F70               	comf	??_main& (0+255),f,b
+   428  000470  1F71               	comf	(??_main+1)& (0+255),f,b
+   429  000472  4B70               	infsnz	??_main& (0+255),f,b
+   430  000474  2B71               	incf	(??_main+1)& (0+255),f,b
+   431  000476  C070  F06A         	movff	??_main,tx_sendn@value
+   432  00047A  C071  F06B         	movff	??_main+1,tx_sendn@value+1
+   433  00047E  0E05               	movlw	5
+   434  000480  0100               	movlb	0	; () banked
+   435  000482  6F6C               	movwf	tx_sendn@digits& (0+255),b
+   436  000484  ECAB  F002         	call	_tx_sendn	;wreg free
+   437                           
+   438                           ;PIC18F27J53-encoder01.c: 99: tx_send('\n');
+   439  000488  0E0A               	movlw	10
+   440  00048A  ECB2  F003         	call	_tx_send
+   441                           
+   442                           ;PIC18F27J53-encoder01.c: 100: } else {
+   443  00048E  D7D5               	goto	l1709
+   444  000490                     l1717:
+   445                           
+   446                           ;PIC18F27J53-encoder01.c: 101: tx_sendn(encoder, 5);
+   447  000490  C0D6  F06A         	movff	_encoder,tx_sendn@value
+   448  000494  C0D7  F06B         	movff	_encoder+1,tx_sendn@value+1
+   449  000498  0E05               	movlw	5
+   450  00049A  0100               	movlb	0	; () banked
+   451  00049C  6F6C               	movwf	tx_sendn@digits& (0+255),b
+   452  00049E  ECAB  F002         	call	_tx_sendn	;wreg free
+   453                           
+   454                           ;PIC18F27J53-encoder01.c: 102: tx_send('\n');
+   455  0004A2  0E0A               	movlw	10
+   456  0004A4  ECB2  F003         	call	_tx_send
+   457  0004A8  D7C8               	goto	l1709
+   458  0004AA                     __end_of_main:
+   459                           	opt stack 0
+   460                           intcon	equ	0xFF2
+   461                           intcon2	equ	0xFF1
+   462                           postinc0	equ	0xFEE
+   463                           wreg	equ	0xFE8
+   464                           status	equ	0xFD8
+   465                           
+   466 ;; *************** function _tx_sendn *****************
+   467 ;; Defined at:
+   468 ;;		line 272 in file "../My_header\My_header.h"
+   469 ;; Parameters:    Size  Location     Type
+   470 ;;  value           2   10[BANK0 ] const unsigned int 
+   471 ;;  digits          1   12[BANK0 ] unsigned char 
+   472 ;; Auto vars:     Size  Location     Type
+   473 ;;  i               1   13[BANK0 ] unsigned char 
+   474 ;;  temp            2   14[BANK0 ] unsigned int 
+   475 ;; Return value:  Size  Location     Type
+   476 ;;		None               void
+   477 ;; Registers used:
+   478 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
+   479 ;; Tracked objects:
+   480 ;;		On entry : 0/0
+   481 ;;		On exit  : 0/0
+   482 ;;		Unchanged: 0/0
+   483 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   484 ;;      Params:         0       3       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   485 ;;      Locals:         0       3       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   486 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   487 ;;      Totals:         0       6       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   488 ;;Total ram usage:        6 bytes
+   489 ;; Hardware stack levels used:    1
+   490 ;; Hardware stack levels required when called:    7
+   491 ;; This function calls:
+   492 ;;		___lwdiv
+   493 ;;		___lwmod
+   494 ;;		_tx_send
+   495 ;; This function is called by:
+   496 ;;		_main
+   497 ;; This function uses a non-reentrant model
+   498 ;;
+   499                           
+   500                           	psect	text1
+   501  000556                     __ptext1:
+   502                           	opt stack 0
+   503  000556                     _tx_sendn:
+   504                           	opt stack 23
+   505                           
+   506                           ;My_header\My_header.h: 273: while (digits--) {
+   507                           
+   508                           ;incstack = 0
+   509  000556  D031               	goto	l1647
+   510  000558                     l180:
+   511                           
+   512                           ; BSR set to: 0
+   513                           ;My_header\My_header.h: 274: uint16_t temp = value;
+   514  000558  C06A  F06E         	movff	tx_sendn@value,tx_sendn@temp
+   515  00055C  C06B  F06F         	movff	tx_sendn@value+1,tx_sendn@temp+1
+   516                           
+   517                           ; BSR set to: 0
+   518                           ;My_header\My_header.h: 275: for (uint8_t i = 0; i < digits; i++) {
+   519  000560  0E00               	movlw	0
+   520  000562  0100               	movlb	0	; () banked
+   521  000564  6F6D               	movwf	tx_sendn@i& (0+255),b
+   522  000566  D010               	goto	l1641
+   523  000568                     l1637:
+   524                           
+   525                           ; BSR set to: 0
+   526                           ;My_header\My_header.h: 276: temp /= 10;
+   527  000568  C06E  F01F         	movff	tx_sendn@temp,___lwdiv@dividend
+   528  00056C  C06F  F020         	movff	tx_sendn@temp+1,___lwdiv@dividend+1
+   529  000570  0E00               	movlw	0
+   530  000572  6E22               	movwf	___lwdiv@divisor+1,c
+   531  000574  0E0A               	movlw	10
+   532  000576  6E21               	movwf	___lwdiv@divisor,c
+   533  000578  ECE4  F002         	call	___lwdiv	;wreg free
+   534  00057C  C01F  F06E         	movff	?___lwdiv,tx_sendn@temp
+   535  000580  C020  F06F         	movff	?___lwdiv+1,tx_sendn@temp+1
+   536  000584  0100               	movlb	0	; () banked
+   537  000586  2B6D               	incf	tx_sendn@i& (0+255),f,b
+   538  000588                     l1641:
+   539                           
+   540                           ; BSR set to: 0
+   541  000588  0100               	movlb	0	; () banked
+   542  00058A  516C               	movf	tx_sendn@digits& (0+255),w,b
+   543  00058C  0100               	movlb	0	; () banked
+   544  00058E  5D6D               	subwf	tx_sendn@i& (0+255),w,b
+   545  000590  A0D8               	btfss	status,0,c
+   546  000592  D7EA               	goto	l1637
+   547                           
+   548                           ; BSR set to: 0
+   549                           ;My_header\My_header.h: 277: }
+   550                           ;My_header\My_header.h: 278: temp %= 10;
+   551                           
+   552                           ; BSR set to: 0
+   553  000594  C06E  F01F         	movff	tx_sendn@temp,___lwmod@dividend
+   554  000598  C06F  F020         	movff	tx_sendn@temp+1,___lwmod@dividend+1
+   555  00059C  0E00               	movlw	0
+   556  00059E  6E22               	movwf	___lwmod@divisor+1,c
+   557  0005A0  0E0A               	movlw	10
+   558  0005A2  6E21               	movwf	___lwmod@divisor,c
+   559  0005A4  EC59  F003         	call	___lwmod	;wreg free
+   560  0005A8  C01F  F06E         	movff	?___lwmod,tx_sendn@temp
+   561  0005AC  C020  F06F         	movff	?___lwmod+1,tx_sendn@temp+1
+   562                           
+   563                           ;My_header\My_header.h: 279: tx_send('0' + temp);
+   564  0005B0  0100               	movlb	0	; () banked
+   565  0005B2  516E               	movf	tx_sendn@temp& (0+255),w,b
+   566  0005B4  0F30               	addlw	48
+   567  0005B6  ECB2  F003         	call	_tx_send
+   568  0005BA                     l1647:
+   569  0005BA  0100               	movlb	0	; () banked
+   570  0005BC  076C               	decf	tx_sendn@digits& (0+255),f,b
+   571  0005BE  0100               	movlb	0	; () banked
+   572  0005C0  296C               	incf	tx_sendn@digits& (0+255),w,b
+   573  0005C2  B4D8               	btfsc	status,2,c
+   574  0005C4  0012               	return	
+   575  0005C6  D7C8               	goto	l180
+   576  0005C8                     __end_of_tx_sendn:
+   577                           	opt stack 0
+   578                           intcon	equ	0xFF2
+   579                           intcon2	equ	0xFF1
+   580                           postinc0	equ	0xFEE
+   581                           wreg	equ	0xFE8
+   582                           status	equ	0xFD8
+   583                           
+   584 ;; *************** function _tx_send *****************
+   585 ;; Defined at:
+   586 ;;		line 222 in file "../My_header\My_header.h"
+   587 ;; Parameters:    Size  Location     Type
+   588 ;;  asciicode       1    wreg     const unsigned char 
+   589 ;; Auto vars:     Size  Location     Type
+   590 ;;  asciicode       1   35[COMRAM] const unsigned char 
+   591 ;; Return value:  Size  Location     Type
+   592 ;;		None               void
+   593 ;; Registers used:
+   594 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
+   595 ;; Tracked objects:
+   596 ;;		On entry : 0/0
+   597 ;;		On exit  : 0/0
+   598 ;;		Unchanged: 0/0
+   599 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   600 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   601 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   602 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   603 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   604 ;;Total ram usage:        1 bytes
+   605 ;; Hardware stack levels used:    1
+   606 ;; Hardware stack levels required when called:    6
+   607 ;; This function calls:
+   608 ;;		_ringbuf_put
+   609 ;; This function is called by:
+   610 ;;		_tx_sendn
+   611 ;;		_main
+   612 ;; This function uses a non-reentrant model
+   613 ;;
+   614                           
+   615                           	psect	text2
+   616  000764                     __ptext2:
+   617                           	opt stack 0
+   618  000764                     _tx_send:
+   619                           	opt stack 23
+   620                           
+   621                           ; BSR set to: 0
+   622                           ;incstack = 0
+   623                           ;tx_send@asciicode stored from wreg
+   624  000764  6E24               	movwf	tx_send@asciicode,c
+   625                           
+   626                           ;My_header\My_header.h: 223: ringbuf_put(&tx_buf, asciicode);
+   627  000766  0E39               	movlw	low _tx_buf
+   628  000768  6E21               	movwf	ringbuf_put@rb,c
+   629  00076A  0E00               	movlw	high _tx_buf
+   630  00076C  6E22               	movwf	ringbuf_put@rb+1,c
+   631  00076E  C024  F023         	movff	tx_send@asciicode,ringbuf_put@asciicode
+   632  000772  ECE0  F000         	call	_ringbuf_put	;wreg free
+   633                           
+   634                           ;My_header\My_header.h: 224: PIE1bits.TXIE = 1;
+   635  000776  889D               	bsf	3997,4,c	;volatile
+   636  000778  0012               	return		;funcret
+   637  00077A                     __end_of_tx_send:
+   638                           	opt stack 0
+   639                           intcon	equ	0xFF2
+   640                           intcon2	equ	0xFF1
+   641                           postinc0	equ	0xFEE
+   642                           wreg	equ	0xFE8
+   643                           status	equ	0xFD8
+   644                           
+   645 ;; *************** function _ringbuf_put *****************
+   646 ;; Defined at:
+   647 ;;		line 39 in file "../My_header\My_ringbuf.h"
+   648 ;; Parameters:    Size  Location     Type
+   649 ;;  rb              2   32[COMRAM] PTR struct ringbuf
+   650 ;;		 -> rx_buf(8), tx_buf(8), 
+   651 ;;  asciicode       1   34[COMRAM] unsigned char 
+   652 ;; Auto vars:     Size  Location     Type
+   653 ;;		None
+   654 ;; Return value:  Size  Location     Type
+   655 ;;		None               void
+   656 ;; Registers used:
+   657 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
+   658 ;; Tracked objects:
+   659 ;;		On entry : 0/0
+   660 ;;		On exit  : 0/0
+   661 ;;		Unchanged: 0/0
+   662 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   663 ;;      Params:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   664 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   665 ;;      Temps:          0       4       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   666 ;;      Totals:         3       4       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   667 ;;Total ram usage:        7 bytes
+   668 ;; Hardware stack levels used:    1
+   669 ;; Hardware stack levels required when called:    5
+   670 ;; This function calls:
+   671 ;;		_ringbuf_num
+   672 ;; This function is called by:
+   673 ;;		_tx_send
+   674 ;;		_ringbuf_put_num
+   675 ;;		_ringbuf_put_str
+   676 ;;		_tx_sends
+   677 ;; This function uses a non-reentrant model
+   678 ;;
+   679                           
+   680                           	psect	text3
+   681  0001C0                     __ptext3:
+   682                           	opt stack 0
+   683  0001C0                     _ringbuf_put:
+   684                           	opt stack 23
+   685                           
+   686                           ;My_header\My_ringbuf.h: 40: if (ringbuf_num(rb) < rb->size) {
+   687                           
+   688                           ;incstack = 0
+   689  0001C0  C021  F01F         	movff	ringbuf_put@rb,ringbuf_num@rb
+   690  0001C4  C022  F020         	movff	ringbuf_put@rb+1,ringbuf_num@rb+1
+   691  0001C8  EC74  F000         	call	_ringbuf_num	;wreg free
+   692  0001CC  EE20 F002          	lfsr	2,2
+   693  0001D0  5021               	movf	ringbuf_put@rb,w,c
+   694  0001D2  26D9               	addwf	fsr2l,f,c
+   695  0001D4  5022               	movf	ringbuf_put@rb+1,w,c
+   696  0001D6  22DA               	addwfc	fsr2h,f,c
+   697  0001D8  50DE               	movf	postinc2,w,c
+   698  0001DA  5C1F               	subwf	?_ringbuf_num,w,c
+   699  0001DC  50DE               	movf	postinc2,w,c
+   700  0001DE  5820               	subwfb	?_ringbuf_num+1,w,c
+   701  0001E0  B0D8               	btfsc	status,0,c
+   702  0001E2  0012               	return	
+   703                           
+   704                           ;My_header\My_ringbuf.h: 41: rb->buf[rb->head] = asciicode;
+   705  0001E4  EE20 F004          	lfsr	2,4
+   706  0001E8  5021               	movf	ringbuf_put@rb,w,c
+   707  0001EA  26D9               	addwf	fsr2l,f,c
+   708  0001EC  5022               	movf	ringbuf_put@rb+1,w,c
+   709  0001EE  22DA               	addwfc	fsr2h,f,c
+   710  0001F0  CFDE F066          	movff	postinc2,??_ringbuf_put
+   711  0001F4  CFDD F067          	movff	postdec2,??_ringbuf_put+1
+   712  0001F8  C021  FFD9         	movff	ringbuf_put@rb,fsr2l
+   713  0001FC  C022  FFDA         	movff	ringbuf_put@rb+1,fsr2h
+   714  000200  CFDE F068          	movff	postinc2,??_ringbuf_put+2
+   715  000204  CFDD F069          	movff	postdec2,??_ringbuf_put+3
+   716  000208  0100               	movlb	0	; () banked
+   717  00020A  5166               	movf	??_ringbuf_put& (0+255),w,b
+   718  00020C  0100               	movlb	0	; () banked
+   719  00020E  2568               	addwf	(??_ringbuf_put+2)& (0+255),w,b
+   720  000210  6ED9               	movwf	fsr2l,c
+   721  000212  0100               	movlb	0	; () banked
+   722  000214  5167               	movf	(??_ringbuf_put+1)& (0+255),w,b
+   723  000216  0100               	movlb	0	; () banked
+   724  000218  2169               	addwfc	(??_ringbuf_put+3)& (0+255),w,b
+   725  00021A  6EDA               	movwf	fsr2h,c
+   726  00021C  C023  FFDF         	movff	ringbuf_put@asciicode,indf2
+   727                           
+   728                           ; BSR set to: 0
+   729                           ;My_header\My_ringbuf.h: 42: if (rb->head + 1 < rb->size) rb->head++;
+   730  000220  EE20 F002          	lfsr	2,2
+   731  000224  5021               	movf	ringbuf_put@rb,w,c
+   732  000226  26D9               	addwf	fsr2l,f,c
+   733  000228  5022               	movf	ringbuf_put@rb+1,w,c
+   734  00022A  22DA               	addwfc	fsr2h,f,c
+   735  00022C  EE10 F004          	lfsr	1,4
+   736  000230  5021               	movf	ringbuf_put@rb,w,c
+   737  000232  26E1               	addwf	fsr1l,f,c
+   738  000234  5022               	movf	ringbuf_put@rb+1,w,c
+   739  000236  22E2               	addwfc	fsr1h,f,c
+   740  000238  CFE6 F068          	movff	postinc1,??_ringbuf_put+2
+   741  00023C  CFE5 F069          	movff	postdec1,??_ringbuf_put+3
+   742  000240  0E01               	movlw	1
+   743  000242  0100               	movlb	0	; () banked
+   744  000244  2768               	addwf	(??_ringbuf_put+2)& (0+255),f,b
+   745  000246  0E00               	movlw	0
+   746  000248  2369               	addwfc	(??_ringbuf_put+3)& (0+255),f,b
+   747  00024A  50DE               	movf	postinc2,w,c
+   748  00024C  0100               	movlb	0	; () banked
+   749  00024E  5D68               	subwf	(??_ringbuf_put+2)& (0+255),w,b
+   750  000250  50DE               	movf	postinc2,w,c
+   751  000252  0100               	movlb	0	; () banked
+   752  000254  5969               	subwfb	(??_ringbuf_put+3)& (0+255),w,b
+   753  000256  B0D8               	btfsc	status,0,c
+   754  000258  D00A               	goto	l1589
+   755                           
+   756                           ; BSR set to: 0
+   757  00025A  EE20 F004          	lfsr	2,4
+   758  00025E  5021               	movf	ringbuf_put@rb,w,c
+   759  000260  26D9               	addwf	fsr2l,f,c
+   760  000262  5022               	movf	ringbuf_put@rb+1,w,c
+   761  000264  22DA               	addwfc	fsr2h,f,c
+   762  000266  2ADE               	incf	postinc2,f,c
+   763  000268  0E00               	movlw	0
+   764  00026A  22DD               	addwfc	postdec2,f,c
+   765  00026C  0012               	return	
+   766  00026E                     l1589:
+   767                           
+   768                           ; BSR set to: 0
+   769                           ;My_header\My_ringbuf.h: 43: else rb->head = 0;
+   770  00026E  EE20 F004          	lfsr	2,4
+   771  000272  5021               	movf	ringbuf_put@rb,w,c
+   772  000274  26D9               	addwf	fsr2l,f,c
+   773  000276  5022               	movf	ringbuf_put@rb+1,w,c
+   774  000278  22DA               	addwfc	fsr2h,f,c
+   775  00027A  0E00               	movlw	0
+   776  00027C  6EDE               	movwf	postinc2,c
+   777  00027E  0E00               	movlw	0
+   778  000280  6EDD               	movwf	postdec2,c
+   779                           
+   780                           ; BSR set to: 0
+   781  000282  0012               	return	
+   782  000284                     __end_of_ringbuf_put:
+   783                           	opt stack 0
+   784                           intcon	equ	0xFF2
+   785                           intcon2	equ	0xFF1
+   786                           postinc0	equ	0xFEE
+   787                           wreg	equ	0xFE8
+   788                           postinc1	equ	0xFE6
+   789                           postdec1	equ	0xFE5
+   790                           fsr1h	equ	0xFE2
+   791                           fsr1l	equ	0xFE1
+   792                           indf2	equ	0xFDF
+   793                           postinc2	equ	0xFDE
+   794                           postdec2	equ	0xFDD
+   795                           fsr2h	equ	0xFDA
+   796                           fsr2l	equ	0xFD9
+   797                           status	equ	0xFD8
+   798                           
+   799 ;; *************** function _ringbuf_num *****************
+   800 ;; Defined at:
+   801 ;;		line 31 in file "../My_header\My_ringbuf.h"
+   802 ;; Parameters:    Size  Location     Type
+   803 ;;  rb              2   30[COMRAM] PTR struct ringbuf
+   804 ;;		 -> rx_buf(8), tx_buf(8), 
+   805 ;; Auto vars:     Size  Location     Type
+   806 ;;		None
+   807 ;; Return value:  Size  Location     Type
+   808 ;;                  2   30[COMRAM] unsigned int 
+   809 ;; Registers used:
+   810 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0
+   811 ;; Tracked objects:
+   812 ;;		On entry : 0/0
+   813 ;;		On exit  : 0/0
+   814 ;;		Unchanged: 0/0
+   815 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   816 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   817 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   818 ;;      Temps:          0       6       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   819 ;;      Totals:         2       6       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   820 ;;Total ram usage:        8 bytes
+   821 ;; Hardware stack levels used:    1
+   822 ;; Hardware stack levels required when called:    4
+   823 ;; This function calls:
+   824 ;;		Nothing
+   825 ;; This function is called by:
+   826 ;;		_ringbuf_put
+   827 ;;		_ringbuf_backspace
+   828 ;; This function uses a non-reentrant model
+   829 ;;
+   830                           
+   831                           	psect	text4
+   832  0000E8                     __ptext4:
+   833                           	opt stack 0
+   834  0000E8                     _ringbuf_num:
+   835                           	opt stack 23
+   836                           
+   837                           ;My_header\My_ringbuf.h: 32: if (rb->head >= rb->tail) {
+   838                           
+   839                           ;incstack = 0
+   840  0000E8  EE20 F006          	lfsr	2,6
+   841  0000EC  501F               	movf	ringbuf_num@rb,w,c
+   842  0000EE  26D9               	addwf	fsr2l,f,c
+   843  0000F0  5020               	movf	ringbuf_num@rb+1,w,c
+   844  0000F2  22DA               	addwfc	fsr2h,f,c
+   845  0000F4  EE10 F004          	lfsr	1,4
+   846  0000F8  501F               	movf	ringbuf_num@rb,w,c
+   847  0000FA  26E1               	addwf	fsr1l,f,c
+   848  0000FC  5020               	movf	ringbuf_num@rb+1,w,c
+   849  0000FE  22E2               	addwfc	fsr1h,f,c
+   850  000100  50DE               	movf	postinc2,w,c
+   851  000102  5CE6               	subwf	postinc1,w,c
+   852  000104  50DE               	movf	postinc2,w,c
+   853  000106  58E6               	subwfb	postinc1,w,c
+   854  000108  A0D8               	btfss	status,0,c
+   855  00010A  D024               	goto	l1577
+   856                           
+   857                           ;My_header\My_ringbuf.h: 33: return (rb->head - rb->tail);
+   858  00010C  EE20 F004          	lfsr	2,4
+   859  000110  501F               	movf	ringbuf_num@rb,w,c
+   860  000112  26D9               	addwf	fsr2l,f,c
+   861  000114  5020               	movf	ringbuf_num@rb+1,w,c
+   862  000116  22DA               	addwfc	fsr2h,f,c
+   863  000118  CFDE F060          	movff	postinc2,??_ringbuf_num
+   864  00011C  CFDD F061          	movff	postdec2,??_ringbuf_num+1
+   865  000120  EE20 F006          	lfsr	2,6
+   866  000124  501F               	movf	ringbuf_num@rb,w,c
+   867  000126  26D9               	addwf	fsr2l,f,c
+   868  000128  5020               	movf	ringbuf_num@rb+1,w,c
+   869  00012A  22DA               	addwfc	fsr2h,f,c
+   870  00012C  CFDE F062          	movff	postinc2,??_ringbuf_num+2
+   871  000130  CFDD F063          	movff	postdec2,??_ringbuf_num+3
+   872  000134  0100               	movlb	0	; () banked
+   873  000136  1F62               	comf	(??_ringbuf_num+2)& (0+255),f,b
+   874  000138  1F63               	comf	(??_ringbuf_num+3)& (0+255),f,b
+   875  00013A  4B62               	infsnz	(??_ringbuf_num+2)& (0+255),f,b
+   876  00013C  2B63               	incf	(??_ringbuf_num+3)& (0+255),f,b
+   877  00013E  0100               	movlb	0	; () banked
+   878  000140  5160               	movf	??_ringbuf_num& (0+255),w,b
+   879  000142  0100               	movlb	0	; () banked
+   880  000144  2562               	addwf	(??_ringbuf_num+2)& (0+255),w,b
+   881  000146  6E1F               	movwf	?_ringbuf_num,c
+   882  000148  0100               	movlb	0	; () banked
+   883  00014A  5161               	movf	(??_ringbuf_num+1)& (0+255),w,b
+   884  00014C  0100               	movlb	0	; () banked
+   885  00014E  2163               	addwfc	(??_ringbuf_num+3)& (0+255),w,b
+   886  000150  6E20               	movwf	?_ringbuf_num+1,c
+   887                           
+   888                           ; BSR set to: 0
+   889                           ;My_header\My_ringbuf.h: 34: } else {
+   890                           
+   891                           ; BSR set to: 0
+   892  000152  0012               	return	
+   893  000154                     l1577:
+   894                           
+   895                           ;My_header\My_ringbuf.h: 35: return (rb->size + rb->head - rb->tail);
+   896  000154  EE20 F004          	lfsr	2,4
+   897  000158  501F               	movf	ringbuf_num@rb,w,c
+   898  00015A  26D9               	addwf	fsr2l,f,c
+   899  00015C  5020               	movf	ringbuf_num@rb+1,w,c
+   900  00015E  22DA               	addwfc	fsr2h,f,c
+   901  000160  CFDE F060          	movff	postinc2,??_ringbuf_num
+   902  000164  CFDD F061          	movff	postdec2,??_ringbuf_num+1
+   903  000168  EE20 F002          	lfsr	2,2
+   904  00016C  501F               	movf	ringbuf_num@rb,w,c
+   905  00016E  26D9               	addwf	fsr2l,f,c
+   906  000170  5020               	movf	ringbuf_num@rb+1,w,c
+   907  000172  22DA               	addwfc	fsr2h,f,c
+   908  000174  CFDE F062          	movff	postinc2,??_ringbuf_num+2
+   909  000178  CFDD F063          	movff	postdec2,??_ringbuf_num+3
+   910  00017C  EE20 F006          	lfsr	2,6
+   911  000180  501F               	movf	ringbuf_num@rb,w,c
+   912  000182  26D9               	addwf	fsr2l,f,c
+   913  000184  5020               	movf	ringbuf_num@rb+1,w,c
+   914  000186  22DA               	addwfc	fsr2h,f,c
+   915  000188  CFDE F064          	movff	postinc2,??_ringbuf_num+4
+   916  00018C  CFDD F065          	movff	postdec2,??_ringbuf_num+5
+   917  000190  0100               	movlb	0	; () banked
+   918  000192  1F64               	comf	(??_ringbuf_num+4)& (0+255),f,b
+   919  000194  1F65               	comf	(??_ringbuf_num+5)& (0+255),f,b
+   920  000196  4B64               	infsnz	(??_ringbuf_num+4)& (0+255),f,b
+   921  000198  2B65               	incf	(??_ringbuf_num+5)& (0+255),f,b
+   922  00019A  0100               	movlb	0	; () banked
+   923  00019C  5162               	movf	(??_ringbuf_num+2)& (0+255),w,b
+   924  00019E  0100               	movlb	0	; () banked
+   925  0001A0  2764               	addwf	(??_ringbuf_num+4)& (0+255),f,b
+   926  0001A2  0100               	movlb	0	; () banked
+   927  0001A4  5163               	movf	(??_ringbuf_num+3)& (0+255),w,b
+   928  0001A6  0100               	movlb	0	; () banked
+   929  0001A8  2365               	addwfc	(??_ringbuf_num+5)& (0+255),f,b
+   930  0001AA  0100               	movlb	0	; () banked
+   931  0001AC  5160               	movf	??_ringbuf_num& (0+255),w,b
+   932  0001AE  0100               	movlb	0	; () banked
+   933  0001B0  2564               	addwf	(??_ringbuf_num+4)& (0+255),w,b
+   934  0001B2  6E1F               	movwf	?_ringbuf_num,c
+   935  0001B4  0100               	movlb	0	; () banked
+   936  0001B6  5161               	movf	(??_ringbuf_num+1)& (0+255),w,b
+   937  0001B8  0100               	movlb	0	; () banked
+   938  0001BA  2165               	addwfc	(??_ringbuf_num+5)& (0+255),w,b
+   939  0001BC  6E20               	movwf	?_ringbuf_num+1,c
+   940                           
+   941                           ; BSR set to: 0
+   942  0001BE  0012               	return	
+   943  0001C0                     __end_of_ringbuf_num:
+   944                           	opt stack 0
+   945                           intcon	equ	0xFF2
+   946                           intcon2	equ	0xFF1
+   947                           postinc0	equ	0xFEE
+   948                           wreg	equ	0xFE8
+   949                           postinc1	equ	0xFE6
+   950                           postdec1	equ	0xFE5
+   951                           fsr1h	equ	0xFE2
+   952                           fsr1l	equ	0xFE1
+   953                           indf2	equ	0xFDF
+   954                           postinc2	equ	0xFDE
+   955                           postdec2	equ	0xFDD
+   956                           fsr2h	equ	0xFDA
+   957                           fsr2l	equ	0xFD9
+   958                           status	equ	0xFD8
+   959                           
+   960 ;; *************** function ___lwmod *****************
+   961 ;; Defined at:
+   962 ;;		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwmod.c"
+   963 ;; Parameters:    Size  Location     Type
+   964 ;;  dividend        2   30[COMRAM] unsigned int 
+   965 ;;  divisor         2   32[COMRAM] unsigned int 
+   966 ;; Auto vars:     Size  Location     Type
+   967 ;;  counter         1   34[COMRAM] unsigned char 
+   968 ;; Return value:  Size  Location     Type
+   969 ;;                  2   30[COMRAM] unsigned int 
+   970 ;; Registers used:
+   971 ;;		wreg, status,2, status,0
+   972 ;; Tracked objects:
+   973 ;;		On entry : 0/0
+   974 ;;		On exit  : 0/0
+   975 ;;		Unchanged: 0/0
+   976 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   977 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   978 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   979 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   980 ;;      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   981 ;;Total ram usage:        5 bytes
+   982 ;; Hardware stack levels used:    1
+   983 ;; Hardware stack levels required when called:    4
+   984 ;; This function calls:
+   985 ;;		Nothing
+   986 ;; This function is called by:
+   987 ;;		_tx_sendn
+   988 ;;		_ringbuf_put_num
+   989 ;; This function uses a non-reentrant model
+   990 ;;
+   991                           
+   992                           	psect	text5
+   993  0006B2                     __ptext5:
+   994                           	opt stack 0
+   995  0006B2                     ___lwmod:
+   996                           	opt stack 25
+   997                           
+   998                           ; BSR set to: 0
+   999                           ;incstack = 0
+  1000  0006B2  5021               	movf	___lwmod@divisor,w,c
+  1001  0006B4  1022               	iorwf	___lwmod@divisor+1,w,c
+  1002  0006B6  B4D8               	btfsc	status,2,c
+  1003  0006B8  D018               	goto	l672
+  1004  0006BA  0E01               	movlw	1
+  1005  0006BC  6E23               	movwf	___lwmod@counter,c
+  1006  0006BE  D004               	goto	l1623
+  1007  0006C0                     l1621:
+  1008  0006C0  90D8               	bcf	status,0,c
+  1009  0006C2  3621               	rlcf	___lwmod@divisor,f,c
+  1010  0006C4  3622               	rlcf	___lwmod@divisor+1,f,c
+  1011  0006C6  2A23               	incf	___lwmod@counter,f,c
+  1012  0006C8                     l1623:
+  1013  0006C8  AE22               	btfss	___lwmod@divisor+1,7,c
+  1014  0006CA  D7FA               	goto	l1621
+  1015  0006CC                     l1625:
+  1016  0006CC  5021               	movf	___lwmod@divisor,w,c
+  1017  0006CE  5C1F               	subwf	___lwmod@dividend,w,c
+  1018  0006D0  5022               	movf	___lwmod@divisor+1,w,c
+  1019  0006D2  5820               	subwfb	___lwmod@dividend+1,w,c
+  1020  0006D4  A0D8               	btfss	status,0,c
+  1021  0006D6  D004               	goto	l1629
+  1022  0006D8  5021               	movf	___lwmod@divisor,w,c
+  1023  0006DA  5E1F               	subwf	___lwmod@dividend,f,c
+  1024  0006DC  5022               	movf	___lwmod@divisor+1,w,c
+  1025  0006DE  5A20               	subwfb	___lwmod@dividend+1,f,c
+  1026  0006E0                     l1629:
+  1027  0006E0  90D8               	bcf	status,0,c
+  1028  0006E2  3222               	rrcf	___lwmod@divisor+1,f,c
+  1029  0006E4  3221               	rrcf	___lwmod@divisor,f,c
+  1030  0006E6  2E23               	decfsz	___lwmod@counter,f,c
+  1031  0006E8  D7F1               	goto	l1625
+  1032  0006EA                     l672:
+  1033  0006EA  C01F  F01F         	movff	___lwmod@dividend,?___lwmod
+  1034  0006EE  C020  F020         	movff	___lwmod@dividend+1,?___lwmod+1
+  1035  0006F2  0012               	return		;funcret
+  1036  0006F4                     __end_of___lwmod:
+  1037                           	opt stack 0
+  1038                           intcon	equ	0xFF2
+  1039                           intcon2	equ	0xFF1
+  1040                           postinc0	equ	0xFEE
+  1041                           wreg	equ	0xFE8
+  1042                           postinc1	equ	0xFE6
+  1043                           postdec1	equ	0xFE5
+  1044                           fsr1h	equ	0xFE2
+  1045                           fsr1l	equ	0xFE1
+  1046                           indf2	equ	0xFDF
+  1047                           postinc2	equ	0xFDE
+  1048                           postdec2	equ	0xFDD
+  1049                           fsr2h	equ	0xFDA
+  1050                           fsr2l	equ	0xFD9
+  1051                           status	equ	0xFD8
+  1052                           
+  1053 ;; *************** function ___lwdiv *****************
+  1054 ;; Defined at:
+  1055 ;;		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c"
+  1056 ;; Parameters:    Size  Location     Type
+  1057 ;;  dividend        2   30[COMRAM] unsigned int 
+  1058 ;;  divisor         2   32[COMRAM] unsigned int 
+  1059 ;; Auto vars:     Size  Location     Type
+  1060 ;;  quotient        2   35[COMRAM] unsigned int 
+  1061 ;;  counter         1   34[COMRAM] unsigned char 
+  1062 ;; Return value:  Size  Location     Type
+  1063 ;;                  2   30[COMRAM] unsigned int 
+  1064 ;; Registers used:
+  1065 ;;		wreg, status,2, status,0
+  1066 ;; Tracked objects:
+  1067 ;;		On entry : 0/0
+  1068 ;;		On exit  : 0/0
+  1069 ;;		Unchanged: 0/0
+  1070 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1071 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1072 ;;      Locals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1073 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1074 ;;      Totals:         7       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1075 ;;Total ram usage:        7 bytes
+  1076 ;; Hardware stack levels used:    1
+  1077 ;; Hardware stack levels required when called:    4
+  1078 ;; This function calls:
+  1079 ;;		Nothing
+  1080 ;; This function is called by:
+  1081 ;;		_tx_sendn
+  1082 ;;		_ringbuf_put_num
+  1083 ;; This function uses a non-reentrant model
+  1084 ;;
+  1085                           
+  1086                           	psect	text6
+  1087  0005C8                     __ptext6:
+  1088                           	opt stack 0
+  1089  0005C8                     ___lwdiv:
+  1090                           	opt stack 25
+  1091                           
+  1092                           ;incstack = 0
+  1093  0005C8  0E00               	movlw	0
+  1094  0005CA  6E25               	movwf	___lwdiv@quotient+1,c
+  1095  0005CC  0E00               	movlw	0
+  1096  0005CE  6E24               	movwf	___lwdiv@quotient,c
+  1097  0005D0  5021               	movf	___lwdiv@divisor,w,c
+  1098  0005D2  1022               	iorwf	___lwdiv@divisor+1,w,c
+  1099  0005D4  B4D8               	btfsc	status,2,c
+  1100  0005D6  D01C               	goto	l662
+  1101  0005D8  0E01               	movlw	1
+  1102  0005DA  6E23               	movwf	___lwdiv@counter,c
+  1103  0005DC  D004               	goto	l1603
+  1104  0005DE                     l1601:
+  1105  0005DE  90D8               	bcf	status,0,c
+  1106  0005E0  3621               	rlcf	___lwdiv@divisor,f,c
+  1107  0005E2  3622               	rlcf	___lwdiv@divisor+1,f,c
+  1108  0005E4  2A23               	incf	___lwdiv@counter,f,c
+  1109  0005E6                     l1603:
+  1110  0005E6  AE22               	btfss	___lwdiv@divisor+1,7,c
+  1111  0005E8  D7FA               	goto	l1601
+  1112  0005EA                     l1605:
+  1113  0005EA  90D8               	bcf	status,0,c
+  1114  0005EC  3624               	rlcf	___lwdiv@quotient,f,c
+  1115  0005EE  3625               	rlcf	___lwdiv@quotient+1,f,c
+  1116  0005F0  5021               	movf	___lwdiv@divisor,w,c
+  1117  0005F2  5C1F               	subwf	___lwdiv@dividend,w,c
+  1118  0005F4  5022               	movf	___lwdiv@divisor+1,w,c
+  1119  0005F6  5820               	subwfb	___lwdiv@dividend+1,w,c
+  1120  0005F8  A0D8               	btfss	status,0,c
+  1121  0005FA  D005               	goto	l1613
+  1122  0005FC  5021               	movf	___lwdiv@divisor,w,c
+  1123  0005FE  5E1F               	subwf	___lwdiv@dividend,f,c
+  1124  000600  5022               	movf	___lwdiv@divisor+1,w,c
+  1125  000602  5A20               	subwfb	___lwdiv@dividend+1,f,c
+  1126  000604  8024               	bsf	___lwdiv@quotient,0,c
+  1127  000606                     l1613:
+  1128  000606  90D8               	bcf	status,0,c
+  1129  000608  3222               	rrcf	___lwdiv@divisor+1,f,c
+  1130  00060A  3221               	rrcf	___lwdiv@divisor,f,c
+  1131  00060C  2E23               	decfsz	___lwdiv@counter,f,c
+  1132  00060E  D7ED               	goto	l1605
+  1133  000610                     l662:
+  1134  000610  C024  F01F         	movff	___lwdiv@quotient,?___lwdiv
+  1135  000614  C025  F020         	movff	___lwdiv@quotient+1,?___lwdiv+1
+  1136  000618  0012               	return		;funcret
+  1137  00061A                     __end_of___lwdiv:
+  1138                           	opt stack 0
+  1139                           intcon	equ	0xFF2
+  1140                           intcon2	equ	0xFF1
+  1141                           postinc0	equ	0xFEE
+  1142                           wreg	equ	0xFE8
+  1143                           postinc1	equ	0xFE6
+  1144                           postdec1	equ	0xFE5
+  1145                           fsr1h	equ	0xFE2
+  1146                           fsr1l	equ	0xFE1
+  1147                           indf2	equ	0xFDF
+  1148                           postinc2	equ	0xFDE
+  1149                           postdec2	equ	0xFDD
+  1150                           fsr2h	equ	0xFDA
+  1151                           fsr2l	equ	0xFD9
+  1152                           status	equ	0xFD8
+  1153                           
+  1154 ;; *************** function _timer0_init *****************
+  1155 ;; Defined at:
+  1156 ;;		line 15 in file "../My_header\My_header.h"
+  1157 ;; Parameters:    Size  Location     Type
+  1158 ;;  prescaler       1    wreg     unsigned char 
+  1159 ;; Auto vars:     Size  Location     Type
+  1160 ;;  prescaler       1   31[COMRAM] unsigned char 
+  1161 ;; Return value:  Size  Location     Type
+  1162 ;;		None               void
+  1163 ;; Registers used:
+  1164 ;;		wreg, status,2, status,0
+  1165 ;; Tracked objects:
+  1166 ;;		On entry : 0/0
+  1167 ;;		On exit  : 0/0
+  1168 ;;		Unchanged: 0/0
+  1169 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1170 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1171 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1172 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1173 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1174 ;;Total ram usage:        2 bytes
+  1175 ;; Hardware stack levels used:    1
+  1176 ;; Hardware stack levels required when called:    4
+  1177 ;; This function calls:
+  1178 ;;		Nothing
+  1179 ;; This function is called by:
+  1180 ;;		_main
+  1181 ;; This function uses a non-reentrant model
+  1182 ;;
+  1183                           
+  1184                           	psect	text7
+  1185  0006F4                     __ptext7:
+  1186                           	opt stack 0
+  1187  0006F4                     _timer0_init:
+  1188                           	opt stack 26
+  1189                           
+  1190                           ;incstack = 0
+  1191                           ;timer0_init@prescaler stored from wreg
+  1192  0006F4  6E20               	movwf	timer0_init@prescaler,c
+  1193                           
+  1194                           ;My_header\My_header.h: 16: T0CONbits.TMR0ON = 1;
+  1195  0006F6  8ED5               	bsf	4053,7,c	;volatile
+  1196                           
+  1197                           ;My_header\My_header.h: 17: T0CONbits.T08BIT = 1;
+  1198  0006F8  8CD5               	bsf	4053,6,c	;volatile
+  1199                           
+  1200                           ;My_header\My_header.h: 18: T0CONbits.T0CS = 0;
+  1201  0006FA  9AD5               	bcf	4053,5,c	;volatile
+  1202                           
+  1203                           ;My_header\My_header.h: 19: if (prescaler == 0) {
+  1204  0006FC  5020               	movf	timer0_init@prescaler,w,c
+  1205  0006FE  A4D8               	btfss	status,2,c
+  1206  000700  D002               	goto	l83
+  1207                           
+  1208                           ;My_header\My_header.h: 20: T0CONbits.PSA = 1;
+  1209  000702  86D5               	bsf	4053,3,c	;volatile
+  1210                           
+  1211                           ;My_header\My_header.h: 21: } else {
+  1212  000704  D00A               	goto	l1407
+  1213  000706                     l83:
+  1214                           
+  1215                           ;My_header\My_header.h: 22: T0CONbits.PSA = 0;
+  1216  000706  96D5               	bcf	4053,3,c	;volatile
+  1217                           
+  1218                           ;My_header\My_header.h: 23: T0CONbits.T0PS = prescaler - 1;
+  1219  000708  C020  F01F         	movff	timer0_init@prescaler,??_timer0_init
+  1220  00070C  0EFF               	movlw	255
+  1221  00070E  261F               	addwf	??_timer0_init,f,c
+  1222  000710  50D5               	movf	4053,w,c	;volatile
+  1223  000712  181F               	xorwf	??_timer0_init,w,c
+  1224  000714  0BF8               	andlw	-8
+  1225  000716  181F               	xorwf	??_timer0_init,w,c
+  1226  000718  6ED5               	movwf	4053,c	;volatile
+  1227  00071A                     l1407:
+  1228                           
+  1229                           ;My_header\My_header.h: 24: }
+  1230                           ;My_header\My_header.h: 25: INTCONbits.T0IE = 1;
+  1231  00071A  8AF2               	bsf	intcon,5,c	;volatile
+  1232                           
+  1233                           ;My_header\My_header.h: 26: INTCONbits.TMR0IF = 0;
+  1234  00071C  94F2               	bcf	intcon,2,c	;volatile
+  1235                           
+  1236                           ;My_header\My_header.h: 27: INTCON2bits.TMR0IP = 0;
+  1237  00071E  94F1               	bcf	intcon2,2,c	;volatile
+  1238                           
+  1239                           ;My_header\My_header.h: 28: INTCONbits.PEIE = 1;
+  1240  000720  8CF2               	bsf	intcon,6,c	;volatile
+  1241  000722  0012               	return		;funcret
+  1242  000724                     __end_of_timer0_init:
+  1243                           	opt stack 0
+  1244                           intcon	equ	0xFF2
+  1245                           intcon2	equ	0xFF1
+  1246                           postinc0	equ	0xFEE
+  1247                           wreg	equ	0xFE8
+  1248                           postinc1	equ	0xFE6
+  1249                           postdec1	equ	0xFE5
+  1250                           fsr1h	equ	0xFE2
+  1251                           fsr1l	equ	0xFE1
+  1252                           indf2	equ	0xFDF
+  1253                           postinc2	equ	0xFDE
+  1254                           postdec2	equ	0xFDD
+  1255                           fsr2h	equ	0xFDA
+  1256                           fsr2l	equ	0xFD9
+  1257                           status	equ	0xFD8
+  1258                           
+  1259 ;; *************** function _ringbuf_init *****************
+  1260 ;; Defined at:
+  1261 ;;		line 24 in file "../My_header\My_ringbuf.h"
+  1262 ;; Parameters:    Size  Location     Type
+  1263 ;;  rb              2   30[COMRAM] PTR struct ringbuf
+  1264 ;;		 -> tx_buf(8), 
+  1265 ;;  internal_buf    2   32[COMRAM] PTR unsigned char 
+  1266 ;;		 -> main@txbuf(100), 
+  1267 ;;  bufsize         2   34[COMRAM] unsigned int 
+  1268 ;; Auto vars:     Size  Location     Type
+  1269 ;;		None
+  1270 ;; Return value:  Size  Location     Type
+  1271 ;;		None               void
+  1272 ;; Registers used:
+  1273 ;;		wreg, fsr2l, fsr2h, status,2, status,0
+  1274 ;; Tracked objects:
+  1275 ;;		On entry : 0/0
+  1276 ;;		On exit  : 0/0
+  1277 ;;		Unchanged: 0/0
+  1278 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1279 ;;      Params:         6       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1280 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1281 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1282 ;;      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1283 ;;Total ram usage:        6 bytes
+  1284 ;; Hardware stack levels used:    1
+  1285 ;; Hardware stack levels required when called:    4
+  1286 ;; This function calls:
+  1287 ;;		Nothing
+  1288 ;; This function is called by:
+  1289 ;;		_main
+  1290 ;; This function uses a non-reentrant model
+  1291 ;;
+  1292                           
+  1293                           	psect	text8
+  1294  00061A                     __ptext8:
+  1295                           	opt stack 0
+  1296  00061A                     _ringbuf_init:
+  1297                           	opt stack 26
+  1298                           
+  1299                           ;My_header\My_ringbuf.h: 25: rb->buf = internal_buf;
+  1300                           
+  1301                           ;incstack = 0
+  1302  00061A  C01F  FFD9         	movff	ringbuf_init@rb,fsr2l
+  1303  00061E  C020  FFDA         	movff	ringbuf_init@rb+1,fsr2h
+  1304  000622  C021  FFDE         	movff	ringbuf_init@internal_buf,postinc2
+  1305  000626  C022  FFDD         	movff	ringbuf_init@internal_buf+1,postdec2
+  1306                           
+  1307                           ;My_header\My_ringbuf.h: 26: rb->size = bufsize;
+  1308  00062A  EE20 F002          	lfsr	2,2
+  1309  00062E  501F               	movf	ringbuf_init@rb,w,c
+  1310  000630  26D9               	addwf	fsr2l,f,c
+  1311  000632  5020               	movf	ringbuf_init@rb+1,w,c
+  1312  000634  22DA               	addwfc	fsr2h,f,c
+  1313  000636  C023  FFDE         	movff	ringbuf_init@bufsize,postinc2
+  1314  00063A  C024  FFDD         	movff	ringbuf_init@bufsize+1,postdec2
+  1315                           
+  1316                           ;My_header\My_ringbuf.h: 27: rb->head = 0;
+  1317  00063E  EE20 F004          	lfsr	2,4
+  1318  000642  501F               	movf	ringbuf_init@rb,w,c
+  1319  000644  26D9               	addwf	fsr2l,f,c
+  1320  000646  5020               	movf	ringbuf_init@rb+1,w,c
+  1321  000648  22DA               	addwfc	fsr2h,f,c
+  1322  00064A  0E00               	movlw	0
+  1323  00064C  6EDE               	movwf	postinc2,c
+  1324  00064E  0E00               	movlw	0
+  1325  000650  6EDD               	movwf	postdec2,c
+  1326                           
+  1327                           ;My_header\My_ringbuf.h: 28: rb->tail = 0;
+  1328  000652  EE20 F006          	lfsr	2,6
+  1329  000656  501F               	movf	ringbuf_init@rb,w,c
+  1330  000658  26D9               	addwf	fsr2l,f,c
+  1331  00065A  5020               	movf	ringbuf_init@rb+1,w,c
+  1332  00065C  22DA               	addwfc	fsr2h,f,c
+  1333  00065E  0E00               	movlw	0
+  1334  000660  6EDE               	movwf	postinc2,c
+  1335  000662  0E00               	movlw	0
+  1336  000664  6EDD               	movwf	postdec2,c
+  1337  000666  0012               	return		;funcret
+  1338  000668                     __end_of_ringbuf_init:
+  1339                           	opt stack 0
+  1340                           intcon	equ	0xFF2
+  1341                           intcon2	equ	0xFF1
+  1342                           postinc0	equ	0xFEE
+  1343                           wreg	equ	0xFE8
+  1344                           postinc1	equ	0xFE6
+  1345                           postdec1	equ	0xFE5
+  1346                           fsr1h	equ	0xFE2
+  1347                           fsr1l	equ	0xFE1
+  1348                           indf2	equ	0xFDF
+  1349                           postinc2	equ	0xFDE
+  1350                           postdec2	equ	0xFDD
+  1351                           fsr2h	equ	0xFDA
+  1352                           fsr2l	equ	0xFD9
+  1353                           status	equ	0xFD8
+  1354                           
+  1355 ;; *************** function _UART_init *****************
+  1356 ;; Defined at:
+  1357 ;;		line 192 in file "../My_header\My_header.h"
+  1358 ;; Parameters:    Size  Location     Type
+  1359 ;;		None
+  1360 ;; Auto vars:     Size  Location     Type
+  1361 ;;		None
+  1362 ;; Return value:  Size  Location     Type
+  1363 ;;		None               void
+  1364 ;; Registers used:
+  1365 ;;		wreg, status,2
+  1366 ;; Tracked objects:
+  1367 ;;		On entry : 0/0
+  1368 ;;		On exit  : 0/0
+  1369 ;;		Unchanged: 0/0
+  1370 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1371 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1372 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1373 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1374 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1375 ;;Total ram usage:        0 bytes
+  1376 ;; Hardware stack levels used:    1
+  1377 ;; Hardware stack levels required when called:    4
+  1378 ;; This function calls:
+  1379 ;;		Nothing
+  1380 ;; This function is called by:
+  1381 ;;		_main
+  1382 ;; This function uses a non-reentrant model
+  1383 ;;
+  1384                           
+  1385                           	psect	text9
+  1386  000744                     __ptext9:
+  1387                           	opt stack 0
+  1388  000744                     _UART_init:
+  1389                           	opt stack 26
+  1390                           
+  1391                           ;My_header\My_header.h: 193: TXSTA1bits.TX9 = 0;
+  1392                           
+  1393                           ;incstack = 0
+  1394  000744  9CAD               	bcf	4013,6,c	;volatile
+  1395                           
+  1396                           ;My_header\My_header.h: 194: TXSTA1bits.TXEN = 1;
+  1397  000746  8AAD               	bsf	4013,5,c	;volatile
+  1398                           
+  1399                           ;My_header\My_header.h: 195: TXSTA1bits.SYNC = 0;
+  1400  000748  98AD               	bcf	4013,4,c	;volatile
+  1401                           
+  1402                           ;My_header\My_header.h: 196: TXSTA1bits.BRGH = 0;
+  1403  00074A  94AD               	bcf	4013,2,c	;volatile
+  1404                           
+  1405                           ;My_header\My_header.h: 197: RCSTA1bits.SPEN = 1;
+  1406  00074C  8EAC               	bsf	4012,7,c	;volatile
+  1407                           
+  1408                           ;My_header\My_header.h: 198: RCSTA1bits.RX9 = 0;
+  1409  00074E  9CAC               	bcf	4012,6,c	;volatile
+  1410                           
+  1411                           ;My_header\My_header.h: 199: RCSTA1bits.CREN = 1;
+  1412  000750  88AC               	bsf	4012,4,c	;volatile
+  1413                           
+  1414                           ;My_header\My_header.h: 200: BAUDCON1bits.BRG16 = 0;
+  1415  000752  967E               	bcf	3966,3,c	;volatile
+  1416                           
+  1417                           ;My_header\My_header.h: 201: SPBRG1 = 48000000 / 64 / 9600 - 1;
+  1418  000754  0E4D               	movlw	77
+  1419  000756  6EB0               	movwf	4016,c	;volatile
+  1420                           
+  1421                           ;My_header\My_header.h: 202: SPBRGH1 = 0;
+  1422  000758  0E00               	movlw	0
+  1423  00075A  6E7F               	movwf	3967,c	;volatile
+  1424                           
+  1425                           ;My_header\My_header.h: 203: IPR1bits.RC1IP = 0;
+  1426  00075C  9A9F               	bcf	3999,5,c	;volatile
+  1427                           
+  1428                           ;My_header\My_header.h: 204: PIE1bits.RCIE = 1;
+  1429  00075E  8A9D               	bsf	3997,5,c	;volatile
+  1430                           
+  1431                           ;My_header\My_header.h: 205: INTCONbits.PEIE = 1;
+  1432  000760  8CF2               	bsf	intcon,6,c	;volatile
+  1433  000762  0012               	return		;funcret
+  1434  000764                     __end_of_UART_init:
+  1435                           	opt stack 0
+  1436                           intcon	equ	0xFF2
+  1437                           intcon2	equ	0xFF1
+  1438                           postinc0	equ	0xFEE
+  1439                           wreg	equ	0xFE8
+  1440                           postinc1	equ	0xFE6
+  1441                           postdec1	equ	0xFE5
+  1442                           fsr1h	equ	0xFE2
+  1443                           fsr1l	equ	0xFE1
+  1444                           indf2	equ	0xFDF
+  1445                           postinc2	equ	0xFDE
+  1446                           postdec2	equ	0xFDD
+  1447                           fsr2h	equ	0xFDA
+  1448                           fsr2l	equ	0xFD9
+  1449                           status	equ	0xFD8
+  1450                           
+  1451 ;; *************** function _OSC_init *****************
+  1452 ;; Defined at:
+  1453 ;;		line 119 in file "../My_header\My_header.h"
+  1454 ;; Parameters:    Size  Location     Type
+  1455 ;;		None
+  1456 ;; Auto vars:     Size  Location     Type
+  1457 ;;		None
+  1458 ;; Return value:  Size  Location     Type
+  1459 ;;		None               void
+  1460 ;; Registers used:
+  1461 ;;		wreg, status,2
+  1462 ;; Tracked objects:
+  1463 ;;		On entry : 0/0
+  1464 ;;		On exit  : 0/0
+  1465 ;;		Unchanged: 0/0
+  1466 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1467 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1468 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1469 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1470 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1471 ;;Total ram usage:        0 bytes
+  1472 ;; Hardware stack levels used:    1
+  1473 ;; Hardware stack levels required when called:    4
+  1474 ;; This function calls:
+  1475 ;;		Nothing
+  1476 ;; This function is called by:
+  1477 ;;		_main
+  1478 ;; This function uses a non-reentrant model
+  1479 ;;
+  1480                           
+  1481                           	psect	text10
+  1482  00077A                     __ptext10:
+  1483                           	opt stack 0
+  1484  00077A                     _OSC_init:
+  1485                           	opt stack 26
+  1486                           
+  1487                           ;My_header\My_header.h: 120: OSCCONbits.IRCF = 7;
+  1488                           
+  1489                           ;incstack = 0
+  1490  00077A  88D3               	bsf	4051,4,c	;volatile
+  1491  00077C  8AD3               	bsf	4051,5,c	;volatile
+  1492  00077E  8CD3               	bsf	4051,6,c	;volatile
+  1493                           
+  1494                           ;My_header\My_header.h: 121: OSCTUNEbits.PLLEN = 1;
+  1495  000780  8C9B               	bsf	3995,6,c	;volatile
+  1496                           
+  1497                           ;My_header\My_header.h: 122: OSCCONbits.SCS = 0;
+  1498  000782  0EFC               	movlw	-4
+  1499  000784  16D3               	andwf	4051,f,c	;volatile
+  1500  000786  0012               	return		;funcret
+  1501  000788                     __end_of_OSC_init:
+  1502                           	opt stack 0
+  1503                           intcon	equ	0xFF2
+  1504                           intcon2	equ	0xFF1
+  1505                           postinc0	equ	0xFEE
+  1506                           wreg	equ	0xFE8
+  1507                           postinc1	equ	0xFE6
+  1508                           postdec1	equ	0xFE5
+  1509                           fsr1h	equ	0xFE2
+  1510                           fsr1l	equ	0xFE1
+  1511                           indf2	equ	0xFDF
+  1512                           postinc2	equ	0xFDE
+  1513                           postdec2	equ	0xFDD
+  1514                           fsr2h	equ	0xFDA
+  1515                           fsr2l	equ	0xFD9
+  1516                           status	equ	0xFD8
+  1517                           
+  1518 ;; *************** function _ISR *****************
+  1519 ;; Defined at:
+  1520 ;;		line 33 in file "PIC18F27J53-encoder01.c"
+  1521 ;; Parameters:    Size  Location     Type
+  1522 ;;		None
+  1523 ;; Auto vars:     Size  Location     Type
+  1524 ;;		None
+  1525 ;; Return value:  Size  Location     Type
+  1526 ;;		None               void
+  1527 ;; Registers used:
+  1528 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
+  1529 ;; Tracked objects:
+  1530 ;;		On entry : 0/0
+  1531 ;;		On exit  : 0/0
+  1532 ;;		Unchanged: 0/0
+  1533 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1534 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1535 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1536 ;;      Temps:         14       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1537 ;;      Totals:        14       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1538 ;;Total ram usage:       14 bytes
+  1539 ;; Hardware stack levels used:    1
+  1540 ;; Hardware stack levels required when called:    3
+  1541 ;; This function calls:
+  1542 ;;		_UART_ISR
+  1543 ;; This function is called by:
+  1544 ;;		Interrupt level 2
+  1545 ;; This function uses a non-reentrant model
+  1546 ;;
+  1547                           
+  1548                           	psect	intcode
+  1549  000008                     __pintcode:
+  1550                           	opt stack 0
+  1551  000008                     _ISR:
+  1552                           	opt stack 23
+  1553                           
+  1554                           ;incstack = 0
+  1555  000008  8241               	bsf	btemp,1,c	;set compiler interrupt flag (level 2)
+  1556  00000A  CFFA F011          	movff	pclath,??_ISR
+  1557  00000E  CFFB F012          	movff	pclatu,??_ISR+1
+  1558  000012  CFE9 F013          	movff	fsr0l,??_ISR+2
+  1559  000016  CFEA F014          	movff	fsr0h,??_ISR+3
+  1560  00001A  CFE1 F015          	movff	fsr1l,??_ISR+4
+  1561  00001E  CFE2 F016          	movff	fsr1h,??_ISR+5
+  1562  000022  CFD9 F017          	movff	fsr2l,??_ISR+6
+  1563  000026  CFDA F018          	movff	fsr2h,??_ISR+7
+  1564  00002A  CFF3 F019          	movff	prodl,??_ISR+8
+  1565  00002E  CFF4 F01A          	movff	prodh,??_ISR+9
+  1566  000032  CFF6 F01B          	movff	tblptrl,??_ISR+10
+  1567  000036  CFF7 F01C          	movff	tblptrh,??_ISR+11
+  1568  00003A  CFF8 F01D          	movff	tblptru,??_ISR+12
+  1569  00003E  CFF5 F01E          	movff	tablat,??_ISR+13
+  1570                           
+  1571                           ;PIC18F27J53-encoder01.c: 34: UART_ISR();
+  1572  000042  EC34  F003         	call	_UART_ISR	;wreg free
+  1573                           
+  1574                           ;PIC18F27J53-encoder01.c: 35: if(INTCONbits.TMR0IF) {
+  1575  000046  A4F2               	btfss	intcon,2,c	;volatile
+  1576  000048  D02F               	goto	i2l248
+  1577                           
+  1578                           ;PIC18F27J53-encoder01.c: 36: INTCONbits.TMR0IF = 0;
+  1579  00004A  94F2               	bcf	intcon,2,c	;volatile
+  1580                           
+  1581                           ;PIC18F27J53-encoder01.c: 37: static uint8_t prev_A;
+  1582                           ;PIC18F27J53-encoder01.c: 38: static uint8_t prev_B;
+  1583                           ;PIC18F27J53-encoder01.c: 39: LATB7 = !LATB7;
+  1584  00004C  BE8A               	btfsc	3978,7,c	;volatile
+  1585  00004E  D002               	goto	i2u74_40
+  1586  000050  8E8A               	bsf	3978,7,c	;volatile
+  1587  000052  D001               	goto	i2l1511
+  1588  000054                     i2u74_40:
+  1589  000054  9E8A               	bcf	3978,7,c	;volatile
+  1590  000056                     i2l1511:
+  1591                           
+  1592                           ;PIC18F27J53-encoder01.c: 40: if (PORTBbits.RB0 != prev_A) {
+  1593  000056  A081               	btfss	3969,0,c	;volatile
+  1594  000058  D002               	goto	i2u76_40
+  1595  00005A  0E01               	movlw	1
+  1596  00005C  D001               	goto	i2u76_46
+  1597  00005E                     i2u76_40:
+  1598  00005E  0E00               	movlw	0
+  1599  000060                     i2u76_46:
+  1600  000060  182F               	xorwf	ISR@prev_A,w,c
+  1601  000062  B4D8               	btfsc	status,2,c
+  1602  000064  D012               	goto	i2l1525
+  1603                           
+  1604                           ;PIC18F27J53-encoder01.c: 41: prev_A = PORTBbits.RB0;
+  1605  000066  0E00               	movlw	0
+  1606  000068  B081               	btfsc	3969,0,c	;volatile
+  1607  00006A  0E01               	movlw	1
+  1608  00006C  6E2F               	movwf	ISR@prev_A,c
+  1609                           
+  1610                           ;PIC18F27J53-encoder01.c: 42: if (PORTBbits.RB0) {
+  1611  00006E  A081               	btfss	3969,0,c	;volatile
+  1612  000070  D00B               	goto	i2l235
+  1613                           
+  1614                           ;PIC18F27J53-encoder01.c: 43: if (PORTBbits.RB1) {
+  1615  000072  A281               	btfss	3969,1,c	;volatile
+  1616  000074  D005               	goto	i2l1521
+  1617                           
+  1618                           ;PIC18F27J53-encoder01.c: 44: encoder--;
+  1619  000076  0100               	movlb	0	; () banked
+  1620  000078  07D6               	decf	_encoder& (0+255),f,b
+  1621  00007A  A0D8               	btfss	status,0,c
+  1622  00007C  07D7               	decf	(_encoder+1)& (0+255),f,b
+  1623                           
+  1624                           ;PIC18F27J53-encoder01.c: 45: } else {
+  1625  00007E  D005               	goto	i2l1525
+  1626  000080                     i2l1521:
+  1627                           
+  1628                           ;PIC18F27J53-encoder01.c: 46: encoder++;
+  1629  000080  0100               	movlb	0	; () banked
+  1630  000082  4BD6               	infsnz	_encoder& (0+255),f,b
+  1631  000084  2BD7               	incf	(_encoder+1)& (0+255),f,b
+  1632                           
+  1633                           ; BSR set to: 0
+  1634                           ;PIC18F27J53-encoder01.c: 47: }
+  1635                           ;PIC18F27J53-encoder01.c: 48: } else {
+  1636  000086  D001               	goto	i2l1525
+  1637  000088                     i2l235:
+  1638                           
+  1639                           ;PIC18F27J53-encoder01.c: 49: if (PORTBbits.RB1) {
+  1640  000088  5081               	movf	3969,w,c	;volatile
+  1641  00008A                     i2l1525:
+  1642                           
+  1643                           ;PIC18F27J53-encoder01.c: 53: }
+  1644                           ;PIC18F27J53-encoder01.c: 54: }
+  1645                           ;PIC18F27J53-encoder01.c: 55: }
+  1646                           ;PIC18F27J53-encoder01.c: 56: if (PORTBbits.RB1 != prev_B) {
+  1647  00008A  A281               	btfss	3969,1,c	;volatile
+  1648  00008C  D002               	goto	i2u80_40
+  1649  00008E  0E01               	movlw	1
+  1650  000090  D001               	goto	i2u80_46
+  1651  000092                     i2u80_40:
+  1652  000092  0E00               	movlw	0
+  1653  000094                     i2u80_46:
+  1654  000094  1830               	xorwf	ISR@prev_B,w,c
+  1655  000096  B4D8               	btfsc	status,2,c
+  1656  000098  D007               	goto	i2l248
+  1657                           
+  1658                           ;PIC18F27J53-encoder01.c: 57: prev_B = PORTBbits.RB1;
+  1659  00009A  0E00               	movlw	0
+  1660  00009C  B281               	btfsc	3969,1,c	;volatile
+  1661  00009E  0E01               	movlw	1
+  1662  0000A0  6E30               	movwf	ISR@prev_B,c
+  1663                           
+  1664                           ;PIC18F27J53-encoder01.c: 58: if (PORTBbits.RB1) {
+  1665  0000A2  A281               	btfss	3969,1,c	;volatile
+  1666  0000A4  D000               	goto	i2l242
+  1667  0000A6                     i2l242:
+  1668                           
+  1669                           ;PIC18F27J53-encoder01.c: 65: if (PORTBbits.RB0) {
+  1670  0000A6  5081               	movf	3969,w,c	;volatile
+  1671  0000A8                     i2l248:
+  1672  0000A8  C01E  FFF5         	movff	??_ISR+13,tablat
+  1673  0000AC  C01D  FFF8         	movff	??_ISR+12,tblptru
+  1674  0000B0  C01C  FFF7         	movff	??_ISR+11,tblptrh
+  1675  0000B4  C01B  FFF6         	movff	??_ISR+10,tblptrl
+  1676  0000B8  C01A  FFF4         	movff	??_ISR+9,prodh
+  1677  0000BC  C019  FFF3         	movff	??_ISR+8,prodl
+  1678  0000C0  C018  FFDA         	movff	??_ISR+7,fsr2h
+  1679  0000C4  C017  FFD9         	movff	??_ISR+6,fsr2l
+  1680  0000C8  C016  FFE2         	movff	??_ISR+5,fsr1h
+  1681  0000CC  C015  FFE1         	movff	??_ISR+4,fsr1l
+  1682  0000D0  C014  FFEA         	movff	??_ISR+3,fsr0h
+  1683  0000D4  C013  FFE9         	movff	??_ISR+2,fsr0l
+  1684  0000D8  C012  FFFB         	movff	??_ISR+1,pclatu
+  1685  0000DC  C011  FFFA         	movff	??_ISR,pclath
+  1686  0000E0  9241               	bcf	btemp,1,c	;clear compiler interrupt flag (level 2)
+  1687  0000E2  0011               	retfie		f
+  1688  0000E4                     __end_of_ISR:
+  1689                           	opt stack 0
+  1690                           pclatu	equ	0xFFB
+  1691                           pclath	equ	0xFFA
+  1692                           tblptru	equ	0xFF8
+  1693                           tblptrh	equ	0xFF7
+  1694                           tblptrl	equ	0xFF6
+  1695                           tablat	equ	0xFF5
+  1696                           prodh	equ	0xFF4
+  1697                           prodl	equ	0xFF3
+  1698                           intcon	equ	0xFF2
+  1699                           intcon2	equ	0xFF1
+  1700                           postinc0	equ	0xFEE
+  1701                           fsr0h	equ	0xFEA
+  1702                           fsr0l	equ	0xFE9
+  1703                           wreg	equ	0xFE8
+  1704                           postinc1	equ	0xFE6
+  1705                           postdec1	equ	0xFE5
+  1706                           fsr1h	equ	0xFE2
+  1707                           fsr1l	equ	0xFE1
+  1708                           indf2	equ	0xFDF
+  1709                           postinc2	equ	0xFDE
+  1710                           postdec2	equ	0xFDD
+  1711                           fsr2h	equ	0xFDA
+  1712                           fsr2l	equ	0xFD9
+  1713                           status	equ	0xFD8
+  1714                           
+  1715 ;; *************** function _UART_ISR *****************
+  1716 ;; Defined at:
+  1717 ;;		line 208 in file "../My_header\My_header.h"
+  1718 ;; Parameters:    Size  Location     Type
+  1719 ;;		None
+  1720 ;; Auto vars:     Size  Location     Type
+  1721 ;;  ascii           1   15[COMRAM] unsigned char 
+  1722 ;; Return value:  Size  Location     Type
+  1723 ;;		None               void
+  1724 ;; Registers used:
+  1725 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
+  1726 ;; Tracked objects:
+  1727 ;;		On entry : 0/0
+  1728 ;;		On exit  : 0/0
+  1729 ;;		Unchanged: 0/0
+  1730 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1731 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1732 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1733 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1734 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1735 ;;Total ram usage:        1 bytes
+  1736 ;; Hardware stack levels used:    1
+  1737 ;; Hardware stack levels required when called:    2
+  1738 ;; This function calls:
+  1739 ;;		_ringbuf_pop
+  1740 ;;		i2_ringbuf_num
+  1741 ;;		i2_ringbuf_put
+  1742 ;; This function is called by:
+  1743 ;;		_ISR
+  1744 ;; This function uses a non-reentrant model
+  1745 ;;
+  1746                           
+  1747                           	psect	text12
+  1748  000668                     __ptext12:
+  1749                           	opt stack 0
+  1750  000668                     _UART_ISR:
+  1751                           	opt stack 23
+  1752                           
+  1753                           ;My_header\My_header.h: 209: if (PIE1bits.TXIE && PIR1bits.TXIF) {
+  1754                           
+  1755                           ;incstack = 0
+  1756  000668  B89D               	btfsc	3997,4,c	;volatile
+  1757  00066A  A89E               	btfss	3998,4,c	;volatile
+  1758  00066C  D013               	goto	i2l163
+  1759                           
+  1760                           ;My_header\My_header.h: 210: if (ringbuf_num(&tx_buf)) {
+  1761  00066E  0E39               	movlw	low _tx_buf
+  1762  000670  6E01               	movwf	i2ringbuf_num@rb,c
+  1763  000672  0E00               	movlw	high _tx_buf
+  1764  000674  6E02               	movwf	i2ringbuf_num@rb+1,c
+  1765  000676  EC42  F001         	call	i2_ringbuf_num	;wreg free
+  1766  00067A  5001               	movf	?i2_ringbuf_num,w,c
+  1767  00067C  1002               	iorwf	?i2_ringbuf_num+1,w,c
+  1768  00067E  B4D8               	btfsc	status,2,c
+  1769  000680  D008               	goto	i2l164
+  1770                           
+  1771                           ;My_header\My_header.h: 211: TXREG1 = ringbuf_pop(&tx_buf);
+  1772  000682  0E39               	movlw	low _tx_buf
+  1773  000684  6E09               	movwf	ringbuf_pop@rb,c
+  1774  000686  0E00               	movlw	high _tx_buf
+  1775  000688  6E0A               	movwf	ringbuf_pop@rb+1,c
+  1776  00068A  EC55  F002         	call	_ringbuf_pop	;wreg free
+  1777  00068E  6EAE               	movwf	4014,c	;volatile
+  1778                           
+  1779                           ;My_header\My_header.h: 212: } else {
+  1780  000690  D001               	goto	i2l163
+  1781  000692                     i2l164:
+  1782                           
+  1783                           ;My_header\My_header.h: 213: PIE1bits.TXIE = 0;
+  1784  000692  989D               	bcf	3997,4,c	;volatile
+  1785  000694                     i2l163:
+  1786                           
+  1787                           ;My_header\My_header.h: 214: }
+  1788                           ;My_header\My_header.h: 215: }
+  1789                           ;My_header\My_header.h: 216: if (PIR1bits.RCIF && PIE1bits.RCIE) {
+  1790  000694  AA9E               	btfss	3998,5,c	;volatile
+  1791  000696  0012               	return	
+  1792  000698  AA9D               	btfss	3997,5,c	;volatile
+  1793  00069A  0012               	return	
+  1794                           
+  1795                           ;My_header\My_header.h: 217: char ascii = RCREG1;
+  1796  00069C  CFAF F010          	movff	4015,UART_ISR@ascii	;volatile
+  1797                           
+  1798                           ;My_header\My_header.h: 218: ringbuf_put(&rx_buf, ascii);
+  1799  0006A0  0E31               	movlw	low _rx_buf
+  1800  0006A2  6E09               	movwf	i2ringbuf_put@rb,c
+  1801  0006A4  0E00               	movlw	high _rx_buf
+  1802  0006A6  6E0A               	movwf	i2ringbuf_put@rb+1,c
+  1803  0006A8  C010  F00B         	movff	UART_ISR@ascii,i2ringbuf_put@asciicode
+  1804  0006AC  ECA0  F001         	call	i2_ringbuf_put	;wreg free
+  1805  0006B0  0012               	return	
+  1806  0006B2                     __end_of_UART_ISR:
+  1807                           	opt stack 0
+  1808                           pclatu	equ	0xFFB
+  1809                           pclath	equ	0xFFA
+  1810                           tblptru	equ	0xFF8
+  1811                           tblptrh	equ	0xFF7
+  1812                           tblptrl	equ	0xFF6
+  1813                           tablat	equ	0xFF5
+  1814                           prodh	equ	0xFF4
+  1815                           prodl	equ	0xFF3
+  1816                           intcon	equ	0xFF2
+  1817                           intcon2	equ	0xFF1
+  1818                           postinc0	equ	0xFEE
+  1819                           fsr0h	equ	0xFEA
+  1820                           fsr0l	equ	0xFE9
+  1821                           wreg	equ	0xFE8
+  1822                           postinc1	equ	0xFE6
+  1823                           postdec1	equ	0xFE5
+  1824                           fsr1h	equ	0xFE2
+  1825                           fsr1l	equ	0xFE1
+  1826                           indf2	equ	0xFDF
+  1827                           postinc2	equ	0xFDE
+  1828                           postdec2	equ	0xFDD
+  1829                           fsr2h	equ	0xFDA
+  1830                           fsr2l	equ	0xFD9
+  1831                           status	equ	0xFD8
+  1832                           
+  1833 ;; *************** function i2_ringbuf_put *****************
+  1834 ;; Defined at:
+  1835 ;;		line 39 in file "../My_header\My_ringbuf.h"
+  1836 ;; Parameters:    Size  Location     Type
+  1837 ;;  rb              2    8[COMRAM] PTR struct ringbuf
+  1838 ;;		 -> rx_buf(8), tx_buf(8), 
+  1839 ;;  asciicode       1   10[COMRAM] unsigned char 
+  1840 ;; Auto vars:     Size  Location     Type
+  1841 ;;		None
+  1842 ;; Return value:  Size  Location     Type
+  1843 ;;		None               void
+  1844 ;; Registers used:
+  1845 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
+  1846 ;; Tracked objects:
+  1847 ;;		On entry : 0/0
+  1848 ;;		On exit  : 0/0
+  1849 ;;		Unchanged: 0/0
+  1850 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1851 ;;      Params:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1852 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1853 ;;      Temps:          4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1854 ;;      Totals:         7       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1855 ;;Total ram usage:        7 bytes
+  1856 ;; Hardware stack levels used:    1
+  1857 ;; Hardware stack levels required when called:    1
+  1858 ;; This function calls:
+  1859 ;;		i2_ringbuf_num
+  1860 ;; This function is called by:
+  1861 ;;		_UART_ISR
+  1862 ;; This function uses a non-reentrant model
+  1863 ;;
+  1864                           
+  1865                           	psect	text13
+  1866  000340                     __ptext13:
+  1867                           	opt stack 0
+  1868  000340                     i2_ringbuf_put:
+  1869                           	opt stack 23
+  1870                           
+  1871                           ;My_header\My_ringbuf.h: 40: if (ringbuf_num(rb) < rb->size) {
+  1872                           
+  1873                           ;incstack = 0
+  1874  000340  C009  F001         	movff	i2ringbuf_put@rb,i2ringbuf_num@rb
+  1875  000344  C00A  F002         	movff	i2ringbuf_put@rb+1,i2ringbuf_num@rb+1
+  1876  000348  EC42  F001         	call	i2_ringbuf_num	;wreg free
+  1877  00034C  EE20 F002          	lfsr	2,2
+  1878  000350  5009               	movf	i2ringbuf_put@rb,w,c
+  1879  000352  26D9               	addwf	fsr2l,f,c
+  1880  000354  500A               	movf	i2ringbuf_put@rb+1,w,c
+  1881  000356  22DA               	addwfc	fsr2h,f,c
+  1882  000358  50DE               	movf	postinc2,w,c
+  1883  00035A  5C01               	subwf	?i2_ringbuf_num,w,c
+  1884  00035C  50DE               	movf	postinc2,w,c
+  1885  00035E  5802               	subwfb	?i2_ringbuf_num+1,w,c
+  1886  000360  B0D8               	btfsc	status,0,c
+  1887  000362  0012               	return	
+  1888                           
+  1889                           ;My_header\My_ringbuf.h: 41: rb->buf[rb->head] = asciicode;
+  1890  000364  EE20 F004          	lfsr	2,4
+  1891  000368  5009               	movf	i2ringbuf_put@rb,w,c
+  1892  00036A  26D9               	addwf	fsr2l,f,c
+  1893  00036C  500A               	movf	i2ringbuf_put@rb+1,w,c
+  1894  00036E  22DA               	addwfc	fsr2h,f,c
+  1895  000370  CFDE F00C          	movff	postinc2,??i2_ringbuf_put
+  1896  000374  CFDD F00D          	movff	postdec2,??i2_ringbuf_put+1
+  1897  000378  C009  FFD9         	movff	i2ringbuf_put@rb,fsr2l
+  1898  00037C  C00A  FFDA         	movff	i2ringbuf_put@rb+1,fsr2h
+  1899  000380  CFDE F00E          	movff	postinc2,??i2_ringbuf_put+2
+  1900  000384  CFDD F00F          	movff	postdec2,??i2_ringbuf_put+3
+  1901  000388  500C               	movf	??i2_ringbuf_put,w,c
+  1902  00038A  240E               	addwf	??i2_ringbuf_put+2,w,c
+  1903  00038C  6ED9               	movwf	fsr2l,c
+  1904  00038E  500D               	movf	??i2_ringbuf_put+1,w,c
+  1905  000390  200F               	addwfc	??i2_ringbuf_put+3,w,c
+  1906  000392  6EDA               	movwf	fsr2h,c
+  1907  000394  C00B  FFDF         	movff	i2ringbuf_put@asciicode,indf2
+  1908                           
+  1909                           ;My_header\My_ringbuf.h: 42: if (rb->head + 1 < rb->size) rb->head++;
+  1910  000398  EE20 F002          	lfsr	2,2
+  1911  00039C  5009               	movf	i2ringbuf_put@rb,w,c
+  1912  00039E  26D9               	addwf	fsr2l,f,c
+  1913  0003A0  500A               	movf	i2ringbuf_put@rb+1,w,c
+  1914  0003A2  22DA               	addwfc	fsr2h,f,c
+  1915  0003A4  EE10 F004          	lfsr	1,4
+  1916  0003A8  5009               	movf	i2ringbuf_put@rb,w,c
+  1917  0003AA  26E1               	addwf	fsr1l,f,c
+  1918  0003AC  500A               	movf	i2ringbuf_put@rb+1,w,c
+  1919  0003AE  22E2               	addwfc	fsr1h,f,c
+  1920  0003B0  CFE6 F00E          	movff	postinc1,??i2_ringbuf_put+2
+  1921  0003B4  CFE5 F00F          	movff	postdec1,??i2_ringbuf_put+3
+  1922  0003B8  0E01               	movlw	1
+  1923  0003BA  260E               	addwf	??i2_ringbuf_put+2,f,c
+  1924  0003BC  0E00               	movlw	0
+  1925  0003BE  220F               	addwfc	??i2_ringbuf_put+3,f,c
+  1926  0003C0  50DE               	movf	postinc2,w,c
+  1927  0003C2  5C0E               	subwf	??i2_ringbuf_put+2,w,c
+  1928  0003C4  50DE               	movf	postinc2,w,c
+  1929  0003C6  580F               	subwfb	??i2_ringbuf_put+3,w,c
+  1930  0003C8  B0D8               	btfsc	status,0,c
+  1931  0003CA  D00A               	goto	i2l1397
+  1932  0003CC  EE20 F004          	lfsr	2,4
+  1933  0003D0  5009               	movf	i2ringbuf_put@rb,w,c
+  1934  0003D2  26D9               	addwf	fsr2l,f,c
+  1935  0003D4  500A               	movf	i2ringbuf_put@rb+1,w,c
+  1936  0003D6  22DA               	addwfc	fsr2h,f,c
+  1937  0003D8  2ADE               	incf	postinc2,f,c
+  1938  0003DA  0E00               	movlw	0
+  1939  0003DC  22DD               	addwfc	postdec2,f,c
+  1940  0003DE  0012               	return	
+  1941  0003E0                     i2l1397:
+  1942                           
+  1943                           ;My_header\My_ringbuf.h: 43: else rb->head = 0;
+  1944  0003E0  EE20 F004          	lfsr	2,4
+  1945  0003E4  5009               	movf	i2ringbuf_put@rb,w,c
+  1946  0003E6  26D9               	addwf	fsr2l,f,c
+  1947  0003E8  500A               	movf	i2ringbuf_put@rb+1,w,c
+  1948  0003EA  22DA               	addwfc	fsr2h,f,c
+  1949  0003EC  0E00               	movlw	0
+  1950  0003EE  6EDE               	movwf	postinc2,c
+  1951  0003F0  0E00               	movlw	0
+  1952  0003F2  6EDD               	movwf	postdec2,c
+  1953  0003F4  0012               	return	
+  1954  0003F6                     __end_ofi2_ringbuf_put:
+  1955                           	opt stack 0
+  1956                           pclatu	equ	0xFFB
+  1957                           pclath	equ	0xFFA
+  1958                           tblptru	equ	0xFF8
+  1959                           tblptrh	equ	0xFF7
+  1960                           tblptrl	equ	0xFF6
+  1961                           tablat	equ	0xFF5
+  1962                           prodh	equ	0xFF4
+  1963                           prodl	equ	0xFF3
+  1964                           intcon	equ	0xFF2
+  1965                           intcon2	equ	0xFF1
+  1966                           postinc0	equ	0xFEE
+  1967                           fsr0h	equ	0xFEA
+  1968                           fsr0l	equ	0xFE9
+  1969                           wreg	equ	0xFE8
+  1970                           postinc1	equ	0xFE6
+  1971                           postdec1	equ	0xFE5
+  1972                           fsr1h	equ	0xFE2
+  1973                           fsr1l	equ	0xFE1
+  1974                           indf2	equ	0xFDF
+  1975                           postinc2	equ	0xFDE
+  1976                           postdec2	equ	0xFDD
+  1977                           fsr2h	equ	0xFDA
+  1978                           fsr2l	equ	0xFD9
+  1979                           status	equ	0xFD8
+  1980                           
+  1981 ;; *************** function _ringbuf_pop *****************
+  1982 ;; Defined at:
+  1983 ;;		line 64 in file "../My_header\My_ringbuf.h"
+  1984 ;; Parameters:    Size  Location     Type
+  1985 ;;  rb              2    8[COMRAM] PTR struct ringbuf
+  1986 ;;		 -> tx_buf(8), 
+  1987 ;; Auto vars:     Size  Location     Type
+  1988 ;;  ret             1   14[COMRAM] unsigned char 
+  1989 ;; Return value:  Size  Location     Type
+  1990 ;;                  1    wreg      unsigned char 
+  1991 ;; Registers used:
+  1992 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
+  1993 ;; Tracked objects:
+  1994 ;;		On entry : 0/0
+  1995 ;;		On exit  : 0/0
+  1996 ;;		Unchanged: 0/0
+  1997 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1998 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1999 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  2000 ;;      Temps:          4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  2001 ;;      Totals:         7       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  2002 ;;Total ram usage:        7 bytes
+  2003 ;; Hardware stack levels used:    1
+  2004 ;; Hardware stack levels required when called:    1
+  2005 ;; This function calls:
+  2006 ;;		i2_ringbuf_num
+  2007 ;; This function is called by:
+  2008 ;;		_UART_ISR
+  2009 ;; This function uses a non-reentrant model
+  2010 ;;
+  2011                           
+  2012                           	psect	text14
+  2013  0004AA                     __ptext14:
+  2014                           	opt stack 0
+  2015  0004AA                     _ringbuf_pop:
+  2016                           	opt stack 23
+  2017                           
+  2018                           ;My_header\My_ringbuf.h: 65: if (ringbuf_num(rb)) {
+  2019                           
+  2020                           ;incstack = 0
+  2021  0004AA  C009  F001         	movff	ringbuf_pop@rb,i2ringbuf_num@rb
+  2022  0004AE  C00A  F002         	movff	ringbuf_pop@rb+1,i2ringbuf_num@rb+1
+  2023  0004B2  EC42  F001         	call	i2_ringbuf_num	;wreg free
+  2024  0004B6  5001               	movf	?i2_ringbuf_num,w,c
+  2025  0004B8  1002               	iorwf	?i2_ringbuf_num+1,w,c
+  2026  0004BA  B4D8               	btfsc	status,2,c
+  2027  0004BC  D04A               	goto	i2l1343
+  2028                           
+  2029                           ;My_header\My_ringbuf.h: 66: char ret = rb->buf[rb->tail];
+  2030  0004BE  EE20 F006          	lfsr	2,6
+  2031  0004C2  5009               	movf	ringbuf_pop@rb,w,c
+  2032  0004C4  26D9               	addwf	fsr2l,f,c
+  2033  0004C6  500A               	movf	ringbuf_pop@rb+1,w,c
+  2034  0004C8  22DA               	addwfc	fsr2h,f,c
+  2035  0004CA  CFDE F00B          	movff	postinc2,??_ringbuf_pop
+  2036  0004CE  CFDD F00C          	movff	postdec2,??_ringbuf_pop+1
+  2037  0004D2  C009  FFD9         	movff	ringbuf_pop@rb,fsr2l
+  2038  0004D6  C00A  FFDA         	movff	ringbuf_pop@rb+1,fsr2h
+  2039  0004DA  CFDE F00D          	movff	postinc2,??_ringbuf_pop+2
+  2040  0004DE  CFDD F00E          	movff	postdec2,??_ringbuf_pop+3
+  2041  0004E2  500B               	movf	??_ringbuf_pop,w,c
+  2042  0004E4  240D               	addwf	??_ringbuf_pop+2,w,c
+  2043  0004E6  6ED9               	movwf	fsr2l,c
+  2044  0004E8  500C               	movf	??_ringbuf_pop+1,w,c
+  2045  0004EA  200E               	addwfc	??_ringbuf_pop+3,w,c
+  2046  0004EC  6EDA               	movwf	fsr2h,c
+  2047  0004EE  50DF               	movf	indf2,w,c
+  2048  0004F0  6E0F               	movwf	ringbuf_pop@ret,c
+  2049                           
+  2050                           ;My_header\My_ringbuf.h: 67: if (rb->tail + 1 < rb->size) {
+  2051  0004F2  EE20 F002          	lfsr	2,2
+  2052  0004F6  5009               	movf	ringbuf_pop@rb,w,c
+  2053  0004F8  26D9               	addwf	fsr2l,f,c
+  2054  0004FA  500A               	movf	ringbuf_pop@rb+1,w,c
+  2055  0004FC  22DA               	addwfc	fsr2h,f,c
+  2056  0004FE  EE10 F006          	lfsr	1,6
+  2057  000502  5009               	movf	ringbuf_pop@rb,w,c
+  2058  000504  26E1               	addwf	fsr1l,f,c
+  2059  000506  500A               	movf	ringbuf_pop@rb+1,w,c
+  2060  000508  22E2               	addwfc	fsr1h,f,c
+  2061  00050A  CFE6 F00D          	movff	postinc1,??_ringbuf_pop+2
+  2062  00050E  CFE5 F00E          	movff	postdec1,??_ringbuf_pop+3
+  2063  000512  0E01               	movlw	1
+  2064  000514  260D               	addwf	??_ringbuf_pop+2,f,c
+  2065  000516  0E00               	movlw	0
+  2066  000518  220E               	addwfc	??_ringbuf_pop+3,f,c
+  2067  00051A  50DE               	movf	postinc2,w,c
+  2068  00051C  5C0D               	subwf	??_ringbuf_pop+2,w,c
+  2069  00051E  50DE               	movf	postinc2,w,c
+  2070  000520  580E               	subwfb	??_ringbuf_pop+3,w,c
+  2071  000522  B0D8               	btfsc	status,0,c
+  2072  000524  D00A               	goto	i2l1335
+  2073                           
+  2074                           ;My_header\My_ringbuf.h: 68: rb->tail++;
+  2075  000526  EE20 F006          	lfsr	2,6
+  2076  00052A  5009               	movf	ringbuf_pop@rb,w,c
+  2077  00052C  26D9               	addwf	fsr2l,f,c
+  2078  00052E  500A               	movf	ringbuf_pop@rb+1,w,c
+  2079  000530  22DA               	addwfc	fsr2h,f,c
+  2080  000532  2ADE               	incf	postinc2,f,c
+  2081  000534  0E00               	movlw	0
+  2082  000536  22DD               	addwfc	postdec2,f,c
+  2083                           
+  2084                           ;My_header\My_ringbuf.h: 69: } else {
+  2085  000538  D00A               	goto	i2l1337
+  2086  00053A                     i2l1335:
+  2087                           
+  2088                           ;My_header\My_ringbuf.h: 70: rb->tail = 0;
+  2089  00053A  EE20 F006          	lfsr	2,6
+  2090  00053E  5009               	movf	ringbuf_pop@rb,w,c
+  2091  000540  26D9               	addwf	fsr2l,f,c
+  2092  000542  500A               	movf	ringbuf_pop@rb+1,w,c
+  2093  000544  22DA               	addwfc	fsr2h,f,c
+  2094  000546  0E00               	movlw	0
+  2095  000548  6EDE               	movwf	postinc2,c
+  2096  00054A  0E00               	movlw	0
+  2097  00054C  6EDD               	movwf	postdec2,c
+  2098  00054E                     i2l1337:
+  2099                           
+  2100                           ;My_header\My_ringbuf.h: 71: }
+  2101                           ;My_header\My_ringbuf.h: 72: return ret;
+  2102  00054E  500F               	movf	ringbuf_pop@ret,w,c
+  2103                           
+  2104                           ;My_header\My_ringbuf.h: 73: } else {
+  2105  000550  0012               	return	
+  2106  000552                     i2l1343:
+  2107                           
+  2108                           ;My_header\My_ringbuf.h: 74: return 0;
+  2109  000552  0E00               	movlw	0
+  2110  000554  0012               	return	
+  2111  000556                     __end_of_ringbuf_pop:
+  2112                           	opt stack 0
+  2113                           pclatu	equ	0xFFB
+  2114                           pclath	equ	0xFFA
+  2115                           tblptru	equ	0xFF8
+  2116                           tblptrh	equ	0xFF7
+  2117                           tblptrl	equ	0xFF6
+  2118                           tablat	equ	0xFF5
+  2119                           prodh	equ	0xFF4
+  2120                           prodl	equ	0xFF3
+  2121                           intcon	equ	0xFF2
+  2122                           intcon2	equ	0xFF1
+  2123                           postinc0	equ	0xFEE
+  2124                           fsr0h	equ	0xFEA
+  2125                           fsr0l	equ	0xFE9
+  2126                           wreg	equ	0xFE8
+  2127                           postinc1	equ	0xFE6
+  2128                           postdec1	equ	0xFE5
+  2129                           fsr1h	equ	0xFE2
+  2130                           fsr1l	equ	0xFE1
+  2131                           indf2	equ	0xFDF
+  2132                           postinc2	equ	0xFDE
+  2133                           postdec2	equ	0xFDD
+  2134                           fsr2h	equ	0xFDA
+  2135                           fsr2l	equ	0xFD9
+  2136                           status	equ	0xFD8
+  2137                           
+  2138 ;; *************** function i2_ringbuf_num *****************
+  2139 ;; Defined at:
+  2140 ;;		line 31 in file "../My_header\My_ringbuf.h"
+  2141 ;; Parameters:    Size  Location     Type
+  2142 ;;  rb              2    0[COMRAM] PTR struct ringbuf
+  2143 ;;		 -> rx_buf(8), tx_buf(8), 
+  2144 ;; Auto vars:     Size  Location     Type
+  2145 ;;		None
+  2146 ;; Return value:  Size  Location     Type
+  2147 ;;                  2    0[COMRAM] unsigned int 
+  2148 ;; Registers used:
+  2149 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0
+  2150 ;; Tracked objects:
+  2151 ;;		On entry : 0/0
+  2152 ;;		On exit  : 0/0
+  2153 ;;		Unchanged: 0/0
+  2154 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  2155 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  2156 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  2157 ;;      Temps:          6       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  2158 ;;      Totals:         8       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  2159 ;;Total ram usage:        8 bytes
+  2160 ;; Hardware stack levels used:    1
+  2161 ;; This function calls:
+  2162 ;;		Nothing
+  2163 ;; This function is called by:
+  2164 ;;		_ringbuf_pop
+  2165 ;;		_UART_ISR
+  2166 ;;		i2_ringbuf_put
+  2167 ;; This function uses a non-reentrant model
+  2168 ;;
+  2169                           
+  2170                           	psect	text15
+  2171  000284                     __ptext15:
+  2172                           	opt stack 0
+  2173  000284                     i2_ringbuf_num:
+  2174                           	opt stack 23
+  2175                           
+  2176                           ;My_header\My_ringbuf.h: 32: if (rb->head >= rb->tail) {
+  2177                           
+  2178                           ;incstack = 0
+  2179  000284  EE20 F006          	lfsr	2,6
+  2180  000288  5001               	movf	i2ringbuf_num@rb,w,c
+  2181  00028A  26D9               	addwf	fsr2l,f,c
+  2182  00028C  5002               	movf	i2ringbuf_num@rb+1,w,c
+  2183  00028E  22DA               	addwfc	fsr2h,f,c
+  2184  000290  EE10 F004          	lfsr	1,4
+  2185  000294  5001               	movf	i2ringbuf_num@rb,w,c
+  2186  000296  26E1               	addwf	fsr1l,f,c
+  2187  000298  5002               	movf	i2ringbuf_num@rb+1,w,c
+  2188  00029A  22E2               	addwfc	fsr1h,f,c
+  2189  00029C  50DE               	movf	postinc2,w,c
+  2190  00029E  5CE6               	subwf	postinc1,w,c
+  2191  0002A0  50DE               	movf	postinc2,w,c
+  2192  0002A2  58E6               	subwfb	postinc1,w,c
+  2193  0002A4  A0D8               	btfss	status,0,c
+  2194  0002A6  D01F               	goto	i2l1323
+  2195                           
+  2196                           ;My_header\My_ringbuf.h: 33: return (rb->head - rb->tail);
+  2197  0002A8  EE20 F004          	lfsr	2,4
+  2198  0002AC  5001               	movf	i2ringbuf_num@rb,w,c
+  2199  0002AE  26D9               	addwf	fsr2l,f,c
+  2200  0002B0  5002               	movf	i2ringbuf_num@rb+1,w,c
+  2201  0002B2  22DA               	addwfc	fsr2h,f,c
+  2202  0002B4  CFDE F003          	movff	postinc2,??i2_ringbuf_num
+  2203  0002B8  CFDD F004          	movff	postdec2,??i2_ringbuf_num+1
+  2204  0002BC  EE20 F006          	lfsr	2,6
+  2205  0002C0  5001               	movf	i2ringbuf_num@rb,w,c
+  2206  0002C2  26D9               	addwf	fsr2l,f,c
+  2207  0002C4  5002               	movf	i2ringbuf_num@rb+1,w,c
+  2208  0002C6  22DA               	addwfc	fsr2h,f,c
+  2209  0002C8  CFDE F005          	movff	postinc2,??i2_ringbuf_num+2
+  2210  0002CC  CFDD F006          	movff	postdec2,??i2_ringbuf_num+3
+  2211  0002D0  1E05               	comf	??i2_ringbuf_num+2,f,c
+  2212  0002D2  1E06               	comf	??i2_ringbuf_num+3,f,c
+  2213  0002D4  4A05               	infsnz	??i2_ringbuf_num+2,f,c
+  2214  0002D6  2A06               	incf	??i2_ringbuf_num+3,f,c
+  2215  0002D8  5003               	movf	??i2_ringbuf_num,w,c
+  2216  0002DA  2405               	addwf	??i2_ringbuf_num+2,w,c
+  2217  0002DC  6E01               	movwf	?i2_ringbuf_num,c
+  2218  0002DE  5004               	movf	??i2_ringbuf_num+1,w,c
+  2219  0002E0  2006               	addwfc	??i2_ringbuf_num+3,w,c
+  2220  0002E2  6E02               	movwf	?i2_ringbuf_num+1,c
+  2221                           
+  2222                           ;My_header\My_ringbuf.h: 34: } else {
+  2223  0002E4  0012               	return	
+  2224  0002E6                     i2l1323:
+  2225                           
+  2226                           ;My_header\My_ringbuf.h: 35: return (rb->size + rb->head - rb->tail);
+  2227  0002E6  EE20 F004          	lfsr	2,4
+  2228  0002EA  5001               	movf	i2ringbuf_num@rb,w,c
+  2229  0002EC  26D9               	addwf	fsr2l,f,c
+  2230  0002EE  5002               	movf	i2ringbuf_num@rb+1,w,c
+  2231  0002F0  22DA               	addwfc	fsr2h,f,c
+  2232  0002F2  CFDE F003          	movff	postinc2,??i2_ringbuf_num
+  2233  0002F6  CFDD F004          	movff	postdec2,??i2_ringbuf_num+1
+  2234  0002FA  EE20 F002          	lfsr	2,2
+  2235  0002FE  5001               	movf	i2ringbuf_num@rb,w,c
+  2236  000300  26D9               	addwf	fsr2l,f,c
+  2237  000302  5002               	movf	i2ringbuf_num@rb+1,w,c
+  2238  000304  22DA               	addwfc	fsr2h,f,c
+  2239  000306  CFDE F005          	movff	postinc2,??i2_ringbuf_num+2
+  2240  00030A  CFDD F006          	movff	postdec2,??i2_ringbuf_num+3
+  2241  00030E  EE20 F006          	lfsr	2,6
+  2242  000312  5001               	movf	i2ringbuf_num@rb,w,c
+  2243  000314  26D9               	addwf	fsr2l,f,c
+  2244  000316  5002               	movf	i2ringbuf_num@rb+1,w,c
+  2245  000318  22DA               	addwfc	fsr2h,f,c
+  2246  00031A  CFDE F007          	movff	postinc2,??i2_ringbuf_num+4
+  2247  00031E  CFDD F008          	movff	postdec2,??i2_ringbuf_num+5
+  2248  000322  1E07               	comf	??i2_ringbuf_num+4,f,c
+  2249  000324  1E08               	comf	??i2_ringbuf_num+5,f,c
+  2250  000326  4A07               	infsnz	??i2_ringbuf_num+4,f,c
+  2251  000328  2A08               	incf	??i2_ringbuf_num+5,f,c
+  2252  00032A  5005               	movf	??i2_ringbuf_num+2,w,c
+  2253  00032C  2607               	addwf	??i2_ringbuf_num+4,f,c
+  2254  00032E  5006               	movf	??i2_ringbuf_num+3,w,c
+  2255  000330  2208               	addwfc	??i2_ringbuf_num+5,f,c
+  2256  000332  5003               	movf	??i2_ringbuf_num,w,c
+  2257  000334  2407               	addwf	??i2_ringbuf_num+4,w,c
+  2258  000336  6E01               	movwf	?i2_ringbuf_num,c
+  2259  000338  5004               	movf	??i2_ringbuf_num+1,w,c
+  2260  00033A  2008               	addwfc	??i2_ringbuf_num+5,w,c
+  2261  00033C  6E02               	movwf	?i2_ringbuf_num+1,c
+  2262  00033E  0012               	return	
+  2263  000340                     __end_ofi2_ringbuf_num:
+  2264                           	opt stack 0
+  2265  0000                     pclatu	equ	0xFFB
+  2266                           pclath	equ	0xFFA
+  2267                           tblptru	equ	0xFF8
+  2268                           tblptrh	equ	0xFF7
+  2269                           tblptrl	equ	0xFF6
+  2270                           tablat	equ	0xFF5
+  2271                           prodh	equ	0xFF4
+  2272                           prodl	equ	0xFF3
+  2273                           intcon	equ	0xFF2
+  2274                           intcon2	equ	0xFF1
+  2275                           postinc0	equ	0xFEE
+  2276                           fsr0h	equ	0xFEA
+  2277                           fsr0l	equ	0xFE9
+  2278                           wreg	equ	0xFE8
+  2279                           postinc1	equ	0xFE6
+  2280                           postdec1	equ	0xFE5
+  2281                           fsr1h	equ	0xFE2
+  2282                           fsr1l	equ	0xFE1
+  2283                           indf2	equ	0xFDF
+  2284                           postinc2	equ	0xFDE
+  2285                           postdec2	equ	0xFDD
+  2286                           fsr2h	equ	0xFDA
+  2287                           fsr2l	equ	0xFD9
+  2288                           status	equ	0xFD8
+  2289                           pclatu	equ	0xFFB
+  2290                           pclath	equ	0xFFA
+  2291                           tblptru	equ	0xFF8
+  2292                           tblptrh	equ	0xFF7
+  2293                           tblptrl	equ	0xFF6
+  2294                           tablat	equ	0xFF5
+  2295                           prodh	equ	0xFF4
+  2296                           prodl	equ	0xFF3
+  2297                           intcon	equ	0xFF2
+  2298                           intcon2	equ	0xFF1
+  2299                           postinc0	equ	0xFEE
+  2300                           fsr0h	equ	0xFEA
+  2301                           fsr0l	equ	0xFE9
+  2302                           wreg	equ	0xFE8
+  2303                           postinc1	equ	0xFE6
+  2304                           postdec1	equ	0xFE5
+  2305                           fsr1h	equ	0xFE2
+  2306                           fsr1l	equ	0xFE1
+  2307                           indf2	equ	0xFDF
+  2308                           postinc2	equ	0xFDE
+  2309                           postdec2	equ	0xFDD
+  2310                           fsr2h	equ	0xFDA
+  2311                           fsr2l	equ	0xFD9
+  2312                           status	equ	0xFD8
+  2313                           
+  2314                           	psect	rparam
+  2315  0000                     pclatu	equ	0xFFB
+  2316                           pclath	equ	0xFFA
+  2317                           tblptru	equ	0xFF8
+  2318                           tblptrh	equ	0xFF7
+  2319                           tblptrl	equ	0xFF6
+  2320                           tablat	equ	0xFF5
+  2321                           prodh	equ	0xFF4
+  2322                           prodl	equ	0xFF3
+  2323                           intcon	equ	0xFF2
+  2324                           intcon2	equ	0xFF1
+  2325                           postinc0	equ	0xFEE
+  2326                           fsr0h	equ	0xFEA
+  2327                           fsr0l	equ	0xFE9
+  2328                           wreg	equ	0xFE8
+  2329                           postinc1	equ	0xFE6
+  2330                           postdec1	equ	0xFE5
+  2331                           fsr1h	equ	0xFE2
+  2332                           fsr1l	equ	0xFE1
+  2333                           indf2	equ	0xFDF
+  2334                           postinc2	equ	0xFDE
+  2335                           postdec2	equ	0xFDD
+  2336                           fsr2h	equ	0xFDA
+  2337                           fsr2l	equ	0xFD9
+  2338                           status	equ	0xFD8
+  2339                           
+  2340                           	psect	temp
+  2341  000041                     btemp:
+  2342                           	opt stack 0
+  2343  000041                     	ds	1
+  2344  0000                     int$flags	set	btemp
+  2345                           pclatu	equ	0xFFB
+  2346                           pclath	equ	0xFFA
+  2347                           tblptru	equ	0xFF8
+  2348                           tblptrh	equ	0xFF7
+  2349                           tblptrl	equ	0xFF6
+  2350                           tablat	equ	0xFF5
+  2351                           prodh	equ	0xFF4
+  2352                           prodl	equ	0xFF3
+  2353                           intcon	equ	0xFF2
+  2354                           intcon2	equ	0xFF1
+  2355                           postinc0	equ	0xFEE
+  2356                           fsr0h	equ	0xFEA
+  2357                           fsr0l	equ	0xFE9
+  2358                           wreg	equ	0xFE8
+  2359                           postinc1	equ	0xFE6
+  2360                           postdec1	equ	0xFE5
+  2361                           fsr1h	equ	0xFE2
+  2362                           fsr1l	equ	0xFE1
+  2363                           indf2	equ	0xFDF
+  2364                           postinc2	equ	0xFDE
+  2365                           postdec2	equ	0xFDD
+  2366                           fsr2h	equ	0xFDA
+  2367                           fsr2l	equ	0xFD9
+  2368                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         31
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           94     37      64
+    BANK0           160    118     122
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+    BANK13          256      0       0
+    BANK14          176      0       0
+
+Pointer List with Targets:
+
+    rx_buf.buf	PTR unsigned char  size(2) Largest target is 100
+		 -> main@txbuf(BANK0[100]), 
+
+    tx_buf.buf	PTR unsigned char  size(2) Largest target is 100
+		 -> main@txbuf(BANK0[100]), 
+
+    ringbuf_delete@rb.buf	PTR unsigned char  size(2) Largest target is 100
+		 -> main@txbuf(BANK0[100]), 
+
+    ringbuf_backspace@rb.buf	PTR unsigned char  size(2) Largest target is 100
+		 -> main@txbuf(BANK0[100]), 
+
+    ringbuf_pop@rb.buf	PTR unsigned char  size(2) Largest target is 100
+		 -> main@txbuf(BANK0[100]), 
+
+    ringbuf_pop@rb	PTR struct ringbuf size(2) Largest target is 9
+		 -> tx_buf(COMRAM[8]), 
+
+    ringbuf_put@rb.buf	PTR unsigned char  size(2) Largest target is 100
+		 -> main@txbuf(BANK0[100]), 
+
+    ringbuf_put@rb	PTR struct ringbuf size(2) Largest target is 9
+		 -> rx_buf(COMRAM[8]), tx_buf(COMRAM[8]), 
+
+    ringbuf_num@rb.buf	PTR unsigned char  size(2) Largest target is 100
+		 -> main@txbuf(BANK0[100]), 
+
+    ringbuf_num@rb	PTR struct ringbuf size(2) Largest target is 9
+		 -> rx_buf(COMRAM[8]), tx_buf(COMRAM[8]), 
+
+    S790ringbuf$buf	PTR unsigned char  size(2) Largest target is 100
+		 -> main@txbuf(BANK0[100]), 
+
+    ringbuf_init@rb.buf	PTR unsigned char  size(2) Largest target is 100
+		 -> main@txbuf(BANK0[100]), 
+
+    ringbuf_init@internal_buf	PTR unsigned char  size(2) Largest target is 100
+		 -> main@txbuf(BANK0[100]), 
+
+    ringbuf_init@rb	PTR struct ringbuf size(2) Largest target is 9
+		 -> tx_buf(COMRAM[8]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _tx_sendn->___lwdiv
+    _tx_send->_ringbuf_put
+    _ringbuf_put->_ringbuf_num
+
+Critical Paths under _ISR in COMRAM
+
+    _ISR->_UART_ISR
+    _UART_ISR->_ringbuf_pop
+    _UART_ISR->i2_ringbuf_put
+    i2_ringbuf_put->i2_ringbuf_num
+    _ringbuf_pop->i2_ringbuf_num
+
+Critical Paths under _main in BANK0
+
+    _main->_tx_sendn
+    _tx_send->_ringbuf_put
+    _ringbuf_put->_ringbuf_num
+
+Critical Paths under _ISR in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _ISR in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _ISR in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _ISR in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _ISR in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _ISR in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _ISR in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _ISR in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _ISR in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _ISR in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _ISR in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _ISR in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _ISR in BANK12
+
+    None.
+
+Critical Paths under _main in BANK13
+
+    None.
+
+Critical Paths under _ISR in BANK13
+
+    None.
+
+Critical Paths under _main in BANK14
+
+    None.
+
+Critical Paths under _ISR in BANK14
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                               102   102      0    4973
+                                             16 BANK0    102   102      0
+                           _OSC_init
+                          _UART_init
+                       _ringbuf_init
+                        _timer0_init
+                            _tx_send
+                           _tx_sendn
+ ---------------------------------------------------------------------------------
+ (1) _tx_sendn                                             6     3      3    3094
+                                             10 BANK0      6     3      3
+                            ___lwdiv
+                            ___lwmod
+                            _tx_send
+ ---------------------------------------------------------------------------------
+ (2) _tx_send                                              1     1      0    1465
+                                             35 COMRAM     1     1      0
+                        _ringbuf_put
+ ---------------------------------------------------------------------------------
+ (3) _ringbuf_put                                          7     4      3    1434
+                                             32 COMRAM     3     0      3
+                                              6 BANK0      4     4      0
+                        _ringbuf_num
+ ---------------------------------------------------------------------------------
+ (4) _ringbuf_num                                          8     6      2     455
+                                             30 COMRAM     2     0      2
+                                              0 BANK0      6     6      0
+ ---------------------------------------------------------------------------------
+ (2) ___lwmod                                              5     1      4     540
+                                             30 COMRAM     5     1      4
+ ---------------------------------------------------------------------------------
+ (2) ___lwdiv                                              7     3      4     549
+                                             30 COMRAM     7     3      4
+ ---------------------------------------------------------------------------------
+ (1) _timer0_init                                          2     2      0      44
+                                             30 COMRAM     2     2      0
+ ---------------------------------------------------------------------------------
+ (1) _ringbuf_init                                         6     0      6     324
+                                             30 COMRAM     6     0      6
+ ---------------------------------------------------------------------------------
+ (1) _UART_init                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _OSC_init                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (5) _ISR                                                 14    14      0    1210
+                                             16 COMRAM    14    14      0
+                           _UART_ISR
+ ---------------------------------------------------------------------------------
+ (6) _UART_ISR                                             1     1      0    1210
+                                             15 COMRAM     1     1      0
+                        _ringbuf_pop
+                      i2_ringbuf_num
+                      i2_ringbuf_put
+ ---------------------------------------------------------------------------------
+ (7) i2_ringbuf_put                                        7     4      3     482
+                                              8 COMRAM     7     4      3
+                      i2_ringbuf_num
+ ---------------------------------------------------------------------------------
+ (7) _ringbuf_pop                                          7     5      2     473
+                                              8 COMRAM     7     5      2
+                      i2_ringbuf_num
+ ---------------------------------------------------------------------------------
+ (8) i2_ringbuf_num                                        8     6      2     232
+                                              0 COMRAM     8     6      2
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 8
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _OSC_init
+   _UART_init
+   _ringbuf_init
+   _timer0_init
+   _tx_send
+     _ringbuf_put
+       _ringbuf_num
+   _tx_sendn
+     ___lwdiv
+     ___lwmod
+     _tx_send
+       _ringbuf_put
+         _ringbuf_num
+
+ _ISR (ROOT)
+   _UART_ISR
+     _ringbuf_pop
+       i2_ringbuf_num
+     i2_ringbuf_num
+     i2_ringbuf_put
+       i2_ringbuf_num
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             EAF      0       0      35        0.0%
+BITBANK13          100      0       0      31        0.0%
+BANK13             100      0       0      32        0.0%
+BITBANK12          100      0       0      29        0.0%
+BANK12             100      0       0      30        0.0%
+BITBANK11          100      0       0      27        0.0%
+BANK11             100      0       0      28        0.0%
+BITBANK10          100      0       0      25        0.0%
+BANK10             100      0       0      26        0.0%
+BITBANK9           100      0       0      23        0.0%
+BANK9              100      0       0      24        0.0%
+BITBANK8           100      0       0      21        0.0%
+BANK8              100      0       0      22        0.0%
+BITBANK7           100      0       0      19        0.0%
+BANK7              100      0       0      20        0.0%
+BITBANK6           100      0       0      17        0.0%
+BANK6              100      0       0      18        0.0%
+BITBANK5           100      0       0      15        0.0%
+BANK5              100      0       0      16        0.0%
+BITBANK4           100      0       0      13        0.0%
+BANK4              100      0       0      14        0.0%
+BITBANK3           100      0       0      11        0.0%
+BANK3              100      0       0      12        0.0%
+BITBANK2           100      0       0       9        0.0%
+BANK2              100      0       0      10        0.0%
+BITBANK1           100      0       0       7        0.0%
+BANK1              100      0       0       8        0.0%
+BITBANK14           B0      0       0      33        0.0%
+BANK14              B0      0       0      34        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0     76      7A       5       76.3%
+BITCOMRAM           5E      0       0       0        0.0%
+COMRAM              5E     25      40       1       68.1%
+BITSFR_2             0      0       0      40        0.0%
+SFR_2                0      0       0      40        0.0%
+BITSFR_1             0      0       0      40        0.0%
+SFR_1                0      0       0      40        0.0%
+BITSFR               0      0       0      40        0.0%
+SFR                  0      0       0      40        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      BA       6        0.0%
+DATA                 0      0      BA       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.35 build -356382666 
+Symbol Table                                                                                   Mon Nov 16 19:16:31 2015
+
+                      l83 0706                        _d1 002A                        _ms 0026  
+            __CFG_CP0$OFF 000000                       l180 0558                       l662 0610  
+                     l672 06EA                       _ISR 0008                       wreg 000FE8  
+              _TXSTA1bits 000FAD                      ?_ISR 0001                      l1407 071A  
+                    l1601 05DE                      l1603 05E6                      l1613 0606  
+                    l1605 05EA                      l1621 06C0                      l1623 06C8  
+                    l1625 06CC                      l1641 0588                      l1629 06E0  
+                    l1637 0568                      l1717 0490                      l1709 043A  
+                    l1647 05BA                      l1577 0154                      l1589 026E  
+      __CFG_WPFP$PAGE_127 000000                      u1000 0450                      _main 03F6  
+                    fsr0h 000FEA                      fsr1h 000FE2                      fsr0l 000FE9  
+                    fsr2h 000FDA                      fsr1l 000FE1                      indf2 000FDF  
+                    fsr2l 000FD9                      btemp 0041    __CFG_DSWDTOSC$T1OSCREF 000000  
+                    pclat 000FFA                      prodh 000FF4                      prodl 000FF3  
+                    start 00E4             __CFG_IESO$OFF 000000              ___param_bank 000010  
+   __end_ofi2_ringbuf_num 0340     __end_ofi2_ringbuf_put 03F6                     ??_ISR 0011  
+           __CFG_PLLDIV$2 000000              _BAUDCON1bits 000F7E                     ?_main 0001  
+                   _ADRES 000FC3                     _LATB7 007C57           __end_of___lwdiv 061A  
+         __end_of___lwmod 06F4                     i2l242 00A6                     i2l163 0694  
+                   i2l235 0088                     i2l164 0692                     i2l248 00A8  
+                   _TRISA 000F92                     _TRISB 000F93                     _TRISC 000F94  
+          __CFG_FCMEN$OFF 000000          __end_of_UART_ISR 06B2        __size_of_UART_init 0020  
+        __end_of_OSC_init 0788                     tablat 000FF5                     status 000FD8  
+         __end_of_tx_send 077A           __initialization 0724              __end_of_main 04AA  
+     ringbuf_init@bufsize 0023                    ??_main 0070             __activetblptr 000000  
+                  _ANCON0 000F48                    _ANCON1 000F49                    i2l1323 02E6  
+                  i2l1335 053A                    i2l1343 0552                    i2l1511 0056  
+                  i2l1337 054E                    i2l1521 0080                    i2l1525 008A  
+                  i2l1397 03E0            __CFG_WDTEN$OFF 000000                    _RCREG1 000FAF  
+                  _SPBRG1 000FB0            __CFG_WPCFG$OFF 000000                    _TXREG1 000FAE  
+         i2ringbuf_num@rb 0001           i2ringbuf_put@rb 0009            __CFG_WPDIS$OFF 000000  
+          __CFG_XINST$OFF 000000              ?_ringbuf_pop 0009              ?_ringbuf_num 001F  
+            ?_ringbuf_put 0021         __end_of_UART_init 0764              ?_timer0_init 0001  
+               ??___lwdiv 0023                 ??___lwmod 0023                    clear_0 0734  
+         __CFG_CLKOEC$OFF 000000                    _rx_buf 0031                    _tx_buf 0039  
+                  tblptrh 000FF7                    tblptrl 000FF6                    tblptru 000FF8  
+               ??_tx_send 0024          __end_of_tx_sendn 05C8      __CFG_LS48MHZ$SYS48X8 000000  
+              __accesstop 0060   __end_of__initialization 073A             ___rparam_used 000001  
+    __CFG_WPEND$PAGE_WPFP 000000            __pcstackCOMRAM 0001                 ?_UART_ISR 0001  
+               ?_OSC_init 0001           __CFG_DSWDTPS$G2 000000                __pbssBANK0 00D6  
+               ISR@prev_A 002F                 ISR@prev_B 0030                ??_UART_ISR 0010  
+              ??_OSC_init 001F        __CFG_OSC$INTOSCPLL 000000           __CFG_WDTPS$1024 000000  
+                 i2u80_40 0092                   i2u80_46 0094              tx_sendn@temp 006E  
+                 i2u74_40 0054                   _SPBRGH1 000F7F                   i2u76_40 005E  
+                 i2u76_46 0060          __CFG_CFGPLLEN$ON 000000                   __Hparam 0000  
+                 __Lparam 0000             ?_ringbuf_init 001F                   ___lwdiv 05C8  
+                 ___lwmod 06B2      __size_of_ringbuf_pop 00AC      __size_of_ringbuf_num 00D8  
+    __size_of_ringbuf_put 00C4           __CFG_STVREN$OFF 000000                   __pcinit 0724  
+               ?_tx_sendn 006A                   __ramtop 0F00      __size_of_timer0_init 0030  
+                 __ptext0 03F6                   __ptext1 0556                   __ptext2 0764  
+                 __ptext3 01C0                   __ptext4 00E8                   __ptext5 06B2  
+                 __ptext6 05C8                   __ptext7 06F4                   __ptext8 061A  
+                 __ptext9 0744                   _encoder 00D6                 _T0CONbits 000FD5  
+            __size_of_ISR 00DC                 _T1CONbits 000FCD                 _T3CONbits 000F79  
+               _T5CONbits 000F22                   _tx_send 0764      end_of_initialization 073A  
+  __size_ofi2_ringbuf_num 00BC    __size_ofi2_ringbuf_put 00B6              _CTMUCONHbits 000FB3  
+            _CTMUCONLbits 000FB2            tx_sendn@digits 006C            ??_ringbuf_init 0025  
+                 postdec1 000FE5                   postdec2 000FDD                   postinc0 000FEE  
+                 postinc1 000FE6                   postinc2 000FDE                ??_tx_sendn 0026  
+               _PORTBbits 000F81                 _UART_init 0744          __CFG_DSBOREN$OFF 000000  
+  i2ringbuf_put@asciicode 000B          __CFG_CPUDIV$OSC1 000000          __CFG_IOL1WAY$OFF 000000  
+              main@prev_e 00D8       __CFG_MSSP7B_EN$MSK7 000000            ringbuf_init@rb 001F  
+          ringbuf_pop@ret 000F             i2_ringbuf_num 0284             i2_ringbuf_put 0340  
+       __size_of_UART_ISR 004A                ?_UART_init 0001         __size_of_OSC_init 000E  
+        __CFG_DSWDTEN$OFF 000000       start_initialization 0724               __end_of_ISR 00E4  
+           UART_ISR@ascii 0010            ?i2_ringbuf_num 0001            ?i2_ringbuf_put 0009  
+       __CFG_ADCSEL$BIT12 000000               __pbssCOMRAM 0026             __pcstackBANK0 0060  
+    __end_of_ringbuf_init 0668          tx_send@asciicode 0024           millis_timer@cnt 002D  
+        ___lwdiv@dividend 001F                 __pintcode 0008                  ?___lwdiv 001F  
+                ?___lwmod 001F               ??_UART_init 001F         __size_of_tx_sendn 0072  
+    __CFG_RTCOSC$T1OSCREF 000000          ___lwdiv@quotient 0024                  ?_tx_send 0001  
+                _CTMUCONH 000FB3                  _CTMUCONL 000FB2                  _CTMUICON 000FB1  
+ringbuf_init@internal_buf 0021                  _IPR1bits 000F9F                  _IPR2bits 000FA2  
+                _PIE1bits 000F9D                  _PIE2bits 000FA0                  _IPR5bits 000F99  
+                _PIE5bits 000F91           ??i2_ringbuf_num 0003           ??i2_ringbuf_put 000C  
+                _PIR1bits 000F9E                  _PIR2bits 000FA1                  _PIR5bits 000F98  
+           ??_ringbuf_pop 000B             ??_ringbuf_num 0060             ??_ringbuf_put 0066  
+           tx_sendn@value 006A                  _UART_ISR 0668             ??_timer0_init 001F  
+                _OSC_init 077A                _ADCON0bits 000FC2                _ADCON1bits 000FC1  
+        __CFG_SOSCSEL$LOW 000000                 main@txbuf 0072             ringbuf_pop@rb 0009  
+           ringbuf_num@rb 001F             ringbuf_put@rb 0021               _INTCON2bits 000FF1  
+                __Hrparam 0000                  __Lrparam 0000          __size_of___lwdiv 0052  
+        __size_of___lwmod 0042       __end_of_ringbuf_pop 0556       __end_of_ringbuf_num 01C0  
+     __end_of_ringbuf_put 0284       __end_of_timer0_init 0724     __size_of_ringbuf_init 004E  
+         ___lwdiv@divisor 0021           ___lwdiv@counter 0023      timer0_init@prescaler 0020  
+                __ptext10 077A                  __ptext12 0668                  __ptext13 0340  
+                __ptext14 04AA                  __ptext15 0284          __size_of_tx_send 0016  
+           __size_of_main 00B4                  int$flags 0041              _ringbuf_init 061A  
+                _tx_sendn 0556               _OSCTUNEbits 000F9B                _INTCONbits 000FF2  
+    ringbuf_put@asciicode 0023                  intlevel2 0000          ___lwmod@dividend 001F  
+               tx_sendn@i 006D                _RCSTA1bits 000FAC                _OSCCONbits 000FD3  
+             _ringbuf_pop 04AA               _ringbuf_num 00E8               _ringbuf_put 01C0  
+             _timer0_init 06F4           ___lwmod@divisor 0021           ___lwmod@counter 0023  
