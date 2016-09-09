@@ -1,12 +1,7 @@
 // PIC16F1827 Configuration Bit Settings
-//送信
-// 'C' source line config statements
 
 #include <xc.h>
 #include <stdint.h>
-
-// #pragma config statements should precede project file includes.
-// Use project enums instead of #define for ON and OFF.
 
 // CONFIG1
 #pragma config FOSC = INTOSC    // Oscillator Selection (INTOSC oscillator: I/O function on CLKIN pin)
@@ -31,14 +26,6 @@
 
 uint16_t cnt1;
 
-void interrupt RSI() {
-    if (PIR1bits.TMR1IF == 1) {
-        PIR1bits.TMR1IF = 0;
-        TMR1H = 0xFF;
-        TMR1L = 0xEA;
-    }
-}
-
 void tx(unsigned char t) {
     while (!TRMT);
     TXREG = t;
@@ -61,17 +48,14 @@ int main(void) {
     SPBRGL = 207;
     TXSTA = 0X24;
 
-    T1CON = 0x21; //Fosc/4, ps:1/4
-    TMR1H = 0x00;
-    TMR1L = 0x00;
-    PIE1bits.TMR1IE = 1;
-
-    RCIE = 1;
-    PEIE = 1;
-    GIE = 1;
-    int a;
     while (1) {
-        tx('A');
+        tx('H');
+        tx('e');
+        tx('l');
+        tx('l');
+        tx('o');
+        tx('\n');
+        LATB0=!LATB0;
         __delay_ms(200);
     }
     return 0;

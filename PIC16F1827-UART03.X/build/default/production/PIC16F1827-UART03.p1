@@ -1,17 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"542 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1827.h
-[s S34 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S34 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
-"541
-[u S33 `S34 1 ]
-[n S33 . . ]
-"553
-[v _PIR1bits `VS33 ~T0 @X0 0 e@17 ]
-"755
-[v _TMR1H `Vuc ~T0 @X0 0 e@23 ]
-"736
-[v _TMR1L `Vuc ~T0 @X0 0 e@22 ]
-"7488
+"7488 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f1827.h
 [v _TRMT `Vb ~T0 @X0 0 e@3313 ]
 "3117
 [v _TXREG `Vuc ~T0 @X0 0 e@410 ]
@@ -42,31 +30,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SPBRGL `Vuc ~T0 @X0 0 e@411 ]
 "3293
 [v _TXSTA `Vuc ~T0 @X0 0 e@414 ]
-"774
-[v _T1CON `Vuc ~T0 @X0 0 e@24 ]
-"1248
-[s S71 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S71 . TMR1IE TMR2IE CCP1IE SSP1IE TXIE RCIE ADIE TMR1GIE ]
-"1247
-[u S70 `S71 1 ]
-[n S70 . . ]
-"1259
-[v _PIE1bits `VS70 ~T0 @X0 0 e@145 ]
-"7246
-[v _RCIE `Vb ~T0 @X0 0 e@1165 ]
-"7184
-[v _PEIE `Vb ~T0 @X0 0 e@94 ]
-"6962
-[v _GIE `Vb ~T0 @X0 0 e@95 ]
 [v F2766 `(v ~T0 @X0 1 tf1`ul ]
-"150 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic.h
+"152 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic.h
 [v __delay `JF2766 ~T0 @X0 0 e ]
 [p i __delay ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1827.h: 49: extern volatile unsigned char INDF0 @ 0x000;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1827.h
+"51 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f1827.h
 [; ;pic16f1827.h: 51: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16f1827.h: 54: typedef union {
@@ -2807,15 +2779,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic16f1827.h: 7570: extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 [; ;pic16f1827.h: 7572: extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
 [; ;pic.h: 28: extern void __nop(void);
-[; ;pic.h: 76: extern unsigned int flash_read(unsigned short addr);
-[; ;eeprom_routines.h: 41: extern void eeprom_write(unsigned char addr, unsigned char value);
-[; ;eeprom_routines.h: 42: extern unsigned char eeprom_read(unsigned char addr);
-[; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
-[; ;eeprom_routines.h: 44: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
-[; ;pic.h: 150: extern __nonreentrant void _delay(unsigned long);
-[; ;pic.h: 184: extern unsigned char __resetbits;
-[; ;pic.h: 185: extern __bit __powerdown;
-[; ;pic.h: 186: extern __bit __timeout;
+[; ;pic.h: 77: extern unsigned int flash_read(unsigned short addr);
+[; ;eeprom_routines.h: 114: extern void eeprom_write(unsigned char addr, unsigned char value);
+[; ;eeprom_routines.h: 115: extern unsigned char eeprom_read(unsigned char addr);
+[; ;eeprom_routines.h: 116: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
+[; ;eeprom_routines.h: 117: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
+[; ;pic.h: 152: extern __nonreentrant void _delay(unsigned long);
+[; ;pic.h: 186: extern unsigned char __resetbits;
+[; ;pic.h: 187: extern __bit __powerdown;
+[; ;pic.h: 188: extern __bit __timeout;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -2844,179 +2816,142 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-"12 PIC16F1827-UART03.c
+"10 PIC16F1827-UART03.c
 [p x FOSC=INTOSC ]
-"13
+"11
 [p x WDTE=OFF ]
-"14
+"12
 [p x PWRTE=OFF ]
-"15
+"13
 [p x MCLRE=OFF ]
-"16
+"14
 [p x CP=OFF ]
-"17
+"15
 [p x CPD=OFF ]
-"18
+"16
 [p x BOREN=OFF ]
-"19
+"17
 [p x CLKOUTEN=OFF ]
-"20
+"18
 [p x IESO=OFF ]
-"21
+"19
 [p x FCMEN=OFF ]
-"24
+"22
 [p x WRT=OFF ]
-"25
+"23
 [p x PLLEN=ON ]
-"26
+"24
 [p x STVREN=OFF ]
-"27
+"25
 [p x BORV=LO ]
-"28
+"26
 [p x LVP=OFF ]
-"32
+"30
 [v _cnt1 `ui ~T0 @X0 1 e ]
-[; ;PIC16F1827-UART03.c: 32: uint16_t cnt1;
-[v F2800 `(v ~T0 @X0 1 tf ]
-"34
-[v _RSI `IF2800 ~T0 @X0 1 e ]
-{
-[; ;PIC16F1827-UART03.c: 34: void interrupt RSI() {
-[e :U _RSI ]
-[f ]
-[; ;PIC16F1827-UART03.c: 35: if (PIR1bits.TMR1IF == 1) {
-"35
-[e $ ! == -> . . _PIR1bits 0 0 `i -> 1 `i 351  ]
-{
-[; ;PIC16F1827-UART03.c: 36: PIR1bits.TMR1IF = 0;
-"36
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;PIC16F1827-UART03.c: 37: TMR1H = 0xFF;
-"37
-[e = _TMR1H -> -> 255 `i `uc ]
-[; ;PIC16F1827-UART03.c: 38: TMR1L = 0xEA;
-"38
-[e = _TMR1L -> -> 234 `i `uc ]
-"39
-}
-[e :U 351 ]
-[; ;PIC16F1827-UART03.c: 39: }
-[; ;PIC16F1827-UART03.c: 40: }
-"40
-[e :UE 350 ]
-}
-"42
+[; ;PIC16F1827-UART03.c: 30: uint16_t cnt1;
+"32
 [v _tx `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;PIC16F1827-UART03.c: 42: void tx(unsigned char t) {
+[; ;PIC16F1827-UART03.c: 32: void tx(unsigned char t) {
 [e :U _tx ]
 [v _t `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;PIC16F1827-UART03.c: 43: while (!TRMT);
-"43
-[e $U 353  ]
-[e :U 354 ]
+[; ;PIC16F1827-UART03.c: 33: while (!TRMT);
+"33
+[e $U 351  ]
+[e :U 352 ]
+[e :U 351 ]
+[e $ ! _TRMT 352  ]
 [e :U 353 ]
-[e $ ! _TRMT 354  ]
-[e :U 355 ]
-[; ;PIC16F1827-UART03.c: 44: TXREG = t;
-"44
+[; ;PIC16F1827-UART03.c: 34: TXREG = t;
+"34
 [e = _TXREG _t ]
-[; ;PIC16F1827-UART03.c: 45: }
-"45
-[e :UE 352 ]
+[; ;PIC16F1827-UART03.c: 35: }
+"35
+[e :UE 350 ]
 }
-"47
+"37
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;PIC16F1827-UART03.c: 47: int main(void) {
+[; ;PIC16F1827-UART03.c: 37: int main(void) {
 [e :U _main ]
 [f ]
-[; ;PIC16F1827-UART03.c: 48: TRISA = 0XFF;
-"48
+[; ;PIC16F1827-UART03.c: 38: TRISA = 0XFF;
+"38
 [e = _TRISA -> -> 255 `i `uc ]
-[; ;PIC16F1827-UART03.c: 49: TRISB = 0X02;
-"49
+[; ;PIC16F1827-UART03.c: 39: TRISB = 0X02;
+"39
 [e = _TRISB -> -> 2 `i `uc ]
-[; ;PIC16F1827-UART03.c: 50: ANSELA = 0X00;
-"50
+[; ;PIC16F1827-UART03.c: 40: ANSELA = 0X00;
+"40
 [e = _ANSELA -> -> 0 `i `uc ]
-[; ;PIC16F1827-UART03.c: 51: ANSELB = 0X00;
-"51
+[; ;PIC16F1827-UART03.c: 41: ANSELB = 0X00;
+"41
 [e = _ANSELB -> -> 0 `i `uc ]
-[; ;PIC16F1827-UART03.c: 53: OSCCON = 0X70;
-"53
+[; ;PIC16F1827-UART03.c: 43: OSCCON = 0X70;
+"43
 [e = _OSCCON -> -> 112 `i `uc ]
-[; ;PIC16F1827-UART03.c: 55: SPEN = 1;
-"55
+[; ;PIC16F1827-UART03.c: 45: SPEN = 1;
+"45
 [e = _SPEN -> -> 1 `i `b ]
-[; ;PIC16F1827-UART03.c: 56: TXCKSEL = 0;
-"56
+[; ;PIC16F1827-UART03.c: 46: TXCKSEL = 0;
+"46
 [e = _TXCKSEL -> -> 0 `i `b ]
-[; ;PIC16F1827-UART03.c: 57: RXDTSEL = 0;
-"57
+[; ;PIC16F1827-UART03.c: 47: RXDTSEL = 0;
+"47
 [e = _RXDTSEL -> -> 0 `i `b ]
-[; ;PIC16F1827-UART03.c: 58: RCSTA = 0X90;
-"58
+[; ;PIC16F1827-UART03.c: 48: RCSTA = 0X90;
+"48
 [e = _RCSTA -> -> 144 `i `uc ]
-[; ;PIC16F1827-UART03.c: 59: BRG16 = 0;
-"59
+[; ;PIC16F1827-UART03.c: 49: BRG16 = 0;
+"49
 [e = _BRG16 -> -> 0 `i `b ]
-[; ;PIC16F1827-UART03.c: 60: SPBRGH = 0;
-"60
+[; ;PIC16F1827-UART03.c: 50: SPBRGH = 0;
+"50
 [e = _SPBRGH -> -> 0 `i `uc ]
-[; ;PIC16F1827-UART03.c: 61: SPBRGL = 207;
-"61
+[; ;PIC16F1827-UART03.c: 51: SPBRGL = 207;
+"51
 [e = _SPBRGL -> -> 207 `i `uc ]
-[; ;PIC16F1827-UART03.c: 62: TXSTA = 0X24;
-"62
+[; ;PIC16F1827-UART03.c: 52: TXSTA = 0X24;
+"52
 [e = _TXSTA -> -> 36 `i `uc ]
-[; ;PIC16F1827-UART03.c: 64: T1CON = 0x21;
-"64
-[e = _T1CON -> -> 33 `i `uc ]
-[; ;PIC16F1827-UART03.c: 65: TMR1H = 0x00;
-"65
-[e = _TMR1H -> -> 0 `i `uc ]
-[; ;PIC16F1827-UART03.c: 66: TMR1L = 0x00;
-"66
-[e = _TMR1L -> -> 0 `i `uc ]
-[; ;PIC16F1827-UART03.c: 67: PIE1bits.TMR1IE = 1;
-"67
-[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
-[; ;PIC16F1827-UART03.c: 69: RCIE = 1;
-"69
-[e = _RCIE -> -> 1 `i `b ]
-[; ;PIC16F1827-UART03.c: 70: PEIE = 1;
-"70
-[e = _PEIE -> -> 1 `i `b ]
-[; ;PIC16F1827-UART03.c: 71: GIE = 1;
-"71
-[e = _GIE -> -> 1 `i `b ]
-"72
-[v _a `i ~T0 @X0 1 a ]
-[; ;PIC16F1827-UART03.c: 72: int a;
-[; ;PIC16F1827-UART03.c: 73: while (1) {
-"73
-[e :U 358 ]
+[; ;PIC16F1827-UART03.c: 54: while (1) {
+"54
+[e :U 356 ]
 {
-[; ;PIC16F1827-UART03.c: 74: tx('A');
-"74
-[e ( _tx (1 -> -> 65 `ui `uc ]
-[; ;PIC16F1827-UART03.c: 75: _delay((unsigned long)((200)*(32000000/4000.0)));
-"75
+[; ;PIC16F1827-UART03.c: 55: tx('H');
+"55
+[e ( _tx (1 -> -> 72 `ui `uc ]
+[; ;PIC16F1827-UART03.c: 56: tx('e');
+"56
+[e ( _tx (1 -> -> 101 `ui `uc ]
+[; ;PIC16F1827-UART03.c: 57: tx('l');
+"57
+[e ( _tx (1 -> -> 108 `ui `uc ]
+[; ;PIC16F1827-UART03.c: 58: tx('l');
+"58
+[e ( _tx (1 -> -> 108 `ui `uc ]
+[; ;PIC16F1827-UART03.c: 59: tx('o');
+"59
+[e ( _tx (1 -> -> 111 `ui `uc ]
+[; ;PIC16F1827-UART03.c: 60: tx('\n');
+"60
+[e ( _tx (1 -> -> 10 `ui `uc ]
+[; ;PIC16F1827-UART03.c: 61: _delay((unsigned long)((200)*(32000000/4000.0)));
+"61
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"76
+"62
 }
+[e :U 355 ]
+"54
+[e $U 356  ]
 [e :U 357 ]
-"73
-[e $U 358  ]
-[e :U 359 ]
-[; ;PIC16F1827-UART03.c: 76: }
-[; ;PIC16F1827-UART03.c: 77: return 0;
-"77
+[; ;PIC16F1827-UART03.c: 62: }
+[; ;PIC16F1827-UART03.c: 63: return 0;
+"63
 [e ) -> 0 `i ]
-[e $UE 356  ]
-[; ;PIC16F1827-UART03.c: 78: }
-"78
-[e :UE 356 ]
+[e $UE 354  ]
+[; ;PIC16F1827-UART03.c: 64: }
+"64
+[e :UE 354 ]
 }
